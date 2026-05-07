@@ -1,0 +1,59 @@
+node_modules/
+dist/
+build/
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime
+pids/
+*.seed
+*.pid.lock
+
+# Database
+*.sql
+postgres-data/
+
+# Cache
+.cache/
+.eslintcache
+.turbo
+
+# Build output
+dist/
+build/
+out/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Package manager
+yarn.lock
+package-lock.json
