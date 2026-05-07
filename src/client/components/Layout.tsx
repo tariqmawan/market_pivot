@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { languages, useI18n, type LanguageCode } from "../i18n";
+import { useAuthStore } from "../stores/authStore";
+import LoginModal from "./LoginModal";
 
 interface Props {
   children: React.ReactNode;
@@ -10,6 +12,7 @@ const Layout: React.FC<Props> = ({ children }) => {
   const [baseCurrency, setBaseCurrency] = React.useState<string>("USD");
   const [theme, setTheme] = React.useState<"light" | "dark">("dark");
   const { language, setLanguage, t } = useI18n();
+  const { openLoginModal, openSignupModal, isAuthenticated, user, logout } = useAuthStore();
 
   return (
     <div className={`layout ${theme}`}>
@@ -54,9 +57,24 @@ const Layout: React.FC<Props> = ({ children }) => {
             <Link to="/dashboard" className="pricing-button">
               {t("pricing")}
             </Link>
-            <Link to="/user" className="login-button">
-              {t("login")}
-            </Link>
+
+            {isAuthenticated && user ? (
+              <div className="user-menu">
+                <span className="user-avatar">{user.name.charAt(0).toUpperCase()}</span>
+                <span className="user-name">{user.name}</span>
+                <button onClick={logout} className="logout-button">{t("logout")}</button>
+              </div>
+            ) : (
+              <>
+                <button type="button" className="login-button" onClick={openLoginModal}>
+                  {t("login")}
+                </button>
+                <button type="button" className="signup-button" onClick={openSignupModal}>
+                  {t("signUp")}
+                </button>
+              </>
+            )}
+
             <select
               value={baseCurrency}
               onChange={(e) => setBaseCurrency(e.target.value)}
@@ -75,15 +93,15 @@ const Layout: React.FC<Props> = ({ children }) => {
             >
               {theme === "dark" ? t("light") : t("dark")}
             </button>
-            <Link to="/user" className="signup-button">
-              {t("signUp")}
-            </Link>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
       <main className="main-content">{children}</main>
+
+      {/* Login/Signup Modal */}
+      <LoginModal />
 
       {/* Footer */}
       <footer className="footer">
