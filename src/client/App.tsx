@@ -17,6 +17,7 @@ import CryptoDetail from "./components/CryptoDetail";
 import CurrencyDetail from "./components/CurrencyDetail";
 import ExchangeDetail from "./components/ExchangeDetail";
 import Layout from "./components/Layout";
+import { I18nProvider, useI18n } from "./i18n";
 import "./styles/index.css";
 
 const exchanges = exchangesData.exchanges as StockExchange[];
@@ -166,35 +167,113 @@ const AssetCard: React.FC<{
   </Link>
 );
 
-const HomePage = () => (
-  <div className="page market-home">
-    <section className="terminal-hero">
-      <div>
-        <p className="eyebrow">Global multi-asset markets</p>
-        <h1>MarketsPivot</h1>
-        <p>
-          Bloomberg-style coverage across equities, fixed income context, FX, commodities, derivatives,
-          and crypto-ready market views.
-        </p>
-      </div>
-      <div className="hero-tape">
-        <span>NYSE +0.8%</span>
-        <span>USD/JPY 155.00</span>
-        <span>BTC +2.2%</span>
-        <span>Gold Watch</span>
-      </div>
-    </section>
+const marketTape = [
+  { label: "S&P 500", value: "5,420.18", move: "+0.82%" },
+  { label: "US 10Y", value: "4.31%", move: "-3bp" },
+  { label: "EUR/USD", value: "1.0872", move: "+0.14%" },
+  { label: "Brent", value: "$82.40", move: "-0.42%" },
+  { label: "BTC", value: "$65,000", move: "+2.20%" },
+  { label: "VIX", value: "13.8", move: "-1.1" },
+];
 
-    <section className="dashboard-grid">
-      <AssetCard to="/stocks" eyebrow="Equities" title={`${exchanges.length} stock exchanges`} meta="Global exchange dashboards" metric={formatMoney(exchanges.reduce((sum, item) => sum + item.marketCap, 0))} />
-      <AssetCard to="/currencies" eyebrow="FX" title={`${currencies.length} currencies`} meta="Reserve, trade, and emerging FX" metric="USD base strategy" />
-      <AssetCard to="/crypto" eyebrow="Crypto" title={`${cryptocurrencies.length} cryptocurrencies`} meta="Leaders, stablecoins, DeFi, payments" metric="24/7 market layer" />
-    </section>
-  </div>
-);
+const assetCoverage = [
+  { key: "equities", count: exchanges.length, metaKey: "exchangeDashboards", to: "/stocks" },
+  { key: "bonds", count: 12, metaKey: "fixedIncomeMeta", to: "/dashboard" },
+  { key: "fx", count: currencies.length, metaKey: "fxMeta", to: "/currencies" },
+  { key: "commodities", count: 18, metaKey: "commoditiesMeta", to: "/dashboard" },
+  { key: "derivatives", count: 9, metaKey: "derivativesMeta", to: "/dashboard" },
+  { key: "crypto", count: cryptocurrencies.length, metaKey: "cryptoMeta", to: "/crypto" },
+] as const;
+
+const HomePage = () => {
+  const { t } = useI18n();
+
+  return (
+    <div className="page market-home bloomberg-shell">
+      <section className="market-tape" aria-label={t("liveTape")}>
+        {marketTape.map((item) => (
+          <div key={item.label} className="tape-item">
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+            <em className={item.move.startsWith("-") ? "negative" : "positive"}>{item.move}</em>
+          </div>
+        ))}
+      </section>
+
+      <section className="terminal-hero">
+        <div className="hero-copy">
+          <p className="eyebrow">{t("globalMarkets")}</p>
+          <h1>{t("homeTitle")}</h1>
+          <p>{t("homeCopy")}</p>
+          <div className="hero-actions">
+            <Link to="/dashboard" className="primary-action">{t("terminalView")}</Link>
+            <Link to="/stocks" className="secondary-action">{t("assetCoverage")}</Link>
+          </div>
+        </div>
+        <div className="terminal-panel">
+          <div className="panel-header">
+            <span>{t("marketBrief")}</span>
+            <strong>LIVE</strong>
+          </div>
+          <div className="brief-grid">
+            <div>
+              <span>{t("openingBell")}</span>
+              <strong>Asia closed mixed; Europe bid</strong>
+            </div>
+            <div>
+              <span>{t("riskView")}</span>
+              <strong>Crypto beta outperforming equities</strong>
+            </div>
+            <div>
+              <span>{t("globalHeatmap")}</span>
+              <strong>FX pressure: JPY, INR, ZAR watch</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="intelligence-band">
+        <div>
+          <p className="eyebrow">{t("assetCoverage")}</p>
+          <h2>{t("intelligenceTitle")}</h2>
+        </div>
+        <p>{t("intelligenceCopy")}</p>
+      </section>
+
+      <section className="asset-class-grid">
+        {assetCoverage.map((asset) => (
+          <Link to={asset.to} className="asset-class-card" key={asset.key}>
+            <span>{t(asset.key)}</span>
+            <strong>{asset.count}</strong>
+            <p>{t(asset.metaKey)}</p>
+          </Link>
+        ))}
+      </section>
+
+      <section className="dashboard-grid spotlight-grid">
+        <AssetCard to="/stocks" eyebrow={t("equities")} title={`${exchanges.length} ${t("stockCount")}`} meta={t("exchangeDashboards")} metric={formatMoney(exchanges.reduce((sum, item) => sum + item.marketCap, 0))} />
+        <AssetCard to="/currencies" eyebrow={t("fx")} title={`${currencies.length} ${t("currencyCount")}`} meta={t("fxMeta")} metric={t("usdBase")} />
+        <AssetCard to="/crypto" eyebrow={t("crypto")} title={`${cryptocurrencies.length} ${t("crypto")}`} meta={t("cryptoMeta")} metric={t("cryptoLayer")} />
+      </section>
+
+      <section className="comparison-strip">
+        <h2>{t("compareMarkets")}</h2>
+        <p>{t("compareMarketsCopy")}</p>
+        <div className="comparison-route">
+          <span>NASDAQ</span>
+          <span>BTC</span>
+          <span>USD/INR</span>
+          <span>US 10Y</span>
+          <span>Brent</span>
+        </div>
+      </section>
+    </div>
+  );
+};
 
 const StocksPage = () => {
   const { exchangeId } = useParams();
+  const { t } = useI18n();
   const exchange = exchanges.find((item) => item.id.toLowerCase() === exchangeId?.toLowerCase());
 
   if (exchange) {
@@ -212,9 +291,9 @@ const StocksPage = () => {
   return (
     <div className="page">
       <div className="section-heading">
-        <p className="eyebrow">Equities</p>
-        <h1>Top Global Stock Exchanges</h1>
-        <p>Regional coverage with currency, timezone, trading hours, listings, main index, and market cap context.</p>
+        <p className="eyebrow">{t("equities")}</p>
+        <h1>{t("topGlobalExchanges")}</h1>
+        <p>{t("exchangeIntro")}</p>
       </div>
       <div className="asset-grid">
         {exchanges.map((item) => (
@@ -234,6 +313,7 @@ const StocksPage = () => {
 
 const CurrenciesPage = () => {
   const { code } = useParams();
+  const { t } = useI18n();
   const currency = currencies.find((item) => item.code.toLowerCase() === code?.toLowerCase());
 
   if (currency) {
@@ -243,9 +323,9 @@ const CurrenciesPage = () => {
   return (
     <div className="page">
       <div className="section-heading">
-        <p className="eyebrow">FX</p>
-        <h1>Top 20 Global Currencies</h1>
-        <p>Major reserves, Asia-Pacific trade currencies, Americas, Europe, Middle East, and Africa coverage.</p>
+        <p className="eyebrow">{t("fx")}</p>
+        <h1>{t("topCurrencies")}</h1>
+        <p>{t("currencyIntro")}</p>
       </div>
       <div className="asset-grid compact">
         {currencies.map((item) => (
@@ -265,6 +345,7 @@ const CurrenciesPage = () => {
 
 const CryptoPage = () => {
   const { cryptoId } = useParams();
+  const { t } = useI18n();
   const crypto = cryptocurrencies.find(
     (item) => item.id.toLowerCase() === cryptoId?.toLowerCase() || item.symbol.toLowerCase() === cryptoId?.toLowerCase()
   );
@@ -277,9 +358,9 @@ const CryptoPage = () => {
   return (
     <div className="page">
       <div className="section-heading">
-        <p className="eyebrow">Crypto</p>
-        <h1>Top 20 Cryptocurrencies</h1>
-        <p>Core leaders, smart-contract platforms, stablecoins, infrastructure, DeFi, payments, and growth assets.</p>
+        <p className="eyebrow">{t("crypto")}</p>
+        <h1>{t("topCryptos")}</h1>
+        <p>{t("cryptoIntro")}</p>
       </div>
       <div className="asset-grid compact">
         {cryptocurrencies.map((item, index) => {
@@ -300,36 +381,196 @@ const CryptoPage = () => {
   );
 };
 
-const DashboardPage = () => (
-  <div className="page">
-    <div className="section-heading">
-      <p className="eyebrow">Cross-market view</p>
-      <h1>Global Dashboard</h1>
-      <p>Stocks, FX, and crypto in one workspace, ready for future live data, news, charts, and comparison modules.</p>
+const DashboardPage = () => {
+  const { t } = useI18n();
+
+  return (
+    <div className="page">
+      <div className="section-heading">
+        <p className="eyebrow">{t("crossMarket")}</p>
+        <h1>{t("dashboardTitle")}</h1>
+        <p>{t("dashboardIntro")}</p>
+      </div>
+      <section className="dashboard-grid">
+        <AssetCard to="/stocks/NYSE" eyebrow={t("topExchange")} title="New York Stock Exchange" meta="S&P 500 / USD / New York" metric={formatMoney(exchanges[0].marketCap)} />
+        <AssetCard to="/currencies/USD" eyebrow={t("coreReserve")} title="United States Dollar" meta="Federal Reserve / global base" metric={t("primaryBase")} />
+        <AssetCard to="/crypto/bitcoin" eyebrow={t("cryptoLeader")} title="Bitcoin" meta="BTC vs USD, FX, and equity risk" metric={formatMoney(getCryptoPrice(cryptocurrencies[0], 0).marketCap)} />
+      </section>
     </div>
-    <section className="dashboard-grid">
-      <AssetCard to="/stocks/NYSE" eyebrow="Top exchange" title="New York Stock Exchange" meta="S&P 500 / USD / New York" metric={formatMoney(exchanges[0].marketCap)} />
-      <AssetCard to="/currencies/USD" eyebrow="Core reserve" title="United States Dollar" meta="Federal Reserve / global base" metric="Primary conversion base" />
-      <AssetCard to="/crypto/bitcoin" eyebrow="Crypto leader" title="Bitcoin" meta="BTC vs USD, FX, and equity risk" metric={formatMoney(getCryptoPrice(cryptocurrencies[0], 0).marketCap)} />
-    </section>
-  </div>
-);
+  );
+};
+
+const userWatchlist = [
+  { symbol: "NYSE", name: "New York Stock Exchange", type: "Exchange", price: "S&P 500 5,420.18", move: "+0.82%", to: "/stocks/NYSE" },
+  { symbol: "USD/INR", name: "US Dollar / Indian Rupee", type: "FX", price: "83.50", move: "+0.18%", to: "/currencies/INR" },
+  { symbol: "BTC", name: "Bitcoin", type: "Crypto", price: "$65,000", move: "+2.20%", to: "/crypto/bitcoin" },
+  { symbol: "ASX", name: "Australian Securities Exchange", type: "Exchange", price: "ASX 200 7,860.42", move: "-0.21%", to: "/stocks/ASX" },
+];
+
+const userActivities = [
+  "Added Bitcoin to crypto watchlist",
+  "Changed base currency from USD to INR",
+  "Created alert for USD/JPY above 156.00",
+  "Viewed National Stock Exchange of India",
+];
+
+const userAlerts = [
+  { label: "BTC above $68,000", status: "Armed" },
+  { label: "NSE market opens", status: "Daily" },
+  { label: "USD/INR moves 1%", status: "Armed" },
+];
+
+const UserPanelPage = () => {
+  const { t } = useI18n();
+
+  return (
+    <div className="page user-panel-page">
+      <section className="user-hero">
+        <div>
+          <p className="eyebrow">{t("userPanel")}</p>
+          <h1>{t("userPanelTitle")}</h1>
+          <p>{t("userPanelIntro")}</p>
+        </div>
+        <div className="user-profile-card">
+          <span className="avatar">AM</span>
+          <div>
+            <strong>Amit Market Desk</strong>
+            <p>Premium trial / USD base / Asia focus</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="user-stat-grid">
+        <div className="user-stat-card highlight">
+          <span>{t("portfolioValue")}</span>
+          <strong>$128,420</strong>
+          <em className="positive">+1.84%</em>
+        </div>
+        <div className="user-stat-card">
+          <span>{t("watchlist")}</span>
+          <strong>18</strong>
+          <em>{t("marketsFollowed")}</em>
+        </div>
+        <div className="user-stat-card">
+          <span>{t("activeAlerts")}</span>
+          <strong>7</strong>
+          <em>{t("enabled")}</em>
+        </div>
+        <div className="user-stat-card">
+          <span>{t("todayPnl")}</span>
+          <strong>$2,318</strong>
+          <em className="positive">+0.94%</em>
+        </div>
+      </section>
+
+      <section className="user-panel-layout">
+        <div className="user-main-column">
+          <div className="user-section-header">
+            <div>
+              <p className="eyebrow">{t("watchlist")}</p>
+              <h2>{t("savedMarkets")}</h2>
+            </div>
+            <Link to="/stocks" className="secondary-action">{t("addWatchlist")}</Link>
+          </div>
+
+          <div className="watchlist-table">
+            {userWatchlist.map((item) => (
+              <Link to={item.to} className="watchlist-row" key={item.symbol}>
+                <div>
+                  <strong>{item.symbol}</strong>
+                  <span>{item.name}</span>
+                </div>
+                <span>{item.type}</span>
+                <span>{item.price}</span>
+                <em className={item.move.startsWith("-") ? "negative" : "positive"}>{item.move}</em>
+              </Link>
+            ))}
+          </div>
+
+          <div className="allocation-card">
+            <div className="user-section-header">
+              <div>
+                <p className="eyebrow">{t("portfolioAllocation")}</p>
+                <h2>Multi-asset mix</h2>
+              </div>
+            </div>
+            <div className="allocation-bars">
+              {[
+                { label: t("equities"), value: 46 },
+                { label: t("crypto"), value: 22 },
+                { label: t("fx"), value: 18 },
+                { label: t("bonds"), value: 14 },
+              ].map((item) => (
+                <div className="allocation-row" key={item.label}>
+                  <span>{item.label}</span>
+                  <div className="allocation-track">
+                    <div style={{ width: `${item.value}%` }} />
+                  </div>
+                  <strong>{item.value}%</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <aside className="user-side-column">
+          <div className="quick-actions-card">
+            <p className="eyebrow">{t("quickActions")}</p>
+            <Link to="/stocks">{t("addWatchlist")}</Link>
+            <Link to="/dashboard">{t("createAlert")}</Link>
+            <Link to="/dashboard">{t("exportReport")}</Link>
+            <Link to="/user">{t("accountSettings")}</Link>
+          </div>
+
+          <div className="preference-card">
+            <p className="eyebrow">{t("preferences")}</p>
+            <div><span>{t("baseCurrencyPreference")}</span><strong>USD</strong></div>
+            <div><span>{t("defaultMarket")}</span><strong>Global</strong></div>
+            <div><span>{t("notificationMode")}</span><strong>Email</strong></div>
+            <div><span>{t("riskProfile")}</span><strong>{t("moderate")}</strong></div>
+          </div>
+
+          <div className="alert-card">
+            <p className="eyebrow">{t("alertCenter")}</p>
+            {userAlerts.map((alert) => (
+              <div className="alert-row" key={alert.label}>
+                <span>{alert.label}</span>
+                <strong>{alert.status}</strong>
+              </div>
+            ))}
+          </div>
+
+          <div className="activity-card">
+            <p className="eyebrow">{t("recentActivity")}</p>
+            {userActivities.map((activity) => (
+              <span key={activity}>{activity}</span>
+            ))}
+          </div>
+        </aside>
+      </section>
+    </div>
+  );
+};
 
 const App: React.FC = () => (
-  <Router>
-    <Layout>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/stocks" element={<StocksPage />} />
-        <Route path="/stocks/:exchangeId" element={<StocksPage />} />
-        <Route path="/currencies" element={<CurrenciesPage />} />
-        <Route path="/currencies/:code" element={<CurrenciesPage />} />
-        <Route path="/crypto" element={<CryptoPage />} />
-        <Route path="/crypto/:cryptoId" element={<CryptoPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-      </Routes>
-    </Layout>
-  </Router>
+  <I18nProvider>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/index.html" element={<HomePage />} />
+          <Route path="/stocks" element={<StocksPage />} />
+          <Route path="/stocks/:exchangeId" element={<StocksPage />} />
+          <Route path="/currencies" element={<CurrenciesPage />} />
+          <Route path="/currencies/:code" element={<CurrenciesPage />} />
+          <Route path="/crypto" element={<CryptoPage />} />
+          <Route path="/crypto/:cryptoId" element={<CryptoPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/user" element={<UserPanelPage />} />
+        </Routes>
+      </Layout>
+    </Router>
+  </I18nProvider>
 );
 
 export default App;

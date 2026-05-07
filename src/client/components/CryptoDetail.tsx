@@ -1,5 +1,6 @@
 import React from "react";
 import type { Cryptocurrency, CryptoPrice, TradingPair } from "../../types";
+import { useI18n } from "../i18n";
 
 interface CryptoDetailProps {
   crypto: Cryptocurrency;
@@ -14,6 +15,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
   tradingPairs = [],
   isLoading = false,
 }) => {
+  const { t } = useI18n();
   const [activeTab, setActiveTab] = React.useState<
     "overview" | "price" | "pairs" | "exchanges" | "charts" | "on-chain" | "news"
   >("overview");
@@ -38,7 +40,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
           {priceData && (
             <div className="price-highlight">
               <div className="price-main">
-                <p className="label">Current Price</p>
+                <p className="label">{t("currentPrice")}</p>
                 <p className="price">${priceData.price.toFixed(2)}</p>
                 <p
                   className={`change ${priceData.changePercent24h >= 0 ? "positive" : "negative"}`}
@@ -50,19 +52,19 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
 
               <div className="price-metrics">
                 <div className="metric">
-                  <label>Market Cap</label>
+                  <label>{t("marketCap")}</label>
                   <p className="value">
                     ${(priceData.marketCap / 1e9).toFixed(2)}B
                   </p>
                 </div>
                 <div className="metric">
-                  <label>24h Volume</label>
+                  <label>{t("volume24h")}</label>
                   <p className="value">
                     ${(priceData.volume24h / 1e9).toFixed(2)}B
                   </p>
                 </div>
                 <div className="metric">
-                  <label>Rank</label>
+                  <label>{t("rank")}</label>
                   <p className="value">#{priceData.rank}</p>
                 </div>
               </div>
@@ -77,43 +79,43 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
           className={`tab ${activeTab === "overview" ? "active" : ""}`}
           onClick={() => setActiveTab("overview")}
         >
-          Overview
+          {t("overview")}
         </button>
         <button
           className={`tab ${activeTab === "price" ? "active" : ""}`}
           onClick={() => setActiveTab("price")}
         >
-          Price & Metrics
+          {t("priceMetrics")}
         </button>
         <button
           className={`tab ${activeTab === "pairs" ? "active" : ""}`}
           onClick={() => setActiveTab("pairs")}
         >
-          Trading Pairs
+          {t("tradingPairs")}
         </button>
         <button
           className={`tab ${activeTab === "exchanges" ? "active" : ""}`}
           onClick={() => setActiveTab("exchanges")}
         >
-          Exchanges
+          {t("exchanges")}
         </button>
         <button
           className={`tab ${activeTab === "charts" ? "active" : ""}`}
           onClick={() => setActiveTab("charts")}
         >
-          Charts
+          {t("charts")}
         </button>
         <button
           className={`tab ${activeTab === "on-chain" ? "active" : ""}`}
           onClick={() => setActiveTab("on-chain")}
         >
-          On-Chain
+          {t("onChain")}
         </button>
         <button
           className={`tab ${activeTab === "news" ? "active" : ""}`}
           onClick={() => setActiveTab("news")}
         >
-          News
+          {t("news")}
         </button>
       </nav>
 
@@ -123,38 +125,38 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
           <section className="overview-section">
             <div className="info-grid">
               <div className="info-card">
-                <h4>Symbol</h4>
+                <h4>{t("symbol")}</h4>
                 <p>{crypto.symbol}</p>
               </div>
               <div className="info-card">
-                <h4>Category</h4>
+                <h4>{t("category")}</h4>
                 <p>{crypto.category}</p>
               </div>
               <div className="info-card">
-                <h4>Founded</h4>
+                <h4>{t("founded")}</h4>
                 <p>{crypto.launched}</p>
               </div>
               <div className="info-card">
-                <h4>Founder</h4>
+                <h4>{t("founder")}</h4>
                 <p>{crypto.founder}</p>
               </div>
               <div className="info-card">
-                <h4>Consensus Mechanism</h4>
+                <h4>{t("consensus")}</h4>
                 <p>{crypto.consensusMechanism}</p>
               </div>
               {crypto.blockTime && (
                 <div className="info-card">
-                  <h4>Block Time</h4>
+                  <h4>{t("blockTime")}</h4>
                   <p>{crypto.blockTime} seconds</p>
                 </div>
               )}
             </div>
 
             <div className="supply-info">
-              <h3>Supply Information</h3>
+              <h3>{t("supplyInfo")}</h3>
               <div className="supply-grid">
                 <div className="supply-card">
-                  <h4>Circulating Supply</h4>
+                  <h4>{t("circulatingSupply")}</h4>
                   <p className="value">
                     {(crypto.circulatingSupply / 1e9).toFixed(2)}B
                   </p>
@@ -162,7 +164,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
                 </div>
                 {crypto.maxSupply && (
                   <div className="supply-card">
-                    <h4>Max Supply</h4>
+                    <h4>{t("maxSupply")}</h4>
                     <p className="value">
                       {(crypto.maxSupply / 1e9).toFixed(2)}B
                     </p>
@@ -176,15 +178,15 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
 
         {activeTab === "price" && (
           <section className="price-section">
-            <h3>Price & Market Metrics</h3>
+            <h3>{t("priceMetrics")}</h3>
             {priceData ? (
               <div className="metrics-grid">
                 <div className="metric-card">
-                  <h4>Current Price</h4>
+                  <h4>{t("currentPrice")}</h4>
                   <p className="value">${priceData.price.toFixed(2)}</p>
                 </div>
                 <div className="metric-card">
-                  <h4>24h Change</h4>
+                  <h4>{t("change24h")}</h4>
                   <p
                     className={`value ${priceData.changePercent24h >= 0 ? "positive" : "negative"}`}
                   >
@@ -193,56 +195,56 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
                   </p>
                 </div>
                 <div className="metric-card">
-                  <h4>Market Cap</h4>
+                  <h4>{t("marketCap")}</h4>
                   <p className="value">
                     ${(priceData.marketCap / 1e9).toFixed(2)}B
                   </p>
                 </div>
                 <div className="metric-card">
-                  <h4>24h Volume</h4>
+                  <h4>{t("volume24h")}</h4>
                   <p className="value">
                     ${(priceData.volume24h / 1e9).toFixed(2)}B
                   </p>
                 </div>
                 <div className="metric-card">
-                  <h4>All-Time High</h4>
+                  <h4>{t("ath")}</h4>
                   <p className="value">${priceData.ath.toFixed(2)}</p>
                 </div>
                 <div className="metric-card">
-                  <h4>All-Time Low</h4>
+                  <h4>{t("atl")}</h4>
                   <p className="value">${priceData.atl.toFixed(2)}</p>
                 </div>
                 <div className="metric-card">
-                  <h4>Market Rank</h4>
+                  <h4>{t("marketRank")}</h4>
                   <p className="value">#{priceData.rank}</p>
                 </div>
                 <div className="metric-card">
-                  <h4>Circulating Supply</h4>
+                  <h4>{t("circulatingSupply")}</h4>
                   <p className="value">
                     {(priceData.circulatingSupply / 1e9).toFixed(2)}B
                   </p>
                 </div>
               </div>
             ) : (
-              <p className="placeholder">Loading price data...</p>
+              <p className="placeholder">{t("loadingPrice")}</p>
             )}
           </section>
         )}
 
         {activeTab === "pairs" && (
           <section className="pairs-section">
-            <h3>Trading Pairs</h3>
+            <h3>{t("tradingPairs")}</h3>
             {tradingPairs.length === 0 ? (
-              <p className="placeholder">Loading trading pairs...</p>
+              <p className="placeholder">{t("loadingPairs")}</p>
             ) : (
               <div className="pairs-table">
                 <table>
                   <thead>
                     <tr>
-                      <th>Pair</th>
-                      <th>Price</th>
-                      <th>24h Volume</th>
-                      <th>Exchange</th>
+                      <th>{t("tradingPairs")}</th>
+                      <th>{t("price")}</th>
+                      <th>{t("volume24h")}</th>
+                      <th>{t("exchange")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -265,17 +267,17 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
 
         {activeTab === "exchanges" && (
           <section className="exchanges-section">
-            <h3>Exchanges Listing</h3>
+            <h3>{t("exchanges")}</h3>
             <div className="exchanges-placeholder">
-              <p>🏢 Exchanges where {crypto.symbol} is traded</p>
-              <p className="subtitle">Binance, Coinbase, Kraken, and more</p>
+              <p>{t("listedCryptoExchanges")} ({crypto.symbol})</p>
+              <p className="subtitle">{t("exchangeExamples")}</p>
             </div>
           </section>
         )}
 
         {activeTab === "charts" && (
           <section className="charts-section">
-            <h3>Price Charts</h3>
+            <h3>{t("charts")}</h3>
             <div className="chart-controls">
               <button className="timeframe">1H</button>
               <button className="timeframe">24H</button>
@@ -285,43 +287,43 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
               <button className="timeframe">ALL</button>
             </div>
             <div className="chart-placeholder">
-              <p>📈 Interactive price chart</p>
-              <p className="subtitle">With volume overlay</p>
+              <p>{t("priceChart")}</p>
+              <p className="subtitle">{t("volumeOverlay")}</p>
             </div>
           </section>
         )}
 
         {activeTab === "on-chain" && (
           <section className="on-chain-section">
-            <h3>On-Chain Metrics (Advanced)</h3>
+            <h3>{t("onChainMetrics")}</h3>
             <div className="on-chain-metrics">
               <div className="metric-card">
-                <h4>Transactions Per Day</h4>
+                <h4>{t("transactionsPerDay")}</h4>
                 <p className="value">-</p>
               </div>
               <div className="metric-card">
-                <h4>Active Addresses</h4>
+                <h4>{t("activeAddresses")}</h4>
                 <p className="value">-</p>
               </div>
               <div className="metric-card">
-                <h4>Network Fees</h4>
+                <h4>{t("networkFees")}</h4>
                 <p className="value">-</p>
               </div>
               <div className="metric-card">
-                <h4>Transaction Volume</h4>
+                <h4>{t("transactionVolume")}</h4>
                 <p className="value">-</p>
               </div>
             </div>
-            <p className="note">On-chain data coming soon</p>
+            <p className="note">{t("onChainComing")}</p>
           </section>
         )}
 
         {activeTab === "news" && (
           <section className="news-section">
-            <h3>News & Updates</h3>
+            <h3>{t("news")}</h3>
             <div className="news-placeholder">
-              <p>📰 Latest news and updates for {crypto.symbol}</p>
-              <p className="subtitle">Project updates, partnerships, and market news</p>
+              <p>{t("cryptoNewsComing")} ({crypto.symbol})</p>
+              <p className="subtitle">{t("cryptoNewsSubtitle")}</p>
             </div>
           </section>
         )}

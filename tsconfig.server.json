@@ -9,10 +9,11 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
+    "composite": true,
     "declaration": true,
     "outDir": "./dist",
     "rootDir": "./src"
   },
-  "include": ["src/server/**/*", "src/types/**/*"],
+  "include": ["src/server/**/*", "src/types/**/*", "src/data/**/*.json"],
   "exclude": ["node_modules", "dist"]
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import type { Currency, CurrencyPair } from "../../types";
+import { useI18n } from "../i18n";
 
 interface CurrencyDetailProps {
   currency: Currency;
@@ -14,6 +15,7 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
   popularPairs = [],
   isLoading = false,
 }) => {
+  const { t } = useI18n();
   const [activeTab, setActiveTab] = React.useState<
     "overview" | "rates" | "converter" | "pairs" | "economic" | "news"
   >("overview");
@@ -39,11 +41,11 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
 
           <div className="key-metrics">
             <div className="metric">
-              <label>Currency Type</label>
+              <label>{t("currencyType")}</label>
               <p className="value">{currency.type}</p>
             </div>
             <div className="metric">
-              <label>Central Bank</label>
+              <label>{t("centralBank")}</label>
               <p className="value">{currency.centralBank}</p>
             </div>
             {exchangeRates["USD"] && (
@@ -62,37 +64,37 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
           className={`tab ${activeTab === "overview" ? "active" : ""}`}
           onClick={() => setActiveTab("overview")}
         >
-          Overview
+          {t("overview")}
         </button>
         <button
           className={`tab ${activeTab === "rates" ? "active" : ""}`}
           onClick={() => setActiveTab("rates")}
         >
-          Exchange Rates
+          {t("exchangeRates")}
         </button>
         <button
           className={`tab ${activeTab === "converter" ? "active" : ""}`}
           onClick={() => setActiveTab("converter")}
         >
-          Converter
+          {t("converter")}
         </button>
         <button
           className={`tab ${activeTab === "pairs" ? "active" : ""}`}
           onClick={() => setActiveTab("pairs")}
         >
-          Popular Pairs
+          {t("popularPairs")}
         </button>
         <button
           className={`tab ${activeTab === "economic" ? "active" : ""}`}
           onClick={() => setActiveTab("economic")}
         >
-          Economic Data
+          {t("economicData")}
         </button>
         <button
           className={`tab ${activeTab === "news" ? "active" : ""}`}
           onClick={() => setActiveTab("news")}
         >
-          News
+          {t("news")}
         </button>
       </nav>
 
@@ -102,27 +104,27 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
           <section className="overview-section">
             <div className="info-grid">
               <div className="info-card">
-                <h4>Currency Code</h4>
+                <h4>{t("code")}</h4>
                 <p>{currency.code}</p>
               </div>
               <div className="info-card">
-                <h4>Symbol</h4>
+                <h4>{t("symbol")}</h4>
                 <p>{currency.symbol}</p>
               </div>
               <div className="info-card">
-                <h4>Country</h4>
+                <h4>{t("country")}</h4>
                 <p>{currency.country}</p>
               </div>
               <div className="info-card">
-                <h4>Region</h4>
+                <h4>{t("region")}</h4>
                 <p>{currency.region}</p>
               </div>
               <div className="info-card">
-                <h4>Type</h4>
+                <h4>{t("type")}</h4>
                 <p>{currency.type}</p>
               </div>
               <div className="info-card">
-                <h4>Central Bank</h4>
+                <h4>{t("centralBank")}</h4>
                 <p>{currency.centralBank}</p>
               </div>
             </div>
@@ -131,16 +133,16 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
 
         {activeTab === "rates" && (
           <section className="rates-section">
-            <h3>Exchange Rates</h3>
+            <h3>{t("exchangeRates")}</h3>
             <div className="rates-table">
               <table>
                 <thead>
                   <tr>
-                    <th>Currency</th>
-                    <th>Rate</th>
-                    <th>Bid</th>
-                    <th>Ask</th>
-                    <th>Spread</th>
+                    <th>{t("currencies")}</th>
+                    <th>{t("rate")}</th>
+                    <th>{t("bid")}</th>
+                    <th>{t("ask")}</th>
+                    <th>{t("spread")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -156,7 +158,7 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
                 </tbody>
               </table>
               {Object.keys(exchangeRates).length === 0 && (
-                <p className="placeholder">Loading exchange rates...</p>
+                <p className="placeholder">{t("loadingRates")}</p>
               )}
             </div>
           </section>
@@ -164,15 +166,15 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
 
         {activeTab === "converter" && (
           <section className="converter-section">
-            <h3>Currency Converter</h3>
+            <h3>{t("converter")}</h3>
             <div className="converter-box">
               <div className="converter-input-group">
-                <label>From</label>
+                <label>{t("from")}</label>
                 <input
                   type="number"
                   value={convertAmount}
                   onChange={(e) => setConvertAmount(e.target.value)}
-                  placeholder="Enter amount"
+                  placeholder={t("amountPlaceholder")}
                 />
                 <span className="currency-code">{currency.code}</span>
               </div>
@@ -182,7 +184,7 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
               </div>
 
               <div className="converter-input-group">
-                <label>To</label>
+                <label>{t("to")}</label>
                 <select
                   value={convertTo}
                   onChange={(e) => setConvertTo(e.target.value)}
@@ -211,10 +213,10 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
 
         {activeTab === "pairs" && (
           <section className="pairs-section">
-            <h3>Popular Currency Pairs</h3>
+            <h3>{t("popularPairs")}</h3>
             <div className="pairs-list">
               {popularPairs.length === 0 ? (
-                <p className="placeholder">Loading popular pairs...</p>
+                <p className="placeholder">{t("loadingPairs")}</p>
               ) : (
                 popularPairs.map((pair) => (
                   <div key={pair.pair} className="pair-card">
@@ -224,7 +226,7 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
                     </div>
                     <div className="pair-details">
                       <div className="detail">
-                        <label>24h Change</label>
+                        <label>{t("change24h")}</label>
                         <span
                           className={`value ${pair.change24h >= 0 ? "positive" : "negative"}`}
                         >
@@ -249,27 +251,27 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
 
         {activeTab === "economic" && (
           <section className="economic-section">
-            <h3>Economic Indicators</h3>
+            <h3>{t("economicIndicators")}</h3>
             <div className="economic-indicators">
               <div className="indicator-card">
-                <h4>Interest Rate</h4>
+                <h4>{t("interestRate")}</h4>
                 <p className="value">-</p>
-                <p className="last-updated">Data loading...</p>
+                <p className="last-updated">{t("dataLoading")}</p>
               </div>
               <div className="indicator-card">
-                <h4>Inflation Rate</h4>
+                <h4>{t("inflationRate")}</h4>
                 <p className="value">-</p>
-                <p className="last-updated">Data loading...</p>
+                <p className="last-updated">{t("dataLoading")}</p>
               </div>
               <div className="indicator-card">
-                <h4>GDP Growth</h4>
+                <h4>{t("gdpGrowth")}</h4>
                 <p className="value">-</p>
-                <p className="last-updated">Data loading...</p>
+                <p className="last-updated">{t("dataLoading")}</p>
               </div>
               <div className="indicator-card">
-                <h4>Employment</h4>
+                <h4>{t("employment")}</h4>
                 <p className="value">-</p>
-                <p className="last-updated">Data loading...</p>
+                <p className="last-updated">{t("dataLoading")}</p>
               </div>
             </div>
           </section>
@@ -277,10 +279,10 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
 
         {activeTab === "news" && (
           <section className="news-section">
-            <h3>Economic News & Updates</h3>
+            <h3>{t("economicNews")}</h3>
             <div className="news-placeholder">
-              <p>📰 Latest economic news for {currency.code} will display here</p>
-              <p className="subtitle">Interest rate decisions, inflation reports, and more</p>
+              <p>{t("currencyNewsComing")} ({currency.code})</p>
+              <p className="subtitle">{t("currencyNewsSubtitle")}</p>
             </div>
           </section>
         )}

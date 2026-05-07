@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { languages, useI18n, type LanguageCode } from "../i18n";
 
 interface Props {
   children: React.ReactNode;
@@ -8,25 +9,54 @@ interface Props {
 const Layout: React.FC<Props> = ({ children }) => {
   const [baseCurrency, setBaseCurrency] = React.useState<string>("USD");
   const [theme, setTheme] = React.useState<"light" | "dark">("dark");
+  const { language, setLanguage, t } = useI18n();
 
   return (
     <div className={`layout ${theme}`}>
-      {/* Navigation Header */}
       <header className="navbar">
-        <div className="navbar-container">
-          <div className="logo">
-            <h1>MarketsPivot</h1>
-            <span className="subtitle">Bloomberg-Style Financial Markets</span>
+        <div className="language-bar">
+          <div className="language-bar-label">
+            <span>{t("preferredLanguage")}</span>
+            <span aria-hidden="true">-&gt;</span>
           </div>
+          <div className="language-options" role="list" aria-label={t("preferredLanguage")}>
+            {languages.map((item) => (
+              <button
+                key={item.code}
+                className={`language-pill ${language === item.code ? "active" : ""}`}
+                onClick={() => setLanguage(item.code as LanguageCode)}
+                type="button"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="navbar-container">
+          <Link to="/" className="brand-lockup">
+            <span className="brand-mark">MP</span>
+            <div className="logo">
+              <h1>MarketsPivot</h1>
+              <span className="subtitle">{t("subtitle")}</span>
+            </div>
+          </Link>
 
           <nav className="nav-links">
-            <Link to="/stocks">Stock Exchanges</Link>
-            <Link to="/currencies">Currencies</Link>
-            <Link to="/crypto">Cryptocurrencies</Link>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/stocks">{t("stocks")}</Link>
+            <Link to="/currencies">{t("currencies")}</Link>
+            <Link to="/crypto">{t("crypto")}</Link>
+            <Link to="/dashboard">{t("dashboard")}</Link>
+            <Link to="/user">{t("userPanel")}</Link>
           </nav>
 
           <div className="header-controls">
+            <Link to="/dashboard" className="pricing-button">
+              {t("pricing")}
+            </Link>
+            <Link to="/user" className="login-button">
+              {t("login")}
+            </Link>
             <select
               value={baseCurrency}
               onChange={(e) => setBaseCurrency(e.target.value)}
@@ -43,8 +73,11 @@ const Layout: React.FC<Props> = ({ children }) => {
               className="theme-toggle"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
-              {theme === "dark" ? "Light" : "Dark"}
+              {theme === "dark" ? t("light") : t("dark")}
             </button>
+            <Link to="/user" className="signup-button">
+              {t("signUp")}
+            </Link>
           </div>
         </div>
       </header>
@@ -56,34 +89,34 @@ const Layout: React.FC<Props> = ({ children }) => {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-section">
-            <h4>Stock Exchanges</h4>
-            <p>30+ global exchanges covering major markets worldwide</p>
+            <h4>{t("stocks")}</h4>
+            <p>{t("footerStocks")}</p>
           </div>
           <div className="footer-section">
-            <h4>Currencies</h4>
-            <p>20 global currencies with real-time rates and analysis</p>
+            <h4>{t("currencies")}</h4>
+            <p>{t("footerCurrencies")}</p>
           </div>
           <div className="footer-section">
-            <h4>Cryptocurrencies</h4>
-            <p>20 major cryptocurrencies with detailed metrics</p>
+            <h4>{t("crypto")}</h4>
+            <p>{t("footerCrypto")}</p>
           </div>
           <div className="footer-section">
-            <h4>About</h4>
+            <h4>{t("about")}</h4>
             <ul>
               <li>
-                <Link to="/">About MarketsPivot</Link>
+                <Link to="/">{t("aboutMarket")}</Link>
               </li>
               <li>
-                <Link to="/">Privacy Policy</Link>
+                <Link to="/">{t("privacy")}</Link>
               </li>
               <li>
-                <Link to="/">Terms of Service</Link>
+                <Link to="/">{t("terms")}</Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2026 MarketsPivot. Market data updated in real-time.</p>
+          <p>&copy; 2026 MarketsPivot. {t("copyright")}</p>
         </div>
       </footer>
     </div>

@@ -34,6 +34,7 @@ postgres-data/
 .cache/
 .eslintcache
 .turbo
+*.tsbuildinfo
 
 # Build output
 dist/

@@ -1,5 +1,6 @@
 import React from "react";
 import type { StockExchange, IndexSnapshot, MarketMover } from "../../types";
+import { useI18n } from "../i18n";
 
 interface ExchangeDetailProps {
   exchange: StockExchange;
@@ -18,6 +19,7 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
   mostActive = [],
   isLoading = false,
 }) => {
+  const { t } = useI18n();
   const [activeTab, setActiveTab] = React.useState<
     "overview" | "chart" | "movers" | "sectors" | "news"
   >("overview");
@@ -40,23 +42,23 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
 
           <div className="key-metrics">
             <div className="metric">
-              <label>Market Cap</label>
+              <label>{t("marketCap")}</label>
               <p className="value">
                 ${(exchange.marketCap / 1e12).toFixed(2)}T
               </p>
             </div>
             <div className="metric">
-              <label>Listed Companies</label>
+              <label>{t("listedCompanies")}</label>
               <p className="value">{exchange.listedCompanies.toLocaleString()}</p>
             </div>
             <div className="metric">
-              <label>Avg Daily Volume</label>
+              <label>{t("avgDailyVolume")}</label>
               <p className="value">
                 ${(exchange.avgDailyVolume / 1e9).toFixed(2)}B
               </p>
             </div>
             <div className="metric">
-              <label>Trading Hours</label>
+              <label>{t("tradingHours")}</label>
               <p className="value">
                 {exchange.tradingHours.open} - {exchange.tradingHours.close}
               </p>
@@ -78,10 +80,10 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
               </p>
               <div className="breadth">
                 <span className="advancers">
-                  ↑ {indexData.advancers} Advancers
+                  ↑ {indexData.advancers} {t("advancers")}
                 </span>
                 <span className="decliners">
-                  ↓ {indexData.decliners} Decliners
+                  ↓ {indexData.decliners} {t("decliners")}
                 </span>
               </div>
             </div>
@@ -95,31 +97,31 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
           className={`tab ${activeTab === "overview" ? "active" : ""}`}
           onClick={() => setActiveTab("overview")}
         >
-          Overview
+          {t("overview")}
         </button>
         <button
           className={`tab ${activeTab === "chart" ? "active" : ""}`}
           onClick={() => setActiveTab("chart")}
         >
-          Chart
+          {t("chart")}
         </button>
         <button
           className={`tab ${activeTab === "movers" ? "active" : ""}`}
           onClick={() => setActiveTab("movers")}
         >
-          Top Movers
+          {t("topMovers")}
         </button>
         <button
           className={`tab ${activeTab === "sectors" ? "active" : ""}`}
           onClick={() => setActiveTab("sectors")}
         >
-          Sectors
+          {t("sectors")}
         </button>
         <button
           className={`tab ${activeTab === "news" ? "active" : ""}`}
           onClick={() => setActiveTab("news")}
         >
-          News
+          {t("news")}
         </button>
       </nav>
 
@@ -129,21 +131,21 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
           <section className="overview-section">
             <div className="info-grid">
               <div className="info-card">
-                <h4>Founded</h4>
+                <h4>{t("founded")}</h4>
                 <p>{exchange.founded}</p>
               </div>
               <div className="info-card">
-                <h4>Main Index</h4>
+                <h4>{t("mainIndex")}</h4>
                 <p>
                   {exchange.mainIndexName} ({exchange.mainIndex})
                 </p>
               </div>
               <div className="info-card">
-                <h4>Base Currency</h4>
+                <h4>{t("baseCurrency")}</h4>
                 <p>{exchange.currency}</p>
               </div>
               <div className="info-card">
-                <h4>Website</h4>
+                <h4>{t("website")}</h4>
                 <a href={exchange.website} target="_blank" rel="noopener noreferrer">
                   {exchange.website}
                 </a>
@@ -155,9 +157,9 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
         {activeTab === "chart" && (
           <section className="chart-section">
             <div className="chart-placeholder">
-              <p>📈 Interactive price chart will display here</p>
+              <p>{t("chartComing")}</p>
               <p className="subtitle">
-                With timeframes: 1D, 1W, 1M, 1Y
+                {t("chartTimeframes")}
               </p>
             </div>
           </section>
@@ -167,10 +169,10 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
           <section className="movers-section">
             <div className="movers-grid">
               <div className="mover-column gainers">
-                <h3>🔼 Top Gainers</h3>
+                <h3>{t("topGainers")}</h3>
                 <div className="mover-list">
                   {gainers.length === 0 ? (
-                    <p className="placeholder">Loading gainers...</p>
+                    <p className="placeholder">{t("loadingGainers")}</p>
                   ) : (
                     gainers.map((mover) => (
                       <div key={mover.symbol} className="mover-item">
@@ -193,10 +195,10 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
               </div>
 
               <div className="mover-column losers">
-                <h3>🔽 Top Losers</h3>
+                <h3>{t("topLosers")}</h3>
                 <div className="mover-list">
                   {losers.length === 0 ? (
-                    <p className="placeholder">Loading losers...</p>
+                    <p className="placeholder">{t("loadingLosers")}</p>
                   ) : (
                     losers.map((mover) => (
                       <div key={mover.symbol} className="mover-item">
@@ -219,10 +221,10 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
               </div>
 
               <div className="mover-column active">
-                <h3>🔁 Most Active</h3>
+                <h3>{t("mostActive")}</h3>
                 <div className="mover-list">
                   {mostActive.length === 0 ? (
-                    <p className="placeholder">Loading active...</p>
+                    <p className="placeholder">{t("loadingActive")}</p>
                   ) : (
                     mostActive.map((mover) => (
                       <div key={mover.symbol} className="mover-item">
@@ -250,9 +252,9 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
         {activeTab === "sectors" && (
           <section className="sectors-section">
             <div className="sectors-placeholder">
-              <p>📊 Sector performance breakdown will display here</p>
+              <p>{t("sectorComing")}</p>
               <p className="subtitle">
-                Technology, Finance, Energy, Healthcare, and more
+                {t("sectorSubtitle")}
               </p>
             </div>
           </section>
@@ -261,9 +263,9 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
         {activeTab === "news" && (
           <section className="news-section">
             <div className="news-placeholder">
-              <p>📰 Latest market news and updates will display here</p>
+              <p>{t("newsComing")}</p>
               <p className="subtitle">
-                From Reuters, Bloomberg, and economic sources
+                {t("newsSubtitle")}
               </p>
             </div>
           </section>
