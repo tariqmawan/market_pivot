@@ -140,6 +140,127 @@ body.light {
   padding: 2rem;
 }
 
+.market-home,
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.terminal-hero {
+  min-height: 360px;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  align-items: end;
+  gap: 2rem;
+  padding: 3rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(0, 102, 204, 0.22), rgba(0, 176, 80, 0.08)),
+    var(--secondary-dark);
+}
+
+.terminal-hero h1,
+.section-heading h1 {
+  font-size: 3rem;
+  line-height: 1.05;
+}
+
+.terminal-hero p,
+.section-heading p {
+  max-width: 760px;
+  color: var(--text-secondary);
+}
+
+.eyebrow {
+  color: var(--accent-blue);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-tape {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.hero-tape span {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background-color: rgba(18, 18, 18, 0.72);
+  font-weight: 700;
+}
+
+.dashboard-grid,
+.asset-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.asset-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 1.5rem;
+}
+
+.asset-grid.compact {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.asset-card {
+  min-height: 185px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--secondary-dark);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.asset-card:hover {
+  border-color: var(--accent-blue);
+  transform: translateY(-2px);
+}
+
+.asset-card h3 {
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+
+.asset-card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.asset-card strong {
+  color: var(--accent-green);
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .terminal-hero,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .terminal-hero {
+    padding: 2rem;
+  }
+
+  .terminal-hero h1,
+  .section-heading h1 {
+    font-size: 2.2rem;
+  }
+}
+
 /* Exchange/Currency/Crypto Detail Components */
 .overview-header {
   background-color: var(--secondary-dark);

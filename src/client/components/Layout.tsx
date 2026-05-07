@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
   children: React.ReactNode;
@@ -19,11 +20,10 @@ const Layout: React.FC<Props> = ({ children }) => {
           </div>
 
           <nav className="nav-links">
-            <a href="/stocks">Stock Exchanges</a>
-            <a href="/currencies">Currencies</a>
-            <a href="/crypto">Cryptocurrencies</a>
-            <a href="/dashboard">Dashboard</a>
-            <a href="/news">News</a>
+            <Link to="/stocks">Stock Exchanges</Link>
+            <Link to="/currencies">Currencies</Link>
+            <Link to="/crypto">Cryptocurrencies</Link>
+            <Link to="/dashboard">Dashboard</Link>
           </nav>
 
           <div className="header-controls">
@@ -43,7 +43,7 @@ const Layout: React.FC<Props> = ({ children }) => {
               className="theme-toggle"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
-              {theme === "dark" ? "☀️" : "🌙"}
+              {theme === "dark" ? "Light" : "Dark"}
             </button>
           </div>
         </div>
@@ -71,19 +71,19 @@ const Layout: React.FC<Props> = ({ children }) => {
             <h4>About</h4>
             <ul>
               <li>
-                <a href="/about">About MarketsPivot</a>
+                <Link to="/">About MarketsPivot</Link>
               </li>
               <li>
-                <a href="/privacy">Privacy Policy</a>
+                <Link to="/">Privacy Policy</Link>
               </li>
               <li>
-                <a href="/terms">Terms of Service</a>
+                <Link to="/">Terms of Service</Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2024 MarketsPivot. Market data updated in real-time.</p>
+          <p>&copy; 2026 MarketsPivot. Market data updated in real-time.</p>
         </div>
       </footer>
     </div>

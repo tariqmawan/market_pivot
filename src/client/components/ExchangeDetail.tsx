@@ -1,5 +1,5 @@
 import React from "react";
-import type { StockExchange, IndexSnapshot, MarketMover } from "../../../types";
+import type { StockExchange, IndexSnapshot, MarketMover } from "../../types";
 
 interface ExchangeDetailProps {
   exchange: StockExchange;

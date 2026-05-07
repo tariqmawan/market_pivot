@@ -1,5 +1,5 @@
 import React from "react";
-import type { Cryptocurrency, CryptoPrice, TradingPair } from "../../../types";
+import type { Cryptocurrency, CryptoPrice, TradingPair } from "../../types";
 
 interface CryptoDetailProps {
   crypto: Cryptocurrency;

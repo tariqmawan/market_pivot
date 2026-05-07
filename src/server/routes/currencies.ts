@@ -6,7 +6,8 @@ import type {
   CurrencyPair,
   ApiResponse,
   PaginatedResponse,
-} from "../../../types";
+} from "../../types";
+import currenciesData from "../../data/currencies.json";
 
 const router = Router();
 
@@ -16,6 +17,12 @@ router.get(
   async (req: Request, res: Response<PaginatedResponse<Currency>>) => {
     try {
       const { region, page = 1, limit = 20 } = req.query;
+      const pageNumber = Number(page);
+      const pageSize = Number(limit);
+      const allCurrencies = (currenciesData.currencies as Currency[]).filter(
+        (currency) => !region || currency.region === String(region)
+      );
+      const data = allCurrencies.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
 
       // TODO: Implement database query
       // const query = db("currencies");
@@ -23,12 +30,12 @@ router.get(
 
       const response: PaginatedResponse<Currency> = {
         success: true,
-        data: [],
+        data,
         pagination: {
-          page: Number(page),
-          limit: Number(limit),
-          total: 0,
-          pages: 0,
+          page: pageNumber,
+          limit: pageSize,
+          total: allCurrencies.length,
+          pages: Math.ceil(allCurrencies.length / pageSize),
         },
         timestamp: new Date(),
       };
@@ -50,13 +57,25 @@ router.get(
   async (req: Request, res: Response<ApiResponse<Currency>>) => {
     try {
       const { code } = req.params;
+      const currency = (currenciesData.currencies as Currency[]).find(
+        (item) => item.code.toLowerCase() === code.toLowerCase()
+      );
+
+      if (!currency) {
+        res.status(404).json({
+          success: false,
+          error: "Currency not found",
+          timestamp: new Date(),
+        });
+        return;
+      }
 
       // TODO: Implement database query
       // const currency = await db("currencies").where({ code }).first();
 
       res.json({
         success: true,
-        data: undefined,
+        data: currency,
         timestamp: new Date(),
       });
     } catch (error) {

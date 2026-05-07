@@ -1,5 +1,5 @@
 import React from "react";
-import type { Currency, CurrencyPair } from "../../../types";
+import type { Currency, CurrencyPair } from "../../types";
 
 interface CurrencyDetailProps {
   currency: Currency;

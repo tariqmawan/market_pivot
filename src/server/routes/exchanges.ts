@@ -4,7 +4,8 @@ import type {
   StockExchange,
   ApiResponse,
   PaginatedResponse,
-} from "../../../types";
+} from "../../types";
+import exchangesData from "../../data/exchanges.json";
 
 const router = Router();
 
@@ -14,6 +15,14 @@ router.get(
   async (req: Request, res: Response<PaginatedResponse<StockExchange>>) => {
     try {
       const { region, country, page = 1, limit = 10 } = req.query;
+      const pageNumber = Number(page);
+      const pageSize = Number(limit);
+      const allExchanges = (exchangesData.exchanges as StockExchange[]).filter(
+        (exchange) =>
+          (!region || exchange.region === String(region)) &&
+          (!country || exchange.country === String(country))
+      );
+      const data = allExchanges.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
 
       // TODO: Implement database query with filters
       // const query = db("exchanges");
@@ -22,12 +31,12 @@ router.get(
 
       const response: PaginatedResponse<StockExchange> = {
         success: true,
-        data: [],
+        data,
         pagination: {
-          page: Number(page),
-          limit: Number(limit),
-          total: 0,
-          pages: 0,
+          page: pageNumber,
+          limit: pageSize,
+          total: allExchanges.length,
+          pages: Math.ceil(allExchanges.length / pageSize),
         },
         timestamp: new Date(),
       };
@@ -49,13 +58,25 @@ router.get(
   async (req: Request, res: Response<ApiResponse<StockExchange>>) => {
     try {
       const { id } = req.params;
+      const exchange = (exchangesData.exchanges as StockExchange[]).find(
+        (item) => item.id.toLowerCase() === id.toLowerCase()
+      );
+
+      if (!exchange) {
+        res.status(404).json({
+          success: false,
+          error: "Exchange not found",
+          timestamp: new Date(),
+        });
+        return;
+      }
 
       // TODO: Implement database query
       // const exchange = await db("exchanges").where({ id }).first();
 
       res.json({
         success: true,
-        data: undefined,
+        data: exchange,
         timestamp: new Date(),
       });
     } catch (error) {

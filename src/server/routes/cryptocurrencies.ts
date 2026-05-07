@@ -6,7 +6,8 @@ import type {
   TradingPair,
   ApiResponse,
   PaginatedResponse,
-} from "../../../types";
+} from "../../types";
+import cryptoData from "../../data/cryptocurrencies.json";
 
 const router = Router();
 
@@ -16,6 +17,12 @@ router.get(
   async (req: Request, res: Response<PaginatedResponse<Cryptocurrency>>) => {
     try {
       const { category, page = 1, limit = 20 } = req.query;
+      const pageNumber = Number(page);
+      const pageSize = Number(limit);
+      const allCryptos = (cryptoData.cryptocurrencies as Cryptocurrency[]).filter(
+        (crypto) => !category || crypto.category === String(category)
+      );
+      const data = allCryptos.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
 
       // TODO: Implement database query
       // const query = db("cryptocurrencies");
@@ -23,12 +30,12 @@ router.get(
 
       const response: PaginatedResponse<Cryptocurrency> = {
         success: true,
-        data: [],
+        data,
         pagination: {
-          page: Number(page),
-          limit: Number(limit),
-          total: 0,
-          pages: 0,
+          page: pageNumber,
+          limit: pageSize,
+          total: allCryptos.length,
+          pages: Math.ceil(allCryptos.length / pageSize),
         },
         timestamp: new Date(),
       };
@@ -50,13 +57,25 @@ router.get(
   async (req: Request, res: Response<ApiResponse<Cryptocurrency>>) => {
     try {
       const { id } = req.params;
+      const crypto = (cryptoData.cryptocurrencies as Cryptocurrency[]).find(
+        (item) => item.id.toLowerCase() === id.toLowerCase() || item.symbol.toLowerCase() === id.toLowerCase()
+      );
+
+      if (!crypto) {
+        res.status(404).json({
+          success: false,
+          error: "Cryptocurrency not found",
+          timestamp: new Date(),
+        });
+        return;
+      }
 
       // TODO: Implement database query
       // const crypto = await db("cryptocurrencies").where({ id }).first();
 
       res.json({
         success: true,
-        data: undefined,
+        data: crypto,
         timestamp: new Date(),
       });
     } catch (error) {

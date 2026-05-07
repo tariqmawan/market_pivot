@@ -666,6 +666,29 @@
       "marketCap": 280000000000,
       "listedCompanies": 230,
       "avgDailyVolume": 800000000
+    },
+    {
+      "id": "OMX",
+      "name": "Nasdaq Nordic",
+      "country": "Nordic and Baltic region",
+      "countryCode": "SE",
+      "region": "Europe",
+      "timezone": "Europe/Stockholm",
+      "currency": "SEK",
+      "tradingHours": {
+        "open": "09:00",
+        "close": "17:30",
+        "timezone": "Europe/Stockholm"
+      },
+      "mainIndex": "OMXS30",
+      "mainIndexName": "OMX Stockholm 30",
+      "description": "Nasdaq-operated Nordic and Baltic marketplace covering equities and related listed products",
+      "founded": 1863,
+      "website": "https://www.nasdaqomxnordic.com",
+      "logo": "/logos/exchanges/omx.svg",
+      "marketCap": 2000000000000,
+      "listedCompanies": 1200,
+      "avgDailyVolume": 4500000000
     }
   ]
 }
