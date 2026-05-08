@@ -6,6 +6,7 @@ import type {
   PaginatedResponse,
 } from "../../types";
 import exchangesData from "../../data/exchanges.json";
+import { parsePositiveInt } from "../security";
 
 const router = Router();
 
@@ -14,9 +15,9 @@ router.get(
   "/",
   async (req: Request, res: Response<PaginatedResponse<StockExchange>>) => {
     try {
-      const { region, country, page = 1, limit = 10 } = req.query;
-      const pageNumber = Number(page);
-      const pageSize = Number(limit);
+      const { region, country } = req.query;
+      const pageNumber = parsePositiveInt(req.query.page, 1, 1000);
+      const pageSize = parsePositiveInt(req.query.limit, 10);
       const allExchanges = (exchangesData.exchanges as StockExchange[]).filter(
         (exchange) =>
           (!region || exchange.region === String(region)) &&
@@ -219,8 +220,8 @@ router.get("/:id/news", async (req: Request, res: Response) => {
       success: true,
       data: [],
       pagination: {
-        page: Number(page),
-        limit: Number(limit),
+        page: parsePositiveInt(page, 1, 1000),
+        limit: parsePositiveInt(limit, 20),
         total: 0,
         pages: 0,
       },
@@ -250,8 +251,8 @@ router.get("/:id/companies", async (req: Request, res: Response) => {
       success: true,
       data: [],
       pagination: {
-        page: Number(page),
-        limit: Number(limit),
+        page: parsePositiveInt(page, 1, 1000),
+        limit: parsePositiveInt(limit, 20),
         total: 0,
         pages: 0,
       },

@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import exchangesRouter from "./routes/exchanges";
 import currenciesRouter from "./routes/currencies";
 import cryptocurrenciesRouter from "./routes/cryptocurrencies";
+import { corsOptions, createRateLimiter, sanitizeShortText, securityHeaders } from "./security";
 
 dotenv.config();
 
@@ -11,9 +12,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.disable("x-powered-by");
+app.use(securityHeaders);
+app.use(cors(corsOptions));
+app.use(createRateLimiter());
+app.use(express.json({ limit: "100kb" }));
+app.use(express.urlencoded({ extended: true, limit: "100kb" }));
 
 // Health check
 app.get("/health", (req, res) => {
@@ -85,7 +89,8 @@ app.get("/api/global", (req, res) => {
 
 // Search endpoint
 app.get("/api/search", (req, res) => {
-  const { q, type } = req.query;
+  const q = sanitizeShortText(req.query.q);
+  const type = sanitizeShortText(req.query.type, 20);
   // TODO: Implement global search
   // - Search exchanges, currencies, cryptos
   // - Return matching results with type indicator

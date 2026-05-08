@@ -8,6 +8,7 @@ import type {
   PaginatedResponse,
 } from "../../types";
 import cryptoData from "../../data/cryptocurrencies.json";
+import { parsePositiveInt } from "../security";
 
 const router = Router();
 
@@ -16,9 +17,9 @@ router.get(
   "/",
   async (req: Request, res: Response<PaginatedResponse<Cryptocurrency>>) => {
     try {
-      const { category, page = 1, limit = 20 } = req.query;
-      const pageNumber = Number(page);
-      const pageSize = Number(limit);
+      const { category } = req.query;
+      const pageNumber = parsePositiveInt(req.query.page, 1, 1000);
+      const pageSize = parsePositiveInt(req.query.limit, 20);
       const allCryptos = (cryptoData.cryptocurrencies as Cryptocurrency[]).filter(
         (crypto) => !category || crypto.category === String(category)
       );
@@ -305,8 +306,8 @@ router.get("/:id/news", async (req: Request, res: Response) => {
       success: true,
       data: [],
       pagination: {
-        page: Number(page),
-        limit: Number(limit),
+        page: parsePositiveInt(page, 1, 1000),
+        limit: parsePositiveInt(limit, 20),
         total: 0,
         pages: 0,
       },
@@ -398,8 +399,8 @@ router.get("/category/:category", async (req: Request, res: Response) => {
       success: true,
       data: [],
       pagination: {
-        page: Number(page),
-        limit: Number(limit),
+        page: parsePositiveInt(page, 1, 1000),
+        limit: parsePositiveInt(limit, 20),
         total: 0,
         pages: 0,
       },

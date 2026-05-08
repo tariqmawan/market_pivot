@@ -1,3 +1,11 @@
+const requireEnv = (name) => {
+  const value = process.env[name];
+  if (!value) {
+    throw new Error(`Missing required environment variable: ${name}`);
+  }
+  return value;
+};
+
 module.exports = {
   development: {
     client: "postgresql",
@@ -5,7 +13,7 @@ module.exports = {
       host: process.env.DB_HOST || "localhost",
       port: process.env.DB_PORT || 5432,
       user: process.env.DB_USER || "postgres",
-      password: process.env.DB_PASSWORD || "password",
+      password: process.env.DB_PASSWORD || "",
       database: process.env.DB_NAME || "marketpivot",
     },
     migrations: {
@@ -19,7 +27,7 @@ module.exports = {
 
   production: {
     client: "postgresql",
-    connection: process.env.DATABASE_URL,
+    connection: requireEnv("DATABASE_URL"),
     migrations: {
       directory: "./dist/server/database/migrations",
     },

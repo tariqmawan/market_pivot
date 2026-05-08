@@ -8,6 +8,7 @@ import type {
   PaginatedResponse,
 } from "../../types";
 import currenciesData from "../../data/currencies.json";
+import { parsePositiveInt, sanitizeShortText } from "../security";
 
 const router = Router();
 
@@ -16,9 +17,9 @@ router.get(
   "/",
   async (req: Request, res: Response<PaginatedResponse<Currency>>) => {
     try {
-      const { region, page = 1, limit = 20 } = req.query;
-      const pageNumber = Number(page);
-      const pageSize = Number(limit);
+      const { region } = req.query;
+      const pageNumber = parsePositiveInt(req.query.page, 1, 1000);
+      const pageSize = parsePositiveInt(req.query.limit, 20);
       const allCurrencies = (currenciesData.currencies as Currency[]).filter(
         (currency) => !region || currency.region === String(region)
       );
@@ -150,7 +151,18 @@ router.get("/:from/:to", async (req: Request, res: Response) => {
 // POST /api/currencies/convert - Convert amount between currencies
 router.post("/convert/amount", async (req: Request, res: Response) => {
   try {
-    const { fromCode, toCode, amount } = req.body;
+    const fromCode = sanitizeShortText(req.body?.fromCode, 10).toUpperCase();
+    const toCode = sanitizeShortText(req.body?.toCode, 10).toUpperCase();
+    const amount = Number(req.body?.amount);
+
+    if (!fromCode || !toCode || !Number.isFinite(amount) || amount < 0) {
+      res.status(400).json({
+        success: false,
+        error: "Invalid conversion request",
+        timestamp: new Date(),
+      });
+      return;
+    }
 
     // TODO: Implement conversion logic
     // - Get current rate
@@ -248,8 +260,8 @@ router.get("/:code/news", async (req: Request, res: Response) => {
       success: true,
       data: [],
       pagination: {
-        page: Number(page),
-        limit: Number(limit),
+        page: parsePositiveInt(page, 1, 1000),
+        limit: parsePositiveInt(limit, 20),
         total: 0,
         pages: 0,
       },
