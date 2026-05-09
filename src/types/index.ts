@@ -60,6 +60,53 @@ export interface SectorPerformance {
   marketCap: number;
 }
 
+export interface MarketRegion {
+  id: string;
+  name: string;
+  group: "Americas" | "Europe" | "Asia-Pacific" | "Middle East & Africa";
+  summary: string;
+  countries: string[];
+  majorExchanges: string[];
+  currencies: string[];
+  keyIndices: string[];
+  gdpGrowth: number;
+  inflation: number;
+  commodityImpact: string;
+  calendarFocus: string[];
+  sectorLeaders: string[];
+  newsThemes: string[];
+}
+
+export interface StockSector {
+  id: string;
+  name: string;
+  category: "Growth" | "Cyclical" | "Defensive" | "Thematic" | "Income";
+  summary: string;
+  topCompanies: string[];
+  etfs: string[];
+  peRatio: number;
+  performanceYtd: number;
+  trendingStocks: string[];
+  dividendLeaders: string[];
+  relatedRegions: string[];
+  newsThemes: string[];
+}
+
+export interface Commodity {
+  id: string;
+  name: string;
+  symbol: string;
+  category: "Energy" | "Metals" | "Agriculture" | "Industrial";
+  unit: string;
+  spotPrice: number;
+  changePercent24h: number;
+  futuresContract: string;
+  supplyRegions: string[];
+  demandTrends: string[];
+  currencyCorrelation: string;
+  economicImpact: string;
+}
+
 // Currency Types
 export interface Currency {
   code: string;
@@ -168,7 +215,7 @@ export interface ChartDataPoint {
 
 export interface ChartData {
   assetId: string;
-  assetType: "exchange" | "currency" | "crypto";
+  assetType: "exchange" | "currency" | "crypto" | "region" | "sector" | "commodity";
   timeframe: "1H" | "24H" | "7D" | "1M" | "1Y" | "ALL";
   data: ChartDataPoint[];
 }

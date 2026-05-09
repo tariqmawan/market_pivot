@@ -1,0 +1,524 @@
+{
+  "exchanges": [
+    {
+      "id": "NYSE",
+      "name": "New York Stock Exchange",
+      "country": "United States",
+      "countryCode": "US",
+      "region": "North America",
+      "timezone": "America/New_York",
+      "currency": "USD",
+      "tradingHours": {
+        "open": "09:30",
+        "close": "16:00",
+        "timezone": "America/New_York"
+      },
+      "mainIndex": "SPX",
+      "mainIndexName": "S&P 500",
+      "description": "The largest and most well-known stock exchange in the world",
+      "founded": 1792,
+      "website": "https://www.nyse.com",
+      "logo": "/logos/exchanges/nyse.svg",
+      "marketCap": 33000000000000,
+      "listedCompanies": 2900,
+      "avgDailyVolume": 89000000000,
+      "topGainers": [
+        {"symbol": "NVDA", "name": "NVIDIA", "change": 5.2},
+        {"symbol": "MSFT", "name": "Microsoft", "change": 3.1},
+        {"symbol": "AAPL", "name": "Apple", "change": 2.8}
+      ],
+      "topLosers": [
+        {"symbol": "GE", "name": "General Electric", "change": -2.4},
+        {"symbol": "F", "name": "Ford", "change": -1.9},
+        {"symbol": "T", "name": "AT&T", "change": -1.5}
+      ],
+      "economicSnapshot": {
+        "gdpGrowth": 2.1,
+        "inflation": 3.2,
+        "unemployment": 3.9,
+        "interestRate": 4.75,
+        "tradeBalance": "-0.6%"
+      },
+      "sectorBreakdown": {
+        "Technology": 30.2,
+        "Healthcare": 12.8,
+        "Finance": 11.5,
+        "Industrials": 9.3,
+        "Energy": 5.2,
+        "Other": 31.0
+      },
+      "liveIndices": [
+        {"symbol": "SPX", "name": "S&P 500", "value": 5182.42, "change": 1.24},
+        {"symbol": "INDU", "name": "Dow Jones", "value": 41263.84, "change": 0.89}
+      ]
+    },
+    {
+      "id": "NASDAQ",
+      "name": "NASDAQ",
+      "country": "United States",
+      "countryCode": "US",
+      "region": "North America",
+      "timezone": "America/New_York",
+      "currency": "USD",
+      "tradingHours": {
+        "open": "09:30",
+        "close": "16:00",
+        "timezone": "America/New_York"
+      },
+      "mainIndex": "CCMP",
+      "mainIndexName": "NASDAQ Composite",
+      "description": "Electronic stock market known for tech companies",
+      "founded": 1971,
+      "website": "https://www.nasdaq.com",
+      "logo": "/logos/exchanges/nasdaq.svg",
+      "marketCap": 18000000000000,
+      "listedCompanies": 3700,
+      "avgDailyVolume": 75000000000,
+      "topGainers": [
+        {"symbol": "TSLA", "name": "Tesla", "change": 6.8},
+        {"symbol": "AMZN", "name": "Amazon", "change": 4.2},
+        {"symbol": "GOOGL", "name": "Alphabet", "change": 3.5}
+      ],
+      "topLosers": [
+        {"symbol": "META", "name": "Meta", "change": -2.1},
+        {"symbol": "NFLX", "name": "Netflix", "change": -1.8},
+        {"symbol": "INTC", "name": "Intel", "change": -1.3}
+      ],
+      "economicSnapshot": {
+        "gdpGrowth": 2.1,
+        "inflation": 3.2,
+        "unemployment": 3.9,
+        "interestRate": 4.75,
+        "tradeBalance": "-0.6%"
+      },
+      "sectorBreakdown": {
+        "Technology": 52.4,
+        "Healthcare": 8.9,
+        "Finance": 4.2,
+        "Industrials": 5.1,
+        "Energy": 1.8,
+        "Other": 27.6
+      },
+      "liveIndices": [
+        {"symbol": "CCMP", "name": "NASDAQ Composite", "value": 16844.21, "change": 2.31},
+        {"symbol": "NDX", "name": "NASDAQ-100", "value": 19342.84, "change": 2.45}
+      ]
+    },
+    {
+      "id": "LSE",
+      "name": "London Stock Exchange",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "region": "Europe",
+      "timezone": "Europe/London",
+      "currency": "GBP",
+      "tradingHours": {
+        "open": "08:00",
+        "close": "16:30",
+        "timezone": "Europe/London"
+      },
+      "mainIndex": "UKX",
+      "mainIndexName": "FTSE 100",
+      "description": "Leading global financial hub, one of the world's oldest exchanges",
+      "founded": 1801,
+      "website": "https://www.londonstockexchange.com",
+      "logo": "/logos/exchanges/lse.svg",
+      "marketCap": 3100000000000,
+      "listedCompanies": 1300,
+      "avgDailyVolume": 15000000000,
+      "topGainers": [
+        {"symbol": "HSBA", "name": "HSBC", "change": 2.3},
+        {"symbol": "SHEL", "name": "Shell", "change": 1.9},
+        {"symbol": "GLEN", "name": "Glencore", "change": 1.7}
+      ],
+      "topLosers": [
+        {"symbol": "UNILEVER", "name": "Unilever", "change": -1.2},
+        {"symbol": "GSK", "name": "GlaxoSmithKline", "change": -0.9},
+        {"symbol": "IAG", "name": "IAG", "change": -0.8}
+      ],
+      "economicSnapshot": {
+        "gdpGrowth": 0.5,
+        "inflation": 2.8,
+        "unemployment": 4.2,
+        "interestRate": 5.0,
+        "tradeBalance": "-0.4%"
+      },
+      "sectorBreakdown": {
+        "Finance": 22.1,
+        "Energy": 14.8,
+        "Mining": 8.5,
+        "Healthcare": 9.2,
+        "Consumer": 10.3,
+        "Other": 35.1
+      },
+      "liveIndices": [
+        {"symbol": "UKX", "name": "FTSE 100", "value": 7684.45, "change": 0.56},
+        {"symbol": "MCX", "name": "FTSE 250", "value": 19584.32, "change": 1.23}
+      ]
+    },
+    {
+      "id": "EURONEXT",
+      "name": "Euronext",
+      "country": "European Union",
+      "countryCode": "EU",
+      "region": "Europe",
+      "timezone": "Europe/Paris",
+      "currency": "EUR",
+      "tradingHours": {
+        "open": "09:00",
+        "close": "17:30",
+        "timezone": "Europe/Paris"
+      },
+      "mainIndex": "PX1",
+      "mainIndexName": "CAC 40",
+      "description": "Pan-European exchange operating in multiple countries",
+      "founded": 2000,
+      "website": "https://www.euronext.com",
+      "logo": "/logos/exchanges/euronext.svg",
+      "marketCap": 8500000000000,
+      "listedCompanies": 1900,
+      "avgDailyVolume": 22000000000,
+      "topGainers": [
+        {"symbol": "MC.PA", "name": "LVMH", "change": 3.2},
+        {"symbol": "OR.PA", "name": "L'Oreal", "change": 2.8},
+        {"symbol": "SAF.PA", "name": "Safran", "change": 2.1}
+      ],
+      "topLosers": [
+        {"symbol": "BNP.PA", "name": "BNP Paribas", "change": -1.4},
+        {"symbol": "FP.PA", "name": "Total Energies", "change": -1.2},
+        {"symbol": "AI.PA", "name": "Air Liquide", "change": -0.9}
+      ],
+      "economicSnapshot": {
+        "gdpGrowth": 0.9,
+        "inflation": 2.5,
+        "unemployment": 6.2,
+        "interestRate": 3.5,
+        "tradeBalance": "0.2%"
+      },
+      "sectorBreakdown": {
+        "Luxury": 12.3,
+        "Finance": 18.5,
+        "Energy": 11.2,
+        "Industrials": 14.1,
+        "Healthcare": 9.8,
+        "Other": 34.1
+      },
+      "liveIndices": [
+        {"symbol": "PX1", "name": "CAC 40", "value": 7512.84, "change": 0.98},
+        {"symbol": "FCHI", "name": "CAC 40", "value": 7512.84, "change": 0.98}
+      ]
+    },
+    {
+      "id": "XETRA",
+      "name": "Deutsche Börse",
+      "country": "Germany",
+      "countryCode": "DE",
+      "region": "Europe",
+      "timezone": "Europe/Berlin",
+      "currency": "EUR",
+      "tradingHours": {
+        "open": "08:00",
+        "close": "20:00",
+        "timezone": "Europe/Berlin"
+      },
+      "mainIndex": "DAX",
+      "mainIndexName": "DAX 40",
+      "description": "Germany's largest stock exchange and major European trading center",
+      "founded": 1808,
+      "website": "https://www.xetra.com",
+      "logo": "/logos/exchanges/xetra.svg",
+      "marketCap": 2400000000000,
+      "listedCompanies": 610,
+      "avgDailyVolume": 18000000000,
+      "topGainers": [
+        {"symbol": "SAP", "name": "SAP", "change": 2.9},
+        {"symbol": "SIE", "name": "Siemens", "change": 2.1},
+        {"symbol": "MAN", "name": "MAN", "change": 1.8}
+      ],
+      "topLosers": [
+        {"symbol": "VOW3", "name": "Volkswagen", "change": -1.7},
+        {"symbol": "BMWd", "name": "BMW", "change": -1.3},
+        {"symbol": "BAS", "name": "BASF", "change": -1.1}
+      ],
+      "economicSnapshot": {
+        "gdpGrowth": 0.3,
+        "inflation": 2.3,
+        "unemployment": 5.8,
+        "interestRate": 3.5,
+        "tradeBalance": "1.2%"
+      },
+      "sectorBreakdown": {
+        "Industrials": 22.5,
+        "Technology": 18.3,
+        "Finance": 12.4,
+        "Energy": 6.8,
+        "Healthcare": 7.2,
+        "Other": 32.8
+      },
+      "liveIndices": [
+        {"symbol": "DAX", "name": "DAX 40", "value": 18234.56, "change": 0.87},
+        {"symbol": "MDAX", "name": "MDAX", "value": 25632.14, "change": 1.34}
+      ]
+    },
+    {
+      "id": "TSE",
+      "name": "Tokyo Stock Exchange",
+      "country": "Japan",
+      "countryCode": "JP",
+      "region": "Asia",
+      "timezone": "Asia/Tokyo",
+      "currency": "JPY",
+      "tradingHours": {
+        "open": "09:00",
+        "close": "15:00",
+        "timezone": "Asia/Tokyo"
+      },
+      "mainIndex": "225",
+      "mainIndexName": "Nikkei 225",
+      "description": "Largest stock exchange in Japan and Asia's oldest",
+      "founded": 1878,
+      "website": "https://www.jpx.co.jp",
+      "logo": "/logos/exchanges/tse.svg",
+      "marketCap": 4500000000000,
+      "listedCompanies": 1800,
+      "avgDailyVolume": 25000000000,
+      "topGainers": [
+        {"symbol": "6758", "name": "Sony", "change": 4.3},
+        {"symbol": "6861", "name": "Keyence", "change": 3.8},
+        {"symbol": "7203", "name": "Toyota", "change": 2.9}
+      ],
+      "topLosers": [
+        {"symbol": "6902", "name": "Orix", "change": -1.6},
+        {"symbol": "8301", "name": "Taiheiyo", "change": -1.2},
+        {"symbol": "8604", "name": "Eight Securities", "change": -0.8}
+      ],
+      "economicSnapshot": {
+        "gdpGrowth": 1.2,
+        "inflation": 1.8,
+        "unemployment": 2.4,
+        "interestRate": 0.5,
+        "tradeBalance": "1.1%"
+      },
+      "sectorBreakdown": {
+        "Automotive": 16.2,
+        "Electronics": 14.8,
+        "Finance": 13.5,
+        "Industrial": 12.3,
+        "Retail": 8.9,
+        "Other": 34.3
+      },
+      "liveIndices": [
+        {"symbol": "N225", "name": "Nikkei 225", "value": 31845.67, "change": 1.42},
+        {"symbol": "TOPX", "name": "TOPIX", "value": 2198.45, "change": 0.92}
+      ]
+    },
+    {
+      "id": "SSE",
+      "name": "Shanghai Stock Exchange",
+      "country": "China",
+      "countryCode": "CN",
+      "region": "Asia",
+      "timezone": "Asia/Shanghai",
+      "currency": "CNY",
+      "tradingHours": {
+        "open": "09:30",
+        "close": "15:00",
+        "timezone": "Asia/Shanghai"
+      },
+      "mainIndex": "000001",
+      "mainIndexName": "Shanghai Composite",
+      "description": "Second-largest stock exchange in the world by market cap",
+      "founded": 1990,
+      "website": "https://www.sse.com.cn",
+      "logo": "/logos/exchanges/sse.svg",
+      "marketCap": 6500000000000,
+      "listedCompanies": 2000,
+      "avgDailyVolume": 45000000000,
+      "topGainers": [
+        {"symbol": "600000", "name": "SPDB", "change": 3.5},
+        {"symbol": "601398", "name": "ICBC", "change": 2.8},
+        {"symbol": "600519", "name": "Moutai", "change": 2.4}
+      ],
+      "topLosers": [
+        {"symbol": "600028", "name": "China Petroleum", "change": -1.9},
+        {"symbol": "601857", "name": "China Shipping", "change": -1.5},
+        {"symbol": "600030", "name": "CITIC Securities", "change": -1.2}
+      ],
+      "economicSnapshot": {
+        "gdpGrowth": 4.3,
+        "inflation": 2.1,
+        "unemployment": 3.8,
+        "interestRate": 3.25,
+        "tradeBalance": "2.5%"
+      },
+      "sectorBreakdown": {
+        "Finance": 28.4,
+        "Energy": 12.3,
+        "Manufacturing": 18.2,
+        "Technology": 11.5,
+        "Healthcare": 6.8,
+        "Other": 22.8
+      },
+      "liveIndices": [
+        {"symbol": "000001", "name": "Shanghai Composite", "value": 2984.63, "change": 0.73},
+        {"symbol": "000300", "name": "CSI 300", "value": 3612.45, "change": 1.21}
+      ]
+    },
+    {
+      "id": "HKEX",
+      "name": "Hong Kong Stock Exchange",
+      "country": "Hong Kong",
+      "countryCode": "HK",
+      "region": "Asia",
+      "timezone": "Asia/Hong_Kong",
+      "currency": "HKD",
+      "tradingHours": {
+        "open": "09:30",
+        "close": "16:00",
+        "timezone": "Asia/Hong_Kong"
+      },
+      "mainIndex": "0001",
+      "mainIndexName": "Hang Seng Index",
+      "description": "Major financial hub in Asia, gateway to mainland China markets",
+      "founded": 1891,
+      "website": "https://www.hkex.com.hk",
+      "logo": "/logos/exchanges/hkex.svg",
+      "marketCap": 2800000000000,
+      "listedCompanies": 2600,
+      "avgDailyVolume": 18000000000,
+      "topGainers": [
+        {"symbol": "00700", "name": "Tencent", "change": 4.2},
+        {"symbol": "09988", "name": "Alibaba", "change": 3.8},
+        {"symbol": "01211", "name": "BYD", "change": 3.1}
+      ],
+      "topLosers": [
+        {"symbol": "02318", "name": "Ping An", "change": -2.1},
+        {"symbol": "01398", "name": "ICBC", "change": -1.7},
+        {"symbol": "03690", "name": "Meituan", "change": -1.4}
+      ],
+      "economicSnapshot": {
+        "gdpGrowth": 2.8,
+        "inflation": 1.6,
+        "unemployment": 3.2,
+        "interestRate": 4.75,
+        "tradeBalance": "0.5%"
+      },
+      "sectorBreakdown": {
+        "Finance": 31.2,
+        "Technology": 22.5,
+        "Real Estate": 14.3,
+        "Industrials": 10.5,
+        "Healthcare": 5.8,
+        "Other": 15.7
+      },
+      "liveIndices": [
+        {"symbol": "0001", "name": "Hang Seng", "value": 18324.56, "change": 1.43},
+        {"symbol": "HSI", "name": "Hang Seng Index", "value": 18324.56, "change": 1.43}
+      ]
+    },
+    {
+      "id": "NSE",
+      "name": "National Stock Exchange of India",
+      "country": "India",
+      "countryCode": "IN",
+      "region": "Asia",
+      "timezone": "Asia/Kolkata",
+      "currency": "INR",
+      "tradingHours": {
+        "open": "09:15",
+        "close": "15:30",
+        "timezone": "Asia/Kolkata"
+      },
+      "mainIndex": "NIFTY50",
+      "mainIndexName": "Nifty 50",
+      "description": "India's largest stock exchange, leading market for South Asia",
+      "founded": 1992,
+      "website": "https://www.nseindia.com",
+      "logo": "/logos/exchanges/nse.svg",
+      "marketCap": 3800000000000,
+      "listedCompanies": 2100,
+      "avgDailyVolume": 12000000000,
+      "topGainers": [
+        {"symbol": "RELIANCE", "name": "Reliance", "change": 2.8},
+        {"symbol": "TCS", "name": "Tata Consultancy", "change": 3.1},
+        {"symbol": "HDFCBANK", "name": "HDFC Bank", "change": 2.5}
+      ],
+      "topLosers": [
+        {"symbol": "MARUTI", "name": "Maruti Suzuki", "change": -1.8},
+        {"symbol": "BAJAJ-AUTO", "name": "Bajaj Auto", "change": -1.5},
+        {"symbol": "TATASTEEL", "name": "Tata Steel", "change": -1.2}
+      ],
+      "economicSnapshot": {
+        "gdpGrowth": 6.8,
+        "inflation": 2.3,
+        "unemployment": 3.2,
+        "interestRate": 5.75,
+        "tradeBalance": "-1.2%"
+      },
+      "sectorBreakdown": {
+        "Technology": 18.2,
+        "Finance": 22.8,
+        "Energy": 14.5,
+        "Automotive": 8.3,
+        "Healthcare": 7.2,
+        "Other": 29.0
+      },
+      "liveIndices": [
+        {"symbol": "NIFTY50", "name": "Nifty 50", "value": 21845.32, "change": 1.64},
+        {"symbol": "NIFTY100", "name": "Nifty 100", "value": 24562.18, "change": 1.42}
+      ]
+    },
+    {
+      "id": "ASX",
+      "name": "Australian Securities Exchange",
+      "country": "Australia",
+      "countryCode": "AU",
+      "region": "Oceania",
+      "timezone": "Australia/Sydney",
+      "currency": "AUD",
+      "tradingHours": {
+        "open": "10:00",
+        "close": "16:00",
+        "timezone": "Australia/Sydney"
+      },
+      "mainIndex": "AXJO",
+      "mainIndexName": "ASX 200",
+      "description": "Australia's primary stock exchange",
+      "founded": 1987,
+      "website": "https://www.asx.com.au",
+      "logo": "/logos/exchanges/asx.svg",
+      "marketCap": 1800000000000,
+      "listedCompanies": 2000,
+      "avgDailyVolume": 7000000000,
+      "topGainers": [
+        {"symbol": "BHP", "name": "BHP Group", "change": 3.2},
+        {"symbol": "RIO", "name": "Rio Tinto", "change": 2.9},
+        {"symbol": "NAB", "name": "NAB", "change": 1.8}
+      ],
+      "topLosers": [
+        {"symbol": "WES", "name": "Wesfarmers", "change": -1.4},
+        {"symbol": "CBA", "name": "Commonwealth Bank", "change": -1.1},
+        {"symbol": "ANZ", "name": "ANZ", "change": -0.9}
+      ],
+      "economicSnapshot": {
+        "gdpGrowth": 1.8,
+        "inflation": 2.9,
+        "unemployment": 3.7,
+        "interestRate": 4.1,
+        "tradeBalance": "0.7%"
+      },
+      "sectorBreakdown": {
+        "Mining": 22.3,
+        "Finance": 20.5,
+        "Energy": 8.2,
+        "Healthcare": 7.8,
+        "Retail": 6.4,
+        "Other": 34.8
+      },
+      "liveIndices": [
+        {"symbol": "AXJO", "name": "ASX 200", "value": 7432.85, "change": 0.98},
+        {"symbol": "AXFD", "name": "All Ordinaries", "value": 7890.43, "change": 1.12}
+      ]
+    }
+  ]
+}

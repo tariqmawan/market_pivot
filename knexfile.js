@@ -27,7 +27,7 @@ module.exports = {
 
   production: {
     client: "postgresql",
-    connection: requireEnv("DATABASE_URL"),
+    connection: () => requireEnv("DATABASE_URL"),
     migrations: {
       directory: "./dist/server/database/migrations",
     },

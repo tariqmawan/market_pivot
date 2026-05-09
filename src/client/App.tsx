@@ -1,15 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Link, Route, Routes, useParams } from "react-router-dom";
+import commoditiesData from "../data/commodities.json";
 import exchangesData from "../data/exchanges.json";
 import currenciesData from "../data/currencies.json";
 import cryptoData from "../data/cryptocurrencies.json";
+import regionsData from "../data/regions.json";
+import sectorsData from "../data/sectors.json";
 import type {
+  Commodity,
   CryptoPrice,
   Cryptocurrency,
   Currency,
   CurrencyPair,
   IndexSnapshot,
+  MarketRegion,
   MarketMover,
+  StockSector,
   StockExchange,
   TradingPair,
 } from "../types";
@@ -23,12 +29,17 @@ import "./styles/index.css";
 const exchanges = exchangesData.exchanges as StockExchange[];
 const currencies = currenciesData.currencies as Currency[];
 const cryptocurrencies = cryptoData.cryptocurrencies as Cryptocurrency[];
+const marketRegions = regionsData.regions as MarketRegion[];
+const stockSectors = sectorsData.sectors as StockSector[];
+const commodities = commoditiesData.commodities as Commodity[];
 
 const formatMoney = (value: number) => {
   if (value >= 1e12) return `$${(value / 1e12).toFixed(1)}T`;
   if (value >= 1e9) return `$${(value / 1e9).toFixed(1)}B`;
   return `$${value.toLocaleString()}`;
 };
+
+const formatSignedPercent = (value: number) => `${value >= 0 ? "+" : ""}${value.toFixed(2)}%`;
 
 const buildIndexSnapshot = (exchange: StockExchange): IndexSnapshot => ({
   id: `${exchange.id}-snapshot`,
@@ -167,6 +178,31 @@ const AssetCard: React.FC<{
   </Link>
 );
 
+const MetricTile: React.FC<{ label: string; value: string; tone?: "positive" | "negative" | "neutral" }> = ({
+  label,
+  value,
+  tone = "neutral",
+}) => (
+  <div className="metric-tile">
+    <span>{label}</span>
+    <strong className={tone === "neutral" ? "" : tone}>{value}</strong>
+  </div>
+);
+
+const ChipList: React.FC<{ items: string[]; toPrefix?: string }> = ({ items, toPrefix }) => (
+  <div className="chip-list">
+    {items.map((item) =>
+      toPrefix ? (
+        <Link key={item} to={`${toPrefix}${item.toLowerCase()}`}>
+          {item}
+        </Link>
+      ) : (
+        <span key={item}>{item}</span>
+      )
+    )}
+  </div>
+);
+
 const marketTape = [
   { label: "S&P 500", value: "5,420.18", move: "+0.82%" },
   { label: "US 10Y", value: "4.31%", move: "-3bp" },
@@ -178,10 +214,10 @@ const marketTape = [
 
 const assetCoverage = [
   { key: "equities", count: exchanges.length, metaKey: "exchangeDashboards", to: "/stocks" },
-  { key: "bonds", count: 12, metaKey: "fixedIncomeMeta", to: "/dashboard" },
+  { key: "regions", count: marketRegions.length, metaKey: "regionsMeta", to: "/regions" },
   { key: "fx", count: currencies.length, metaKey: "fxMeta", to: "/currencies" },
-  { key: "commodities", count: 18, metaKey: "commoditiesMeta", to: "/dashboard" },
-  { key: "derivatives", count: 9, metaKey: "derivativesMeta", to: "/dashboard" },
+  { key: "sectors", count: stockSectors.length, metaKey: "sectorsMeta", to: "/sectors" },
+  { key: "commodities", count: commodities.length, metaKey: "commoditiesMeta", to: "/commodities" },
   { key: "crypto", count: cryptocurrencies.length, metaKey: "cryptoMeta", to: "/crypto" },
 ] as const;
 
@@ -265,6 +301,45 @@ const HomePage = () => {
           <span>USD/INR</span>
           <span>US 10Y</span>
           <span>Brent</span>
+        </div>
+      </section>
+
+      <section className="intelligence-grid">
+        <div className="intelligence-panel">
+          <p className="eyebrow">Regional Intelligence</p>
+          <h2>Markets by geography</h2>
+          <div className="mini-list">
+            {marketRegions.map((region) => (
+              <Link to={`/regions/${region.id}`} key={region.id}>
+                <span>{region.name}</span>
+                <strong>{region.countries.length} countries</strong>
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="intelligence-panel">
+          <p className="eyebrow">Sector Intelligence</p>
+          <h2>Equity themes and categories</h2>
+          <div className="mini-list">
+            {stockSectors.slice(0, 5).map((sector) => (
+              <Link to={`/sectors/${sector.id}`} key={sector.id}>
+                <span>{sector.name}</span>
+                <strong>{formatSignedPercent(sector.performanceYtd)} YTD</strong>
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="intelligence-panel">
+          <p className="eyebrow">Commodity Intelligence</p>
+          <h2>Macro inputs and futures</h2>
+          <div className="mini-list">
+            {commodities.slice(0, 5).map((commodity) => (
+              <Link to={`/commodities/${commodity.id}`} key={commodity.id}>
+                <span>{commodity.name}</span>
+                <strong>{formatMoney(commodity.spotPrice)}</strong>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </div>
@@ -383,6 +458,9 @@ const CryptoPage = () => {
 
 const DashboardPage = () => {
   const { t } = useI18n();
+  const leadingRegion = marketRegions[2];
+  const leadingSector = stockSectors[0];
+  const leadingCommodity = commodities[0];
 
   return (
     <div className="page">
@@ -395,7 +473,223 @@ const DashboardPage = () => {
         <AssetCard to="/stocks/NYSE" eyebrow={t("topExchange")} title="New York Stock Exchange" meta="S&P 500 / USD / New York" metric={formatMoney(exchanges[0].marketCap)} />
         <AssetCard to="/currencies/USD" eyebrow={t("coreReserve")} title="United States Dollar" meta="Federal Reserve / global base" metric={t("primaryBase")} />
         <AssetCard to="/crypto/bitcoin" eyebrow={t("cryptoLeader")} title="Bitcoin" meta="BTC vs USD, FX, and equity risk" metric={formatMoney(getCryptoPrice(cryptocurrencies[0], 0).marketCap)} />
+        <AssetCard to={`/regions/${leadingRegion.id}`} eyebrow="Region pulse" title={leadingRegion.name} meta={leadingRegion.newsThemes.join(" / ")} metric={`${leadingRegion.gdpGrowth.toFixed(1)}% GDP growth`} />
+        <AssetCard to={`/sectors/${leadingSector.id}`} eyebrow="Sector pulse" title={leadingSector.name} meta={leadingSector.newsThemes.join(" / ")} metric={`${formatSignedPercent(leadingSector.performanceYtd)} YTD`} />
+        <AssetCard to={`/commodities/${leadingCommodity.id}`} eyebrow="Commodity pulse" title={leadingCommodity.name} meta={leadingCommodity.economicImpact} metric={`${formatMoney(leadingCommodity.spotPrice)} / ${leadingCommodity.unit}`} />
       </section>
+    </div>
+  );
+};
+
+const RegionsPage = () => {
+  const { regionId } = useParams();
+  const region = marketRegions.find((item) => item.id.toLowerCase() === regionId?.toLowerCase());
+
+  if (region) {
+    return (
+      <div className="page intelligence-page">
+        <section className="coverage-hero">
+          <div>
+            <p className="eyebrow">Market Region</p>
+            <h1>{region.name}</h1>
+            <p>{region.summary}</p>
+          </div>
+          <div className="metric-strip">
+            <MetricTile label="GDP Growth" value={`${region.gdpGrowth.toFixed(1)}%`} tone="positive" />
+            <MetricTile label="Inflation" value={`${region.inflation.toFixed(1)}%`} />
+            <MetricTile label="Countries" value={String(region.countries.length)} />
+          </div>
+        </section>
+
+        <section className="detail-grid">
+          <div className="detail-panel wide">
+            <p className="eyebrow">Major Exchanges</p>
+            <ChipList items={region.majorExchanges} toPrefix="/stocks/" />
+          </div>
+          <div className="detail-panel">
+            <p className="eyebrow">Currencies</p>
+            <ChipList items={region.currencies} toPrefix="/currencies/" />
+          </div>
+          <div className="detail-panel">
+            <p className="eyebrow">Key Indices</p>
+            <ChipList items={region.keyIndices} />
+          </div>
+          <div className="detail-panel">
+            <p className="eyebrow">Economic Calendar</p>
+            <ChipList items={region.calendarFocus} />
+          </div>
+          <div className="detail-panel">
+            <p className="eyebrow">Sector Leaders</p>
+            <ChipList items={region.sectorLeaders} />
+          </div>
+          <div className="detail-panel wide">
+            <p className="eyebrow">Commodity Impact</p>
+            <p>{region.commodityImpact}</p>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  return (
+    <div className="page intelligence-page">
+      <div className="section-heading">
+        <p className="eyebrow">Regions</p>
+        <h1>Global Market Regions</h1>
+        <p>Regional indices, currencies, macro calendars, commodity exposure, exchange coverage, and sector leadership in one map.</p>
+      </div>
+      <div className="market-map-grid">
+        {marketRegions.map((item) => (
+          <AssetCard
+            key={item.id}
+            to={`/regions/${item.id}`}
+            eyebrow={item.group}
+            title={item.name}
+            meta={`${item.countries.join(", ")} / ${item.currencies.join(", ")}`}
+            metric={`${item.gdpGrowth.toFixed(1)}% GDP / ${item.inflation.toFixed(1)}% CPI`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const SectorsPage = () => {
+  const { sectorId } = useParams();
+  const sector = stockSectors.find((item) => item.id.toLowerCase() === sectorId?.toLowerCase());
+
+  if (sector) {
+    return (
+      <div className="page intelligence-page">
+        <section className="coverage-hero">
+          <div>
+            <p className="eyebrow">Stock Sector</p>
+            <h1>{sector.name}</h1>
+            <p>{sector.summary}</p>
+          </div>
+          <div className="metric-strip">
+            <MetricTile label="Category" value={sector.category} />
+            <MetricTile label="Sector PE" value={sector.peRatio.toFixed(1)} />
+            <MetricTile label="YTD" value={formatSignedPercent(sector.performanceYtd)} tone={sector.performanceYtd >= 0 ? "positive" : "negative"} />
+          </div>
+        </section>
+
+        <section className="detail-grid">
+          <div className="detail-panel wide">
+            <p className="eyebrow">Top Companies</p>
+            <ChipList items={sector.topCompanies} />
+          </div>
+          <div className="detail-panel">
+            <p className="eyebrow">ETFs</p>
+            <ChipList items={sector.etfs} />
+          </div>
+          <div className="detail-panel">
+            <p className="eyebrow">Trending Stocks</p>
+            <ChipList items={sector.trendingStocks} />
+          </div>
+          <div className="detail-panel">
+            <p className="eyebrow">Dividend Leaders</p>
+            <ChipList items={sector.dividendLeaders} />
+          </div>
+          <div className="detail-panel">
+            <p className="eyebrow">Related Regions</p>
+            <ChipList items={sector.relatedRegions} toPrefix="/regions/" />
+          </div>
+          <div className="detail-panel wide">
+            <p className="eyebrow">News Themes</p>
+            <ChipList items={sector.newsThemes} />
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  return (
+    <div className="page intelligence-page">
+      <div className="section-heading">
+        <p className="eyebrow">Sectors</p>
+        <h1>Stock Categories & Sector Intelligence</h1>
+        <p>Technology, banking, AI, energy, healthcare, mining, real estate, semiconductor, and thematic equity coverage.</p>
+      </div>
+      <div className="asset-grid compact">
+        {stockSectors.map((item) => (
+          <AssetCard
+            key={item.id}
+            to={`/sectors/${item.id}`}
+            eyebrow={item.category}
+            title={item.name}
+            meta={`${item.topCompanies.slice(0, 3).join(", ")} / ${item.etfs.join(", ")}`}
+            metric={`${formatSignedPercent(item.performanceYtd)} YTD / ${item.peRatio.toFixed(1)} PE`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const CommoditiesPage = () => {
+  const { commodityId } = useParams();
+  const commodity = commodities.find(
+    (item) => item.id.toLowerCase() === commodityId?.toLowerCase() || item.symbol.toLowerCase() === commodityId?.toLowerCase()
+  );
+
+  if (commodity) {
+    return (
+      <div className="page intelligence-page">
+        <section className="coverage-hero">
+          <div>
+            <p className="eyebrow">Commodity</p>
+            <h1>{commodity.name}</h1>
+            <p>{commodity.economicImpact}</p>
+          </div>
+          <div className="metric-strip">
+            <MetricTile label="Spot Price" value={`${formatMoney(commodity.spotPrice)} / ${commodity.unit}`} />
+            <MetricTile label="24h Move" value={formatSignedPercent(commodity.changePercent24h)} tone={commodity.changePercent24h >= 0 ? "positive" : "negative"} />
+            <MetricTile label="Futures" value={commodity.futuresContract} />
+          </div>
+        </section>
+
+        <section className="detail-grid">
+          <div className="detail-panel">
+            <p className="eyebrow">Category</p>
+            <strong>{commodity.category}</strong>
+          </div>
+          <div className="detail-panel">
+            <p className="eyebrow">Supply Regions</p>
+            <ChipList items={commodity.supplyRegions} />
+          </div>
+          <div className="detail-panel wide">
+            <p className="eyebrow">Demand Trends</p>
+            <ChipList items={commodity.demandTrends} />
+          </div>
+          <div className="detail-panel wide">
+            <p className="eyebrow">Currency Correlation</p>
+            <p>{commodity.currencyCorrelation}</p>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  return (
+    <div className="page intelligence-page">
+      <div className="section-heading">
+        <p className="eyebrow">Commodities</p>
+        <h1>Energy, Metals, Agriculture & Industrial Inputs</h1>
+        <p>Spot prices, futures references, supply regions, demand trends, currency correlations, and macro impact.</p>
+      </div>
+      <div className="asset-grid compact">
+        {commodities.map((item) => (
+          <AssetCard
+            key={item.id}
+            to={`/commodities/${item.id}`}
+            eyebrow={item.category}
+            title={`${item.name} (${item.symbol})`}
+            meta={`${item.futuresContract} / ${item.supplyRegions.join(", ")}`}
+            metric={`${formatMoney(item.spotPrice)} / ${item.unit} (${formatSignedPercent(item.changePercent24h)})`}
+          />
+        ))}
+      </div>
     </div>
   );
 };
@@ -565,6 +859,12 @@ const App: React.FC = () => (
           <Route path="/currencies/:code" element={<CurrenciesPage />} />
           <Route path="/crypto" element={<CryptoPage />} />
           <Route path="/crypto/:cryptoId" element={<CryptoPage />} />
+          <Route path="/regions" element={<RegionsPage />} />
+          <Route path="/regions/:regionId" element={<RegionsPage />} />
+          <Route path="/sectors" element={<SectorsPage />} />
+          <Route path="/sectors/:sectorId" element={<SectorsPage />} />
+          <Route path="/commodities" element={<CommoditiesPage />} />
+          <Route path="/commodities/:commodityId" element={<CommoditiesPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/user" element={<UserPanelPage />} />
         </Routes>

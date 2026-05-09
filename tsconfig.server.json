@@ -8,9 +8,11 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "types": ["node"],
     "resolveJsonModule": true,
     "composite": true,
     "declaration": true,
+    "tsBuildInfoFile": "./dist/tsconfig.server.tsbuildinfo",
     "outDir": "./dist",
     "rootDir": "./src"
   },

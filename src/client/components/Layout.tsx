@@ -46,10 +46,14 @@ const Layout: React.FC<Props> = ({ children }) => {
           </Link>
 
           <nav className="nav-links">
+            <Link to="/dashboard">{t("markets")}</Link>
             <Link to="/stocks">{t("stocks")}</Link>
             <Link to="/currencies">{t("currencies")}</Link>
             <Link to="/crypto">{t("crypto")}</Link>
-            <Link to="/dashboard">{t("dashboard")}</Link>
+            <Link to="/commodities">{t("commodities")}</Link>
+            <Link to="/regions">{t("regions")}</Link>
+            <Link to="/sectors">{t("sectors")}</Link>
+            <Link to="/dashboard">{t("news")}</Link>
             <Link to="/user">{t("userPanel")}</Link>
           </nav>
 
@@ -117,6 +121,14 @@ const Layout: React.FC<Props> = ({ children }) => {
           <div className="footer-section">
             <h4>{t("crypto")}</h4>
             <p>{t("footerCrypto")}</p>
+          </div>
+          <div className="footer-section">
+            <h4>{t("commodities")}</h4>
+            <p>{t("commoditiesMeta")}</p>
+          </div>
+          <div className="footer-section">
+            <h4>{t("regions")}</h4>
+            <p>{t("regionsMeta")}</p>
           </div>
           <div className="footer-section">
             <h4>{t("about")}</h4>
