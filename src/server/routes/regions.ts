@@ -3,9 +3,8 @@ import type { Request, Response } from "express";
 import type { ApiResponse, MarketRegion, PaginatedResponse } from "../../types";
 import regionsData from "../../data/regions.json";
 import { parsePositiveInt } from "../security";
-
 const router = Router();
-const regions = regionsData.regions as MarketRegion[];
+const regions = regionsData.regions as unknown as MarketRegion[];
 
 router.get("/", async (req: Request, res: Response<PaginatedResponse<MarketRegion>>) => {
   try {

@@ -9,7 +9,6 @@ import type {
 } from "../../types";
 import currenciesData from "../../data/currencies.json";
 import { parsePositiveInt, sanitizeShortText } from "../security";
-
 const router = Router();
 
 // GET /api/currencies - Get all currencies

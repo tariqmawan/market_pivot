@@ -8,10 +8,31 @@ interface LoginModalProps {
 
 const LoginModal: React.FC<LoginModalProps> = ({ mode: initialMode = "login" }) => {
   const { t } = useI18n();
-  const { showLoginModal, showSignupModal, closeLoginModal, closeSignupModal, login, signup, isLoading } = useAuthStore();
+  const {
+    showLoginModal,
+    showSignupModal,
+    closeLoginModal,
+    closeSignupModal,
+    openLoginModal,
+    openSignupModal,
+    login,
+    signup,
+    isLoading,
+  } = useAuthStore();
   const [mode, setMode] = React.useState<"login" | "signup">(initialMode);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+
+  React.useEffect(() => {
+    if (showSignupModal) {
+      setMode("signup");
+      return;
+    }
+
+    if (showLoginModal) {
+      setMode("login");
+    }
+  }, [showLoginModal, showSignupModal]);
 
   const isOpen = mode === "login" ? showLoginModal : showSignupModal;
   const onClose = mode === "login" ? closeLoginModal : closeSignupModal;
@@ -37,9 +58,9 @@ const LoginModal: React.FC<LoginModalProps> = ({ mode: initialMode = "login" }) 
 
   const switchMode = () => {
     if (mode === "login") {
-      setMode("signup");
+      openSignupModal();
     } else {
-      setMode("login");
+      openLoginModal();
     }
   };
 

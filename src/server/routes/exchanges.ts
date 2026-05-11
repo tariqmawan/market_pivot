@@ -7,7 +7,6 @@ import type {
 } from "../../types";
 import exchangesData from "../../data/exchanges.json";
 import { parsePositiveInt } from "../security";
-
 const router = Router();
 
 // GET /api/exchanges - Get all exchanges with optional filtering

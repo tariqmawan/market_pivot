@@ -7,6 +7,7 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+
     "forceConsistentCasingInFileNames": true,
     "types": ["node"],
     "resolveJsonModule": true,
@@ -19,3 +20,4 @@
   "include": ["src/server/**/*", "src/types/**/*", "src/data/**/*.json"],
   "exclude": ["node_modules", "dist"]
 }
+

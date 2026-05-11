@@ -5,7 +5,7 @@
   "main": "server/index.ts",
   "scripts": {
     "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
-    "server:dev": "ts-node-dev --respawn src/server/index.ts",
+"server:dev": "ts-node-dev --respawn src/server/index.ts",
     "client:dev": "vite",
     "build": "npm run build:server && npm run build:client",
     "build:server": "tsc -p tsconfig.server.json",
@@ -41,3 +41,4 @@
     "vite": "^8.0.11"
   }
 }
+

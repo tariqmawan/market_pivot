@@ -9,7 +9,6 @@ import type {
 } from "../../types";
 import cryptoData from "../../data/cryptocurrencies.json";
 import { parsePositiveInt } from "../security";
-
 const router = Router();
 
 // GET /api/cryptos - Get all cryptocurrencies

@@ -38,11 +38,11 @@ const Layout: React.FC<Props> = ({ children }) => {
 
         <div className="navbar-container">
           <Link to="/" className="brand-lockup">
-            <span className="brand-mark">MP</span>
-            <div className="logo">
-              <h1>MarketsPivot</h1>
-              <span className="subtitle">{t("subtitle")}</span>
-            </div>
+            <img 
+              src="/logos/market_pivot-removebg-preview.png" 
+              alt="Markets Pivot" 
+              className="brand-logo"
+            />
           </Link>
 
           <nav className="nav-links">
@@ -58,9 +58,9 @@ const Layout: React.FC<Props> = ({ children }) => {
           </nav>
 
           <div className="header-controls">
-            <Link to="/dashboard" className="pricing-button">
-              {t("pricing")}
-            </Link>
+           <Link to="/pricing" className="pricing-button">
+            {t("pricing")}
+          </Link>
 
             {isAuthenticated && user ? (
               <div className="user-menu">

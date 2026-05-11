@@ -6,6 +6,7 @@ import currenciesData from "../data/currencies.json";
 import cryptoData from "../data/cryptocurrencies.json";
 import regionsData from "../data/regions.json";
 import sectorsData from "../data/sectors.json";
+import Pricing from "./pages/Pricing";
 import type {
   Commodity,
   CryptoPrice,
@@ -29,7 +30,7 @@ import "./styles/index.css";
 const exchanges = exchangesData.exchanges as StockExchange[];
 const currencies = currenciesData.currencies as Currency[];
 const cryptocurrencies = cryptoData.cryptocurrencies as Cryptocurrency[];
-const marketRegions = regionsData.regions as MarketRegion[];
+const marketRegions = regionsData.regions as unknown as MarketRegion[];
 const stockSectors = sectorsData.sectors as StockSector[];
 const commodities = commoditiesData.commodities as Commodity[];
 
@@ -866,6 +867,7 @@ const App: React.FC = () => (
           <Route path="/commodities" element={<CommoditiesPage />} />
           <Route path="/commodities/:commodityId" element={<CommoditiesPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/user" element={<UserPanelPage />} />
         </Routes>
       </Layout>

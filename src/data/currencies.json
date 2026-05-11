@@ -402,47 +402,4 @@
     }
   ]
 }
-      "region": "Europe",
-      "type": "fiat",
-      "centralBank": "Norges Bank",
-      "description": "Oil-linked currency of Nordic region",
-      "logo": "/logos/currencies/nok.svg"
-    },
-    {
-      "code": "SAR",
-      "name": "Saudi Riyal",
-      "symbol": "﷼",
-      "country": "Saudi Arabia",
-      "countryCode": "SA",
-      "region": "Middle East",
-      "type": "fiat",
-      "centralBank": "Saudi Central Bank",
-      "description": "Currency of major oil producer, pegged to USD",
-      "logo": "/logos/currencies/sar.svg"
-    },
-    {
-      "code": "AED",
-      "name": "UAE Dirham",
-      "symbol": "د.إ",
-      "country": "United Arab Emirates",
-      "countryCode": "AE",
-      "region": "Middle East",
-      "type": "fiat",
-      "centralBank": "Central Bank of UAE",
-      "description": "Currency of major Middle Eastern financial hub",
-      "logo": "/logos/currencies/aed.svg"
-    },
-    {
-      "code": "ZAR",
-      "name": "South African Rand",
-      "symbol": "R",
-      "country": "South Africa",
-      "countryCode": "ZA",
-      "region": "Africa",
-      "type": "fiat",
-      "centralBank": "South African Reserve Bank",
-      "description": "Currency of Africa's most developed economy",
-      "logo": "/logos/currencies/zar.svg"
-    }
-  ]
-}
+
