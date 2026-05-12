@@ -13,6 +13,7 @@ const Layout: React.FC<Props> = ({ children }) => {
   const [theme, setTheme] = React.useState<"light" | "dark">("dark");
   const { language, setLanguage, t } = useI18n();
   const { openLoginModal, openSignupModal, isAuthenticated, user, logout } = useAuthStore();
+  const isAdminConsole = typeof window !== "undefined" && window.location.pathname === "/admin";
 
   return (
     <div className={`layout ${theme}`}>
@@ -103,13 +104,19 @@ const Layout: React.FC<Props> = ({ children }) => {
       </header>
 
       {/* Main Content */}
-      <main className="main-content">{children}</main>
+      <main
+        className="main-content"
+        data-layout="public"
+        style={{ gridArea: "main" }}
+      >{children}</main>
+
 
       {/* Login/Signup Modal */}
       <LoginModal />
 
-      {/* Footer */}
-      <footer className="footer">
+      {/* Footer (hidden on admin console) */}
+      <footer className="footer" style={{ display: isAdminConsole ? "none" : "block" }} >
+
         <div className="footer-content">
           <div className="footer-section">
             <h4>{t("stocks")}</h4>
@@ -155,5 +162,6 @@ const Layout: React.FC<Props> = ({ children }) => {
     </div>
   );
 };
+
 
 export default Layout;
