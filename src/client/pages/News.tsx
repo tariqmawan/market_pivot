@@ -1,5 +1,6 @@
 import React from "react";
 import newsData from "../../data/news.json";
+import { Link } from "react-router-dom";
 import "./News.css";
 
 const NewsPage: React.FC = () => {
@@ -11,6 +12,12 @@ const NewsPage: React.FC = () => {
 
   const trending = sorted.slice(0, 5);
 
+  React.useEffect(() => {
+    document.title = `Latest News — MarketsPivot`;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', 'Latest market news and headlines from MarketsPivot');
+  }, []);
+
   return (
     <div className="news-page">
       <main>
@@ -21,7 +28,7 @@ const NewsPage: React.FC = () => {
               <p style={{ color: '#888', margin: 0, fontSize: 13 }}>{featured.source} • {new Date(featured.publishedAt).toLocaleString()}</p>
               <h1>{featured.title}</h1>
               <p>{featured.summary}</p>
-              <a href={featured.url} target="_blank" rel="noreferrer">Read more →</a>
+              <Link to={`/news/${featured.id}`}>Read more →</Link>
             </div>
           </article>
         )}
@@ -31,7 +38,7 @@ const NewsPage: React.FC = () => {
             <article key={a.id} className="article-card">
               <img src={a.image} alt={a.title} />
               <div>
-                <h4>{a.title}</h4>
+                <h4><Link to={`/news/${a.id}`}>{a.title}</Link></h4>
                 <p>{a.summary}</p>
                 <small style={{ color: '#999' }}>{a.source} • {new Date(a.publishedAt).toLocaleTimeString()}</small>
               </div>

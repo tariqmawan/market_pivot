@@ -11,6 +11,8 @@ import currenciesRouter from "./routes/currencies";
 import cryptocurrenciesRouter from "./routes/cryptocurrencies";
 import regionsRouter from "./routes/regions";
 import sectorsRouter from "./routes/sectors";
+import newsRouter from "./routes/news";
+import chartsRouter from "./routes/charts";
 import { corsOptions, createRateLimiter, sanitizeShortText, securityHeaders } from "./security";
 
 // Import JSON data
@@ -55,6 +57,8 @@ app.use("/api/cryptos", cryptocurrenciesRouter);
 app.use("/api/regions", regionsRouter);
 app.use("/api/sectors", sectorsRouter);
 app.use("/api/commodities", commoditiesRouter);
+app.use("/api/news", newsRouter);
+app.use("/api/charts", chartsRouter);
 
 // Dashboard/Overview Routes
 app.get("/api/dashboard", (req: Request, res: Response) => {

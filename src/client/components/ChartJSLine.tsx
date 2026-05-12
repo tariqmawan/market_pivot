@@ -1,4 +1,5 @@
 import React from "react";
+import Chart from "chart.js/auto";
 
 interface ChartJSLineProps {
   data: number[];
@@ -10,25 +11,22 @@ interface ChartJSLineProps {
 
 const ChartJSLine: React.FC<ChartJSLineProps> = ({ data, labels, width = 800, height = 300, color = "#c89b5e" }) => {
   const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
-  const chartRef = React.useRef<any>(null);
+  const chartRef = React.useRef<Chart | null>(null);
 
   React.useEffect(() => {
-    const Chart = (window as any).Chart;
-    if (!Chart) {
-      console.warn("Chart.js not found on window - falling back to SVG chart");
-      return;
-    }
-
     const ctx = canvasRef.current?.getContext("2d");
     if (!ctx) return;
 
     if (chartRef.current) {
+      // @ts-ignore
       chartRef.current.data.labels = labels ?? data.map((_, i) => String(i));
+      // @ts-ignore
       chartRef.current.data.datasets[0].data = data;
       chartRef.current.update();
       return;
     }
 
+    // @ts-ignore - Chart type is complex; instantiate via Chart
     chartRef.current = new Chart(ctx, {
       type: "line",
       data: {

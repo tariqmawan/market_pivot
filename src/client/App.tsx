@@ -29,6 +29,7 @@ import { useAuthStore } from "./stores/authStore";
 import "./styles/index.css";
 import AdminPanel from "./pages/AdminPanel";
 import NewsPage from "./pages/News";
+import ArticlePage from "./pages/Article";
 
 const exchanges = exchangesData.exchanges as StockExchange[];
 const currencies = currenciesData.currencies as Currency[];
@@ -901,6 +902,7 @@ const App: React.FC = () => {
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/news" element={<NewsPage />} />
+          <Route path="/news/:id" element={<ArticlePage />} />
           <Route
             path="/admin"
             element={
