@@ -30,6 +30,9 @@ import "./styles/index.css";
 import AdminPanel from "./pages/AdminPanel";
 import NewsPage from "./pages/News";
 import ArticlePage from "./pages/Article";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import AboutMarketsPivot from "./pages/AboutMarketsPivot";
 
 const exchanges = exchangesData.exchanges as StockExchange[];
 const currencies = currenciesData.currencies as Currency[];
@@ -903,6 +906,10 @@ const App: React.FC = () => {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/:id" element={<ArticlePage />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/about" element={<AboutMarketsPivot />} />
+
           <Route
             path="/admin"
             element={

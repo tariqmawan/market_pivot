@@ -135,14 +135,16 @@ const Layout: React.FC<Props> = ({ children }) => {
             <h4>{t("about")}</h4>
             <ul>
               <li>
-                <Link to="/">{t("aboutMarket")}</Link>
+                <Link to="/about">{t("aboutMarket")}</Link>
+              </li>
+
+              <li>
+                <Link to="/privacy">{t("privacy")}</Link>
               </li>
               <li>
-                <Link to="/">{t("privacy")}</Link>
+                <Link to="/terms">{t("terms")}</Link>
               </li>
-              <li>
-                <Link to="/">{t("terms")}</Link>
-              </li>
+
             </ul>
           </div>
         </div>

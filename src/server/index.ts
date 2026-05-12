@@ -16,12 +16,17 @@ import chartsRouter from "./routes/charts";
 import { corsOptions, createRateLimiter, sanitizeShortText, securityHeaders } from "./security";
 
 // Import JSON data
-import commoditiesData from "../data/commodities.json";
-import cryptoData from "../data/cryptocurrencies.json";
-import currenciesData from "../data/currencies.json";
-import exchangesData from "../data/exchanges.json";
-import regionsData from "../data/regions.json";
-import sectorsData from "../data/sectors.json";
+import fs from "fs";
+import path from "path";
+
+const readJson = (relPath: string) => JSON.parse(fs.readFileSync(path.resolve(__dirname, relPath), "utf8"));
+
+const commoditiesData = readJson("../data/commodities.json");
+const cryptoData = readJson("../data/cryptocurrencies.json");
+const currenciesData = readJson("../data/currencies.json");
+const exchangesData = readJson("../data/exchanges.json");
+const regionsData = readJson("../data/regions.json");
+const sectorsData = readJson("../data/sectors.json");
 
 
 
