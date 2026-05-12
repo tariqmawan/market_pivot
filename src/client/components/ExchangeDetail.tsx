@@ -1,6 +1,8 @@
 import React from "react";
 import type { StockExchange, IndexSnapshot, MarketMover } from "../../types";
 import { useI18n } from "../i18n";
+import LineChart from "./LineChart";
+import ChartJSLine from "./ChartJSLine";
 
 interface ExchangeDetailProps {
   exchange: StockExchange;
@@ -23,6 +25,18 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
   const [activeTab, setActiveTab] = React.useState<
     "overview" | "chart" | "movers" | "sectors" | "news"
   >("overview");
+
+  const generateSeries = (base: number, points = 30) => {
+    const series: number[] = [];
+    let value = base;
+    for (let i = 0; i < points; i++) {
+      // random walk small variations
+      const change = (Math.random() - 0.5) * base * 0.01;
+      value = Math.max(0, value + change);
+      series.push(Number(value.toFixed(2)));
+    }
+    return series;
+  };
 
   return (
     <div className="exchange-detail">
@@ -155,14 +169,30 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
         )}
 
         {activeTab === "chart" && (
-          <section className="chart-section">
-            <div className="chart-placeholder">
-              <p>{t("chartComing")}</p>
-              <p className="subtitle">
-                {t("chartTimeframes")}
-              </p>
-            </div>
-          </section>
+            <section className="chart-section">
+              <h3>{t("chart")}</h3>
+              <div className="chart-controls">
+                <button className="timeframe">1D</button>
+                <button className="timeframe active">7D</button>
+                <button className="timeframe">1M</button>
+                <button className="timeframe">1Y</button>
+              </div>
+
+              <div>
+                {indexData ? (
+                  // prefer Chart.js when loaded, fallback to SVG LineChart
+                  (window as any).Chart ? (
+                    <ChartJSLine data={generateSeries(indexData.value, 30)} width={800} height={260} />
+                  ) : (
+                    <LineChart data={generateSeries(indexData.value, 30)} width={800} height={260} />
+                  )
+                ) : (
+                  <div className="chart-placeholder">
+                    <p>{t("chartComing")}</p>
+                  </div>
+                )}
+              </div>
+            </section>
         )}
 
         {activeTab === "movers" && (

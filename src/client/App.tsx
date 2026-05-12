@@ -25,7 +25,10 @@ import CurrencyDetail from "./components/CurrencyDetail";
 import ExchangeDetail from "./components/ExchangeDetail";
 import Layout from "./components/Layout";
 import { I18nProvider, useI18n } from "./i18n";
+import { useAuthStore } from "./stores/authStore";
 import "./styles/index.css";
+import AdminPanel from "./pages/AdminPanel";
+import NewsPage from "./pages/News";
 
 const exchanges = exchangesData.exchanges as StockExchange[];
 const currencies = currenciesData.currencies as Currency[];
@@ -717,6 +720,38 @@ const userAlerts = [
 
 const UserPanelPage = () => {
   const { t } = useI18n();
+  const { user, isAuthenticated, logout, updateUser } = useAuthStore();
+  const [editing, setEditing] = React.useState(false);
+  const [name, setName] = React.useState(user?.name ?? "");
+  const [email, setEmail] = React.useState(user?.email ?? "");
+
+  React.useEffect(() => {
+    setName(user?.name ?? "");
+    setEmail(user?.email ?? "");
+  }, [user]);
+
+  const saveProfile = () => {
+    updateUser({ name, email });
+    setEditing(false);
+  };
+
+  if (!isAuthenticated || !user) {
+    return (
+      <div className="page user-panel-page">
+        <div className="section-heading">
+          <p className="eyebrow">{t("userPanel")}</p>
+          <h1>{t("userPanelTitle")}</h1>
+          <p>{t("userPanelIntro")}</p>
+        </div>
+        <div className="centered">
+          <p>{t("loginTitle")}</p>
+          <button onClick={() => window.scrollTo(0, 0)} className="primary-action">
+            {t("login")}
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="page user-panel-page">
@@ -727,34 +762,28 @@ const UserPanelPage = () => {
           <p>{t("userPanelIntro")}</p>
         </div>
         <div className="user-profile-card">
-          <span className="avatar">AM</span>
+          <span className="avatar">{user.name.charAt(0).toUpperCase()}</span>
           <div>
-            <strong>Amit Market Desk</strong>
-            <p>Premium trial / USD base / Asia focus</p>
+            {editing ? (
+              <div>
+                <input value={name} onChange={(e) => setName(e.target.value)} />
+                <input value={email} onChange={(e) => setEmail(e.target.value)} />
+                <div style={{ marginTop: 8 }}>
+                  <button onClick={saveProfile} className="primary-action">Save</button>
+                  <button onClick={() => setEditing(false)} className="secondary-action">Cancel</button>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <strong>{user.name}</strong>
+                <p>{user.email}</p>
+                <div style={{ marginTop: 8 }}>
+                  <button onClick={() => setEditing(true)} className="secondary-action">Edit Profile</button>
+                  <button onClick={logout} className="link-button">{t("logout")}</button>
+                </div>
+              </div>
+            )}
           </div>
-        </div>
-      </section>
-
-      <section className="user-stat-grid">
-        <div className="user-stat-card highlight">
-          <span>{t("portfolioValue")}</span>
-          <strong>$128,420</strong>
-          <em className="positive">+1.84%</em>
-        </div>
-        <div className="user-stat-card">
-          <span>{t("watchlist")}</span>
-          <strong>18</strong>
-          <em>{t("marketsFollowed")}</em>
-        </div>
-        <div className="user-stat-card">
-          <span>{t("activeAlerts")}</span>
-          <strong>7</strong>
-          <em>{t("enabled")}</em>
-        </div>
-        <div className="user-stat-card">
-          <span>{t("todayPnl")}</span>
-          <strong>$2,318</strong>
-          <em className="positive">+0.94%</em>
         </div>
       </section>
 
@@ -847,11 +876,14 @@ const UserPanelPage = () => {
   );
 };
 
-const App: React.FC = () => (
-  <I18nProvider>
-    <Router>
-      <Layout>
-        <Routes>
+const App: React.FC = () => {
+  const { isAuthenticated, user } = useAuthStore();
+
+  return (
+    <I18nProvider>
+      <Router>
+        <Layout>
+          <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/index.html" element={<HomePage />} />
           <Route path="/stocks" element={<StocksPage />} />
@@ -868,11 +900,35 @@ const App: React.FC = () => (
           <Route path="/commodities/:commodityId" element={<CommoditiesPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route
+            path="/admin"
+            element={
+              isAuthenticated && user?.isAdmin ? (
+                <AdminPanel />
+              ) : !isAuthenticated ? (
+                <div className="page">
+                  <div className="section-heading">
+                    <h1>Sign in required</h1>
+                    <p>Please sign in as an administrator to access this page.</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="page">
+                  <div className="section-heading">
+                    <h1>403 — Forbidden</h1>
+                    <p>Admin access required.</p>
+                  </div>
+                </div>
+              )
+            }
+          />
           <Route path="/user" element={<UserPanelPage />} />
-        </Routes>
-      </Layout>
-    </Router>
-  </I18nProvider>
-);
+          </Routes>
+        </Layout>
+      </Router>
+    </I18nProvider>
+  );
+};
 
 export default App;

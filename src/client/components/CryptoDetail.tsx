@@ -1,6 +1,7 @@
 import React from "react";
 import type { Cryptocurrency, CryptoPrice, TradingPair } from "../../types";
 import { useI18n } from "../i18n";
+import LineChart from "./LineChart";
 
 interface CryptoDetailProps {
   crypto: Cryptocurrency;
@@ -19,6 +20,17 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
   const [activeTab, setActiveTab] = React.useState<
     "overview" | "price" | "pairs" | "exchanges" | "charts" | "on-chain" | "news"
   >("overview");
+
+  const generateSeries = (base: number, points = 50) => {
+    const series: number[] = [];
+    let value = base;
+    for (let i = 0; i < points; i++) {
+      const change = (Math.random() - 0.5) * base * 0.03;
+      value = Math.max(0, value + change);
+      series.push(Number(value.toFixed(2)));
+    }
+    return series;
+  };
 
   return (
     <div className="crypto-detail">
@@ -286,8 +298,18 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
               <button className="timeframe">1Y</button>
               <button className="timeframe">ALL</button>
             </div>
-            <div className="chart-placeholder">
-              <p>{t("priceChart")}</p>
+            <div>
+              {priceData ? (
+                (window as any).Chart ? (
+                  <ChartJSLine data={generateSeries(priceData.price, 60)} width={820} height={300} />
+                ) : (
+                  <LineChart data={generateSeries(priceData.price, 60)} width={820} height={300} />
+                )
+              ) : (
+                <div className="chart-placeholder">
+                  <p>{t("priceChart")}</p>
+                </div>
+              )}
               <p className="subtitle">{t("volumeOverlay")}</p>
             </div>
           </section>

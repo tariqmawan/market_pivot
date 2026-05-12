@@ -7,6 +7,7 @@ interface User {
   name: string;
   avatar?: string;
   provider?: "google" | "apple" | "facebook" | "twitter" | "email";
+  isAdmin?: boolean;
 }
 
 interface AuthState {
@@ -18,6 +19,7 @@ interface AuthState {
   showSignupModal: boolean;
   login: (provider?: string) => Promise<void>;
   signup: (provider?: string) => Promise<void>;
+  updateUser: (updates: Partial<User>) => void;
   logout: () => void;
   openLoginModal: () => void;
   closeLoginModal: () => void;
@@ -50,6 +52,7 @@ export const useAuthStore = create<AuthState>()(
             email: `demo@${provider}.com`,
             name: `Demo User (${provider})`,
             provider: provider as User["provider"],
+            isAdmin: provider === "admin",
           };
 
           set({ user: mockUser, isAuthenticated: true, isLoading: false, showLoginModal: false });
@@ -70,6 +73,7 @@ export const useAuthStore = create<AuthState>()(
             email: `newuser@${provider}.com`,
             name: `New User (${provider})`,
             provider: provider as User["provider"],
+            isAdmin: provider === "admin",
           };
 
           set({ user: mockUser, isAuthenticated: true, isLoading: false, showSignupModal: false });
@@ -80,6 +84,13 @@ export const useAuthStore = create<AuthState>()(
 
       logout: () => {
         set({ user: null, isAuthenticated: false });
+      },
+
+      updateUser: (updates: Partial<User>) => {
+        const current = get().user;
+        if (!current) return;
+        const updated = { ...current, ...updates } as User;
+        set({ user: updated });
       },
 
       openLoginModal: () => {

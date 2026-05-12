@@ -189,6 +189,17 @@ const LoginModal: React.FC<LoginModalProps> = ({ mode: initialMode = "login" }) 
             </svg>
             {t("twitter")}
           </button>
+
+          {/* Developer: quick admin login for testing */}
+          <button
+            type="button"
+            className="social-button admin"
+            onClick={() => handleSocialLogin("admin")}
+            disabled={isLoading}
+            style={{ background: "#333", color: "#fff" }}
+          >
+            Admin
+          </button>
         </div>
 
         <div className="modal-footer">

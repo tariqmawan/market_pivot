@@ -53,8 +53,9 @@ const Layout: React.FC<Props> = ({ children }) => {
             <Link to="/commodities">{t("commodities")}</Link>
             <Link to="/regions">{t("regions")}</Link>
             <Link to="/sectors">{t("sectors")}</Link>
-            <Link to="/dashboard">{t("news")}</Link>
+            <Link to="/news">{t("news")}</Link>
             <Link to="/user">{t("userPanel")}</Link>
+            {isAuthenticated && user?.isAdmin && <Link to="/admin">Admin</Link>}
           </nav>
 
           <div className="header-controls">

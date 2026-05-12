@@ -1,0 +1,59 @@
+{
+  "articles": [
+    {
+      "id": "n1",
+      "title": "Global Markets Rally as Tech Stocks Lead Gains",
+      "summary": "Major tech names pushed global markets higher after strong earnings and upbeat guidance.",
+      "image": "/logos/market_pivot-removebg-preview.png",
+      "source": "Reuters",
+      "url": "https://example.com/article/n1",
+      "publishedAt": "2026-05-12T09:30:00Z",
+      "category": "markets",
+      "tags": ["markets", "tech", "earnings"]
+    },
+    {
+      "id": "n2",
+      "title": "USD Strengthens on Positive Economic Data",
+      "summary": "US inflation cooled more than expected, lifting the dollar across major pairs.",
+      "image": "/logos/market_pivot-removebg-preview.png",
+      "source": "Bloomberg",
+      "url": "https://example.com/article/n2",
+      "publishedAt": "2026-05-12T08:45:00Z",
+      "category": "fx",
+      "tags": ["fx", "dollar", "macro"]
+    },
+    {
+      "id": "n3",
+      "title": "Oil Prices Slip After Surprise Inventory Build",
+      "summary": "Brent and WTI extended losses after reports of an unexpected rise in US crude inventories.",
+      "image": "/logos/market_pivot-removebg-preview.png",
+      "source": "MarketWatch",
+      "url": "https://example.com/article/n3",
+      "publishedAt": "2026-05-12T07:50:00Z",
+      "category": "commodities",
+      "tags": ["oil", "commodities"]
+    },
+    {
+      "id": "n4",
+      "title": "Bitcoin Consolidates Ahead of Major Network Upgrade",
+      "summary": "Traders are awaiting the upcoming protocol update that could affect fees and throughput.",
+      "image": "/logos/market_pivot-removebg-preview.png",
+      "source": "CoinDesk",
+      "url": "https://example.com/article/n4",
+      "publishedAt": "2026-05-12T06:20:00Z",
+      "category": "crypto",
+      "tags": ["bitcoin", "crypto"]
+    },
+    {
+      "id": "n5",
+      "title": "European Markets Open Mixed on Earnings",
+      "summary": "Banks and energy firms diverged as earnings beat and miss affected sector flows.",
+      "image": "/logos/market_pivot-removebg-preview.png",
+      "source": "FT",
+      "url": "https://example.com/article/n5",
+      "publishedAt": "2026-05-11T22:10:00Z",
+      "category": "markets",
+      "tags": ["europe", "earnings"]
+    }
+  ]
+}
