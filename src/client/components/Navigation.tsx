@@ -14,6 +14,7 @@ interface NavigationItem {
 const Navigation: React.FC = () => {
   const { t } = useI18n();
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const rootRef = React.useRef<HTMLDivElement | null>(null);
 
   const navigationItems: NavigationItem[] = [
     {
@@ -133,24 +134,42 @@ const Navigation: React.FC = () => {
     }
   ];
 
+  React.useEffect(() => {
+    const onDocClick = (e: MouseEvent) => {
+      if (!rootRef.current) return;
+      if (rootRef.current.contains(e.target as Node)) return;
+      setOpenMenu(null);
+    };
+
+    document.addEventListener("click", onDocClick);
+    return () => document.removeEventListener("click", onDocClick);
+  }, []);
+
+  const handleItemClick = (item: NavigationItem, e: React.MouseEvent) => {
+    if (item.submenu) {
+      e.preventDefault();
+      setOpenMenu((prev) => (prev === item.path ? null : item.path));
+    }
+  };
+
   return (
-    <nav className="enhanced-navigation">
+    <nav className="enhanced-navigation" ref={rootRef}>
       <div className="nav-items">
         {navigationItems.map((item) => (
           <div
             key={item.path}
-            className="nav-item-wrapper"
+            className={`nav-item-wrapper ${openMenu === item.path ? "open" : ""}`}
             onMouseEnter={() => setOpenMenu(item.path)}
             onMouseLeave={() => setOpenMenu(null)}
           >
-            <Link to={item.path} className="nav-item">
+            <Link to={item.path} className="nav-item" onClick={(e) => handleItemClick(item, e)}>
               <span className="nav-icon">{item.icon}</span>
               <span className="nav-label">{item.label}</span>
               {item.submenu && <span className="nav-arrow">▼</span>}
             </Link>
 
             {item.submenu && openMenu === item.path && (
-              <div className="nav-submenu">
+              <div className="nav-submenu" role="menu">
                 <div className="submenu-header">
                   <h3>{item.label}</h3>
                   <p>{item.description}</p>
