@@ -3,17 +3,33 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header: React.FC = () => {
+  const languages = [
+    "English",
+    "العربية",
+    "中文(简体)",
+    "中文(繁體)",
+    "日本語",
+    "한국어",
+    "हिन्दी",
+    "ไทย",
+    "Tiếng Việt",
+    "Italiano",
+    "Español",
+    "Deutsch",
+    "Français",
+    "Português",
+    "Русский",
+  ];
+
   return (
     <div className="top-header">
-      <div className="language-strip">
-        <div className="languages">
-          <span className="lang active">English</span>
-          <span className="lang">العربية</span>
-          <span className="lang">中文(简体)</span>
-          <span className="lang">日本語</span>
-          <span className="lang">한국어</span>
-          <span className="lang">ไทย</span>
-          <span className="lang">Tiếng Việt</span>
+      <div className="language-strip" aria-label="Preferred language">
+        <div className="languages" role="list">
+          {languages.map((l) => (
+            <button key={l} className={`lang ${l === "English" ? "active" : ""}`} role="listitem" aria-pressed={l === "English"}>
+              {l}
+            </button>
+          ))}
         </div>
       </div>
 
