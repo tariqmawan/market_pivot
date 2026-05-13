@@ -905,6 +905,9 @@ const App: React.FC = () => {
             <Route path="commodities" element={<CommoditiesPage />} />
             <Route path="commodities/:commodityId" element={<CommoditiesPage />} />
             <Route path="dashboard" element={<DashboardPage />} />
+            <Route path="markets" element={<DashboardPage />} />
+            <Route path="exchanges" element={<StocksPage />} />
+            <Route path="forex" element={<CurrenciesPage />} />
             <Route path="pricing" element={<Pricing />} />
             <Route path="news" element={<NewsPage />} />
             <Route path="news/:id" element={<ArticlePage />} />

@@ -57,6 +57,16 @@
   margin-left: 4px;
 }
 
+.submenu-toggle {
+  background: transparent;
+  border: none;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: #6b7280;
+  font-weight: 700;
+}
+.submenu-toggle:hover { color: #c89b5e; }
+
 /* Submenu */
 .nav-submenu {
   position: absolute;

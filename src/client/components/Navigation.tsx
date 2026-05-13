@@ -162,11 +162,11 @@ const Navigation: React.FC = () => {
             onMouseEnter={() => setOpenMenu(item.path)}
             onMouseLeave={() => setOpenMenu(null)}
           >
-            <Link to={item.path} className="nav-item" onClick={(e) => handleItemClick(item, e)}>
+            <Link to={item.path} className="nav-item">
               <span className="nav-icon">{item.icon}</span>
               <span className="nav-label">{item.label}</span>
-              {item.submenu && <span className="nav-arrow">▼</span>}
             </Link>
+            {/* removed submenu toggle arrow per design request */}
 
             {item.submenu && openMenu === item.path && (
               <div className="nav-submenu" role="menu">
