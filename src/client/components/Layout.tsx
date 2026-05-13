@@ -17,7 +17,8 @@ const Layout: React.FC<Props> = ({ children }) => {
 
   return (
     <div className={`layout ${theme}`}>
-      <header className="navbar">
+      <header className="navbar" style={{ display: isAdminConsole ? "none" : "block" }}>
+
         <div className="language-bar">
           <div className="language-bar-label">
             <span>{t("preferredLanguage")}</span>

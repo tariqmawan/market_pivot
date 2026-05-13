@@ -28,6 +28,7 @@ import { I18nProvider, useI18n } from "./i18n";
 import { useAuthStore } from "./stores/authStore";
 import "./styles/index.css";
 import AdminPanel from "./pages/AdminPanel";
+import AdminAnalyticsDashboard from "./pages/AdminAnalyticsDashboard";
 import NewsPage from "./pages/News";
 import ArticlePage from "./pages/Article";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -914,7 +915,7 @@ const App: React.FC = () => {
             path="/admin"
             element={
               isAuthenticated && user?.isAdmin ? (
-                <AdminPanel />
+                <AdminAnalyticsDashboard />
               ) : !isAuthenticated ? (
                 <div className="page">
                   <div className="section-heading">
