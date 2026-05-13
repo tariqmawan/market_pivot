@@ -53,7 +53,7 @@ const AdminPanel: React.FC = () => {
     setCryptos(cr ? JSON.parse(cr) : (cryptoData.cryptocurrencies as Cryptocurrency[]));
 
     const rg = localStorage.getItem(keyFor("regions"));
-    setRegions(rg ? JSON.parse(rg) : (regionsData.regions as MarketRegion[]));
+    setRegions(rg ? JSON.parse(rg) : (regionsData.regions as unknown as MarketRegion[]));
 
     const ss = localStorage.getItem(keyFor("sectors"));
     setSectors(ss ? JSON.parse(ss) : (sectorsData.sectors as StockSector[]));

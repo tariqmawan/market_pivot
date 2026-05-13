@@ -2,6 +2,7 @@ import React from "react";
 import type { Cryptocurrency, CryptoPrice, TradingPair } from "../../types";
 import { useI18n } from "../i18n";
 import LineChart from "./LineChart";
+import ChartJSLine from "./ChartJSLine";
 
 interface CryptoDetailProps {
   crypto: Cryptocurrency;

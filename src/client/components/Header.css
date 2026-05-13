@@ -1,0 +1,21 @@
+/* Header top strip and brand row */
+.top-header { background: #fff; border-bottom: 1px solid #eee; }
+.language-strip { background: #f7f4f0; padding: 8px 0; border-bottom: 1px solid #efe6db; }
+.languages { max-width: 1400px; margin: 0 auto; padding: 0 20px; display: flex; gap: 12px; align-items: center; overflow-x: auto; }
+.lang { font-size: 13px; color: #6b6b6b; padding: 6px 10px; border-radius: 999px; background: transparent; }
+.lang.active { background: #c89b5e; color: white; font-weight: 700; }
+
+.brand-row { max-width: 1400px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
+.brand-left { display: flex; align-items: center; }
+.logo-img { height: 44px; }
+
+.brand-right { display: flex; align-items: center; gap: 10px; }
+.btn { padding: 8px 12px; border-radius: 8px; text-decoration: none; color: #1f2937; background: transparent; border: 1px solid rgba(0,0,0,0.06); font-weight: 600; }
+.btn.primary { background: #10b981; color: white; border-color: transparent; }
+.btn.ghost { background: rgba(200,155,94,0.08); }
+.utility-select { padding: 8px 10px; border-radius: 8px; background: #fff; border: 1px solid rgba(0,0,0,0.06); font-size: 14px; }
+
+@media (max-width: 880px) {
+  .languages { display: none; }
+  .brand-right .btn { display: none; }
+}

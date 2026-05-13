@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link, Route, Routes, useParams } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Routes, useParams, Navigate } from "react-router-dom";
 import commoditiesData from "../data/commodities.json";
 import exchangesData from "../data/exchanges.json";
 import currenciesData from "../data/currencies.json";
@@ -29,6 +29,7 @@ import { useAuthStore } from "./stores/authStore";
 import "./styles/index.css";
 import AdminPanel from "./pages/AdminPanel";
 import AdminAnalyticsDashboard from "./pages/AdminAnalyticsDashboard";
+import AdminLogin from "./pages/AdminLogin";
 import NewsPage from "./pages/News";
 import ArticlePage from "./pages/Article";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -887,55 +888,45 @@ const App: React.FC = () => {
   return (
     <I18nProvider>
       <Router>
-        <Layout>
-          <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/index.html" element={<HomePage />} />
-          <Route path="/stocks" element={<StocksPage />} />
-          <Route path="/stocks/:exchangeId" element={<StocksPage />} />
-          <Route path="/currencies" element={<CurrenciesPage />} />
-          <Route path="/currencies/:code" element={<CurrenciesPage />} />
-          <Route path="/crypto" element={<CryptoPage />} />
-          <Route path="/crypto/:cryptoId" element={<CryptoPage />} />
-          <Route path="/regions" element={<RegionsPage />} />
-          <Route path="/regions/:regionId" element={<RegionsPage />} />
-          <Route path="/sectors" element={<SectorsPage />} />
-          <Route path="/sectors/:sectorId" element={<SectorsPage />} />
-          <Route path="/commodities" element={<CommoditiesPage />} />
-          <Route path="/commodities/:commodityId" element={<CommoditiesPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/news" element={<NewsPage />} />
-          <Route path="/news/:id" element={<ArticlePage />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/terms" element={<TermsOfService />} />
-          <Route path="/about" element={<AboutMarketsPivot />} />
+        <Routes>
+          <Route path="/" element={<Layout />}> 
+            <Route index element={<HomePage />} />
+            <Route path="index.html" element={<HomePage />} />
+            <Route path="stocks" element={<StocksPage />} />
+            <Route path="stocks/:exchangeId" element={<StocksPage />} />
+            <Route path="currencies" element={<CurrenciesPage />} />
+            <Route path="currencies/:code" element={<CurrenciesPage />} />
+            <Route path="crypto" element={<CryptoPage />} />
+            <Route path="crypto/:cryptoId" element={<CryptoPage />} />
+            <Route path="regions" element={<RegionsPage />} />
+            <Route path="regions/:regionId" element={<RegionsPage />} />
+            <Route path="sectors" element={<SectorsPage />} />
+            <Route path="sectors/:sectorId" element={<SectorsPage />} />
+            <Route path="commodities" element={<CommoditiesPage />} />
+            <Route path="commodities/:commodityId" element={<CommoditiesPage />} />
+            <Route path="dashboard" element={<DashboardPage />} />
+            <Route path="pricing" element={<Pricing />} />
+            <Route path="news" element={<NewsPage />} />
+            <Route path="news/:id" element={<ArticlePage />} />
+            <Route path="privacy" element={<PrivacyPolicy />} />
+            <Route path="terms" element={<TermsOfService />} />
+            <Route path="about" element={<AboutMarketsPivot />} />
+
+            <Route path="user" element={<UserPanelPage />} />
+          </Route>
 
           <Route
             path="/admin"
             element={
               isAuthenticated && user?.isAdmin ? (
                 <AdminAnalyticsDashboard />
-              ) : !isAuthenticated ? (
-                <div className="page">
-                  <div className="section-heading">
-                    <h1>Sign in required</h1>
-                    <p>Please sign in as an administrator to access this page.</p>
-                  </div>
-                </div>
               ) : (
-                <div className="page">
-                  <div className="section-heading">
-                    <h1>403 — Forbidden</h1>
-                    <p>Admin access required.</p>
-                  </div>
-                </div>
+                <Navigate to="/admin/login" replace />
               )
             }
           />
-          <Route path="/user" element={<UserPanelPage />} />
-          </Routes>
-        </Layout>
+          <Route path="/admin/login" element={<AdminLogin />} />
+        </Routes>
       </Router>
     </I18nProvider>
   );
