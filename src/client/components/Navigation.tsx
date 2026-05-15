@@ -121,7 +121,7 @@ const Navigation: React.FC = () => {
       description: "Global market news & analysis",
       submenu: [
         { label: "Market News", path: "/news/market", icon: "📰" },
-        { label: "Economic Calendar", path: "/news/calendar", icon: "📅" },
+        { label: "Economic Calendar", path: "/economic-calendar", icon: "📅" },
         { label: "Analysis", path: "/news/analysis", icon: "📊" },
         { label: "Views", path: "/news/views", icon: "👁️" }
       ]
@@ -131,6 +131,12 @@ const Navigation: React.FC = () => {
       path: "/screener",
       icon: "🔍",
       description: "Advanced stock screener"
+    },
+    {
+      label: "Economic Calendar",
+      path: "/economic-calendar",
+      icon: "📅",
+      description: "Upcoming macro releases"
     }
   ];
 

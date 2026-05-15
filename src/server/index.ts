@@ -28,8 +28,6 @@ const exchangesData = readJson("../data/exchanges.json");
 const regionsData = readJson("../data/regions.json");
 const sectorsData = readJson("../data/sectors.json");
 
-
-
 dotenv.config();
 
 const app = express();
@@ -169,21 +167,14 @@ app.get("/api/search", (req: Request, res: Response) => {
 });
 
 // Error handling middleware
-app.use(
-  (
-    err: Error,
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) => {
-    console.error(err.stack);
-    res.status(500).json({
-      success: false,
-      error: "Internal Server Error",
-      timestamp: new Date(),
-    });
-  }
-);
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  console.error(err.stack);
+  res.status(500).json({
+    success: false,
+    error: "Internal Server Error",
+    timestamp: new Date(),
+  });
+});
 
 // 404 handler
 app.use((req: Request, res: Response) => {
@@ -200,3 +191,4 @@ app.listen(PORT, () => {
 });
 
 export default app;
+

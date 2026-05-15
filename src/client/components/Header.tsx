@@ -1,37 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import { useI18n, languages, type LanguageCode } from "../i18n";
 
 const Header: React.FC = () => {
-  const languages = [
-    "English",
-    "العربية",
-    "中文(简体)",
-    "中文(繁體)",
-    "日本語",
-    "한국어",
-    "हिन्दी",
-    "ไทย",
-    "Tiếng Việt",
-    "Italiano",
-    "Español",
-    "Deutsch",
-    "Français",
-    "Português",
-    "Русский",
-  ];
+  const { t, language, setLanguage } = useI18n();
+
+  const onSelectLanguage = (code: LanguageCode) => {
+    setLanguage(code);
+  };
 
   return (
     <div className="top-header">
-      <div className="language-strip" aria-label="Preferred language">
-        <div className="languages" role="list">
-          {languages.map((l) => (
-            <button key={l} className={`lang ${l === "English" ? "active" : ""}`} role="listitem" aria-pressed={l === "English"}>
-              {l}
-            </button>
-          ))}
-        </div>
-      </div>
+  <div className="language-strip">
+
+  <div className="language-title">
+    <span>Preferred Language</span>
+    <span>→</span>
+  </div>
+
+  <div className="language-scroll">
+    <div className="languages">
+      {languages.map((l) => (
+        <button
+          key={l.code}
+          className={`lang ${l.code === language ? "active" : ""}`}
+          onClick={() => onSelectLanguage(l.code)}
+          type="button"
+        >
+          {l.label}
+        </button>
+      ))}
+    </div>
+  </div>
+
+</div>
 
       <div className="brand-row">
         <div className="brand-left">
@@ -41,9 +44,16 @@ const Header: React.FC = () => {
         </div>
 
         <div className="brand-right">
-          <Link to="/pricing" className="btn ghost">Pricing</Link>
-          <Link to="/user" className="btn">Login</Link>
-          <Link to="/user" className="btn primary">Sign Up</Link>
+          <Link to="/pricing" className="btn ghost">
+            Pricing
+          </Link>
+          <Link to="/user" className="btn">
+            {t("login")}
+          </Link>
+          <Link to="/user" className="btn primary">
+            {t("signUp")}
+          </Link>
+
           <div className="utility-select">JPY ▾</div>
           <div className="utility-select">Light</div>
         </div>

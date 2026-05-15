@@ -35,6 +35,9 @@ import ArticlePage from "./pages/Article";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import AboutMarketsPivot from "./pages/AboutMarketsPivot";
+import Screener from "./pages/Screener";
+import EconomicCalendar from "./pages/EconomicCalendar";
+
 
 const exchanges = exchangesData.exchanges as StockExchange[];
 const currencies = currenciesData.currencies as Currency[];
@@ -914,6 +917,10 @@ const App: React.FC = () => {
             <Route path="privacy" element={<PrivacyPolicy />} />
             <Route path="terms" element={<TermsOfService />} />
             <Route path="about" element={<AboutMarketsPivot />} />
+
+            <Route path="screener" element={<Screener />} />
+            <Route path="economic-calendar" element={<EconomicCalendar />} />
+            <Route path="calendar" element={<EconomicCalendar />} />
 
             <Route path="user" element={<UserPanelPage />} />
           </Route>
