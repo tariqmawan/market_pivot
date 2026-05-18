@@ -892,8 +892,16 @@ const I18nContext = React.createContext<{
 });
 
 export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = React.useState<LanguageCode>("en");
+  const [language, setLanguageState] = React.useState<LanguageCode>(() => {
+    const saved = localStorage.getItem("mp_language") as LanguageCode | null;
+    return saved && languages.some((item) => item.code === saved) ? saved : "en";
+  });
   const direction = languages.find((item) => item.code === language)?.dir ?? "ltr";
+
+  const setLanguage = React.useCallback((nextLanguage: LanguageCode) => {
+    localStorage.setItem("mp_language", nextLanguage);
+    setLanguageState(nextLanguage);
+  }, []);
 
   React.useEffect(() => {
     document.documentElement.lang = language;

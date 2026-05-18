@@ -61,13 +61,23 @@
 
   white-space: nowrap;
 
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.45) transparent;
 
   -webkit-overflow-scrolling: touch;
 }
 
 .language-scroll::-webkit-scrollbar {
-  display: none;
+  height: 6px;
+}
+
+.language-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.language-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.35);
+  border-radius: 999px;
 }
 
 /* LANGUAGES */

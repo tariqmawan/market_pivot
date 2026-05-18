@@ -4,6 +4,24 @@ import "./Header.css";
 import { useI18n, languages, type LanguageCode } from "../i18n";
 import { useAuthStore } from "../stores/authStore";
 
+const languageDisplayNames: Record<LanguageCode, string> = {
+  en: "English",
+  ar: "العربية",
+  zh: "中文",
+  ja: "日本語",
+  ko: "한국어",
+  th: "ไทย",
+  vi: "Tiếng Việt",
+  it: "Italiano",
+  es: "Español",
+  de: "Deutsch",
+  fr: "Français",
+  pt: "Português",
+  ru: "Русский",
+  pl: "Polski",
+  tr: "Türkçe",
+};
+
 const Header: React.FC = () => {
   const { t, language, setLanguage } = useI18n();
   const [currency, setCurrency] = React.useState(() => localStorage.getItem("mp_currency") ?? "JPY");
@@ -33,7 +51,7 @@ const Header: React.FC = () => {
     <div className="top-header">
       <div className="language-strip">
         <div className="language-title">
-          <span>Preferred Language</span>
+          <span>{t("preferredLanguage")}</span>
           <span aria-hidden="true">-&gt;</span>
         </div>
 
@@ -46,7 +64,7 @@ const Header: React.FC = () => {
                 onClick={() => onSelectLanguage(l.code)}
                 type="button"
               >
-                {l.label}
+                {languageDisplayNames[l.code]}
               </button>
             ))}
           </div>
@@ -66,7 +84,7 @@ const Header: React.FC = () => {
 
         <div className="brand-right">
           <Link to="/pricing" className="btn ghost">
-            Pricing
+            {t("pricing")}
           </Link>
 
           <button type="button" className="btn" onClick={openLoginModal}>

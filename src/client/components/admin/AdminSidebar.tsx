@@ -143,27 +143,55 @@ type NavGroup = {
 
 const groups: NavGroup[] = [
   {
-    label: "Analytics",
+    label: "Dashboard",
     icon: <BarChart3 size={18} />,
     items: [
       { label: "Overview", href: "/admin", icon: <LayoutDashboard size={18} /> },
-      { label: "Revenue", href: "/admin?tab=revenue", icon: <DollarSign size={18} />, badge: "Live" },
-      { label: "Customers", href: "/admin?tab=customers", icon: <Users size={18} /> },
+      { label: "API Usage", href: "/admin?tab=api-usage", icon: <BarChart3 size={18} />, badge: "Live" },
+      { label: "Data Sync Status", href: "/admin?tab=data-sync", icon: <Settings size={18} /> },
+      { label: "News Ingestion", href: "/admin?tab=news-ingestion", icon: <Bell size={18} /> },
     ],
   },
   {
-    label: "Finance",
-    icon: <CreditCard size={18} />,
+    label: "Market Data",
+    icon: <BarChart3 size={18} />,
     items: [
-      { label: "Payouts", href: "/admin?tab=payouts", icon: <DollarSign size={18} /> },
-      { label: "Billing", href: "/admin?tab=billing", icon: <CreditCard size={18} /> },
+      { label: "Exchanges", href: "/admin?tab=exchanges", icon: <LayoutDashboard size={18} /> },
+      { label: "Stocks", href: "/admin?tab=stocks", icon: <BarChart3 size={18} /> },
+      { label: "Forex", href: "/admin?tab=forex", icon: <DollarSign size={18} /> },
+      { label: "Crypto", href: "/admin?tab=crypto", icon: <CreditCard size={18} /> },
+      { label: "Commodities", href: "/admin?tab=commodities", icon: <Settings size={18} /> },
+      { label: "Regions", href: "/admin?tab=regions", icon: <LayoutDashboard size={18} /> },
+      { label: "Sectors", href: "/admin?tab=sectors", icon: <BarChart3 size={18} /> },
     ],
   },
   {
-    label: "Admin",
+    label: "Content",
+    icon: <Bell size={18} />,
+    items: [
+      { label: "News CMS", href: "/admin?tab=news-cms", icon: <Bell size={18} /> },
+      { label: "Economic Calendar", href: "/admin?tab=economic-calendar", icon: <LayoutDashboard size={18} /> },
+      { label: "SEO Management", href: "/admin?tab=seo", icon: <Settings size={18} /> },
+      { label: "Advertisements", href: "/admin?tab=ads", icon: <BarChart3 size={18} /> },
+    ],
+  },
+  {
+    label: "Users & Revenue",
+    icon: <Users size={18} />,
+    items: [
+      { label: "Users", href: "/admin?tab=customers", icon: <Users size={18} /> },
+      { label: "Roles", href: "/admin?tab=roles", icon: <Shield size={18} /> },
+      { label: "Subscriptions", href: "/admin?tab=billing", icon: <CreditCard size={18} /> },
+      { label: "Revenue", href: "/admin?tab=revenue", icon: <DollarSign size={18} /> },
+      { label: "Payouts", href: "/admin?tab=payouts", icon: <DollarSign size={18} /> },
+    ],
+  },
+  {
+    label: "Platform",
     icon: <Shield size={18} />,
     items: [
-      { label: "Roles", href: "/admin?tab=roles", icon: <Shield size={18} /> },
+      { label: "API Management", href: "/admin?tab=api-management", icon: <BarChart3 size={18} /> },
+      { label: "AI & Analytics", href: "/admin?tab=ai-analytics", icon: <BarChart3 size={18} />, badge: "Future" },
       { label: "Settings", href: "/admin?tab=settings", icon: <Settings size={18} /> },
     ],
   },

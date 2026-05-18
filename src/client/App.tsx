@@ -474,14 +474,40 @@ const DashboardPage = () => {
   const leadingRegion = marketRegions[2];
   const leadingSector = stockSectors[0];
   const leadingCommodity = commodities[0];
+  const topIndices = exchanges.slice(0, 5).map((exchange) => buildIndexSnapshot(exchange));
+  const topGainers = buildMovers(exchanges[0], "up").slice(0, 4);
+  const topLosers = buildMovers(exchanges[1], "down").slice(0, 4);
+  const economicEvents = [
+    ["08:30", "US CPI", "High"],
+    ["10:00", "ECB policy remarks", "Medium"],
+    ["13:00", "US 10Y auction", "Medium"],
+    ["19:00", "FOMC minutes", "High"],
+  ];
+  const sentiment = [
+    ["Equities", 64, "Risk-on breadth"],
+    ["FX", 48, "USD mixed"],
+    ["Crypto", 72, "Momentum bid"],
+    ["Commodities", 41, "Energy softer"],
+  ];
 
   return (
-    <div className="page">
+    <div className="page market-home">
+      <section className="market-tape" aria-label={t("liveTape")}>
+        {marketTape.map((item) => (
+          <div key={item.label} className="tape-item">
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+            <em className={item.move.startsWith("-") ? "negative" : "positive"}>{item.move}</em>
+          </div>
+        ))}
+      </section>
+
       <div className="section-heading">
         <p className="eyebrow">{t("crossMarket")}</p>
-        <h1>{t("dashboardTitle")}</h1>
-        <p>{t("dashboardIntro")}</p>
+        <h1>Global Markets Intelligence Dashboard</h1>
+        <p>Live-style overview for indices, movers, FX, crypto, commodities, economic events, sentiment, news, and watchlists.</p>
       </div>
+
       <section className="dashboard-grid">
         <AssetCard to="/stocks/NYSE" eyebrow={t("topExchange")} title="New York Stock Exchange" meta="S&P 500 / USD / New York" metric={formatMoney(exchanges[0].marketCap)} />
         <AssetCard to="/currencies/USD" eyebrow={t("coreReserve")} title="United States Dollar" meta="Federal Reserve / global base" metric={t("primaryBase")} />
@@ -490,6 +516,169 @@ const DashboardPage = () => {
         <AssetCard to={`/sectors/${leadingSector.id}`} eyebrow="Sector pulse" title={leadingSector.name} meta={leadingSector.newsThemes.join(" / ")} metric={`${formatSignedPercent(leadingSector.performanceYtd)} YTD`} />
         <AssetCard to={`/commodities/${leadingCommodity.id}`} eyebrow="Commodity pulse" title={leadingCommodity.name} meta={leadingCommodity.economicImpact} metric={`${formatMoney(leadingCommodity.spotPrice)} / ${leadingCommodity.unit}`} />
       </section>
+
+      <section className="intelligence-grid">
+        <div className="intelligence-panel">
+          <p className="eyebrow">Major Indices</p>
+          <h2>World market snapshot</h2>
+          <div className="mini-list">
+            {topIndices.map((index) => (
+              <Link to={`/stocks/${index.exchangeId}`} key={index.id}>
+                <span>{index.name}</span>
+                <strong>{index.value.toFixed(2)} / {formatSignedPercent(index.percentChange)}</strong>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="intelligence-panel">
+          <p className="eyebrow">Market Movers</p>
+          <h2>Gainers and losers</h2>
+          <div className="mini-list">
+            {[...topGainers, ...topLosers].slice(0, 6).map((mover) => (
+              <Link to="/stocks/gainers" key={mover.symbol}>
+                <span>{mover.symbol}</span>
+                <strong className={mover.percentChange >= 0 ? "positive" : "negative"}>{formatSignedPercent(mover.percentChange)}</strong>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="intelligence-panel">
+          <p className="eyebrow">Economic Events Today</p>
+          <h2>Macro calendar</h2>
+          <div className="mini-list">
+            {economicEvents.map(([time, label, importance]) => (
+              <Link to="/economic-calendar" key={`${time}-${label}`}>
+                <span>{time} / {label}</span>
+                <strong>{importance}</strong>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="dashboard-grid spotlight-grid">
+        {sentiment.map(([label, score, detail]) => (
+          <div className="asset-card" key={label}>
+            <span className="eyebrow">Market Sentiment</span>
+            <h3>{label}</h3>
+            <p>{detail}</p>
+            <strong>{score}/100</strong>
+          </div>
+        ))}
+      </section>
+
+      <section className="intelligence-grid">
+        <div className="intelligence-panel">
+          <p className="eyebrow">Forex Mini Cards</p>
+          <h2>Currency pulse</h2>
+          <div className="mini-list">
+            {["USD", "EUR", "JPY", "INR"].map((code) => (
+              <Link to={`/currencies/${code}`} key={code}>
+                <span>{code}</span>
+                <strong>1 USD = {majorRates[code].toFixed(code === "JPY" || code === "INR" ? 2 : 4)}</strong>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="intelligence-panel">
+          <p className="eyebrow">Crypto Overview</p>
+          <h2>Market cap leaders</h2>
+          <div className="mini-list">
+            {cryptocurrencies.slice(0, 4).map((coin, index) => {
+              const price = getCryptoPrice(coin, index);
+              return (
+                <Link to={`/crypto/${coin.id}`} key={coin.id}>
+                  <span>{coin.name}</span>
+                  <strong>{formatMoney(price.marketCap)}</strong>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="intelligence-panel">
+          <p className="eyebrow">Commodity Snapshot</p>
+          <h2>Spot and futures</h2>
+          <div className="mini-list">
+            {commodities.slice(0, 4).map((commodity) => (
+              <Link to={`/commodities/${commodity.id}`} key={commodity.id}>
+                <span>{commodity.name}</span>
+                <strong>{formatMoney(commodity.spotPrice)} / {formatSignedPercent(commodity.changePercent24h)}</strong>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="comparison-strip">
+        <h2>Watchlist Preview</h2>
+        <p>Fast access to saved symbols, cross-asset alerts, portfolio context, and account preferences.</p>
+        <div className="comparison-route">
+          {userWatchlist.map((item) => (
+            <span key={item.symbol}>{item.symbol} {item.move}</span>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+const moduleFeatures: Record<string, string[]> = {
+  "markets/global-overview": ["Major indices widgets", "Top gainers and losers", "Heatmaps", "Market sentiment"],
+  "markets/pre-market": ["Pre-market movers", "Index futures", "Volume spikes", "Opening watchlist"],
+  "markets/after-hours": ["After-hours movers", "Earnings reactions", "Extended-session volume", "News catalysts"],
+  "markets/heatmaps": ["Equity heatmaps", "Sector performance", "Regional breadth", "Asset-class comparison"],
+  "markets/movers": ["Top gainers", "Top losers", "Most active", "Unusual volume"],
+  "markets/volatility-index": ["VIX overview", "Fear and greed context", "Volatility term structure", "Risk dashboard"],
+  "exchanges/region/americas": ["Country filters", "Exchange statistics", "Listed companies", "Regional news"],
+  "stocks/gainers": ["Live gainers", "Volume filters", "Market cap filters", "Sector breakdown"],
+  "stocks/losers": ["Live losers", "Risk alerts", "Index impact", "Watchlist actions"],
+  "crypto/trending": ["Trending coins", "Market cap ranking", "Exchange listings", "Historical performance"],
+  "crypto/meme-coins": ["Meme coin rankings", "Volume bursts", "Community momentum", "Risk flags"],
+  "crypto/defi": ["DeFi ecosystem", "TVL metrics", "Protocol categories", "Token performance"],
+  "crypto/layer-1": ["Layer 1 chains", "Consensus details", "Tokenomics", "Developer ecosystem"],
+  "crypto/stablecoins": ["Stablecoin supply", "Peg monitoring", "Exchange liquidity", "Reserve context"],
+  "commodities/energy": ["Spot prices", "Futures prices", "Supply-demand analysis", "Correlation analysis"],
+  "commodities/metals": ["Precious metals", "Industrial metals", "Futures contracts", "Currency sensitivity"],
+  "commodities/agriculture": ["Crop markets", "Weather impact", "Supply regions", "Seasonality"],
+  "commodities/industrial": ["Industrial inputs", "Demand trends", "Manufacturing signals", "Regional supply"],
+  "news/regions": ["Region-wise news", "Macro summaries", "Country filters", "Market alerts"],
+  "news/sectors": ["Sector-wise news", "Theme tracking", "AI summaries", "ETF impact"],
+  "news/crypto": ["Crypto news", "On-chain context", "Regulation updates", "Exchange developments"],
+  "news/alerts": ["Market alerts", "Breaking catalysts", "Watchlist alerts", "Importance filters"],
+};
+
+const titleFromSlug = (slug: string) =>
+  slug
+    .split("/")
+    .pop()
+    ?.split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ") ?? "Market Module";
+
+const PublicModulePage: React.FC<{ slug: string; eyebrow: string; title?: string }> = ({ slug, eyebrow, title }) => {
+  const features = moduleFeatures[slug] ?? ["Live market summary", "Filters", "Analytics widgets", "Related news"];
+
+  return (
+    <div className="page intelligence-page">
+      <div className="section-heading">
+        <p className="eyebrow">{eyebrow}</p>
+        <h1>{title ?? titleFromSlug(slug)}</h1>
+        <p>This workspace is part of the MarketsPivot global markets intelligence structure.</p>
+      </div>
+      <div className="asset-grid compact">
+        {features.map((feature) => (
+          <div key={feature} className="asset-card">
+            <span className="eyebrow">Feature</span>
+            <h3>{feature}</h3>
+            <p>Ready for live APIs, filters, charts, and saved user workflows.</p>
+            <strong>Planned</strong>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
@@ -958,10 +1147,33 @@ const App: React.FC = () => {
             <Route path="commodities/:commodityId" element={<CommoditiesPage />} />
             <Route path="dashboard" element={<DashboardPage />} />
             <Route path="markets" element={<DashboardPage />} />
+            <Route path="markets/global-overview" element={<DashboardPage />} />
+            <Route path="markets/pre-market" element={<PublicModulePage slug="markets/pre-market" eyebrow="Markets" />} />
+            <Route path="markets/after-hours" element={<PublicModulePage slug="markets/after-hours" eyebrow="Markets" />} />
+            <Route path="markets/heatmaps" element={<PublicModulePage slug="markets/heatmaps" eyebrow="Markets" />} />
+            <Route path="markets/movers" element={<PublicModulePage slug="markets/movers" eyebrow="Markets" title="Market Movers" />} />
+            <Route path="markets/volatility-index" element={<PublicModulePage slug="markets/volatility-index" eyebrow="Markets" />} />
             <Route path="exchanges" element={<StocksPage />} />
+            <Route path="exchanges/region/:regionId" element={<PublicModulePage slug="exchanges/region/americas" eyebrow="Exchanges" title="Exchange Region Explorer" />} />
             <Route path="forex" element={<CurrenciesPage />} />
+            <Route path="forex/:code" element={<CurrenciesPage />} />
+            <Route path="stocks/gainers" element={<PublicModulePage slug="stocks/gainers" eyebrow="Stocks" title="Top Gainers" />} />
+            <Route path="stocks/losers" element={<PublicModulePage slug="stocks/losers" eyebrow="Stocks" title="Top Losers" />} />
+            <Route path="crypto/trending" element={<PublicModulePage slug="crypto/trending" eyebrow="Crypto" title="Trending Coins" />} />
+            <Route path="crypto/meme-coins" element={<PublicModulePage slug="crypto/meme-coins" eyebrow="Crypto" title="Meme Coins" />} />
+            <Route path="crypto/defi" element={<PublicModulePage slug="crypto/defi" eyebrow="Crypto" title="DeFi Ecosystem" />} />
+            <Route path="crypto/layer-1" element={<PublicModulePage slug="crypto/layer-1" eyebrow="Crypto" title="Layer 1" />} />
+            <Route path="crypto/stablecoins" element={<PublicModulePage slug="crypto/stablecoins" eyebrow="Crypto" title="Stablecoins" />} />
+            <Route path="commodities/energy" element={<PublicModulePage slug="commodities/energy" eyebrow="Commodities" title="Energy" />} />
+            <Route path="commodities/metals" element={<PublicModulePage slug="commodities/metals" eyebrow="Commodities" title="Metals" />} />
+            <Route path="commodities/agriculture" element={<PublicModulePage slug="commodities/agriculture" eyebrow="Commodities" title="Agriculture" />} />
+            <Route path="commodities/industrial" element={<PublicModulePage slug="commodities/industrial" eyebrow="Commodities" title="Industrial" />} />
             <Route path="pricing" element={<Pricing />} />
             <Route path="news" element={<NewsPage />} />
+            <Route path="news/regions" element={<PublicModulePage slug="news/regions" eyebrow="News" title="Region-wise News" />} />
+            <Route path="news/sectors" element={<PublicModulePage slug="news/sectors" eyebrow="News" title="Sector-wise News" />} />
+            <Route path="news/crypto" element={<PublicModulePage slug="news/crypto" eyebrow="News" title="Crypto News" />} />
+            <Route path="news/alerts" element={<PublicModulePage slug="news/alerts" eyebrow="News" title="Market Alerts" />} />
             <Route path="news/:id" element={<ArticlePage />} />
             <Route path="privacy" element={<PrivacyPolicy />} />
             <Route path="terms" element={<TermsOfService />} />
