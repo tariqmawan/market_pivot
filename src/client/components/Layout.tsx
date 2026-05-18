@@ -2,6 +2,7 @@
 import { Outlet, useLocation, Link } from "react-router-dom";
 import Header from "./Header";
 import Navigation from "./Navigation";
+import LoginModal from "./LoginModal";
 import { useAuthStore } from "../stores/authStore";
 import AdminSidebar from "./admin/AdminSidebar";
 import AdminHeader from "./admin/AdminHeader";
@@ -55,6 +56,8 @@ const Layout: React.FC = () => {
             <Outlet />
           </main>
 
+          <LoginModal />
+
           <footer className="site-footer">
             <div className="footer-inner">
               <div className="footer-links">
@@ -73,4 +76,3 @@ const Layout: React.FC = () => {
 
 export default Layout;
 export { Layout };
-

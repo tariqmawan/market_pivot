@@ -2,44 +2,65 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import { useI18n, languages, type LanguageCode } from "../i18n";
+import { useAuthStore } from "../stores/authStore";
 
 const Header: React.FC = () => {
   const { t, language, setLanguage } = useI18n();
+  const [currency, setCurrency] = React.useState(() => localStorage.getItem("mp_currency") ?? "JPY");
+  const [theme, setTheme] = React.useState(() => localStorage.getItem("mp_theme") ?? "Light");
+
+  const { openLoginModal, openSignupModal } = useAuthStore();
+
+  React.useEffect(() => {
+    document.body.classList.toggle("light", theme === "Light");
+  }, [theme]);
 
   const onSelectLanguage = (code: LanguageCode) => {
     setLanguage(code);
   };
 
+  const onCurrencyChange = (value: string) => {
+    setCurrency(value);
+    localStorage.setItem("mp_currency", value);
+  };
+
+  const onThemeChange = (value: string) => {
+    setTheme(value);
+    localStorage.setItem("mp_theme", value);
+  };
+
   return (
     <div className="top-header">
-  <div className="language-strip">
+      <div className="language-strip">
+        <div className="language-title">
+          <span>Preferred Language</span>
+          <span aria-hidden="true">-&gt;</span>
+        </div>
 
-  <div className="language-title">
-    <span>Preferred Language</span>
-    <span>→</span>
-  </div>
-
-  <div className="language-scroll">
-    <div className="languages">
-      {languages.map((l) => (
-        <button
-          key={l.code}
-          className={`lang ${l.code === language ? "active" : ""}`}
-          onClick={() => onSelectLanguage(l.code)}
-          type="button"
-        >
-          {l.label}
-        </button>
-      ))}
-    </div>
-  </div>
-
-</div>
+        <div className="language-scroll">
+          <div className="languages">
+            {languages.map((l) => (
+              <button
+                key={l.code}
+                className={`lang ${l.code === language ? "active" : ""}`}
+                onClick={() => onSelectLanguage(l.code)}
+                type="button"
+              >
+                {l.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
 
       <div className="brand-row">
         <div className="brand-left">
           <Link to="/" className="logo-link">
-            <img src="/logos/market_pivot-removebg-preview.png" alt="MarketsPivot" className="logo-img" />
+            <img
+              src="/logos/market_pivot-removebg-preview.png"
+              alt="MarketsPivot"
+              className="logo-img"
+            />
           </Link>
         </div>
 
@@ -47,15 +68,33 @@ const Header: React.FC = () => {
           <Link to="/pricing" className="btn ghost">
             Pricing
           </Link>
-          <Link to="/user" className="btn">
-            {t("login")}
-          </Link>
-          <Link to="/user" className="btn primary">
-            {t("signUp")}
-          </Link>
 
-          <div className="utility-select">JPY ▾</div>
-          <div className="utility-select">Light</div>
+          <button type="button" className="btn" onClick={openLoginModal}>
+            {t("login")}
+          </button>
+
+          <button type="button" className="btn primary" onClick={openSignupModal}>
+            {t("signUp")}
+          </button>
+
+          <label className="utility-select">
+            <span className="sr-only">Currency</span>
+            <select value={currency} onChange={(event) => onCurrencyChange(event.target.value)}>
+              <option value="USD">USD</option>
+              <option value="INR">INR</option>
+              <option value="JPY">JPY</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+            </select>
+          </label>
+
+          <label className="utility-select">
+            <span className="sr-only">Theme</span>
+            <select value={theme} onChange={(event) => onThemeChange(event.target.value)}>
+              <option value="Light">Light</option>
+              <option value="Dark">Dark</option>
+            </select>
+          </label>
         </div>
       </div>
     </div>

@@ -169,10 +169,17 @@ const groups: NavGroup[] = [
   },
 ];
 
-function isActiveHref(href: string | undefined, pathname: string) {
+function getTabFromHref(href: string | undefined) {
   if (!href) return false;
-  if (href.startsWith("/admin") && pathname.startsWith("/admin")) return true;
-  return href === pathname;
+  const query = href.split("?")[1] ?? "";
+  return new URLSearchParams(query).get("tab") ?? "";
+}
+
+function isActiveHref(href: string | undefined, pathname: string, activeTab: string) {
+  if (!href) return false;
+  const [hrefPath] = href.split("?");
+  if (hrefPath !== pathname) return false;
+  return getTabFromHref(href) === activeTab;
 }
 
 export default function AdminSidebar({
@@ -183,13 +190,39 @@ export default function AdminSidebar({
   onMobileToggle: () => void;
 }) {
   const location = useLocation();
+  const activeTab = new URLSearchParams(location.search).get("tab") ?? "";
+  const activeGroups = React.useMemo(
+    () =>
+      groups.reduce<Record<string, boolean>>((acc, group) => {
+        acc[group.label] = group.items.some((item) => isActiveHref(item.href, location.pathname, activeTab));
+        return acc;
+      }, {}),
+    [activeTab, location.pathname]
+  );
+  const [expandedGroups, setExpandedGroups] = React.useState<Record<string, boolean>>({});
+
+  React.useEffect(() => {
+    setExpandedGroups((current) => ({ ...current, ...activeGroups }));
+  }, [activeGroups]);
+
+  const toggleGroup = (label: string) => {
+    setExpandedGroups((current) => ({ ...current, [label]: !(current[label] ?? activeGroups[label]) }));
+  };
 
   return (
-    <aside
-      className={`mp-admin-sidebar ${mobileOpen ? "open" : ""}`}
-      aria-label="Admin navigation"
-    >
-      <div className="mp-admin-sidebar-inner">
+    <>
+      <button
+        type="button"
+        className={`mp-admin-sidebar-backdrop ${mobileOpen ? "open" : ""}`}
+        aria-label="Close admin menu"
+        onClick={onMobileToggle}
+      />
+
+      <aside
+        className={`mp-admin-sidebar ${mobileOpen ? "open" : ""}`}
+        aria-label="Admin navigation"
+      >
+        <div className="mp-admin-sidebar-inner">
         <div className="mp-admin-sidebar-header">
           <div className="mp-admin-logo">
             <div className="mp-admin-logo-mark" aria-hidden="true">
@@ -214,20 +247,33 @@ export default function AdminSidebar({
         <nav className="mp-admin-nav">
           {groups.map((group) => (
             <div key={group.label} className="mp-admin-nav-group">
-              <div className="mp-admin-nav-group-head">
+              <button
+                type="button"
+                className="mp-admin-nav-group-head"
+                onClick={() => toggleGroup(group.label)}
+                aria-expanded={expandedGroups[group.label] ?? activeGroups[group.label]}
+              >
                 <span className="mp-admin-nav-group-icon">{group.icon}</span>
                 <span className="mp-admin-nav-group-label">{group.label}</span>
-                <ChevronDown className="mp-admin-nav-group-chevron" size={16} />
-              </div>
+                <ChevronDown
+                  className={`mp-admin-nav-group-chevron ${
+                    expandedGroups[group.label] ?? activeGroups[group.label] ? "open" : ""
+                  }`}
+                  size={16}
+                />
+              </button>
 
-              <div className="mp-admin-nav-items">
+              <div className={`mp-admin-nav-items ${expandedGroups[group.label] ?? activeGroups[group.label] ? "open" : ""}`}>
                 {group.items.map((item) => {
-                  const active = isActiveHref(item.href, location.pathname);
+                  const active = isActiveHref(item.href, location.pathname, activeTab);
                   return (
                     <Link
                       key={item.label}
                       to={item.href ?? "#"}
                       className={`mp-admin-nav-link ${active ? "active" : ""}`}
+                      onClick={() => {
+                        if (mobileOpen) onMobileToggle();
+                      }}
                     >
                       <span className="mp-admin-nav-link-icon">{item.icon}</span>
                       <span className="mp-admin-nav-link-label">{item.label}</span>
@@ -248,6 +294,7 @@ export default function AdminSidebar({
         </div>
       </div>
     </aside>
+    </>
   );
 }
 

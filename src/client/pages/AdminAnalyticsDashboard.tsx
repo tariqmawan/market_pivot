@@ -1,9 +1,11 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { Line, LineChart, ResponsiveContainer, Area, AreaChart, Pie, PieChart, Tooltip, Cell } from "recharts";
 import AdminSidebar from "../components/admin/AdminSidebar";
 import AdminHeader from "../components/admin/AdminHeader";
 import GlassCard from "../components/admin/GlassCard";
 import { useAuthStore } from "../stores/authStore";
+import AdminPanel from "./AdminPanel";
 
 type Datum = { x: string; revenue: number; sales: number; profit: number; growth: number };
 
@@ -262,173 +264,654 @@ function CustomersTable({ seedEmail }: { seedEmail?: string | null }) {
   );
 }
 
-function getTabFromUrl() {
-  try {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("tab") || "";
-  } catch {
-    return "";
-  }
+type RolePermission = "Analytics" | "Customers" | "Billing" | "Market Data" | "Settings";
+
+type AdminRole = {
+  id: string;
+  name: string;
+  description: string;
+  members: number;
+  status: "Active" | "Limited";
+  permissions: RolePermission[];
+};
+
+const allPermissions: RolePermission[] = ["Analytics", "Customers", "Billing", "Market Data", "Settings"];
+
+const initialRoles: AdminRole[] = [
+  {
+    id: "owner",
+    name: "Owner",
+    description: "Full console access, security controls, billing, and data operations.",
+    members: 2,
+    status: "Active",
+    permissions: ["Analytics", "Customers", "Billing", "Market Data", "Settings"],
+  },
+  {
+    id: "finance",
+    name: "Finance Manager",
+    description: "Revenue, billing, payouts, invoices, and customer plan visibility.",
+    members: 4,
+    status: "Active",
+    permissions: ["Analytics", "Customers", "Billing"],
+  },
+  {
+    id: "editor",
+    name: "Market Data Editor",
+    description: "Maintains exchanges, currencies, crypto, sector, region, and commodity data.",
+    members: 7,
+    status: "Active",
+    permissions: ["Analytics", "Market Data"],
+  },
+  {
+    id: "support",
+    name: "Support Analyst",
+    description: "Read-only customer visibility for account support and triage.",
+    members: 11,
+    status: "Limited",
+    permissions: ["Customers"],
+  },
+];
+
+function AdminRolesPage() {
+  const [roles, setRoles] = React.useState<AdminRole[]>(initialRoles);
+  const [selectedId, setSelectedId] = React.useState(initialRoles[0].id);
+  const selectedRole = roles.find((role) => role.id === selectedId) ?? roles[0];
+  const activeRoles = roles.filter((role) => role.status === "Active").length;
+  const totalMembers = roles.reduce((sum, role) => sum + role.members, 0);
+
+  const togglePermission = (roleId: string, permission: RolePermission) => {
+    setRoles((current) =>
+      current.map((role) => {
+        if (role.id !== roleId) return role;
+        const hasPermission = role.permissions.includes(permission);
+        return {
+          ...role,
+          permissions: hasPermission
+            ? role.permissions.filter((item) => item !== permission)
+            : [...role.permissions, permission],
+        };
+      })
+    );
+  };
+
+  return (
+    <>
+      <div className="mp-admin-titlebar">
+        <div>
+          <h1>Roles & Access</h1>
+          <p>Manage admin roles, permission groups, and operational access levels.</p>
+        </div>
+        <button type="button" className="mp-admin-action-btn">
+          New Role
+        </button>
+      </div>
+
+      <section className="mp-admin-grid-3">
+        <GlassCard>
+          <StatChip label="Total Roles" value={String(roles.length)} tone="neu" />
+        </GlassCard>
+        <GlassCard>
+          <StatChip label="Active Roles" value={String(activeRoles)} tone="pos" />
+        </GlassCard>
+        <GlassCard>
+          <StatChip label="Assigned Users" value={String(totalMembers)} tone="neu" />
+        </GlassCard>
+      </section>
+
+      <section className="mp-admin-grid-2 mp-admin-roles-layout">
+        <GlassCard>
+          <div className="mp-admin-card-head">
+            <h2>Role Directory</h2>
+            <span className="mp-admin-muted">Select a role</span>
+          </div>
+
+          <div className="mp-admin-role-list">
+            {roles.map((role) => (
+              <button
+                type="button"
+                key={role.id}
+                className={`mp-admin-role-row ${selectedRole.id === role.id ? "active" : ""}`}
+                onClick={() => setSelectedId(role.id)}
+              >
+                <span className="mp-admin-role-mark">{role.name.charAt(0)}</span>
+                <span className="mp-admin-role-main">
+                  <strong>{role.name}</strong>
+                  <small>{role.description}</small>
+                </span>
+                <span className={`mp-admin-status ${role.status === "Active" ? "ok" : "warn"}`}>{role.status}</span>
+              </button>
+            ))}
+          </div>
+        </GlassCard>
+
+        <GlassCard>
+          <div className="mp-admin-card-head">
+            <h2>{selectedRole.name}</h2>
+            <span className="mp-admin-muted">{selectedRole.members} members</span>
+          </div>
+
+          <div className="mp-admin-role-detail">
+            <p>{selectedRole.description}</p>
+            <div className="mp-admin-permission-grid">
+              {allPermissions.map((permission) => {
+                const enabled = selectedRole.permissions.includes(permission);
+                return (
+                  <button
+                    type="button"
+                    key={permission}
+                    className={`mp-admin-permission ${enabled ? "enabled" : ""}`}
+                    onClick={() => togglePermission(selectedRole.id, permission)}
+                    aria-pressed={enabled}
+                  >
+                    <span>{permission}</span>
+                    <strong>{enabled ? "Enabled" : "Off"}</strong>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </GlassCard>
+      </section>
+
+      <section>
+        <GlassCard>
+          <div className="mp-admin-card-head">
+            <h2>Permission Matrix</h2>
+            <span className="mp-admin-muted">Current access map</span>
+          </div>
+          <div className="mp-admin-table-wrap">
+            <table className="mp-admin-table">
+              <thead>
+                <tr>
+                  <th>Role</th>
+                  {allPermissions.map((permission) => (
+                    <th key={permission}>{permission}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {roles.map((role) => (
+                  <tr key={role.id}>
+                    <td>{role.name}</td>
+                    {allPermissions.map((permission) => (
+                      <td key={permission}>
+                        <span className={`mp-admin-access-dot ${role.permissions.includes(permission) ? "on" : ""}`} />
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </GlassCard>
+      </section>
+    </>
+  );
+}
+
+function ToggleCard({
+  title,
+  description,
+  enabled,
+  onToggle,
+}: {
+  title: string;
+  description: string;
+  enabled: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <button type="button" className={`mp-admin-toggle-card ${enabled ? "on" : ""}`} onClick={onToggle} aria-pressed={enabled}>
+      <span>
+        <strong>{title}</strong>
+        <small>{description}</small>
+      </span>
+      <i aria-hidden="true" />
+    </button>
+  );
+}
+
+function AdminSettingsPage() {
+  const [settings, setSettings] = React.useState({
+    maintenance: false,
+    dataSync: true,
+    auditTrail: true,
+    emailAlerts: true,
+  });
+
+  const toggle = (key: keyof typeof settings) => {
+    setSettings((current) => ({ ...current, [key]: !current[key] }));
+  };
+
+  return (
+    <>
+      <div className="mp-admin-titlebar">
+        <div>
+          <h1>Admin Settings</h1>
+          <p>Control platform operations, notifications, security, and market data content.</p>
+        </div>
+        <button type="button" className="mp-admin-action-btn">
+          Save Changes
+        </button>
+      </div>
+
+      <section className="mp-admin-settings-hero">
+        <GlassCard>
+          <div className="mp-admin-settings-callout">
+            <span>Environment</span>
+            <strong>Production Console</strong>
+            <p>All switches are local UI controls right now. Wire these to backend configuration when admin APIs are ready.</p>
+          </div>
+        </GlassCard>
+
+        <GlassCard>
+          <div className="mp-admin-settings-summary">
+            <div>
+              <span>Security</span>
+              <strong>Audit trail on</strong>
+            </div>
+            <div>
+              <span>Data Sync</span>
+              <strong>{settings.dataSync ? "Active" : "Paused"}</strong>
+            </div>
+          </div>
+        </GlassCard>
+      </section>
+
+      <section className="mp-admin-grid-2">
+        <GlassCard>
+          <div className="mp-admin-card-head">
+            <h2>Platform Controls</h2>
+            <span className="mp-admin-muted">Runtime flags</span>
+          </div>
+          <div className="mp-admin-toggle-list">
+            <ToggleCard
+              title="Maintenance Mode"
+              description="Temporarily gate public market pages during critical updates."
+              enabled={settings.maintenance}
+              onToggle={() => toggle("maintenance")}
+            />
+            <ToggleCard
+              title="Market Data Sync"
+              description="Allow scheduled exchange, FX, crypto, sector, and commodity refresh jobs."
+              enabled={settings.dataSync}
+              onToggle={() => toggle("dataSync")}
+            />
+          </div>
+        </GlassCard>
+
+        <GlassCard>
+          <div className="mp-admin-card-head">
+            <h2>Security & Alerts</h2>
+            <span className="mp-admin-muted">Admin notifications</span>
+          </div>
+          <div className="mp-admin-toggle-list">
+            <ToggleCard
+              title="Audit Trail"
+              description="Record admin edits, role changes, and data manager operations."
+              enabled={settings.auditTrail}
+              onToggle={() => toggle("auditTrail")}
+            />
+            <ToggleCard
+              title="Email Alerts"
+              description="Notify owners when billing, role, or data quality events need attention."
+              enabled={settings.emailAlerts}
+              onToggle={() => toggle("emailAlerts")}
+            />
+          </div>
+        </GlassCard>
+      </section>
+
+      <section className="mp-admin-grid-3">
+        {[
+          ["API Health", "99.98%", "ok"],
+          ["Pending Reviews", "12", "warn"],
+          ["Content Pillars", "6", "ok"],
+        ].map(([label, value, tone]) => (
+          <GlassCard key={label}>
+            <StatChip label={label} value={value} tone={tone === "warn" ? "neg" : "pos"} />
+          </GlassCard>
+        ))}
+      </section>
+
+      <section className="mp-admin-settings-data">
+        <GlassCard>
+          <div className="mp-admin-card-head">
+            <h2>Market Data Manager</h2>
+            <span className="mp-admin-muted">LocalStorage backed editor</span>
+          </div>
+          <AdminPanel />
+        </GlassCard>
+      </section>
+    </>
+  );
+}
+
+function SimplePanel({
+  title,
+  subtitle,
+  children,
+}: {
+  title: string;
+  subtitle?: string;
+  children?: React.ReactNode;
+}) {
+  return (
+    <>
+      <div className="mp-admin-titlebar">
+        <div>
+          <h1>{title}</h1>
+          {subtitle ? <p>{subtitle}</p> : null}
+        </div>
+      </div>
+      {children}
+    </>
+  );
 }
 
 export default function AdminAnalyticsDashboard() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const data = React.useMemo(() => sampleData(), []);
   const { user } = useAuthStore();
+  const location = useLocation();
 
-  const tab = getTabFromUrl();
-
-  if (tab === "customers") {
-    return (
-      <div className="mp-admin-shell">
-        <AdminSidebar mobileOpen={mobileOpen} onMobileToggle={() => setMobileOpen((v) => !v)} />
-        <div className="mp-admin-main">
-          <AdminHeader onMobileToggle={() => setMobileOpen((v) => !v)} />
-          <main className="mp-admin-content">
-            <CustomersTable seedEmail={user?.email ?? null} />
-          </main>
-        </div>
-      </div>
-    );
-  }
+  const tab = React.useMemo(() => new URLSearchParams(location.search).get("tab") || "", [location.search]);
 
   const lineData = data.map((d) => ({ name: d.x, value: d.revenue }));
   const areaData = data.map((d) => ({ name: d.x, value: d.sales }));
   const donutData = [
-    { name: "Revenue", value: 58, color: "#22c55e" },
-    { name: "Profit", value: 28, color: "#60a5fa" },
-    { name: "Operating", value: 14, color: "#a78bfa" },
+    { name: "Revenue", value: 58, color: "#A27841" },
+    { name: "Profit", value: 28, color: "#d1aa72" },
+    { name: "Operating", value: 14, color: "#6f4d25" },
   ];
+
+  const renderMain = () => {
+    if (tab === "customers") {
+      return (
+        <main className="mp-admin-content">
+          <CustomersTable seedEmail={user?.email ?? null} />
+        </main>
+      );
+    }
+
+    if (tab === "roles") {
+      return (
+        <main className="mp-admin-content">
+          <AdminRolesPage />
+        </main>
+      );
+    }
+
+    if (tab === "settings") {
+      return (
+        <main className="mp-admin-content">
+          <AdminSettingsPage />
+        </main>
+      );
+    }
+
+    // Remaining sidebar tabs: render working demo panels so every menu item loads.
+    if (tab === "revenue") {
+      return (
+        <main className="mp-admin-content">
+          <SimplePanel title="Revenue" subtitle="Demo charts and KPIs."
+          >
+            <section className="mp-admin-grid-3">
+              <GlassCard>
+                <StatChip label="ARR" value="$9.84M" tone="pos" />
+              </GlassCard>
+              <GlassCard>
+                <StatChip label="MRR" value="$820K" tone="pos" />
+              </GlassCard>
+              <GlassCard>
+                <StatChip label="Churn" value="1.8%" tone="neu" />
+              </GlassCard>
+            </section>
+
+            <section className="mp-admin-grid-2">
+              <GlassCard className="mp-admin-chart-card">
+                <div className="mp-admin-card-head">
+                  <h2>Revenue Trend</h2>
+                  <span className="mp-admin-muted">Last 8 months</span>
+                </div>
+                <div className="mp-admin-chart">
+                  <ResponsiveContainer width="100%" height={240}>
+                    <LineChart data={lineData}>
+                      <Tooltip />
+                      <Line type="monotone" dataKey="value" stroke="#A27841" strokeWidth={2} dot={false} />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+              </GlassCard>
+
+              <GlassCard className="mp-admin-chart-card">
+                <div className="mp-admin-card-head">
+                  <h2>Revenue Mix</h2>
+                  <span className="mp-admin-muted">Donut overview</span>
+                </div>
+                <div className="mp-admin-chart">
+                  <ResponsiveContainer width="100%" height={240}>
+                    <PieChart>
+                      <Tooltip />
+                      <Pie data={donutData} dataKey="value" nameKey="name" innerRadius={55} outerRadius={85}>
+                        {donutData.map((d) => (
+                          <Cell key={d.name} fill={d.color} />
+                        ))}
+                      </Pie>
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+              </GlassCard>
+            </section>
+          </SimplePanel>
+        </main>
+      );
+    }
+
+    if (tab === "payouts") {
+      return (
+        <main className="mp-admin-content">
+          <SimplePanel title="Payouts" subtitle="Demo payouts table + recent activity.">
+            <section className="mp-admin-grid-2">
+              <GlassCard>
+                <div className="mp-admin-card-head">
+                  <h2>Recent Payouts</h2>
+                  <span className="mp-admin-muted">Generated data</span>
+                </div>
+                <DataTable />
+              </GlassCard>
+              <GlassCard>
+                <div className="mp-admin-card-head">
+                  <h2>Activity</h2>
+                  <span className="mp-admin-muted">Timeline</span>
+                </div>
+                <RecentActivity />
+              </GlassCard>
+            </section>
+          </SimplePanel>
+        </main>
+      );
+    }
+
+    if (tab === "billing") {
+      return (
+        <main className="mp-admin-content">
+          <SimplePanel title="Billing" subtitle="Demo billing KPIs and controls.">
+            <section className="mp-admin-grid-3">
+              <GlassCard>
+                <StatChip label="Invoices" value="142" tone="neu" />
+              </GlassCard>
+              <GlassCard>
+                <StatChip label="Paid" value="128" tone="pos" />
+              </GlassCard>
+              <GlassCard>
+                <StatChip label="Due" value="14" tone="neg" />
+              </GlassCard>
+            </section>
+
+            <section className="mp-admin-grid-2">
+              <GlassCard>
+                <div className="mp-admin-card-head">
+                  <h2>Invoice List</h2>
+                  <span className="mp-admin-muted">Data table</span>
+                </div>
+                <DataTable />
+              </GlassCard>
+              <GlassCard>
+                <div className="mp-admin-card-head">
+                  <h2>Sales Distribution</h2>
+                  <span className="mp-admin-muted">Area chart</span>
+                </div>
+                <div className="mp-admin-chart">
+                  <ResponsiveContainer width="100%" height={240}>
+                    <AreaChart data={areaData}>
+                      <Tooltip />
+                      <Area type="monotone" dataKey="value" stroke="#A27841" fill="#A27841" fillOpacity={0.18} />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </div>
+              </GlassCard>
+            </section>
+          </SimplePanel>
+        </main>
+      );
+    }
+
+    // Default: Analytics Overview (existing UI)
+    return (
+      <main className="mp-admin-content">
+        <div className="mp-admin-titlebar">
+          <div>
+            <h1>Analytics Overview</h1>
+            <p>Premium fintech dashboard UI with glassmorphism and charts.</p>
+          </div>
+        </div>
+
+        <section className="mp-admin-grid-3">
+          <GlassCard>
+            <StatChip label="Revenue" value="$1.24M" tone="pos" />
+          </GlassCard>
+          <GlassCard>
+            <StatChip label="Sales" value="$842K" tone="pos" />
+          </GlassCard>
+          <GlassCard>
+            <StatChip label="Profit" value="$312K" tone="neu" />
+          </GlassCard>
+        </section>
+
+        <section className="mp-admin-grid-2">
+          <GlassCard className="mp-admin-chart-card">
+            <div className="mp-admin-card-head">
+              <h2>Revenue Trend</h2>
+              <span className="mp-admin-muted">Last 8 months</span>
+            </div>
+            <div className="mp-admin-chart">
+              <ResponsiveContainer width="100%" height={240}>
+                <LineChart data={lineData}>
+                  <Tooltip />
+                  <Line type="monotone" dataKey="value" stroke="#A27841" strokeWidth={2} dot={false} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </GlassCard>
+
+          <GlassCard className="mp-admin-chart-card">
+            <div className="mp-admin-card-head">
+              <h2>Sales Distribution</h2>
+              <span className="mp-admin-muted">Area chart</span>
+            </div>
+            <div className="mp-admin-chart">
+              <ResponsiveContainer width="100%" height={240}>
+                <AreaChart data={areaData}>
+                  <Tooltip />
+                  <Area type="monotone" dataKey="value" stroke="#A27841" fill="#A27841" fillOpacity={0.18} />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          </GlassCard>
+        </section>
+
+        <section className="mp-admin-grid-3">
+          <GlassCard className="mp-admin-chart-card">
+            <div className="mp-admin-card-head">
+              <h2>Donut Mix</h2>
+              <span className="mp-admin-muted">Revenue vs profit</span>
+            </div>
+            <div className="mp-admin-chart">
+              <ResponsiveContainer width="100%" height={220}>
+                <PieChart>
+                  <Tooltip />
+                  <Pie data={donutData} dataKey="value" nameKey="name" innerRadius={55} outerRadius={85}>
+                    {donutData.map((d) => (
+                      <Cell key={d.name} fill={d.color} />
+                    ))}
+                  </Pie>
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+          </GlassCard>
+
+          <GlassCard>
+            <div className="mp-admin-card-head">
+              <h2>Growth</h2>
+              <span className="mp-admin-muted">Progress bars</span>
+            </div>
+            <div className="mp-admin-progress-stack">
+              <Progress label="MRR Momentum" value={72} />
+              <Progress label="Active Users" value={61} />
+              <Progress label="Churn Control" value={48} />
+            </div>
+          </GlassCard>
+
+          <GlassCard>
+            <div className="mp-admin-card-head">
+              <h2>Team</h2>
+              <span className="mp-admin-muted">Avatars</span>
+            </div>
+            <AvatarStack />
+            <div className="mp-admin-team-meta">
+              <div className="mp-admin-team-row">
+                <span>Ops</span>
+                <strong>Realtime</strong>
+              </div>
+              <div className="mp-admin-team-row">
+                <span>Finance</span>
+                <strong>Weekly</strong>
+              </div>
+            </div>
+          </GlassCard>
+        </section>
+
+        <section className="mp-admin-grid-2">
+          <GlassCard>
+            <div className="mp-admin-card-head">
+              <h2>Recent Activity</h2>
+              <span className="mp-admin-muted">Timeline</span>
+            </div>
+            <RecentActivity />
+          </GlassCard>
+
+          <GlassCard>
+            <div className="mp-admin-card-head">
+              <h2>Invoices</h2>
+              <span className="mp-admin-muted">Data table</span>
+            </div>
+            <DataTable />
+          </GlassCard>
+        </section>
+      </main>
+    );
+  };
 
   return (
     <div className="mp-admin-shell">
       <AdminSidebar mobileOpen={mobileOpen} onMobileToggle={() => setMobileOpen((v) => !v)} />
       <div className="mp-admin-main">
         <AdminHeader onMobileToggle={() => setMobileOpen((v) => !v)} />
-
-        <main className="mp-admin-content">
-          <div className="mp-admin-titlebar">
-            <div>
-              <h1>Analytics Overview</h1>
-              <p>Premium fintech dashboard UI with glassmorphism and charts.</p>
-            </div>
-          </div>
-
-          <section className="mp-admin-grid-3">
-            <GlassCard>
-              <StatChip label="Revenue" value="$1.24M" tone="pos" />
-            </GlassCard>
-            <GlassCard>
-              <StatChip label="Sales" value="$842K" tone="pos" />
-            </GlassCard>
-            <GlassCard>
-              <StatChip label="Profit" value="$312K" tone="neu" />
-            </GlassCard>
-          </section>
-
-          <section className="mp-admin-grid-2">
-            <GlassCard className="mp-admin-chart-card">
-              <div className="mp-admin-card-head">
-                <h2>Revenue Trend</h2>
-                <span className="mp-admin-muted">Last 8 months</span>
-              </div>
-              <div className="mp-admin-chart">
-                <ResponsiveContainer width="100%" height={240}>
-                  <LineChart data={lineData}>
-                    <Tooltip />
-                    <Line type="monotone" dataKey="value" stroke="#22c55e" strokeWidth={2} dot={false} />
-                  </LineChart>
-                </ResponsiveContainer>
-              </div>
-            </GlassCard>
-
-            <GlassCard className="mp-admin-chart-card">
-              <div className="mp-admin-card-head">
-                <h2>Sales Distribution</h2>
-                <span className="mp-admin-muted">Area chart</span>
-              </div>
-              <div className="mp-admin-chart">
-                <ResponsiveContainer width="100%" height={240}>
-                  <AreaChart data={areaData}>
-                    <Tooltip />
-                    <Area type="monotone" dataKey="value" stroke="#60a5fa" fill="#60a5fa" fillOpacity={0.18} />
-                  </AreaChart>
-                </ResponsiveContainer>
-              </div>
-            </GlassCard>
-          </section>
-
-          <section className="mp-admin-grid-3">
-            <GlassCard className="mp-admin-chart-card">
-              <div className="mp-admin-card-head">
-                <h2>Donut Mix</h2>
-                <span className="mp-admin-muted">Revenue vs profit</span>
-              </div>
-              <div className="mp-admin-chart">
-                <ResponsiveContainer width="100%" height={220}>
-                  <PieChart>
-                    <Tooltip />
-                    <Pie data={donutData} dataKey="value" nameKey="name" innerRadius={55} outerRadius={85}>
-                      {donutData.map((d) => (
-                        <Cell key={d.name} fill={d.color} />
-                      ))}
-                    </Pie>
-                  </PieChart>
-                </ResponsiveContainer>
-              </div>
-            </GlassCard>
-
-            <GlassCard>
-              <div className="mp-admin-card-head">
-                <h2>Growth</h2>
-                <span className="mp-admin-muted">Progress bars</span>
-              </div>
-              <div className="mp-admin-progress-stack">
-                <Progress label="MRR Momentum" value={72} />
-                <Progress label="Active Users" value={61} />
-                <Progress label="Churn Control" value={48} />
-              </div>
-            </GlassCard>
-
-            <GlassCard>
-              <div className="mp-admin-card-head">
-                <h2>Team</h2>
-                <span className="mp-admin-muted">Avatars</span>
-              </div>
-              <AvatarStack />
-              <div className="mp-admin-team-meta">
-                <div className="mp-admin-team-row">
-                  <span>Ops</span>
-                  <strong>Realtime</strong>
-                </div>
-                <div className="mp-admin-team-row">
-                  <span>Finance</span>
-                  <strong>Weekly</strong>
-                </div>
-              </div>
-            </GlassCard>
-          </section>
-
-          <section className="mp-admin-grid-2">
-            <GlassCard>
-              <div className="mp-admin-card-head">
-                <h2>Recent Activity</h2>
-                <span className="mp-admin-muted">Timeline</span>
-              </div>
-              <RecentActivity />
-            </GlassCard>
-
-            <GlassCard>
-              <div className="mp-admin-card-head">
-                <h2>Invoices</h2>
-                <span className="mp-admin-muted">Data table</span>
-              </div>
-              <DataTable />
-            </GlassCard>
-          </section>
-        </main>
+        {renderMain()}
       </div>
     </div>
   );
 }
+
 

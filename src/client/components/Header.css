@@ -32,8 +32,8 @@
 
   background: linear-gradient(
     135deg,
-    #a77800 0%,
-    lab(33.81% 20.68 43.92) 100%
+    #A27841 0%,
+    #6f4d25 100%
   );
 
   color: white;
@@ -188,13 +188,13 @@
 }
 
 .btn.primary {
-  background: #10b981;
+  background: linear-gradient(135deg, #A27841, #d1aa72);
   color: white;
   border-color: transparent;
 }
 
 .btn.primary:hover {
-  background: #059669;
+  background: linear-gradient(135deg, #8b642f, #c79c61);
 }
 
 .btn.ghost {
@@ -217,6 +217,28 @@
   font-size: 14px;
 
   transition: 0.25s ease;
+}
+
+.utility-select select {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #1f2937;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .utility-select:hover {

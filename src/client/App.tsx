@@ -729,10 +729,11 @@ const userAlerts = [
 
 const UserPanelPage = () => {
   const { t } = useI18n();
-  const { user, isAuthenticated, logout, updateUser } = useAuthStore();
+  const { user, isAuthenticated, logout, updateUser, openLoginModal, openSignupModal } = useAuthStore();
   const [editing, setEditing] = React.useState(false);
   const [name, setName] = React.useState(user?.name ?? "");
   const [email, setEmail] = React.useState(user?.email ?? "");
+  const displayName = user?.name ?? "Guest";
 
   React.useEffect(() => {
     setName(user?.name ?? "");
@@ -747,17 +748,28 @@ const UserPanelPage = () => {
   if (!isAuthenticated || !user) {
     return (
       <div className="page user-panel-page">
-        <div className="section-heading">
-          <p className="eyebrow">{t("userPanel")}</p>
-          <h1>{t("userPanelTitle")}</h1>
-          <p>{t("userPanelIntro")}</p>
-        </div>
-        <div className="centered">
-          <p>{t("loginTitle")}</p>
-          <button onClick={() => window.scrollTo(0, 0)} className="primary-action">
-            {t("login")}
-          </button>
-        </div>
+        <section className="user-hero user-auth-hero">
+          <div>
+            <p className="eyebrow">{t("userPanel")}</p>
+            <h1>{t("userPanelTitle")}</h1>
+            <p>{t("userPanelIntro")}</p>
+            <div className="user-auth-actions">
+              <button type="button" onClick={openLoginModal} className="primary-action">
+                {t("login")}
+              </button>
+              <button type="button" onClick={openSignupModal} className="secondary-action">
+                {t("signUp")}
+              </button>
+            </div>
+          </div>
+          <div className="user-profile-card">
+            <span className="avatar">M</span>
+            <div>
+              <strong>Markets workspace</strong>
+              <p>Sign in to unlock watchlists, alerts, preferences, and portfolio dashboard.</p>
+            </div>
+          </div>
+        </section>
       </div>
     );
   }
@@ -767,8 +779,8 @@ const UserPanelPage = () => {
       <section className="user-hero">
         <div>
           <p className="eyebrow">{t("userPanel")}</p>
-          <h1>{t("userPanelTitle")}</h1>
-          <p>{t("userPanelIntro")}</p>
+          <h1>Welcome, {displayName.split(" ")[0]}</h1>
+          <p>Your watchlist, alerts, portfolio mix, and account preferences in one dashboard.</p>
         </div>
         <div className="user-profile-card">
           <span className="avatar">{user.name.charAt(0).toUpperCase()}</span>
@@ -796,17 +808,31 @@ const UserPanelPage = () => {
         </div>
       </section>
 
+      <section className="user-stat-grid">
+        {[
+          { label: "Watchlist", value: String(userWatchlist.length), meta: "Saved markets", highlight: true },
+          { label: "Alerts", value: String(userAlerts.length), meta: "Active signals" },
+          { label: "Base FX", value: "USD", meta: "Default currency" },
+          { label: "Risk", value: "Moderate", meta: "Profile mode" },
+        ].map((item) => (
+          <div key={item.label} className={`user-stat-card ${item.highlight ? "highlight" : ""}`}>
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+            <em>{item.meta}</em>
+          </div>
+        ))}
+      </section>
+
       <section className="user-panel-layout">
         <div className="user-main-column">
-          <div className="user-section-header">
-            <div>
-              <p className="eyebrow">{t("watchlist")}</p>
-              <h2>{t("savedMarkets")}</h2>
-            </div>
-            <Link to="/stocks" className="secondary-action">{t("addWatchlist")}</Link>
-          </div>
-
           <div className="watchlist-table">
+            <div className="user-section-header user-card-header">
+              <div>
+                <p className="eyebrow">{t("watchlist")}</p>
+                <h2>{t("savedMarkets")}</h2>
+              </div>
+              <Link to="/stocks" className="secondary-action">{t("addWatchlist")}</Link>
+            </div>
             {userWatchlist.map((item) => (
               <Link to={item.to} className="watchlist-row" key={item.symbol}>
                 <div>
@@ -840,6 +866,29 @@ const UserPanelPage = () => {
                     <div style={{ width: `${item.value}%` }} />
                   </div>
                   <strong>{item.value}%</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="user-market-card">
+            <div className="user-section-header">
+              <div>
+                <p className="eyebrow">Market Pulse</p>
+                <h2>Today’s dashboard</h2>
+              </div>
+              <span className="user-live-pill">Live</span>
+            </div>
+            <div className="user-pulse-grid">
+              {[
+                ["S&P 500", "5,420.18", "+0.82%"],
+                ["BTC", "$65,000", "+2.20%"],
+                ["USD/INR", "83.50", "+0.18%"],
+              ].map(([label, value, move]) => (
+                <div key={label}>
+                  <span>{label}</span>
+                  <strong>{value}</strong>
+                  <em className={move.startsWith("-") ? "negative" : "positive"}>{move}</em>
                 </div>
               ))}
             </div>

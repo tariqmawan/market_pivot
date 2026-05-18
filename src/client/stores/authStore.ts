@@ -55,7 +55,7 @@ export const useAuthStore = create<AuthState>()(
             isAdmin: provider === "admin",
           };
 
-          set({ user: mockUser, isAuthenticated: true, isLoading: false, showLoginModal: false });
+          set({ user: mockUser, isAuthenticated: true, isLoading: false, showLoginModal: false, showSignupModal: false });
         } catch (err) {
           set({ error: "Login failed. Please try again.", isLoading: false });
         }
@@ -76,7 +76,7 @@ export const useAuthStore = create<AuthState>()(
             isAdmin: provider === "admin",
           };
 
-          set({ user: mockUser, isAuthenticated: true, isLoading: false, showSignupModal: false });
+          set({ user: mockUser, isAuthenticated: true, isLoading: false, showLoginModal: false, showSignupModal: false });
         } catch (err) {
           set({ error: "Signup failed. Please try again.", isLoading: false });
         }
