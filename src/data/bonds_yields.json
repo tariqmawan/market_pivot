@@ -1,0 +1,48 @@
+{
+  "bondsYields": [
+    {
+      "id": "us-10y",
+      "country": "United States",
+      "instrument": "US 10Y Treasury",
+      "curvePoint": "10Y",
+      "currency": "USD",
+      "tenor": "10Y",
+      "yieldPercent": 4.31,
+      "changePercentDay": -0.03,
+      "ytdPercent": 0.9
+    },
+    {
+      "id": "us-2y",
+      "country": "United States",
+      "instrument": "US 2Y Treasury",
+      "curvePoint": "2Y",
+      "currency": "USD",
+      "tenor": "2Y",
+      "yieldPercent": 4.78,
+      "changePercentDay": 0.02,
+      "ytdPercent": 1.2
+    },
+    {
+      "id": "germany-10y",
+      "country": "Germany",
+      "instrument": "German 10Y Bund",
+      "curvePoint": "10Y",
+      "currency": "EUR",
+      "tenor": "10Y",
+      "yieldPercent": 2.55,
+      "changePercentDay": 0.01,
+      "ytdPercent": 0.6
+    },
+    {
+      "id": "japan-10y",
+      "country": "Japan",
+      "instrument": "Japan 10Y Government Bond",
+      "curvePoint": "10Y",
+      "currency": "JPY",
+      "tenor": "10Y",
+      "yieldPercent": 0.95,
+      "changePercentDay": -0.01,
+      "ytdPercent": -0.2
+    }
+  ]
+}

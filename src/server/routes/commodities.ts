@@ -1,10 +1,16 @@
 import { Router } from "express";
 import type { Request, Response } from "express";
 import type { ApiResponse, Commodity, PaginatedResponse } from "../../types";
-import commoditiesData from "../../data/commodities.json";
-import { parsePositiveInt } from "../security";
+import { parsePositiveInt } from "../security.ts";
+
+
+import fs from "fs";
+import path from "path";
 
 const router = Router();
+
+const readJson = (relPath: string) => JSON.parse(fs.readFileSync(path.resolve(__dirname, relPath), "utf8"));
+const commoditiesData = readJson("../../data/commodities.json");
 const commodities = commoditiesData.commodities as Commodity[];
 
 router.get("/", async (req: Request, res: Response<PaginatedResponse<Commodity>>) => {

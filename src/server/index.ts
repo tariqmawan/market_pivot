@@ -5,14 +5,22 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 // Import route handlers
-import commoditiesRouter from "./routes/commodities";
-import exchangesRouter from "./routes/exchanges";
-import currenciesRouter from "./routes/currencies";
-import cryptocurrenciesRouter from "./routes/cryptocurrencies";
-import regionsRouter from "./routes/regions";
-import sectorsRouter from "./routes/sectors";
-import newsRouter from "./routes/news";
-import chartsRouter from "./routes/charts";
+import commoditiesRouter from "./routes/commodities.ts";
+
+import exchangesRouter from "./routes/exchanges.ts";
+
+import currenciesRouter from "./routes/currencies.ts";
+
+import cryptocurrenciesRouter from "./routes/cryptocurrencies.ts";
+
+import regionsRouter from "./routes/regions.ts";
+
+import sectorsRouter from "./routes/sectors.ts";
+
+import newsRouter from "./routes/news.ts";
+
+import chartsRouter from "./routes/charts.ts";
+
 import { corsOptions, createRateLimiter, sanitizeShortText, securityHeaders } from "./security";
 
 // Import JSON data

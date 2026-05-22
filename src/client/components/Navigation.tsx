@@ -49,6 +49,17 @@ const navigationItems: NavigationItem[] = [
     ],
   },
   {
+    label: "Market Coverage",
+    path: "/coverage",
+    icon: <BarChart3 size={iconSize} />,
+    description: "Indices, ETFs, and Bonds/Yields coverage",
+    submenu: [
+      { label: "Indices", path: "/indices", icon: <BarChart3 size={iconSize} /> },
+      { label: "ETFs & Funds", path: "/etfs", icon: <BriefcaseBusiness size={iconSize} /> },
+      { label: "Bonds & Yields", path: "/bonds-yields", icon: <CalendarDays size={iconSize} /> },
+    ],
+  },
+  {
     label: "Exchanges",
     path: "/exchanges",
     icon: <Landmark size={iconSize} />,
