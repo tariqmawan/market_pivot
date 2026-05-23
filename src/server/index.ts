@@ -1,46 +1,33 @@
 import express from "express";
 import type { Request, Response, NextFunction } from "express";
-
 import cors from "cors";
 import dotenv from "dotenv";
-
-// Import route handlers
-import commoditiesRouter from "./routes/commodities";
-import exchangesRouter from "./routes/exchanges";
-import currenciesRouter from "./routes/currencies";
-import cryptocurrenciesRouter from "./routes/cryptocurrencies";
-import regionsRouter from "./routes/regions";
-import sectorsRouter from "./routes/sectors";
-import newsRouter from "./routes/news";
-import chartsRouter from "./routes/charts";
-import { corsOptions, createRateLimiter, sanitizeShortText, securityHeaders } from "./security";
-
-// Import JSON data
-import fs from "fs";
-import path from "path";
-
-const readJson = (relPath: string) => JSON.parse(fs.readFileSync(path.resolve(__dirname, relPath), "utf8"));
-
-const commoditiesData = readJson("../data/commodities.json");
-const cryptoData = readJson("../data/cryptocurrencies.json");
-const currenciesData = readJson("../data/currencies.json");
-const exchangesData = readJson("../data/exchanges.json");
-const regionsData = readJson("../data/regions.json");
-const sectorsData = readJson("../data/sectors.json");
-
 dotenv.config();
+
+// DB instance — ek baar banao, sab jagah pass karo
+import db from "./db";
+
+// Route factories — ab har route ek function hai jo db leta hai
+import { createRouter as createExchangesRouter }     from "./routes/exchanges";
+import { createRouter as createCurrenciesRouter }    from "./routes/currencies";
+import { createRouter as createCryptosRouter }       from "./routes/cryptocurrencies";
+import { createRouter as createRegionsRouter }       from "./routes/regions";
+import { createRouter as createSectorsRouter }       from "./routes/sectors";
+import { createRouter as createCommoditiesRouter }   from "./routes/commodities";
+import { createRouter as createNewsRouter }          from "./routes/news";
+import { createRouter as createChartsRouter }        from "./routes/charts";
+
+import {
+  corsOptions,
+  createRateLimiter,
+  sanitizeShortText,
+  securityHeaders,
+} from "./security";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const exchanges: any = (exchangesData as any).exchanges;
-const currencies: any = (currenciesData as any).currencies;
-const cryptocurrencies: any = (cryptoData as any).cryptocurrencies;
-const regions: any = (regionsData as any).regions;
-const sectors: any = (sectorsData as any).sectors;
-const commodities: any = (commoditiesData as any).commodities;
-
-// Middleware
+// ─── Middleware ────────────────────────────────────────────────────────────────
 app.disable("x-powered-by");
 app.use(securityHeaders);
 app.use(cors(corsOptions));
@@ -48,147 +35,158 @@ app.use(createRateLimiter());
 app.use(express.json({ limit: "100kb" }));
 app.use(express.urlencoded({ extended: true, limit: "100kb" }));
 
-// Health check
-app.get("/health", (req: Request, res: Response) => {
-  res.json({ status: "OK", timestamp: new Date() });
+// ─── Health check ──────────────────────────────────────────────────────────────
+app.get("/health", async (req: Request, res: Response) => {
+  try {
+    await db.raw("SELECT 1"); // DB connection test
+    res.json({ status: "OK", db: "connected", timestamp: new Date() });
+  } catch {
+    res.status(503).json({ status: "OK", db: "disconnected", timestamp: new Date() });
+  }
 });
 
-// API Routes
-app.use("/api/exchanges", exchangesRouter);
-app.use("/api/currencies", currenciesRouter);
-app.use("/api/cryptos", cryptocurrenciesRouter);
-app.use("/api/regions", regionsRouter);
-app.use("/api/sectors", sectorsRouter);
-app.use("/api/commodities", commoditiesRouter);
-app.use("/api/news", newsRouter);
-app.use("/api/charts", chartsRouter);
+// ─── API Routes — db pass ho raha hai har router ko ───────────────────────────
+app.use("/api/exchanges",   createExchangesRouter(db));
+app.use("/api/currencies",  createCurrenciesRouter(db));
+app.use("/api/cryptos",     createCryptosRouter(db));
+app.use("/api/regions",     createRegionsRouter(db));
+app.use("/api/sectors",     createSectorsRouter(db));
+app.use("/api/commodities", createCommoditiesRouter(db));
+app.use("/api/news",        createNewsRouter(db));
+app.use("/api/charts",      createChartsRouter(db));
 
-// Dashboard/Overview Routes
-app.get("/api/dashboard", (req: Request, res: Response) => {
-  res.json({
-    success: true,
-    data: {
-      stocks: {
-        topExchanges: exchanges.slice(0, 5),
-        gainers: [],
-        losers: [],
+// ─── Dashboard — DB se data ────────────────────────────────────────────────────
+app.get("/api/dashboard", async (req: Request, res: Response) => {
+  try {
+    const [exchanges, currencies, cryptos, regions, sectors, commodities] =
+      await Promise.all([
+        db("exchanges").select("*").limit(5),
+        db("currencies").select("*").limit(6),
+        db("cryptocurrencies").select("*").limit(6),
+        db("market_regions").select("id","name","gdpGrowth","inflation").limit(10),
+        db("stock_sectors").select("id","name","performanceYtd","peRatio").limit(6),
+        db("commodities").select("id","name","spotPrice","changePercent24h").limit(6),
+      ]);
+
+    res.json({
+      success: true,
+      data: {
+        stocks:      { topExchanges: exchanges, gainers: [], losers: [] },
+        currencies:  { reserves: currencies,    gainers: [], losers: [] },
+        crypto:      { topCryptos: cryptos,      gainers: [], losers: [] },
+        regions,
+        sectors,
+        commodities,
+        news: [],
+        timestamp: new Date(),
       },
-      currencies: {
-        reserves: currencies.slice(0, 6),
-        gainers: [],
-        losers: [],
-      },
-      crypto: {
-        topCryptos: cryptocurrencies.slice(0, 6),
-        gainers: [],
-        losers: [],
-      },
-      regions: regions.map((region: any) => ({
-        id: region.id,
-        name: region.name,
-        gdpGrowth: region.gdpGrowth,
-        inflation: region.inflation,
-        majorExchanges: region.majorExchanges.length,
-      })),
-      sectors: sectors.slice(0, 6).map((sector: any) => ({
-        id: sector.id,
-        name: sector.name,
-        performanceYtd: sector.performanceYtd,
-        peRatio: sector.peRatio,
-      })),
-      commodities: commodities.slice(0, 6).map((commodity: any) => ({
-        id: commodity.id,
-        name: commodity.name,
-        spotPrice: commodity.spotPrice,
-        changePercent24h: commodity.changePercent24h,
-      })),
-      news: [],
-      timestamp: new Date(),
-    },
-  });
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, error: "Dashboard fetch failed", timestamp: new Date() });
+  }
 });
 
-// Global Market Data
-app.get("/api/global", (req: Request, res: Response) => {
-  res.json({
-    success: true,
-    data: {
-      stocks: {
-        totalMarketCap: exchanges.reduce((sum: number, exchange: any) => sum + exchange.marketCap, 0),
-        topIndices: exchanges.slice(0, 8).map((exchange: any) => exchange.mainIndex),
+// ─── Global Market Overview ────────────────────────────────────────────────────
+app.get("/api/global", async (req: Request, res: Response) => {
+  try {
+    const [exchanges, cryptos, currencies, regionsCount, sectorsCount, commodities] =
+      await Promise.all([
+        db("exchanges").sum("marketCap as total").first(),
+        db("cryptocurrencies").count("id as count").first(),
+        db("currencies").select("code").limit(10),
+        db("market_regions").count("id as count").first(),
+        db("stock_sectors").count("id as count").first(),
+        db("commodities").select("category").distinct("category"),
+      ]);
+
+    res.json({
+      success: true,
+      data: {
+        stocks: {
+          totalMarketCap: Number(exchanges?.total ?? 0),
+        },
+        crypto: {
+          totalCoins:         Number(cryptos?.count ?? 0),
+          btcDominance:       0,   // live API se aayega baad mein
+          fear_and_greed_index: 0,
+        },
+        fx: {
+          majorPairs: ["EUR/USD", "USD/JPY", "GBP/USD", "GBP/USD", "AUD/USD", "USD/INR"],
+          volatility: 0,
+        },
+        regions:    Number(regionsCount?.count ?? 0),
+        sectors:    Number(sectorsCount?.count ?? 0),
+        commodities: {
+          categories: commodities.map((c: any) => c.category),
+        },
+        timestamp: new Date(),
       },
-      crypto: {
-        totalMarketCap: cryptocurrencies.reduce(
-          (sum: number, crypto: any) => sum + crypto.circulatingSupply * (crypto.symbol === "BTC" ? 65000 : crypto.symbol === "ETH" ? 3200 : 10),
-          0
-        ),
-        btcDominance: 0,
-        ethDominance: 0,
-        fear_and_greed_index: 0,
-      },
-      fx: {
-        majorPairs: ["EUR/USD", "USD/JPY", "GBP/USD", "USD/CHF", "AUD/USD", "USD/INR"],
-        volatility: 0,
-      },
-      regions: regions.length,
-      sectors: sectors.length,
-      commodities: {
-        count: commodities.length,
-        categories: [...new Set(commodities.map((commodity: any) => commodity.category))],
-      },
-      timestamp: new Date(),
-    },
-  });
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, error: "Global fetch failed", timestamp: new Date() });
+  }
 });
 
-// Search endpoint
-app.get("/api/search", (req: Request, res: Response) => {
-  const q = sanitizeShortText(req.query.q);
+// ─── Search ────────────────────────────────────────────────────────────────────
+app.get("/api/search", async (req: Request, res: Response) => {
+  const q    = sanitizeShortText(req.query.q);
   const type = sanitizeShortText(req.query.type, 20);
-  const query = q.toLowerCase();
-  const matches = [
-    ...exchanges.map((item: any) => ({ type: "exchange", id: item.id, title: item.name, meta: `${item.country} / ${item.currency}` })),
-    ...currencies.map((item: any) => ({ type: "currency", id: item.code, title: item.name, meta: `${item.country} / ${item.centralBank}` })),
-    ...cryptocurrencies.map((item: any) => ({ type: "crypto", id: item.id, title: item.name, meta: `${item.symbol} / ${item.category}` })),
-    ...regions.map((item: any) => ({ type: "region", id: item.id, title: item.name, meta: (item.countries as any[]).join(", ") })),
-    ...sectors.map((item: any) => ({ type: "sector", id: item.id, title: item.name, meta: `${item.category} / ${item.performanceYtd}% YTD` })),
-    ...commodities.map((item: any) => ({ type: "commodity", id: item.id, title: item.name, meta: `${item.symbol} / ${item.category}` })),
-  ].filter((item: any) => {
-    if (type && item.type !== type) return false;
-    if (!query) return true;
-    return `${item.title} ${item.id} ${item.meta}`.toLowerCase().includes(query);
-  });
+  const query = `%${q.toLowerCase()}%`;
 
-  res.json({
-    success: true,
-    data: matches.slice(0, 25),
-    timestamp: new Date(),
-  });
+  try {
+    const [exchanges, currencies, cryptos, regions, sectors, commodities] =
+      await Promise.all([
+        db("exchanges")
+          .whereILike("name", query).orWhereILike("id", query)
+          .select("id","name","country","currency").limit(10),
+        db("currencies")
+          .whereILike("name", query).orWhereILike("code", query)
+          .select("code as id","name","country","centralBank").limit(10),
+        db("cryptocurrencies")
+          .whereILike("name", query).orWhereILike("symbol", query)
+          .select("id","name","symbol","category").limit(10),
+        db("market_regions")
+          .whereILike("name", query)
+          .select("id","name").limit(5),
+        db("stock_sectors")
+          .whereILike("name", query)
+          .select("id","name","performanceYtd").limit(5),
+        db("commodities")
+          .whereILike("name", query).orWhereILike("symbol", query)
+          .select("id","name","symbol","category").limit(5),
+      ]);
+
+    const results = [
+      ...exchanges.map((e: any)   => ({ type: "exchange",  id: e.id,     title: e.name,   meta: `${e.country} / ${e.currency}` })),
+      ...currencies.map((c: any)  => ({ type: "currency",  id: c.id,     title: c.name,   meta: `${c.country} / ${c.centralBank}` })),
+      ...cryptos.map((c: any)     => ({ type: "crypto",    id: c.id,     title: c.name,   meta: `${c.symbol} / ${c.category}` })),
+      ...regions.map((r: any)     => ({ type: "region",    id: r.id,     title: r.name,   meta: "Region" })),
+      ...sectors.map((s: any)     => ({ type: "sector",    id: s.id,     title: s.name,   meta: `${s.performanceYtd}% YTD` })),
+      ...commodities.map((c: any) => ({ type: "commodity", id: c.id,     title: c.name,   meta: `${c.symbol} / ${c.category}` })),
+    ].filter((item) => !type || item.type === type);
+
+    res.json({ success: true, data: results.slice(0, 25), timestamp: new Date() });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, error: "Search failed", timestamp: new Date() });
+  }
 });
 
-// Error handling middleware
+// ─── Error handlers ────────────────────────────────────────────────────────────
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error(err.stack);
-  res.status(500).json({
-    success: false,
-    error: "Internal Server Error",
-    timestamp: new Date(),
-  });
+  res.status(500).json({ success: false, error: "Internal Server Error", timestamp: new Date() });
 });
 
-// 404 handler
 app.use((req: Request, res: Response) => {
-  res.status(404).json({
-    success: false,
-    error: "Route not found",
-    timestamp: new Date(),
-  });
+  res.status(404).json({ success: false, error: "Route not found", timestamp: new Date() });
 });
 
-// Start server
+// ─── Start ─────────────────────────────────────────────────────────────────────
 app.listen(PORT, () => {
-  console.log(`MarketsPivot API Server running on http://localhost:${PORT}`);
+  console.log(`MarketsPivot API running on http://localhost:${PORT}`);
 });
 
 export default app;
-

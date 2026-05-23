@@ -1,3 +1,5 @@
+require('dotenv').config();
+require("ts-node").register({ transpileOnly: true });
 const requireEnv = (name) => {
   const value = process.env[name];
   if (!value) {
@@ -18,9 +20,11 @@ module.exports = {
     },
     migrations: {
       directory: "./src/server/database/migrations",
+      extension: "ts",
     },
     seeds: {
       directory: "./src/server/database/seeds",
+      extension: "ts",
     },
     pool: { min: 2, max: 10 },
   },
