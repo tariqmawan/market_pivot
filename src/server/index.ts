@@ -16,6 +16,8 @@ import { createRouter as createSectorsRouter }       from "./routes/sectors";
 import { createRouter as createCommoditiesRouter }   from "./routes/commodities";
 import { createRouter as createNewsRouter }          from "./routes/news";
 import { createRouter as createChartsRouter }        from "./routes/charts";
+import { createRouter as createAuthRouter }          from "./routes/auth.routes";
+
 
 import {
   corsOptions,
@@ -46,6 +48,7 @@ app.get("/health", async (req: Request, res: Response) => {
 });
 
 // ─── API Routes — db pass ho raha hai har router ko ───────────────────────────
+app.use("/api/auth",        createAuthRouter(db));
 app.use("/api/exchanges",   createExchangesRouter(db));
 app.use("/api/currencies",  createCurrenciesRouter(db));
 app.use("/api/cryptos",     createCryptosRouter(db));
