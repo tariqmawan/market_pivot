@@ -21,4 +21,3 @@
   "include": ["src/server/**/*", "src/types/**/*", "src/data/**/*.json"],
   "exclude": ["node_modules", "dist"]
 }
-

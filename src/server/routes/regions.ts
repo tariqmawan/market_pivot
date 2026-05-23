@@ -1,65 +1,36 @@
 import { Router } from "express";
 import type { Request, Response } from "express";
-import type { ApiResponse, MarketRegion, PaginatedResponse } from "../../types";
-import regionsData from "../../data/regions.json";
+import type { Knex } from "knex";
+import type { MarketRegion, ApiResponse, PaginatedResponse } from "../../types";
 import { parsePositiveInt } from "../security";
-const router = Router();
-const regions = regionsData.regions as unknown as MarketRegion[];
 
-router.get("/", async (req: Request, res: Response<PaginatedResponse<MarketRegion>>) => {
-  try {
-    const pageNumber = parsePositiveInt(req.query.page, 1, 1000);
-    const pageSize = parsePositiveInt(req.query.limit, 20);
-    const group = typeof req.query.group === "string" ? req.query.group : "";
-    const allRegions = regions.filter((region) => !group || region.group === group);
-    const data = allRegions.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
+export function createRouter(db: Knex) {
+  const router = Router();
 
-    res.json({
-      success: true,
-      data,
-      pagination: {
-        page: pageNumber,
-        limit: pageSize,
-        total: allRegions.length,
-        pages: Math.ceil(allRegions.length / pageSize),
-      },
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch regions",
-      timestamp: new Date(),
-    } as any);
-  }
-});
-
-router.get("/:id", async (req: Request, res: Response<ApiResponse<MarketRegion>>) => {
-  try {
-    const { id } = req.params;
-    const region = regions.find((item) => item.id.toLowerCase() === id.toLowerCase());
-
-    if (!region) {
-      res.status(404).json({
-        success: false,
-        error: "Region not found",
-        timestamp: new Date(),
-      });
-      return;
+  router.get("/", async (req: Request, res: Response<PaginatedResponse<MarketRegion>>) => {
+    try {
+      const pageNumber = parsePositiveInt(req.query.page, 1, 1000);
+      const pageSize   = parsePositiveInt(req.query.limit, 20);
+      const [data, [{ count }]] = await Promise.all([
+        db("market_regions").select("*").offset((pageNumber - 1) * pageSize).limit(pageSize),
+        db("market_regions").count("id as count"),
+      ]);
+      const total = Number(count);
+      res.json({ success: true, data, pagination: { page: pageNumber, limit: pageSize, total, pages: Math.ceil(total / pageSize) }, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch regions", timestamp: new Date() } as any);
     }
+  });
 
-    res.json({
-      success: true,
-      data: region,
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch region",
-      timestamp: new Date(),
-    });
-  }
-});
+  router.get("/:id", async (req: Request, res: Response<ApiResponse<MarketRegion>>) => {
+    try {
+      const region = await db("market_regions").whereRaw("LOWER(id) = ?", [req.params.id.toLowerCase()]).first();
+      if (!region) return res.status(404).json({ success: false, error: "Region not found", timestamp: new Date() });
+      res.json({ success: true, data: region, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch region", timestamp: new Date() } as any);
+    }
+  });
 
-export default router;
+  return router;
+}

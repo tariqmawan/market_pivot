@@ -1,291 +1,185 @@
 import { Router } from "express";
 import type { Request, Response } from "express";
-import type {
-  StockExchange,
-  ApiResponse,
-  PaginatedResponse,
-} from "../../types";
-import exchangesData from "../../data/exchanges.json";
+import type { Knex } from "knex";
+import type { StockExchange, ApiResponse, PaginatedResponse } from "../../types";
 import { parsePositiveInt } from "../security";
-const router = Router();
 
-// GET /api/exchanges - Get all exchanges with optional filtering
-router.get(
-  "/",
-  async (req: Request, res: Response<PaginatedResponse<StockExchange>>) => {
+export function createRouter(db: Knex) {
+  const router = Router();
+
+  // GET /api/exchanges
+  router.get("/", async (req: Request, res: Response<PaginatedResponse<StockExchange>>) => {
     try {
       const { region, country } = req.query;
       const pageNumber = parsePositiveInt(req.query.page, 1, 1000);
-      const pageSize = parsePositiveInt(req.query.limit, 10);
-      const allExchanges = (exchangesData.exchanges as StockExchange[]).filter(
-        (exchange) =>
-          (!region || exchange.region === String(region)) &&
-          (!country || exchange.country === String(country))
-      );
-      const data = allExchanges.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
+      const pageSize   = parsePositiveInt(req.query.limit, 10);
 
-      // TODO: Implement database query with filters
-      // const query = db("exchanges");
-      // if (region) query.where({ region });
-      // if (country) query.where({ country });
+      let query = db("exchanges");
+      if (region)  query = query.where({ region: String(region) });
+      if (country) query = query.where({ country: String(country) });
 
-      const response: PaginatedResponse<StockExchange> = {
-        success: true,
-        data,
-        pagination: {
-          page: pageNumber,
-          limit: pageSize,
-          total: allExchanges.length,
-          pages: Math.ceil(allExchanges.length / pageSize),
-        },
-        timestamp: new Date(),
-      };
-
-      res.json(response);
-    } catch (error) {
-      res.status(500).json({
-        success: false,
-        error: "Failed to fetch exchanges",
-        timestamp: new Date(),
-      } as any);
-    }
-  }
-);
-
-// GET /api/exchanges/:id - Get specific exchange details
-router.get(
-  "/:id",
-  async (req: Request, res: Response<ApiResponse<StockExchange>>) => {
-    try {
-      const { id } = req.params;
-      const exchange = (exchangesData.exchanges as StockExchange[]).find(
-        (item) => item.id.toLowerCase() === id.toLowerCase()
-      );
-
-      if (!exchange) {
-        res.status(404).json({
-          success: false,
-          error: "Exchange not found",
-          timestamp: new Date(),
-        });
-        return;
-      }
-
-      // TODO: Implement database query
-      // const exchange = await db("exchanges").where({ id }).first();
+      const [data, [{ count }]] = await Promise.all([
+        query.clone().select("*").offset((pageNumber - 1) * pageSize).limit(pageSize),
+        query.clone().count("id as count"),
+      ]);
+      const total = Number(count);
 
       res.json({
         success: true,
-        data: exchange,
+        data,
+        pagination: { page: pageNumber, limit: pageSize, total, pages: Math.ceil(total / pageSize) },
         timestamp: new Date(),
       });
     } catch (error) {
-      res.status(500).json({
-        success: false,
-        error: "Failed to fetch exchange",
-        timestamp: new Date(),
-      } as any);
+      res.status(500).json({ success: false, error: "Failed to fetch exchanges", timestamp: new Date() } as any);
     }
-  }
-);
+  });
 
-// GET /api/exchanges/:id/summary - Get exchange market summary
-router.get("/:id/summary", async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
+  // GET /api/exchanges/:id
+  router.get("/:id", async (req: Request, res: Response<ApiResponse<StockExchange>>) => {
+    try {
+      const exchange = await db("exchanges").where({ id: req.params.id }).first();
+      if (!exchange)
+        return res.status(404).json({ success: false, error: "Exchange not found", timestamp: new Date() });
 
-    // TODO: Implement market summary logic
-    // - Fetch index snapshot
-    // - Get top movers (gainers/losers/active)
-    // - Get sector performance
-    // - Calculate breadth indicators
+      res.json({ success: true, data: exchange, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch exchange", timestamp: new Date() } as any);
+    }
+  });
 
-    res.json({
-      success: true,
-      data: {
-        index: {},
-        gainers: [],
-        losers: [],
-        mostActive: [],
-        sectors: [],
-        breadth: {
-          advancers: 0,
-          decliners: 0,
-          unchanged: 0,
+  // GET /api/exchanges/:id/summary
+  router.get("/:id/summary", async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+
+      const [index, gainers, losers, mostActive, sectors] = await Promise.all([
+        db("index_snapshots").where({ exchangeId: id }).orderBy("timestamp", "desc").first(),
+        db("market_movers").where({ exchangeId: id, type: "gainer" }).orderBy("percentChange", "desc").limit(5),
+        db("market_movers").where({ exchangeId: id, type: "loser"  }).orderBy("percentChange", "asc" ).limit(5),
+        db("market_movers").where({ exchangeId: id, type: "active" }).orderBy("volume", "desc").limit(5),
+        db("sector_performance").where({ exchangeId: id }).orderBy("timestamp", "desc").limit(10),
+      ]);
+
+      res.json({
+        success: true,
+        data: {
+          index: index ?? {},
+          gainers,
+          losers,
+          mostActive,
+          sectors,
+          breadth: {
+            advancers: index?.advancers ?? 0,
+            decliners: index?.decliners ?? 0,
+            unchanged: 0,
+          },
         },
-      },
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch market summary",
-      timestamp: new Date(),
-    });
-  }
-});
+        timestamp: new Date(),
+      });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch market summary", timestamp: new Date() });
+    }
+  });
 
-// GET /api/exchanges/:id/top-movers - Get top gainers, losers, most active
-router.get("/:id/top-movers", async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-    const { type = "gainers", limit = 20 } = req.query;
+  // GET /api/exchanges/:id/top-movers
+  router.get("/:id/top-movers", async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      const type  = String(req.query.type  ?? "gainer");
+      const limit = parsePositiveInt(req.query.limit, 20);
 
-    // TODO: Implement top movers logic
-    // - Fetch market movers based on type
-    // - Sort by percent change
-    // - Limit results
+      const data = await db("market_movers")
+        .where({ exchangeId: id, type })
+        .orderBy(type === "active" ? "volume" : "percentChange", type === "loser" ? "asc" : "desc")
+        .limit(limit);
 
+      res.json({ success: true, data, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch top movers", timestamp: new Date() });
+    }
+  });
+
+  // GET /api/exchanges/:id/chart
+  router.get("/:id/chart", async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      const timeframe = String(req.query.timeframe ?? "24H");
+
+      const data = await db("chart_data")
+        .where({ assetId: id, assetType: "exchange", timeframe })
+        .orderBy("timestamp", "asc")
+        .select("timestamp", "open", "high", "low", "close", "volume");
+
+      res.json({ success: true, data: { assetId: id, timeframe, data }, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch chart data", timestamp: new Date() });
+    }
+  });
+
+  // GET /api/exchanges/:id/sectors
+  router.get("/:id/sectors", async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+
+      const data = await db("sector_performance")
+        .where({ exchangeId: id })
+        .orderBy("timestamp", "desc")
+        .select("sectorName", "performance", "companies", "marketCap")
+        .limit(20);
+
+      res.json({ success: true, data, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch sector data", timestamp: new Date() });
+    }
+  });
+
+  // GET /api/exchanges/:id/news
+  router.get("/:id/news", async (req: Request, res: Response) => {
+    try {
+      const pageNumber = parsePositiveInt(req.query.page, 1, 1000);
+      const pageSize   = parsePositiveInt(req.query.limit, 20);
+
+      const [data, [{ count }]] = await Promise.all([
+        db("news").orderBy("publishedAt", "desc")
+          .offset((pageNumber - 1) * pageSize).limit(pageSize),
+        db("news").count("id as count"),
+      ]);
+      const total = Number(count);
+
+      res.json({
+        success: true,
+        data,
+        pagination: { page: pageNumber, limit: pageSize, total, pages: Math.ceil(total / pageSize) },
+        timestamp: new Date(),
+      });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch news", timestamp: new Date() });
+    }
+  });
+
+  // GET /api/exchanges/:id/companies  (table baad mein banaenge — abhi empty)
+  router.get("/:id/companies", async (req: Request, res: Response) => {
+    const pageNumber = parsePositiveInt(req.query.page, 1, 1000);
+    const pageSize   = parsePositiveInt(req.query.limit, 20);
     res.json({
       success: true,
       data: [],
+      pagination: { page: pageNumber, limit: pageSize, total: 0, pages: 0 },
       timestamp: new Date(),
     });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch top movers",
-      timestamp: new Date(),
-    });
-  }
-});
+  });
 
-// GET /api/exchanges/:id/chart - Get chart data for exchange index
-router.get("/:id/chart", async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-    const { timeframe = "1D", resolution = "1h" } = req.query;
+  // GET /api/exchanges/compare/multiple
+  router.get("/compare/multiple", async (req: Request, res: Response) => {
+    try {
+      const ids = (Array.isArray(req.query.ids) ? req.query.ids : [req.query.ids]).filter(Boolean) as string[];
+      const data = await db("exchanges").whereIn("id", ids).select("*");
+      res.json({ success: true, data, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to compare exchanges", timestamp: new Date() });
+    }
+  });
 
-    // TODO: Implement chart data logic
-    // - Fetch historical price data
-    // - Resample based on timeframe
-    // - Return OHLCV data
-
-    res.json({
-      success: true,
-      data: {
-        symbol: "",
-        timeframe,
-        resolution,
-        data: [],
-      },
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch chart data",
-      timestamp: new Date(),
-    });
-  }
-});
-
-// GET /api/exchanges/:id/sectors - Get sector performance breakdown
-router.get("/:id/sectors", async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-
-    // TODO: Implement sector breakdown logic
-    // - Get all sectors for exchange
-    // - Calculate weighted performance
-    // - Get top companies per sector
-
-    res.json({
-      success: true,
-      data: [],
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch sector data",
-      timestamp: new Date(),
-    });
-  }
-});
-
-// GET /api/exchanges/:id/news - Get relevant news for exchange
-router.get("/:id/news", async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-    const { limit = 20, page = 1 } = req.query;
-
-    // TODO: Implement news fetch logic
-    // - Query news relevant to exchange
-    // - Filter by category (market, economic, regulatory)
-    // - Paginate results
-
-    res.json({
-      success: true,
-      data: [],
-      pagination: {
-        page: parsePositiveInt(page, 1, 1000),
-        limit: parsePositiveInt(limit, 20),
-        total: 0,
-        pages: 0,
-      },
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch news",
-      timestamp: new Date(),
-    });
-  }
-});
-
-// GET /api/exchanges/:id/companies - Get top companies by market cap
-router.get("/:id/companies", async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-    const { limit = 20, page = 1 } = req.query;
-
-    // TODO: Implement top companies logic
-    // - Get largest companies on exchange
-    // - Sort by market cap
-    // - Include recent performance
-
-    res.json({
-      success: true,
-      data: [],
-      pagination: {
-        page: parsePositiveInt(page, 1, 1000),
-        limit: parsePositiveInt(limit, 20),
-        total: 0,
-        pages: 0,
-      },
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch companies",
-      timestamp: new Date(),
-    });
-  }
-});
-
-// GET /api/exchanges/compare - Compare multiple exchanges
-router.get("/compare/multiple", async (req: Request, res: Response) => {
-  try {
-    const { ids } = req.query;
-    const exchangeIds = Array.isArray(ids) ? ids : [ids];
-
-    // TODO: Implement exchange comparison logic
-
-    res.json({
-      success: true,
-      data: {},
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to compare exchanges",
-      timestamp: new Date(),
-    });
-  }
-});
-
-export default router;
+  return router;
+}

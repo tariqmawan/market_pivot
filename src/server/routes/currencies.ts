@@ -1,362 +1,210 @@
 import { Router } from "express";
 import type { Request, Response } from "express";
-import type {
-  Currency,
-  ExchangeRate,
-  CurrencyPair,
-  ApiResponse,
-  PaginatedResponse,
-} from "../../types";
-import currenciesData from "../../data/currencies.json";
+import type { Knex } from "knex";
+import type { Currency, ApiResponse, PaginatedResponse } from "../../types";
 import { parsePositiveInt, sanitizeShortText } from "../security";
-const router = Router();
 
-// GET /api/currencies - Get all currencies
-router.get(
-  "/",
-  async (req: Request, res: Response<PaginatedResponse<Currency>>) => {
+export function createRouter(db: Knex) {
+  const router = Router();
+
+  // GET /api/currencies
+  router.get("/", async (req: Request, res: Response<PaginatedResponse<Currency>>) => {
     try {
       const { region } = req.query;
       const pageNumber = parsePositiveInt(req.query.page, 1, 1000);
-      const pageSize = parsePositiveInt(req.query.limit, 20);
-      const allCurrencies = (currenciesData.currencies as Currency[]).filter(
-        (currency) => !region || currency.region === String(region)
-      );
-      const data = allCurrencies.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
+      const pageSize   = parsePositiveInt(req.query.limit, 20);
 
-      // TODO: Implement database query
-      // const query = db("currencies");
-      // if (region) query.where({ region });
+      let query = db("currencies");
+      if (region) query = query.where({ region: String(region) });
 
-      const response: PaginatedResponse<Currency> = {
-        success: true,
-        data,
-        pagination: {
-          page: pageNumber,
-          limit: pageSize,
-          total: allCurrencies.length,
-          pages: Math.ceil(allCurrencies.length / pageSize),
-        },
+      const [data, [{ count }]] = await Promise.all([
+        query.clone().select("*").offset((pageNumber - 1) * pageSize).limit(pageSize),
+        query.clone().count("code as count"),
+      ]);
+      const total = Number(count);
+
+      res.json({
+        success: true, data,
+        pagination: { page: pageNumber, limit: pageSize, total, pages: Math.ceil(total / pageSize) },
         timestamp: new Date(),
-      };
-
-      res.json(response);
+      });
     } catch (error) {
-      res.status(500).json({
-        success: false,
-        error: "Failed to fetch currencies",
-        timestamp: new Date(),
-      } as any);
+      res.status(500).json({ success: false, error: "Failed to fetch currencies", timestamp: new Date() } as any);
     }
-  }
-);
+  });
 
-// GET /api/currencies/:code - Get specific currency details
-router.get(
-  "/:code",
-  async (req: Request, res: Response<ApiResponse<Currency>>) => {
+  // GET /api/currencies/pairs/top-traded  (specific route pehle — /:code se conflict na ho)
+  router.get("/pairs/top-traded", async (req: Request, res: Response) => {
     try {
-      const { code } = req.params;
-      const currency = (currenciesData.currencies as Currency[]).find(
-        (item) => item.code.toLowerCase() === code.toLowerCase()
-      );
+      const limit = parsePositiveInt(req.query.limit, 20);
+      const data = await db("currency_pairs").orderBy("lastUpdated", "desc").limit(limit);
+      res.json({ success: true, data, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch top pairs", timestamp: new Date() });
+    }
+  });
 
-      if (!currency) {
-        res.status(404).json({
-          success: false,
-          error: "Currency not found",
-          timestamp: new Date(),
-        });
-        return;
-      }
+  // GET /api/currencies/:code
+  router.get("/:code", async (req: Request, res: Response<ApiResponse<Currency>>) => {
+    try {
+      const currency = await db("currencies")
+        .whereRaw("LOWER(code) = ?", [req.params.code.toLowerCase()])
+        .first();
+      if (!currency)
+        return res.status(404).json({ success: false, error: "Currency not found", timestamp: new Date() });
+      res.json({ success: true, data: currency, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch currency", timestamp: new Date() } as any);
+    }
+  });
 
-      // TODO: Implement database query
-      // const currency = await db("currencies").where({ code }).first();
+  // GET /api/currencies/:code/rates
+  router.get("/:code/rates", async (req: Request, res: Response) => {
+    try {
+      const code = req.params.code.toUpperCase();
+      const rates = await db("exchange_rates")
+        .where({ fromCode: code })
+        .orderBy("timestamp", "desc")
+        .select("toCode", "rate", "bid", "ask", "spread", "timestamp")
+        .limit(20);
+      res.json({ success: true, data: { baseCurrency: code, rates }, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch exchange rates", timestamp: new Date() });
+    }
+  });
+
+  // GET /api/currencies/:from/:to
+  router.get("/:from/:to", async (req: Request, res: Response) => {
+    try {
+      const from = req.params.from.toUpperCase();
+      const to   = req.params.to.toUpperCase();
+      const row  = await db("exchange_rates")
+        .where({ fromCode: from, toCode: to })
+        .orderBy("timestamp", "desc")
+        .first();
 
       res.json({
         success: true,
-        data: currency,
+        data: { from, to, rate: row?.rate ?? 0, bid: row?.bid ?? 0, ask: row?.ask ?? 0, spread: row?.spread ?? 0, timestamp: row?.timestamp ?? new Date() },
         timestamp: new Date(),
       });
     } catch (error) {
-      res.status(500).json({
-        success: false,
-        error: "Failed to fetch currency",
-        timestamp: new Date(),
-      } as any);
+      res.status(500).json({ success: false, error: "Failed to fetch exchange rate", timestamp: new Date() });
     }
-  }
-);
+  });
 
-// GET /api/currencies/:code/rates - Get exchange rates for currency
-router.get("/:code/rates", async (req: Request, res: Response) => {
-  try {
-    const { code } = req.params;
+  // POST /api/currencies/convert/amount
+  router.post("/convert/amount", async (req: Request, res: Response) => {
+    try {
+      const fromCode = sanitizeShortText(req.body?.fromCode, 10).toUpperCase();
+      const toCode   = sanitizeShortText(req.body?.toCode,   10).toUpperCase();
+      const amount   = Number(req.body?.amount);
 
-    // TODO: Implement exchange rates logic
-    // - Get rates from this currency to major pairs
-    // - Include bid/ask spreads
-    // - Return latest prices
+      if (!fromCode || !toCode || !Number.isFinite(amount) || amount < 0)
+        return res.status(400).json({ success: false, error: "Invalid conversion request", timestamp: new Date() });
 
-    res.json({
-      success: true,
-      data: {
-        baseCurrency: code,
-        rates: [],
-        timestamp: new Date(),
-      },
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch exchange rates",
-      timestamp: new Date(),
-    });
-  }
-});
+      const row = await db("exchange_rates")
+        .where({ fromCode, toCode })
+        .orderBy("timestamp", "desc")
+        .first();
 
-// GET /api/currencies/:from/:to - Get rate between two currencies
-router.get("/:from/:to", async (req: Request, res: Response) => {
-  try {
-    const { from, to } = req.params;
+      const rate     = row?.rate ?? 0;
+      const toAmount = rate ? amount * rate : 0;
 
-    // TODO: Implement single rate logic
-    // - Get rate from 'from' to 'to' currency
-    // - Include bid/ask if available
+      res.json({ success: true, data: { fromCode, fromAmount: amount, toCode, toAmount, rate }, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to convert currency", timestamp: new Date() });
+    }
+  });
 
-    res.json({
-      success: true,
-      data: {
-        from,
-        to,
-        rate: 0,
-        bid: 0,
-        ask: 0,
-        spread: 0,
-        timestamp: new Date(),
-      },
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch exchange rate",
-      timestamp: new Date(),
-    });
-  }
-});
+  // GET /api/currencies/:code/chart
+  router.get("/:code/chart", async (req: Request, res: Response) => {
+    try {
+      const code      = req.params.code.toUpperCase();
+      const against   = String(req.query.against  ?? "USD").toUpperCase();
+      const timeframe = String(req.query.timeframe ?? "1M");
 
-// POST /api/currencies/convert - Convert amount between currencies
-router.post("/convert/amount", async (req: Request, res: Response) => {
-  try {
-    const fromCode = sanitizeShortText(req.body?.fromCode, 10).toUpperCase();
-    const toCode = sanitizeShortText(req.body?.toCode, 10).toUpperCase();
-    const amount = Number(req.body?.amount);
+      // chart_data mein currency pair ka data store hoga — assetId = "EUR_USD" format
+      const data = await db("chart_data")
+        .where({ assetId: `${code}_${against}`, assetType: "currency", timeframe })
+        .orderBy("timestamp", "asc")
+        .select("timestamp", "open", "high", "low", "close", "volume");
 
-    if (!fromCode || !toCode || !Number.isFinite(amount) || amount < 0) {
-      res.status(400).json({
-        success: false,
-        error: "Invalid conversion request",
+      res.json({ success: true, data: { pair: `${code}/${against}`, timeframe, data }, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch chart data", timestamp: new Date() });
+    }
+  });
+
+  // GET /api/currencies/:code/pairs
+  router.get("/:code/pairs", async (req: Request, res: Response) => {
+    try {
+      const code  = req.params.code.toUpperCase();
+      const limit = parsePositiveInt(req.query.limit, 10);
+      const data  = await db("currency_pairs")
+        .where({ baseCurrency: code }).orWhere({ quoteCurrency: code })
+        .orderBy("lastUpdated", "desc")
+        .limit(limit);
+      res.json({ success: true, data, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch currency pairs", timestamp: new Date() });
+    }
+  });
+
+  // GET /api/currencies/:code/news
+  router.get("/:code/news", async (req: Request, res: Response) => {
+    try {
+      const pageNumber = parsePositiveInt(req.query.page,  1, 1000);
+      const pageSize   = parsePositiveInt(req.query.limit, 20);
+      const [data, [{ count }]] = await Promise.all([
+        db("news").whereIn("category", ["economic", "regulatory"])
+          .orderBy("publishedAt", "desc")
+          .offset((pageNumber - 1) * pageSize).limit(pageSize),
+        db("news").whereIn("category", ["economic", "regulatory"]).count("id as count"),
+      ]);
+      const total = Number(count);
+      res.json({ success: true, data, pagination: { page: pageNumber, limit: pageSize, total, pages: Math.ceil(total / pageSize) }, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch news", timestamp: new Date() });
+    }
+  });
+
+  // GET /api/currencies/:code/economic-data
+  router.get("/:code/economic-data", async (req: Request, res: Response) => {
+    try {
+      const code     = req.params.code.toUpperCase();
+      const currency = await db("currencies").whereRaw("LOWER(code) = ?", [code.toLowerCase()]).first();
+      if (!currency)
+        return res.status(404).json({ success: false, error: "Currency not found", timestamp: new Date() });
+
+      // JSON columns stored as text — parse karo
+      res.json({
+        success: true,
+        data: {
+          currency: code,
+          interestRate:  currency.interestRate  ?? 0,
+          inflationRate: currency.inflationRate ?? 0,
+          gdpGrowth:     currency.gdpGrowth     ?? 0,
+          lastUpdated:   currency.updated_at    ?? new Date(),
+        },
         timestamp: new Date(),
       });
-      return;
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch economic data", timestamp: new Date() });
     }
+  });
 
-    // TODO: Implement conversion logic
-    // - Get current rate
-    // - Calculate converted amount
-    // - Return with timestamp
+  // GET /api/currencies/:code/linked-markets
+  router.get("/:code/linked-markets", async (req: Request, res: Response) => {
+    try {
+      const code      = req.params.code.toUpperCase();
+      const exchanges = await db("exchanges").where({ currency: code }).select("id", "name", "country");
+      const pairs     = await db("trading_pairs").where({ quoteAsset: code }).select("pair", "baseAsset", "price", "volume24h").limit(10);
+      res.json({ success: true, data: { exchanges, cryptoPairs: pairs }, timestamp: new Date() });
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Failed to fetch linked markets", timestamp: new Date() });
+    }
+  });
 
-    res.json({
-      success: true,
-      data: {
-        fromCode,
-        fromAmount: amount,
-        toCode,
-        toAmount: 0,
-        rate: 0,
-        timestamp: new Date(),
-      },
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to convert currency",
-      timestamp: new Date(),
-    });
-  }
-});
-
-// GET /api/currencies/:code/chart - Get historical chart data
-router.get("/:code/chart", async (req: Request, res: Response) => {
-  try {
-    const { code } = req.params;
-    const { against = "USD", timeframe = "1M", resolution = "1d" } = req.query;
-
-    // TODO: Implement chart data logic
-    // - Fetch historical rates
-    // - Resample to timeframe
-    // - Return OHLC data
-
-    res.json({
-      success: true,
-      data: {
-        pair: `${code}/${against}`,
-        timeframe,
-        resolution,
-        data: [],
-      },
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch chart data",
-      timestamp: new Date(),
-    });
-  }
-});
-
-// GET /api/currencies/:code/pairs - Get popular currency pairs
-router.get("/:code/pairs", async (req: Request, res: Response) => {
-  try {
-    const { code } = req.params;
-    const { limit = 10 } = req.query;
-
-    // TODO: Implement popular pairs logic
-    // - Get most traded pairs with this currency
-    // - Include recent performance
-    // - Return sorted by volume
-
-    res.json({
-      success: true,
-      data: [],
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch currency pairs",
-      timestamp: new Date(),
-    });
-  }
-});
-
-// GET /api/currencies/:code/news - Get relevant economic news
-router.get("/:code/news", async (req: Request, res: Response) => {
-  try {
-    const { code } = req.params;
-    const { limit = 20, page = 1 } = req.query;
-
-    // TODO: Implement news fetch logic
-    // - Get news relevant to currency (interest rates, inflation, etc.)
-    // - Filter by category (economic, regulatory)
-    // - Paginate results
-
-    res.json({
-      success: true,
-      data: [],
-      pagination: {
-        page: parsePositiveInt(page, 1, 1000),
-        limit: parsePositiveInt(limit, 20),
-        total: 0,
-        pages: 0,
-      },
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch news",
-      timestamp: new Date(),
-    });
-  }
-});
-
-// GET /api/currencies/:code/economic-data - Get economic indicators
-router.get("/:code/economic-data", async (req: Request, res: Response) => {
-  try {
-    const { code } = req.params;
-
-    // TODO: Implement economic data logic
-    // - Get interest rate
-    // - Get inflation rate
-    // - Get GDP growth
-    // - Get employment data
-
-    res.json({
-      success: true,
-      data: {
-        currency: code,
-        interestRate: 0,
-        inflationRate: 0,
-        gdpGrowth: 0,
-        employment: 0,
-        lastUpdated: new Date(),
-      },
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch economic data",
-      timestamp: new Date(),
-    });
-  }
-});
-
-// GET /api/currencies/:code/linked-markets - Get exchanges and cryptos using this currency
-router.get("/:code/linked-markets", async (req: Request, res: Response) => {
-  try {
-    const { code } = req.params;
-
-    // TODO: Implement linked markets logic
-    // - Get exchanges trading in this currency
-    // - Get crypto pairs in this currency
-    // - Return with recent performance
-
-    res.json({
-      success: true,
-      data: {
-        exchanges: [],
-        cryptoPairs: [],
-        timestamp: new Date(),
-      },
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch linked markets",
-      timestamp: new Date(),
-    });
-  }
-});
-
-// GET /api/currencies/top-pairs - Get most traded currency pairs globally
-router.get("/pairs/top-traded", async (req: Request, res: Response) => {
-  try {
-    const { limit = 20 } = req.query;
-
-    // TODO: Implement top pairs logic
-    // - Get most traded pairs
-    // - Include recent volume and change
-    // - Sort by trading volume
-
-    res.json({
-      success: true,
-      data: [],
-      timestamp: new Date(),
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch top pairs",
-      timestamp: new Date(),
-    });
-  }
-});
-
-export default router;
+  return router;
+}
