@@ -1,6 +1,8 @@
+import http from "http";
 import express from "express";
 import type { Request, Response, NextFunction } from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -18,9 +20,13 @@ import { createRouter as createChartsRouter }      from "./routes/charts";
 import { createRouter as createBondsRouter }       from "./routes/bonds";
 import { createRouter as createEtfsRouter }        from "./routes/etfs";
 import { createRouter as createIndicesRouter }     from "./routes/indices";
+import { createRouter as createScreenerRouter }  from "./routes/screener";
+import { createRouter as createCalendarRouter }  from "./routes/calendar";
+import { createRouter as createAdminRouter }     from "./routes/admin";
 import { createRouter as createWatchlistRouter }   from "./routes/watchlist";
 
 import { corsOptions, createRateLimiter, sanitizeShortText, securityHeaders } from "./security";
+import { initAdminWebSocket } from "./websocket/adminHub";
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -29,6 +35,7 @@ const PORT = process.env.PORT || 3000;
 app.disable("x-powered-by");
 app.use(securityHeaders);
 app.use(cors(corsOptions));
+app.use(cookieParser());
 app.use(createRateLimiter());
 app.use(express.json({ limit: "100kb" }));
 app.use(express.urlencoded({ extended: true, limit: "100kb" }));
@@ -57,6 +64,9 @@ app.use("/api/bonds",      createBondsRouter(db));
 app.use("/api/etfs",       createEtfsRouter(db));
 app.use("/api/indices",    createIndicesRouter(db));
 app.use("/api/watchlist",  createWatchlistRouter(db));
+app.use("/api/screener",   createScreenerRouter(db));
+app.use("/api/calendar",   createCalendarRouter(db));
+app.use("/api/admin",      createAdminRouter(db));
 
 // ─── Dashboard ────────────────────────────────────────────────────────────────
 app.get("/api/dashboard", async (req: Request, res: Response) => {
@@ -165,8 +175,12 @@ app.use((req: Request, res: Response) => {
 });
 
 // ─── Start ────────────────────────────────────────────────────────────────────
-app.listen(PORT, () => {
+const server = http.createServer(app);
+initAdminWebSocket(server, db);
+
+server.listen(PORT, () => {
   console.log(`MarketsPivot API running on http://localhost:${PORT}`);
+  console.log(`Admin WebSocket: ws://localhost:${PORT}/ws/admin?token=<accessToken>`);
 });
 
 export default app;

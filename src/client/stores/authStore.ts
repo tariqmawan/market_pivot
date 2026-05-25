@@ -1,32 +1,34 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+import { toAuthUser, type UserRole } from "../lib/roles";
 
 const API = "http://localhost:3000/api";
 
-interface User {
+let refreshPromise: Promise<boolean> | null = null;
+
+export interface User {
   id: string;
   email: string;
   name: string;
-  role: string;
+  role: UserRole;
   avatar?: string;
-  isAdmin?: boolean;
+  isAdmin: boolean;
 }
 
 interface AuthState {
   user: User | null;
   accessToken: string | null;
-  refreshToken: string | null;
   isAuthenticated: boolean;
   isLoading: boolean;
   error: string | null;
   showLoginModal: boolean;
   showSignupModal: boolean;
 
-  // Actions
-  login:  (email: string, password: string) => Promise<void>;
-  signup: (name: string, email: string, password: string) => Promise<void>;
+  login:  (email: string, password: string) => Promise<boolean>;
+  signup: (name: string, email: string, password: string, adminSetupSecret?: string) => Promise<boolean>;
   logout: () => Promise<void>;
   refreshAccessToken: () => Promise<boolean>;
+  hydrateSession: () => Promise<void>;
   updateUser: (updates: Partial<User>) => void;
   openLoginModal:   () => void;
   closeLoginModal:  () => void;
@@ -40,140 +42,164 @@ export const useAuthStore = create<AuthState>()(
     (set, get) => ({
       user:            null,
       accessToken:     null,
-      refreshToken:    null,
       isAuthenticated: false,
       isLoading:       false,
       error:           null,
       showLoginModal:  false,
       showSignupModal: false,
 
-      // ── LOGIN ──────────────────────────────────────────────────────────────
-      login: async (email: string, password: string) => {
+      login: async (email: string, password: string): Promise<boolean> => {
         set({ isLoading: true, error: null });
         try {
           const res = await fetch(`${API}/auth/login`, {
-            method:  "POST",
-            headers: { "Content-Type": "application/json" },
-            body:    JSON.stringify({ email, password }),
+            method:      "POST",
+            credentials: "include",
+            headers:     { "Content-Type": "application/json" },
+            body:        JSON.stringify({ email, password }),
           });
 
           const data = await res.json();
 
           if (!res.ok || !data.success) {
             set({ error: data.error ?? "Login failed", isLoading: false });
-            return;
+            return false;
           }
 
-          const { user, accessToken, refreshToken } = data.data;
+          const { user, accessToken } = data.data;
 
           set({
-            user: { ...user, isAdmin: user.role === "admin" },
+            user: toAuthUser(user),
             accessToken,
-            refreshToken,
             isAuthenticated:  true,
             isLoading:        false,
             showLoginModal:   false,
             showSignupModal:  false,
             error:            null,
           });
+          return true;
         } catch {
           set({ error: "Server se connect nahi ho paya", isLoading: false });
+          return false;
         }
       },
 
-      // ── SIGNUP ─────────────────────────────────────────────────────────────
-      signup: async (name: string, email: string, password: string) => {
+      signup: async (
+        name: string,
+        email: string,
+        password: string,
+        adminSetupSecret?: string
+      ): Promise<boolean> => {
         set({ isLoading: true, error: null });
         try {
+          const body: Record<string, string> = { name, email, password };
+          if (adminSetupSecret) body.adminSetupSecret = adminSetupSecret;
+
           const res = await fetch(`${API}/auth/register`, {
-            method:  "POST",
-            headers: { "Content-Type": "application/json" },
-            body:    JSON.stringify({ name, email, password }),
+            method:      "POST",
+            credentials: "include",
+            headers:     { "Content-Type": "application/json" },
+            body:        JSON.stringify(body),
           });
 
           const data = await res.json();
 
           if (!res.ok || !data.success) {
-            set({ error: data.error ?? "Signup failed", isLoading: false });
-            return;
+            set({ error: data.error ?? data.message ?? "Signup failed", isLoading: false });
+            return false;
           }
 
-          const { user, accessToken, refreshToken } = data.data;
+          const { user, accessToken } = data.data;
 
           set({
-            user: { ...user, isAdmin: user.role === "admin" },
+            user: toAuthUser(user),
             accessToken,
-            refreshToken,
             isAuthenticated:  true,
             isLoading:        false,
             showLoginModal:   false,
             showSignupModal:  false,
             error:            null,
           });
+          return true;
         } catch {
           set({ error: "Server se connect nahi ho paya", isLoading: false });
+          return false;
         }
       },
 
-      // ── LOGOUT ─────────────────────────────────────────────────────────────
       logout: async () => {
-        const { accessToken, refreshToken } = get();
+        const { accessToken } = get();
         try {
           if (accessToken) {
             await fetch(`${API}/auth/logout`, {
-              method:  "POST",
+              method:      "POST",
+              credentials: "include",
               headers: {
                 "Content-Type":  "application/json",
                 "Authorization": `Bearer ${accessToken}`,
               },
-              body: JSON.stringify({ refreshToken }),
             });
           }
         } catch {
-          // Logout silently fail hone dena theek hai
+          // silent
         }
         set({
           user:            null,
           accessToken:     null,
-          refreshToken:    null,
           isAuthenticated: false,
           error:           null,
         });
       },
 
-      // ── REFRESH TOKEN ──────────────────────────────────────────────────────
       refreshAccessToken: async (): Promise<boolean> => {
-        const { refreshToken } = get();
-        if (!refreshToken) return false;
+        if (refreshPromise) return refreshPromise;
 
-        try {
-          const res = await fetch(`${API}/auth/refresh`, {
-            method:  "POST",
-            headers: { "Content-Type": "application/json" },
-            body:    JSON.stringify({ refreshToken }),
-          });
+        refreshPromise = (async () => {
+          try {
+            const res = await fetch(`${API}/auth/refresh`, {
+              method:      "POST",
+              credentials: "include",
+            });
 
-          const data = await res.json();
-          if (!res.ok || !data.success) {
-            // Refresh bhi fail — logout karo
-            set({ user: null, accessToken: null, refreshToken: null, isAuthenticated: false });
+            const data = await res.json();
+            if (!res.ok || !data.success) {
+              set({ user: null, accessToken: null, isAuthenticated: false });
+              return false;
+            }
+
+            set({ accessToken: data.data.accessToken });
+            return true;
+          } catch {
             return false;
           }
+        })();
 
-          set({
-            accessToken:  data.data.accessToken,
-            refreshToken: data.data.refreshToken,
+        const result = await refreshPromise;
+        refreshPromise = null;
+        return result;
+      },
+
+      hydrateSession: async () => {
+        const { accessToken, isAuthenticated } = get();
+        if (!isAuthenticated || !accessToken) return;
+
+        try {
+          const res = await fetch(`${API}/auth/me`, {
+            credentials: "include",
+            headers: { Authorization: `Bearer ${accessToken}` },
           });
-          return true;
+          const data = await res.json();
+          if (res.ok && data.success) {
+            set({ user: toAuthUser(data.data) });
+          }
         } catch {
-          return false;
+          // ignore
         }
       },
 
       updateUser: (updates: Partial<User>) => {
         const current = get().user;
         if (!current) return;
-        set({ user: { ...current, ...updates } });
+        set({ user: toAuthUser({ ...current, ...updates }) });
       },
 
       openLoginModal:   () => set({ showLoginModal: true,  showSignupModal: false }),
@@ -188,14 +214,12 @@ export const useAuthStore = create<AuthState>()(
       partialize: (state) => ({
         user:            state.user,
         accessToken:     state.accessToken,
-        refreshToken:    state.refreshToken,
         isAuthenticated: state.isAuthenticated,
       }),
     }
   )
 );
 
-// ── API helper — token auto-attach + auto-refresh ───────────────────────────
 export async function apiFetch(url: string, options: RequestInit = {}): Promise<Response> {
   const { accessToken, refreshAccessToken } = useAuthStore.getState();
 
@@ -206,15 +230,22 @@ export async function apiFetch(url: string, options: RequestInit = {}): Promise<
 
   if (accessToken) headers["Authorization"] = `Bearer ${accessToken}`;
 
-  let res = await fetch(`${API}${url}`, { ...options, headers });
+  let res = await fetch(`${API}${url}`, {
+    ...options,
+    headers,
+    credentials: "include",
+  });
 
-  // 401 aaya — token refresh karke dobara try karo
   if (res.status === 401) {
     const refreshed = await refreshAccessToken();
     if (refreshed) {
       const newToken = useAuthStore.getState().accessToken;
       headers["Authorization"] = `Bearer ${newToken}`;
-      res = await fetch(`${API}${url}`, { ...options, headers });
+      res = await fetch(`${API}${url}`, {
+        ...options,
+        headers,
+        credentials: "include",
+      });
     }
   }
 

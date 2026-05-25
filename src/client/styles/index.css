@@ -3834,3 +3834,30 @@ tbody tr:hover {
     display: none;
   }
 }
+
+/* Admin enterprise utilities */
+.mp-admin-page-title { font-size: 1.75rem; font-weight: 800; margin: 0; color: #0f172a; }
+.mp-admin-page-sub { margin: 6px 0 0; color: #64748b; font-size: 0.95rem; }
+.mp-admin-titlebar-actions { display: flex; gap: 10px; align-items: center; }
+.mp-admin-toolbar { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.mp-admin-search { flex: 1; min-width: 200px; padding: 10px 14px; border-radius: 12px; border: 1px solid #e2e8f0; }
+.mp-admin-select { padding: 6px 10px; border-radius: 8px; border: 1px solid #e2e8f0; }
+.mp-admin-action-btn { padding: 10px 18px; border-radius: 12px; border: none; background: #0f172a; color: #fff; font-weight: 600; cursor: pointer; }
+.mp-admin-link-btn { background: none; border: none; color: #2563eb; font-weight: 600; cursor: pointer; padding: 0 6px; }
+.mp-admin-row-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.mp-admin-pagination { display: flex; gap: 16px; align-items: center; margin-top: 16px; }
+.mp-admin-error-text { color: #dc2626; font-weight: 600; }
+.mp-admin-success-text { color: #16a34a; font-weight: 600; }
+.mp-admin-table-loading, .mp-admin-table-empty { padding: 32px; text-align: center; color: #64748b; }
+.mp-admin-table-row-click { cursor: pointer; }
+.mp-admin-table-row-click:hover { background: #f8fafc; }
+.mp-admin-form-card { background: #fff; border-radius: 16px; padding: 20px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+.mp-admin-form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin: 12px 0; }
+.mp-admin-form-grid input { padding: 10px 12px; border-radius: 10px; border: 1px solid #e2e8f0; }
+.mp-admin-modal-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.5); display: grid; place-items: center; z-index: 200; }
+.mp-admin-modal { background: #fff; padding: 24px; border-radius: 16px; min-width: 320px; max-width: 90vw; }
+.mp-admin-modal label { display: grid; gap: 6px; margin-bottom: 12px; }
+.mp-admin-modal-actions { display: flex; gap: 12px; margin-top: 16px; }
+.mp-admin-error-boundary { padding: 48px; text-align: center; }
+.mp-admin-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 1100px) { .mp-admin-grid-4 { grid-template-columns: repeat(2, 1fr); } }

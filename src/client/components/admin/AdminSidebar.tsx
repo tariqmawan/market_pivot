@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useAuthStore } from "../../stores/authStore";
+import { hasPermission, PERMISSIONS, type Permission } from "../../admin/permissions";
 // Local lightweight icon set (no external lucide-react dependency)
 function Icon({ children }: { children: React.ReactNode }) {
   return <span className="mp-admin-icon">{children}</span>;
@@ -133,6 +135,7 @@ type NavItem = {
   icon: React.ReactNode;
   active?: boolean;
   badge?: string;
+  permission?: Permission;
 };
 
 type NavGroup = {
@@ -146,68 +149,53 @@ const groups: NavGroup[] = [
     label: "Dashboard",
     icon: <BarChart3 size={18} />,
     items: [
-      { label: "Overview", href: "/admin", icon: <LayoutDashboard size={18} /> },
-      { label: "API Usage", href: "/admin?tab=api-usage", icon: <BarChart3 size={18} />, badge: "Live" },
-      { label: "Data Sync Status", href: "/admin?tab=data-sync", icon: <Settings size={18} /> },
-      { label: "News Ingestion", href: "/admin?tab=news-ingestion", icon: <Bell size={18} /> },
+      { label: "Overview", href: "/admin", icon: <LayoutDashboard size={18} />, permission: PERMISSIONS.DASHBOARD_VIEW },
+      { label: "Audit Logs", href: "/admin/audit", icon: <Shield size={18} />, permission: PERMISSIONS.AUDIT_VIEW },
     ],
   },
   {
     label: "Market Data",
     icon: <BarChart3 size={18} />,
     items: [
-      { label: "Exchanges", href: "/admin?tab=exchanges", icon: <LayoutDashboard size={18} /> },
-      { label: "Stocks", href: "/admin?tab=stocks", icon: <BarChart3 size={18} /> },
-      { label: "Forex", href: "/admin?tab=forex", icon: <DollarSign size={18} /> },
-      { label: "Crypto", href: "/admin?tab=crypto", icon: <CreditCard size={18} /> },
-      { label: "Commodities", href: "/admin?tab=commodities", icon: <Settings size={18} /> },
-      { label: "Regions", href: "/admin?tab=regions", icon: <LayoutDashboard size={18} /> },
-      { label: "Sectors", href: "/admin?tab=sectors", icon: <BarChart3 size={18} /> },
+      { label: "Exchanges", href: "/admin/exchanges", icon: <LayoutDashboard size={18} />, permission: PERMISSIONS.MARKET_VIEW },
+      { label: "Stocks", href: "/admin/stocks", icon: <BarChart3 size={18} />, permission: PERMISSIONS.MARKET_VIEW },
+      { label: "Forex", href: "/admin/forex", icon: <DollarSign size={18} />, permission: PERMISSIONS.MARKET_VIEW },
+      { label: "Crypto", href: "/admin/crypto", icon: <CreditCard size={18} />, permission: PERMISSIONS.MARKET_VIEW },
+      { label: "Commodities", href: "/admin/commodities", icon: <Settings size={18} />, permission: PERMISSIONS.MARKET_VIEW },
+      { label: "Regions", href: "/admin/regions", icon: <LayoutDashboard size={18} />, permission: PERMISSIONS.MARKET_VIEW },
+      { label: "Sectors", href: "/admin/sectors", icon: <BarChart3 size={18} />, permission: PERMISSIONS.MARKET_VIEW },
     ],
   },
   {
     label: "Content",
     icon: <Bell size={18} />,
     items: [
-      { label: "News CMS", href: "/admin?tab=news-cms", icon: <Bell size={18} /> },
-      { label: "Economic Calendar", href: "/admin?tab=economic-calendar", icon: <LayoutDashboard size={18} /> },
-      { label: "SEO Management", href: "/admin?tab=seo", icon: <Settings size={18} /> },
-      { label: "Advertisements", href: "/admin?tab=ads", icon: <BarChart3 size={18} /> },
+      { label: "News CMS", href: "/admin/news", icon: <Bell size={18} />, permission: PERMISSIONS.NEWS_VIEW },
+      { label: "SEO", href: "/admin/seo", icon: <Settings size={18} />, permission: PERMISSIONS.SEO_EDIT },
+      { label: "Advertisements", href: "/admin/ads", icon: <BarChart3 size={18} />, permission: PERMISSIONS.ADS_EDIT },
     ],
   },
   {
     label: "Users & Revenue",
     icon: <Users size={18} />,
     items: [
-      { label: "Users", href: "/admin?tab=customers", icon: <Users size={18} /> },
-      { label: "Roles", href: "/admin?tab=roles", icon: <Shield size={18} /> },
-      { label: "Subscriptions", href: "/admin?tab=billing", icon: <CreditCard size={18} /> },
-      { label: "Revenue", href: "/admin?tab=revenue", icon: <DollarSign size={18} /> },
-      { label: "Payouts", href: "/admin?tab=payouts", icon: <DollarSign size={18} /> },
+      { label: "Users", href: "/admin/users", icon: <Users size={18} />, permission: PERMISSIONS.USERS_VIEW },
+      { label: "Subscriptions", href: "/admin/billing", icon: <CreditCard size={18} />, permission: PERMISSIONS.BILLING_VIEW },
     ],
   },
   {
     label: "Platform",
     icon: <Shield size={18} />,
     items: [
-      { label: "API Management", href: "/admin?tab=api-management", icon: <BarChart3 size={18} /> },
-      { label: "AI & Analytics", href: "/admin?tab=ai-analytics", icon: <BarChart3 size={18} />, badge: "Future" },
-      { label: "Settings", href: "/admin?tab=settings", icon: <Settings size={18} /> },
+      { label: "API Keys", href: "/admin/api", icon: <BarChart3 size={18} />, permission: PERMISSIONS.API_VIEW },
     ],
   },
 ];
 
-function getTabFromHref(href: string | undefined) {
+function isActiveHref(href: string | undefined, pathname: string) {
   if (!href) return false;
-  const query = href.split("?")[1] ?? "";
-  return new URLSearchParams(query).get("tab") ?? "";
-}
-
-function isActiveHref(href: string | undefined, pathname: string, activeTab: string) {
-  if (!href) return false;
-  const [hrefPath] = href.split("?");
-  if (hrefPath !== pathname) return false;
-  return getTabFromHref(href) === activeTab;
+  if (href === "/admin") return pathname === "/admin" || pathname === "/admin/";
+  return pathname === href || pathname.startsWith(href + "/");
 }
 
 export default function AdminSidebar({
@@ -218,14 +206,26 @@ export default function AdminSidebar({
   onMobileToggle: () => void;
 }) {
   const location = useLocation();
-  const activeTab = new URLSearchParams(location.search).get("tab") ?? "";
+  const role = useAuthStore((s) => s.user?.role ?? "user");
+
+  const visibleGroups = React.useMemo(
+    () =>
+      groups
+        .map((g) => ({
+          ...g,
+          items: g.items.filter((item) => !item.permission || hasPermission(role, item.permission)),
+        }))
+        .filter((g) => g.items.length > 0),
+    [role]
+  );
+
   const activeGroups = React.useMemo(
     () =>
-      groups.reduce<Record<string, boolean>>((acc, group) => {
-        acc[group.label] = group.items.some((item) => isActiveHref(item.href, location.pathname, activeTab));
+      visibleGroups.reduce<Record<string, boolean>>((acc, group) => {
+        acc[group.label] = group.items.some((item) => isActiveHref(item.href, location.pathname));
         return acc;
       }, {}),
-    [activeTab, location.pathname]
+    [location.pathname, visibleGroups]
   );
   const [expandedGroups, setExpandedGroups] = React.useState<Record<string, boolean>>({});
 
@@ -273,7 +273,7 @@ export default function AdminSidebar({
         </div>
 
         <nav className="mp-admin-nav">
-          {groups.map((group) => (
+          {visibleGroups.map((group) => (
             <div key={group.label} className="mp-admin-nav-group">
               <button
                 type="button"
@@ -293,7 +293,7 @@ export default function AdminSidebar({
 
               <div className={`mp-admin-nav-items ${expandedGroups[group.label] ?? activeGroups[group.label] ? "open" : ""}`}>
                 {group.items.map((item) => {
-                  const active = isActiveHref(item.href, location.pathname, activeTab);
+                  const active = isActiveHref(item.href, location.pathname);
                   return (
                     <Link
                       key={item.label}
