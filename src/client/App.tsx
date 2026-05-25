@@ -230,14 +230,72 @@ const marketTape = [
   { label: "VIX", value: "13.8", move: "-1.1" },
 ];
 
-const assetCoverage = [
-  { key: "equities", count: exchanges.length, metaKey: "exchangeDashboards", to: "/stocks" },
-  { key: "regions", count: marketRegions.length, metaKey: "regionsMeta", to: "/regions" },
-  { key: "fx", count: currencies.length, metaKey: "fxMeta", to: "/currencies" },
-  { key: "sectors", count: stockSectors.length, metaKey: "sectorsMeta", to: "/sectors" },
-  { key: "commodities", count: commodities.length, metaKey: "commoditiesMeta", to: "/commodities" },
-  { key: "crypto", count: cryptocurrencies.length, metaKey: "cryptoMeta", to: "/crypto" },
-] as const;
+const bloombergModules = [
+  {
+    title: "Global Markets",
+    to: "/markets",
+    metric: `${exchanges.length} exchanges`,
+    summary: "World heatmaps, regional maps, capital flows, risk-on/risk-off, breadth, liquidity, clocks, events, IPOs, and AI briefings.",
+  },
+  {
+    title: "Stocks & Equities",
+    to: "/stocks",
+    metric: "Top 30 exchanges",
+    summary: "Quotes, charts, screeners, fundamentals, institutional flow, insider activity, options flow, sentiment, and backtesting.",
+  },
+  {
+    title: "Forex & Currencies",
+    to: "/currencies",
+    metric: `${currencies.length} currencies`,
+    summary: "Live FX rates, converters, strength meters, central banks, carry trade, volatility, reserves, and macro impact.",
+  },
+  {
+    title: "Commodities",
+    to: "/commodities",
+    metric: `${commodities.length} markets`,
+    summary: "Energy, metals, agriculture, inventories, supply-demand, OPEC, weather, logistics, futures, and inflation impact.",
+  },
+  {
+    title: "Cryptocurrency",
+    to: "/crypto",
+    metric: `${cryptocurrencies.length} assets`,
+    summary: "Coin rankings, DeFi, stablecoins, exchanges, on-chain health, whale flows, funding, liquidations, and sentiment.",
+  },
+  {
+    title: "Economy & Policy",
+    to: "/economy-policy",
+    metric: "Macro regime",
+    summary: "GDP, CPI, PPI, jobs, wages, PMI, central banks, QE, debt, fiscal policy, sovereign risk, and recession probability.",
+  },
+  {
+    title: "ETFs & Funds",
+    to: "/etfs",
+    metric: "Flows + holdings",
+    summary: "ETF screeners, fund flows, expense ratios, tracking error, exposure, overlap, smart beta, and portfolio balancing.",
+  },
+  {
+    title: "Bonds & Yields",
+    to: "/bonds-yields",
+    metric: "Yield curves",
+    summary: "Government bonds, credit, munis, auctions, duration, convexity, spreads, default probability, and rate forecasting.",
+  },
+  {
+    title: "Indices & Futures",
+    to: "/indices",
+    metric: "Premarket pulse",
+    summary: "S&P 500, Nasdaq, Dow, FTSE, Nikkei, DAX, Hang Seng, index composition, futures, breadth, and positioning.",
+  },
+];
+
+const exchangeRegions = [
+  "North America",
+  "Asia",
+  "Europe",
+  "Oceania",
+  "Middle East",
+  "Africa",
+  "South America",
+];
 
 const HomePage = () => {
   const { t } = useI18n();
@@ -295,11 +353,11 @@ const HomePage = () => {
       </section>
 
       <section className="asset-class-grid">
-        {assetCoverage.map((asset) => (
-          <Link to={asset.to} className="asset-class-card" key={asset.key}>
-            <span>{t(asset.key)}</span>
-            <strong>{asset.count}</strong>
-            <p>{t(asset.metaKey)}</p>
+        {bloombergModules.map((module) => (
+          <Link to={module.to} className="asset-class-card" key={module.title}>
+            <span>{module.title}</span>
+            <strong>{module.metric}</strong>
+            <p>{module.summary}</p>
           </Link>
         ))}
       </section>
@@ -382,12 +440,49 @@ const StocksPage = () => {
   }
 
   return (
-    <div className="page">
+    <div className="page market-module-page">
       <div className="section-heading">
         <p className="eyebrow">{t("equities")}</p>
         <h1>{t("topGlobalExchanges")}</h1>
-        <p>{t("exchangeIntro")}</p>
+        <p>{t("exchangeIntro")} Each exchange works as a mini-dashboard with overview, market summary, movers, charts, sectors, news, statistics, top companies, currency context, and AI-ready analytics.</p>
       </div>
+
+      <section className="module-snapshot-grid">
+        <MetricTile label="Global coverage" value={`${exchanges.length} exchanges`} />
+        <MetricTile label="Listed companies" value={exchanges.reduce((sum, item) => sum + item.listedCompanies, 0).toLocaleString()} />
+        <MetricTile label="Combined market cap" value={formatMoney(exchanges.reduce((sum, item) => sum + item.marketCap, 0))} />
+        <MetricTile label="Core modules" value="Gainers / Losers / Active" />
+      </section>
+
+      <section className="module-feature-band">
+        {[
+          "Exchange overview",
+          "Top gainers and losers",
+          "Most active stocks",
+          "Trending stocks",
+          "Index charts",
+          "Sector breakdown",
+          "Market statistics",
+          "AI flow alerts",
+        ].map((item) => (
+          <span key={item}>{item}</span>
+        ))}
+      </section>
+
+      <section className="exchange-region-strip">
+        {exchangeRegions.map((region) => {
+          const regionExchanges = exchanges.filter((item) => item.region === region);
+          if (regionExchanges.length === 0) return null;
+          return (
+            <div className="region-pill-card" key={region}>
+              <span>{region}</span>
+              <strong>{regionExchanges.length}</strong>
+              <p>{regionExchanges.map((item) => item.id).join(" / ")}</p>
+            </div>
+          );
+        })}
+      </section>
+
       <div className="asset-grid">
         {exchanges.map((item) => (
           <AssetCard
@@ -414,12 +509,23 @@ const CurrenciesPage = () => {
   }
 
   return (
-    <div className="page">
+    <div className="page market-module-page">
       <div className="section-heading">
         <p className="eyebrow">{t("fx")}</p>
         <h1>{t("topCurrencies")}</h1>
-        <p>{t("currencyIntro")}</p>
+        <p>{t("currencyIntro")} The FX module includes rates, converters, popular pairs, central banks, inflation, interest rates, reserve status, linked markets, and global currency impact.</p>
       </div>
+      <section className="module-snapshot-grid">
+        <MetricTile label="Global currency set" value={`${currencies.length} currencies`} />
+        <MetricTile label="Reserve anchor" value="USD" />
+        <MetricTile label="Strongest index" value={`${Math.max(...currencies.map((item) => item.strengthIndex ?? 0)).toFixed(1)}`} />
+        <MetricTile label="Linked markets" value={`${exchanges.length} exchanges`} />
+      </section>
+      <section className="module-feature-band">
+        {["Live FX rates", "Converter", "Cross currency calculator", "Central bank tracker", "Carry trade", "Volatility heatmap", "Macro impact", "AI FX signals"].map((item) => (
+          <span key={item}>{item}</span>
+        ))}
+      </section>
       <div className="asset-grid compact">
         {currencies.map((item) => (
           <AssetCard
@@ -449,12 +555,23 @@ const CryptoPage = () => {
   }
 
   return (
-    <div className="page">
+    <div className="page market-module-page">
       <div className="section-heading">
         <p className="eyebrow">{t("crypto")}</p>
         <h1>{t("topCryptos")}</h1>
-        <p>{t("cryptoIntro")}</p>
+        <p>{t("cryptoIntro")} The crypto module covers leaders, smart-contract platforms, stablecoins, DeFi infrastructure, payment assets, trading pairs, exchanges, on-chain metrics, and cross-market comparison.</p>
       </div>
+      <section className="module-snapshot-grid">
+        <MetricTile label="Balanced set" value={`${cryptocurrencies.length} assets`} />
+        <MetricTile label="Stablecoins" value={`${cryptocurrencies.filter((item) => item.category === "Stablecoin").length}`} />
+        <MetricTile label="Layer chains" value={`${cryptocurrencies.filter((item) => item.category === "Layer 1" || item.category === "Layer 2").length}`} />
+        <MetricTile label="Trading pairs" value="USD / USDT / BTC" />
+      </section>
+      <section className="module-feature-band">
+        {["Live prices", "Coin rankings", "Exchange listings", "Funding rates", "Liquidation heatmaps", "Whale tracking", "Gas fees", "AI sentiment"].map((item) => (
+          <span key={item}>{item}</span>
+        ))}
+      </section>
       <div className="asset-grid compact">
         {cryptocurrencies.map((item, index) => {
           const price = getCryptoPrice(item, index);
@@ -650,6 +767,12 @@ const moduleFeatures: Record<string, string[]> = {
   "commodities/metals": ["Precious metals", "Industrial metals", "Futures contracts", "Currency sensitivity"],
   "commodities/agriculture": ["Crop markets", "Weather impact", "Supply regions", "Seasonality"],
   "commodities/industrial": ["Industrial inputs", "Demand trends", "Manufacturing signals", "Regional supply"],
+  "economy-policy": ["GDP tracker", "CPI and PPI", "Employment data", "Central bank monitor", "Yield curve analysis", "Government debt tracking", "AI recession alerts", "Policy impact modeling"],
+  "economy-policy/central-banks": ["Fed tracker", "ECB tracker", "BOJ tracker", "RBA tracker", "Rate decision calendar", "QE tracker"],
+  "economy-policy/inflation": ["CPI tracker", "PPI tracker", "Wage growth", "Import/export effects", "Inflation forecasting"],
+  "economy-policy/recession-risk": ["Yield curve signals", "Macro regime detection", "Fiscal policy risk", "Sovereign risk", "AI recession probability"],
+  "forex/strength": ["Currency strength meter", "Correlation matrix", "Interest rate comparison", "Inflation comparison", "Carry trade analytics"],
+  "indices/cot": ["Institutional positioning", "Commitment of Traders", "Futures breadth", "Volatility analytics", "Premarket indicators"],
   "news/regions": ["Region-wise news", "Macro summaries", "Country filters", "Market alerts"],
   "news/sectors": ["Sector-wise news", "Theme tracking", "AI summaries", "ETF impact"],
   "news/crypto": ["Crypto news", "On-chain context", "Regulation updates", "Exchange developments"],
@@ -673,6 +796,11 @@ const PublicModulePage: React.FC<{ slug: string; eyebrow: string; title?: string
         <p className="eyebrow">{eyebrow}</p>
         <h1>{title ?? titleFromSlug(slug)}</h1>
         <p>This workspace is part of the MarketsPivot global markets intelligence structure.</p>
+      </div>
+      <div className="module-feature-band">
+        {["Custom dashboards", "AI assistant", "Alerts", "Exportable reports", "API ready", "Premium workflows"].map((item) => (
+          <span key={item}>{item}</span>
+        ))}
       </div>
       <div className="asset-grid compact">
         {features.map((feature) => (
@@ -1164,6 +1292,7 @@ const App: React.FC = () => {
             <Route path="exchanges" element={<StocksPage />} />
             <Route path="exchanges/region/:regionId" element={<PublicModulePage slug="exchanges/region/americas" eyebrow="Exchanges" title="Exchange Region Explorer" />} />
             <Route path="forex" element={<CurrenciesPage />} />
+            <Route path="forex/strength" element={<PublicModulePage slug="forex/strength" eyebrow="Forex" title="Currency Strength" />} />
             <Route path="forex/:code" element={<CurrenciesPage />} />
             <Route path="stocks/gainers" element={<PublicModulePage slug="stocks/gainers" eyebrow="Stocks" title="Top Gainers" />} />
             <Route path="stocks/losers" element={<PublicModulePage slug="stocks/losers" eyebrow="Stocks" title="Top Losers" />} />
@@ -1177,7 +1306,13 @@ const App: React.FC = () => {
             <Route path="commodities/agriculture" element={<PublicModulePage slug="commodities/agriculture" eyebrow="Commodities" title="Agriculture" />} />
             <Route path="commodities/industrial" element={<PublicModulePage slug="commodities/industrial" eyebrow="Commodities" title="Industrial" />} />
 
+            <Route path="economy-policy" element={<PublicModulePage slug="economy-policy" eyebrow="Economy & Policy" title="Economy & Policy" />} />
+            <Route path="economy-policy/central-banks" element={<PublicModulePage slug="economy-policy/central-banks" eyebrow="Economy & Policy" title="Central Banks" />} />
+            <Route path="economy-policy/inflation" element={<PublicModulePage slug="economy-policy/inflation" eyebrow="Economy & Policy" title="Inflation Tracker" />} />
+            <Route path="economy-policy/recession-risk" element={<PublicModulePage slug="economy-policy/recession-risk" eyebrow="Economy & Policy" title="Recession Risk" />} />
+
             <Route path="indices" element={<IndicesPage />} />
+            <Route path="indices/cot" element={<PublicModulePage slug="indices/cot" eyebrow="Indices & Futures" title="Commitment of Traders" />} />
             <Route path="etfs" element={<EtfsPage />} />
             <Route path="bonds-yields" element={<BondsYieldsPage />} />
 

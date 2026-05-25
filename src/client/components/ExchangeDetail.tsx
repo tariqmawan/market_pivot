@@ -26,6 +26,26 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
     "overview" | "chart" | "movers" | "sectors" | "news"
   >("overview");
 
+  const sectorBreakdown = [
+    ["Technology", 1.8, "Momentum leadership"],
+    ["Financials", 0.9, "Credit-sensitive bid"],
+    ["Energy", -0.4, "Oil beta cooling"],
+    ["Healthcare", 0.3, "Defensive rotation"],
+    ["Industrials", 0.7, "Capex demand"],
+    ["Consumer", -0.2, "Margin watch"],
+  ] as const;
+
+  const proStats = [
+    ["Average P/E", "21.4x"],
+    ["Dividend Yield", "1.9%"],
+    ["Market Breadth", `${indexData ? indexData.advancers : 0}/${indexData ? indexData.decliners : 0}`],
+    ["Volatility", "Medium"],
+    ["Smart Money Flow", "Net inflow"],
+    ["AI Trend Strength", "74/100"],
+  ];
+
+  const topCompanies = ["MegaCap Tech", "Global Financials", "Energy Leaders", "Healthcare Majors"];
+
   const generateSeries = (base: number, points = 30) => {
     const series: number[] = [];
     let value = base;
@@ -54,7 +74,7 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
             </div>
           </div>
 
-          <div className="key-metrics">
+            <div className="key-metrics">
             <div className="metric">
               <label>{t("marketCap")}</label>
               <p className="value">
@@ -76,6 +96,21 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
               <p className="value">
                 {exchange.tradingHours.open} - {exchange.tradingHours.close}
               </p>
+            </div>
+
+            <div className="module-feature-band">
+              {[
+                "Overview",
+                "Top gainers",
+                "Top losers",
+                "Most active",
+                "Trending stocks",
+                "Index charts",
+                "Sector heatmap",
+                "AI alerts",
+              ].map((item) => (
+                <span key={item}>{item}</span>
+              ))}
             </div>
           </div>
         </div>
@@ -163,6 +198,33 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                 <a href={exchange.website} target="_blank" rel="noopener noreferrer">
                   {exchange.website}
                 </a>
+              </div>
+            </div>
+
+            <div className="pro-dashboard-grid">
+              {proStats.map(([label, value]) => (
+                <div className="info-card" key={label}>
+                  <h4>{label}</h4>
+                  <p>{value}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="insight-strip">
+              <div>
+                <span>Currency context</span>
+                <strong>{exchange.currency} market base</strong>
+                <p>Market cap and turnover can be converted to USD from the user currency selector.</p>
+              </div>
+              <div>
+                <span>Trading window</span>
+                <strong>{exchange.tradingHours.open} - {exchange.tradingHours.close}</strong>
+                <p>Open/close clocks, holidays, premarket and after-hours can plug into this exchange shell.</p>
+              </div>
+              <div>
+                <span>AI exchange brief</span>
+                <strong>Risk-on with selective breadth</strong>
+                <p>Daily summaries can blend price action, volume anomalies, news, and macro events.</p>
               </div>
             </div>
           </section>
@@ -281,22 +343,46 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
 
         {activeTab === "sectors" && (
           <section className="sectors-section">
-            <div className="sectors-placeholder">
-              <p>{t("sectorComing")}</p>
-              <p className="subtitle">
-                {t("sectorSubtitle")}
-              </p>
+            <div className="sector-breakdown-grid">
+              {sectorBreakdown.map(([sector, performance, note]) => (
+                <div className="sector-tile" key={sector}>
+                  <span>{sector}</span>
+                  <strong className={performance >= 0 ? "positive" : "negative"}>
+                    {performance >= 0 ? "+" : ""}{performance.toFixed(1)}%
+                  </strong>
+                  <p>{note}</p>
+                </div>
+              ))}
+            </div>
+            <div className="insight-strip">
+              <div>
+                <span>Top companies</span>
+                <strong>{topCompanies.join(" / ")}</strong>
+                <p>Largest companies by market cap and trending names can sit directly below this view.</p>
+              </div>
+              <div>
+                <span>Rotation signal</span>
+                <strong>Technology and financials leading</strong>
+                <p>Sector rotation visualization and heatmaps are ready for live feeds.</p>
+              </div>
             </div>
           </section>
         )}
 
         {activeTab === "news" && (
           <section className="news-section">
-            <div className="news-placeholder">
-              <p>{t("newsComing")}</p>
-              <p className="subtitle">
-                {t("newsSubtitle")}
-              </p>
+            <div className="news-card-list">
+              {[
+                `${exchange.name} breadth improves as advancers outpace decliners`,
+                `${exchange.currency} moves shape foreign investor returns`,
+                `${exchange.mainIndexName} futures point to selective risk appetite`,
+              ].map((headline) => (
+                <article key={headline} className="news-mini-card">
+                  <span>Market News</span>
+                  <h3>{headline}</h3>
+                  <p>Connect Reuters, Bloomberg-style wires, NewsAPI, or internal editorial summaries here.</p>
+                </article>
+              ))}
             </div>
           </section>
         )}

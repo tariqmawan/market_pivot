@@ -21,6 +21,18 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
   >("overview");
   const [convertAmount, setConvertAmount] = React.useState<string>("1");
   const [convertTo, setConvertTo] = React.useState<string>("USD");
+  const linkedMarkets = {
+    USD: "NYSE / NASDAQ",
+    EUR: "Euronext / Deutsche Borse / BME / Borsa Italiana",
+    JPY: "Tokyo Stock Exchange",
+    GBP: "London Stock Exchange",
+    INR: "NSE India / BSE India",
+    AUD: "ASX",
+    CAD: "Toronto Stock Exchange",
+    HKD: "Hong Kong Stock Exchange",
+    CNY: "Shanghai / Shenzhen",
+    SGD: "Singapore Exchange",
+  } as Record<string, string>;
 
   return (
     <div className="currency-detail">
@@ -44,10 +56,14 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
               <label>{t("currencyType")}</label>
               <p className="value">{currency.type}</p>
             </div>
-            <div className="metric">
-              <label>{t("centralBank")}</label>
-              <p className="value">{currency.centralBank}</p>
-            </div>
+              <div className="metric">
+                <label>{t("centralBank")}</label>
+                <p className="value">{currency.centralBank}</p>
+              </div>
+              <div className="metric">
+                <label>Strength</label>
+                <p className="value">{currency.strengthIndex?.toFixed(1) ?? "Live"}</p>
+              </div>
             {exchangeRates["USD"] && (
               <div className="metric">
                 <label>vs USD</label>
@@ -126,6 +142,24 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
               <div className="info-card">
                 <h4>{t("centralBank")}</h4>
                 <p>{currency.centralBank}</p>
+              </div>
+            </div>
+
+            <div className="insight-strip">
+              <div>
+                <span>Reserve status</span>
+                <strong>{currency.reserveStatus ?? "Global FX basket"}</strong>
+                <p>{currency.capitalFlows ?? "Capital flow signal will update from market data feeds."}</p>
+              </div>
+              <div>
+                <span>Linked markets</span>
+                <strong>{linkedMarkets[currency.code] ?? `${currency.region} exchanges`}</strong>
+                <p>FX moves can be tied to local equity performance, imports, exports, and foreign investor flows.</p>
+              </div>
+              <div>
+                <span>Global currency impact</span>
+                <strong>{currency.code} vs equities and commodities</strong>
+                <p>Cross-asset impact analysis can connect this currency to stocks, bonds, crypto, and inflation.</p>
               </div>
             </div>
           </section>
@@ -255,23 +289,23 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
             <div className="economic-indicators">
               <div className="indicator-card">
                 <h4>{t("interestRate")}</h4>
-                <p className="value">-</p>
-                <p className="last-updated">{t("dataLoading")}</p>
+                <p className="value">{currency.interestRate?.toFixed(2) ?? "-"}%</p>
+                <p className="last-updated">{currency.centralBank}</p>
               </div>
               <div className="indicator-card">
                 <h4>{t("inflationRate")}</h4>
-                <p className="value">-</p>
-                <p className="last-updated">{t("dataLoading")}</p>
+                <p className="value">{currency.inflation?.toFixed(1) ?? "-"}%</p>
+                <p className="last-updated">CPI watch</p>
               </div>
               <div className="indicator-card">
                 <h4>{t("gdpGrowth")}</h4>
-                <p className="value">-</p>
-                <p className="last-updated">{t("dataLoading")}</p>
+                <p className="value">{currency.gdpGrowth?.toFixed(1) ?? "-"}%</p>
+                <p className="last-updated">Macro trend</p>
               </div>
               <div className="indicator-card">
-                <h4>{t("employment")}</h4>
-                <p className="value">-</p>
-                <p className="last-updated">{t("dataLoading")}</p>
+                <h4>Trade Balance</h4>
+                <p className="value">{currency.tradeBalance?.toFixed(1) ?? "-"}%</p>
+                <p className="last-updated">External pressure</p>
               </div>
             </div>
           </section>

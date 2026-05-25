@@ -119,6 +119,14 @@ export interface Currency {
   centralBank: string;
   description: string;
   logo: string;
+  interestRate?: number;
+  inflation?: number;
+  forexPairs?: string[];
+  strengthIndex?: number;
+  gdpGrowth?: number;
+  tradeBalance?: number;
+  reserveStatus?: string;
+  capitalFlows?: string;
 }
 
 export interface ExchangeRate {
