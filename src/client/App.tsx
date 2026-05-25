@@ -6,6 +6,10 @@ import currenciesData from "../data/currencies.json";
 import cryptoData from "../data/cryptocurrencies.json";
 import regionsData from "../data/regions.json";
 import sectorsData from "../data/sectors.json";
+import bondsYieldsData from "../data/bonds_yields.json";
+import IndicesPage from "./pages/IndicesPage";
+import EtfsPage from "./pages/EtfsPage";
+import BondsYieldsPage from "./pages/BondsYieldsPage";
 import Pricing from "./pages/Pricing";
 import type {
   Commodity,
@@ -45,6 +49,7 @@ const cryptocurrencies = cryptoData.cryptocurrencies as Cryptocurrency[];
 const marketRegions = regionsData.regions as unknown as MarketRegion[];
 const stockSectors = sectorsData.sectors as StockSector[];
 const commodities = commoditiesData.commodities as Commodity[];
+
 
 const formatMoney = (value: number) => {
   if (value >= 1e12) return `$${(value / 1e12).toFixed(1)}T`;
@@ -829,6 +834,9 @@ const SectorsPage = () => {
   );
 };
 
+
+
+
 const CommoditiesPage = () => {
   const { commodityId } = useParams();
   const commodity = commodities.find(
@@ -1168,6 +1176,11 @@ const App: React.FC = () => {
             <Route path="commodities/metals" element={<PublicModulePage slug="commodities/metals" eyebrow="Commodities" title="Metals" />} />
             <Route path="commodities/agriculture" element={<PublicModulePage slug="commodities/agriculture" eyebrow="Commodities" title="Agriculture" />} />
             <Route path="commodities/industrial" element={<PublicModulePage slug="commodities/industrial" eyebrow="Commodities" title="Industrial" />} />
+
+            <Route path="indices" element={<IndicesPage />} />
+            <Route path="etfs" element={<EtfsPage />} />
+            <Route path="bonds-yields" element={<BondsYieldsPage />} />
+
             <Route path="pricing" element={<Pricing />} />
             <Route path="news" element={<NewsPage />} />
             <Route path="news/regions" element={<PublicModulePage slug="news/regions" eyebrow="News" title="Region-wise News" />} />
