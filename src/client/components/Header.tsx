@@ -30,7 +30,8 @@ const Header: React.FC = () => {
   const { openLoginModal, openSignupModal } = useAuthStore();
 
   React.useEffect(() => {
-    document.body.classList.toggle("light", theme === "Light");
+    document.documentElement.classList.toggle("light", theme === "Light");
+    document.documentElement.classList.toggle("dark", theme === "Dark");
   }, [theme]);
 
   const onSelectLanguage = (code: LanguageCode) => {

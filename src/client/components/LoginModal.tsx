@@ -22,6 +22,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ mode: initialMode = "login" }) 
   const [mode, setMode] = React.useState<"login" | "signup">(initialMode);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [name, setName] = React.useState("");
 
   React.useEffect(() => {
     if (showSignupModal) {
@@ -42,9 +43,18 @@ const LoginModal: React.FC<LoginModalProps> = ({ mode: initialMode = "login" }) 
     if (!email || !password) return;
 
     if (mode === "login") {
-      await login("email");
+      await login(email, password);
+      setEmail("");
+      setPassword("");
+      
     } else {
-      await signup("email");
+      await signup(name, email, password);
+      closeSignupModal();
+      openLoginModal();
+
+      setName("");
+      setEmail("");
+      setPassword("");
     }
   };
 
@@ -79,6 +89,21 @@ const LoginModal: React.FC<LoginModalProps> = ({ mode: initialMode = "login" }) 
         </div>
 
         <form onSubmit={handleSubmit} className="modal-form">
+          {mode === "signup" && (
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Enter your name"
+                required
+                disabled={isLoading}
+              />
+            </div>
+          )}
           <div className="form-group">
             <label htmlFor="email">{t("emailLogin")}</label>
             <input

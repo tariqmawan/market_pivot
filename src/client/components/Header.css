@@ -30,11 +30,9 @@
 
   padding: 0 16px;
 
-  background: linear-gradient(
-    135deg,
-    #A27841 0%,
-    #6f4d25 100%
-  );
+  background: linear-gradient(135deg,
+      #A27841 0%,
+      #6f4d25 100%);
 
   color: white;
 
@@ -49,12 +47,10 @@
   display: flex;
   align-items: center;
 
-  background: linear-gradient(
-    90deg,
-    rgb(13, 26, 20) 0%,
-    rgb(17, 28, 21) 60%,
-    rgb(15, 26, 19) 100%
-  );
+  background: linear-gradient(90deg,
+      rgb(13, 26, 20) 0%,
+      rgb(17, 28, 21) 60%,
+      rgb(15, 26, 19) 100%);
 
   overflow-x: auto;
   overflow-y: hidden;
@@ -62,7 +58,7 @@
   white-space: nowrap;
 
   scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,0.45) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.45) transparent;
 
   -webkit-overflow-scrolling: touch;
 }
@@ -76,7 +72,7 @@
 }
 
 .language-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.35);
+  background: rgba(255, 255, 255, 0.35);
   border-radius: 999px;
 }
 
@@ -105,7 +101,7 @@
 
   background: transparent;
 
-  color: rgba(255,255,255,0.65);
+  color: rgba(255, 255, 255, 0.65);
 
   font-size: 12px;
   font-weight: 500;
@@ -120,16 +116,16 @@
 }
 
 .lang:hover {
-  background: rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.95);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 /* ACTIVE */
 
 .lang.active {
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
 
-  border-color: rgba(255,255,255,0.5);
+  border-color: rgba(255, 255, 255, 0.5);
 
   color: #fff;
 
@@ -186,7 +182,7 @@
 
   background: transparent;
 
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 
   font-weight: 600;
 
@@ -208,7 +204,7 @@
 }
 
 .btn.ghost {
-  background: rgba(200,155,94,0.08);
+  background: rgba(200, 155, 94, 0.08);
 }
 
 /* =========================================
@@ -222,7 +218,7 @@
 
   background: #fff;
 
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 
   font-size: 14px;
 

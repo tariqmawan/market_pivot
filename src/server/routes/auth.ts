@@ -8,7 +8,7 @@ import {
   generateRefreshToken,
   verifyToken,
   requireAuth,
-} from "../middleware/auth.middleware";
+} from "../middleware/auth";
 
 export function createRouter(db: Knex) {
   const router = Router();
@@ -45,7 +45,7 @@ export function createRouter(db: Knex) {
       const existing = await db("users").where({ email }).first();
       if (existing) {
         return res.status(409).json({
-          success: false, error: "Yeh email pehle se registered hai", timestamp: new Date(),
+          success: false, message: "Yeh email pehle se registered hai", timestamp: new Date(),
         });
       }
 
