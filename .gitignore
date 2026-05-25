@@ -58,3 +58,6 @@ ehthumbs.db
 # Package manager
 yarn.lock
 package-lock.json
+
+cookies.txt
+headers.txt
