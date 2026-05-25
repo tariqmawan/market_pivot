@@ -6,9 +6,39 @@ import { sanitizeShortText } from "../security";
 import {
   generateAccessToken,
   generateRefreshToken,
-  verifyToken,
+  verifyRefreshToken,
   requireAuth,
-} from "../middleware/auth.middleware";
+  setRefreshCookie,
+  clearRefreshCookie,
+  REFRESH_COOKIE_NAME,
+} from "../middleware/auth";
+import { resolveRegistrationRole, ROLES, type UserRole } from "../lib/roles";
+
+function authUserDto(user: { id: number; name: string; email: string; role: string }) {
+  return { id: user.id, name: user.name, email: user.email, role: user.role };
+}
+
+async function issueSession(
+  db: Knex,
+  req: Request,
+  res: Response,
+  user: { id: number; email: string; role: string }
+) {
+  const payload = { userId: user.id, email: user.email, role: user.role as UserRole };
+  const accessToken = generateAccessToken(payload);
+  const refreshToken = generateRefreshToken(payload);
+
+  await db("refresh_tokens").insert({
+    userId: user.id,
+    token: refreshToken,
+    expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+    userAgent: req.headers["user-agent"] ?? null,
+    ipAddress: req.ip ?? null,
+  });
+
+  setRefreshCookie(res, refreshToken);
+  return { accessToken, payload };
+}
 
 export function createRouter(db: Knex) {
   const router = Router();
@@ -45,16 +75,19 @@ export function createRouter(db: Knex) {
       const existing = await db("users").where({ email }).first();
       if (existing) {
         return res.status(409).json({
-          success: false, error: "Yeh email pehle se registered hai", timestamp: new Date(),
+          success: false, message: "Yeh email pehle se registered hai", timestamp: new Date(),
         });
       }
 
       // Password hash karo
       const hashedPassword = await bcrypt.hash(password, 12);
 
+      // Server decides role — never trust req.body.role (privilege escalation prevention)
+      const role = resolveRegistrationRole(req.body?.adminSetupSecret);
+
       // User banao
       const [userId] = await db("users")
-        .insert({ name, email, password: hashedPassword, role: "user" })
+        .insert({ name, email, password: hashedPassword, role })
         .returning("id");
 
       // Default watchlist banao
@@ -75,26 +108,14 @@ export function createRouter(db: Knex) {
         layout: "grid",
       });
 
-      const id   = userId.id ?? userId;
-      const payload = { userId: id, email, role: "user" };
-      const accessToken  = generateAccessToken(payload);
-      const refreshToken = generateRefreshToken(payload);
-
-      // Refresh token save karo
-      await db("refresh_tokens").insert({
-        userId: id,
-        token: refreshToken,
-        expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-        userAgent:  req.headers["user-agent"] ?? null,
-        ipAddress:  req.ip ?? null,
-      });
+      const id = userId.id ?? userId;
+      const { accessToken } = await issueSession(db, req, res, { id, email, role });
 
       return res.status(201).json({
         success: true,
         data: {
-          user: { id, name, email, role: "user" },
+          user: { id, name, email, role },
           accessToken,
-          refreshToken,
         },
         timestamp: new Date(),
       });
@@ -142,9 +163,14 @@ export function createRouter(db: Knex) {
       // Last login update karo
       await db("users").where({ id: user.id }).update({ lastLoginAt: new Date() });
 
-      const payload = { userId: user.id, email: user.email, role: user.role };
-      const accessToken  = generateAccessToken(payload);
-      const refreshToken = generateRefreshToken(payload);
+      await db("login_history")
+        .insert({
+          userId: user.id,
+          ipAddress: req.ip ?? null,
+          userAgent: (req.headers["user-agent"] as string)?.slice(0, 255) ?? null,
+          success: true,
+        })
+        .catch(() => undefined);
 
       // Purane tokens revoke karo (ek user ke max 5 sessions)
       const oldTokens = await db("refresh_tokens")
@@ -157,21 +183,13 @@ export function createRouter(db: Knex) {
           .update({ isRevoked: true });
       }
 
-      // Naya refresh token save karo
-      await db("refresh_tokens").insert({
-        userId: user.id,
-        token: refreshToken,
-        expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-        userAgent:  req.headers["user-agent"] ?? null,
-        ipAddress:  req.ip ?? null,
-      });
+      const { accessToken } = await issueSession(db, req, res, user);
 
       return res.json({
         success: true,
         data: {
-          user: { id: user.id, name: user.name, email: user.email, role: user.role },
+          user: authUserDto(user),
           accessToken,
-          refreshToken,
         },
         timestamp: new Date(),
       });
@@ -182,12 +200,14 @@ export function createRouter(db: Knex) {
   });
 
   // ── POST /api/auth/refresh ────────────────────────────────────────────────
+  // ✅ Refresh token ab cookie se padha jaata hai — req.body se nahi
   router.post("/refresh", async (req: Request, res: Response) => {
     try {
-      const { refreshToken } = req.body;
+      // Cookie se refresh token nikalo
+      const refreshToken = req.cookies?.[REFRESH_COOKIE_NAME];
 
       if (!refreshToken) {
-        return res.status(400).json({
+        return res.status(401).json({
           success: false, error: "Refresh token nahi mila", timestamp: new Date(),
         });
       }
@@ -198,22 +218,26 @@ export function createRouter(db: Knex) {
         .first();
 
       if (!storedToken || new Date(storedToken.expiresAt) < new Date()) {
+        // Cookie clear karo agar expired/invalid hai
+        clearRefreshCookie(res);
         return res.status(401).json({
           success: false, error: "Refresh token invalid ya expire ho gaya", timestamp: new Date(),
         });
       }
 
-      // JWT verify karo
-      const decoded = verifyToken(refreshToken);
+      // JWT verify karo (with refresh secret)
+      const decoded = verifyRefreshToken(refreshToken);
       const user = await db("users").where({ id: decoded.userId }).first();
 
       if (!user || !user.isActive) {
+        clearRefreshCookie(res);
         return res.status(401).json({
           success: false, error: "User nahi mila ya inactive hai", timestamp: new Date(),
         });
       }
 
-      // Purana token revoke karo
+      // ── Token Rotation ─────────────────────────────────────────────────────
+      // Purana token revoke karo — prevents replay attacks
       await db("refresh_tokens").where({ id: storedToken.id }).update({ isRevoked: true });
 
       // Naye tokens generate karo
@@ -221,6 +245,7 @@ export function createRouter(db: Knex) {
       const newAccessToken  = generateAccessToken(payload);
       const newRefreshToken = generateRefreshToken(payload);
 
+      // Naya refresh token DB mein save karo
       await db("refresh_tokens").insert({
         userId: user.id,
         token: newRefreshToken,
@@ -229,31 +254,43 @@ export function createRouter(db: Knex) {
         ipAddress:  req.ip ?? null,
       });
 
+      // ✅ Naya refresh token cookie mein set karo (rotation complete)
+      setRefreshCookie(res, newRefreshToken);
+
       return res.json({
         success: true,
-        data: { accessToken: newAccessToken, refreshToken: newRefreshToken },
+        data: { accessToken: newAccessToken },
+        // ❌ refreshToken response body mein NAHI — sirf cookie mein
         timestamp: new Date(),
       });
     } catch (error) {
+      clearRefreshCookie(res);
       res.status(401).json({ success: false, error: "Token refresh failed", timestamp: new Date() });
     }
   });
 
   // ── POST /api/auth/logout ─────────────────────────────────────────────────
+  // ✅ Refresh token cookie se padha jaata hai + cookie clear hoti hai
   router.post("/logout", requireAuth, async (req: Request, res: Response) => {
     try {
-      const { refreshToken } = req.body;
+      const refreshToken = req.cookies?.[REFRESH_COOKIE_NAME];
 
       if (refreshToken) {
+        // DB mein revoke karo
         await db("refresh_tokens")
           .where({ token: refreshToken, userId: req.user!.userId })
           .update({ isRevoked: true });
       }
 
+      // ✅ Cookie clear karo
+      clearRefreshCookie(res);
+
       return res.json({
         success: true, data: { message: "Logout successful" }, timestamp: new Date(),
       });
     } catch (error) {
+      // Even on error, clear the cookie
+      clearRefreshCookie(res);
       res.status(500).json({ success: false, error: "Logout failed", timestamp: new Date() });
     }
   });
@@ -342,6 +379,9 @@ export function createRouter(db: Knex) {
       await db("refresh_tokens")
         .where({ userId: req.user!.userId })
         .update({ isRevoked: true });
+
+      // Cookie bhi clear karo — user ko dobara login karna hoga
+      clearRefreshCookie(res);
 
       return res.json({
         success: true, data: { message: "Password badal gaya — dobara login karo" }, timestamp: new Date(),

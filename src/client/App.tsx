@@ -32,7 +32,6 @@ import { I18nProvider, useI18n } from "./i18n";
 import { useAuthStore } from "./stores/authStore";
 import "./styles/index.css";
 import AdminPanel from "./pages/AdminPanel";
-import AdminAnalyticsDashboard from "./pages/AdminAnalyticsDashboard";
 import AdminLogin from "./pages/AdminLogin";
 import NewsPage from "./pages/News";
 import ArticlePage from "./pages/Article";
@@ -1131,6 +1130,8 @@ const UserPanelPage = () => {
   );
 };
 
+import AdminApp from "./admin/AdminApp";
+
 const App: React.FC = () => {
   const { isAuthenticated, user } = useAuthStore();
 
@@ -1199,16 +1200,7 @@ const App: React.FC = () => {
             <Route path="user" element={<UserPanelPage />} />
           </Route>
 
-          <Route
-            path="/admin"
-            element={
-              isAuthenticated && user?.isAdmin ? (
-                <AdminAnalyticsDashboard />
-              ) : (
-                <Navigate to="/admin/login" replace />
-              )
-            }
-          />
+          <Route path="/admin/*" element={<AdminApp />} />
           <Route path="/admin/login" element={<AdminLogin />} />
         </Routes>
       </Router>

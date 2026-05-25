@@ -44,7 +44,17 @@ function GlobeIcon() {
   );
 }
 
-export default function AdminHeader({ onMobileToggle }: { onMobileToggle: () => void }) {
+export default function AdminHeader({
+  onMobileToggle,
+  userName = "Admin",
+  userEmail,
+  onLogout,
+}: {
+  onMobileToggle: () => void;
+  userName?: string;
+  userEmail?: string;
+  onLogout?: () => void;
+}) {
   return (
     <header className="mp-admin-header" aria-label="Admin top navigation">
       <button type="button" className="mp-admin-hamburger" onClick={onMobileToggle} aria-label="Open menu">
@@ -81,14 +91,18 @@ export default function AdminHeader({ onMobileToggle }: { onMobileToggle: () => 
         </div>
 
         <div className="mp-admin-user">
-          <div className="mp-admin-avatar">A</div>
+          <div className="mp-admin-avatar">{userName.charAt(0).toUpperCase()}</div>
           <div className="mp-admin-user-meta">
-            <div className="mp-admin-user-name">Admin</div>
-            <div className="mp-admin-user-role">System Owner</div>
+            <div className="mp-admin-user-name">{userName}</div>
+            <div className="mp-admin-user-role">{userEmail ?? "Admin"}</div>
           </div>
-          <Link to="/user" className="mp-admin-user-link">
-            Profile
-          </Link>
+          {onLogout ? (
+            <button type="button" className="mp-admin-user-link" onClick={onLogout}>
+              Logout
+            </button>
+          ) : (
+            <Link to="/user" className="mp-admin-user-link">Profile</Link>
+          )}
         </div>
       </div>
     </header>
