@@ -24,6 +24,10 @@ import type {
   TradingPair,
 } from "../types";
 import CryptoDetail from "./components/CryptoDetail";
+import ErrorBoundary from "./components/ErrorBoundary";
+import { useCryptoDetail } from "./hooks/useCryptoDetail";
+import { fetchJson } from "./lib/apiClient";
+import { normalizeCryptoPrice } from "./lib/normalize";
 import CurrencyDetail from "./components/CurrencyDetail";
 import ExchangeDetail from "./components/ExchangeDetail";
 import Layout from "./components/Layout";
@@ -603,15 +607,90 @@ const CurrenciesPage = () => {
 const CryptoPage = () => {
   const { cryptoId } = useParams();
   const { t } = useI18n();
-  const crypto = cryptocurrencies.find(
-    (item) => item.id.toLowerCase() === cryptoId?.toLowerCase() || item.symbol.toLowerCase() === cryptoId?.toLowerCase()
-  );
 
-  if (crypto) {
-    const index = cryptocurrencies.findIndex((item) => item.id === crypto.id);
-    return <CryptoDetail crypto={crypto} priceData={getCryptoPrice(crypto, index)} tradingPairs={getTradingPairs(crypto)} />;
+  const [allCryptos, setAllCryptos] = React.useState<Cryptocurrency[]>(cryptocurrencies);
+  const [livePrices, setLivePrices] = React.useState<Record<string, CryptoPrice>>({});
+
+  const detail = useCryptoDetail(cryptoId);
+
+  React.useEffect(() => {
+    if (cryptoId) return;
+    Promise.all([
+      fetchJson<Cryptocurrency[]>("/cryptos?limit=50"),
+      fetchJson<{ gainers?: unknown[]; losers?: unknown[]; trending?: unknown[] }>(
+        "/cryptos/market/overview"
+      ),
+    ])
+      .then(([listRes, overviewRes]) => {
+        if (listRes.data?.length) setAllCryptos(listRes.data);
+        if (overviewRes.data) {
+          const priceMap: Record<string, CryptoPrice> = {};
+          const all = [
+            ...(overviewRes.data.gainers ?? []),
+            ...(overviewRes.data.losers ?? []),
+            ...(overviewRes.data.trending ?? []),
+          ];
+          all.forEach((p) => {
+            const row = p as Record<string, unknown>;
+            const id = String(row.cryptoId ?? "");
+            const normalized = normalizeCryptoPrice(row);
+            if (id && normalized) priceMap[id] = normalized;
+          });
+          setLivePrices(priceMap);
+        }
+      })
+      .catch(() => {});
+  }, [cryptoId]);
+
+  if (cryptoId) {
+    const displayCrypto =
+      detail.crypto ??
+      cryptocurrencies.find(
+        (x) =>
+          x.id.toLowerCase() === cryptoId.toLowerCase() ||
+          x.symbol.toLowerCase() === cryptoId.toLowerCase()
+      );
+
+    if (detail.error && !displayCrypto) {
+      return (
+        <div className="page">
+          <p className="error">{detail.error}</p>
+          <button type="button" onClick={detail.retry}>
+            Retry
+          </button>
+        </div>
+      );
+    }
+
+    if (detail.isLoading || displayCrypto) {
+      return (
+        <ErrorBoundary>
+          <CryptoDetail
+            crypto={displayCrypto ?? cryptocurrencies[0]}
+            priceData={detail.priceData}
+            tradingPairs={detail.tradingPairs}
+            exchangeListings={detail.exchangeListings}
+            news={detail.news as Array<{
+              id?: number | string;
+              title?: string;
+              description?: string;
+              source?: string;
+              publishedAt?: string;
+              url?: string;
+            }>}
+            isLoading={detail.isLoading}
+          />
+        </ErrorBoundary>
+      );
+    }
+    return (
+      <div className="page">
+        <p>Crypto not found: {cryptoId}</p>
+      </div>
+    );
   }
 
+  // ── List page render ────────────────────────────────────────────────────
   return (
     <div className="page">
       <div className="section-heading">
@@ -620,8 +699,9 @@ const CryptoPage = () => {
         <p>{t("cryptoIntro")}</p>
       </div>
       <div className="asset-grid compact">
-        {cryptocurrencies.map((item, index) => {
-          const price = getCryptoPrice(item, index);
+        {allCryptos.map((item, index) => {
+          const live  = livePrices[item.id];
+          const price = live ?? getCryptoPrice(item, index);
           return (
             <AssetCard
               key={item.id}
@@ -1302,7 +1382,12 @@ const App: React.FC = () => {
 
   return (
     <I18nProvider>
-      <Router>
+      <Router
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Routes>
           <Route path="/" element={<Layout />}> 
             <Route index element={<HomePage />} />
