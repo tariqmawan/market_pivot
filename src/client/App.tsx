@@ -6,7 +6,6 @@ import currenciesData from "../data/currencies.json";
 import cryptoData from "../data/cryptocurrencies.json";
 import regionsData from "../data/regions.json";
 import sectorsData from "../data/sectors.json";
-import bondsYieldsData from "../data/bonds_yields.json";
 import IndicesPage from "./pages/IndicesPage";
 import EtfsPage from "./pages/EtfsPage";
 import BondsYieldsPage from "./pages/BondsYieldsPage";
@@ -24,6 +23,8 @@ import type {
   StockExchange,
   TradingPair,
 } from "../types";
+import CryptoDetail from "./components/CryptoDetail";
+import CurrencyDetail from "./components/CurrencyDetail";
 import ExchangeDetail from "./components/ExchangeDetail";
 import Layout from "./components/Layout";
 import { I18nProvider, useI18n } from "./i18n";
@@ -38,8 +39,6 @@ import TermsOfService from "./pages/TermsOfService";
 import AboutMarketsPivot from "./pages/AboutMarketsPivot";
 import Screener from "./pages/Screener";
 import EconomicCalendar from "./pages/EconomicCalendar";
-import CurrenciesPage from "./pages/CurrenciesPage";
-import CryptoPage from "./pages/CryptoPage";
 
 
 const exchanges = exchangesData.exchanges as StockExchange[];
@@ -458,6 +457,182 @@ const StocksPage = () => {
             metric={formatMoney(item.marketCap)}
           />
         ))}
+      </div>
+    </div>
+  );
+};
+
+const CurrenciesPage = () => {
+  const { code } = useParams();
+  const { t } = useI18n();
+
+  // List view state
+  const [allCurrencies, setAllCurrencies] = React.useState<Currency[]>(currencies);
+  const [liveRates, setLiveRates]         = React.useState<Record<string, number>>(majorRates);
+
+  // Detail view state
+  const [currency,      setCurrency]      = React.useState<Currency | null>(null);
+  const [exchangeRates, setExchangeRates] = React.useState<Record<string, number>>({});
+  const [popularPairs,  setPopularPairs]  = React.useState<CurrencyPair[]>([]);
+  const [economicData,  setEconomicData]  = React.useState<any>(null);
+  const [currencyNews,  setCurrencyNews]  = React.useState<any[]>([]);
+  const [isLoading,     setIsLoading]     = React.useState(false);
+
+  // ── Detail page — API se fetch ──────────────────────────────────────────
+  React.useEffect(() => {
+    if (!code) return;
+    setIsLoading(true);
+    const c = code.toUpperCase();
+
+    Promise.all([
+      fetch(`${API_BASE}/currencies/${c}`).then(r => r.json()),
+      fetch(`${API_BASE}/currencies/${c}/rates`).then(r => r.json()),
+      fetch(`${API_BASE}/currencies/${c}/pairs?limit=10`).then(r => r.json()),
+      fetch(`${API_BASE}/currencies/${c}/economic-data`).then(r => r.json()),
+      fetch(`${API_BASE}/currencies/${c}/news?limit=10`).then(r => r.json()),
+    ])
+      .then(([cRes, ratesRes, pairsRes, econRes, newsRes]) => {
+        // Currency detail — DB ya JSON fallback
+        if (cRes.success) {
+          setCurrency(cRes.data);
+        } else {
+          const fallback = currencies.find(x => x.code.toLowerCase() === code.toLowerCase());
+          if (fallback) setCurrency(fallback);
+        }
+
+        // Exchange rates — DB ya hardcoded fallback
+        if (ratesRes.success && ratesRes.data?.rates?.length) {
+          const rMap: Record<string, number> = {};
+          ratesRes.data.rates.forEach((r: any) => { rMap[r.toCode] = Number(r.rate); });
+          setExchangeRates(rMap);
+        } else {
+          setExchangeRates(getCurrencyRates(c));
+        }
+
+        // Popular pairs
+        if (pairsRes.success && pairsRes.data?.length) {
+          setPopularPairs(pairsRes.data);
+        } else {
+          setPopularPairs(getPopularPairs(c));
+        }
+
+        // Economic data
+        if (econRes.success) setEconomicData(econRes.data);
+
+        // News
+        if (newsRes.success && newsRes.data?.length) setCurrencyNews(newsRes.data);
+      })
+      .catch(() => {
+        // Full JSON fallback
+        const fallback = currencies.find(x => x.code.toLowerCase() === code.toLowerCase());
+        if (fallback) {
+          setCurrency(fallback);
+          setExchangeRates(getCurrencyRates(fallback.code));
+          setPopularPairs(getPopularPairs(fallback.code));
+        }
+      })
+      .finally(() => setIsLoading(false));
+  }, [code]);
+
+  // ── List page — currencies + live rates API se ──────────────────────────
+  React.useEffect(() => {
+    if (code) return;
+    Promise.all([
+      fetch(`${API_BASE}/currencies?limit=50`).then(r => r.json()),
+      fetch(`${API_BASE}/currencies/USD/rates`).then(r => r.json()),
+    ])
+      .then(([listRes, usdRatesRes]) => {
+        if (listRes.success && listRes.data?.length) setAllCurrencies(listRes.data);
+        if (usdRatesRes.success && usdRatesRes.data?.rates?.length) {
+          const rMap: Record<string, number> = { USD: 1 };
+          usdRatesRes.data.rates.forEach((r: any) => { rMap[r.toCode] = Number(r.rate); });
+          setLiveRates(rMap);
+        }
+      })
+      .catch(() => {});
+  }, [code]);
+
+  // ── Detail page render ──────────────────────────────────────────────────
+  if (code) {
+    const displayCurrency = currency ?? currencies.find(x => x.code.toLowerCase() === code.toLowerCase());
+    if (isLoading || displayCurrency) {
+      return (
+        <CurrencyDetail
+          currency={displayCurrency ?? currencies[0]}
+          exchangeRates={exchangeRates}
+          popularPairs={popularPairs}
+          economicData={economicData}
+          news={currencyNews}
+          isLoading={isLoading}
+        />
+      );
+    }
+    return <div className="page"><p>Currency not found: {code}</p></div>;
+  }
+
+  // ── List page render ────────────────────────────────────────────────────
+  return (
+    <div className="page">
+      <div className="section-heading">
+        <p className="eyebrow">{t("fx")}</p>
+        <h1>{t("topCurrencies")}</h1>
+        <p>{t("currencyIntro")}</p>
+      </div>
+      <div className="asset-grid compact">
+        {allCurrencies.map((item) => {
+          const rate = liveRates[item.code];
+          const rateStr = rate
+            ? `1 USD = ${rate.toFixed(item.code === "JPY" || item.code === "KRW" ? 0 : 2)} ${item.code}`
+            : `${item.code}`;
+          return (
+            <AssetCard
+              key={item.code}
+              to={`/currencies/${item.code}`}
+              eyebrow={item.region}
+              title={`${item.code} - ${item.name}`}
+              meta={`${item.country} / ${item.centralBank}`}
+              metric={rateStr}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const CryptoPage = () => {
+  const { cryptoId } = useParams();
+  const { t } = useI18n();
+  const crypto = cryptocurrencies.find(
+    (item) => item.id.toLowerCase() === cryptoId?.toLowerCase() || item.symbol.toLowerCase() === cryptoId?.toLowerCase()
+  );
+
+  if (crypto) {
+    const index = cryptocurrencies.findIndex((item) => item.id === crypto.id);
+    return <CryptoDetail crypto={crypto} priceData={getCryptoPrice(crypto, index)} tradingPairs={getTradingPairs(crypto)} />;
+  }
+
+  return (
+    <div className="page">
+      <div className="section-heading">
+        <p className="eyebrow">{t("crypto")}</p>
+        <h1>{t("topCryptos")}</h1>
+        <p>{t("cryptoIntro")}</p>
+      </div>
+      <div className="asset-grid compact">
+        {cryptocurrencies.map((item, index) => {
+          const price = getCryptoPrice(item, index);
+          return (
+            <AssetCard
+              key={item.id}
+              to={`/crypto/${item.id}`}
+              eyebrow={item.category}
+              title={`${item.name} (${item.symbol})`}
+              meta={`Rank #${price.rank} / ${item.consensusMechanism}`}
+              metric={`${formatMoney(price.marketCap)} market cap`}
+            />
+          );
+        })}
       </div>
     </div>
   );

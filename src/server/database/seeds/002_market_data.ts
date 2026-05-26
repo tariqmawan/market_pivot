@@ -16,26 +16,31 @@ async function insertChunked(knex: Knex, table: string, rows: object[], chunkSiz
   }
 }
 
-// Realistic stock data per exchange
-const STOCKS: Record<string, Array<{ symbol: string; company: string; sector: string }>> = {
-  nyse:    [{ symbol:"JPM",  company:"JPMorgan Chase",       sector:"Banking"    }, { symbol:"XOM",  company:"ExxonMobil",         sector:"Energy"     }, { symbol:"JNJ",  company:"Johnson & Johnson",  sector:"Healthcare" }, { symbol:"WMT",  company:"Walmart",              sector:"Retail"     }, { symbol:"BAC",  company:"Bank of America",     sector:"Banking"    }],
-  nasdaq:  [{ symbol:"AAPL", company:"Apple Inc.",           sector:"Technology" }, { symbol:"MSFT", company:"Microsoft Corp.",      sector:"Technology" }, { symbol:"NVDA", company:"NVIDIA Corp.",        sector:"Technology" }, { symbol:"GOOG", company:"Alphabet Inc.",         sector:"Technology" }, { symbol:"META", company:"Meta Platforms",       sector:"Technology" }],
-  lse:     [{ symbol:"HSBA", company:"HSBC Holdings",        sector:"Banking"    }, { symbol:"BP",   company:"BP plc",              sector:"Energy"     }, { symbol:"RIO",  company:"Rio Tinto",           sector:"Mining"     }, { symbol:"AZN",  company:"AstraZeneca",          sector:"Healthcare" }, { symbol:"SHEL", company:"Shell plc",            sector:"Energy"     }],
-  tse:     [{ symbol:"7203", company:"Toyota Motor",         sector:"Auto"       }, { symbol:"6758", company:"Sony Group",          sector:"Technology" }, { symbol:"8306", company:"Mitsubishi UFJ",      sector:"Banking"    }, { symbol:"9984", company:"SoftBank Group",       sector:"Technology" }, { symbol:"7974", company:"Nintendo",              sector:"Technology" }],
-  sse:     [{ symbol:"600519",company:"Kweichow Moutai",     sector:"Consumer"   }, { symbol:"601398",company:"ICBC",              sector:"Banking"    }, { symbol:"600036",company:"China Merchants Bank",sector:"Banking"    }, { symbol:"601318",company:"Ping An Insurance",  sector:"Finance"    }, { symbol:"600276",company:"Jiangsu Hengrui",    sector:"Healthcare" }],
-  hkex:   [{ symbol:"0700", company:"Tencent Holdings",     sector:"Technology" }, { symbol:"9988", company:"Alibaba Group",        sector:"Technology" }, { symbol:"0941", company:"China Mobile",         sector:"Telecom"    }, { symbol:"1299", company:"AIA Group",            sector:"Insurance"  }, { symbol:"0005", company:"HSBC Holdings",       sector:"Banking"    }],
-  nse:     [{ symbol:"RELIANCE",company:"Reliance Industries",sector:"Energy"    }, { symbol:"TCS",  company:"Tata Consultancy",    sector:"Technology" }, { symbol:"HDFC", company:"HDFC Bank",            sector:"Banking"    }, { symbol:"INFY", company:"Infosys",              sector:"Technology" }, { symbol:"ICICI",company:"ICICI Bank",          sector:"Banking"    }],
-  bse:     [{ symbol:"500325",company:"Reliance Industries",  sector:"Energy"    }, { symbol:"532540",company:"Tata Consultancy",  sector:"Technology" }, { symbol:"500180",company:"HDFC Bank",          sector:"Banking"    }, { symbol:"500209",company:"Infosys Ltd",        sector:"Technology" }, { symbol:"532174",company:"ICICI Bank",         sector:"Banking"    }],
-  euronext:[{ symbol:"MC",   company:"LVMH",                 sector:"Luxury"     }, { symbol:"TTE",  company:"TotalEnergies",       sector:"Energy"     }, { symbol:"SAN",  company:"Sanofi",              sector:"Healthcare" }, { symbol:"BNP",  company:"BNP Paribas",          sector:"Banking"    }, { symbol:"OR",   company:"L'Oreal",             sector:"Consumer"   }],
-  tsx:     [{ symbol:"RY",   company:"Royal Bank of Canada", sector:"Banking"    }, { symbol:"TD",   company:"TD Bank",             sector:"Banking"    }, { symbol:"ENB",  company:"Enbridge Inc.",        sector:"Energy"     }, { symbol:"CNR",  company:"CN Rail",              sector:"Transport"  }, { symbol:"BMO",  company:"Bank of Montreal",    sector:"Banking"    }],
+// Realistic stock data — key = exact exchange ID from DB (uppercase)
+const STOCKS: Record<string, Array<{ symbol: string; company: string }>> = {
+  NYSE:    [{ symbol:"JPM",     company:"JPMorgan Chase"       }, { symbol:"XOM",  company:"ExxonMobil"          }, { symbol:"JNJ",  company:"Johnson & Johnson"  }, { symbol:"WMT",  company:"Walmart"               }, { symbol:"BAC",  company:"Bank of America"     }],
+  NASDAQ:  [{ symbol:"AAPL",    company:"Apple Inc."           }, { symbol:"MSFT", company:"Microsoft Corp."      }, { symbol:"NVDA", company:"NVIDIA Corp."        }, { symbol:"GOOG", company:"Alphabet Inc."          }, { symbol:"META", company:"Meta Platforms"       }],
+  LSE:     [{ symbol:"HSBA",    company:"HSBC Holdings"        }, { symbol:"BP",   company:"BP plc"              }, { symbol:"RIO",  company:"Rio Tinto"           }, { symbol:"AZN",  company:"AstraZeneca"           }, { symbol:"SHEL", company:"Shell plc"            }],
+  TSE:     [{ symbol:"7203.T",  company:"Toyota Motor"         }, { symbol:"6758.T",company:"Sony Group"         }, { symbol:"8306.T",company:"Mitsubishi UFJ"     }, { symbol:"9984.T",company:"SoftBank Group"       }, { symbol:"7974.T",company:"Nintendo"             }],
+  SSE:     [{ symbol:"600519",  company:"Kweichow Moutai"      }, { symbol:"601398",company:"ICBC"              }, { symbol:"600036",company:"China Merchants Bank"}, { symbol:"601318",company:"Ping An Insurance"    }, { symbol:"600276",company:"Jiangsu Hengrui"      }],
+  SZSE:    [{ symbol:"000001",  company:"Ping An Bank"         }, { symbol:"000333",company:"Midea Group"       }, { symbol:"002415",company:"Hikvision"           }, { symbol:"000858",company:"Wuliangye Yibin"       }, { symbol:"300750",company:"CATL"                }],
+  HKEX:   [{ symbol:"0700",   company:"Tencent Holdings"      }, { symbol:"9988",  company:"Alibaba Group"      }, { symbol:"0941",  company:"China Mobile"        }, { symbol:"1299",  company:"AIA Group"            }, { symbol:"0005",  company:"HSBC Holdings"       }],
+  NSE:     [{ symbol:"RELIANCE",company:"Reliance Industries"  }, { symbol:"TCS",   company:"Tata Consultancy"  }, { symbol:"HDFCBANK",company:"HDFC Bank"         }, { symbol:"INFY",  company:"Infosys"              }, { symbol:"ICICIBANK",company:"ICICI Bank"        }],
+  BSE:     [{ symbol:"500325",  company:"Reliance Industries"  }, { symbol:"532540",company:"Tata Consultancy"  }, { symbol:"500180",company:"HDFC Bank"           }, { symbol:"500209",company:"Infosys Ltd"          }, { symbol:"532174",company:"ICICI Bank"           }],
+  EURONEXT:[{ symbol:"MC.PA",   company:"LVMH"                 }, { symbol:"TTE.PA",company:"TotalEnergies"     }, { symbol:"SAN.PA",company:"Sanofi"              }, { symbol:"BNP.PA",company:"BNP Paribas"          }, { symbol:"OR.PA", company:"L'Oreal"             }],
+  TSX:     [{ symbol:"RY.TO",   company:"Royal Bank of Canada" }, { symbol:"TD.TO", company:"TD Bank"           }, { symbol:"ENB.TO",company:"Enbridge Inc."       }, { symbol:"CNR.TO",company:"CN Rail"              }, { symbol:"BMO.TO",company:"Bank of Montreal"    }],
+  XETRA:   [{ symbol:"SAP",     company:"SAP SE"               }, { symbol:"SIE",   company:"Siemens AG"        }, { symbol:"ALV",   company:"Allianz SE"          }, { symbol:"MRK",   company:"Merck KGaA"           }, { symbol:"BMW",   company:"BMW AG"              }],
+  ASX:     [{ symbol:"BHP.AX",  company:"BHP Group"            }, { symbol:"CBA.AX",company:"Commonwealth Bank" }, { symbol:"CSL.AX",company:"CSL Ltd"             }, { symbol:"NAB.AX",company:"National Aus Bank"    }, { symbol:"WBC.AX",company:"Westpac Banking"     }],
+  KRX:     [{ symbol:"005930",  company:"Samsung Electronics"  }, { symbol:"000660",company:"SK Hynix"          }, { symbol:"005380",company:"Hyundai Motor"        }, { symbol:"035420",company:"NAVER Corp"           }, { symbol:"051910",company:"LG Chem"             }],
+  TADAWUL: [{ symbol:"2222",    company:"Saudi Aramco"         }, { symbol:"1120",  company:"Al Rajhi Bank"     }, { symbol:"2010",  company:"SABIC"               }, { symbol:"1180",  company:"Al Rajhi Takaful"     }, { symbol:"2350",  company:"Saudi Telecom"       }],
 };
 
 const DEFAULT_STOCKS = [
-  { symbol:"IDX1",  company:"Index Leader Corp",    sector:"Technology" },
-  { symbol:"IDX2",  company:"Blue Chip Holdings",   sector:"Finance"    },
-  { symbol:"IDX3",  company:"Growth Capital Ltd",   sector:"Energy"     },
-  { symbol:"IDX4",  company:"Prime Industries",     sector:"Healthcare" },
-  { symbol:"IDX5",  company:"Apex Ventures",        sector:"Consumer"   },
+  { symbol:"STK1", company:"Blue Chip Corp"     },
+  { symbol:"STK2", company:"Growth Capital Ltd" },
+  { symbol:"STK3", company:"Prime Industries"   },
+  { symbol:"STK4", company:"Apex Ventures"      },
+  { symbol:"STK5", company:"Index Leader Corp"  },
 ];
 
 export async function seed(knex: Knex): Promise<void> {
@@ -48,89 +53,59 @@ export async function seed(knex: Knex): Promise<void> {
 
   if (!existing) {
     const hashed = await bcrypt.hash(adminPass, 12);
-    const [adminRow] = await knex("users")
+    const [row] = await knex("users")
       .insert({ name: "Super Admin", email: adminEmail, password: hashed, role: "super_admin", isActive: true, isEmailVerified: true })
       .returning("id");
-    const adminId = adminRow?.id ?? adminRow;
-    await knex("watchlists").insert({ userId: adminId, name: "My Watchlist", items: "[]" });
-    console.log(`✓ admin user      — ${adminEmail} / ${adminPass}`);
+    const adminId = row?.id ?? row;
+    await knex("watchlists").insert({ userId: adminId, name: "My Watchlist", items: "[]" }).onConflict().ignore();
+    console.log(`✓ admin user      — created: ${adminEmail}`);
   } else {
     console.log(`✓ admin user      — already exists`);
   }
 
-  // ── MARKET MOVERS ─────────────────────────────────────────────────────────
-  const { exchanges } = readJson("exchanges.json");
-  await knex("market_movers").del();
+  // ── FETCH ACTUAL EXCHANGE IDs FROM DB ─────────────────────────────────────
+  const dbExchanges = await knex("exchanges").select("id", "marketCap", "avgDailyVolume", "listedCompanies");
+  console.log(`  Found ${dbExchanges.length} exchanges in DB`);
 
+  // ── MARKET MOVERS ─────────────────────────────────────────────────────────
+  await knex("market_movers").del();
   const moversRows: object[] = [];
 
-  for (const exchange of exchanges) {
-    const stocks = STOCKS[exchange.id] ?? DEFAULT_STOCKS;
+  for (const exchange of dbExchanges) {
+    const id     = exchange.id;  // exact ID from DB — uppercase
+    const stocks = STOCKS[id] ?? DEFAULT_STOCKS;
 
-    // Gainers — top 5
+    // Gainers
     stocks.forEach((stock, i) => {
-      const percentChange = 3.8 - i * 0.4 + Math.random() * 0.5;
-      const price = 20 + i * 25 + exchange.id.length * 3;
-      moversRows.push({
-        exchangeId:    exchange.id,
-        symbol:        stock.symbol,
-        company:       stock.company,
-        price:         parseFloat(price.toFixed(2)),
-        change:        parseFloat((price * percentChange / 100).toFixed(2)),
-        percentChange: parseFloat(percentChange.toFixed(2)),
-        volume:        Math.floor((exchange.avgDailyVolume || 1e9) / (i + 5)),
-        marketCap:     Math.floor((exchange.marketCap || 1e12) / (i + 8)),
-        type:          "gainer",
-        signals:       JSON.stringify({ momentumScore: 90 - i * 5, unusualVolume: i === 0 }),
-      });
+      const pct   = parseFloat((3.8 - i * 0.4 + Math.random() * 0.5).toFixed(2));
+      const price = parseFloat((20 + i * 25 + id.length * 2).toFixed(2));
+      moversRows.push({ exchangeId: id, symbol: stock.symbol, company: stock.company, price, change: parseFloat((price * pct / 100).toFixed(2)), percentChange: pct, volume: Math.floor((exchange.avgDailyVolume || 1e9) / (i + 5)), marketCap: Math.floor((exchange.marketCap || 1e12) / (i + 8)), type: "gainer" });
     });
 
-    // Losers — top 5
+    // Losers
     stocks.forEach((stock, i) => {
-      const percentChange = -(2.9 + i * 0.35 + Math.random() * 0.4);
-      const price = 15 + i * 20 + exchange.id.length * 2;
-      moversRows.push({
-        exchangeId:    exchange.id,
-        symbol:        stock.symbol + "X",
-        company:       stock.company + " (Short)",
-        price:         parseFloat(price.toFixed(2)),
-        change:        parseFloat((price * percentChange / 100).toFixed(2)),
-        percentChange: parseFloat(percentChange.toFixed(2)),
-        volume:        Math.floor((exchange.avgDailyVolume || 1e9) / (i + 6)),
-        marketCap:     Math.floor((exchange.marketCap || 1e12) / (i + 10)),
-        type:          "loser",
-        signals:       JSON.stringify({ crashAlert: i === 0, oversold: i < 2, reversalProb: 65 - i * 5 }),
-      });
+      const pct   = parseFloat((-(2.9 + i * 0.35 + Math.random() * 0.4)).toFixed(2));
+      const price = parseFloat((15 + i * 20 + id.length * 1.5).toFixed(2));
+      moversRows.push({ exchangeId: id, symbol: stock.symbol + "B", company: stock.company + " B", price, change: parseFloat((price * pct / 100).toFixed(2)), percentChange: pct, volume: Math.floor((exchange.avgDailyVolume || 1e9) / (i + 6)), marketCap: Math.floor((exchange.marketCap || 1e12) / (i + 10)), type: "loser" });
     });
 
-    // Most Active — top 5
+    // Most Active
     stocks.forEach((stock, i) => {
-      const percentChange = i % 2 === 0 ? 1.4 + i * 0.2 : -(0.9 + i * 0.15);
-      const price = 30 + i * 15;
-      moversRows.push({
-        exchangeId:    exchange.id,
-        symbol:        stock.symbol + "V",
-        company:       stock.company,
-        price:         parseFloat(price.toFixed(2)),
-        change:        parseFloat((price * percentChange / 100).toFixed(2)),
-        percentChange: parseFloat(percentChange.toFixed(2)),
-        volume:        Math.floor((exchange.avgDailyVolume || 1e9) / (i + 2)),
-        marketCap:     Math.floor((exchange.marketCap || 1e12) / (i + 5)),
-        type:          "active",
-        signals:       JSON.stringify({ whaleSignal: i === 0, unusualActivity: i < 3 }),
-      });
+      const pct   = parseFloat((i % 2 === 0 ? 1.4 + i * 0.2 : -(0.9 + i * 0.15)).toFixed(2));
+      const price = parseFloat((30 + i * 15).toFixed(2));
+      moversRows.push({ exchangeId: id, symbol: stock.symbol + "C", company: stock.company, price, change: parseFloat((price * pct / 100).toFixed(2)), percentChange: pct, volume: Math.floor((exchange.avgDailyVolume || 1e9) / (i + 2)), marketCap: Math.floor((exchange.marketCap || 1e12) / (i + 5)), type: "active" });
     });
   }
 
   await insertChunked(knex, "market_movers", moversRows);
-  console.log(`✓ market_movers   — ${moversRows.length} records (${exchanges.length} exchanges × 15)`);
+  console.log(`✓ market_movers   — ${moversRows.length} records`);
 
   // ── SECTOR PERFORMANCE ────────────────────────────────────────────────────
   await knex("sector_performance").del();
-  const SECTORS = ["Technology","Banking","Energy","Healthcare","Consumer","Finance","Industrial","Materials"];
+  const SECTORS = ["Technology", "Banking", "Energy", "Healthcare", "Consumer", "Finance", "Industrial", "Materials"];
   const sectorRows: object[] = [];
 
-  for (const exchange of exchanges) {
+  for (const exchange of dbExchanges) {
     SECTORS.forEach((sectorName, i) => {
       sectorRows.push({
         exchangeId:  exchange.id,
@@ -147,14 +122,17 @@ export async function seed(knex: Knex): Promise<void> {
   console.log(`✓ sector_perf     — ${sectorRows.length} records`);
 
   // ── INDEX SNAPSHOTS ───────────────────────────────────────────────────────
+  const { exchanges: jsonExchanges } = readJson("exchanges.json");
   await knex("index_snapshots").del();
-  const snapshotRows = exchanges.map((e: any) => {
-    const base = Math.max(900, (e.marketCap || 1e12) / 1e10);
+
+  const snapshotRows = dbExchanges.map((e: any) => {
+    const jsonEx = jsonExchanges.find((j: any) => j.id === e.id) ?? {};
+    const base   = parseFloat(Math.max(900, (e.marketCap || 1e12) / 1e10).toFixed(2));
     return {
       exchangeId:    e.id,
-      symbol:        e.mainIndex,
-      name:          e.mainIndexName ?? e.mainIndex,
-      value:         parseFloat(base.toFixed(2)),
+      symbol:        jsonEx.mainIndex      ?? e.id,
+      name:          jsonEx.mainIndexName  ?? e.id,
+      value:         base,
       previousClose: parseFloat((base * 0.992).toFixed(2)),
       change:        parseFloat((base * 0.008).toFixed(2)),
       percentChange: 0.80,
@@ -168,8 +146,6 @@ export async function seed(knex: Knex): Promise<void> {
   await insertChunked(knex, "index_snapshots", snapshotRows);
   console.log(`✓ index_snapshots — ${snapshotRows.length} records`);
 
-  console.log("\n Market data seeded!\n");
-  console.log(`   Admin login: ${process.env.ADMIN_EMAIL || "admin@marketspivot.com"}`);
-  console.log(`   Password:    ${process.env.ADMIN_PASSWORD || "Admin@123456"}`);
-  console.log(`   (Apne .env mein ADMIN_EMAIL aur ADMIN_PASSWORD set karo)\n`);
+  console.log(`\n Market data seeded!\n`);
+  console.log(`   Admin: ${adminEmail} / ${adminPass}\n`);
 }
