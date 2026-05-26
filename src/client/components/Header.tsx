@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Crown } from "lucide-react";
 import "./Header.css";
 import { useI18n, languages, type LanguageCode } from "../i18n";
 import { useAuthStore } from "../stores/authStore";
@@ -76,16 +77,19 @@ const Header: React.FC = () => {
         <div className="brand-left">
           <Link to="/" className="logo-link">
             <img
-              src="/logos/market_pivot-removebg-preview.png"
-              alt="MarketsPivot"
-              className="logo-img"
+              src="/logos/marketpivot.jpeg"
+              alt=""
+              className="logo-icon"
+              aria-hidden
             />
+            <span className="brand-wordmark">MarketsPivot</span>
           </Link>
         </div>
 
         <div className="brand-right">
-          <Link to="/pricing" className="btn ghost">
-            {t("pricing")}
+          <Link to="/pricing" className="btn-pricing">
+            <Crown size={14} strokeWidth={2.25} aria-hidden />
+            <span>{t("pricing").toUpperCase()}</span>
           </Link>
 
           <button type="button" className="btn" onClick={openLoginModal}>
