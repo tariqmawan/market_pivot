@@ -2051,10 +2051,11 @@ body.light {
 
 .terminal-hero h1,
 .section-heading h1 {
-  font-size: clamp(2.75rem, 6vw, 4.9rem);
-  line-height: 1.05;
-  letter-spacing: 0;
+  font-size: clamp(32px, 4vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
   color: #2c3e50;
+  font-weight: 700;
 }
 
 .terminal-hero h1 {
@@ -2154,15 +2155,18 @@ body.light {
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   gap: 2rem;
   align-items: end;
-  padding: 2rem 0;
+  padding: 1.25rem 0;
   border-bottom: 1px solid #e5e7eb;
 }
 
 .intelligence-band h2,
 .comparison-strip h2 {
   color: #2c3e50;
-  font-size: clamp(2rem, 4vw, 4.2rem);
-  line-height: 1;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -1px;
+  max-width: 850px;
 }
 
 .intelligence-band p,

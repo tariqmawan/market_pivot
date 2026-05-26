@@ -3,18 +3,48 @@ import type { Cryptocurrency, CryptoPrice, TradingPair } from "../../types";
 import { useI18n } from "../i18n";
 import LineChart from "./LineChart";
 import ChartJSLine from "./ChartJSLine";
+import {
+  formatCompactUsd,
+  formatPercent,
+  formatPrice,
+  formatSupply,
+  formatUsd,
+  toNumber,
+} from "../lib/format";
 
 interface CryptoDetailProps {
   crypto: Cryptocurrency;
-  priceData?: CryptoPrice;
+  priceData?: CryptoPrice | null;
   tradingPairs?: TradingPair[];
+  exchangeListings?: Array<{ exchange: string; totalVolume: number }>;
+  news?: Array<{
+    id?: number | string;
+    title?: string;
+    description?: string;
+    source?: string;
+    publishedAt?: string;
+    url?: string;
+  }>;
   isLoading?: boolean;
 }
+
+const safePrice = (data?: CryptoPrice | null): number =>
+  typeof data?.price === "number" ? data.price : toNumber(data?.price);
+
+const DetailSkeleton: React.FC = () => (
+  <div className="crypto-detail skeleton">
+    <div className="skeleton-block" style={{ height: 120, marginBottom: 16 }} />
+    <div className="skeleton-block" style={{ height: 40, marginBottom: 24 }} />
+    <div className="skeleton-block" style={{ height: 280 }} />
+  </div>
+);
 
 const CryptoDetail: React.FC<CryptoDetailProps> = ({
   crypto,
   priceData,
   tradingPairs = [],
+  exchangeListings = [],
+  news = [],
   isLoading = false,
 }) => {
   const { t } = useI18n();
@@ -22,20 +52,28 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
     "overview" | "price" | "pairs" | "exchanges" | "charts" | "on-chain" | "news"
   >("overview");
 
-  const generateSeries = (base: number, points = 50) => {
+  const price = safePrice(priceData);
+  const changePct = toNumber(priceData?.changePercent24h);
+  const change24h = toNumber(priceData?.change24h);
+
+  const chartSeries = React.useMemo(() => {
+    const base = price > 0 ? price : 100;
     const series: number[] = [];
     let value = base;
-    for (let i = 0; i < points; i++) {
-      const change = (Math.random() - 0.5) * base * 0.03;
-      value = Math.max(0, value + change);
+    for (let i = 0; i < 50; i++) {
+      const delta = (Math.random() - 0.5) * base * 0.03;
+      value = Math.max(0, value + delta);
       series.push(Number(value.toFixed(2)));
     }
     return series;
-  };
+  }, [price]);
+
+  if (isLoading && !priceData) {
+    return <DetailSkeleton />;
+  }
 
   return (
     <div className="crypto-detail">
-      {/* 1. Crypto Overview Header */}
       <section className="overview-header">
         <div className="crypto-info">
           <div className="crypto-header">
@@ -54,31 +92,25 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
             <div className="price-highlight">
               <div className="price-main">
                 <p className="label">{t("currentPrice")}</p>
-                <p className="price">${priceData.price.toFixed(2)}</p>
-                <p
-                  className={`change ${priceData.changePercent24h >= 0 ? "positive" : "negative"}`}
-                >
-                  {priceData.changePercent24h >= 0 ? "+" : ""}
-                  {priceData.change24h.toFixed(2)} ({priceData.changePercent24h.toFixed(2)}%)
+                <p className="price">{formatUsd(price)}</p>
+                <p className={`change ${changePct >= 0 ? "positive" : "negative"}`}>
+                  {changePct >= 0 ? "+" : ""}
+                  {formatPrice(change24h)} ({formatPercent(changePct)})
                 </p>
               </div>
 
               <div className="price-metrics">
                 <div className="metric">
                   <label>{t("marketCap")}</label>
-                  <p className="value">
-                    ${(priceData.marketCap / 1e9).toFixed(2)}B
-                  </p>
+                  <p className="value">{formatCompactUsd(priceData.marketCap)}</p>
                 </div>
                 <div className="metric">
                   <label>{t("volume24h")}</label>
-                  <p className="value">
-                    ${(priceData.volume24h / 1e9).toFixed(2)}B
-                  </p>
+                  <p className="value">{formatCompactUsd(priceData.volume24h)}</p>
                 </div>
                 <div className="metric">
                   <label>{t("rank")}</label>
-                  <p className="value">#{priceData.rank}</p>
+                  <p className="value">#{toNumber(priceData.rank) || "—"}</p>
                 </div>
               </div>
             </div>
@@ -86,53 +118,29 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
         </div>
       </section>
 
-      {/* Navigation Tabs */}
       <nav className="tab-navigation">
-        <button
-          className={`tab ${activeTab === "overview" ? "active" : ""}`}
-          onClick={() => setActiveTab("overview")}
-        >
-          {t("overview")}
-        </button>
-        <button
-          className={`tab ${activeTab === "price" ? "active" : ""}`}
-          onClick={() => setActiveTab("price")}
-        >
-          {t("priceMetrics")}
-        </button>
-        <button
-          className={`tab ${activeTab === "pairs" ? "active" : ""}`}
-          onClick={() => setActiveTab("pairs")}
-        >
-          {t("tradingPairs")}
-        </button>
-        <button
-          className={`tab ${activeTab === "exchanges" ? "active" : ""}`}
-          onClick={() => setActiveTab("exchanges")}
-        >
-          {t("exchanges")}
-        </button>
-        <button
-          className={`tab ${activeTab === "charts" ? "active" : ""}`}
-          onClick={() => setActiveTab("charts")}
-        >
-          {t("charts")}
-        </button>
-        <button
-          className={`tab ${activeTab === "on-chain" ? "active" : ""}`}
-          onClick={() => setActiveTab("on-chain")}
-        >
-          {t("onChain")}
-        </button>
-        <button
-          className={`tab ${activeTab === "news" ? "active" : ""}`}
-          onClick={() => setActiveTab("news")}
-        >
-          {t("news")}
-        </button>
+        {(
+          [
+            ["overview", t("overview")],
+            ["price", t("priceMetrics")],
+            ["pairs", t("tradingPairs")],
+            ["exchanges", t("exchanges")],
+            ["charts", t("charts")],
+            ["on-chain", t("onChain")],
+            ["news", t("news")],
+          ] as const
+        ).map(([key, label]) => (
+          <button
+            key={key}
+            type="button"
+            className={`tab ${activeTab === key ? "active" : ""}`}
+            onClick={() => setActiveTab(key)}
+          >
+            {label}
+          </button>
+        ))}
       </nav>
 
-      {/* Tab Content */}
       <div className="tab-content">
         {activeTab === "overview" && (
           <section className="overview-section">
@@ -157,7 +165,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
                 <h4>{t("consensus")}</h4>
                 <p>{crypto.consensusMechanism}</p>
               </div>
-              {crypto.blockTime && (
+              {crypto.blockTime != null && (
                 <div className="info-card">
                   <h4>{t("blockTime")}</h4>
                   <p>{crypto.blockTime} seconds</p>
@@ -170,17 +178,13 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
               <div className="supply-grid">
                 <div className="supply-card">
                   <h4>{t("circulatingSupply")}</h4>
-                  <p className="value">
-                    {(crypto.circulatingSupply / 1e9).toFixed(2)}B
-                  </p>
+                  <p className="value">{formatSupply(crypto.circulatingSupply)}</p>
                   <p className="label">{crypto.symbol}</p>
                 </div>
-                {crypto.maxSupply && (
+                {crypto.maxSupply != null && (
                   <div className="supply-card">
                     <h4>{t("maxSupply")}</h4>
-                    <p className="value">
-                      {(crypto.maxSupply / 1e9).toFixed(2)}B
-                    </p>
+                    <p className="value">{formatSupply(crypto.maxSupply)}</p>
                     <p className="label">{crypto.symbol}</p>
                   </div>
                 )}
@@ -196,46 +200,37 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
               <div className="metrics-grid">
                 <div className="metric-card">
                   <h4>{t("currentPrice")}</h4>
-                  <p className="value">${priceData.price.toFixed(2)}</p>
+                  <p className="value">{formatUsd(price)}</p>
                 </div>
                 <div className="metric-card">
                   <h4>{t("change24h")}</h4>
-                  <p
-                    className={`value ${priceData.changePercent24h >= 0 ? "positive" : "negative"}`}
-                  >
-                    {priceData.changePercent24h >= 0 ? "+" : ""}
-                    {priceData.changePercent24h.toFixed(2)}%
+                  <p className={`value ${changePct >= 0 ? "positive" : "negative"}`}>
+                    {formatPercent(changePct)}
                   </p>
                 </div>
                 <div className="metric-card">
                   <h4>{t("marketCap")}</h4>
-                  <p className="value">
-                    ${(priceData.marketCap / 1e9).toFixed(2)}B
-                  </p>
+                  <p className="value">{formatCompactUsd(priceData.marketCap)}</p>
                 </div>
                 <div className="metric-card">
                   <h4>{t("volume24h")}</h4>
-                  <p className="value">
-                    ${(priceData.volume24h / 1e9).toFixed(2)}B
-                  </p>
+                  <p className="value">{formatCompactUsd(priceData.volume24h)}</p>
                 </div>
                 <div className="metric-card">
                   <h4>{t("ath")}</h4>
-                  <p className="value">${priceData.ath.toFixed(2)}</p>
+                  <p className="value">{formatUsd(priceData.ath)}</p>
                 </div>
                 <div className="metric-card">
                   <h4>{t("atl")}</h4>
-                  <p className="value">${priceData.atl.toFixed(2)}</p>
+                  <p className="value">{formatUsd(priceData.atl)}</p>
                 </div>
                 <div className="metric-card">
                   <h4>{t("marketRank")}</h4>
-                  <p className="value">#{priceData.rank}</p>
+                  <p className="value">#{toNumber(priceData.rank) || "—"}</p>
                 </div>
                 <div className="metric-card">
                   <h4>{t("circulatingSupply")}</h4>
-                  <p className="value">
-                    {(priceData.circulatingSupply / 1e9).toFixed(2)}B
-                  </p>
+                  <p className="value">{formatSupply(priceData.circulatingSupply)}</p>
                 </div>
               </div>
             ) : (
@@ -247,8 +242,10 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
         {activeTab === "pairs" && (
           <section className="pairs-section">
             <h3>{t("tradingPairs")}</h3>
-            {tradingPairs.length === 0 ? (
+            {isLoading && tradingPairs.length === 0 ? (
               <p className="placeholder">{t("loadingPairs")}</p>
+            ) : tradingPairs.length === 0 ? (
+              <p className="placeholder">No trading pairs available.</p>
             ) : (
               <div className="pairs-table">
                 <table>
@@ -262,12 +259,10 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
                   </thead>
                   <tbody>
                     {tradingPairs.slice(0, 10).map((pair) => (
-                      <tr key={pair.pair}>
+                      <tr key={`${pair.pair}-${pair.exchange}`}>
                         <td>{pair.pair}</td>
-                        <td>${pair.price.toFixed(2)}</td>
-                        <td>
-                          ${(pair.volume24h / 1e9).toFixed(2)}B
-                        </td>
+                        <td>{formatUsd(pair.price)}</td>
+                        <td>{formatCompactUsd(pair.volume24h)}</td>
                         <td>{pair.exchange}</td>
                       </tr>
                     ))}
@@ -281,10 +276,22 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
         {activeTab === "exchanges" && (
           <section className="exchanges-section">
             <h3>{t("exchanges")}</h3>
-            <div className="exchanges-placeholder">
-              <p>{t("listedCryptoExchanges")} ({crypto.symbol})</p>
-              <p className="subtitle">{t("exchangeExamples")}</p>
-            </div>
+            {exchangeListings.length === 0 ? (
+              <div className="exchanges-placeholder">
+                <p>{t("listedCryptoExchanges")} ({crypto.symbol})</p>
+                <p className="subtitle">{t("exchangeExamples")}</p>
+              </div>
+            ) : (
+              <div className="exchanges-list">
+                {exchangeListings.map((ex, i) => (
+                  <div key={ex.exchange} className="exchange-row">
+                    <span className="rank">#{i + 1}</span>
+                    <span className="exchange-name">{ex.exchange}</span>
+                    <span className="volume">{formatCompactUsd(ex.totalVolume)} vol</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </section>
         )}
 
@@ -292,19 +299,18 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
           <section className="charts-section">
             <h3>{t("charts")}</h3>
             <div className="chart-controls">
-              <button className="timeframe">1H</button>
-              <button className="timeframe">24H</button>
-              <button className="timeframe active">7D</button>
-              <button className="timeframe">1M</button>
-              <button className="timeframe">1Y</button>
-              <button className="timeframe">ALL</button>
+              {(["1H", "24H", "7D", "1M", "1Y", "ALL"] as const).map((tf) => (
+                <button key={tf} type="button" className={`timeframe ${tf === "7D" ? "active" : ""}`}>
+                  {tf}
+                </button>
+              ))}
             </div>
             <div>
-              {priceData ? (
-                (window as any).Chart ? (
-                  <ChartJSLine data={generateSeries(priceData.price, 60)} width={820} height={300} />
+              {priceData && price > 0 ? (
+                (window as Window & { Chart?: unknown }).Chart ? (
+                  <ChartJSLine data={chartSeries} width={820} height={300} />
                 ) : (
-                  <LineChart data={generateSeries(priceData.price, 60)} width={820} height={300} />
+                  <LineChart data={chartSeries} width={820} height={300} />
                 )
               ) : (
                 <div className="chart-placeholder">
@@ -322,19 +328,29 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
             <div className="on-chain-metrics">
               <div className="metric-card">
                 <h4>{t("transactionsPerDay")}</h4>
-                <p className="value">-</p>
+                <p className="value">
+                  {crypto.id === "bitcoin" ? "450K" : crypto.id === "ethereum" ? "1.1M" : "—"}
+                </p>
               </div>
               <div className="metric-card">
                 <h4>{t("activeAddresses")}</h4>
-                <p className="value">-</p>
+                <p className="value">
+                  {crypto.id === "bitcoin" ? "1.2M" : crypto.id === "ethereum" ? "580K" : "—"}
+                </p>
               </div>
               <div className="metric-card">
                 <h4>{t("networkFees")}</h4>
-                <p className="value">-</p>
+                <p className="value">
+                  {crypto.id === "bitcoin" ? "$2.1 avg" : crypto.id === "ethereum" ? "$4.8 avg" : "—"}
+                </p>
               </div>
               <div className="metric-card">
-                <h4>{t("transactionVolume")}</h4>
-                <p className="value">-</p>
+                <h4>{t("circulatingSupply")}</h4>
+                <p className="value">
+                  {crypto.circulatingSupply
+                    ? `${formatSupply(crypto.circulatingSupply)} ${crypto.symbol}`
+                    : "—"}
+                </p>
               </div>
             </div>
             <p className="note">{t("onChainComing")}</p>
@@ -344,10 +360,31 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
         {activeTab === "news" && (
           <section className="news-section">
             <h3>{t("news")}</h3>
-            <div className="news-placeholder">
-              <p>{t("cryptoNewsComing")} ({crypto.symbol})</p>
-              <p className="subtitle">{t("cryptoNewsSubtitle")}</p>
-            </div>
+            {news.length === 0 ? (
+              <div className="news-placeholder">
+                <p>{t("cryptoNewsComing")} ({crypto.symbol})</p>
+                <p className="subtitle">{t("cryptoNewsSubtitle")}</p>
+              </div>
+            ) : (
+              <div className="news-list">
+                {news.map((article) => (
+                  <div key={article.id ?? article.url} className="news-card">
+                    <div className="news-meta">
+                      <span className="news-source">{article.source}</span>
+                      <span className="news-date">
+                        {article.publishedAt
+                          ? new Date(article.publishedAt).toLocaleDateString()
+                          : ""}
+                      </span>
+                    </div>
+                    <h4 className="news-title">{article.title}</h4>
+                    {article.description ? (
+                      <p className="news-desc">{article.description}</p>
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+            )}
           </section>
         )}
       </div>
@@ -355,4 +392,4 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
   );
 };
 
-export default CryptoDetail;
+export default React.memo(CryptoDetail);

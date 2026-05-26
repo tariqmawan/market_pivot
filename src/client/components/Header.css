@@ -153,8 +153,27 @@
   align-items: center;
 }
 
-.logo-img {
-  height: 44px;
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  height: 40px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+.brand-wordmark {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 /* =========================================
@@ -205,6 +224,36 @@
 
 .btn.ghost {
   background: rgba(200, 155, 94, 0.08);
+}
+
+/* PdfPivot-style pricing pill */
+.btn-pricing {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: 1px solid #f0abfc;
+  background: #fdf2f8;
+  color: #c026d3;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-pricing:hover {
+  background: #fce7f3;
+  border-color: #e879f9;
+  color: #a21caf;
+  transform: none;
+}
+
+.btn-pricing svg {
+  color: #db2777;
+  flex-shrink: 0;
 }
 
 /* =========================================
@@ -276,8 +325,16 @@
     padding: 0 18px;
   }
 
-  .brand-right .btn {
+  .brand-right .btn:not(.btn-pricing) {
     display: none;
+  }
+
+  .brand-wordmark {
+    font-size: 1.15rem;
+  }
+
+  .logo-icon {
+    height: 34px;
   }
 }
 
@@ -303,7 +360,16 @@
     font-size: 14px;
   }
 
-  .logo-img {
-    height: 38px;
+  .logo-icon {
+    height: 32px;
+  }
+
+  .brand-wordmark {
+    font-size: 1rem;
+  }
+
+  .btn-pricing {
+    padding: 7px 14px;
+    font-size: 11px;
   }
 }

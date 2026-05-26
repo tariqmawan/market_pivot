@@ -1,0 +1,46 @@
+/* App shell — layout positioning only (PDFPivot-style Y-axis sidebar) */
+
+:root {
+  --site-sidebar-width: 240px;
+  --site-header-height: 124px; /* language strip + brand row */
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #fff;
+}
+
+.app-layout-body {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  padding-top: var(--site-header-height);
+}
+
+.site-sidebar {
+  flex: 0 0 var(--site-sidebar-width);
+  width: var(--site-sidebar-width);
+  min-height: 0;
+}
+
+.app-layout-main {
+  flex: 1;
+  min-width: 0;
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .site-sidebar {
+    flex: 0 0 0;
+    width: 0;
+    overflow: visible;
+  }
+
+  .app-layout-main {
+    margin-left: 0;
+  }
+}

@@ -4,6 +4,7 @@ import { Mail, ShieldCheck } from "lucide-react";
 import Header from "./Header";
 import Navigation from "./Navigation";
 import LoginModal from "./LoginModal";
+import "./Layout.css";
 import { useAuthStore } from "../stores/authStore";
 import AdminSidebar from "./admin/AdminSidebar";
 import AdminHeader from "./admin/AdminHeader";
@@ -50,21 +51,24 @@ const Layout: React.FC = () => {
         <>
           <header className="site-header">
             <Header />
-            <Navigation />
           </header>
 
-          <main className="site-main">
-            <Outlet />
-          </main>
+          <div className="app-layout-body">
+            <aside className="site-sidebar" aria-label="Main navigation">
+              <Navigation />
+            </aside>
 
-          <LoginModal />
+            <div className="app-layout-main">
+              <main className="site-main">
+                <Outlet />
+              </main>
 
-          <footer className="site-footer">
+              <footer className="site-footer">
             <div className="footer-inner">
               <div className="footer-top">
                 <div className="footer-brand">
                   <Link to="/" className="footer-logo-card" aria-label="MarketsPivot home">
-                    <img src="/logos/market_pivot-removebg-preview.png" alt="MarketsPivot" />
+                    <img src="/logos/marketpivot.jpeg" alt="MarketsPivot" />
                   </Link>
                   <p>Global markets intelligence for equities, forex, crypto, commodities, regions, sectors, and economic events.</p>
                   <div className="footer-socials" aria-label="Social links">
@@ -133,7 +137,11 @@ const Layout: React.FC = () => {
                 </div>
               </div>
             </div>
-          </footer>
+              </footer>
+            </div>
+          </div>
+
+          <LoginModal />
         </>
       )}
     </div>

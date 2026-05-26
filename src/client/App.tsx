@@ -6,7 +6,6 @@ import currenciesData from "../data/currencies.json";
 import cryptoData from "../data/cryptocurrencies.json";
 import regionsData from "../data/regions.json";
 import sectorsData from "../data/sectors.json";
-import bondsYieldsData from "../data/bonds_yields.json";
 import IndicesPage from "./pages/IndicesPage";
 import EtfsPage from "./pages/EtfsPage";
 import BondsYieldsPage from "./pages/BondsYieldsPage";
@@ -25,6 +24,10 @@ import type {
   TradingPair,
 } from "../types";
 import CryptoDetail from "./components/CryptoDetail";
+import ErrorBoundary from "./components/ErrorBoundary";
+import { useCryptoDetail } from "./hooks/useCryptoDetail";
+import { fetchJson } from "./lib/apiClient";
+import { normalizeCryptoPrice } from "./lib/normalize";
 import CurrencyDetail from "./components/CurrencyDetail";
 import ExchangeDetail from "./components/ExchangeDetail";
 import Layout from "./components/Layout";
@@ -363,19 +366,79 @@ const HomePage = () => {
   );
 };
 
+const API_BASE = "http://localhost:3000/api";
+
 const StocksPage = () => {
   const { exchangeId } = useParams();
   const { t } = useI18n();
-  const exchange = exchanges.find((item) => item.id.toLowerCase() === exchangeId?.toLowerCase());
 
-  if (exchange) {
+  // Exchange list — pehle JSON se, phir DB se
+  const [allExchanges, setAllExchanges] = React.useState<StockExchange[]>(exchanges);
+  const [exchange, setExchange] = React.useState<StockExchange | null>(null);
+  const [indexData, setIndexData] = React.useState<IndexSnapshot | null>(null);
+  const [gainers, setGainers] = React.useState<MarketMover[]>([]);
+  const [losers, setLosers] = React.useState<MarketMover[]>([]);
+  const [mostActive, setMostActive] = React.useState<MarketMover[]>([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  // Single exchange detail — API se fetch karo
+  React.useEffect(() => {
+    if (!exchangeId) return;
+    setIsLoading(true);
+
+    const id = exchangeId.toLowerCase();
+
+    Promise.all([
+      fetch(`${API_BASE}/exchanges/${id}`).then(r => r.json()),
+      fetch(`${API_BASE}/exchanges/${id}/summary`).then(r => r.json()),
+    ])
+      .then(([exchRes, summaryRes]) => {
+        if (exchRes.success) setExchange(exchRes.data);
+        if (summaryRes.success) {
+          const s = summaryRes.data;
+          // index snapshot
+          if (s.index) setIndexData(s.index);
+          // movers — fallback to buildMovers agar DB mein nahi hain
+          const ex = exchRes.data ?? exchanges.find(e => e.id === id);
+          setGainers(s.gainers?.length   ? s.gainers   : ex ? buildMovers(ex, "up")     : []);
+          setLosers(s.losers?.length     ? s.losers    : ex ? buildMovers(ex, "down")   : []);
+          setMostActive(s.mostActive?.length ? s.mostActive : ex ? buildMovers(ex, "active") : []);
+          // agar index DB mein nahi hai toh JSON se banao
+          if (!s.index?.value && ex) setIndexData(buildIndexSnapshot(ex));
+        }
+      })
+      .catch(() => {
+        // API fail hone par JSON fallback
+        const ex = exchanges.find(e => e.id === id);
+        if (ex) {
+          setExchange(ex);
+          setIndexData(buildIndexSnapshot(ex));
+          setGainers(buildMovers(ex, "up"));
+          setLosers(buildMovers(ex, "down"));
+          setMostActive(buildMovers(ex, "active"));
+        }
+      })
+      .finally(() => setIsLoading(false));
+  }, [exchangeId]);
+
+  // All exchanges list — API se
+  React.useEffect(() => {
+    if (exchangeId) return; // detail page pe nahi chahiye
+    fetch(`${API_BASE}/exchanges?limit=50`)
+      .then(r => r.json())
+      .then(res => { if (res.success && res.data?.length) setAllExchanges(res.data); })
+      .catch(() => {}); // JSON fallback already set
+  }, [exchangeId]);
+
+  if (exchangeId && (isLoading || exchange)) {
     return (
       <ExchangeDetail
-        exchange={exchange}
-        indexData={buildIndexSnapshot(exchange)}
-        gainers={buildMovers(exchange, "up")}
-        losers={buildMovers(exchange, "down")}
-        mostActive={buildMovers(exchange, "active")}
+        exchange={exchange ?? (exchanges.find(e => e.id === exchangeId.toLowerCase()) as StockExchange)}
+        indexData={indexData ?? undefined}
+        gainers={gainers}
+        losers={losers}
+        mostActive={mostActive}
+        isLoading={isLoading}
       />
     );
   }
@@ -388,13 +451,13 @@ const StocksPage = () => {
         <p>{t("exchangeIntro")}</p>
       </div>
       <div className="asset-grid">
-        {exchanges.map((item) => (
+        {allExchanges.map((item) => (
           <AssetCard
             key={item.id}
             to={`/stocks/${item.id}`}
             eyebrow={`${item.country} / ${item.currency}`}
             title={item.name}
-            meta={`${item.mainIndexName} / ${item.tradingHours.open}-${item.tradingHours.close}`}
+            meta={`${item.mainIndexName} / ${item.tradingHours?.open ?? "09:00"}-${item.tradingHours?.close ?? "17:00"}`}
             metric={formatMoney(item.marketCap)}
           />
         ))}
@@ -406,12 +469,112 @@ const StocksPage = () => {
 const CurrenciesPage = () => {
   const { code } = useParams();
   const { t } = useI18n();
-  const currency = currencies.find((item) => item.code.toLowerCase() === code?.toLowerCase());
 
-  if (currency) {
-    return <CurrencyDetail currency={currency} exchangeRates={getCurrencyRates(currency.code)} popularPairs={getPopularPairs(currency.code)} />;
+  // List view state
+  const [allCurrencies, setAllCurrencies] = React.useState<Currency[]>(currencies);
+  const [liveRates, setLiveRates]         = React.useState<Record<string, number>>(majorRates);
+
+  // Detail view state
+  const [currency,      setCurrency]      = React.useState<Currency | null>(null);
+  const [exchangeRates, setExchangeRates] = React.useState<Record<string, number>>({});
+  const [popularPairs,  setPopularPairs]  = React.useState<CurrencyPair[]>([]);
+  const [economicData,  setEconomicData]  = React.useState<any>(null);
+  const [currencyNews,  setCurrencyNews]  = React.useState<any[]>([]);
+  const [isLoading,     setIsLoading]     = React.useState(false);
+
+  // ── Detail page — API se fetch ──────────────────────────────────────────
+  React.useEffect(() => {
+    if (!code) return;
+    setIsLoading(true);
+    const c = code.toUpperCase();
+
+    Promise.all([
+      fetch(`${API_BASE}/currencies/${c}`).then(r => r.json()),
+      fetch(`${API_BASE}/currencies/${c}/rates`).then(r => r.json()),
+      fetch(`${API_BASE}/currencies/${c}/pairs?limit=10`).then(r => r.json()),
+      fetch(`${API_BASE}/currencies/${c}/economic-data`).then(r => r.json()),
+      fetch(`${API_BASE}/currencies/${c}/news?limit=10`).then(r => r.json()),
+    ])
+      .then(([cRes, ratesRes, pairsRes, econRes, newsRes]) => {
+        // Currency detail — DB ya JSON fallback
+        if (cRes.success) {
+          setCurrency(cRes.data);
+        } else {
+          const fallback = currencies.find(x => x.code.toLowerCase() === code.toLowerCase());
+          if (fallback) setCurrency(fallback);
+        }
+
+        // Exchange rates — DB ya hardcoded fallback
+        if (ratesRes.success && ratesRes.data?.rates?.length) {
+          const rMap: Record<string, number> = {};
+          ratesRes.data.rates.forEach((r: any) => { rMap[r.toCode] = Number(r.rate); });
+          setExchangeRates(rMap);
+        } else {
+          setExchangeRates(getCurrencyRates(c));
+        }
+
+        // Popular pairs
+        if (pairsRes.success && pairsRes.data?.length) {
+          setPopularPairs(pairsRes.data);
+        } else {
+          setPopularPairs(getPopularPairs(c));
+        }
+
+        // Economic data
+        if (econRes.success) setEconomicData(econRes.data);
+
+        // News
+        if (newsRes.success && newsRes.data?.length) setCurrencyNews(newsRes.data);
+      })
+      .catch(() => {
+        // Full JSON fallback
+        const fallback = currencies.find(x => x.code.toLowerCase() === code.toLowerCase());
+        if (fallback) {
+          setCurrency(fallback);
+          setExchangeRates(getCurrencyRates(fallback.code));
+          setPopularPairs(getPopularPairs(fallback.code));
+        }
+      })
+      .finally(() => setIsLoading(false));
+  }, [code]);
+
+  // ── List page — currencies + live rates API se ──────────────────────────
+  React.useEffect(() => {
+    if (code) return;
+    Promise.all([
+      fetch(`${API_BASE}/currencies?limit=50`).then(r => r.json()),
+      fetch(`${API_BASE}/currencies/USD/rates`).then(r => r.json()),
+    ])
+      .then(([listRes, usdRatesRes]) => {
+        if (listRes.success && listRes.data?.length) setAllCurrencies(listRes.data);
+        if (usdRatesRes.success && usdRatesRes.data?.rates?.length) {
+          const rMap: Record<string, number> = { USD: 1 };
+          usdRatesRes.data.rates.forEach((r: any) => { rMap[r.toCode] = Number(r.rate); });
+          setLiveRates(rMap);
+        }
+      })
+      .catch(() => {});
+  }, [code]);
+
+  // ── Detail page render ──────────────────────────────────────────────────
+  if (code) {
+    const displayCurrency = currency ?? currencies.find(x => x.code.toLowerCase() === code.toLowerCase());
+    if (isLoading || displayCurrency) {
+      return (
+        <CurrencyDetail
+          currency={displayCurrency ?? currencies[0]}
+          exchangeRates={exchangeRates}
+          popularPairs={popularPairs}
+          economicData={economicData}
+          news={currencyNews}
+          isLoading={isLoading}
+        />
+      );
+    }
+    return <div className="page"><p>Currency not found: {code}</p></div>;
   }
 
+  // ── List page render ────────────────────────────────────────────────────
   return (
     <div className="page">
       <div className="section-heading">
@@ -420,16 +583,22 @@ const CurrenciesPage = () => {
         <p>{t("currencyIntro")}</p>
       </div>
       <div className="asset-grid compact">
-        {currencies.map((item) => (
-          <AssetCard
-            key={item.code}
-            to={`/currencies/${item.code}`}
-            eyebrow={item.region}
-            title={`${item.code} - ${item.name}`}
-            meta={`${item.country} / ${item.centralBank}`}
-            metric={`1 USD = ${majorRates[item.code].toFixed(item.code === "JPY" || item.code === "KRW" ? 0 : 2)} ${item.code}`}
-          />
-        ))}
+        {allCurrencies.map((item) => {
+          const rate = liveRates[item.code];
+          const rateStr = rate
+            ? `1 USD = ${rate.toFixed(item.code === "JPY" || item.code === "KRW" ? 0 : 2)} ${item.code}`
+            : `${item.code}`;
+          return (
+            <AssetCard
+              key={item.code}
+              to={`/currencies/${item.code}`}
+              eyebrow={item.region}
+              title={`${item.code} - ${item.name}`}
+              meta={`${item.country} / ${item.centralBank}`}
+              metric={rateStr}
+            />
+          );
+        })}
       </div>
     </div>
   );
@@ -438,15 +607,90 @@ const CurrenciesPage = () => {
 const CryptoPage = () => {
   const { cryptoId } = useParams();
   const { t } = useI18n();
-  const crypto = cryptocurrencies.find(
-    (item) => item.id.toLowerCase() === cryptoId?.toLowerCase() || item.symbol.toLowerCase() === cryptoId?.toLowerCase()
-  );
 
-  if (crypto) {
-    const index = cryptocurrencies.findIndex((item) => item.id === crypto.id);
-    return <CryptoDetail crypto={crypto} priceData={getCryptoPrice(crypto, index)} tradingPairs={getTradingPairs(crypto)} />;
+  const [allCryptos, setAllCryptos] = React.useState<Cryptocurrency[]>(cryptocurrencies);
+  const [livePrices, setLivePrices] = React.useState<Record<string, CryptoPrice>>({});
+
+  const detail = useCryptoDetail(cryptoId);
+
+  React.useEffect(() => {
+    if (cryptoId) return;
+    Promise.all([
+      fetchJson<Cryptocurrency[]>("/cryptos?limit=50"),
+      fetchJson<{ gainers?: unknown[]; losers?: unknown[]; trending?: unknown[] }>(
+        "/cryptos/market/overview"
+      ),
+    ])
+      .then(([listRes, overviewRes]) => {
+        if (listRes.data?.length) setAllCryptos(listRes.data);
+        if (overviewRes.data) {
+          const priceMap: Record<string, CryptoPrice> = {};
+          const all = [
+            ...(overviewRes.data.gainers ?? []),
+            ...(overviewRes.data.losers ?? []),
+            ...(overviewRes.data.trending ?? []),
+          ];
+          all.forEach((p) => {
+            const row = p as Record<string, unknown>;
+            const id = String(row.cryptoId ?? "");
+            const normalized = normalizeCryptoPrice(row);
+            if (id && normalized) priceMap[id] = normalized;
+          });
+          setLivePrices(priceMap);
+        }
+      })
+      .catch(() => {});
+  }, [cryptoId]);
+
+  if (cryptoId) {
+    const displayCrypto =
+      detail.crypto ??
+      cryptocurrencies.find(
+        (x) =>
+          x.id.toLowerCase() === cryptoId.toLowerCase() ||
+          x.symbol.toLowerCase() === cryptoId.toLowerCase()
+      );
+
+    if (detail.error && !displayCrypto) {
+      return (
+        <div className="page">
+          <p className="error">{detail.error}</p>
+          <button type="button" onClick={detail.retry}>
+            Retry
+          </button>
+        </div>
+      );
+    }
+
+    if (detail.isLoading || displayCrypto) {
+      return (
+        <ErrorBoundary>
+          <CryptoDetail
+            crypto={displayCrypto ?? cryptocurrencies[0]}
+            priceData={detail.priceData}
+            tradingPairs={detail.tradingPairs}
+            exchangeListings={detail.exchangeListings}
+            news={detail.news as Array<{
+              id?: number | string;
+              title?: string;
+              description?: string;
+              source?: string;
+              publishedAt?: string;
+              url?: string;
+            }>}
+            isLoading={detail.isLoading}
+          />
+        </ErrorBoundary>
+      );
+    }
+    return (
+      <div className="page">
+        <p>Crypto not found: {cryptoId}</p>
+      </div>
+    );
   }
 
+  // ── List page render ────────────────────────────────────────────────────
   return (
     <div className="page">
       <div className="section-heading">
@@ -455,8 +699,9 @@ const CryptoPage = () => {
         <p>{t("cryptoIntro")}</p>
       </div>
       <div className="asset-grid compact">
-        {cryptocurrencies.map((item, index) => {
-          const price = getCryptoPrice(item, index);
+        {allCryptos.map((item, index) => {
+          const live  = livePrices[item.id];
+          const price = live ?? getCryptoPrice(item, index);
           return (
             <AssetCard
               key={item.id}
@@ -1137,7 +1382,12 @@ const App: React.FC = () => {
 
   return (
     <I18nProvider>
-      <Router>
+      <Router
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Routes>
           <Route path="/" element={<Layout />}> 
             <Route index element={<HomePage />} />

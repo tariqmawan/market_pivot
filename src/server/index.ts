@@ -27,6 +27,7 @@ import { createRouter as createWatchlistRouter }   from "./routes/watchlist";
 
 import { corsOptions, createRateLimiter, sanitizeShortText, securityHeaders } from "./security";
 import { initAdminWebSocket } from "./websocket/adminHub";
+import { errorHandler, notFoundHandler } from "./middleware/errorHandler";
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -165,14 +166,8 @@ app.get("/api/search", async (req: Request, res: Response) => {
 });
 
 // ─── Error handlers ───────────────────────────────────────────────────────────
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.error(err.stack);
-  res.status(500).json({ success: false, error: "Internal Server Error", timestamp: new Date() });
-});
-
-app.use((req: Request, res: Response) => {
-  res.status(404).json({ success: false, error: "Route not found", timestamp: new Date() });
-});
+app.use(errorHandler);
+app.use(notFoundHandler);
 
 // ─── Start ────────────────────────────────────────────────────────────────────
 const server = http.createServer(app);

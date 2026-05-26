@@ -6,6 +6,13 @@ interface CurrencyDetailProps {
   currency: Currency;
   exchangeRates?: Record<string, number>;
   popularPairs?: CurrencyPair[];
+  economicData?: {
+    interestRate?: number;
+    inflationRate?: number;
+    gdpGrowth?: number;
+    lastUpdated?: string;
+  } | null;
+  news?: any[];
   isLoading?: boolean;
 }
 
@@ -13,6 +20,8 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
   currency,
   exchangeRates = {},
   popularPairs = [],
+  economicData = null,
+  news = [],
   isLoading = false,
 }) => {
   const { t } = useI18n();
@@ -255,23 +264,41 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
             <div className="economic-indicators">
               <div className="indicator-card">
                 <h4>{t("interestRate")}</h4>
-                <p className="value">-</p>
-                <p className="last-updated">{t("dataLoading")}</p>
+                <p className="value">
+                  {economicData?.interestRate != null
+                    ? `${economicData.interestRate}%`
+                    : "-"}
+                </p>
+                <p className="last-updated">
+                  {economicData?.lastUpdated
+                    ? new Date(economicData.lastUpdated).toLocaleDateString()
+                    : t("dataLoading")}
+                </p>
               </div>
               <div className="indicator-card">
                 <h4>{t("inflationRate")}</h4>
-                <p className="value">-</p>
-                <p className="last-updated">{t("dataLoading")}</p>
+                <p className="value">
+                  {economicData?.inflationRate != null
+                    ? `${economicData.inflationRate}%`
+                    : "-"}
+                </p>
+                <p className="last-updated">{t("annualRate")}</p>
               </div>
               <div className="indicator-card">
                 <h4>{t("gdpGrowth")}</h4>
-                <p className="value">-</p>
-                <p className="last-updated">{t("dataLoading")}</p>
+                <p className="value">
+                  {economicData?.gdpGrowth != null
+                    ? `${economicData.gdpGrowth}%`
+                    : "-"}
+                </p>
+                <p className="last-updated">{t("quarterlyRate")}</p>
               </div>
               <div className="indicator-card">
-                <h4>{t("employment")}</h4>
-                <p className="value">-</p>
-                <p className="last-updated">{t("dataLoading")}</p>
+                <h4>{t("centralBank")}</h4>
+                <p className="value" style={{ fontSize: "0.85em" }}>
+                  {currency.centralBank ?? "-"}
+                </p>
+                <p className="last-updated">{currency.country}</p>
               </div>
             </div>
           </section>
@@ -280,10 +307,31 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
         {activeTab === "news" && (
           <section className="news-section">
             <h3>{t("economicNews")}</h3>
-            <div className="news-placeholder">
-              <p>{t("currencyNewsComing")} ({currency.code})</p>
-              <p className="subtitle">{t("currencyNewsSubtitle")}</p>
-            </div>
+            {news.length === 0 ? (
+              <div className="news-placeholder">
+                <p>{t("currencyNewsComing")} ({currency.code})</p>
+                <p className="subtitle">{t("currencyNewsSubtitle")}</p>
+              </div>
+            ) : (
+              <div className="news-list">
+                {news.map((article: any) => (
+                  <div key={article.id ?? article.url} className="news-card">
+                    <div className="news-meta">
+                      <span className="news-source">{article.source}</span>
+                      <span className="news-date">
+                        {article.publishedAt
+                          ? new Date(article.publishedAt).toLocaleDateString()
+                          : ""}
+                      </span>
+                    </div>
+                    <h4 className="news-title">{article.title}</h4>
+                    {article.description && (
+                      <p className="news-desc">{article.description}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
           </section>
         )}
       </div>

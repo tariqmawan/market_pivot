@@ -35,7 +35,7 @@ export function useAdminStats(live = true) {
     ws.onmessage = (ev) => {
       try {
         const msg = JSON.parse(ev.data);
-        if (msg.type === "stats" && stats) {
+        if (msg.type === "stats") {
           setStats((s) =>
             s
               ? {
@@ -53,7 +53,7 @@ export function useAdminStats(live = true) {
     };
 
     return () => ws.close();
-  }, [live, accessToken, stats]);
+  }, [live, accessToken]);
 
   return { stats, loading, error, reload: load };
 }
