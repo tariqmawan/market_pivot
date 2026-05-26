@@ -1,5 +1,5 @@
-import React from "react";
-import type { StockExchange, IndexSnapshot, MarketMover } from "../../types";
+import React, { useEffect, useState } from "react";
+import type { StockExchange, IndexSnapshot, MarketMover, SectorPerformance, MarketNews } from "../../types";
 import { useI18n } from "../i18n";
 import LineChart from "./LineChart";
 import ChartJSLine from "./ChartJSLine";
@@ -22,9 +22,30 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
   isLoading = false,
 }) => {
   const { t } = useI18n();
-  const [activeTab, setActiveTab] = React.useState<
+  const [activeTab, setActiveTab] = useState<
     "overview" | "chart" | "movers" | "sectors" | "news"
   >("overview");
+
+  const [sectors, setSectors] = useState<SectorPerformance[]>([]);
+  const [news, setNews] = useState<MarketNews[]>([]);
+  const [isTabLoading, setIsTabLoading] = useState(false);
+
+  useEffect(() => {
+    if (activeTab === "sectors" && sectors.length === 0) {
+      setIsTabLoading(true);
+      fetch(`http://localhost:3000/api/exchanges/${exchange.id}/sectors`)
+        .then(r => r.json())
+        .then(res => { if (res.success) setSectors(res.data); })
+        .finally(() => setIsTabLoading(false));
+    }
+    if (activeTab === "news" && news.length === 0) {
+      setIsTabLoading(true);
+      fetch(`http://localhost:3000/api/exchanges/${exchange.id}/news`)
+        .then(r => r.json())
+        .then(res => { if (res.success) setNews(res.data); })
+        .finally(() => setIsTabLoading(false));
+    }
+  }, [activeTab, exchange.id, sectors.length, news.length]);
 
   const generateSeries = (base: number, points = 30) => {
     const series: number[] = [];
@@ -204,7 +225,9 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                   {gainers.length === 0 ? (
                     <p className="placeholder">{t("loadingGainers")}</p>
                   ) : (
-                    gainers.map((mover) => (
+                    gainers.map((mover) => {
+                      const sigs = typeof mover.signals === 'string' ? JSON.parse(mover.signals) : (mover.signals || {});
+                      return (
                       <div key={mover.symbol} className="mover-item">
                         <div className="mover-header">
                           <span className="symbol">{mover.symbol}</span>
@@ -218,8 +241,15 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                             +{mover.percentChange.toFixed(2)}%
                           </span>
                         </div>
+                        {Object.keys(sigs).length > 0 && (
+                          <div className="mover-signals" style={{ marginTop: 8, display: 'flex', gap: 6, fontSize: '0.75rem', flexWrap: 'wrap' }}>
+                            {sigs.momentumScore && <span style={{ background: '#ecfdf5', color: '#059669', padding: '2px 6px', borderRadius: 4 }}>Momentum: {sigs.momentumScore}</span>}
+                            {sigs.unusualVolume && <span style={{ background: '#fffbeb', color: '#d97706', padding: '2px 6px', borderRadius: 4 }}>Unusual Vol</span>}
+                          </div>
+                        )}
                       </div>
-                    ))
+                      );
+                    })
                   )}
                 </div>
               </div>
@@ -230,7 +260,9 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                   {losers.length === 0 ? (
                     <p className="placeholder">{t("loadingLosers")}</p>
                   ) : (
-                    losers.map((mover) => (
+                    losers.map((mover) => {
+                      const sigs = typeof mover.signals === 'string' ? JSON.parse(mover.signals) : (mover.signals || {});
+                      return (
                       <div key={mover.symbol} className="mover-item">
                         <div className="mover-header">
                           <span className="symbol">{mover.symbol}</span>
@@ -244,8 +276,16 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                             {mover.percentChange.toFixed(2)}%
                           </span>
                         </div>
+                        {Object.keys(sigs).length > 0 && (
+                          <div className="mover-signals" style={{ marginTop: 8, display: 'flex', gap: 6, fontSize: '0.75rem', flexWrap: 'wrap' }}>
+                            {sigs.crashAlert && <span style={{ background: '#fef2f2', color: '#dc2626', padding: '2px 6px', borderRadius: 4 }}>Crash Alert</span>}
+                            {sigs.oversold && <span style={{ background: '#eff6ff', color: '#2563eb', padding: '2px 6px', borderRadius: 4 }}>Oversold</span>}
+                            {sigs.reversalProb && <span style={{ background: '#fdf4ff', color: '#c026d3', padding: '2px 6px', borderRadius: 4 }}>Reversal: {sigs.reversalProb}%</span>}
+                          </div>
+                        )}
                       </div>
-                    ))
+                      );
+                    })
                   )}
                 </div>
               </div>
@@ -256,7 +296,9 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                   {mostActive.length === 0 ? (
                     <p className="placeholder">{t("loadingActive")}</p>
                   ) : (
-                    mostActive.map((mover) => (
+                    mostActive.map((mover) => {
+                      const sigs = typeof mover.signals === 'string' ? JSON.parse(mover.signals) : (mover.signals || {});
+                      return (
                       <div key={mover.symbol} className="mover-item">
                         <div className="mover-header">
                           <span className="symbol">{mover.symbol}</span>
@@ -270,8 +312,15 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                             ${mover.price.toFixed(2)}
                           </span>
                         </div>
+                        {Object.keys(sigs).length > 0 && (
+                          <div className="mover-signals" style={{ marginTop: 8, display: 'flex', gap: 6, fontSize: '0.75rem', flexWrap: 'wrap' }}>
+                            {sigs.whaleSignal && <span style={{ background: '#f0fdf4', color: '#16a34a', padding: '2px 6px', borderRadius: 4 }}>Whale Activity</span>}
+                            {sigs.unusualActivity && <span style={{ background: '#fefce8', color: '#ca8a04', padding: '2px 6px', borderRadius: 4 }}>Unusual Activity</span>}
+                          </div>
+                        )}
                       </div>
-                    ))
+                      );
+                    })
                   )}
                 </div>
               </div>
@@ -281,23 +330,42 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
 
         {activeTab === "sectors" && (
           <section className="sectors-section">
-            <div className="sectors-placeholder">
-              <p>{t("sectorComing")}</p>
-              <p className="subtitle">
-                {t("sectorSubtitle")}
-              </p>
-            </div>
+            {isTabLoading ? <p>Loading sectors...</p> : (
+              <div className="sectors-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: 16 }}>
+                {sectors.map(sector => (
+                  <div key={sector.name} className="sector-card" style={{ padding: 16, background: "#fff", borderRadius: 12, border: "1px solid #eee" }}>
+                    <h4 style={{ margin: "0 0 8px 0" }}>{sector.name}</h4>
+                    <p style={{ margin: 0, fontSize: "1.2rem", color: sector.performance >= 0 ? "#16a34a" : "#dc2626", fontWeight: 700 }}>
+                      {sector.performance > 0 ? "+" : ""}{sector.performance.toFixed(2)}%
+                    </p>
+                    <p style={{ margin: "8px 0 0 0", color: "#6b7280", fontSize: "0.85rem" }}>
+                      Companies: {sector.companies}
+                    </p>
+                  </div>
+                ))}
+                {sectors.length === 0 && !isTabLoading && <p>No sector data available.</p>}
+              </div>
+            )}
           </section>
         )}
 
         {activeTab === "news" && (
           <section className="news-section">
-            <div className="news-placeholder">
-              <p>{t("newsComing")}</p>
-              <p className="subtitle">
-                {t("newsSubtitle")}
-              </p>
-            </div>
+            {isTabLoading ? <p>Loading news...</p> : (
+              <div className="news-list" style={{ display: "grid", gap: 16 }}>
+                {news.map(item => (
+                  <div key={item.id} className="news-card" style={{ padding: 16, background: "#fff", borderRadius: 12, border: "1px solid #eee" }}>
+                    <h4 style={{ margin: "0 0 8px 0" }}>{item.title}</h4>
+                    <p style={{ margin: 0, color: "#4b5563", fontSize: "0.9rem" }}>{item.description}</p>
+                    <div style={{ marginTop: 12, display: "flex", justifyContent: "space-between", color: "#9ca3af", fontSize: "0.8rem" }}>
+                      <span>{item.source}</span>
+                      <span>{new Date(item.publishedAt).toLocaleDateString()}</span>
+                    </div>
+                  </div>
+                ))}
+                {news.length === 0 && !isTabLoading && <p>No news available for this exchange.</p>}
+              </div>
+            )}
           </section>
         )}
       </div>

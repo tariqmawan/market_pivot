@@ -330,37 +330,30 @@ const LoginModal: React.FC<LoginModalProps> = ({ mode: initialMode = "login" }) 
 
 
 
-          <Link
-
-            to="/admin/login"
-
+          <button
+            type="button"
             className="social-button admin"
-
-            onClick={onClose}
-
-            style={{
-
-              background: "#333",
-
-              color: "#fff",
-
-              display: "flex",
-
-              alignItems: "center",
-
-              justifyContent: "center",
-
-              textDecoration: "none",
-
-              fontWeight: 600,
-
+            onClick={async () => {
+              const ok = await login("admin@marketspivot.com", "Admin@123456");
+              if (ok) {
+                onClose();
+                window.location.href = "/admin";
+              }
             }}
-
+            style={{
+              background: "#333",
+              color: "#fff",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textDecoration: "none",
+              fontWeight: 600,
+              border: "none",
+              cursor: "pointer",
+            }}
           >
-
             Admin Portal
-
-          </Link>
+          </button>
 
         </div>
 

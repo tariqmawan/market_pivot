@@ -24,8 +24,6 @@ import type {
   StockExchange,
   TradingPair,
 } from "../types";
-import CryptoDetail from "./components/CryptoDetail";
-import CurrencyDetail from "./components/CurrencyDetail";
 import ExchangeDetail from "./components/ExchangeDetail";
 import Layout from "./components/Layout";
 import { I18nProvider, useI18n } from "./i18n";
@@ -40,6 +38,8 @@ import TermsOfService from "./pages/TermsOfService";
 import AboutMarketsPivot from "./pages/AboutMarketsPivot";
 import Screener from "./pages/Screener";
 import EconomicCalendar from "./pages/EconomicCalendar";
+import CurrenciesPage from "./pages/CurrenciesPage";
+import CryptoPage from "./pages/CryptoPage";
 
 
 const exchanges = exchangesData.exchanges as StockExchange[];
@@ -363,19 +363,79 @@ const HomePage = () => {
   );
 };
 
+const API_BASE = "http://localhost:3000/api";
+
 const StocksPage = () => {
   const { exchangeId } = useParams();
   const { t } = useI18n();
-  const exchange = exchanges.find((item) => item.id.toLowerCase() === exchangeId?.toLowerCase());
 
-  if (exchange) {
+  // Exchange list — pehle JSON se, phir DB se
+  const [allExchanges, setAllExchanges] = React.useState<StockExchange[]>(exchanges);
+  const [exchange, setExchange] = React.useState<StockExchange | null>(null);
+  const [indexData, setIndexData] = React.useState<IndexSnapshot | null>(null);
+  const [gainers, setGainers] = React.useState<MarketMover[]>([]);
+  const [losers, setLosers] = React.useState<MarketMover[]>([]);
+  const [mostActive, setMostActive] = React.useState<MarketMover[]>([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  // Single exchange detail — API se fetch karo
+  React.useEffect(() => {
+    if (!exchangeId) return;
+    setIsLoading(true);
+
+    const id = exchangeId.toLowerCase();
+
+    Promise.all([
+      fetch(`${API_BASE}/exchanges/${id}`).then(r => r.json()),
+      fetch(`${API_BASE}/exchanges/${id}/summary`).then(r => r.json()),
+    ])
+      .then(([exchRes, summaryRes]) => {
+        if (exchRes.success) setExchange(exchRes.data);
+        if (summaryRes.success) {
+          const s = summaryRes.data;
+          // index snapshot
+          if (s.index) setIndexData(s.index);
+          // movers — fallback to buildMovers agar DB mein nahi hain
+          const ex = exchRes.data ?? exchanges.find(e => e.id === id);
+          setGainers(s.gainers?.length   ? s.gainers   : ex ? buildMovers(ex, "up")     : []);
+          setLosers(s.losers?.length     ? s.losers    : ex ? buildMovers(ex, "down")   : []);
+          setMostActive(s.mostActive?.length ? s.mostActive : ex ? buildMovers(ex, "active") : []);
+          // agar index DB mein nahi hai toh JSON se banao
+          if (!s.index?.value && ex) setIndexData(buildIndexSnapshot(ex));
+        }
+      })
+      .catch(() => {
+        // API fail hone par JSON fallback
+        const ex = exchanges.find(e => e.id === id);
+        if (ex) {
+          setExchange(ex);
+          setIndexData(buildIndexSnapshot(ex));
+          setGainers(buildMovers(ex, "up"));
+          setLosers(buildMovers(ex, "down"));
+          setMostActive(buildMovers(ex, "active"));
+        }
+      })
+      .finally(() => setIsLoading(false));
+  }, [exchangeId]);
+
+  // All exchanges list — API se
+  React.useEffect(() => {
+    if (exchangeId) return; // detail page pe nahi chahiye
+    fetch(`${API_BASE}/exchanges?limit=50`)
+      .then(r => r.json())
+      .then(res => { if (res.success && res.data?.length) setAllExchanges(res.data); })
+      .catch(() => {}); // JSON fallback already set
+  }, [exchangeId]);
+
+  if (exchangeId && (isLoading || exchange)) {
     return (
       <ExchangeDetail
-        exchange={exchange}
-        indexData={buildIndexSnapshot(exchange)}
-        gainers={buildMovers(exchange, "up")}
-        losers={buildMovers(exchange, "down")}
-        mostActive={buildMovers(exchange, "active")}
+        exchange={exchange ?? (exchanges.find(e => e.id === exchangeId.toLowerCase()) as StockExchange)}
+        indexData={indexData ?? undefined}
+        gainers={gainers}
+        losers={losers}
+        mostActive={mostActive}
+        isLoading={isLoading}
       />
     );
   }
@@ -388,86 +448,16 @@ const StocksPage = () => {
         <p>{t("exchangeIntro")}</p>
       </div>
       <div className="asset-grid">
-        {exchanges.map((item) => (
+        {allExchanges.map((item) => (
           <AssetCard
             key={item.id}
             to={`/stocks/${item.id}`}
             eyebrow={`${item.country} / ${item.currency}`}
             title={item.name}
-            meta={`${item.mainIndexName} / ${item.tradingHours.open}-${item.tradingHours.close}`}
+            meta={`${item.mainIndexName} / ${item.tradingHours?.open ?? "09:00"}-${item.tradingHours?.close ?? "17:00"}`}
             metric={formatMoney(item.marketCap)}
           />
         ))}
-      </div>
-    </div>
-  );
-};
-
-const CurrenciesPage = () => {
-  const { code } = useParams();
-  const { t } = useI18n();
-  const currency = currencies.find((item) => item.code.toLowerCase() === code?.toLowerCase());
-
-  if (currency) {
-    return <CurrencyDetail currency={currency} exchangeRates={getCurrencyRates(currency.code)} popularPairs={getPopularPairs(currency.code)} />;
-  }
-
-  return (
-    <div className="page">
-      <div className="section-heading">
-        <p className="eyebrow">{t("fx")}</p>
-        <h1>{t("topCurrencies")}</h1>
-        <p>{t("currencyIntro")}</p>
-      </div>
-      <div className="asset-grid compact">
-        {currencies.map((item) => (
-          <AssetCard
-            key={item.code}
-            to={`/currencies/${item.code}`}
-            eyebrow={item.region}
-            title={`${item.code} - ${item.name}`}
-            meta={`${item.country} / ${item.centralBank}`}
-            metric={`1 USD = ${majorRates[item.code].toFixed(item.code === "JPY" || item.code === "KRW" ? 0 : 2)} ${item.code}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const CryptoPage = () => {
-  const { cryptoId } = useParams();
-  const { t } = useI18n();
-  const crypto = cryptocurrencies.find(
-    (item) => item.id.toLowerCase() === cryptoId?.toLowerCase() || item.symbol.toLowerCase() === cryptoId?.toLowerCase()
-  );
-
-  if (crypto) {
-    const index = cryptocurrencies.findIndex((item) => item.id === crypto.id);
-    return <CryptoDetail crypto={crypto} priceData={getCryptoPrice(crypto, index)} tradingPairs={getTradingPairs(crypto)} />;
-  }
-
-  return (
-    <div className="page">
-      <div className="section-heading">
-        <p className="eyebrow">{t("crypto")}</p>
-        <h1>{t("topCryptos")}</h1>
-        <p>{t("cryptoIntro")}</p>
-      </div>
-      <div className="asset-grid compact">
-        {cryptocurrencies.map((item, index) => {
-          const price = getCryptoPrice(item, index);
-          return (
-            <AssetCard
-              key={item.id}
-              to={`/crypto/${item.id}`}
-              eyebrow={item.category}
-              title={`${item.name} (${item.symbol})`}
-              meta={`Rank #${price.rank} / ${item.consensusMechanism}`}
-              metric={`${formatMoney(price.marketCap)} market cap`}
-            />
-          );
-        })}
       </div>
     </div>
   );

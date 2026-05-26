@@ -49,6 +49,7 @@ export interface MarketMover {
   percentChange: number;
   volume: number;
   marketCap?: number;
+  signals?: any;
 }
 
 // Sector Data
