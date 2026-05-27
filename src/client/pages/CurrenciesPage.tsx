@@ -32,11 +32,18 @@ const AssetCard: React.FC<{
   meta: string;
   metric: string;
 }> = ({ to, eyebrow, title, meta, metric }) => (
-  <Link to={to} className="asset-card">
-    <span className="eyebrow">{eyebrow}</span>
+  <Link to={to} className="asset-card forex-card">
+    <div className="asset-card-head">
+      <span className="eyebrow">{eyebrow}</span>
+      <span className="asset-card-badge">FX</span>
+    </div>
+
     <h3>{title}</h3>
     <p>{meta}</p>
-    <strong>{metric}</strong>
+
+    <div className="asset-card-footer">
+      <strong>{metric}</strong>
+    </div>
   </Link>
 );
 

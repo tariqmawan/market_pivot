@@ -254,13 +254,13 @@ export function createRouter(db: Knex) {
         ipAddress:  req.ip ?? null,
       });
 
-      // ✅ Naya refresh token cookie mein set karo (rotation complete)
+      //  Naya refresh token cookie mein set karo (rotation complete)
       setRefreshCookie(res, newRefreshToken);
 
       return res.json({
         success: true,
         data: { accessToken: newAccessToken },
-        // ❌ refreshToken response body mein NAHI — sirf cookie mein
+        //  refreshToken response body mein NAHI — sirf cookie mein
         timestamp: new Date(),
       });
     } catch (error) {
@@ -270,7 +270,7 @@ export function createRouter(db: Knex) {
   });
 
   // ── POST /api/auth/logout ─────────────────────────────────────────────────
-  // ✅ Refresh token cookie se padha jaata hai + cookie clear hoti hai
+  //  Refresh token cookie se padha jaata hai + cookie clear hoti hai
   router.post("/logout", requireAuth, async (req: Request, res: Response) => {
     try {
       const refreshToken = req.cookies?.[REFRESH_COOKIE_NAME];
@@ -282,7 +282,7 @@ export function createRouter(db: Knex) {
           .update({ isRevoked: true });
       }
 
-      // ✅ Cookie clear karo
+      //  Cookie clear karo
       clearRefreshCookie(res);
 
       return res.json({

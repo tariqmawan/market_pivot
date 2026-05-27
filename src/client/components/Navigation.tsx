@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   BarChart3,
   Bitcoin,
@@ -14,6 +14,7 @@ import {
   Search,
   TrendingUp,
   UserCircle,
+  ChevronDown,
 } from "lucide-react";
 import "./Navigation.css";
 
@@ -178,53 +179,76 @@ const navigationItems: NavigationItem[] = [
 ];
 
 const Navigation: React.FC = () => {
-  const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const rootRef = React.useRef<HTMLDivElement | null>(null);
+  const location = useLocation();
+  const [expandedMenus, setExpandedMenus] = useState<Record<string, boolean>>(() => {
+    const initial: Record<string, boolean> = {};
+    navigationItems.forEach((item) => {
+      if (item.submenu) {
+        const hasActiveChild = item.submenu.some((sub) => location.pathname.startsWith(sub.path));
+        if (hasActiveChild || location.pathname === item.path) {
+          initial[item.path] = true;
+        }
+      }
+    });
+    return initial;
+  });
 
-  React.useEffect(() => {
-    const onDocClick = (e: MouseEvent) => {
-      if (!rootRef.current) return;
-      if (rootRef.current.contains(e.target as Node)) return;
-      setOpenMenu(null);
-    };
-
-    document.addEventListener("click", onDocClick);
-    return () => document.removeEventListener("click", onDocClick);
-  }, []);
+  const toggleMenu = (path: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setExpandedMenus((prev) => ({
+      ...prev,
+      [path]: !prev[path],
+    }));
+  };
 
   return (
-    <nav className="enhanced-navigation" ref={rootRef}>
+    <nav className="enhanced-navigation">
       <div className="nav-items">
-        {navigationItems.map((item) => (
-          <div
-            key={item.path}
-            className={`nav-item-wrapper ${openMenu === item.path ? "open" : ""}`}
-            onMouseEnter={() => setOpenMenu(item.path)}
-            onMouseLeave={() => setOpenMenu(null)}
-          >
-            <Link to={item.path} className="nav-item">
-              <span className="nav-icon">{item.icon}</span>
-              <span className="nav-label">{item.label}</span>
-            </Link>
+        {navigationItems.map((item) => {
+          const hasSubmenu = !!item.submenu;
+          const isExpanded = !!expandedMenus[item.path];
+          const isParentActive = location.pathname === item.path || (item.submenu?.some((sub) => location.pathname === sub.path) ?? false);
 
-            {item.submenu && openMenu === item.path && (
-              <div className="nav-submenu" role="menu">
-                <div className="submenu-header">
-                  <h3>{item.label}</h3>
-                  <p>{item.description}</p>
-                </div>
-                <div className="submenu-grid">
-                  {item.submenu.map((subitem) => (
-                    <Link key={subitem.path} to={subitem.path} className="submenu-item">
-                      <span className="submenu-icon">{subitem.icon}</span>
-                      <span className="submenu-label">{subitem.label}</span>
-                    </Link>
-                  ))}
-                </div>
+          return (
+            <div key={item.path} className={`nav-item-group ${isExpanded ? "expanded" : ""}`}>
+              <div className={`nav-parent-row ${isParentActive ? "active" : ""}`}>
+                <Link to={item.path} className="nav-item">
+                  <span className="nav-icon">{item.icon}</span>
+                  <span className="nav-label">{item.label}</span>
+                </Link>
+                {hasSubmenu && (
+                  <button
+                    type="button"
+                    className="submenu-toggle-btn"
+                    onClick={(e) => toggleMenu(item.path, e)}
+                    aria-label={`Toggle ${item.label} submenu`}
+                  >
+                    <ChevronDown size={14} className={`chevron-icon ${isExpanded ? "rotated" : ""}`} />
+                  </button>
+                )}
               </div>
-            )}
-          </div>
-        ))}
+
+              {hasSubmenu && (
+                <div className={`nav-submenu-accordion ${isExpanded ? "open" : ""}`}>
+                  {item.submenu!.map((subitem) => {
+                    const isSubitemActive = location.pathname === subitem.path;
+                    return (
+                      <Link
+                        key={subitem.path}
+                        to={subitem.path}
+                        className={`submenu-item ${isSubitemActive ? "active" : ""}`}
+                      >
+                        <span className="submenu-icon">{subitem.icon}</span>
+                        <span className="submenu-label">{subitem.label}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </nav>
   );

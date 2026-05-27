@@ -1,46 +1,205 @@
-/* App shell — layout positioning only (PDFPivot-style Y-axis sidebar) */
+/* =========================================================
+APP SHELL LAYOUT — PERFECT HEADER + SIDEBAR ALIGNMENT
+PDFPIVOT STYLE PROFESSIONAL STRUCTURE
+========================================================= */
 
 :root {
-  --site-sidebar-width: 240px;
-  --site-header-height: 124px; /* language strip + brand row */
+
+  /* SIDEBAR */
+  --site-sidebar-width: 258px;
+
+  /* HEADER HEIGHTS */
+  --top-strip-height: 46px;
+  --brand-header-height: 60px;
+
+  /* TOTAL HEADER */
+  --site-header-height:
+    calc(
+      var(--top-strip-height) +
+      var(--brand-header-height)
+    );
 }
+
+/* =========================================================
+GLOBAL FIX
+========================================================= */
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+
+  background: #f8fafc;
+}
+
+/* =========================================================
+HEADER
+========================================================= */
 
 .site-header {
   position: fixed;
+
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
-  background: #fff;
+
+  z-index: 1200;
+
+  width: 100%;
+
+  background: rgba(255,255,255,0.96);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid rgba(15,23,42,0.06);
+
+  box-shadow:
+    0 4px 20px rgba(15,23,42,0.04);
 }
+
+/* =========================================================
+APP BODY
+========================================================= */
 
 .app-layout-body {
   display: flex;
-  flex-direction: row;
+
   min-height: 100vh;
+
   padding-top: var(--site-header-height);
+
+  background: #f8fafc;
 }
 
+/* =========================================================
+SIDEBAR WRAPPER
+========================================================= */
+
 .site-sidebar {
-  flex: 0 0 var(--site-sidebar-width);
+  position: fixed;
+
+  top: var(--site-header-height);
+  left: 0;
+  bottom: 0;
+
   width: var(--site-sidebar-width);
-  min-height: 0;
+
+  flex-shrink: 0;
+
+  z-index: 950;
+
+  background: transparent;
 }
+
+/* =========================================================
+MAIN CONTENT
+========================================================= */
 
 .app-layout-main {
   flex: 1;
+
   min-width: 0;
-  margin-left: 0;
+
+  margin-left: var(--site-sidebar-width);
+
+  width:
+    calc(
+      100% - var(--site-sidebar-width)
+    );
+
+  padding: 20px 22px 32px;
+
+  transition:
+    margin-left 0.25s ease,
+    width 0.25s ease;
 }
 
+/* =========================================================
+CONTENT CONTAINER
+========================================================= */
+
+.page-container,
+.dashboard-container,
+.content-container {
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0 auto;
+}
+
+/* =========================================================
+SMOOTH SCROLL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  :root {
+    --site-sidebar-width: 230px;
+  }
+
+  .app-layout-main {
+    padding: 18px;
+  }
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
 @media (max-width: 768px) {
+
+  :root {
+
+    --top-strip-height: 44px;
+
+    --brand-header-height: 58px;
+
+    --site-header-height:
+      calc(
+        var(--top-strip-height) +
+        var(--brand-header-height)
+      );
+  }
+
   .site-sidebar {
-    flex: 0 0 0;
-    width: 0;
-    overflow: visible;
+    display: none;
   }
 
   .app-layout-main {
     margin-left: 0;
+
+    width: 100%;
+
+    padding: 16px;
+  }
+}
+
+/* =========================================================
+SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .app-layout-main {
+    padding: 14px;
   }
 }
