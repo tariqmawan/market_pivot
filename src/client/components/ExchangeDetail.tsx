@@ -243,8 +243,8 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                         </div>
                         {Object.keys(sigs).length > 0 && (
                           <div className="mover-signals" style={{ marginTop: 8, display: 'flex', gap: 6, fontSize: '0.75rem', flexWrap: 'wrap' }}>
-                            {sigs.momentumScore && <span style={{ background: '#ecfdf5', color: '#059669', padding: '2px 6px', borderRadius: 4 }}>Momentum: {sigs.momentumScore}</span>}
-                            {sigs.unusualVolume && <span style={{ background: '#fffbeb', color: '#d97706', padding: '2px 6px', borderRadius: 4 }}>Unusual Vol</span>}
+                            {sigs.momentumScore && <span style={{ background: '#ecfdf5', color: '#059669', padding: '2px 6px', borderRadius: 4 }}>{t('momentumLabel')}: {sigs.momentumScore}</span>}
+                            {sigs.unusualVolume && <span style={{ background: '#fffbeb', color: '#d97706', padding: '2px 6px', borderRadius: 4 }}>{t('unusualVolLabel')}</span>}
                           </div>
                         )}
                       </div>
@@ -278,9 +278,9 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                         </div>
                         {Object.keys(sigs).length > 0 && (
                           <div className="mover-signals" style={{ marginTop: 8, display: 'flex', gap: 6, fontSize: '0.75rem', flexWrap: 'wrap' }}>
-                            {sigs.crashAlert && <span style={{ background: '#fef2f2', color: '#dc2626', padding: '2px 6px', borderRadius: 4 }}>Crash Alert</span>}
-                            {sigs.oversold && <span style={{ background: '#eff6ff', color: '#2563eb', padding: '2px 6px', borderRadius: 4 }}>Oversold</span>}
-                            {sigs.reversalProb && <span style={{ background: '#fdf4ff', color: '#c026d3', padding: '2px 6px', borderRadius: 4 }}>Reversal: {sigs.reversalProb}%</span>}
+                            {sigs.crashAlert && <span style={{ background: '#fef2f2', color: '#dc2626', padding: '2px 6px', borderRadius: 4 }}>{t('crashAlert')}</span>}
+                            {sigs.oversold && <span style={{ background: '#eff6ff', color: '#2563eb', padding: '2px 6px', borderRadius: 4 }}>{t('oversold')}</span>}
+                            {sigs.reversalProb && <span style={{ background: '#fdf4ff', color: '#c026d3', padding: '2px 6px', borderRadius: 4 }}>{t('reversalLabel')}: {sigs.reversalProb}%</span>}
                           </div>
                         )}
                       </div>
@@ -314,8 +314,8 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                         </div>
                         {Object.keys(sigs).length > 0 && (
                           <div className="mover-signals" style={{ marginTop: 8, display: 'flex', gap: 6, fontSize: '0.75rem', flexWrap: 'wrap' }}>
-                            {sigs.whaleSignal && <span style={{ background: '#f0fdf4', color: '#16a34a', padding: '2px 6px', borderRadius: 4 }}>Whale Activity</span>}
-                            {sigs.unusualActivity && <span style={{ background: '#fefce8', color: '#ca8a04', padding: '2px 6px', borderRadius: 4 }}>Unusual Activity</span>}
+                            {sigs.whaleSignal && <span style={{ background: '#f0fdf4', color: '#16a34a', padding: '2px 6px', borderRadius: 4 }}>{t('whaleActivity')}</span>}
+                            {sigs.unusualActivity && <span style={{ background: '#fefce8', color: '#ca8a04', padding: '2px 6px', borderRadius: 4 }}>{t('unusualActivity')}</span>}
                           </div>
                         )}
                       </div>
@@ -330,7 +330,7 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
 
         {activeTab === "sectors" && (
           <section className="sectors-section">
-            {isTabLoading ? <p>Loading sectors...</p> : (
+            {isTabLoading ? <p>{t('loadingSectors')}</p> : (
               <div className="sectors-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: 16 }}>
                 {sectors.map(sector => (
                   <div key={sector.name} className="sector-card" style={{ padding: 16, background: "#fff", borderRadius: 12, border: "1px solid #eee" }}>
@@ -343,7 +343,7 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                     </p>
                   </div>
                 ))}
-                {sectors.length === 0 && !isTabLoading && <p>No sector data available.</p>}
+                {sectors.length === 0 && !isTabLoading && <p>{t('noSectorData')}</p>}
               </div>
             )}
           </section>
@@ -351,7 +351,7 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
 
         {activeTab === "news" && (
           <section className="news-section">
-            {isTabLoading ? <p>Loading news...</p> : (
+            {isTabLoading ? <p>{t('dataLoading')}</p> : (
               <div className="news-list" style={{ display: "grid", gap: 16 }}>
                 {news.map(item => (
                   <div key={item.id} className="news-card" style={{ padding: 16, background: "#fff", borderRadius: 12, border: "1px solid #eee" }}>
@@ -363,7 +363,7 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                     </div>
                   </div>
                 ))}
-                {news.length === 0 && !isTabLoading && <p>No news available for this exchange.</p>}
+                {news.length === 0 && !isTabLoading && <p>{t('noNewsAvailable')}</p>}
               </div>
             )}
           </section>

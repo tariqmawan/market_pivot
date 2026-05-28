@@ -1,4 +1,5 @@
 import React from "react";
+import { I18nContext } from "../i18n";
 
 type Props = {
   children: React.ReactNode;
@@ -23,11 +24,17 @@ export default class ErrorBoundary extends React.Component<Props, State> {
       return (
         this.props.fallback ?? (
           <div className="page error-boundary">
-            <h2>Something went wrong</h2>
-            <p>{this.state.message}</p>
-            <button type="button" onClick={() => this.setState({ hasError: false, message: "" })}>
-              Try again
-            </button>
+            <I18nContext.Consumer>
+              {(ctx) => (
+                <>
+                  <h2>{ctx.t('somethingWentWrong')}</h2>
+                  <p>{this.state.message}</p>
+                  <button type="button" onClick={() => this.setState({ hasError: false, message: "" })}>
+                    {ctx.t('tryAgain')}
+                  </button>
+                </>
+              )}
+            </I18nContext.Consumer>
           </div>
         )
       );

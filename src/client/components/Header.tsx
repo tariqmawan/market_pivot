@@ -4,6 +4,7 @@ import { Crown } from "lucide-react";
 import "./Header.css";
 import { useI18n, languages, type LanguageCode } from "../i18n";
 import { useAuthStore } from "../stores/authStore";
+import navigationItems from "./navigationData";
 
 const languageDisplayNames: Record<LanguageCode, string> = {
   en: "English",
@@ -23,7 +24,12 @@ const languageDisplayNames: Record<LanguageCode, string> = {
   tr: "Türkçe",
 };
 
-const Header: React.FC = () => {
+type HeaderProps = {
+  selectedCategory?: string;
+  onSelectCategory?: (path: string) => void;
+};
+
+const Header: React.FC<HeaderProps> = ({ selectedCategory, onSelectCategory }) => {
   const { t, language, setLanguage } = useI18n();
   const [currency, setCurrency] = React.useState(() => localStorage.getItem("mp_currency") ?? "JPY");
   const [theme, setTheme] = React.useState(() => localStorage.getItem("mp_theme") ?? "Light");
@@ -73,22 +79,31 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      <div className="brand-row">
+      <div className="main-header">
         <div className="brand-left">
           <Link to="/" className="logo-link">
-            <img
-              src="/logos/marketpivot.jpeg"
-              alt=""
-              className="logo-icon"
-              aria-hidden
-            />
-            <span className="brand-wordmark">MarketsPivot</span>
+            <img src="/logos/marketpivot.jpeg" alt="MarketsPivot" className="logo-icon" />
           </Link>
         </div>
 
+        <nav className="header-center-nav" role="navigation" aria-label="Primary navigation">
+          <div className="header-center-inner">
+            {navigationItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`header-nav-link ${selectedCategory === item.path ? "active" : ""}`}
+                onClick={() => onSelectCategory?.(item.path)}
+              >
+                {t(item.label as any) ?? item.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
+
         <div className="brand-right">
           <Link to="/pricing" className="btn-pricing">
-            <Crown size={14} strokeWidth={2.25} aria-hidden />
+            <Crown size={18} strokeWidth={2.25} aria-hidden />
             <span>{t("pricing").toUpperCase()}</span>
           </Link>
 
@@ -99,25 +114,7 @@ const Header: React.FC = () => {
           <button type="button" className="btn primary" onClick={openSignupModal}>
             {t("signUp")}
           </button>
-
-          <label className="utility-select">
-            <span className="sr-only">Currency</span>
-            <select value={currency} onChange={(event) => onCurrencyChange(event.target.value)}>
-              <option value="USD">USD</option>
-              <option value="INR">INR</option>
-              <option value="JPY">JPY</option>
-              <option value="EUR">EUR</option>
-              <option value="GBP">GBP</option>
-            </select>
-          </label>
-
-          <label className="utility-select">
-            <span className="sr-only">Theme</span>
-            <select value={theme} onChange={(event) => onThemeChange(event.target.value)}>
-              <option value="Light">Light</option>
-              <option value="Dark">Dark</option>
-            </select>
-          </label>
+          {/*remove theme and currency drop down*/}
         </div>
       </div>
     </div>
