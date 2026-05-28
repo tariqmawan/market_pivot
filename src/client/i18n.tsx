@@ -121,6 +121,7 @@ const en = {
   topMovers: "Top Movers",
   sectors: "Sectors",
   news: "News",
+  calendar: "Calendar",
   founded: "Founded",
   mainIndex: "Main Index",
   baseCurrency: "Base Currency",
@@ -257,6 +258,53 @@ const en = {
   apple: "Apple",
   facebook: "Facebook",
   twitter: "Twitter",
+  // Footer / misc
+  ourProducts: "Our Products",
+  terminal: "Terminal",
+  advancedScreener: "Advanced Screener",
+  billingPolicy: "Billing Policy",
+  company: "Company",
+  emailUs: "Email Us",
+  stayInTheLoop: "Stay In The Loop",
+  newsletterCopy: "Get market briefs, product updates, and investment intelligence delivered to your inbox.",
+  newsletterPlaceholder: "Enter your email",
+  subscribe: "Subscribe",
+  footerSecure: "256-bit SSL · GDPR compliant · Market data protected",
+  coverage: "Coverage",
+  // Home/dashboard copy
+  heroTitle: "Global Markets Intelligence Dashboard",
+  heroCopy: "Live-style overview for indices, movers, FX, crypto, commodities, economic events, sentiment, news, and watchlists.",
+  majorIndices: "Major Indices",
+  worldSnapshot: "World market snapshot",
+  marketMovers: "Market Movers",
+  gainersAndLosers: "Gainers and losers",
+  economicEventsToday: "Economic Events Today",
+  macroCalendar: "Macro calendar",
+  forexMiniCards: "Forex Mini Cards",
+  currencyPulse: "Currency pulse",
+  cryptoOverview: "Crypto Overview",
+  marketCapLeaders: "Market cap leaders",
+  commoditySnapshot: "Commodity Snapshot",
+  spotAndFutures: "Spot and futures",
+  watchlistPreview: "Watchlist Preview",
+  watchlistCopy: "Fast access to saved symbols, cross-asset alerts, portfolio context, and account preferences.",
+  // Exchange detail specific
+  noTradingPairs: "No trading pairs available.",
+  loadingSectors: "Loading sectors...",
+  noSectorData: "No sector data available.",
+  noNewsAvailable: "No news available for this exchange.",
+  volumeShort: "Vol:",
+  momentumLabel: "Momentum",
+  unusualVolLabel: "Unusual Vol",
+  crashAlert: "Crash Alert",
+  oversold: "Oversold",
+  reversalLabel: "Reversal",
+  whaleActivity: "Whale Activity",
+  unusualActivity: "Unusual Activity",
+  companiesLabel: "Companies:",
+  // Error boundary
+  somethingWentWrong: "Something went wrong",
+  tryAgain: "Try again",
 };
 
 type TranslationKey = keyof typeof en;
@@ -881,7 +929,7 @@ const overrides: Record<LanguageCode, Partial<Record<TranslationKey, string>>> =
    },
 };
 
-const I18nContext = React.createContext<{
+export const I18nContext = React.createContext<{
   language: LanguageCode;
   setLanguage: (language: LanguageCode) => void;
   t: (key: TranslationKey) => string;
@@ -906,6 +954,28 @@ export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({ children
   React.useEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = direction;
+
+    // Apply language-specific font family for better typography
+    const fontMap: Record<LanguageCode, string> = {
+      en: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif",
+      ar: "Cairo, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+      zh: "'Noto Sans SC', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+      ja: "'Noto Sans JP', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+      ko: "'Noto Sans KR', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+      th: "'Noto Sans Thai', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+      vi: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+      it: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+      es: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+      de: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+      fr: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+      pt: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+      ru: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+      pl: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+      tr: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+    };
+
+    const font = fontMap[language] ?? fontMap.en;
+    document.documentElement.style.fontFamily = font;
   }, [direction, language]);
 
   const value = React.useMemo(

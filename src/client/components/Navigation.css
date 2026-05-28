@@ -1,41 +1,36 @@
 /* =========================================================
-PREMIUM SIDEBAR NAVIGATION — PERFECT HEADER ALIGNMENT
+PREMIUM FINTECH SIDEBAR
+========================================================= */
+
+/* Use site-level CSS variables from Header.css when available.
+   Provide sensible fallbacks so layout remains stable if variables
+   are not defined yet. */
+
+
+/* =========================================================
+SIDEBAR CONTAINER
 ========================================================= */
 
 .enhanced-navigation {
   position: fixed;
-
-  /* PERFECT ALIGNMENT WITH HEADER */
-  top: 106px;
-
+  top: var(--site-header-height, 88px);
   left: 0;
   bottom: 0;
 
-  width: var(--site-sidebar-width, 258px);
+  width: var(--site-sidebar-width, 244px);
 
   z-index: 950;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.98) 0%,
-      rgba(248,250,252,0.98) 100%
-    );
+  background: rgba(255, 255, 255, 0.96);
 
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 
-  border-right: 1px solid rgba(15,23,42,0.06);
-
-  box-shadow:
-    8px 0 30px rgba(15,23,42,0.04);
+  border-right: 1px solid rgba(15, 23, 42, 0.06);
 
   overflow: hidden;
 
-  transition:
-    width 0.25s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 /* =========================================================
@@ -46,43 +41,35 @@ SCROLL AREA
   display: flex;
   flex-direction: column;
 
-  gap: 6px;
+  gap: 4px;
 
   height: 100%;
 
-  padding: 18px 12px 28px;
+  padding: 14px 10px 24px;
 
-  overflow-x: hidden;
   overflow-y: auto;
-
-  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
 
   scrollbar-width: thin;
-  scrollbar-color: rgba(148,163,184,0.35) transparent;
+  scrollbar-color: rgba(148, 163, 184, 0.28) transparent;
 }
 
 .nav-items::-webkit-scrollbar {
-  width: 5px;
-}
-
-.nav-items::-webkit-scrollbar-track {
-  background: transparent;
+  width: 4px;
 }
 
 .nav-items::-webkit-scrollbar-thumb {
-  background: rgba(148,163,184,0.35);
+  background: rgba(148, 163, 184, 0.28);
   border-radius: 999px;
 }
 
 /* =========================================================
-NAV GROUP
+GROUP
 ========================================================= */
 
 .nav-item-group {
   display: flex;
   flex-direction: column;
-
-  width: 100%;
 }
 
 /* =========================================================
@@ -94,38 +81,52 @@ PARENT ROW
   align-items: center;
   justify-content: space-between;
 
-  width: 100%;
+  border-radius: 12px;
 
-  border-radius: 14px;
-
-  transition:
-    background 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.18s ease;
+  transition: all 0.18s ease;
 }
 
 .nav-parent-row:hover {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(15,23,42,0.035),
-      rgba(15,23,42,0.015)
-    );
-
-  box-shadow:
-    inset 0 0 0 1px rgba(15,23,42,0.03);
+  background: rgba(15, 23, 42, 0.04);
 }
 
 .nav-parent-row.active {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(179,135,76,0.14),
-      rgba(179,135,76,0.06)
-    );
+  background: linear-gradient(
+    135deg,
+    rgba(179, 135, 76, 0.14),
+    rgba(179, 135, 76, 0.05)
+  );
 
-  box-shadow:
-    inset 0 0 0 1px rgba(179,135,76,0.12);
+  box-shadow: inset 0 0 0 1px rgba(179, 135, 76, 0.08);
+}
+
+/* =========================================================
+NAV ITEM
+========================================================= */
+
+.nav-item {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  flex: 1;
+
+  padding: 10px 12px;
+
+  text-decoration: none;
+
+  color: #1e293b;
+
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+
+  transition: all 0.18s ease;
+}
+
+.nav-item:hover {
+  color: #b3874c;
 }
 
 .nav-parent-row.active .nav-item {
@@ -133,46 +134,18 @@ PARENT ROW
 }
 
 /* =========================================================
-MAIN NAV ITEM
+ICONS
 ========================================================= */
-
-.nav-item {
-  display: flex;
-  align-items: center;
-
-  gap: 12px;
-
-  flex: 1;
-  min-width: 0;
-
-  padding: 12px 14px;
-
-  color: #1e293b;
-
-  text-decoration: none;
-
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-
-  transition:
-    color 0.18s ease,
-    transform 0.18s ease;
-}
-
-.nav-parent-row:hover .nav-item {
-  transform: translateX(1px);
-}
 
 .nav-icon {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
 
-  width: 18px;
-  height: 18px;
+  flex-shrink: 0;
 
   opacity: 0.82;
 }
@@ -192,13 +165,13 @@ TOGGLE BUTTON
   align-items: center;
   justify-content: center;
 
-  width: 36px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
 
-  margin-right: 6px;
+  margin-right: 4px;
 
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
 
   background: transparent;
 
@@ -206,19 +179,17 @@ TOGGLE BUTTON
 
   cursor: pointer;
 
-  transition:
-    all 0.2s ease;
+  transition: all 0.18s ease;
 }
 
 .submenu-toggle-btn:hover {
-  background: rgba(15,23,42,0.05);
+  background: rgba(15, 23, 42, 0.05);
 
-  color: #B3874C;
+  color: #b3874c;
 }
 
 .chevron-icon {
-  transition:
-    transform 0.24s cubic-bezier(0.16,1,0.3,1);
+  transition: transform 0.22s ease;
 }
 
 .chevron-icon.rotated {
@@ -233,12 +204,12 @@ SUBMENU
   display: flex;
   flex-direction: column;
 
-  gap: 4px;
+  gap: 3px;
 
-  margin: 6px 0 6px 22px;
-  padding-left: 18px;
+  margin: 4px 0 6px 18px;
+  padding-left: 14px;
 
-  border-left: 1px solid rgba(148,163,184,0.18);
+  border-left: 1px solid rgba(148, 163, 184, 0.18);
 
   max-height: 0;
 
@@ -247,18 +218,17 @@ SUBMENU
   overflow: hidden;
 
   transition:
-    max-height 0.28s cubic-bezier(0.16,1,0.3,1),
-    opacity 0.22s ease,
-    padding 0.22s ease;
+    max-height 0.26s ease,
+    opacity 0.2s ease;
 }
 
 .nav-submenu-accordion.open {
-  max-height: 520px;
+  max-height: 500px;
 
   opacity: 1;
 
   padding-top: 4px;
-  padding-bottom: 6px;
+  padding-bottom: 4px;
 }
 
 /* =========================================================
@@ -269,48 +239,34 @@ SUBMENU ITEM
   display: flex;
   align-items: center;
 
-  gap: 10px;
+  gap: 8px;
 
-  padding: 9px 12px;
+  padding: 8px 10px;
 
-  border-radius: 10px;
-
-  color: #64748b;
+  border-radius: 8px;
 
   text-decoration: none;
 
-  font-size: 12px;
+  color: #64748b;
+
+  font-size: 11.5px;
   font-weight: 600;
 
-  transition:
-    all 0.18s ease;
+  transition: all 0.18s ease;
 }
 
 .submenu-item:hover {
-  color: #0f172a;
+  background: rgba(15, 23, 42, 0.04);
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(15,23,42,0.04),
-      rgba(15,23,42,0.02)
-    );
+  color: #111827;
 
-  transform: translateX(2px);
+  transform: translateX(1px);
 }
 
 .submenu-item.active {
   color: #9a6b32;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(179,135,76,0.14),
-      rgba(179,135,76,0.06)
-    );
-
-  box-shadow:
-    inset 0 0 0 1px rgba(179,135,76,0.1);
+  background: rgba(179, 135, 76, 0.12);
 }
 
 .submenu-icon {
@@ -318,41 +274,26 @@ SUBMENU ITEM
   align-items: center;
   justify-content: center;
 
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
 
   flex-shrink: 0;
-
-  opacity: 0.7;
 }
 
 /* =========================================================
-CONTENT PUSH FIX
-VERY IMPORTANT
+CONTENT AREA
 ========================================================= */
-
-/* main app layout container */
-
-.app-layout,
-.dashboard-layout,
-.main-layout,
-.page-layout {
-  display: flex;
-}
-
-/* page content */
 
 .main-content,
 .dashboard-content,
 .page-content {
-  margin-left: var(--site-sidebar-width, 258px);
+  margin-left: var(--site-sidebar-width, 244px);
 
-  padding-top: 106px;
+  padding-top: var(--site-header-height, 88px);
 
   min-height: 100vh;
 
-  transition:
-    margin-left 0.25s ease;
+  transition: margin-left 0.25s ease;
 }
 
 /* =========================================================
@@ -360,20 +301,12 @@ RESPONSIVE
 ========================================================= */
 
 @media (max-width: 1024px) {
-
-  .enhanced-navigation {
-    width: 230px;
-  }
-
-  .main-content,
-  .dashboard-content,
-  .page-content {
-    margin-left: 230px;
+  :root {
+    --site-sidebar-width: 220px;
   }
 }
 
 @media (max-width: 768px) {
-
   .enhanced-navigation {
     display: none;
   }

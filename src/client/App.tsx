@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link, Route, Routes, useParams, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Routes, useLocation, useParams, Navigate } from "react-router-dom";
 import commoditiesData from "../data/commodities.json";
 import exchangesData from "../data/exchanges.json";
 import currenciesData from "../data/currencies.json";
@@ -753,8 +753,8 @@ const DashboardPage = () => {
 
       <div className="section-heading">
         <p className="eyebrow">{t("crossMarket")}</p>
-        <h1>Global Markets Intelligence Dashboard</h1>
-        <p>Live-style overview for indices, movers, FX, crypto, commodities, economic events, sentiment, news, and watchlists.</p>
+        <h1>{t("heroTitle")}</h1>
+        <p>{t("heroCopy")}</p>
       </div>
 
       <section className="dashboard-grid">
@@ -768,8 +768,8 @@ const DashboardPage = () => {
 
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">Major Indices</p>
-          <h2>World market snapshot</h2>
+          <p className="eyebrow">{t("majorIndices")}</p>
+          <h2>{t("worldSnapshot")}</h2>
           <div className="mini-list">
             {topIndices.map((index) => (
               <Link to={`/stocks/${index.exchangeId}`} key={index.id}>
@@ -781,8 +781,8 @@ const DashboardPage = () => {
         </div>
 
         <div className="intelligence-panel">
-          <p className="eyebrow">Market Movers</p>
-          <h2>Gainers and losers</h2>
+          <p className="eyebrow">{t("marketMovers")}</p>
+          <h2>{t("gainersAndLosers")}</h2>
           <div className="mini-list">
             {[...topGainers, ...topLosers].slice(0, 6).map((mover) => (
               <Link to="/stocks/gainers" key={mover.symbol}>
@@ -794,8 +794,8 @@ const DashboardPage = () => {
         </div>
 
         <div className="intelligence-panel">
-          <p className="eyebrow">Economic Events Today</p>
-          <h2>Macro calendar</h2>
+          <p className="eyebrow">{t("economicEventsToday")}</p>
+          <h2>{t("macroCalendar")}</h2>
           <div className="mini-list">
             {economicEvents.map(([time, label, importance]) => (
               <Link to="/economic-calendar" key={`${time}-${label}`}>
@@ -820,8 +820,8 @@ const DashboardPage = () => {
 
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">Forex Mini Cards</p>
-          <h2>Currency pulse</h2>
+          <p className="eyebrow">{t("forexMiniCards")}</p>
+          <h2>{t("currencyPulse")}</h2>
           <div className="mini-list">
             {["USD", "EUR", "JPY", "INR"].map((code) => (
               <Link to={`/currencies/${code}`} key={code}>
@@ -833,8 +833,8 @@ const DashboardPage = () => {
         </div>
 
         <div className="intelligence-panel">
-          <p className="eyebrow">Crypto Overview</p>
-          <h2>Market cap leaders</h2>
+          <p className="eyebrow">{t("cryptoOverview")}</p>
+          <h2>{t("marketCapLeaders")}</h2>
           <div className="mini-list">
             {cryptocurrencies.slice(0, 4).map((coin, index) => {
               const price = getCryptoPrice(coin, index);
@@ -849,8 +849,8 @@ const DashboardPage = () => {
         </div>
 
         <div className="intelligence-panel">
-          <p className="eyebrow">Commodity Snapshot</p>
-          <h2>Spot and futures</h2>
+          <p className="eyebrow">{t("commoditySnapshot")}</p>
+          <h2>{t("spotAndFutures")}</h2>
           <div className="mini-list">
             {commodities.slice(0, 4).map((commodity) => (
               <Link to={`/commodities/${commodity.id}`} key={commodity.id}>
@@ -863,8 +863,8 @@ const DashboardPage = () => {
       </section>
 
       <section className="comparison-strip">
-        <h2>Watchlist Preview</h2>
-        <p>Fast access to saved symbols, cross-asset alerts, portfolio context, and account preferences.</p>
+        <h2>{t("watchlistPreview")}</h2>
+        <p>{t("watchlistCopy")}</p>
         <div className="comparison-route">
           {userWatchlist.map((item) => (
             <span key={item.symbol}>{item.symbol} {item.move}</span>
@@ -1170,6 +1170,7 @@ const userAlerts = [
 
 const UserPanelPage = () => {
   const { t } = useI18n();
+  const location = useLocation();
   const { user, isAuthenticated, logout, updateUser, openLoginModal, openSignupModal } = useAuthStore();
   const [editing, setEditing] = React.useState(false);
   const [name, setName] = React.useState(user?.name ?? "");
@@ -1180,6 +1181,20 @@ const UserPanelPage = () => {
     setName(user?.name ?? "");
     setEmail(user?.email ?? "");
   }, [user]);
+
+  React.useEffect(() => {
+    const sectionTarget = location.pathname.endsWith("/watchlists")
+      ? "user-watchlist-section"
+      : location.pathname.endsWith("/portfolio")
+      ? "user-portfolio-section"
+      : location.pathname.endsWith("/alerts")
+      ? "user-alert-section"
+      : undefined;
+
+    if (sectionTarget) {
+      document.getElementById(sectionTarget)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [location.pathname]);
 
   const saveProfile = () => {
     updateUser({ name, email });
@@ -1266,7 +1281,7 @@ const UserPanelPage = () => {
 
       <section className="user-panel-layout">
         <div className="user-main-column">
-          <div className="watchlist-table">
+          <div className="watchlist-table" id="user-watchlist-section">
             <div className="user-section-header user-card-header">
               <div>
                 <p className="eyebrow">{t("watchlist")}</p>
@@ -1287,7 +1302,7 @@ const UserPanelPage = () => {
             ))}
           </div>
 
-          <div className="allocation-card">
+          <div className="allocation-card" id="user-portfolio-section">
             <div className="user-section-header">
               <div>
                 <p className="eyebrow">{t("portfolioAllocation")}</p>
@@ -1353,7 +1368,7 @@ const UserPanelPage = () => {
             <div><span>{t("riskProfile")}</span><strong>{t("moderate")}</strong></div>
           </div>
 
-          <div className="alert-card">
+          <div className="alert-card" id="user-alert-section">
             <p className="eyebrow">{t("alertCenter")}</p>
             {userAlerts.map((alert) => (
               <div className="alert-row" key={alert.label}>
@@ -1393,6 +1408,9 @@ const App: React.FC = () => {
             <Route index element={<HomePage />} />
             <Route path="index.html" element={<HomePage />} />
             <Route path="stocks" element={<StocksPage />} />
+            <Route path="stocks/watchlists" element={<UserPanelPage />} />
+            <Route path="stocks/portfolio" element={<UserPanelPage />} />
+            <Route path="stocks/alerts" element={<UserPanelPage />} />
             <Route path="stocks/:exchangeId" element={<StocksPage />} />
             <Route path="currencies" element={<CurrenciesPage />} />
             <Route path="currencies/:code" element={<CurrenciesPage />} />

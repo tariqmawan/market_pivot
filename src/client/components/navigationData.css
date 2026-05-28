@@ -1,0 +1,130 @@
+/* =========================================================
+HEADER NAVIGATION — BALANCED PREMIUM FIT
+========================================================= */
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  flex-wrap: nowrap;
+
+  overflow: hidden;
+
+  width: 100%;
+}
+
+/* =========================================================
+NAV LINKS
+========================================================= */
+
+.navigation a {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 6px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: -0.1px;
+
+  color: #0f172a;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.22s ease,
+    opacity 0.22s ease;
+}
+
+/* =========================================================
+HOVER
+========================================================= */
+
+.navigation a:hover {
+  color: #b3874c;
+}
+
+/* =========================================================
+ACTIVE
+========================================================= */
+
+.navigation a.active {
+  color: #b3874c;
+}
+
+/* =========================================================
+UNDERLINE
+========================================================= */
+
+.navigation a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0%;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background: #b3874c;
+
+  transition: width 0.24s ease;
+}
+
+.navigation a:hover::after,
+.navigation a.active::after {
+  width: 100%;
+}
+
+/* =========================================================
+HEADER CENTER
+========================================================= */
+
+.header-center {
+  display: flex;
+  align-items: center;
+
+  flex: 1;
+
+  min-width: 0;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+RESPONSIVE
+========================================================= */
+
+@media (max-width: 1500px) {
+  .navigation {
+    gap: 8px;
+  }
+
+  .navigation a {
+    font-size: 11.5px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .navigation {
+    gap: 7px;
+  }
+
+  .navigation a {
+    font-size: 11px;
+  }
+}

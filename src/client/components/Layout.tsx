@@ -3,11 +3,13 @@ import { Outlet, useLocation, Link } from "react-router-dom";
 import { Mail, ShieldCheck } from "lucide-react";
 import Header from "./Header";
 import Navigation from "./Navigation";
+import navigationItems from "./navigationData";
 import LoginModal from "./LoginModal";
 import "./Layout.css";
 import { useAuthStore } from "../stores/authStore";
 import AdminSidebar from "./admin/AdminSidebar";
 import AdminHeader from "./admin/AdminHeader";
+import { useI18n } from "../i18n";
 
 const Layout: React.FC = () => {
   const location = useLocation();
@@ -23,6 +25,12 @@ const Layout: React.FC = () => {
   const onMobileToggle = React.useCallback(() => {
     // no-op (prevents layout from crashing due to missing required props)
   }, []);
+
+  const [selectedCategory, setSelectedCategory] = React.useState<string>(() => {
+    const matched = navigationItems.find((i) => path.startsWith(i.path));
+    return matched ? matched.path : navigationItems[0]?.path ?? "/dashboard";
+  });
+  const { t } = useI18n();
 
   return (
     <div className="app-shell">
@@ -50,12 +58,12 @@ const Layout: React.FC = () => {
       ) : (
         <>
           <header className="site-header">
-            <Header />
+            <Header selectedCategory={selectedCategory} onSelectCategory={setSelectedCategory} />
           </header>
 
           <div className="app-layout-body">
             <aside className="site-sidebar" aria-label="Main navigation">
-              <Navigation />
+              <Navigation selectedCategory={selectedCategory} />
             </aside>
 
             <div className="app-layout-main">
@@ -67,10 +75,10 @@ const Layout: React.FC = () => {
             <div className="footer-inner">
               <div className="footer-top">
                 <div className="footer-brand">
-                  <Link to="/" className="footer-logo-card" aria-label="MarketsPivot home">
+                  <Link to="/" className="footer-logo-card" aria-label={"MarketsPivot home"}>
                     <img src="/logos/marketpivot.jpeg" alt="MarketsPivot" />
                   </Link>
-                  <p>Global markets intelligence for equities, forex, crypto, commodities, regions, sectors, and economic events.</p>
+                  <p>{t("globalMarkets")}</p>
                   <div className="footer-socials" aria-label="Social links">
                     <a href="https://x.com" aria-label="X">
                       <span>X</span>
@@ -94,38 +102,38 @@ const Layout: React.FC = () => {
                 </div>
 
                 <div className="footer-column">
-                  <h3>Our Products</h3>
-                  <Link to="/markets">Markets Terminal</Link>
-                  <Link to="/screener">Advanced Screener</Link>
-                  <Link to="/economic-calendar">Economic Calendar</Link>
-                  <Link to="/pricing">API Subscriptions</Link>
+                  <h3>{t("ourProducts")}</h3>
+                  <Link to="/markets">{t("markets") + ' ' + t("terminal")}</Link>
+                  <Link to="/screener">{t("advancedScreener")}</Link>
+                  <Link to="/economic-calendar">{t("calendar")}</Link>
+                  <Link to="/pricing">{t("pricing")}</Link>
                 </div>
 
                 <div className="footer-column">
-                  <h3>Legal</h3>
-                  <Link to="/privacy">Privacy Policy</Link>
-                  <Link to="/terms">Terms & Conditions</Link>
-                  <Link to="/pricing">Billing Policy</Link>
-                  <Link to="/about">Data Disclaimer</Link>
+                  <h3>{t("legal")}</h3>
+                  <Link to="/privacy">{t("privacyPolicy")}</Link>
+                  <Link to="/terms">{t("andTerms")}</Link>
+                  <Link to="/pricing">{t("billingPolicy")}</Link>
+                  <Link to="/about">{t("aboutMarket")}</Link>
                 </div>
 
                 <div className="footer-column">
-                  <h3>Company</h3>
-                  <Link to="/about">About Us</Link>
-                  <Link to="/news">Market News</Link>
-                  <Link to="/user">User Account</Link>
-                  <a href="mailto:support@marketspivot.com">Email Us</a>
+                  <h3>{t("company")}</h3>
+                  <Link to="/about">{t("about")}</Link>
+                  <Link to="/news">{t("news")}</Link>
+                  <Link to="/user">{t("userPanel")}</Link>
+                  <a href="mailto:support@marketspivot.com">{t("emailUs")}</a>
                 </div>
               </div>
 
               <div className="footer-newsletter">
                 <div>
-                  <h3>Stay In The Loop</h3>
-                  <p>Get market briefs, product updates, and investment intelligence delivered to your inbox.</p>
+                  <h3>{t("stayInTheLoop")}</h3>
+                  <p>{t("newsletterCopy")}</p>
                 </div>
                 <form onSubmit={(event) => event.preventDefault()}>
-                  <input type="email" placeholder="Enter your email" aria-label="Email address" />
-                  <button type="submit">Subscribe</button>
+                  <input type="email" placeholder={t("newsletterPlaceholder")} aria-label={t("email") ?? "Email address"} />
+                  <button type="submit">{t("subscribe")}</button>
                 </form>
               </div>
 
@@ -133,7 +141,7 @@ const Layout: React.FC = () => {
                 <div className="footer-copy">© 2026 MarketsPivot. All rights reserved.</div>
                 <div className="footer-secure">
                   <ShieldCheck size={18} />
-                  <span>256-bit SSL · GDPR compliant · Market data protected</span>
+                  <span>{t("footerSecure")}</span>
                 </div>
               </div>
             </div>

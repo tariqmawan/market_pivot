@@ -10,7 +10,7 @@ PDFPIVOT STYLE PROFESSIONAL STRUCTURE
 
   /* HEADER HEIGHTS */
   --top-strip-height: 46px;
-  --brand-header-height: 60px;
+  --brand-header-height: 88px;
 
   /* TOTAL HEADER */
   --site-header-height:
@@ -171,7 +171,7 @@ MOBILE
 
     --top-strip-height: 44px;
 
-    --brand-header-height: 58px;
+    --brand-header-height: 64px;
 
     --site-header-height:
       calc(

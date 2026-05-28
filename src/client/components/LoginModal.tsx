@@ -304,25 +304,25 @@ const LoginModal: React.FC<LoginModalProps> = ({ mode: initialMode = "login" }) 
 
         <div className="social-buttons">
 
-          <button type="button" className="social-button google" disabled title="Coming soon">
+          <button type="button" className="social-button google" disabled title={t("comingSoon") || "Coming soon"}>
 
             {t("google")}
 
           </button>
 
-          <button type="button" className="social-button apple" disabled title="Coming soon">
+          <button type="button" className="social-button apple" disabled title={t("comingSoon") || "Coming soon"}>
 
             {t("apple")}
 
           </button>
 
-          <button type="button" className="social-button facebook" disabled title="Coming soon">
+          <button type="button" className="social-button facebook" disabled title={t("comingSoon") || "Coming soon"}>
 
             {t("facebook")}
 
           </button>
 
-          <button type="button" className="social-button twitter" disabled title="Coming soon">
+          <button type="button" className="social-button twitter" disabled title={t("comingSoon") || "Coming soon"}>
 
             {t("twitter")}
 
@@ -352,7 +352,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ mode: initialMode = "login" }) 
               cursor: "pointer",
             }}
           >
-            Admin Portal
+            {t("adminPortal")}
           </button>
 
         </div>

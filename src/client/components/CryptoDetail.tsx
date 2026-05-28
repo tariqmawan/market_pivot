@@ -82,7 +82,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
               <h1>{crypto.name}</h1>
               <p className="symbol">{crypto.symbol}</p>
               <p className="category">
-                {crypto.category} • Launched {crypto.launched}
+                {crypto.category} • {t('launched')} {crypto.launched}
               </p>
               <p className="description">{crypto.description}</p>
             </div>
@@ -245,7 +245,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
             {isLoading && tradingPairs.length === 0 ? (
               <p className="placeholder">{t("loadingPairs")}</p>
             ) : tradingPairs.length === 0 ? (
-              <p className="placeholder">No trading pairs available.</p>
+              <p className="placeholder">{t('noTradingPairs')}</p>
             ) : (
               <div className="pairs-table">
                 <table>

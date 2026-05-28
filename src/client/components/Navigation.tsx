@@ -17,6 +17,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import "./Navigation.css";
+import { useI18n } from "../i18n";
 
 interface NavigationItem {
   label: string;
@@ -30,148 +31,147 @@ const iconSize = 16;
 
 const navigationItems: NavigationItem[] = [
   {
-    label: "Dashboard",
+    label: "dashboard",
     path: "/dashboard",
     icon: <BarChart3 size={iconSize} />,
     description: "Global overview, market sentiment, news, and watchlist preview",
   },
   {
-    label: "Markets",
+    label: "markets",
     path: "/markets",
     icon: <Globe2 size={iconSize} />,
     description: "Live market summary, heatmaps, movers, and volatility",
     submenu: [
-      { label: "Global Overview", path: "/markets/global-overview", icon: <Globe2 size={iconSize} /> },
-      { label: "Pre-market", path: "/markets/pre-market", icon: <TrendingUp size={iconSize} /> },
-      { label: "After-hours", path: "/markets/after-hours", icon: <LineChart size={iconSize} /> },
-      { label: "Heatmaps", path: "/markets/heatmaps", icon: <BarChart3 size={iconSize} /> },
-      { label: "Market Movers", path: "/markets/movers", icon: <TrendingUp size={iconSize} /> },
-      { label: "Volatility Index", path: "/markets/volatility-index", icon: <LineChart size={iconSize} /> },
+      { label: "overview", path: "/markets/global-overview", icon: <Globe2 size={iconSize} /> },
+      { label: "preMarket", path: "/markets/pre-market", icon: <TrendingUp size={iconSize} /> },
+      { label: "afterHours", path: "/markets/after-hours", icon: <LineChart size={iconSize} /> },
+      { label: "heatmaps", path: "/markets/heatmaps", icon: <BarChart3 size={iconSize} /> },
+      { label: "marketMovers", path: "/markets/movers", icon: <TrendingUp size={iconSize} /> },
+      { label: "volatilityIndex", path: "/markets/volatility-index", icon: <LineChart size={iconSize} /> },
     ],
   },
   {
-    label: "Market Coverage",
+    label: "assetCoverage",
     path: "/coverage",
     icon: <BarChart3 size={iconSize} />,
     description: "Indices, ETFs, and Bonds/Yields coverage",
     submenu: [
-      { label: "Indices", path: "/indices", icon: <BarChart3 size={iconSize} /> },
-      { label: "ETFs & Funds", path: "/etfs", icon: <BriefcaseBusiness size={iconSize} /> },
-      { label: "Bonds & Yields", path: "/bonds-yields", icon: <CalendarDays size={iconSize} /> },
+      { label: "indices", path: "/indices", icon: <BarChart3 size={iconSize} /> },
+      { label: "etfsFunds", path: "/etfs", icon: <BriefcaseBusiness size={iconSize} /> },
+      { label: "bondsAndYields", path: "/bonds-yields", icon: <CalendarDays size={iconSize} /> },
     ],
   },
   {
-    label: "Exchanges",
+    label: "exchanges",
     path: "/exchanges",
     icon: <Landmark size={iconSize} />,
     description: "Exchange status, trading hours, listed companies, and statistics",
     submenu: [
-      { label: "NYSE", path: "/stocks/NYSE", icon: <Landmark size={iconSize} /> },
-      { label: "NASDAQ", path: "/stocks/NASDAQ", icon: <Landmark size={iconSize} /> },
-      { label: "London Stock Exchange", path: "/stocks/LSE", icon: <Landmark size={iconSize} /> },
-      { label: "By Region", path: "/exchanges/region/americas", icon: <Globe2 size={iconSize} /> },
+      { label: "nyse", path: "/stocks/NYSE", icon: <Landmark size={iconSize} /> },
+      { label: "nasdaq", path: "/stocks/NASDAQ", icon: <Landmark size={iconSize} /> },
+      { label: "lse", path: "/stocks/LSE", icon: <Landmark size={iconSize} /> },
+      { label: "byRegion", path: "/exchanges/region/americas", icon: <Globe2 size={iconSize} /> },
     ],
   },
   {
-    label: "Stocks",
+    label: "stocks",
     path: "/stocks",
     icon: <TrendingUp size={iconSize} />,
     description: "Stock detail pages, screeners, portfolios, alerts, and analytics",
     submenu: [
-      { label: "Advanced Screener", path: "/screener", icon: <Search size={iconSize} /> },
-      { label: "Top Gainers", path: "/stocks/gainers", icon: <TrendingUp size={iconSize} /> },
-      { label: "Top Losers", path: "/stocks/losers", icon: <LineChart size={iconSize} /> },
-      { label: "Watchlists", path: "/user", icon: <UserCircle size={iconSize} /> },
-      { label: "Portfolio Tracker", path: "/user", icon: <BriefcaseBusiness size={iconSize} /> },
-      { label: "Alerts", path: "/user", icon: <CalendarDays size={iconSize} /> },
+      { label: "advancedScreener", path: "/screener", icon: <Search size={iconSize} /> },
+      { label: "topGainers", path: "/stocks/gainers", icon: <TrendingUp size={iconSize} /> },
+      { label: "topLosers", path: "/stocks/losers", icon: <LineChart size={iconSize} /> },
+      { label: "watchlists", path: "/stocks/watchlists", icon: <UserCircle size={iconSize} /> },
+      { label: "portfolioTracker", path: "/stocks/portfolio", icon: <BriefcaseBusiness size={iconSize} /> },
+      { label: "alerts", path: "/stocks/alerts", icon: <CalendarDays size={iconSize} /> },
     ],
   },
   {
-    label: "Forex",
+    label: "fx",
     path: "/forex",
     icon: <Coins size={iconSize} />,
     description: "Currency strength, central bank data, rates, and live FX charts",
     submenu: [
-      { label: "USD", path: "/currencies/USD", icon: <Coins size={iconSize} /> },
-      { label: "EUR", path: "/currencies/EUR", icon: <Coins size={iconSize} /> },
-      { label: "GBP", path: "/currencies/GBP", icon: <Coins size={iconSize} /> },
-      { label: "JPY", path: "/currencies/JPY", icon: <Coins size={iconSize} /> },
-      { label: "INR", path: "/currencies/INR", icon: <Coins size={iconSize} /> },
-      { label: "Economic Indicators", path: "/economic-calendar", icon: <CalendarDays size={iconSize} /> },
+      { label: "usd", path: "/currencies/USD", icon: <Coins size={iconSize} /> },
+      { label: "eur", path: "/currencies/EUR", icon: <Coins size={iconSize} /> },
+      { label: "gbp", path: "/currencies/GBP", icon: <Coins size={iconSize} /> },
+      { label: "jpy", path: "/currencies/JPY", icon: <Coins size={iconSize} /> },
+      { label: "inr", path: "/currencies/INR", icon: <Coins size={iconSize} /> },
     ],
   },
   {
-    label: "Crypto",
+    label: "crypto",
     path: "/crypto",
     icon: <Bitcoin size={iconSize} />,
     description: "Coins, chains, tokenomics, rankings, and on-chain metrics",
     submenu: [
-      { label: "Trending Coins", path: "/crypto/trending", icon: <TrendingUp size={iconSize} /> },
-      { label: "Meme Coins", path: "/crypto/meme-coins", icon: <Bitcoin size={iconSize} /> },
-      { label: "DeFi", path: "/crypto/defi", icon: <Coins size={iconSize} /> },
-      { label: "Layer 1", path: "/crypto/layer-1", icon: <Globe2 size={iconSize} /> },
-      { label: "Stablecoins", path: "/crypto/stablecoins", icon: <Coins size={iconSize} /> },
+      { label: "trendingCoins", path: "/crypto/trending", icon: <TrendingUp size={iconSize} /> },
+      { label: "memeCoins", path: "/crypto/meme-coins", icon: <Bitcoin size={iconSize} /> },
+      { label: "defi", path: "/crypto/defi", icon: <Coins size={iconSize} /> },
+      { label: "layer1", path: "/crypto/layer-1", icon: <Globe2 size={iconSize} /> },
+      { label: "stablecoins", path: "/crypto/stablecoins", icon: <Coins size={iconSize} /> },
     ],
   },
   {
-    label: "Commodities",
+    label: "commodities",
     path: "/commodities",
     icon: <Factory size={iconSize} />,
     description: "Spot prices, futures, supply-demand analysis, and heatmaps",
     submenu: [
-      { label: "Energy", path: "/commodities/energy", icon: <Factory size={iconSize} /> },
-      { label: "Metals", path: "/commodities/metals", icon: <Coins size={iconSize} /> },
-      { label: "Agriculture", path: "/commodities/agriculture", icon: <Globe2 size={iconSize} /> },
-      { label: "Industrial", path: "/commodities/industrial", icon: <Factory size={iconSize} /> },
+      { label: "energy", path: "/commodities/energy", icon: <Factory size={iconSize} /> },
+      { label: "metals", path: "/commodities/metals", icon: <Coins size={iconSize} /> },
+      { label: "agriculture", path: "/commodities/agriculture", icon: <Globe2 size={iconSize} /> },
+      { label: "industrial", path: "/commodities/industrial", icon: <Factory size={iconSize} /> },
     ],
   },
   {
-    label: "Regions",
+    label: "regions",
     path: "/regions",
     icon: <Globe2 size={iconSize} />,
     description: "Regional indices, macro data, currencies, and economic outlook",
     submenu: [
-      { label: "Americas", path: "/regions/americas", icon: <Globe2 size={iconSize} /> },
-      { label: "Europe", path: "/regions/europe", icon: <Globe2 size={iconSize} /> },
-      { label: "Asia-Pacific", path: "/regions/asia-pacific", icon: <Globe2 size={iconSize} /> },
-      { label: "Middle East & Africa", path: "/regions/middle-east-africa", icon: <Globe2 size={iconSize} /> },
+      { label: "americas", path: "/regions/americas", icon: <Globe2 size={iconSize} /> },
+      { label: "europe", path: "/regions/europe", icon: <Globe2 size={iconSize} /> },
+      { label: "asiaPacific", path: "/regions/asia-pacific", icon: <Globe2 size={iconSize} /> },
+      { label: "middleEastAfrica", path: "/regions/middle-east-africa", icon: <Globe2 size={iconSize} /> },
     ],
   },
   {
-    label: "Sectors",
+    label: "sectors",
     path: "/sectors",
     icon: <BriefcaseBusiness size={iconSize} />,
     description: "Sector performance, ETFs, PE ratios, and comparison views",
     submenu: [
-      { label: "Technology", path: "/sectors/technology", icon: <BriefcaseBusiness size={iconSize} /> },
-      { label: "Banking", path: "/sectors/banking", icon: <Landmark size={iconSize} /> },
-      { label: "AI", path: "/sectors/ai", icon: <BarChart3 size={iconSize} /> },
-      { label: "EV", path: "/sectors/electric-vehicles", icon: <TrendingUp size={iconSize} /> },
-      { label: "Semiconductor", path: "/sectors/semiconductor", icon: <Factory size={iconSize} /> },
-      { label: "Defence", path: "/sectors/defence", icon: <BriefcaseBusiness size={iconSize} /> },
+      { label: "technology", path: "/sectors/technology", icon: <BriefcaseBusiness size={iconSize} /> },
+      { label: "banking", path: "/sectors/banking", icon: <Landmark size={iconSize} /> },
+      { label: "ai", path: "/sectors/ai", icon: <BarChart3 size={iconSize} /> },
+      { label: "ev", path: "/sectors/electric-vehicles", icon: <TrendingUp size={iconSize} /> },
+      { label: "semiconductor", path: "/sectors/semiconductor", icon: <Factory size={iconSize} /> },
+      { label: "defence", path: "/sectors/defence", icon: <BriefcaseBusiness size={iconSize} /> },
     ],
   },
   {
-    label: "News",
+    label: "news",
     path: "/news",
     icon: <Newspaper size={iconSize} />,
     description: "Global, regional, sector, exchange, and crypto market news",
     submenu: [
-      { label: "Global News", path: "/news", icon: <Newspaper size={iconSize} /> },
-      { label: "Region-wise News", path: "/news/regions", icon: <Globe2 size={iconSize} /> },
-      { label: "Sector-wise News", path: "/news/sectors", icon: <BriefcaseBusiness size={iconSize} /> },
-      { label: "Crypto News", path: "/news/crypto", icon: <Bitcoin size={iconSize} /> },
-      { label: "Market Alerts", path: "/news/alerts", icon: <CalendarDays size={iconSize} /> },
+      { label: "globalNews", path: "/news", icon: <Newspaper size={iconSize} /> },
+      { label: "regionNews", path: "/news/regions", icon: <Globe2 size={iconSize} /> },
+      { label: "sectorNews", path: "/news/sectors", icon: <BriefcaseBusiness size={iconSize} /> },
+      { label: "cryptoNews", path: "/news/crypto", icon: <Bitcoin size={iconSize} /> },
+      { label: "marketAlerts", path: "/news/alerts", icon: <CalendarDays size={iconSize} /> },
     ],
   },
   {
-    label: "Calendar",
+    label: "calendar",
     path: "/economic-calendar",
     icon: <CalendarDays size={iconSize} />,
     description: "Central banks, CPI, GDP, employment, and FOMC events",
   },
   {
-    label: "Account",
+    label: "userPanel",
     path: "/user",
     icon: <UserCircle size={iconSize} />,
     description: "Watchlists, portfolio, alerts, billing, profile, and API access",
@@ -180,6 +180,7 @@ const navigationItems: NavigationItem[] = [
 
 const Navigation: React.FC = () => {
   const location = useLocation();
+  const { t } = useI18n();
   const [expandedMenus, setExpandedMenus] = useState<Record<string, boolean>>(() => {
     const initial: Record<string, boolean> = {};
     navigationItems.forEach((item) => {
@@ -193,13 +194,99 @@ const Navigation: React.FC = () => {
     return initial;
   });
 
+  React.useEffect(() => {
+    const nextState: Record<string, boolean> = {};
+
+    navigationItems.forEach((item) => {
+      if (item.submenu) {
+        const isActiveParent =
+          location.pathname === item.path ||
+          item.submenu.some((sub) => location.pathname.startsWith(sub.path));
+
+        if (isActiveParent) {
+          nextState[item.path] = true;
+        }
+      }
+    });
+
+    setExpandedMenus(nextState);
+  }, [location.pathname]);
+
   const toggleMenu = (path: string, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setExpandedMenus((prev) => ({
-      ...prev,
-      [path]: !prev[path],
-    }));
+    setExpandedMenus((prev) => {
+      const isCurrentlyOpen = !!prev[path];
+      return isCurrentlyOpen ? {} : { [path]: true };
+    });
+  };
+
+  const pathKeyMap: Record<string, string> = {
+    "/dashboard": "dashboard",
+    "/markets": "markets",
+    "/coverage": "assetCoverage",
+    "/exchanges": "exchanges",
+    "/stocks": "stocks",
+    "/forex": "fx",
+    "/crypto": "crypto",
+    "/commodities": "commodities",
+    "/regions": "regions",
+    "/sectors": "sectors",
+    "/news": "news",
+    "/economic-calendar": "calendar",
+    "/user": "userPanel",
+    "/markets/global-overview": "overview",
+    "/markets/pre-market": "preMarket",
+    "/markets/after-hours": "afterHours",
+    "/markets/heatmaps": "heatmaps",
+    "/markets/movers": "marketMovers",
+    "/markets/volatility-index": "volatilityIndex",
+    "/screener": "advancedScreener",
+    "/etfs": "etfsFunds",
+    "/bonds-yields": "bondsAndYields",
+    "/stocks/NYSE": "nyse",
+    "/stocks/NASDAQ": "nasdaq",
+    "/stocks/LSE": "lse",
+    "/exchanges/region/americas": "byRegion",
+    "/stocks/gainers": "topGainers",
+    "/stocks/losers": "topLosers",
+    "/stocks/watchlists": "watchlists",
+    "/stocks/portfolio": "portfolioTracker",
+    "/stocks/alerts": "alerts",
+    "/currencies/USD": "usd",
+    "/currencies/EUR": "eur",
+    "/currencies/GBP": "gbp",
+    "/currencies/JPY": "jpy",
+    "/currencies/INR": "inr",
+    "/crypto/trending": "trendingCoins",
+    "/crypto/meme-coins": "memeCoins",
+    "/crypto/defi": "defi",
+    "/crypto/layer-1": "layer1",
+    "/crypto/stablecoins": "stablecoins",
+    "/commodities/energy": "energy",
+    "/commodities/metals": "metals",
+    "/commodities/agriculture": "agriculture",
+    "/commodities/industrial": "industrial",
+    "/regions/americas": "americas",
+    "/regions/europe": "europe",
+    "/regions/asia-pacific": "asiaPacific",
+    "/regions/middle-east-africa": "middleEastAfrica",
+    "/sectors/technology": "technology",
+    "/sectors/banking": "banking",
+    "/sectors/ai": "ai",
+    "/sectors/electric-vehicles": "ev",
+    "/sectors/semiconductor": "semiconductor",
+    "/sectors/defence": "defence",
+    "/news/regions": "regionNews",
+    "/news/sectors": "sectorNews",
+    "/news/crypto": "cryptoNews",
+    "/news/alerts": "marketAlerts",
+  };
+
+  const translateLabel = (path: string | undefined, fallback: string) => {
+    if (!path) return fallback;
+    const key = pathKeyMap[path] ?? fallback;
+    return t(key as any) || fallback;
   };
 
   return (
@@ -215,14 +302,14 @@ const Navigation: React.FC = () => {
               <div className={`nav-parent-row ${isParentActive ? "active" : ""}`}>
                 <Link to={item.path} className="nav-item">
                   <span className="nav-icon">{item.icon}</span>
-                  <span className="nav-label">{item.label}</span>
+                  <span className="nav-label">{translateLabel(item.path, item.label)}</span>
                 </Link>
                 {hasSubmenu && (
                   <button
                     type="button"
                     className="submenu-toggle-btn"
                     onClick={(e) => toggleMenu(item.path, e)}
-                    aria-label={`Toggle ${item.label} submenu`}
+                    aria-label={t(`${item.label}`) ? `Toggle ${t(`${item.label}`)} submenu` : `Toggle ${item.label} submenu`}
                   >
                     <ChevronDown size={14} className={`chevron-icon ${isExpanded ? "rotated" : ""}`} />
                   </button>
@@ -240,7 +327,7 @@ const Navigation: React.FC = () => {
                         className={`submenu-item ${isSubitemActive ? "active" : ""}`}
                       >
                         <span className="submenu-icon">{subitem.icon}</span>
-                        <span className="submenu-label">{subitem.label}</span>
+                        <span className="submenu-label">{translateLabel(subitem.path, subitem.label)}</span>
                       </Link>
                     );
                   })}
