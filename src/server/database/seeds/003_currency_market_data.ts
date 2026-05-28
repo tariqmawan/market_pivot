@@ -71,7 +71,7 @@ const USD_RATES: Record<string, number> = {
   KHR: 4098.5, LAK: 20812,  MNT: 3412.5, NPR: 133.25, BTN: 83.24,
   MVR: 15.412, AFN: 70.512, IQD: 1312.5, SYP: 13012,  LBP: 89812,
   JOD: 0.7091, OMR: 0.3851, BHD: 0.3769, YER: 250.42, DJF: 177.82,
-  ETB: 56.812, SOS: 570.25, SDG: 600.12, LYD: 4.8412, TND: 3.1251,
+  ETB: 56.812, SOS: 570.25, SDG: 600.12, LYD: 4.8412,
 };
 
 function makeChartPoints(basePair: string, rate: number, count = 90) {

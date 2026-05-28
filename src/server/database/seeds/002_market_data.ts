@@ -1,14 +1,12 @@
 import type { Knex } from "knex";
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
 import bcrypt from "bcryptjs";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname  = path.dirname(__filename);
+const DATA_DIR = path.resolve(process.cwd(), "src/data");
 
 const readJson = (filename: string) =>
-  JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../../data", filename), "utf8"));
+  JSON.parse(fs.readFileSync(path.resolve(DATA_DIR, filename), "utf8"));
 
 async function insertChunked(knex: Knex, table: string, rows: object[], chunkSize = 100) {
   for (let i = 0; i < rows.length; i += chunkSize) {

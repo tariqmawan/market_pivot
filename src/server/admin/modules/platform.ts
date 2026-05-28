@@ -35,7 +35,7 @@ export function createPlatformRouter(db: Knex) {
       const keyPrefix = rawKey.slice(0, 12);
       const keyHash = crypto.createHash("sha256").update(rawKey).digest("hex");
 
-      const [row] = await db("api_keys")
+      const returningId = await db("api_keys")
         .insert({
           userId: req.user!.userId,
           name,
@@ -43,7 +43,15 @@ export function createPlatformRouter(db: Knex) {
           keyHash,
           rateLimit: Number(req.body.rateLimit) || 1000,
         })
-        .returning("id", "name", "keyPrefix", "rateLimit", "created_at");
+        .returning("id");
+
+      const id = Array.isArray(returningId) ? returningId[0]?.id ?? returningId[0] : (returningId as any);
+      const row = await db("api_keys").where({ id }).first();
+
+      if (!row) {
+        res.status(500).json({ success: false, error: "API key create failed", timestamp: new Date() });
+        return;
+      }
 
       await writeAuditLog(db, req, "api_key.create", "api_keys", row.id);
 
