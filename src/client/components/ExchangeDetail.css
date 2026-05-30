@@ -1,0 +1,410 @@
+/* Exchange Detail - Clean & User Friendly */
+
+.exchange-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* Hero Section */
+.exchange-hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 16px;
+}
+
+.exchange-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.exchange-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.exchange-identity h1 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.exchange-meta {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.exchange-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  text-align: center;
+}
+
+html[dir="rtl"] .exchange-metrics {
+  direction: rtl;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric-label {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.metric-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Index Snapshot */
+.index-snapshot {
+  grid-column: 1 / -1;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+html[dir="rtl"] .index-snapshot {
+  direction: rtl;
+}
+
+.index-info h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.index-change {
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 12px;
+}
+
+html[dir="rtl"] .index-change {
+  margin-left: 0;
+  margin-right: 12px;
+}
+
+.index-change.positive { color: #16a34a; }
+.index-change.negative { color: #dc2626; }
+
+.index-value {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  color: #0f172a;
+}
+
+.market-breadth {
+  display: flex;
+  gap: 16px;
+}
+
+html[dir="rtl"] .market-breadth {
+  direction: rtl;
+}
+
+.breadth-item {
+  font-size: 13px;
+}
+
+.breadth-item.positive { color: #16a34a; }
+.breadth-item.negative { color: #dc2626; }
+
+/* Tabs */
+.exchange-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: #f1f5f9;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.exchange-tabs button {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.exchange-tabs button:hover {
+  color: #0f172a;
+}
+
+.exchange-tabs button.active {
+  background: #fff;
+  color: #3b82f6;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+}
+
+/* Content Sections */
+.exchange-content {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  padding: 24px;
+}
+
+/* Overview Grid */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.overview-card {
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.overview-card h3 {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.overview-card p {
+  margin: 0;
+  font-size: 16px;
+  color: #0f172a;
+}
+
+.overview-card a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* Chart */
+.chart-container {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.chart-placeholder {
+  padding: 40px;
+  text-align: center;
+  color: #94a3b8;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+/* Movers */
+.movers-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.mover-title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mover-title.positive { color: #16a34a; }
+.mover-title.negative { color: #dc2626; }
+
+.mover-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mover-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.mover-symbol {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.mover-company {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.mover-change {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.mover-change.positive { color: #16a34a; }
+.mover-change.negative { color: #dc2626; }
+
+.mover-placeholder {
+  color: #94a3b8;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Sectors */
+.sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.sector-card {
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.sector-card h4 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: #0f172a;
+}
+
+.sector-performance {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.sector-performance.positive { color: #16a34a; }
+.sector-performance.negative { color: #dc2626; }
+
+.sector-companies {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* News */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.news-item {
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.news-item h4 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: #0f172a;
+}
+
+.news-item p {
+  margin: 0 0 12px;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* Loading State */
+.exchange-detail.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* RTL Support - Text direction only, preserving layout structure */
+html[dir="rtl"] .exchange-hero,
+html[dir="rtl"] .exchange-content {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .exchange-tabs {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .mover-row {
+  direction: rtl;
+}
+
+html[dir="rtl"] .mover-symbol {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .exchange-hero {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .exchange-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .movers-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .exchange-detail {
+    padding: 16px 12px;
+  }
+
+  .exchange-content {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .exchange-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .mover-row {
+    grid-template-columns: 70px 1fr;
+  }
+
+  .mover-change {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 4px;
+  }
+}

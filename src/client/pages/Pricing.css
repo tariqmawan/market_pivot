@@ -163,9 +163,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  max-width: 1040px;
+  max-width: 1200px;
   margin: 0 auto;
-  align-items: start;
+  align-items: stretch;
+  grid-auto-rows: 1fr;
 }
 
 @media (max-width: 840px) {
@@ -175,16 +176,10 @@
   }
 }
 
-@media (min-width: 841px) and (max-width: 1060px) {
+@media (min-width: 841px) and (max-width: 1120px) {
   .pricing-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     max-width: 720px;
-  }
-
-  .pricing-grid .pricing-card:last-child {
-    grid-column: 1 / -1;
-    max-width: 360px;
-    justify-self: center;
   }
 }
 
@@ -196,10 +191,28 @@
   border-radius: var(--pricing-radius-lg);
   padding: 28px;
   position: relative;
+  display: flex;
+  flex-direction: column;
   transition:
     transform var(--pricing-transition-slow),
     box-shadow var(--pricing-transition-slow);
   will-change: transform;
+}
+
+.pricing-card--popular {
+  border: 2px solid var(--pricing-accent);
+  padding-top: 42px;
+}
+
+/* Ensure feature list takes available space for consistent card height */
+.pricing-feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  flex: 1;
+  margin-bottom: 24px;
+  min-height: 154px;
 }
 
 .pricing-card:hover {
@@ -378,13 +391,6 @@
   margin-bottom: 14px;
 }
 
-.pricing-feature-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
-}
-
 .pricing-feature-item {
   display: flex;
   align-items: flex-start;
@@ -448,6 +454,54 @@
   font-size: 15px;
 }
 
+/* ─── Guarantee Cards (Square) ─────────────────────────────────────────── */
+
+.pricing-guarantee-cards {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 40px auto;
+  max-width: 800px;
+  flex-wrap: wrap;
+}
+
+.guarantee-card {
+  flex: 1;
+  min-width: 160px;
+  max-width: 180px;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, var(--pricing-surface), var(--pricing-surface-muted));
+  border: 1px solid var(--pricing-border);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.guarantee-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border-color: var(--pricing-accent);
+}
+
+.guarantee-icon {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.guarantee-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--pricing-text);
+  line-height: 1.4;
+}
+
 /* ─── Footer note ───────────────────────────────────────────────────────── */
 
 .pricing-footer-note {
@@ -500,4 +554,80 @@
   .pricing-cta {
     padding: 13px 16px;
   }
+}
+
+
+
+/* --- Quantity selector --------------------------------------------------- */
+
+.pricing-users-section {
+  margin-bottom: 22px;
+}
+
+.pricing-users-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--pricing-text-muted);
+  margin-bottom: 10px;
+}
+
+.pricing-quantity-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.pricing-qty-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--pricing-font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--pricing-text);
+  background: var(--pricing-surface-muted);
+  border: 1px solid var(--pricing-border);
+  border-radius: var(--pricing-radius-sm);
+  cursor: pointer;
+  transition: all var(--pricing-transition);
+  outline: none;
+}
+
+.pricing-qty-btn:hover {
+  background: var(--pricing-border);
+}
+
+.pricing-qty-btn:focus-visible {
+  outline: 2px solid var(--pricing-accent);
+  outline-offset: 2px;
+}
+
+.pricing-qty-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pricing-qty-display {
+  width: 48px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--pricing-font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--pricing-text);
+  background: var(--pricing-surface);
+  border: 1px solid var(--pricing-border);
+  border-radius: var(--pricing-radius-sm);
+}
+
+.pricing-seat-price {
+  font-size: 12px;
+  color: var(--pricing-text-muted);
+  text-align: center;
 }

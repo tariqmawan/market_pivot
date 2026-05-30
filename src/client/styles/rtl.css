@@ -150,8 +150,8 @@ html[dir="rtl"] .lang-copy {
 }
 
 /* ============================================================
-   RTL LAYOUT SYSTEM
-   Applied when html[dir="rtl"]
+   RTL TEXT & FORMS SYSTEM
+   Only affects text direction and form controls - NOT layout
    ============================================================ */
 
 /* ── Base text alignment ──────────────────────────────────── */
@@ -159,143 +159,9 @@ html[dir="rtl"] body {
   text-align: right;
 }
 
-/* ── Site header ──────────────────────────────────────────── */
-html[dir="rtl"] .top-header,
-html[dir="rtl"] .main-header {
-  direction: rtl;
-}
-
-html[dir="rtl"] .main-header {
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .brand-left { order: 3; }
-html[dir="rtl"] .header-center-nav { order: 2; }
-html[dir="rtl"] .brand-right { order: 1; flex-direction: row-reverse; }
-
-html[dir="rtl"] .header-center-inner {
-  flex-direction: row-reverse;
-}
-
-/* ── Sidebar ──────────────────────────────────────────────── */
-html[dir="rtl"] .site-sidebar {
-  right: 0;
-  left: auto;
-  border-right: none;
-  border-left: 1px solid var(--border, rgba(255,255,255,0.08));
-}
-
-html[dir="rtl"] .enhanced-navigation {
-  border-right: none;
-  border-left: 1px solid rgba(15, 23, 42, 0.06);
-}
-
-html[dir="rtl"] .sidebar-menu-toggle {
-  right: 16px;
-  left: auto;
-}
-
-html[dir="rtl"] .app-layout-main,
-html[dir="rtl"] .main-content,
-html[dir="rtl"] .dashboard-content,
-html[dir="rtl"] .page-content {
-  margin-left: 0;
-  margin-right: var(--site-sidebar-collapsed-width, 72px);
-}
-
-html[dir="rtl"] .app-layout-body {
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .app-layout-body.sidebar-collapsed .app-layout-main {
-  margin-left: 0;
-  margin-right: var(--site-sidebar-collapsed-width, 72px);
-}
-
-html[dir="rtl"] .app-layout-body.sidebar-pinned .app-layout-main {
-  margin-left: 0;
-  margin-right: var(--site-sidebar-width, 244px);
-}
-
-/* ── Navigation ───────────────────────────────────────────── */
-html[dir="rtl"] .nav-item,
-html[dir="rtl"] .submenu-item {
-  flex-direction: row-reverse;
-  text-align: right;
-}
-
-html[dir="rtl"] .nav-icon,
-html[dir="rtl"] .submenu-icon {
-  margin-right: 0;
-  margin-left: 10px;
-}
-
-html[dir="rtl"] .nav-parent-row {
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .nav-parent-row.active::before {
-  left: auto;
-  right: 0;
-}
-
-html[dir="rtl"] .enhanced-navigation.collapsed .nav-item[data-tooltip]::after,
-html[dir="rtl"] .enhanced-navigation.collapsed .nav-item[data-tooltip]::before {
-  right: calc(100% + 12px);
-  left: auto;
-}
-
-html[dir="rtl"] .submenu-toggle-btn {
-  margin-right: auto;
-  margin-left: 0;
-}
-
-html[dir="rtl"] .nav-submenu-accordion {
-  margin: 4px 18px 6px 0;
-  padding-right: 14px;
-  padding-left: 0;
-  border-right: 1px solid rgba(148, 163, 184, 0.18);
-  border-left: none;
-}
-
-html[dir="rtl"] .submenu-item:hover {
-  transform: translateX(-1px);
-}
-
-/* ── Cards and grids ──────────────────────────────────────── */
-html[dir="rtl"] .asset-card,
-html[dir="rtl"] .asset-class-card,
-html[dir="rtl"] .intelligence-panel,
-html[dir="rtl"] .detail-panel,
-html[dir="rtl"] .metric-tile,
-html[dir="rtl"] .user-stat-card {
-  text-align: right;
-  direction: rtl;
-}
-
-html[dir="rtl"] .asset-grid,
-html[dir="rtl"] .dashboard-grid,
-html[dir="rtl"] .intelligence-grid {
-  direction: rtl;
-}
-
-/* ── Market tape ──────────────────────────────────────────── */
-html[dir="rtl"] .market-tape {
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .tape-item {
-  flex-direction: row-reverse;
-  text-align: right;
-}
-
-/* ── Tables ───────────────────────────────────────────────── */
-html[dir="rtl"] table {
-  direction: rtl;
-}
-
-html[dir="rtl"] th,
-html[dir="rtl"] td {
+/* ── Text content alignment (not layout) ────────────────────── */
+html[dir="rtl"] .eyebrow,
+html[dir="rtl"] .pricing-popular-badge {
   text-align: right;
 }
 
@@ -310,10 +176,9 @@ html[dir="rtl"] select {
 html[dir="rtl"] input[type="email"],
 html[dir="rtl"] input[type="url"],
 html[dir="rtl"] input[type="password"],
-html[dir="rtl"] input[inputmode="numeric"],
-html[dir="rtl"] .mp-admin-search-input {
+html[dir="rtl"] input[inputmode="numeric"] {
   direction: ltr;
-  text-align: right;
+  text-align: left;
 }
 
 html[dir="rtl"] .converter-box {
@@ -337,31 +202,6 @@ html[dir="rtl"] .modal-close {
   left: 16px;
 }
 
-/* ── Footer ───────────────────────────────────────────────── */
-html[dir="rtl"] .footer-inner,
-html[dir="rtl"] .footer-top {
-  direction: rtl;
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .footer-column,
-html[dir="rtl"] .footer-brand {
-  text-align: right;
-  align-items: flex-end;
-}
-
-html[dir="rtl"] .footer-socials {
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .footer-bottom {
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .footer-newsletter form {
-  direction: rtl;
-}
-
 /* ── Dropdowns ────────────────────────────────────────────── */
 html[dir="rtl"] .dropdown-menu,
 html[dir="rtl"] .submenu {
@@ -370,95 +210,14 @@ html[dir="rtl"] .submenu {
   text-align: right;
 }
 
-/* ── Chip lists ───────────────────────────────────────────── */
-html[dir="rtl"] .chip-list {
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-}
-
-/* ── Mini lists ───────────────────────────────────────────── */
-html[dir="rtl"] .mini-list a,
-html[dir="rtl"] .mini-list > * {
-  flex-direction: row-reverse;
+/* ── Footer ───────────────────────────────────────────────── */
+html[dir="rtl"] .footer-column,
+html[dir="rtl"] .footer-brand {
   text-align: right;
 }
 
-/* ── User panel ───────────────────────────────────────────── */
-html[dir="rtl"] .user-panel-layout {
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .user-hero,
-html[dir="rtl"] .user-profile-card,
-html[dir="rtl"] .watchlist-row {
-  flex-direction: row-reverse;
-  text-align: right;
-}
-
-html[dir="rtl"] .quick-actions-card,
-html[dir="rtl"] .preference-card,
-html[dir="rtl"] .alert-card,
-html[dir="rtl"] .activity-card {
-  text-align: right;
-}
-
-/* ── Admin panel ──────────────────────────────────────────── */
-html[dir="rtl"] .mp-admin-header {
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .mp-admin-header-right {
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .mp-admin-search {
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .mp-admin-search-input {
-  text-align: right;
-}
-
-html[dir="rtl"] .admin-body {
-  flex-direction: row-reverse;
-}
-
-/* ── Coverage hero ────────────────────────────────────────── */
-html[dir="rtl"] .coverage-hero {
-  flex-direction: row-reverse;
-  text-align: right;
-}
-
-html[dir="rtl"] .metric-strip {
-  flex-direction: row-reverse;
-}
-
-/* ── Allocation bars ──────────────────────────────────────── */
-html[dir="rtl"] .allocation-row {
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .allocation-track {
+html[dir="rtl"] .footer-newsletter form {
   direction: rtl;
-}
-
-/* ── Section headings ─────────────────────────────────────── */
-html[dir="rtl"] .section-heading,
-html[dir="rtl"] .terminal-hero,
-html[dir="rtl"] .hero-copy,
-html[dir="rtl"] .intelligence-band {
-  text-align: right;
-  direction: rtl;
-}
-
-html[dir="rtl"] .hero-actions {
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-}
-
-/* ── Comparison strip ─────────────────────────────────────── */
-html[dir="rtl"] .comparison-route {
-  flex-direction: row-reverse;
 }
 
 /* ── Tab navigation ───────────────────────────────────────── */
@@ -466,39 +225,23 @@ html[dir="rtl"] .tab-navigation {
   flex-direction: row-reverse;
 }
 
-/* ── Eyebrow text ─────────────────────────────────────────── */
-html[dir="rtl"] .eyebrow {
+/* ── Navigation items ─────────────────────────────────────── */
+html[dir="rtl"] .nav-item,
+html[dir="rtl"] .submenu-item {
+  flex-direction: row-reverse;
   text-align: right;
+}
+
+html[dir="rtl"] .nav-icon,
+html[dir="rtl"] .submenu-icon {
+  margin-right: 0;
+  margin-left: 10px;
 }
 
 /* ── Responsive RTL ───────────────────────────────────────── */
 @media (max-width: 768px) {
-  html[dir="rtl"] .site-sidebar {
-    right: 0;
-    left: auto;
-    transform: translateX(100%);
-  }
-
-  html[dir="rtl"] .app-layout-body.sidebar-collapsed .app-layout-main,
-  html[dir="rtl"] .app-layout-body.sidebar-open .app-layout-main {
-    margin-right: 0;
-  }
-
-  html[dir="rtl"] .app-layout-body.sidebar-open .site-sidebar,
-  html[dir="rtl"] .site-sidebar.open {
-    transform: translateX(0);
-    box-shadow: -22px 0 60px rgba(15, 23, 42, 0.22);
-  }
-
   html[dir="rtl"] .lang-switcher-menu {
     right: auto;
     left: 0;
-  }
-
-  html[dir="rtl"] .app-layout-main,
-  html[dir="rtl"] .main-content,
-  html[dir="rtl"] .dashboard-content,
-  html[dir="rtl"] .page-content {
-    margin-right: 0;
   }
 }
