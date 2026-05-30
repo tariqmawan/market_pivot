@@ -1,0 +1,21 @@
+{
+  "adminTopNav": "Административная навигация",
+  "openMenu": "Открыть меню",
+  "searchPlaceholder": "Поиск...",
+  "notifications": "Уведомления",
+  "profile": "Профиль",
+  "adminPortal": "Админ-портал",
+  "dashboard": "Дашборд",
+  "users": "Пользователи",
+  "marketData": "Данные рынка",
+  "news": "Новости",
+  "billing": "Биллинг",
+  "platform": "Платформа",
+  "analytics": "Аналитика",
+  "settings": "Настройки",
+  "totalUsers": "Всего пользователей",
+  "activeUsers": "Активных пользователей",
+  "revenue": "Выручка",
+  "exchanges": "Биржи",
+  "lastUpdated": "Последнее обновление"
+}

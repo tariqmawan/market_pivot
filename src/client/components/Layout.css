@@ -7,10 +7,13 @@ PDFPIVOT STYLE PROFESSIONAL STRUCTURE
 
   /* SIDEBAR */
   --site-sidebar-width: 258px;
+  --site-sidebar-collapsed-width: 72px;
+  --shell-transition:
+    240ms cubic-bezier(0.4, 0, 0.2, 1);
 
   /* HEADER HEIGHTS */
-  --top-strip-height: 46px;
-  --brand-header-height: 88px;
+  --top-strip-height: 40px;
+  --brand-header-height: 76px;
 
   /* TOTAL HEADER */
   --site-header-height:
@@ -89,13 +92,19 @@ SIDEBAR WRAPPER
   left: 0;
   bottom: 0;
 
-  width: var(--site-sidebar-width);
+  width: var(--site-sidebar-collapsed-width);
 
   flex-shrink: 0;
 
   z-index: 950;
 
   background: transparent;
+
+  transition:
+    width var(--shell-transition),
+    transform var(--shell-transition),
+    box-shadow var(--shell-transition);
+  will-change: width, transform;
 }
 
 /* =========================================================
@@ -107,18 +116,53 @@ MAIN CONTENT
 
   min-width: 0;
 
-  margin-left: var(--site-sidebar-width);
+  margin-left: var(--site-sidebar-collapsed-width);
 
   width:
     calc(
-      100% - var(--site-sidebar-width)
+      100% - var(--site-sidebar-collapsed-width)
     );
 
   padding: 20px 22px 32px;
 
   transition:
-    margin-left 0.25s ease,
-    width 0.25s ease;
+    margin-left var(--shell-transition),
+    width var(--shell-transition),
+    padding var(--shell-transition);
+  will-change: margin-left, width;
+}
+
+.app-layout-body.sidebar-expanded .site-sidebar,
+.app-layout-body.sidebar-pinned .site-sidebar {
+  width: var(--site-sidebar-width);
+}
+
+.app-layout-body.sidebar-pinned .app-layout-main {
+  margin-left: var(--site-sidebar-width);
+  width: calc(100% - var(--site-sidebar-width));
+}
+
+.app-layout-body.sidebar-preview .site-sidebar {
+  box-shadow: 18px 0 48px rgba(15, 23, 42, 0.12);
+}
+
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: none;
+  border: 0;
+  padding: 0;
+  background: rgba(15, 23, 42, 0);
+  cursor: pointer;
+  transition:
+    opacity var(--shell-transition),
+    background var(--shell-transition);
+  opacity: 0;
+}
+
+body.sidebar-drawer-open {
+  overflow: hidden;
 }
 
 /* =========================================================
@@ -169,9 +213,9 @@ MOBILE
 
   :root {
 
-    --top-strip-height: 44px;
+    --top-strip-height: 36px;
 
-    --brand-header-height: 64px;
+    --brand-header-height: 60px;
 
     --site-header-height:
       calc(
@@ -181,7 +225,12 @@ MOBILE
   }
 
   .site-sidebar {
-    display: none;
+    display: block;
+    top: var(--site-header-height);
+    width: min(86vw, 304px);
+    transform: translateX(-104%);
+    z-index: 1300;
+    box-shadow: none;
   }
 
   .app-layout-main {
@@ -190,6 +239,30 @@ MOBILE
     width: 100%;
 
     padding: 16px;
+  }
+
+  .app-layout-body.sidebar-collapsed .app-layout-main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .app-layout-body.sidebar-open .site-sidebar,
+  .site-sidebar.open {
+    transform: translateX(0);
+    box-shadow: 22px 0 60px rgba(15, 23, 42, 0.22);
+  }
+
+  .sidebar-backdrop {
+    display: block;
+    pointer-events: none;
+  }
+
+  .sidebar-backdrop.visible {
+    pointer-events: auto;
+    opacity: 1;
+    background: rgba(15, 23, 42, 0.42);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 }
 

@@ -11,11 +11,147 @@ import AdminSidebar from "./admin/AdminSidebar";
 import AdminHeader from "./admin/AdminHeader";
 import { useI18n } from "../i18n";
 
+const getSelectedCategoryPath = (path: string) => {
+  if (path === "/indices" || path === "/etfs" || path === "/bonds-yields") return "/coverage";
+  if (path.startsWith("/currencies")) return "/forex";
+
+  const matched = [...navigationItems]
+    .sort((a, b) => b.path.length - a.path.length)
+    .find((item) => path === item.path || path.startsWith(`${item.path}/`));
+
+  return matched ? matched.path : navigationItems[0]?.path ?? "/dashboard";
+};
+
 const Layout: React.FC = () => {
   const location = useLocation();
   const { isAuthenticated, user, logout } = useAuthStore();
 
   const path = location.pathname;
+  const sidebarRef = React.useRef<HTMLElement | null>(null);
+  const [isSidebarPinnedOpen, setIsSidebarPinnedOpen] = React.useState(false);
+  const [isSidebarPreviewOpen, setIsSidebarPreviewOpen] = React.useState(false);
+  const [isHoverSuppressed, setIsHoverSuppressed] = React.useState(false);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = React.useState(false);
+  const [isMobileViewport, setIsMobileViewport] = React.useState(false);
+  const isSidebarExpanded = isMobileViewport || isSidebarPinnedOpen || isSidebarPreviewOpen;
+
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const syncViewport = () => setIsMobileViewport(mediaQuery.matches);
+
+    syncViewport();
+    mediaQuery.addEventListener("change", syncViewport);
+
+    return () => mediaQuery.removeEventListener("change", syncViewport);
+  }, []);
+
+  React.useEffect(() => {
+    setIsMobileSidebarOpen(false);
+  }, [path]);
+
+  React.useEffect(() => {
+    document.body.classList.toggle("sidebar-drawer-open", isMobileSidebarOpen);
+    return () => document.body.classList.remove("sidebar-drawer-open");
+  }, [isMobileSidebarOpen]);
+
+  React.useEffect(() => {
+    if (!isMobileViewport) {
+      setIsMobileSidebarOpen(false);
+    }
+  }, [isMobileViewport]);
+
+  React.useEffect(() => {
+    if (!isMobileSidebarOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMobileSidebarOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isMobileSidebarOpen]);
+
+  const handleSidebarToggle = React.useCallback(() => {
+    if (isMobileViewport) {
+      setIsMobileSidebarOpen((open) => !open);
+      return;
+    }
+
+    setIsSidebarPinnedOpen((open) => !open);
+    setIsSidebarPreviewOpen(false);
+    setIsHoverSuppressed(false);
+  }, [isMobileViewport]);
+
+  const closeMobileSidebar = React.useCallback(() => {
+    setIsMobileSidebarOpen(false);
+  }, []);
+
+  const openSidebarPreview = React.useCallback(() => {
+    if (!isMobileViewport && !isSidebarPinnedOpen && !isHoverSuppressed) {
+      setIsSidebarPreviewOpen(true);
+    }
+  }, [isHoverSuppressed, isMobileViewport, isSidebarPinnedOpen]);
+
+  const closeSidebarPreview = React.useCallback(() => {
+    setIsSidebarPreviewOpen(false);
+    setIsHoverSuppressed(false);
+  }, []);
+
+  const handleSidebarFocus = React.useCallback(() => {
+    if (!isMobileViewport && !isSidebarPinnedOpen) {
+      setIsSidebarPreviewOpen(true);
+    }
+  }, [isMobileViewport, isSidebarPinnedOpen]);
+
+  const handleSidebarBlur = React.useCallback((event: React.FocusEvent<HTMLElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+      closeSidebarPreview();
+    }
+  }, [closeSidebarPreview]);
+
+  const handleParentActivate = React.useCallback(() => {
+    if (!isMobileViewport && !isSidebarPinnedOpen) {
+      setIsHoverSuppressed(false);
+      setIsSidebarPreviewOpen(true);
+    }
+  }, [isMobileViewport, isSidebarPinnedOpen]);
+
+  const handleHeaderCategorySelect = React.useCallback((categoryPath: string) => {
+    setSelectedCategory(categoryPath);
+    setIsHoverSuppressed(false);
+
+    if (isMobileViewport) {
+      setIsMobileSidebarOpen(true);
+      return;
+    }
+
+    setIsSidebarPinnedOpen(true);
+    setIsSidebarPreviewOpen(false);
+  }, [isMobileViewport]);
+
+  const closeSidebarFromContent = React.useCallback(() => {
+    if (isMobileViewport) {
+      setIsMobileSidebarOpen(false);
+      return;
+    }
+
+    setIsSidebarPinnedOpen(false);
+    setIsSidebarPreviewOpen(false);
+    setIsHoverSuppressed(true);
+  }, [isMobileViewport]);
+
+  const handleLeafNavigate = React.useCallback(() => {
+    if (isMobileViewport) {
+      setIsMobileSidebarOpen(false);
+      return;
+    }
+
+    setIsSidebarPinnedOpen(false);
+    setIsSidebarPreviewOpen(false);
+    setIsHoverSuppressed(true);
+  }, [isMobileViewport]);
 
   const isAdminConsole = path === "/admin" || path === "/admin/login" || path.startsWith("/admin?");
 
@@ -27,10 +163,13 @@ const Layout: React.FC = () => {
   }, []);
 
   const [selectedCategory, setSelectedCategory] = React.useState<string>(() => {
-    const matched = navigationItems.find((i) => path.startsWith(i.path));
-    return matched ? matched.path : navigationItems[0]?.path ?? "/dashboard";
+    return getSelectedCategoryPath(path);
   });
   const { t } = useI18n();
+
+  React.useEffect(() => {
+    setSelectedCategory(getSelectedCategoryPath(path));
+  }, [path]);
 
   return (
     <div className="app-shell">
@@ -58,15 +197,47 @@ const Layout: React.FC = () => {
       ) : (
         <>
           <header className="site-header">
-            <Header selectedCategory={selectedCategory} onSelectCategory={setSelectedCategory} />
+            <Header
+              selectedCategory={selectedCategory}
+              onSelectCategory={handleHeaderCategorySelect}
+              isSidebarCollapsed={isMobileViewport ? !isMobileSidebarOpen : !isSidebarPinnedOpen}
+              onSidebarToggle={handleSidebarToggle}
+            />
           </header>
 
-          <div className="app-layout-body">
-            <aside className="site-sidebar" aria-label="Main navigation">
-              <Navigation selectedCategory={selectedCategory} />
+          <div
+            className={`app-layout-body ${isSidebarPinnedOpen ? "sidebar-pinned" : ""} ${
+              isSidebarPreviewOpen ? "sidebar-preview" : ""
+            } ${isSidebarExpanded ? "sidebar-expanded" : "sidebar-collapsed"} ${
+              isMobileSidebarOpen ? "sidebar-open" : ""
+            }`}
+          >
+            <button
+              type="button"
+              className={`sidebar-backdrop ${isMobileSidebarOpen ? "visible" : ""}`}
+              aria-label="Close navigation menu"
+              onClick={closeMobileSidebar}
+            />
+
+            <aside
+              ref={sidebarRef}
+              className={`site-sidebar ${isMobileSidebarOpen ? "open" : ""}`}
+              aria-label="Main navigation"
+              onMouseEnter={openSidebarPreview}
+              onMouseLeave={closeSidebarPreview}
+              onFocus={handleSidebarFocus}
+              onBlur={handleSidebarBlur}
+            >
+              <Navigation
+                collapsed={!isSidebarExpanded}
+                mobileOpen={isMobileSidebarOpen}
+                selectedCategoryPath={selectedCategory}
+                onNavigate={handleLeafNavigate}
+                onParentActivate={handleParentActivate}
+              />
             </aside>
 
-            <div className="app-layout-main">
+            <div className="app-layout-main" onPointerDown={closeSidebarFromContent}>
               <main className="site-main">
                 <Outlet />
               </main>

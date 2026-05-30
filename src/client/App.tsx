@@ -34,6 +34,7 @@ import Layout from "./components/Layout";
 import { I18nProvider, useI18n } from "./i18n";
 import { useAuthStore } from "./stores/authStore";
 import "./styles/index.css";
+import "./styles/rtl.css";
 import AdminPanel from "./pages/AdminPanel";
 import AdminLogin from "./pages/AdminLogin";
 import NewsPage from "./pages/News";
