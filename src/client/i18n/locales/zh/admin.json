@@ -1,0 +1,21 @@
+{
+  "adminTopNav": "管理导航",
+  "openMenu": "打开菜单",
+  "searchPlaceholder": "搜索...",
+  "notifications": "通知",
+  "profile": "个人资料",
+  "adminPortal": "管理后台",
+  "dashboard": "仪表盘",
+  "users": "用户",
+  "marketData": "市场数据",
+  "news": "新闻",
+  "billing": "账单",
+  "platform": "平台",
+  "analytics": "分析",
+  "settings": "设置",
+  "totalUsers": "用户总数",
+  "activeUsers": "活跃用户",
+  "revenue": "收入",
+  "exchanges": "交易所",
+  "lastUpdated": "最后更新"
+}

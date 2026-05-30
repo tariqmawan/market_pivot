@@ -1,0 +1,21 @@
+{
+  "adminTopNav": "Admin navigation",
+  "openMenu": "Open menu",
+  "searchPlaceholder": "Search...",
+  "notifications": "Notifications",
+  "profile": "Profile",
+  "adminPortal": "Admin Portal",
+  "dashboard": "Dashboard",
+  "users": "Users",
+  "marketData": "Market Data",
+  "news": "News",
+  "billing": "Billing",
+  "platform": "Platform",
+  "analytics": "Analytics",
+  "settings": "Settings",
+  "totalUsers": "Total Users",
+  "activeUsers": "Active Users",
+  "revenue": "Revenue",
+  "exchanges": "Exchanges",
+  "lastUpdated": "Last updated"
+}

@@ -27,6 +27,14 @@ interface NavigationItem {
   submenu?: NavigationItem[];
 }
 
+type NavigationProps = {
+  collapsed?: boolean;
+  mobileOpen?: boolean;
+  selectedCategoryPath?: string;
+  onNavigate?: () => void;
+  onParentActivate?: () => void;
+};
+
 const iconSize = 16;
 
 const navigationItems: NavigationItem[] = [
@@ -178,7 +186,13 @@ const navigationItems: NavigationItem[] = [
   },
 ];
 
-const Navigation: React.FC = () => {
+const Navigation: React.FC<NavigationProps> = ({
+  collapsed = false,
+  mobileOpen = false,
+  selectedCategoryPath,
+  onNavigate,
+  onParentActivate,
+}) => {
   const location = useLocation();
   const { t } = useI18n();
   const [expandedMenus, setExpandedMenus] = useState<Record<string, boolean>>(() => {
@@ -212,6 +226,23 @@ const Navigation: React.FC = () => {
     setExpandedMenus(nextState);
   }, [location.pathname]);
 
+  React.useEffect(() => {
+    if (!selectedCategoryPath) return;
+
+    const selectedItem = navigationItems.find((item) => item.path === selectedCategoryPath);
+    if (!selectedItem?.submenu) {
+      setExpandedMenus({});
+      return;
+    }
+
+    setExpandedMenus({ [selectedCategoryPath]: true });
+  }, [selectedCategoryPath]);
+
+  const openMenu = (path: string) => {
+    setExpandedMenus({ [path]: true });
+    onParentActivate?.();
+  };
+
   const toggleMenu = (path: string, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -219,6 +250,7 @@ const Navigation: React.FC = () => {
       const isCurrentlyOpen = !!prev[path];
       return isCurrentlyOpen ? {} : { [path]: true };
     });
+    onParentActivate?.();
   };
 
   const pathKeyMap: Record<string, string> = {
@@ -290,7 +322,10 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <nav className="enhanced-navigation">
+    <nav
+      className={`enhanced-navigation ${collapsed ? "collapsed" : ""} ${mobileOpen ? "mobile-open" : ""}`}
+      aria-label="Main navigation"
+    >
       <div className="nav-items">
         {navigationItems.map((item) => {
           const hasSubmenu = !!item.submenu;
@@ -300,16 +335,40 @@ const Navigation: React.FC = () => {
           return (
             <div key={item.path} className={`nav-item-group ${isExpanded ? "expanded" : ""}`}>
               <div className={`nav-parent-row ${isParentActive ? "active" : ""}`}>
-                <Link to={item.path} className="nav-item">
-                  <span className="nav-icon">{item.icon}</span>
-                  <span className="nav-label">{translateLabel(item.path, item.label)}</span>
-                </Link>
+                {hasSubmenu ? (
+                  <button
+                    type="button"
+                    className="nav-item nav-category-button"
+                    data-tooltip={translateLabel(item.path, item.label)}
+                    title={collapsed ? translateLabel(item.path, item.label) : undefined}
+                    onClick={() => openMenu(item.path)}
+                    aria-expanded={isExpanded}
+                    aria-controls={`nav-submenu-${item.path.replace(/[^a-z0-9]/gi, "-")}`}
+                  >
+                    <span className="nav-icon">{item.icon}</span>
+                    <span className="nav-label">{translateLabel(item.path, item.label)}</span>
+                  </button>
+                ) : (
+                  <Link
+                    to={item.path}
+                    className="nav-item"
+                    data-tooltip={translateLabel(item.path, item.label)}
+                    title={collapsed ? translateLabel(item.path, item.label) : undefined}
+                    onClick={onNavigate}
+                    aria-current={isParentActive ? "page" : undefined}
+                  >
+                    <span className="nav-icon">{item.icon}</span>
+                    <span className="nav-label">{translateLabel(item.path, item.label)}</span>
+                  </Link>
+                )}
                 {hasSubmenu && (
                   <button
                     type="button"
                     className="submenu-toggle-btn"
                     onClick={(e) => toggleMenu(item.path, e)}
                     aria-label={t(`${item.label}`) ? `Toggle ${t(`${item.label}`)} submenu` : `Toggle ${item.label} submenu`}
+                    aria-expanded={isExpanded}
+                    aria-controls={`nav-submenu-${item.path.replace(/[^a-z0-9]/gi, "-")}`}
                   >
                     <ChevronDown size={14} className={`chevron-icon ${isExpanded ? "rotated" : ""}`} />
                   </button>
@@ -317,7 +376,11 @@ const Navigation: React.FC = () => {
               </div>
 
               {hasSubmenu && (
-                <div className={`nav-submenu-accordion ${isExpanded ? "open" : ""}`}>
+                <div
+                  id={`nav-submenu-${item.path.replace(/[^a-z0-9]/gi, "-")}`}
+                  className={`nav-submenu-accordion ${isExpanded ? "open" : ""}`}
+                  aria-hidden={collapsed || !isExpanded}
+                >
                   {item.submenu!.map((subitem) => {
                     const isSubitemActive = location.pathname === subitem.path;
                     return (
@@ -325,6 +388,8 @@ const Navigation: React.FC = () => {
                         key={subitem.path}
                         to={subitem.path}
                         className={`submenu-item ${isSubitemActive ? "active" : ""}`}
+                        onClick={onNavigate}
+                        aria-current={isSubitemActive ? "page" : undefined}
                       >
                         <span className="submenu-icon">{subitem.icon}</span>
                         <span className="submenu-label">{translateLabel(subitem.path, subitem.label)}</span>

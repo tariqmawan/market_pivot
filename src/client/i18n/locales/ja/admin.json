@@ -1,0 +1,21 @@
+{
+  "adminTopNav": "管理ナビゲーション",
+  "openMenu": "メニューを開く",
+  "searchPlaceholder": "検索...",
+  "notifications": "通知",
+  "profile": "プロフィール",
+  "adminPortal": "管理ポータル",
+  "dashboard": "ダッシュボード",
+  "users": "ユーザー",
+  "marketData": "市場データ",
+  "news": "ニュース",
+  "billing": "請求",
+  "platform": "プラットフォーム",
+  "analytics": "分析",
+  "settings": "設定",
+  "totalUsers": "ユーザー総数",
+  "activeUsers": "アクティブユーザー",
+  "revenue": "収益",
+  "exchanges": "取引所",
+  "lastUpdated": "最終更新"
+}
