@@ -24,7 +24,8 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
   news = [],
   isLoading = false,
 }) => {
-  const { t } = useI18n();
+  const { t: _t } = useI18n();
+  const t = _t as (key: string) => string | undefined;
   const [activeTab, setActiveTab] = React.useState<
     "overview" | "rates" | "converter" | "pairs" | "economic" | "news"
   >("overview");

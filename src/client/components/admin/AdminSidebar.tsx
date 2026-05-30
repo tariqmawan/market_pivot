@@ -1,7 +1,8 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuthStore } from "../../stores/authStore";
-import { hasPermission, PERMISSIONS, type Permission } from "../../admin/permissions";
+import { hasPermission, PERMISSIONS } from "../../admin/permissions";
+import type { Permission } from "../../admin/types";
 // Local lightweight icon set (no external lucide-react dependency)
 function Icon({ children }: { children: React.ReactNode }) {
   return <span className="mp-admin-icon">{children}</span>;

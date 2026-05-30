@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Block admin and API paths from crawlers
+Disallow: /admin/
+Disallow: /api/
+Disallow: /admin/login
+
+# Allow public pages
+Allow: /markets
+Allow: /crypto
+Allow: /forex
+Allow: /commodities
+Allow: /regions
+Allow: /sectors
+Allow: /screener
+Allow: /economic-calendar
+Allow: /news
+Allow: /pricing
+Allow: /about
+Allow: /privacy
+Allow: /terms
+Allow: /billing-policy
+
+Sitemap: https://marketspivot.com/sitemap.xml
