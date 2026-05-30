@@ -1,104 +1,90 @@
 import { useState } from "react";
+import { useI18n } from "../i18n";
 import "./pricing.css";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
 
 type BillingMode = "monthly" | "annual";
 
 interface Feature {
-  text: string;
+  textKey: string;
   muted?: boolean;
 }
 
 interface Plan {
   id: string;
   name: string;
-  description: string;
+  descriptionKey: string;
   monthlyPrice: number | null;
   annualPrice: number | null;
-  cta: string;
+  ctaKey: string;
   ctaVariant: "default" | "primary" | "dark";
   popular?: boolean;
-  featuresLabel: string;
+  featuresLabelKey: string;
   features: Feature[];
 }
-
-// ─── Data ─────────────────────────────────────────────────────────────────────
 
 const PLANS: Plan[] = [
   {
     id: "free",
     name: "Free",
-    description:
-      "Explore global markets with essential tools. No credit card required.",
+    descriptionKey: "freePlanDescription",
     monthlyPrice: 0,
     annualPrice: 0,
-    cta: "Get started free",
+    ctaKey: "freeCta",
     ctaVariant: "default",
-    featuresLabel: "What's included",
+    featuresLabelKey: "freeFeaturesLabel",
     features: [
-      { text: "Global market overview dashboard" },
-      { text: "Major indices & sector heatmaps" },
-      { text: "Forex major pairs" },
-      { text: "Top 50 crypto by market cap" },
-      { text: "Economic calendar (basic)" },
-      { text: "1 watchlist (10 symbols)", muted: true },
-      { text: "Delayed data (15-min lag)", muted: true },
+      { textKey: "freeFeature1" },
+      { textKey: "freeFeature2" },
+      { textKey: "freeFeature3" },
+      { textKey: "freeFeature4" },
+      { textKey: "freeFeature5" },
+      { textKey: "freeFeature6", muted: true },
+      { textKey: "freeFeature7", muted: true },
+      { textKey: "freeFeature8" },
     ],
   },
   {
     id: "pro",
     name: "Pro",
-    description:
-      "Full market intelligence for serious traders and analysts.",
+    descriptionKey: "proPlanDescription",
     monthlyPrice: 29,
     annualPrice: 20,
-    cta: "Start 7-day free trial",
+    ctaKey: "proCta",
     ctaVariant: "primary",
     popular: true,
-    featuresLabel: "Everything in Free, plus",
+    featuresLabelKey: "proFeaturesLabel",
     features: [
-      { text: "Real-time data across all markets" },
-      { text: "Advanced stock screener" },
-      { text: "Full exchange data (50+ exchanges)" },
-      { text: "Insider trading & analyst ratings" },
-      { text: "AI-powered news summaries" },
-      { text: "10 watchlists, unlimited symbols" },
-      { text: "Portfolio tracker & price alerts" },
-      { text: "Sector & DeFi deep dives" },
+      { textKey: "proFeature1" },
+      { textKey: "proFeature2" },
+      { textKey: "proFeature3" },
+      { textKey: "proFeature4" },
+      { textKey: "proFeature5" },
+      { textKey: "proFeature6" },
+      { textKey: "proFeature7" },
+      { textKey: "proFeature8" },
     ],
   },
   {
     id: "enterprise",
     name: "Enterprise",
-    description:
-      "Institutional-grade intelligence for teams and funds.",
+    descriptionKey: "enterprisePlanDescription",
     monthlyPrice: 99,
     annualPrice: 69,
-    cta: "Contact sales",
+    ctaKey: "enterpriseCta",
     ctaVariant: "dark",
-    featuresLabel: "Everything in Pro, plus",
+    featuresLabelKey: "enterpriseFeaturesLabel",
     features: [
-      { text: "API access (500k calls/month)" },
-      { text: "Institutional dashboards" },
-      { text: "AI market prediction engine" },
-      { text: "AI-generated research reports" },
-      { text: "Sentiment analysis engine" },
-      { text: "Dedicated account manager" },
-      { text: "SSO & team seats (up to 20)" },
-      { text: "SLA & priority 24/7 support" },
+      { textKey: "enterpriseFeature1" },
+      { textKey: "enterpriseFeature2" },
+      { textKey: "enterpriseFeature3" },
+      { textKey: "enterpriseFeature4" },
+      { textKey: "enterpriseFeature5" },
+      { textKey: "enterpriseFeature6" },
+      { textKey: "enterpriseFeature7" },
+      { textKey: "enterpriseFeature8" },
     ],
   },
 ];
-
-const GUARANTEES = [
-  { icon: "ti-shield-check", label: "14-day money-back guarantee" },
-  { icon: "ti-lock", label: "No credit card for Free plan" },
-  { icon: "ti-refresh", label: "Cancel anytime" },
-  { icon: "ti-headset", label: "24/7 support" },
-];
-
-// ─── Sub-components ───────────────────────────────────────────────────────────
 
 function CheckIcon({ muted }: { muted?: boolean }) {
   return (
@@ -117,13 +103,7 @@ function CheckIcon({ muted }: { muted?: boolean }) {
   );
 }
 
-function PriceDisplay({
-  plan,
-  mode,
-}: {
-  plan: Plan;
-  mode: BillingMode;
-}) {
+function PriceDisplay({ plan, mode }: { plan: Plan; mode: BillingMode }) {
   const price = mode === "annual" ? plan.annualPrice : plan.monthlyPrice;
 
   if (price === null) {
@@ -160,18 +140,20 @@ function PriceDisplay({
 }
 
 function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
+  const { t } = useI18n();
+  
   return (
     <div
       className={`pricing-card${plan.popular ? " pricing-card--popular" : ""}`}
     >
       {plan.popular && (
-        <div className="pricing-popular-badge" aria-label="Most popular plan">
-          Most Popular
+        <div className="pricing-popular-badge" aria-label={t("mostPopular")}>
+          {t("mostPopular")}
         </div>
       )}
 
       <div className="pricing-plan-name">{plan.name}</div>
-      <p className="pricing-plan-desc">{plan.description}</p>
+      <p className="pricing-plan-desc">{t(plan.descriptionKey)}</p>
 
       <PriceDisplay plan={plan} mode={mode} />
 
@@ -182,12 +164,12 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
           /* navigate to signup / contact */
         }}
       >
-        {plan.cta}
+        {t(plan.ctaKey)}
       </button>
 
       <hr className="pricing-divider" />
 
-      <div className="pricing-features-label">{plan.featuresLabel}</div>
+      <div className="pricing-features-label">{t(plan.featuresLabelKey)}</div>
       <ul className="pricing-feature-list" role="list">
         {plan.features.map((f, i) => (
           <li
@@ -195,7 +177,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
             className={`pricing-feature-item${f.muted ? " pricing-feature-item--muted" : ""}`}
           >
             <CheckIcon muted={f.muted} />
-            <span>{f.text}</span>
+            <span>{t(f.textKey)}</span>
           </li>
         ))}
       </ul>
@@ -203,69 +185,71 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
   );
 }
 
-// ─── Main Component ───────────────────────────────────────────────────────────
-
 export default function Pricing() {
   const [mode, setMode] = useState<BillingMode>("monthly");
+  const { t } = useI18n();
 
   return (
     <section className="pricing-section" aria-labelledby="pricing-heading">
-      {/* Header */}
       <div className="pricing-header">
-        <span className="pricing-eyebrow">Pricing</span>
+        <span className="pricing-eyebrow">{t("pricing")}</span>
         <h2 id="pricing-heading" className="pricing-title">
-          Start free. Scale as you grow.
+          {t("pricingTitle")}
         </h2>
         <p className="pricing-subtitle">
-          Get real-time global markets data, analytics, and intelligence tools.
-          No hidden fees.
+          {t("pricingSubtitle")}
         </p>
 
-        {/* Billing toggle */}
-        <div className="pricing-billing-toggle" role="group" aria-label="Billing period">
+        <div className="pricing-billing-toggle" role="group" aria-label={t("billingPeriod")}>
           <button
             className={`pricing-toggle-btn${mode === "monthly" ? " pricing-toggle-btn--active" : ""}`}
             onClick={() => setMode("monthly")}
             aria-pressed={mode === "monthly"}
           >
-            Monthly
+            {t("monthly")}
           </button>
           <button
             className={`pricing-toggle-btn${mode === "annual" ? " pricing-toggle-btn--active" : ""}`}
             onClick={() => setMode("annual")}
             aria-pressed={mode === "annual"}
           >
-            Annual{" "}
-            <span className="pricing-save-badge">Save 30%</span>
+            {t("annual")}{" "}
+            <span className="pricing-save-badge">{t("save30Percent")}</span>
           </button>
         </div>
       </div>
 
-      {/* Cards */}
       <div className="pricing-grid">
         {PLANS.map((plan) => (
           <PlanCard key={plan.id} plan={plan} mode={mode} />
         ))}
       </div>
 
-      {/* Trust strip */}
-      <ul className="pricing-guarantee-strip" role="list">
-        {GUARANTEES.map((g, i) => (
-          <li key={i} className="pricing-guarantee-item">
-            <i className={`ti ${g.icon}`} aria-hidden="true" />
-            {g.label}
-          </li>
-        ))}
-      </ul>
+      <div className="pricing-guarantee-cards">
+        <div className="guarantee-card">
+          <div className="guarantee-icon">🛡️</div>
+          <div className="guarantee-text">{t("guaranteeMoneyBack")}</div>
+        </div>
+        <div className="guarantee-card">
+          <div className="guarantee-icon">🔒</div>
+          <div className="guarantee-text">{t("guaranteeNoCreditCard")}</div>
+        </div>
+        <div className="guarantee-card">
+          <div className="guarantee-icon">↻</div>
+          <div className="guarantee-text">{t("guaranteeCancelAnytime")}</div>
+        </div>
+        <div className="guarantee-card">
+          <div className="guarantee-icon">🎧</div>
+          <div className="guarantee-text">{t("guarantee247Support")}</div>
+        </div>
+      </div>
 
-      {/* Footer note */}
       <p className="pricing-footer-note">
-        Have questions?{" "}
-        <a href="/faq" className="pricing-link">Read the FAQ</a>
-        {" "}or{" "}
-        <a href="/contact" className="pricing-link">talk to our team</a>
-        . All plans include access to 150+ global exchanges, real-time forex,
-        commodities, and crypto data.
+        {t("pricingHaveQuestions")}{" "}
+        <a href="/faq" className="pricing-link">{t("pricingReadFaq")}</a>
+        {" "}{t("pricingOr")}{" "}
+        <a href="/contact" className="pricing-link">{t("pricingTalkToTeam")}</a>
+        . {t("pricingAllPlansInclude")}
       </p>
     </section>
   );

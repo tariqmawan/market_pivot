@@ -93,6 +93,9 @@ const buildMovers = (exchange: StockExchange, direction: "up" | "down" | "active
     };
   });
 
+const findExchangeById = (id: string | undefined) =>
+  exchanges.find((exchange) => exchange.id.toLowerCase() === id?.toLowerCase());
+
 const majorRates: Record<string, number> = {
   USD: 1,
   EUR: 0.92,
@@ -400,7 +403,7 @@ const StocksPage = () => {
           // index snapshot
           if (s.index) setIndexData(s.index);
           // movers — fallback to buildMovers agar DB mein nahi hain
-          const ex = exchRes.data ?? exchanges.find(e => e.id === id);
+          const ex = exchRes.data ?? findExchangeById(exchangeId);
           setGainers(s.gainers?.length   ? s.gainers   : ex ? buildMovers(ex, "up")     : []);
           setLosers(s.losers?.length     ? s.losers    : ex ? buildMovers(ex, "down")   : []);
           setMostActive(s.mostActive?.length ? s.mostActive : ex ? buildMovers(ex, "active") : []);
@@ -410,7 +413,7 @@ const StocksPage = () => {
       })
       .catch(() => {
         // API fail hone par JSON fallback
-        const ex = exchanges.find(e => e.id === id);
+        const ex = findExchangeById(exchangeId);
         if (ex) {
           setExchange(ex);
           setIndexData(buildIndexSnapshot(ex));
@@ -431,16 +434,25 @@ const StocksPage = () => {
       .catch(() => {}); // JSON fallback already set
   }, [exchangeId]);
 
-  if (exchangeId && (isLoading || exchange)) {
+  const exchangeFallback = exchange ?? findExchangeById(exchangeId);
+
+  if (exchangeId) {
+    if (exchangeFallback || isLoading) {
+      return (
+        <ExchangeDetail
+          exchange={exchangeFallback ?? exchanges[0]}
+          indexData={indexData ?? undefined}
+          gainers={gainers}
+          losers={losers}
+          mostActive={mostActive}
+          isLoading={isLoading || !exchangeFallback}
+        />
+      );
+    }
     return (
-      <ExchangeDetail
-        exchange={exchange ?? (exchanges.find(e => e.id === exchangeId.toLowerCase()) as StockExchange)}
-        indexData={indexData ?? undefined}
-        gainers={gainers}
-        losers={losers}
-        mostActive={mostActive}
-        isLoading={isLoading}
-      />
+      <div className="page">
+        <p>Exchange not found: {exchangeId}</p>
+      </div>
     );
   }
 
@@ -601,6 +613,61 @@ const CurrenciesPage = () => {
           );
         })}
       </div>
+    </div>
+  );
+};
+
+const CoveragePage = () => {
+  const { t } = useI18n();
+
+  return (
+    <div className="page intelligence-page">
+      <section className="coverage-hero">
+        <div>
+          <p className="eyebrow">{t("assetCoverage")}</p>
+          <h1>{t("intelligenceTitle")}</h1>
+          <p>{t("intelligenceCopy")}</p>
+        </div>
+        <div className="metric-strip">
+          <MetricTile label={t("equities")} value={String(exchanges.length)} />
+          <MetricTile label={t("fx")} value={String(currencies.length)} />
+          <MetricTile label={t("crypto")} value={String(cryptocurrencies.length)} />
+        </div>
+      </section>
+
+      <section className="asset-class-grid">
+        {assetCoverage.map((asset) => (
+          <Link to={asset.to} className="asset-class-card" key={asset.key}>
+            <span>{t(asset.key)}</span>
+            <strong>{asset.count}</strong>
+            <p>{t(asset.metaKey)}</p>
+          </Link>
+        ))}
+      </section>
+
+      <section className="dashboard-grid spotlight-grid">
+        <AssetCard
+          to="/indices"
+          eyebrow="Indices"
+          title="Market Indices"
+          meta="Global benchmark snapshots and index-level coverage"
+          metric="Live-style"
+        />
+        <AssetCard
+          to="/etfs"
+          eyebrow="ETFs"
+          title="ETF Coverage"
+          meta="Sector ETFs, allocation context, and fund coverage"
+          metric="Research"
+        />
+        <AssetCard
+          to="/bonds-yields"
+          eyebrow="Fixed Income"
+          title="Bonds & Yields"
+          meta="Yield curves, rates context, and macro coverage"
+          metric="Macro"
+        />
+      </section>
     </div>
   );
 };
@@ -1412,7 +1479,10 @@ const App: React.FC = () => {
             <Route path="stocks/watchlists" element={<UserPanelPage />} />
             <Route path="stocks/portfolio" element={<UserPanelPage />} />
             <Route path="stocks/alerts" element={<UserPanelPage />} />
+            <Route path="stocks/gainers" element={<PublicModulePage slug="stocks/gainers" eyebrow="Stocks" title="Top Gainers" />} />
+            <Route path="stocks/losers" element={<PublicModulePage slug="stocks/losers" eyebrow="Stocks" title="Top Losers" />} />
             <Route path="stocks/:exchangeId" element={<StocksPage />} />
+            <Route path="coverage" element={<CoveragePage />} />
             <Route path="currencies" element={<CurrenciesPage />} />
             <Route path="currencies/:code" element={<CurrenciesPage />} />
             <Route path="crypto" element={<CryptoPage />} />
@@ -1435,8 +1505,6 @@ const App: React.FC = () => {
             <Route path="exchanges/region/:regionId" element={<PublicModulePage slug="exchanges/region/americas" eyebrow="Exchanges" title="Exchange Region Explorer" />} />
             <Route path="forex" element={<CurrenciesPage />} />
             <Route path="forex/:code" element={<CurrenciesPage />} />
-            <Route path="stocks/gainers" element={<PublicModulePage slug="stocks/gainers" eyebrow="Stocks" title="Top Gainers" />} />
-            <Route path="stocks/losers" element={<PublicModulePage slug="stocks/losers" eyebrow="Stocks" title="Top Losers" />} />
             <Route path="crypto/trending" element={<PublicModulePage slug="crypto/trending" eyebrow="Crypto" title="Trending Coins" />} />
             <Route path="crypto/meme-coins" element={<PublicModulePage slug="crypto/meme-coins" eyebrow="Crypto" title="Meme Coins" />} />
             <Route path="crypto/defi" element={<PublicModulePage slug="crypto/defi" eyebrow="Crypto" title="DeFi Ecosystem" />} />
