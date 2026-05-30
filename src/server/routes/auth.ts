@@ -2,6 +2,7 @@ import { Router } from "express";
 import type { Request, Response } from "express";
 import type { Knex } from "knex";
 import bcrypt from "bcryptjs";
+import crypto from "crypto";
 import { sanitizeShortText } from "../security";
 import {
   generateAccessToken,
@@ -13,6 +14,8 @@ import {
   REFRESH_COOKIE_NAME,
 } from "../middleware/auth";
 import { resolveRegistrationRole, ROLES, type UserRole } from "../lib/roles";
+
+const resetTokens = new Map<string, { userId: number; email: string; expiresAt: number }>();
 
 function authUserDto(user: { id: number; name: string; email: string; role: string }) {
   return { id: user.id, name: user.name, email: user.email, role: user.role };
@@ -388,6 +391,79 @@ export function createRouter(db: Knex) {
       });
     } catch (error) {
       res.status(500).json({ success: false, error: "Password change failed", timestamp: new Date() });
+    }
+  });
+
+  // ── POST /api/auth/forgot-password ───────────────────────────────────────
+  router.post("/forgot-password", async (req: Request, res: Response) => {
+    try {
+      const email = sanitizeShortText(req.body?.email, 100).toLowerCase();
+
+      const user = await db("users").where({ email }).first();
+
+      if (!user) {
+        return res.json({
+          success: true,
+          data: { message: "Reset link sent" },
+          timestamp: new Date(),
+        });
+      }
+
+      const token = crypto.randomBytes(32).toString("hex");
+      resetTokens.set(token, { userId: user.id, email: user.email, expiresAt: Date.now() + 3600_000 });
+
+      const isDev = process.env.NODE_ENV !== "production";
+      const resetUrl = `http://localhost:5173/reset-password?token=${token}`;
+
+      return res.json({
+        success: true,
+        data: {
+          message: "Reset link sent",
+          ...(isDev ? { resetToken: token, resetUrl } : {}),
+        },
+        timestamp: new Date(),
+      });
+    } catch (error) {
+      console.error("Forgot-password error:", error);
+      res.status(500).json({ success: false, error: "Forgot password failed", timestamp: new Date() });
+    }
+  });
+
+  // ── POST /api/auth/reset-password ────────────────────────────────────────
+  router.post("/reset-password", async (req: Request, res: Response) => {
+    try {
+      const { token, newPassword } = req.body;
+
+      const stored = resetTokens.get(token);
+
+      if (!stored || Date.now() > stored.expiresAt) {
+        return res.status(400).json({
+          success: false, error: "Reset token invalid ya expire ho gaya", timestamp: new Date(),
+        });
+      }
+
+      if (!newPassword || newPassword.length < 8) {
+        return res.status(400).json({
+          success: false, error: "Password kam se kam 8 characters ka hona chahiye", timestamp: new Date(),
+        });
+      }
+
+      const hashed = await bcrypt.hash(newPassword, 12);
+
+      await db("users").where({ id: stored.userId }).update({ password: hashed });
+
+      await db("refresh_tokens").where({ userId: stored.userId }).update({ isRevoked: true });
+
+      resetTokens.delete(token);
+
+      return res.json({
+        success: true,
+        data: { message: "Password reset successful" },
+        timestamp: new Date(),
+      });
+    } catch (error) {
+      console.error("Reset-password error:", error);
+      res.status(500).json({ success: false, error: "Password reset failed", timestamp: new Date() });
     }
   });
 

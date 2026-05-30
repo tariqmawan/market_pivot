@@ -165,7 +165,8 @@ const Layout: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = React.useState<string>(() => {
     return getSelectedCategoryPath(path);
   });
-  const { t } = useI18n();
+  const { t: _t } = useI18n();
+  const t = _t as (key: string) => string | undefined;
 
   React.useEffect(() => {
     setSelectedCategory(getSelectedCategoryPath(path));
@@ -283,8 +284,8 @@ const Layout: React.FC = () => {
                 <div className="footer-column">
                   <h3>{t("legal")}</h3>
                   <Link to="/privacy">{t("privacyPolicy")}</Link>
-                  <Link to="/terms">{t("andTerms")}</Link>
-                  <Link to="/pricing">{t("billingPolicy")}</Link>
+                  <Link to="/terms">{t("terms")}</Link>
+                  <Link to="/billing-policy">{t("billingPolicy")}</Link>
                   <Link to="/about">{t("aboutMarket")}</Link>
                 </div>
 

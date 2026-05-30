@@ -7,7 +7,8 @@ export type Column<T> = {
   width?: string;
 };
 
-export default function DataTable<T extends Record<string, unknown>>({
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function DataTable<T extends Record<string, any>>({
   columns,
   rows,
   keyField = "id",

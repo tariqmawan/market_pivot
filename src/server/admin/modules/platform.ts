@@ -43,7 +43,7 @@ export function createPlatformRouter(db: Knex) {
           keyHash,
           rateLimit: Number(req.body.rateLimit) || 1000,
         })
-        .returning("id", "name", "keyPrefix", "rateLimit", "created_at");
+        .returning(["id", "name", "keyPrefix", "rateLimit", "created_at"]);
 
       await writeAuditLog(db, req, "api_key.create", "api_keys", row.id);
 

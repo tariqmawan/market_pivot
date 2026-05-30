@@ -19,6 +19,5 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/client", "src/types"],
-  "references": [{ "path": "./tsconfig.server.json" }]
+  "include": ["src/client", "src/types"]
 }

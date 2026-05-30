@@ -15,7 +15,7 @@ export default function AdminLayout() {
         <AdminHeader
           userName={user?.name ?? "Admin"}
           userEmail={user?.email}
-          onMenuToggle={() => setMobileOpen((o) => !o)}
+          onMobileToggle={() => setMobileOpen((o) => !o)}
           onLogout={() => void logout()}
         />
         <Outlet />

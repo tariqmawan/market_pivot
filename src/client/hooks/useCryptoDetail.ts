@@ -64,7 +64,7 @@ export function useCryptoDetail(cryptoId: string | undefined) {
       } else {
         setExchangeListings([]);
       }
-      if (newsRes.data?.length) setNews(newsRes.data);
+      if (newsRes.data?.length) setNews(newsRes.data as typeof news);
       else setNews([]);
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : "Failed to load cryptocurrency";
