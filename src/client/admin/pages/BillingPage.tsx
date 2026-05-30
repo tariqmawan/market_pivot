@@ -1,7 +1,18 @@
 import React from "react";
 import { adminGet } from "../api/client";
-import DataTable from "../components/ui/DataTable";
+import GlassCard from "../../components/admin/GlassCard";
 import PageHeader from "../components/ui/PageHeader";
+
+const C_GOLD = "#d1aa72";
+const C_MUTED = "rgba(248,250,252,0.55)";
+
+function Badge({ children, color = "rgba(16,185,129,0.15)", text = "#6ee7b7" }: { children: React.ReactNode; color?: string; text?: string }) {
+  return (
+    <span style={{ padding: "3px 10px", background: color, color: text, fontWeight: 800, fontSize: 11, border: `1px solid ${text}33` }}>
+      {children}
+    </span>
+  );
+}
 
 export default function BillingPage() {
   const [plans, setPlans] = React.useState<Record<string, unknown>[]>([]);
@@ -15,32 +26,131 @@ export default function BillingPage() {
           adminGet<Record<string, unknown>[]>("/billing/plans"),
           adminGet<Record<string, unknown>[]>("/billing/subscriptions"),
         ]);
-        setPlans(p.data);
-        setSubs(s.data);
-      } catch {
-        /* tables may be empty before seed */
-      } finally {
-        setLoading(false);
-      }
+        setPlans(Array.isArray(p.data) ? p.data : []);
+        setSubs(Array.isArray(s.data) ? s.data : []);
+      } catch { /* tables may be empty */ }
+      finally { setLoading(false); }
     })();
   }, []);
+
+  const totalMRR = subs.reduce((sum, s) => sum + (Number(s.priceMonthly) || 0), 0);
+  const activeSubs = subs.filter((s) => s.status === "active").length;
 
   return (
     <div className="mp-admin-content">
       <PageHeader title="Billing & Subscriptions" subtitle="Plans, active subscriptions, revenue lifecycle" />
-      <h3>Plans</h3>
-      <DataTable loading={loading} rows={plans} columns={[
-        { key: "name", label: "Plan" },
-        { key: "slug", label: "Slug" },
-        { key: "priceMonthly", label: "Monthly" },
-        { key: "isActive", label: "Active" },
-      ]} emptyMessage="No plans — run db:migrate and seed subscription plans" />
-      <h3 style={{ marginTop: 24 }}>Active subscriptions</h3>
-      <DataTable loading={loading} rows={subs} columns={[
-        { key: "email", label: "User" },
-        { key: "planName", label: "Plan" },
-        { key: "status", label: "Status" },
-      ]} />
+
+      {/* KPI strip */}
+      <section className="mp-admin-grid-4">
+        {[
+          { label: "Plans Available", value: loading ? "…" : String(plans.length) },
+          { label: "Active Subscriptions", value: loading ? "…" : String(activeSubs) },
+          { label: "Total Subscriptions", value: loading ? "…" : String(subs.length) },
+          { label: "MRR Estimate", value: loading ? "…" : `$${totalMRR.toFixed(2)}` },
+        ].map((kpi) => (
+          <GlassCard key={kpi.label}>
+            <span className="mp-admin-kpi-label">{kpi.label}</span>
+            <strong className="mp-admin-kpi-value" style={{ color: C_GOLD, fontSize: 26, display: "block", marginTop: 6 }}>
+              {kpi.value}
+            </strong>
+          </GlassCard>
+        ))}
+      </section>
+
+      {/* Plans */}
+      <GlassCard style={{ marginTop: 18 }}>
+        <div className="mp-admin-card-head">
+          <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>Subscription Plans</h3>
+          <span className="mp-admin-muted">{plans.length} plans configured</span>
+        </div>
+
+        {loading ? (
+          <p className="mp-admin-muted">Loading…</p>
+        ) : plans.length === 0 ? (
+          <div style={{ padding: "24px 0", textAlign: "center" }}>
+            <p className="mp-admin-muted" style={{ marginBottom: 12 }}>No plans found — run <code style={{ background: "rgba(255,255,255,0.08)", padding: "2px 6px" }}>npm run db:seed</code> to seed subscription plans.</p>
+          </div>
+        ) : (
+          <div className="mp-admin-table-wrap">
+            <table className="mp-admin-table">
+              <thead>
+                <tr>
+                  {["Plan", "Slug", "Monthly", "Annual", "Status"].map((h) => (
+                    <th key={h}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {plans.map((plan, i) => (
+                  <tr key={i}>
+                    <td style={{ fontWeight: 900 }}>{String(plan.name ?? "—")}</td>
+                    <td><code style={{ background: "rgba(255,255,255,0.06)", padding: "2px 6px", fontSize: 11 }}>{String(plan.slug ?? "—")}</code></td>
+                    <td style={{ color: C_GOLD, fontWeight: 900 }}>${String(plan.priceMonthly ?? "0")}</td>
+                    <td style={{ color: C_GOLD }}>${String(plan.priceAnnual ?? "0")}</td>
+                    <td>
+                      {plan.isActive
+                        ? <Badge>Active</Badge>
+                        : <Badge color="rgba(239,68,68,0.12)" text="#ff7070">Inactive</Badge>}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </GlassCard>
+
+      {/* Subscriptions */}
+      <GlassCard style={{ marginTop: 14 }}>
+        <div className="mp-admin-card-head">
+          <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>Active Subscriptions</h3>
+          <span className="mp-admin-muted">{subs.length} total</span>
+        </div>
+
+        {loading ? (
+          <p className="mp-admin-muted">Loading…</p>
+        ) : subs.length === 0 ? (
+          <div style={{ padding: "24px 0", textAlign: "center" }}>
+            <p className="mp-admin-muted">No subscriptions yet. Users will appear here after subscribing.</p>
+          </div>
+        ) : (
+          <div className="mp-admin-table-wrap">
+            <table className="mp-admin-table">
+              <thead>
+                <tr>
+                  {["User", "Plan", "Status", "Started", "Renews"].map((h) => (
+                    <th key={h}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {subs.map((sub, i) => {
+                  const status = String(sub.status ?? "");
+                  return (
+                    <tr key={i}>
+                      <td>{String(sub.email ?? sub.userId ?? "—")}</td>
+                      <td style={{ color: C_GOLD, fontWeight: 800 }}>{String(sub.planName ?? sub.plan ?? "—")}</td>
+                      <td>
+                        {status === "active"
+                          ? <Badge>Active</Badge>
+                          : status === "cancelled"
+                            ? <Badge color="rgba(239,68,68,0.12)" text="#ff7070">Cancelled</Badge>
+                            : <Badge color="rgba(234,179,8,0.12)" text="#fbbf24">{status || "Unknown"}</Badge>}
+                      </td>
+                      <td style={{ color: C_MUTED, fontSize: 12 }}>
+                        {sub.startedAt ? new Date(String(sub.startedAt)).toLocaleDateString() : "—"}
+                      </td>
+                      <td style={{ color: C_MUTED, fontSize: 12 }}>
+                        {sub.currentPeriodEnd ? new Date(String(sub.currentPeriodEnd)).toLocaleDateString() : "—"}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </GlassCard>
     </div>
   );
 }

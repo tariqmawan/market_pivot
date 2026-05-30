@@ -105,20 +105,26 @@ export const NAMESPACES = [
 
 export type Namespace = typeof NAMESPACES[number];
 
+// Cast resources to prevent react-i18next from generating overly-strict key types.
+// Keys are validated at runtime via translations; strict compile-time key checking
+// breaks when keys span multiple namespaces or are added incrementally.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const i18nResources: any = {
+  en: { common: enCommon, auth: enAuth, nav: enNav, markets: enMarkets, forex: enForex, crypto: enCrypto, dashboard: enDashboard, footer: enFooter, admin: enAdmin },
+  ar: { common: arCommon, auth: arAuth, nav: arNav, markets: arMarkets, forex: arForex, crypto: arCrypto, dashboard: arDashboard, footer: arFooter, admin: arAdmin },
+  zh: { common: zhCommon, auth: zhAuth, nav: zhNav, markets: zhMarkets, forex: zhForex, crypto: zhCrypto, dashboard: zhDashboard, footer: zhFooter, admin: zhAdmin },
+  fr: { common: frCommon, auth: frAuth, nav: frNav, markets: frMarkets, forex: frForex, crypto: frCrypto, dashboard: frDashboard, footer: frFooter, admin: frAdmin },
+  pt: { common: ptCommon, auth: ptAuth, nav: ptNav, markets: ptMarkets, forex: ptForex, crypto: ptCrypto, dashboard: ptDashboard, footer: ptFooter, admin: ptAdmin },
+  ru: { common: ruCommon, auth: ruAuth, nav: ruNav, markets: ruMarkets, forex: ruForex, crypto: ruCrypto, dashboard: ruDashboard, footer: ruFooter, admin: ruAdmin },
+  ja: { common: jaCommon, auth: jaAuth, nav: jaNav, markets: jaMarkets, forex: jaForex, crypto: jaCrypto, dashboard: jaDashboard, footer: jaFooter, admin: jaAdmin },
+  ko: { common: koCommon, auth: koAuth, nav: koNav, markets: koMarkets, forex: koForex, crypto: koCrypto, dashboard: koDashboard, footer: koFooter, admin: koAdmin },
+};
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    resources: {
-      en: { common: enCommon, auth: enAuth, nav: enNav, markets: enMarkets, forex: enForex, crypto: enCrypto, dashboard: enDashboard, footer: enFooter, admin: enAdmin },
-      ar: { common: arCommon, auth: arAuth, nav: arNav, markets: arMarkets, forex: arForex, crypto: arCrypto, dashboard: arDashboard, footer: arFooter, admin: arAdmin },
-      zh: { common: zhCommon, auth: zhAuth, nav: zhNav, markets: zhMarkets, forex: zhForex, crypto: zhCrypto, dashboard: zhDashboard, footer: zhFooter, admin: zhAdmin },
-      fr: { common: frCommon, auth: frAuth, nav: frNav, markets: frMarkets, forex: frForex, crypto: frCrypto, dashboard: frDashboard, footer: frFooter, admin: frAdmin },
-      pt: { common: ptCommon, auth: ptAuth, nav: ptNav, markets: ptMarkets, forex: ptForex, crypto: ptCrypto, dashboard: ptDashboard, footer: ptFooter, admin: ptAdmin },
-      ru: { common: ruCommon, auth: ruAuth, nav: ruNav, markets: ruMarkets, forex: ruForex, crypto: ruCrypto, dashboard: ruDashboard, footer: ruFooter, admin: ruAdmin },
-      ja: { common: jaCommon, auth: jaAuth, nav: jaNav, markets: jaMarkets, forex: jaForex, crypto: jaCrypto, dashboard: jaDashboard, footer: jaFooter, admin: jaAdmin },
-      ko: { common: koCommon, auth: koAuth, nav: koNav, markets: koMarkets, forex: koForex, crypto: koCrypto, dashboard: koDashboard, footer: koFooter, admin: koAdmin },
-    },
+    resources: i18nResources,
     defaultNS: "common",
     fallbackNS: NAMESPACES.filter((namespace) => namespace !== "common"),
     fallbackLng: "en",

@@ -2,17 +2,82 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MarketsPivot - Bloomberg-Style Financial Markets Platform</title>
-    <meta
-      name="description"
-      content="Comprehensive financial market platform covering stock exchanges, currencies, and cryptocurrencies globally."
-    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary Meta -->
+    <title>MarketsPivot — Global Market Intelligence Platform</title>
+    <meta name="description" content="Real-time data on stocks, forex, crypto, commodities, and more. Bloomberg-style financial intelligence for everyone." />
+    <meta name="keywords" content="stock market, forex, cryptocurrency, commodities, financial data, market intelligence, trading" />
+    <meta name="author" content="MarketsPivot" />
+    <meta name="theme-color" content="#C9A87B" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://marketspivot.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MarketsPivot" />
+    <meta property="og:title" content="MarketsPivot — Global Market Intelligence Platform" />
+    <meta property="og:description" content="Real-time data on stocks, forex, crypto, commodities, and more. Bloomberg-style financial intelligence for everyone." />
+    <meta property="og:url" content="https://marketspivot.com/" />
+    <meta property="og:image" content="https://marketspivot.com/logos/marketpivot.jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MarketsPivot — Global Market Intelligence Platform" />
+    <meta name="twitter:description" content="Real-time data on stocks, forex, crypto, commodities, and more." />
+    <meta name="twitter:image" content="https://marketspivot.com/logos/marketpivot.jpeg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- Performance hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="//localhost:3000" />
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "MarketsPivot",
+      "url": "https://marketspivot.com",
+      "logo": "https://marketspivot.com/logos/marketpivot.jpeg",
+      "description": "Bloomberg-style financial market intelligence platform covering stocks, forex, crypto, and commodities.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "support@marketspivot.example",
+        "contactType": "customer support"
+      },
+      "sameAs": [
+        "https://twitter.com/marketspivot",
+        "https://linkedin.com/company/marketspivot"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: WebSite with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "MarketsPivot",
+      "url": "https://marketspivot.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://marketspivot.com/screener?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/client/main.tsx"></script>
-    <!-- Chart.js loaded via npm package; CDN removed -->
   </body>
 </html>

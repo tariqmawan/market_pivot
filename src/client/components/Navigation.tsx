@@ -194,7 +194,8 @@ const Navigation: React.FC<NavigationProps> = ({
   onParentActivate,
 }) => {
   const location = useLocation();
-  const { t } = useI18n();
+  const { t: _t } = useI18n();
+  const t = _t as (key: string) => string | undefined;
   const [expandedMenus, setExpandedMenus] = useState<Record<string, boolean>>(() => {
     const initial: Record<string, boolean> = {};
     navigationItems.forEach((item) => {

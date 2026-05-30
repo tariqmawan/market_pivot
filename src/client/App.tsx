@@ -6,10 +6,10 @@ import currenciesData from "../data/currencies.json";
 import cryptoData from "../data/cryptocurrencies.json";
 import regionsData from "../data/regions.json";
 import sectorsData from "../data/sectors.json";
-import IndicesPage from "./pages/IndicesPage";
-import EtfsPage from "./pages/EtfsPage";
-import BondsYieldsPage from "./pages/BondsYieldsPage";
-import Pricing from "./pages/Pricing";
+const IndicesPage     = React.lazy(() => import("./pages/IndicesPage"));
+const EtfsPage        = React.lazy(() => import("./pages/EtfsPage"));
+const BondsYieldsPage = React.lazy(() => import("./pages/BondsYieldsPage"));
+const Pricing         = React.lazy(() => import("./pages/Pricing"));
 import type {
   Commodity,
   CryptoPrice,
@@ -35,15 +35,17 @@ import { I18nProvider, useI18n } from "./i18n";
 import { useAuthStore } from "./stores/authStore";
 import "./styles/index.css";
 import "./styles/rtl.css";
-import AdminPanel from "./pages/AdminPanel";
-import AdminLogin from "./pages/AdminLogin";
-import NewsPage from "./pages/News";
-import ArticlePage from "./pages/Article";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
-import AboutMarketsPivot from "./pages/AboutMarketsPivot";
-import Screener from "./pages/Screener";
-import EconomicCalendar from "./pages/EconomicCalendar";
+const AdminPanel        = React.lazy(() => import("./pages/AdminPanel"));
+const AdminLogin        = React.lazy(() => import("./pages/AdminLogin"));
+const AdminApp          = React.lazy(() => import("./admin/AdminApp"));
+const NewsPage          = React.lazy(() => import("./pages/News"));
+const ArticlePage       = React.lazy(() => import("./pages/Article"));
+const PrivacyPolicy     = React.lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService    = React.lazy(() => import("./pages/TermsOfService"));
+const AboutMarketsPivot = React.lazy(() => import("./pages/AboutMarketsPivot"));
+const BillingPolicy     = React.lazy(() => import("./pages/BillingPolicy"));
+const Screener          = React.lazy(() => import("./pages/Screener"));
+const EconomicCalendar  = React.lazy(() => import("./pages/EconomicCalendar"));
 
 
 const exchanges = exchangesData.exchanges as StockExchange[];
@@ -1458,7 +1460,14 @@ const UserPanelPage = () => {
   );
 };
 
-import AdminApp from "./admin/AdminApp";
+function PageLoader() {
+  return (
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "60vh" }}>
+      <div style={{ width: 36, height: 36, border: "3px solid #e5e7eb", borderTopColor: "#C9A87B", borderRadius: "50%", animation: "mp-spin 0.7s linear infinite" }} />
+      <style>{`@keyframes mp-spin{to{transform:rotate(360deg)}}`}</style>
+    </div>
+  );
+}
 
 const App: React.FC = () => {
   const { isAuthenticated, user } = useAuthStore();
@@ -1471,6 +1480,7 @@ const App: React.FC = () => {
           v7_relativeSplatPath: true,
         }}
       >
+        <React.Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<Layout />}> 
             <Route index element={<HomePage />} />
@@ -1528,6 +1538,7 @@ const App: React.FC = () => {
             <Route path="news/:id" element={<ArticlePage />} />
             <Route path="privacy" element={<PrivacyPolicy />} />
             <Route path="terms" element={<TermsOfService />} />
+            <Route path="billing-policy" element={<BillingPolicy />} />
             <Route path="about" element={<AboutMarketsPivot />} />
 
             <Route path="screener" element={<Screener />} />
@@ -1540,6 +1551,7 @@ const App: React.FC = () => {
           <Route path="/admin/*" element={<AdminApp />} />
           <Route path="/admin/login" element={<AdminLogin />} />
         </Routes>
+        </React.Suspense>
       </Router>
     </I18nProvider>
   );
