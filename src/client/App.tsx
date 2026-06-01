@@ -33,6 +33,7 @@ import ExchangeDetail from "./components/ExchangeDetail";
 import Layout from "./components/Layout";
 import { I18nProvider, useI18n } from "./i18n";
 import { useAuthStore } from "./stores/authStore";
+import SubMenuNav from "./components/SubMenuNav";
 import "./styles/index.css";
 import "./styles/rtl.css";
 const AdminPanel        = React.lazy(() => import("./pages/AdminPanel"));
@@ -46,6 +47,14 @@ const AboutMarketsPivot = React.lazy(() => import("./pages/AboutMarketsPivot"));
 const BillingPolicy     = React.lazy(() => import("./pages/BillingPolicy"));
 const Screener          = React.lazy(() => import("./pages/Screener"));
 const EconomicCalendar  = React.lazy(() => import("./pages/EconomicCalendar"));
+const HeatmapsPage      = React.lazy(() => import("./pages/HeatmapsPage"));
+const PreMarketPage     = React.lazy(() => import("./pages/PreMarketPage"));
+const AfterHoursPage    = React.lazy(() => import("./pages/AfterHoursPage"));
+const MoversPage        = React.lazy(() => import("./pages/MoversPage"));
+const VolatilityIndexPage = React.lazy(() => import("./pages/VolatilityIndexPage"));
+const TrendingCoinsPage = React.lazy(() => import("./pages/TrendingCoinsPage"));
+const CryptoCategoryPage = React.lazy(() => import("./pages/CryptoCategoryPage"));
+const CategoryPage      = React.lazy(() => import("./pages/CategoryPage"));
 
 
 const exchanges = exchangesData.exchanges as StockExchange[];
@@ -377,6 +386,8 @@ const API_BASE = "http://localhost:3000/api";
 const StocksPage = () => {
   const { exchangeId } = useParams();
   const { t } = useI18n();
+  const location = useLocation();
+  const isExchangesPath = location.pathname.startsWith("/exchanges");
 
   // Exchange list — pehle JSON se, phir DB se
   const [allExchanges, setAllExchanges] = React.useState<StockExchange[]>(exchanges);
@@ -459,25 +470,134 @@ const StocksPage = () => {
   }
 
   return (
-    <div className="page">
-      <div className="section-heading">
-        <p className="eyebrow">{t("equities")}</p>
-        <h1>{t("topGlobalExchanges")}</h1>
-        <p>{t("exchangeIntro")}</p>
+    <>
+      {isExchangesPath ? (
+        <SubMenuNav
+          title="Exchange Network"
+          items={[
+            { label: "All Exchanges", path: "/exchanges" },
+            { label: "Americas", path: "/exchanges/region/americas" },
+            { label: "Europe", path: "/exchanges/region/europe" },
+            { label: "Asia Pacific", path: "/exchanges/region/asia-pacific" },
+            { label: "Middle East & Africa", path: "/exchanges/region/middle-east-africa" },
+            { label: "Latin America", path: "/exchanges/region/latin-america" },
+          ]}
+        />
+      ) : (
+        <SubMenuNav
+          title="Stock Exchanges"
+          items={[
+            { label: "All Exchanges", path: "/stocks" },
+            { label: "Top Gainers", path: "/stocks/gainers" },
+            { label: "Top Losers", path: "/stocks/losers" },
+            { label: "Market Movers", path: "/markets/movers" },
+            { label: "Advanced Screener", path: "/screener" },
+          ]}
+        />
+      )}
+      <div className="page">
+        <div className="section-heading">
+          <p className="eyebrow">{isExchangesPath ? "Exchange Network" : t("equities")}</p>
+          <h1>{t("topGlobalExchanges")}</h1>
+          <p>{t("exchangeIntro")}</p>
+        </div>
+        <div className="asset-grid">
+          {allExchanges.map((item) => (
+            <AssetCard
+              key={item.id}
+              to={`/stocks/${item.id}`}
+              eyebrow={`${item.country} / ${item.currency}`}
+              title={item.name}
+              meta={`${item.mainIndexName} / ${item.tradingHours?.open ?? "09:00"}-${item.tradingHours?.close ?? "17:00"}`}
+              metric={formatMoney(item.marketCap)}
+            />
+          ))}
+        </div>
       </div>
-      <div className="asset-grid">
-        {allExchanges.map((item) => (
-          <AssetCard
-            key={item.id}
-            to={`/stocks/${item.id}`}
-            eyebrow={`${item.country} / ${item.currency}`}
-            title={item.name}
-            meta={`${item.mainIndexName} / ${item.tradingHours?.open ?? "09:00"}-${item.tradingHours?.close ?? "17:00"}`}
-            metric={formatMoney(item.marketCap)}
-          />
-        ))}
+    </>
+  );
+};
+
+const EXCHANGE_REGION_MAP: Record<string, string[]> = {
+  americas: ["North America", "Latin America"],
+  "north-america": ["North America"],
+  europe: ["Europe"],
+  asia: ["Asia"],
+  "asia-pacific": ["Asia", "Oceania"],
+  oceania: ["Oceania"],
+  "middle-east": ["Middle East"],
+  africa: ["Africa"],
+  "middle-east-africa": ["Middle East", "Africa"],
+  "latin-america": ["Latin America"],
+};
+
+const EXCHANGE_REGION_LABEL: Record<string, string> = {
+  americas: "Americas",
+  "north-america": "North America",
+  europe: "Europe",
+  asia: "Asia",
+  "asia-pacific": "Asia Pacific",
+  oceania: "Oceania",
+  "middle-east": "Middle East",
+  africa: "Africa",
+  "middle-east-africa": "Middle East & Africa",
+  "latin-america": "Latin America",
+};
+
+const EXCHANGE_REGION_SUBMENU = [
+  { label: "All Exchanges", path: "/exchanges" },
+  { label: "Americas", path: "/exchanges/region/americas" },
+  { label: "Europe", path: "/exchanges/region/europe" },
+  { label: "Asia Pacific", path: "/exchanges/region/asia-pacific" },
+  { label: "Middle East & Africa", path: "/exchanges/region/middle-east-africa" },
+  { label: "Latin America", path: "/exchanges/region/latin-america" },
+];
+
+const ExchangesByRegionPage = () => {
+  const { regionId } = useParams();
+  const [allExchanges, setAllExchanges] = React.useState<StockExchange[]>(exchanges);
+
+  React.useEffect(() => {
+    fetch(`${API_BASE}/exchanges?limit=50`)
+      .then((r) => r.json())
+      .then((res) => { if (res.success && res.data?.length) setAllExchanges(res.data); })
+      .catch(() => {});
+  }, []);
+
+  const key = regionId?.toLowerCase() ?? "";
+  const dataRegions = EXCHANGE_REGION_MAP[key] ?? [];
+  const filtered = dataRegions.length
+    ? allExchanges.filter((ex) => dataRegions.includes(ex.region))
+    : allExchanges;
+  const label = EXCHANGE_REGION_LABEL[key] ?? "All Regions";
+
+  return (
+    <>
+      <SubMenuNav title="Exchange Network" items={EXCHANGE_REGION_SUBMENU} />
+      <div className="page">
+        <div className="section-heading">
+          <p className="eyebrow">Exchange Network</p>
+          <h1>{label} Exchanges</h1>
+          <p>Regional exchange dashboards — currency, timezone, trading hours, listed companies, main index, and market cap.</p>
+        </div>
+        {filtered.length > 0 ? (
+          <div className="asset-grid">
+            {filtered.map((item) => (
+              <AssetCard
+                key={item.id}
+                to={`/stocks/${item.id}`}
+                eyebrow={`${item.country} / ${item.currency}`}
+                title={item.name}
+                meta={`${item.mainIndexName} / ${item.tradingHours?.open ?? "09:00"}-${item.tradingHours?.close ?? "17:00"}`}
+                metric={formatMoney(item.marketCap)}
+              />
+            ))}
+          </div>
+        ) : (
+          <p style={{ color: "#7a8c99", marginTop: "24px" }}>No exchanges found for this region.</p>
+        )}
       </div>
-    </div>
+    </>
   );
 };
 
@@ -762,29 +882,42 @@ const CryptoPage = () => {
 
   // ── List page render ────────────────────────────────────────────────────
   return (
-    <div className="page">
-      <div className="section-heading">
-        <p className="eyebrow">{t("crypto")}</p>
-        <h1>{t("topCryptos")}</h1>
-        <p>{t("cryptoIntro")}</p>
+    <>
+      <SubMenuNav
+        title="Cryptocurrency Categories"
+        items={[
+          { label: "📊 All Cryptocurrencies", path: "/crypto" },
+          { label: "🔥 Trending", path: "/crypto/trending" },
+          { label: "🎭 Meme Coins", path: "/crypto/meme-coins" },
+          { label: "💰 DeFi", path: "/crypto/defi" },
+          { label: "⛓️ Layer 1", path: "/crypto/layer-1" },
+          { label: "💵 Stablecoins", path: "/crypto/stablecoins" },
+        ]}
+      />
+      <div className="page">
+        <div className="section-heading">
+          <p className="eyebrow">{t("crypto")}</p>
+          <h1>{t("topCryptos")}</h1>
+          <p>{t("cryptoIntro")}</p>
+        </div>
+        <div className="asset-grid compact">
+          {allCryptos.map((item, index) => {
+            const live  = livePrices[item.id];
+            const price = live ?? getCryptoPrice(item, index);
+            return (
+              <AssetCard
+                key={item.id}
+                to={`/crypto/${item.id}`}
+                eyebrow={item.category}
+                title={`${item.name} (${item.symbol})`}
+                meta={`Rank #${price.rank} / ${item.consensusMechanism}`}
+                metric={`${formatMoney(price.marketCap)} market cap`}
+              />
+            );
+          })}
+        </div>
       </div>
-      <div className="asset-grid compact">
-        {allCryptos.map((item, index) => {
-          const live  = livePrices[item.id];
-          const price = live ?? getCryptoPrice(item, index);
-          return (
-            <AssetCard
-              key={item.id}
-              to={`/crypto/${item.id}`}
-              eyebrow={item.category}
-              title={`${item.name} (${item.symbol})`}
-              meta={`Rank #${price.rank} / ${item.consensusMechanism}`}
-              metric={`${formatMoney(price.marketCap)} market cap`}
-            />
-          );
-        })}
-      </div>
-    </div>
+    </>
   );
 };
 
@@ -1196,25 +1329,37 @@ const CommoditiesPage = () => {
   }
 
   return (
-    <div className="page intelligence-page">
-      <div className="section-heading">
-        <p className="eyebrow">Commodities</p>
-        <h1>Energy, Metals, Agriculture & Industrial Inputs</h1>
-        <p>Spot prices, futures references, supply regions, demand trends, currency correlations, and macro impact.</p>
+    <>
+      <SubMenuNav
+        title="Commodity Categories"
+        items={[
+          { label: "📊 All Commodities", path: "/commodities" },
+          { label: "⚡ Energy", path: "/commodities/energy" },
+          { label: "💎 Metals", path: "/commodities/metals" },
+          { label: "🌾 Agriculture", path: "/commodities/agriculture" },
+          { label: "🏭 Industrial", path: "/commodities/industrial" },
+        ]}
+      />
+      <div className="page intelligence-page">
+        <div className="section-heading">
+          <p className="eyebrow">Commodities</p>
+          <h1>Energy, Metals, Agriculture & Industrial Inputs</h1>
+          <p>Spot prices, futures references, supply regions, demand trends, currency correlations, and macro impact.</p>
+        </div>
+        <div className="asset-grid compact">
+          {commodities.map((item) => (
+            <AssetCard
+              key={item.id}
+              to={`/commodities/${item.id}`}
+              eyebrow={item.category}
+              title={`${item.name} (${item.symbol})`}
+              meta={`${item.futuresContract} / ${item.supplyRegions.join(", ")}`}
+              metric={`${formatMoney(item.spotPrice)} / ${item.unit} (${formatSignedPercent(item.changePercent24h)})`}
+            />
+          ))}
+        </div>
       </div>
-      <div className="asset-grid compact">
-        {commodities.map((item) => (
-          <AssetCard
-            key={item.id}
-            to={`/commodities/${item.id}`}
-            eyebrow={item.category}
-            title={`${item.name} (${item.symbol})`}
-            meta={`${item.futuresContract} / ${item.supplyRegions.join(", ")}`}
-            metric={`${formatMoney(item.spotPrice)} / ${item.unit} (${formatSignedPercent(item.changePercent24h)})`}
-          />
-        ))}
-      </div>
-    </div>
+    </>
   );
 };
 
@@ -1506,24 +1651,24 @@ const App: React.FC = () => {
             <Route path="dashboard" element={<DashboardPage />} />
             <Route path="markets" element={<DashboardPage />} />
             <Route path="markets/global-overview" element={<DashboardPage />} />
-            <Route path="markets/pre-market" element={<PublicModulePage slug="markets/pre-market" eyebrow="Markets" />} />
-            <Route path="markets/after-hours" element={<PublicModulePage slug="markets/after-hours" eyebrow="Markets" />} />
-            <Route path="markets/heatmaps" element={<PublicModulePage slug="markets/heatmaps" eyebrow="Markets" />} />
-            <Route path="markets/movers" element={<PublicModulePage slug="markets/movers" eyebrow="Markets" title="Market Movers" />} />
-            <Route path="markets/volatility-index" element={<PublicModulePage slug="markets/volatility-index" eyebrow="Markets" />} />
+            <Route path="markets/pre-market" element={<PreMarketPage />} />
+            <Route path="markets/after-hours" element={<AfterHoursPage />} />
+            <Route path="markets/heatmaps" element={<HeatmapsPage />} />
+            <Route path="markets/movers" element={<MoversPage />} />
+            <Route path="markets/volatility-index" element={<VolatilityIndexPage />} />
             <Route path="exchanges" element={<StocksPage />} />
-            <Route path="exchanges/region/:regionId" element={<PublicModulePage slug="exchanges/region/americas" eyebrow="Exchanges" title="Exchange Region Explorer" />} />
+            <Route path="exchanges/region/:regionId" element={<ExchangesByRegionPage />} />
             <Route path="forex" element={<CurrenciesPage />} />
             <Route path="forex/:code" element={<CurrenciesPage />} />
-            <Route path="crypto/trending" element={<PublicModulePage slug="crypto/trending" eyebrow="Crypto" title="Trending Coins" />} />
-            <Route path="crypto/meme-coins" element={<PublicModulePage slug="crypto/meme-coins" eyebrow="Crypto" title="Meme Coins" />} />
-            <Route path="crypto/defi" element={<PublicModulePage slug="crypto/defi" eyebrow="Crypto" title="DeFi Ecosystem" />} />
-            <Route path="crypto/layer-1" element={<PublicModulePage slug="crypto/layer-1" eyebrow="Crypto" title="Layer 1" />} />
-            <Route path="crypto/stablecoins" element={<PublicModulePage slug="crypto/stablecoins" eyebrow="Crypto" title="Stablecoins" />} />
-            <Route path="commodities/energy" element={<PublicModulePage slug="commodities/energy" eyebrow="Commodities" title="Energy" />} />
-            <Route path="commodities/metals" element={<PublicModulePage slug="commodities/metals" eyebrow="Commodities" title="Metals" />} />
-            <Route path="commodities/agriculture" element={<PublicModulePage slug="commodities/agriculture" eyebrow="Commodities" title="Agriculture" />} />
-            <Route path="commodities/industrial" element={<PublicModulePage slug="commodities/industrial" eyebrow="Commodities" title="Industrial" />} />
+            <Route path="crypto/trending" element={<TrendingCoinsPage />} />
+            <Route path="crypto/meme-coins" element={<CryptoCategoryPage />} />
+            <Route path="crypto/defi" element={<CryptoCategoryPage />} />
+            <Route path="crypto/layer-1" element={<CryptoCategoryPage />} />
+            <Route path="crypto/stablecoins" element={<CryptoCategoryPage />} />
+            <Route path="commodities/energy" element={<CategoryPage />} />
+            <Route path="commodities/metals" element={<CategoryPage />} />
+            <Route path="commodities/agriculture" element={<CategoryPage />} />
+            <Route path="commodities/industrial" element={<CategoryPage />} />
 
             <Route path="indices" element={<IndicesPage />} />
             <Route path="etfs" element={<EtfsPage />} />
@@ -1531,10 +1676,10 @@ const App: React.FC = () => {
 
             <Route path="pricing" element={<Pricing />} />
             <Route path="news" element={<NewsPage />} />
-            <Route path="news/regions" element={<PublicModulePage slug="news/regions" eyebrow="News" title="Region-wise News" />} />
-            <Route path="news/sectors" element={<PublicModulePage slug="news/sectors" eyebrow="News" title="Sector-wise News" />} />
-            <Route path="news/crypto" element={<PublicModulePage slug="news/crypto" eyebrow="News" title="Crypto News" />} />
-            <Route path="news/alerts" element={<PublicModulePage slug="news/alerts" eyebrow="News" title="Market Alerts" />} />
+            <Route path="news/regions" element={<CategoryPage />} />
+            <Route path="news/sectors" element={<CategoryPage />} />
+            <Route path="news/crypto" element={<CategoryPage />} />
+            <Route path="news/alerts" element={<CategoryPage />} />
             <Route path="news/:id" element={<ArticlePage />} />
             <Route path="privacy" element={<PrivacyPolicy />} />
             <Route path="terms" element={<TermsOfService />} />

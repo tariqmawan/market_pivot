@@ -138,23 +138,23 @@ const submenuPanels: Record<string, SubmenuPanelData> = {
         ],
       },
       {
-        title: "Explore",
+        title: "Explore by region",
         links: [
-          { label: "By Region", path: "/exchanges/region/americas" },
           { label: "All Exchanges", path: "/exchanges" },
-          { label: "Americas", path: "/regions/americas" },
-          { label: "Asia Pacific", path: "/regions/asia-pacific" },
+          { label: "Americas", path: "/exchanges/region/americas" },
+          { label: "Europe", path: "/exchanges/region/europe" },
+          { label: "Asia Pacific", path: "/exchanges/region/asia-pacific" },
         ],
       },
     ],
     featured: [
       { label: "NYSE", path: "/stocks/NYSE" },
       { label: "NASDAQ", path: "/stocks/NASDAQ" },
-      { label: "Regional Explorer", path: "/exchanges/region/americas" },
+      { label: "London Stock Exchange", path: "/stocks/LSE" },
     ],
     recent: [
-      { label: "NASDAQ", path: "/stocks/NASDAQ" },
-      { label: "NYSE", path: "/stocks/NYSE" },
+      { label: "Americas", path: "/exchanges/region/americas" },
+      { label: "Asia Pacific", path: "/exchanges/region/asia-pacific" },
     ],
   },
   "/stocks": {
