@@ -31,309 +31,376 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
   >("overview");
   const [convertAmount, setConvertAmount] = React.useState<string>("1");
   const [convertTo, setConvertTo] = React.useState<string>("USD");
+  const [imageError, setImageError] = React.useState(false);
 
   return (
-    <div className="currency-detail">
-      {/* 1. Currency Overview Header */}
-      <section className="overview-header">
-        <div className="currency-info">
-          <div className="currency-header">
-            <img src={currency.logo} alt={currency.name} className="logo" />
-            <div className="info">
-              <h1>{currency.name}</h1>
-              <p className="code">{currency.symbol} ({currency.code})</p>
-              <p className="country">
-                {currency.country} • {currency.region}
-              </p>
-              <p className="description">{currency.description}</p>
-            </div>
-          </div>
-
-          <div className="key-metrics">
-            <div className="metric">
-              <label>{t("currencyType")}</label>
-              <p className="value">{currency.type}</p>
-            </div>
-            <div className="metric">
-              <label>{t("centralBank")}</label>
-              <p className="value">{currency.centralBank}</p>
-            </div>
-            {exchangeRates["USD"] && (
-              <div className="metric">
-                <label>vs USD</label>
-                <p className="value">1 {currency.code} = {exchangeRates["USD"].toFixed(4)} USD</p>
-              </div>
+    <div style={{ backgroundColor: "#ffffff", minHeight: "100vh", paddingTop: "24px" }}>
+      {/* Modern Header */}
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", marginBottom: "40px" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", gap: "20px", marginBottom: "32px" }}>
+          {/* Currency Symbol/Badge */}
+          <div
+            style={{
+              width: "64px",
+              height: "64px",
+              borderRadius: "12px",
+              backgroundColor: "#A27841",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "28px",
+              fontWeight: 700,
+              color: "#ffffff",
+              flexShrink: 0,
+              boxShadow: "0 2px 8px rgba(162, 120, 65, 0.2)",
+            }}
+          >
+            {currency.logo && !imageError ? (
+              <img
+                src={currency.logo}
+                alt={currency.name}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: "12px",
+                  objectFit: "cover",
+                }}
+                onError={() => setImageError(true)}
+              />
+            ) : (
+              currency.symbol.charAt(0).toUpperCase()
             )}
           </div>
-        </div>
-      </section>
+          <div style={{ flex: 1 }}>
+            <div style={{ marginBottom: "8px" }}>
+              <h1 style={{ fontSize: "28px", fontWeight: 700, margin: "0", color: "#0f172a" }}>
+                {currency.code}
+              </h1>
+              <p style={{ fontSize: "13px", color: "#7a8c99", margin: "4px 0 0 0", fontWeight: 500 }}>
+                {currency.name} • {currency.country}
+              </p>
+            </div>
+            <p style={{ fontSize: "14px", color: "#475569", lineHeight: "1.5", margin: "12px 0 0 0", maxWidth: "500px" }}>
+              {currency.description}
+            </p>
 
-      {/* Navigation Tabs */}
-      <nav className="tab-navigation">
-        <button
-          className={`tab ${activeTab === "overview" ? "active" : ""}`}
-          onClick={() => setActiveTab("overview")}
-        >
-          {t("overview")}
-        </button>
-        <button
-          className={`tab ${activeTab === "rates" ? "active" : ""}`}
-          onClick={() => setActiveTab("rates")}
-        >
-          {t("exchangeRates")}
-        </button>
-        <button
-          className={`tab ${activeTab === "converter" ? "active" : ""}`}
-          onClick={() => setActiveTab("converter")}
-        >
-          {t("converter")}
-        </button>
-        <button
-          className={`tab ${activeTab === "pairs" ? "active" : ""}`}
-          onClick={() => setActiveTab("pairs")}
-        >
-          {t("popularPairs")}
-        </button>
-        <button
-          className={`tab ${activeTab === "economic" ? "active" : ""}`}
-          onClick={() => setActiveTab("economic")}
-        >
-          {t("economicData")}
-        </button>
-        <button
-          className={`tab ${activeTab === "news" ? "active" : ""}`}
-          onClick={() => setActiveTab("news")}
-        >
-          {t("news")}
-        </button>
-      </nav>
+            {/* Quick Stats */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "16px", marginTop: "20px" }}>
+              <div style={{ padding: "12px", backgroundColor: "#f8fafc", borderRadius: "8px" }}>
+                <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 6px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                  Symbol
+                </p>
+                <p style={{ fontSize: "18px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
+                  {currency.symbol}
+                </p>
+              </div>
+              <div style={{ padding: "12px", backgroundColor: "#f8fafc", borderRadius: "8px" }}>
+                <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 6px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                  Type
+                </p>
+                <p style={{ fontSize: "14px", fontWeight: 600, color: "#0f172a", margin: "0" }}>
+                  {currency.type}
+                </p>
+              </div>
+              <div style={{ padding: "12px", backgroundColor: "#f8fafc", borderRadius: "8px" }}>
+                <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 6px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                  Central Bank
+                </p>
+                <p style={{ fontSize: "13px", fontWeight: 600, color: "#0f172a", margin: "0" }}>
+                  {currency.centralBank}
+                </p>
+              </div>
+              {exchangeRates["USD"] && (
+                <div style={{ padding: "12px", backgroundColor: "#f8fafc", borderRadius: "8px" }}>
+                  <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 6px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                    vs USD
+                  </p>
+                  <p style={{ fontSize: "16px", fontWeight: 700, color: "#A27841", margin: "0" }}>
+                    {exchangeRates["USD"].toFixed(4)}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Tab Navigation */}
+        <div style={{ display: "flex", gap: "2px", borderBottom: "1px solid #e2e8f0", paddingBottom: "0" }}>
+          {[
+            { id: "overview", label: "Overview" },
+            { id: "rates", label: "Rates" },
+            { id: "converter", label: "Converter" },
+            { id: "pairs", label: "Popular Pairs" },
+            { id: "economic", label: "Economic" },
+            { id: "news", label: "News" },
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id as any)}
+              style={{
+                padding: "14px 20px",
+                border: "none",
+                background: "none",
+                cursor: "pointer",
+                fontSize: "13px",
+                fontWeight: activeTab === tab.id ? 600 : 500,
+                color: activeTab === tab.id ? "#A27841" : "#7a8c99",
+                borderBottom: activeTab === tab.id ? "2px solid #A27841" : "none",
+                transition: "all 0.2s",
+              }}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* Tab Content */}
-      <div className="tab-content">
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", paddingBottom: "60px" }}>
         {activeTab === "overview" && (
-          <section className="overview-section">
-            <div className="info-grid">
-              <div className="info-card">
-                <h4>{t("code")}</h4>
-                <p>{currency.code}</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
+            {[
+              { label: "Code", value: currency.code },
+              { label: "Symbol", value: currency.symbol },
+              { label: "Country", value: currency.country },
+              { label: "Region", value: currency.region },
+              { label: "Type", value: currency.type },
+              { label: "Central Bank", value: currency.centralBank },
+            ].map((item) => (
+              <div
+                key={item.label}
+                style={{
+                  padding: "20px",
+                  border: "1px solid #e2e8f0",
+                  borderRadius: "8px",
+                  backgroundColor: "#fafbfc",
+                }}
+              >
+                <p style={{ fontSize: "12px", color: "#7a8c99", margin: "0 0 8px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                  {item.label}
+                </p>
+                <p style={{ fontSize: "15px", fontWeight: 600, color: "#0f172a", margin: "0" }}>
+                  {item.value}
+                </p>
               </div>
-              <div className="info-card">
-                <h4>{t("symbol")}</h4>
-                <p>{currency.symbol}</p>
-              </div>
-              <div className="info-card">
-                <h4>{t("country")}</h4>
-                <p>{currency.country}</p>
-              </div>
-              <div className="info-card">
-                <h4>{t("region")}</h4>
-                <p>{currency.region}</p>
-              </div>
-              <div className="info-card">
-                <h4>{t("type")}</h4>
-                <p>{currency.type}</p>
-              </div>
-              <div className="info-card">
-                <h4>{t("centralBank")}</h4>
-                <p>{currency.centralBank}</p>
-              </div>
-            </div>
-          </section>
+            ))}
+          </div>
         )}
 
         {activeTab === "rates" && (
-          <section className="rates-section">
-            <h3>{t("exchangeRates")}</h3>
-            <div className="rates-table">
-              <table>
+          <div>
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse" }}>
                 <thead>
-                  <tr>
-                    <th>{t("currencies")}</th>
-                    <th>{t("rate")}</th>
-                    <th>{t("bid")}</th>
-                    <th>{t("ask")}</th>
-                    <th>{t("spread")}</th>
+                  <tr style={{ borderBottom: "2px solid #e2e8f0" }}>
+                    <th style={{ padding: "14px", textAlign: "left", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>Currency</th>
+                    <th style={{ padding: "14px", textAlign: "right", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>Rate</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {Object.entries(exchangeRates).map(([code, rate]) => (
-                    <tr key={code}>
-                      <td>{code}</td>
-                      <td>{rate.toFixed(4)}</td>
-                      <td>-</td>
-                      <td>-</td>
-                      <td>-</td>
+                  {Object.entries(exchangeRates).map(([code, rate], idx) => (
+                    <tr
+                      key={code}
+                      style={{
+                        borderBottom: "1px solid #e2e8f0",
+                        backgroundColor: idx % 2 === 0 ? "#ffffff" : "#f8fafc",
+                      }}
+                    >
+                      <td style={{ padding: "14px", fontSize: "14px", fontWeight: 600, color: "#0f172a" }}>{code}</td>
+                      <td style={{ padding: "14px", textAlign: "right", fontSize: "14px", fontWeight: 600, color: "#A27841" }}>
+                        {rate.toFixed(4)}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-              {Object.keys(exchangeRates).length === 0 && (
-                <p className="placeholder">{t("loadingRates")}</p>
-              )}
             </div>
-          </section>
+          </div>
         )}
 
         {activeTab === "converter" && (
-          <section className="converter-section">
-            <h3>{t("converter")}</h3>
-            <div className="converter-box">
-              <div className="converter-input-group">
-                <label>{t("from")}</label>
+          <div style={{ maxWidth: "600px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: "16px", alignItems: "flex-end", marginBottom: "32px" }}>
+              <div>
+                <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "#7a8c99", marginBottom: "8px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                  From
+                </label>
                 <input
                   type="number"
                   value={convertAmount}
                   onChange={(e) => setConvertAmount(e.target.value)}
-                  placeholder={t("amountPlaceholder")}
+                  style={{
+                    width: "100%",
+                    padding: "12px 14px",
+                    border: "1px solid #e2e8f0",
+                    borderRadius: "6px",
+                    fontSize: "16px",
+                    fontWeight: 600,
+                    color: "#0f172a",
+                  }}
                 />
-                <span className="currency-code">{currency.code}</span>
+                <p style={{ fontSize: "11px", color: "#7a8c99", margin: "8px 0 0 0" }}>{currency.code}</p>
               </div>
-
-              <div className="converter-operator">
-                <span>→</span>
-              </div>
-
-              <div className="converter-input-group">
-                <label>{t("to")}</label>
+              <div style={{ fontSize: "18px", color: "#7a8c99", paddingBottom: "2px" }}>→</div>
+              <div>
+                <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "#7a8c99", marginBottom: "8px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                  To
+                </label>
                 <select
                   value={convertTo}
                   onChange={(e) => setConvertTo(e.target.value)}
+                  style={{
+                    width: "100%",
+                    padding: "12px 14px",
+                    border: "1px solid #e2e8f0",
+                    borderRadius: "6px",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    color: "#0f172a",
+                    backgroundColor: "#ffffff",
+                  }}
                 >
-                  <option value="USD">USD</option>
-                  <option value="EUR">EUR</option>
-                  <option value="GBP">GBP</option>
-                  <option value="JPY">JPY</option>
-                  <option value="AUD">AUD</option>
-                  <option value="INR">INR</option>
+                  {["USD", "EUR", "GBP", "JPY", "INR", "AUD"].map((c) => (
+                    <option key={c} value={c}>{c}</option>
+                  ))}
                 </select>
               </div>
             </div>
-
-            <div className="converter-result">
-              <p className="result-text">
-                1 {currency.code} = {exchangeRates[convertTo]?.toFixed(4) || "0.0000"}{" "}
-                {convertTo}
+            <div style={{ padding: "20px", backgroundColor: "#f8fafc", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
+              <p style={{ fontSize: "12px", color: "#7a8c99", margin: "0 0 8px 0", fontWeight: 600 }}>Conversion</p>
+              <p style={{ fontSize: "24px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
+                {convertAmount} {currency.code} = <span style={{ color: "#A27841" }}>
+                  {((parseFloat(convertAmount) * (exchangeRates[convertTo] || 0))).toFixed(2)} {convertTo}
+                </span>
               </p>
-              <p className="amount-text">
-                {convertAmount} {currency.code} = {((parseFloat(convertAmount) * (exchangeRates[convertTo] || 0))).toFixed(2)} {convertTo}
+              <p style={{ fontSize: "12px", color: "#7a8c99", margin: "8px 0 0 0" }}>
+                1 {currency.code} = {exchangeRates[convertTo]?.toFixed(4) || "0.0000"} {convertTo}
               </p>
             </div>
-          </section>
+          </div>
         )}
 
         {activeTab === "pairs" && (
-          <section className="pairs-section">
-            <h3>{t("popularPairs")}</h3>
-            <div className="pairs-list">
-              {popularPairs.length === 0 ? (
-                <p className="placeholder">{t("loadingPairs")}</p>
-              ) : (
-                popularPairs.map((pair) => (
-                  <div key={pair.pair} className="pair-card">
-                    <div className="pair-header">
-                      <h4>{pair.pair}</h4>
-                      <span className="rate">{pair.rate.toFixed(4)}</span>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "16px" }}>
+            {popularPairs.length === 0 ? (
+              <p style={{ fontSize: "14px", color: "#7a8c99" }}>Loading pairs...</p>
+            ) : (
+              popularPairs.map((pair) => (
+                <div
+                  key={pair.pair}
+                  style={{
+                    padding: "20px",
+                    border: "1px solid #e2e8f0",
+                    borderRadius: "8px",
+                    backgroundColor: "#fafbfc",
+                  }}
+                >
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+                    <h4 style={{ fontSize: "16px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
+                      {pair.pair}
+                    </h4>
+                    <p style={{ fontSize: "18px", fontWeight: 700, color: "#A27841", margin: "0" }}>
+                      {pair.rate.toFixed(4)}
+                    </p>
+                  </div>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "12px" }}>
+                    <div>
+                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>24h Change</p>
+                      <p style={{ fontSize: "14px", fontWeight: 700, color: pair.change24h >= 0 ? "#059669" : "#dc2626", margin: "0" }}>
+                        {pair.change24h >= 0 ? "+" : ""}{pair.change24h.toFixed(2)}%
+                      </p>
                     </div>
-                    <div className="pair-details">
-                      <div className="detail">
-                        <label>{t("change24h")}</label>
-                        <span
-                          className={`value ${pair.change24h >= 0 ? "positive" : "negative"}`}
-                        >
-                          {pair.change24h >= 0 ? "+" : ""}{pair.change24h.toFixed(2)}%
-                        </span>
-                      </div>
-                      <div className="detail">
-                        <label>52w High</label>
-                        <span className="value">{pair.high52w.toFixed(4)}</span>
-                      </div>
-                      <div className="detail">
-                        <label>52w Low</label>
-                        <span className="value">{pair.low52w.toFixed(4)}</span>
-                      </div>
+                    <div>
+                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>52w High</p>
+                      <p style={{ fontSize: "14px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
+                        {pair.high52w.toFixed(4)}
+                      </p>
+                    </div>
+                    <div>
+                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>52w Low</p>
+                      <p style={{ fontSize: "14px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
+                        {pair.low52w.toFixed(4)}
+                      </p>
                     </div>
                   </div>
-                ))
-              )}
-            </div>
-          </section>
+                </div>
+              ))
+            )}
+          </div>
         )}
 
         {activeTab === "economic" && (
-          <section className="economic-section">
-            <h3>{t("economicIndicators")}</h3>
-            <div className="economic-indicators">
-              <div className="indicator-card">
-                <h4>{t("interestRate")}</h4>
-                <p className="value">
-                  {economicData?.interestRate != null
-                    ? `${economicData.interestRate}%`
-                    : "-"}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "16px" }}>
+            {[
+              { label: "Interest Rate", value: economicData?.interestRate ? `${economicData.interestRate}%` : "-" },
+              { label: "Inflation Rate", value: economicData?.inflationRate ? `${economicData.inflationRate}%` : "-" },
+              { label: "GDP Growth", value: economicData?.gdpGrowth ? `${economicData.gdpGrowth}%` : "-" },
+              { label: "Central Bank", value: currency.centralBank },
+            ].map((item) => (
+              <div
+                key={item.label}
+                style={{
+                  padding: "20px",
+                  border: "1px solid #e2e8f0",
+                  borderRadius: "8px",
+                  backgroundColor: "#fafbfc",
+                }}
+              >
+                <p style={{ fontSize: "12px", color: "#7a8c99", margin: "0 0 8px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                  {item.label}
                 </p>
-                <p className="last-updated">
-                  {economicData?.lastUpdated
-                    ? new Date(economicData.lastUpdated).toLocaleDateString()
-                    : t("dataLoading")}
+                <p style={{ fontSize: "20px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
+                  {item.value}
                 </p>
               </div>
-              <div className="indicator-card">
-                <h4>{t("inflationRate")}</h4>
-                <p className="value">
-                  {economicData?.inflationRate != null
-                    ? `${economicData.inflationRate}%`
-                    : "-"}
-                </p>
-                <p className="last-updated">{t("annualRate")}</p>
-              </div>
-              <div className="indicator-card">
-                <h4>{t("gdpGrowth")}</h4>
-                <p className="value">
-                  {economicData?.gdpGrowth != null
-                    ? `${economicData.gdpGrowth}%`
-                    : "-"}
-                </p>
-                <p className="last-updated">{t("quarterlyRate")}</p>
-              </div>
-              <div className="indicator-card">
-                <h4>{t("centralBank")}</h4>
-                <p className="value" style={{ fontSize: "0.85em" }}>
-                  {currency.centralBank ?? "-"}
-                </p>
-                <p className="last-updated">{currency.country}</p>
-              </div>
-            </div>
-          </section>
+            ))}
+          </div>
         )}
 
         {activeTab === "news" && (
-          <section className="news-section">
-            <h3>{t("economicNews")}</h3>
+          <div>
             {news.length === 0 ? (
-              <div className="news-placeholder">
-                <p>{t("currencyNewsComing")} ({currency.code})</p>
-                <p className="subtitle">{t("currencyNewsSubtitle")}</p>
+              <div style={{ padding: "40px", textAlign: "center", backgroundColor: "#f8fafc", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
+                <p style={{ fontSize: "14px", color: "#7a8c99", margin: "0" }}>
+                  No news available for {currency.code}
+                </p>
               </div>
             ) : (
-              <div className="news-list">
+              <div style={{ display: "grid", gap: "12px" }}>
                 {news.map((article: any) => (
-                  <div key={article.id ?? article.url} className="news-card">
-                    <div className="news-meta">
-                      <span className="news-source">{article.source}</span>
-                      <span className="news-date">
+                  <div
+                    key={article.id ?? article.url}
+                    style={{
+                      padding: "16px",
+                      border: "1px solid #e2e8f0",
+                      borderRadius: "6px",
+                      backgroundColor: "#fafbfc",
+                    }}
+                  >
+                    <div style={{ display: "flex", gap: "12px", marginBottom: "8px" }}>
+                      <span style={{ fontSize: "11px", color: "#7a8c99", fontWeight: 600 }}>
+                        {article.source}
+                      </span>
+                      <span style={{ fontSize: "11px", color: "#ccc" }}>•</span>
+                      <span style={{ fontSize: "11px", color: "#7a8c99" }}>
                         {article.publishedAt
                           ? new Date(article.publishedAt).toLocaleDateString()
                           : ""}
                       </span>
                     </div>
-                    <h4 className="news-title">{article.title}</h4>
+                    <h4 style={{ fontSize: "14px", fontWeight: 600, color: "#0f172a", margin: "0 0 6px 0" }}>
+                      {article.title}
+                    </h4>
                     {article.description && (
-                      <p className="news-desc">{article.description}</p>
+                      <p style={{ fontSize: "13px", color: "#475569", margin: "0", lineHeight: "1.4" }}>
+                        {article.description}
+                      </p>
                     )}
                   </div>
                 ))}
               </div>
             )}
-          </section>
+          </div>
         )}
       </div>
     </div>
