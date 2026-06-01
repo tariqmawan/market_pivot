@@ -41,7 +41,7 @@ type SubmenuPanelData = {
 
 const panelIconSize = 18;
 const headerNavigationItems = navigationItems.filter(
-  (item) => item.path !== "/dashboard" && item.path !== "/user"
+  (item) => item.path !== "/dashboard" && item.path !== "/user" && !(item as any).adminOnly
 );
 
 const submenuPanels: Record<string, SubmenuPanelData> = {
@@ -494,19 +494,26 @@ type HeaderProps = {
 };
 
 const Header: React.FC<HeaderProps> = ({
-  selectedCategory,
-  onSelectCategory,
-  isSidebarCollapsed = false,
-  onSidebarToggle,
-}) => {
-  const { t, language, setLanguage } = useI18n();
-  const [currency, setCurrency] = React.useState(() => localStorage.getItem("mp_currency") ?? "JPY");
-  const [theme, setTheme] = React.useState(() => localStorage.getItem("mp_theme") ?? "Light");
-  const [isScrolled, setIsScrolled] = React.useState(false);
+   selectedCategory,
+   onSelectCategory,
+   isSidebarCollapsed = false,
+   onSidebarToggle,
+ }) => {
+   const { t, language, setLanguage } = useI18n();
+   const [currency, setCurrency] = React.useState(() => localStorage.getItem("mp_currency") ?? "JPY");
+   const [theme, setTheme] = React.useState(() => localStorage.getItem("mp_theme") ?? "Light");
+   const [isScrolled, setIsScrolled] = React.useState(false);
+   const [isDragging, setIsDragging] = React.useState(false);
+   const [dragStart, setDragStart] = React.useState(0);
+   const [scrollStart, setScrollStart] = React.useState(0);
+   const languageScrollRef = React.useRef<HTMLDivElement>(null);
 
-  const { openLoginModal, openSignupModal } = useAuthStore();
+const { openLoginModal, openSignupModal, isAuthenticated, user } = useAuthStore();
 
-  React.useEffect(() => {
+   const isAdmin = user?.isAdmin || user?.role === "admin" || user?.role === "super_admin";
+   const showAdminLink = isAuthenticated && isAdmin;
+
+   React.useEffect(() => {
     document.documentElement.classList.toggle("light", theme === "Light");
     document.documentElement.classList.toggle("dark", theme === "Dark");
   }, [theme]);
@@ -519,6 +526,55 @@ const Header: React.FC<HeaderProps> = ({
 
     return () => window.removeEventListener("scroll", syncScrolled);
   }, []);
+
+  // Mouse wheel horizontal scrolling for language strip
+  React.useEffect(() => {
+    const scrollContainer = languageScrollRef.current;
+    if (!scrollContainer) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      // Only handle if scrolling vertically
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        scrollContainer.scrollLeft += e.deltaY;
+      }
+    };
+
+    scrollContainer.addEventListener("wheel", handleWheel, { passive: false });
+    return () => scrollContainer.removeEventListener("wheel", handleWheel);
+  }, []);
+
+  // Touch swipe horizontal scrolling for language strip
+  React.useEffect(() => {
+    const scrollContainer = languageScrollRef.current;
+    if (!scrollContainer) return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      setIsDragging(true);
+      setDragStart(e.touches[0].clientX);
+      setScrollStart(scrollContainer.scrollLeft);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!isDragging) return;
+      const delta = e.touches[0].clientX - dragStart;
+      scrollContainer.scrollLeft = scrollStart - delta;
+    };
+
+    const handleTouchEnd = () => {
+      setIsDragging(false);
+    };
+
+    scrollContainer.addEventListener("touchstart", handleTouchStart, false);
+    scrollContainer.addEventListener("touchmove", handleTouchMove, { passive: true });
+    scrollContainer.addEventListener("touchend", handleTouchEnd, false);
+
+    return () => {
+      scrollContainer.removeEventListener("touchstart", handleTouchStart);
+      scrollContainer.removeEventListener("touchmove", handleTouchMove);
+      scrollContainer.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [isDragging, dragStart, scrollStart]);
 
   const onSelectLanguage = (code: LanguageCode) => {
     setLanguage(code);
@@ -546,7 +602,7 @@ const Header: React.FC<HeaderProps> = ({
           <span aria-hidden="true">-&gt;</span>
         </div>
 
-        <div className="language-scroll">
+        <div className="language-scroll" ref={languageScrollRef}>
           <div className="languages">
             {languages.map((l) => (
               <button
@@ -600,25 +656,30 @@ const Header: React.FC<HeaderProps> = ({
           </div>
         </nav>
 
-        <div className="brand-right">
-          <Link to="/pricing" className="btn-pricing">
-            <Crown size={18} strokeWidth={2.25} aria-hidden />
-            <span>{t("pricing").toUpperCase()}</span>
-          </Link>
+<div className="brand-right">
+           <Link to="/pricing" className="btn-pricing">
+             <Crown size={18} strokeWidth={2.25} aria-hidden />
+             <span>{t("pricing").toUpperCase()}</span>
+           </Link>
 
-          <button type="button" className="btn" onClick={openLoginModal}>
-            {t("login")}
-          </button>
+           {showAdminLink && (
+             <Link to="/admin" className="btn admin-btn" style={{ background: "rgba(162, 120, 65, 0.15)", borderColor: "rgba(162, 120, 65, 0.4)" }}>
+               {t("adminPanel") ?? "Admin"}
+             </Link>
+           )}
 
-          <button type="button" className="btn primary" onClick={openSignupModal}>
-            {t("signUp")}
-          </button>
-          {/*remove theme and currency drop down*/}
-        </div>
-      </div>
+           <button type="button" className="btn" onClick={openLoginModal}>
+             {t("login")}
+           </button>
 
-    </div>
-  );
-};
+           <button type="button" className="btn primary" onClick={openSignupModal}>
+             {t("signUp")}
+           </button>
+         </div>
+       </div>
+
+     </div>
+   );
+ };
 
 export default Header;

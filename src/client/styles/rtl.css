@@ -1,93 +1,93 @@
-/* ============================================================
-   ENTERPRISE RTL + LANGUAGE SWITCHER STYLES
-   MarketsPivot — Global i18n CSS System
-   ============================================================ */
+ /* ============================================================
+    ENTERPRISE RTL + LANGUAGE SWITCHER STYLES
+    MarketsPivot — Global i18n CSS System
+    ============================================================ */
 
 /* ── Language Switcher — Dropdown ─────────────────────────── */
 .lang-switcher {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
+   position: relative;
+   display: inline-flex;
+   align-items: center;
 }
 
 .lang-switcher-trigger {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  border: 1px solid var(--border, rgba(255,255,255,0.12));
-  border-radius: 8px;
-  background: var(--surface, rgba(255,255,255,0.06));
-  color: var(--text-primary, #e2e8f0);
-  font-size: 0.8rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
-  white-space: nowrap;
+   display: inline-flex;
+   align-items: center;
+   gap: 6px;
+   padding: 6px 10px;
+   border: 1px solid var(--border, rgba(255,255,255,0.12));
+   border-radius: 8px;
+   background: var(--surface, rgba(255,255,255,0.06));
+   color: var(--text-primary, #e2e8f0);
+   font-size: 0.8rem;
+   font-weight: 500;
+   cursor: pointer;
+   transition: background 0.15s, border-color 0.15s;
+   white-space: nowrap;
 }
 
 .lang-switcher-trigger:hover {
-  background: var(--surface-hover, rgba(255,255,255,0.1));
-  border-color: var(--accent, #3b82f6);
+   background: var(--surface-hover, rgba(255,255,255,0.1));
+   border-color: var(--accent, #3b82f6);
 }
 
 .lang-flag { font-size: 1.1em; line-height: 1; }
 .lang-code { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; }
 
 .lang-chevron {
-  transition: transform 0.2s ease;
-  opacity: 0.7;
+   transition: transform 0.2s ease;
+   opacity: 0.7;
 }
 .lang-chevron.open { transform: rotate(180deg); }
 
 .lang-switcher-menu {
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
-  min-width: 200px;
-  background: var(--surface-elevated, #1e2433);
-  border: 1px solid var(--border, rgba(255,255,255,0.12));
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-  list-style: none;
-  margin: 0;
-  padding: 6px;
-  z-index: 9999;
-  animation: langMenuIn 0.15s ease;
+   position: absolute;
+   top: calc(100% + 6px);
+   right: 0;
+   min-width: 200px;
+   background: var(--surface-elevated, #1e2433);
+   border: 1px solid var(--border, rgba(255,255,255,0.12));
+   border-radius: 12px;
+   box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+   list-style: none;
+   margin: 0;
+   padding: 6px;
+   z-index: 9999;
+   animation: langMenuIn 0.15s ease;
 }
 
 html[dir="rtl"] .lang-switcher-menu {
-  right: auto;
-  left: 0;
+   right: auto;
+   left: 0;
 }
 
 @keyframes langMenuIn {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
+   from { opacity: 0; transform: translateY(-6px); }
+   to   { opacity: 1; transform: translateY(0); }
 }
 
 .lang-option {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 9px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.12s;
-  color: var(--text-secondary, #94a3b8);
-  font-size: 0.875rem;
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   padding: 9px 12px;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: background 0.12s;
+   color: var(--text-secondary, #94a3b8);
+   font-size: 0.875rem;
 }
 
 .lang-option:hover,
 .lang-option:focus {
-  background: var(--surface-hover, rgba(255,255,255,0.08));
-  color: var(--text-primary, #e2e8f0);
-  outline: none;
+   background: var(--surface-hover, rgba(255,255,255,0.08));
+   color: var(--text-primary, #e2e8f0);
+   outline: none;
 }
 
 .lang-option.active {
-  background: var(--accent-subtle, rgba(59,130,246,0.12));
-  color: var(--accent, #3b82f6);
+   background: var(--accent-subtle, rgba(59,130,246,0.12));
+   color: var(--accent, #3b82f6);
 }
 
 .lang-native { font-weight: 500; flex: 1; }
@@ -97,56 +97,145 @@ html[dir="rtl"] .lang-switcher-menu {
 html[dir="rtl"] .lang-check { margin-left: 0; margin-right: auto; }
 
 html[dir="rtl"] .lang-copy {
-  text-align: right;
+   text-align: right;
+}
+
+/* ── Language Switcher — Horizontal Scroll ──────────────────── */
+.lang-scroll-container {
+   display: flex;
+   align-items: center;
+   width: 100%;
+   overflow: hidden;
+   position: relative;
+}
+
+.lang-scroll-track {
+   display: flex;
+   gap: 8px;
+   padding: 10px 8px;
+   overflow-x: auto;
+   overflow-y: hidden;
+   scroll-behavior: smooth;
+   width: 100%;
+   /* Hide scrollbar for cleaner look */
+   scrollbar-width: thin;
+   scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+.lang-scroll-track::-webkit-scrollbar {
+   height: 4px;
+}
+
+.lang-scroll-track::-webkit-scrollbar-track {
+   background: transparent;
+}
+
+.lang-scroll-track::-webkit-scrollbar-thumb {
+   background: rgba(255,255,255,0.2);
+   border-radius: 2px;
+}
+
+.lang-scroll-track::-webkit-scrollbar-thumb:hover {
+   background: rgba(255,255,255,0.3);
+}
+
+.lang-scroll-btn {
+   display: inline-flex;
+   align-items: center;
+   gap: 6px;
+   padding: 8px 14px;
+   border-radius: 20px;
+   border: 1px solid transparent;
+   background: var(--surface, rgba(255,255,255,0.06));
+   color: var(--text-secondary, #94a3b8);
+   font-size: 0.8rem;
+   font-weight: 500;
+   cursor: pointer;
+   transition: all 0.15s;
+   white-space: nowrap;
+   flex-shrink: 0;
+}
+
+.lang-scroll-label {
+   display: flex;
+   flex-direction: column;
+   gap: 0px;
+   line-height: 1.1;
+   text-align: left;
+}
+
+.lang-scroll-label .lang-native {
+   font-size: 0.8rem;
+   font-weight: 500;
+}
+
+.lang-scroll-label .lang-code {
+   font-size: 0.65rem;
+   font-weight: 600;
+   opacity: 0.6;
+   letter-spacing: 0.05em;
+}
+
+.lang-scroll-btn:hover {
+   background: var(--surface-hover, rgba(255,255,255,0.12));
+   border-color: var(--accent, #3b82f6);
+   color: var(--text-primary, #e2e8f0);
+}
+
+.lang-scroll-btn.active {
+   background: var(--accent-subtle, rgba(59,130,246,0.2));
+   border-color: var(--accent, #3b82f6);
+   color: var(--accent, #3b82f6);
+   box-shadow: 0 0 0 1px var(--accent, #3b82f6);
 }
 
 /* ── Language Switcher — Strip ────────────────────────────── */
 .lang-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  align-items: center;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 4px;
+   align-items: center;
 }
 
 .lang-strip-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  min-height: 34px;
-  padding: 4px 12px;
-  border-radius: 20px;
-  border: 1px solid transparent;
-  background: transparent;
-  color: var(--text-secondary, #94a3b8);
-  font-size: 0.78rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.15s;
-  white-space: nowrap;
+   display: inline-flex;
+   align-items: center;
+   gap: 5px;
+   min-height: 34px;
+   padding: 4px 12px;
+   border-radius: 20px;
+   border: 1px solid transparent;
+   background: transparent;
+   color: var(--text-secondary, #94a3b8);
+   font-size: 0.78rem;
+   font-weight: 500;
+   cursor: pointer;
+   transition: all 0.15s;
+   white-space: nowrap;
 }
 
 .lang-copy {
-  display: grid;
-  gap: 1px;
-  line-height: 1.05;
-  text-align: left;
+   display: grid;
+   gap: 1px;
+   line-height: 1.05;
+   text-align: left;
 }
 
 .lang-subtitle {
-  font-size: 0.62rem;
-  font-weight: 600;
-  opacity: 0.62;
+   font-size: 0.62rem;
+   font-weight: 600;
+   opacity: 0.62;
 }
 
 .lang-strip-btn:hover {
-  background: var(--surface-hover, rgba(255,255,255,0.08));
-  color: var(--text-primary, #e2e8f0);
+   background: var(--surface-hover, rgba(255,255,255,0.08));
+   color: var(--text-primary, #e2e8f0);
 }
 
 .lang-strip-btn.active {
-  background: var(--accent-subtle, rgba(59,130,246,0.15));
-  border-color: var(--accent, #3b82f6);
-  color: var(--accent, #3b82f6);
+   background: var(--accent-subtle, rgba(59,130,246,0.15));
+   border-color: var(--accent, #3b82f6);
+   color: var(--accent, #3b82f6);
 }
 
 /* ============================================================
@@ -156,92 +245,91 @@ html[dir="rtl"] .lang-copy {
 
 /* ── Base text alignment ──────────────────────────────────── */
 html[dir="rtl"] body {
-  text-align: right;
+   text-align: right;
 }
 
 /* ── Text content alignment (not layout) ────────────────────── */
 html[dir="rtl"] .eyebrow,
 html[dir="rtl"] .pricing-popular-badge {
-  text-align: right;
+   text-align: right;
 }
 
 /* ── Forms and inputs ─────────────────────────────────────── */
 html[dir="rtl"] input,
 html[dir="rtl"] textarea,
 html[dir="rtl"] select {
-  text-align: right;
-  direction: rtl;
+   text-align: right;
+   direction: rtl;
 }
 
 html[dir="rtl"] input[type="email"],
 html[dir="rtl"] input[type="url"],
 html[dir="rtl"] input[type="password"],
 html[dir="rtl"] input[inputmode="numeric"] {
-  direction: ltr;
-  text-align: left;
-}
-
-html[dir="rtl"] .converter-box {
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .converter-input-group label {
-  text-align: right;
+   direction: ltr;
+   text-align: left;
 }
 
 /* ── Modals ───────────────────────────────────────────────── */
 html[dir="rtl"] .modal-content,
 html[dir="rtl"] .login-modal,
 html[dir="rtl"] .modal-container {
-  direction: rtl;
-  text-align: right;
+   direction: rtl;
+   text-align: right;
 }
 
 html[dir="rtl"] .modal-close {
-  right: auto;
-  left: 16px;
+   right: auto;
+   left: 16px;
 }
 
 /* ── Dropdowns ────────────────────────────────────────────── */
 html[dir="rtl"] .dropdown-menu,
 html[dir="rtl"] .submenu {
-  right: auto;
-  left: 0;
-  text-align: right;
+   right: auto;
+   left: 0;
+   text-align: right;
 }
 
 /* ── Footer ───────────────────────────────────────────────── */
 html[dir="rtl"] .footer-column,
 html[dir="rtl"] .footer-brand {
-  text-align: right;
+   text-align: right;
 }
 
 html[dir="rtl"] .footer-newsletter form {
-  direction: rtl;
+   direction: rtl;
 }
 
 /* ── Tab navigation ───────────────────────────────────────── */
-html[dir="rtl"] .tab-navigation {
-  flex-direction: row-reverse;
-}
+/* No tab order reversal in RTL; preserve default tab layout. */
 
 /* ── Navigation items ─────────────────────────────────────── */
 html[dir="rtl"] .nav-item,
 html[dir="rtl"] .submenu-item {
-  flex-direction: row-reverse;
-  text-align: right;
-}
-
-html[dir="rtl"] .nav-icon,
-html[dir="rtl"] .submenu-icon {
-  margin-right: 0;
-  margin-left: 10px;
+   text-align: right;
 }
 
 /* ── Responsive RTL ───────────────────────────────────────── */
 @media (max-width: 768px) {
-  html[dir="rtl"] .lang-switcher-menu {
-    right: auto;
-    left: 0;
+   html[dir="rtl"] .lang-switcher-menu {
+     right: auto;
+     left: 0;
+   }
+}
+
+/* ── Admin Shell Layout — Sidebar positioning for RTL ─────────────────────── */
+/* Preserve the existing admin shell layout order for RTL. */
+
+/* Intermediate width: sidebar width 240px */
+@media (max-width: 1100px) {
+  /* Preserve admin shell layout order on RTL without reordering columns. */
+}
+
+/* Mobile width: sidebar as drawer */
+@media (max-width: 720px) {
+  html[dir="rtl"] .mp-admin-sidebar.open {
+    left: auto;
+    right: 0;
   }
 }

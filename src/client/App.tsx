@@ -96,7 +96,16 @@ const buildMovers = (exchange: StockExchange, direction: "up" | "down" | "active
   });
 
 const findExchangeById = (id: string | undefined) =>
-  exchanges.find((exchange) => exchange.id.toLowerCase() === id?.toLowerCase());
+  exchanges.find(
+    (exchange) =>
+      exchange.id.toLowerCase() === id?.toLowerCase() ||
+      exchange.mainIndex?.toLowerCase() === id?.toLowerCase()
+  );
+
+const resolveExchangeLookupId = (id: string | undefined) => {
+  const match = findExchangeById(id);
+  return match?.id ?? id;
+};
 
 const majorRates: Record<string, number> = {
   USD: 1,
@@ -376,6 +385,7 @@ const API_BASE = "http://localhost:3000/api";
 
 const StocksPage = () => {
   const { exchangeId } = useParams();
+  const resolvedExchangeId = resolveExchangeLookupId(exchangeId?.toLowerCase());
   const { t } = useI18n();
 
   // Exchange list — pehle JSON se, phir DB se
@@ -392,7 +402,7 @@ const StocksPage = () => {
     if (!exchangeId) return;
     setIsLoading(true);
 
-    const id = exchangeId.toLowerCase();
+    const id = resolvedExchangeId;
 
     Promise.all([
       fetch(`${API_BASE}/exchanges/${id}`).then(r => r.json()),
@@ -405,7 +415,7 @@ const StocksPage = () => {
           // index snapshot
           if (s.index) setIndexData(s.index);
           // movers — fallback to buildMovers agar DB mein nahi hain
-          const ex = exchRes.data ?? findExchangeById(exchangeId);
+          const ex = exchRes.data ?? findExchangeById(resolvedExchangeId);
           setGainers(s.gainers?.length   ? s.gainers   : ex ? buildMovers(ex, "up")     : []);
           setLosers(s.losers?.length     ? s.losers    : ex ? buildMovers(ex, "down")   : []);
           setMostActive(s.mostActive?.length ? s.mostActive : ex ? buildMovers(ex, "active") : []);
@@ -415,7 +425,7 @@ const StocksPage = () => {
       })
       .catch(() => {
         // API fail hone par JSON fallback
-        const ex = findExchangeById(exchangeId);
+        const ex = findExchangeById(resolvedExchangeId);
         if (ex) {
           setExchange(ex);
           setIndexData(buildIndexSnapshot(ex));
@@ -436,7 +446,7 @@ const StocksPage = () => {
       .catch(() => {}); // JSON fallback already set
   }, [exchangeId]);
 
-  const exchangeFallback = exchange ?? findExchangeById(exchangeId);
+  const exchangeFallback = exchange ?? findExchangeById(resolvedExchangeId);
 
   if (exchangeId) {
     if (exchangeFallback || isLoading) {
@@ -1469,17 +1479,22 @@ function PageLoader() {
   );
 }
 
+const NotFoundPage = () => (
+  <div className="page">
+    <div className="section-heading">
+      <p className="eyebrow">404</p>
+      <h1>Page not found</h1>
+      <p>The requested page could not be found. Please check the URL or return to the home dashboard.</p>
+    </div>
+  </div>
+);
+
 const App: React.FC = () => {
   const { isAuthenticated, user } = useAuthStore();
 
   return (
     <I18nProvider>
-      <Router
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
+      <Router>
         <React.Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<Layout />}> 
@@ -1546,6 +1561,7 @@ const App: React.FC = () => {
             <Route path="calendar" element={<EconomicCalendar />} />
 
             <Route path="user" element={<UserPanelPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
 
           <Route path="/admin/*" element={<AdminApp />} />

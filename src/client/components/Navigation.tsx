@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useAuthStore } from "../stores/authStore";
 import {
-  BarChart3,
-  Bitcoin,
-  BriefcaseBusiness,
-  CalendarDays,
-  Coins,
-  Factory,
-  Globe2,
-  Landmark,
-  LineChart,
-  Newspaper,
-  Search,
-  TrendingUp,
-  UserCircle,
-  ChevronDown,
-} from "lucide-react";
+   BarChart3,
+   Bitcoin,
+   BriefcaseBusiness,
+   CalendarDays,
+   Coins,
+   Factory,
+   Globe2,
+   Landmark,
+   LineChart,
+   Newspaper,
+   Search,
+   Shield,
+   TrendingUp,
+   UserCircle,
+   ChevronDown,
+ } from "lucide-react";
 import "./Navigation.css";
 import { useI18n } from "../i18n";
 
@@ -177,13 +179,20 @@ const navigationItems: NavigationItem[] = [
     path: "/economic-calendar",
     icon: <CalendarDays size={iconSize} />,
     description: "Central banks, CPI, GDP, employment, and FOMC events",
-  },
-  {
-    label: "UserPanel",
-    path: "/user",
-    icon: <UserCircle size={iconSize} />,
-    description: "Watchlists, portfolio, alerts, billing, profile, and API access",
-  },
+},
+   {
+     label: "UserPanel",
+     path: "/user",
+     icon: <UserCircle size={iconSize} />,
+     description: "Watchlists, portfolio, alerts, billing, profile, and API access",
+   },
+   {
+     label: "adminPanel",
+     path: "/admin/login",
+     icon: <Shield size={iconSize} />,
+     description: "Admin dashboard and platform management",
+     adminOnly: true,
+   },
 ];
 
 const Navigation: React.FC<NavigationProps> = ({
@@ -316,55 +325,61 @@ const Navigation: React.FC<NavigationProps> = ({
     "/news/alerts": "marketAlerts",
   };
 
-  const translateLabel = (path: string | undefined, fallback: string) => {
-    if (!path) return fallback;
-    const key = pathKeyMap[path] ?? fallback;
-    return t(key as any) || fallback;
-  };
+const translateLabel = (path: string | undefined, fallback: string) => {
+     if (!path) return fallback;
+     const key = pathKeyMap[path] ?? fallback;
+     return t(key as any) || fallback;
+   };
 
-  return (
-    <nav
-      className={`enhanced-navigation ${collapsed ? "collapsed" : ""} ${mobileOpen ? "mobile-open" : ""}`}
-      aria-label="Main navigation"
-    >
-      <div className="nav-items">
-        {navigationItems.map((item) => {
-          const hasSubmenu = !!item.submenu;
-          const isExpanded = !!expandedMenus[item.path];
-          const isParentActive = location.pathname === item.path || (item.submenu?.some((sub) => location.pathname === sub.path) ?? false);
+   const { user } = useAuthStore();
+   const isAdmin = user?.isAdmin || user?.role === "admin" || user?.role === "super_admin";
 
-          return (
-            <div key={item.path} className={`nav-item-group ${isExpanded ? "expanded" : ""}`}>
-              <div className={`nav-parent-row ${isParentActive ? "active" : ""}`}>
-                {hasSubmenu ? (
-                  <button
-                    type="button"
-                    className="nav-item nav-category-button"
-                    data-tooltip={translateLabel(item.path, item.label)}
-                    title={collapsed ? translateLabel(item.path, item.label) : undefined}
-                    onClick={() => openMenu(item.path)}
-                    aria-expanded={isExpanded}
-                    aria-controls={`nav-submenu-${item.path.replace(/[^a-z0-9]/gi, "-")}`}
-                  >
-                    <span className="nav-icon">{item.icon}</span>
-                    <span className="nav-label">{translateLabel(item.path, item.label)}</span>
-                  </button>
-                ) : (
-                  <Link
-                    to={item.path}
-                    className="nav-item"
-                    data-tooltip={translateLabel(item.path, item.label)}
-                    title={collapsed ? translateLabel(item.path, item.label) : undefined}
-                    onClick={onNavigate}
-                    aria-current={isParentActive ? "page" : undefined}
-                  >
-                    <span className="nav-icon">{item.icon}</span>
-                    <span className="nav-label">{translateLabel(item.path, item.label)}</span>
-                  </Link>
-                )}
-                {hasSubmenu && (
-                  <button
-                    type="button"
+   return (
+     <nav
+       className={`enhanced-navigation ${collapsed ? "collapsed" : ""} ${mobileOpen ? "mobile-open" : ""}`}
+       aria-label="Main navigation"
+     >
+       <div className="nav-items">
+         {navigationItems.map((item) => {
+           const isAdminOnly = (item as any).adminOnly;
+           if (isAdminOnly && !isAdmin) return null;
+           
+           const hasSubmenu = !!item.submenu;
+           const isExpanded = !!expandedMenus[item.path];
+           const isParentActive = location.pathname === item.path || (item.submenu?.some((sub) => location.pathname === sub.path) ?? false);
+
+           return (
+             <div key={item.path} className={`nav-item-group ${isExpanded ? "expanded" : ""}`}>
+               <div className={`nav-parent-row ${isParentActive ? "active" : ""}`}>
+                 {hasSubmenu ? (
+                   <button
+                     type="button"
+                     className="nav-item nav-category-button"
+                     data-tooltip={translateLabel(item.path, item.label)}
+                     title={collapsed ? translateLabel(item.path, item.label) : undefined}
+                     onClick={() => openMenu(item.path)}
+                     aria-expanded={isExpanded}
+                     aria-controls={`nav-submenu-${item.path.replace(/[^a-z0-9]/gi, "-")}`}
+                   >
+                     <span className="nav-icon">{item.icon}</span>
+                     <span className="nav-label">{translateLabel(item.path, item.label)}</span>
+                   </button>
+                 ) : (
+                   <Link
+                     to={item.path}
+                     className="nav-item"
+                     data-tooltip={translateLabel(item.path, item.label)}
+                     title={collapsed ? translateLabel(item.path, item.label) : undefined}
+                     onClick={onNavigate}
+                     aria-current={isParentActive ? "page" : undefined}
+                   >
+                     <span className="nav-icon">{item.icon}</span>
+                     <span className="nav-label">{translateLabel(item.path, item.label)}</span>
+                   </Link>
+                 )}
+                 {hasSubmenu && (
+                   <button
+                     type="button"
                     className="submenu-toggle-btn"
                     onClick={(e) => toggleMenu(item.path, e)}
                     aria-label={t(`${item.label}`) ? `Toggle ${t(`${item.label}`)} submenu` : `Toggle ${item.label} submenu`}

@@ -288,6 +288,7 @@ const en = {
   spotAndFutures: "Spot and futures",
   watchlistPreview: "Watchlist Preview",
   watchlistCopy: "Fast access to saved symbols, cross-asset alerts, portfolio context, and account preferences.",
+  adminPanel: "Admin Panel",
   // Exchange detail specific
   noTradingPairs: "No trading pairs available.",
   loadingSectors: "Loading sectors...",

@@ -131,16 +131,24 @@ const Layout: React.FC = () => {
     setIsSidebarPreviewOpen(false);
   }, [isMobileViewport]);
 
-  const closeSidebarFromContent = React.useCallback(() => {
+  const closeSidebarFromContent = React.useCallback((event: React.PointerEvent<HTMLElement>) => {
+    if (event.target instanceof HTMLElement && event.target.closest('a, button, input, textarea, select, label')) {
+      return;
+    }
+
     if (isMobileViewport) {
       setIsMobileSidebarOpen(false);
+      return;
+    }
+
+    if (!isSidebarPinnedOpen && !isSidebarPreviewOpen && isHoverSuppressed) {
       return;
     }
 
     setIsSidebarPinnedOpen(false);
     setIsSidebarPreviewOpen(false);
     setIsHoverSuppressed(true);
-  }, [isMobileViewport]);
+  }, [isMobileViewport, isSidebarPinnedOpen, isSidebarPreviewOpen, isHoverSuppressed]);
 
   const handleLeafNavigate = React.useCallback(() => {
     if (isMobileViewport) {
@@ -153,7 +161,7 @@ const Layout: React.FC = () => {
     setIsHoverSuppressed(true);
   }, [isMobileViewport]);
 
-  const isAdminConsole = path === "/admin" || path === "/admin/login" || path.startsWith("/admin?");
+  const isAdminConsole = path === "/admin" || path.startsWith("/admin/");
 
   // Admin sidebar/header require props for mobile toggle.
   // Default to "closed" since we don't have a mobile drawer implementation here.
