@@ -1,4 +1,6 @@
 import React from "react";
+import { SkeletonTable } from "../../../components/Skeleton";
+import EmptyState from "../../../components/EmptyState";
 
 export type Column<T> = {
   key: string;
@@ -24,11 +26,15 @@ export default function DataTable<T extends Record<string, any>>({
   onRowClick?: (row: T) => void;
 }) {
   if (loading) {
-    return <div className="mp-admin-table-loading">Loading…</div>;
+    return (
+      <div style={{ padding: 12 }}>
+        <SkeletonTable rows={6} columns={Math.max(3, columns.length)} />
+      </div>
+    );
   }
 
   if (!rows.length) {
-    return <div className="mp-admin-table-empty">{emptyMessage}</div>;
+    return <EmptyState compact icon="📭" title={emptyMessage} />;
   }
 
   return (

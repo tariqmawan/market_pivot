@@ -182,12 +182,13 @@ const Layout: React.FC = () => {
 
   return (
     <div className="app-shell">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       {isAdminConsole ? (
         <div className="admin-console">
           <AdminHeader onMobileToggle={onMobileToggle} />
           <div className="admin-body">
             <AdminSidebar mobileOpen={mobileOpen} onMobileToggle={onMobileToggle} />
-            <main className="admin-main">
+            <main className="admin-main" id="main-content" tabIndex={-1}>
               <Outlet />
             </main>
           </div>
@@ -247,7 +248,7 @@ const Layout: React.FC = () => {
             </aside>
 
             <div className="app-layout-main" onPointerDown={closeSidebarFromContent}>
-              <main className="site-main">
+              <main className="site-main" id="main-content" tabIndex={-1}>
                 <Outlet />
               </main>
 

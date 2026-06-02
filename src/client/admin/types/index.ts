@@ -13,6 +13,8 @@ export type Permission =
   | "api:edit"
   | "seo:edit"
   | "ads:edit"
+  | "calendar:view"
+  | "calendar:edit"
   | "audit:view";
 
 export interface DashboardStats {

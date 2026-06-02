@@ -19,6 +19,7 @@ const NAMESPACE_ORDER = [
   "footer",
   "auth",
   "admin",
+  "pages",
 ] as const;
 
 export function useI18n(): {
