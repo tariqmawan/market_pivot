@@ -333,3 +333,193 @@ html[dir="rtl"] .submenu-item {
     right: 0;
   }
 }
+
+/* ============================================================
+   PHASE 3 RTL POLISH — Natural Arabic, layout preserved
+   Only text flow + alignment changes (no layout reversal)
+   ============================================================ */
+
+/* Form labels & helper text */
+html[dir="rtl"] label,
+html[dir="rtl"] .form-label,
+html[dir="rtl"] .input-label,
+html[dir="rtl"] .field-label {
+   text-align: right;
+}
+
+html[dir="rtl"] .form-hint,
+html[dir="rtl"] .input-hint,
+html[dir="rtl"] .field-hint,
+html[dir="rtl"] .helper-text {
+   text-align: right;
+}
+
+html[dir="rtl"] .form-error,
+html[dir="rtl"] .input-error,
+html[dir="rtl"] .field-error {
+   text-align: right;
+}
+
+/* Tables: text alignment only, no column reversal */
+html[dir="rtl"] table th,
+html[dir="rtl"] table td,
+html[dir="rtl"] .table th,
+html[dir="rtl"] .table td,
+html[dir="rtl"] .data-table th,
+html[dir="rtl"] .data-table td {
+   text-align: right;
+}
+
+/* Keep numeric/data columns LTR for readability */
+html[dir="rtl"] table td.numeric,
+html[dir="rtl"] .data-table td.numeric,
+html[dir="rtl"] .price,
+html[dir="rtl"] .change,
+html[dir="rtl"] .percent {
+   direction: ltr;
+   text-align: left;
+   unicode-bidi: embed;
+}
+
+/* Pagination */
+html[dir="rtl"] .pagination,
+html[dir="rtl"] .pager {
+   direction: rtl;
+}
+
+/* Cards & content blocks (no layout flip) */
+html[dir="rtl"] .card,
+html[dir="rtl"] .card-body,
+html[dir="rtl"] .card-header,
+html[dir="rtl"] .card-footer {
+   text-align: right;
+}
+
+html[dir="rtl"] .card-title,
+html[dir="rtl"] .card-subtitle {
+   text-align: right;
+}
+
+/* Lists: text alignment only */
+html[dir="rtl"] ul,
+html[dir="rtl"] ol {
+   text-align: right;
+}
+
+/* Buttons: keep visual order, align text */
+html[dir="rtl"] .btn,
+html[dir="rtl"] button {
+   text-align: center;
+}
+
+/* Badges & pills */
+html[dir="rtl"] .badge,
+html[dir="rtl"] .pill,
+html[dir="rtl"] .tag {
+   text-align: center;
+}
+
+/* Tooltip text alignment */
+html[dir="rtl"] .tooltip,
+html[dir="rtl"] [data-tooltip] {
+   text-align: right;
+}
+
+/* Dashboard widgets: text alignment only */
+html[dir="rtl"] .widget,
+html[dir="rtl"] .dashboard-widget,
+html[dir="rtl"] .stat-card {
+   text-align: right;
+}
+
+html[dir="rtl"] .widget-label,
+html[dir="rtl"] .stat-label {
+   text-align: right;
+}
+
+/* Form input groups (icon + input) */
+html[dir="rtl"] .input-group {
+   direction: rtl;
+}
+
+html[dir="rtl"] .input-group .input-icon-left {
+   left: auto;
+   right: 12px;
+}
+
+html[dir="rtl"] .input-group .input-icon-right {
+   right: auto;
+   left: 12px;
+}
+
+/* Modal positioning refinement */
+html[dir="rtl"] .modal-header {
+   text-align: right;
+}
+
+html[dir="rtl"] .modal-title {
+   text-align: right;
+}
+
+html[dir="rtl"] .modal-body {
+   text-align: right;
+}
+
+html[dir="rtl"] .modal-footer {
+   text-align: right;
+}
+
+/* Dropdown menu items */
+html[dir="rtl"] .dropdown-item,
+html[dir="rtl"] .menu-item {
+   text-align: right;
+}
+
+/* Breadcrumb (visual order preserved) */
+html[dir="rtl"] .breadcrumb {
+   direction: rtl;
+}
+
+/* Tabs: keep visual order */
+html[dir="rtl"] .tabs,
+html[dir="rtl"] .tab-list {
+   direction: rtl;
+}
+
+html[dir="rtl"] .tab-content {
+   text-align: right;
+}
+
+/* Alert/notification text */
+html[dir="rtl"] .alert,
+html[dir="rtl"] .notification,
+html[dir="rtl"] .toast {
+   text-align: right;
+}
+
+html[dir="rtl"] .alert-title,
+html[dir="rtl"] .notification-title {
+   text-align: right;
+}
+
+/* Empty states */
+html[dir="rtl"] .empty-state,
+html[dir="rtl"] .no-data {
+   text-align: right;
+}
+
+/* Loading spinners: keep centered, text aligned */
+html[dir="rtl"] .loading-text,
+html[dir="rtl"] .spinner-text {
+   text-align: right;
+}
+
+/* Code blocks: keep LTR for code readability */
+html[dir="rtl"] code,
+html[dir="rtl"] pre,
+html[dir="rtl"] kbd,
+html[dir="rtl"] samp {
+   direction: ltr;
+   text-align: left;
+   unicode-bidi: embed;
+}

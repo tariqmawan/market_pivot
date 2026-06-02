@@ -83,6 +83,26 @@ import koDashboard from "./locales/ko/dashboard.json";
 import koFooter from "./locales/ko/footer.json";
 import koAdmin from "./locales/ko/admin.json";
 
+import esCommon from "./locales/es/common.json";
+import esAuth from "./locales/es/auth.json";
+import esNav from "./locales/es/nav.json";
+import esMarkets from "./locales/es/markets.json";
+import esForex from "./locales/es/forex.json";
+import esCrypto from "./locales/es/crypto.json";
+import esDashboard from "./locales/es/dashboard.json";
+import esFooter from "./locales/es/footer.json";
+import esAdmin from "./locales/es/admin.json";
+
+import hiCommon from "./locales/hi/common.json";
+import hiAuth from "./locales/hi/auth.json";
+import hiNav from "./locales/hi/nav.json";
+import hiMarkets from "./locales/hi/markets.json";
+import hiForex from "./locales/hi/forex.json";
+import hiCrypto from "./locales/hi/crypto.json";
+import hiDashboard from "./locales/hi/dashboard.json";
+import hiFooter from "./locales/hi/footer.json";
+import hiAdmin from "./locales/hi/admin.json";
+
 export const RTL_LANGUAGES = new Set(["ar", "he", "fa", "ur"]);
 
 export const SUPPORTED_LANGUAGES = [
@@ -94,6 +114,8 @@ export const SUPPORTED_LANGUAGES = [
   { code: "ru", label: "Russian", nativeLabel: "Русский", subtitle: "Russian", flag: "🇷🇺" },
   { code: "ja", label: "Japanese", nativeLabel: "日本語", subtitle: "Japanese", flag: "🇯🇵" },
   { code: "ko", label: "Korean", nativeLabel: "한국어", subtitle: "Korean", flag: "🇰🇷" },
+  { code: "es", label: "Spanish", nativeLabel: "Español", subtitle: "Spanish", flag: "🇪🇸" },
+  { code: "hi", label: "Hindi", nativeLabel: "हिन्दी", subtitle: "Hindi", flag: "🇮🇳" },
 ] as const;
 
 export type SupportedLang = typeof SUPPORTED_LANGUAGES[number]["code"];
@@ -118,6 +140,8 @@ const i18nResources: any = {
   ru: { common: ruCommon, auth: ruAuth, nav: ruNav, markets: ruMarkets, forex: ruForex, crypto: ruCrypto, dashboard: ruDashboard, footer: ruFooter, admin: ruAdmin },
   ja: { common: jaCommon, auth: jaAuth, nav: jaNav, markets: jaMarkets, forex: jaForex, crypto: jaCrypto, dashboard: jaDashboard, footer: jaFooter, admin: jaAdmin },
   ko: { common: koCommon, auth: koAuth, nav: koNav, markets: koMarkets, forex: koForex, crypto: koCrypto, dashboard: koDashboard, footer: koFooter, admin: koAdmin },
+  es: { common: esCommon, auth: esAuth, nav: esNav, markets: esMarkets, forex: esForex, crypto: esCrypto, dashboard: esDashboard, footer: esFooter, admin: esAdmin },
+  hi: { common: hiCommon, auth: hiAuth, nav: hiNav, markets: hiMarkets, forex: hiForex, crypto: hiCrypto, dashboard: hiDashboard, footer: hiFooter, admin: hiAdmin },
 };
 
 i18n

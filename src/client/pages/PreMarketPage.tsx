@@ -54,8 +54,8 @@ const MoverCard: React.FC<{ mover: MarketMover }> = ({ mover }) => (
       </div>
     </div>
     <div style={{ marginTop: "12px", fontSize: "12px", color: "#475569" }}>
-      <span>Volume: {(mover.volume / 1e6).toFixed(0)}M | </span>
-      <span>Cap: {formatMoney(mover.marketCap)}</span>
+      <span>Volume: {((mover.volume ?? 0) / 1e6).toFixed(0)}M | </span>
+      <span>Cap: {formatMoney(mover.marketCap ?? 0)}</span>
     </div>
   </div>
 );

@@ -31,7 +31,7 @@ import { normalizeCryptoPrice } from "./lib/normalize";
 import CurrencyDetail from "./components/CurrencyDetail";
 import ExchangeDetail from "./components/ExchangeDetail";
 import Layout from "./components/Layout";
-import { I18nProvider, useI18n } from "./i18n";
+import { useI18n } from "./i18n";
 import { useAuthStore } from "./stores/authStore";
 import SubMenuNav from "./components/SubMenuNav";
 import "./styles/index.css";
@@ -1638,11 +1638,10 @@ const App: React.FC = () => {
   const { isAuthenticated, user } = useAuthStore();
 
   return (
-    <I18nProvider>
-      <Router>
+    <Router>
         <React.Suspense fallback={<PageLoader />}>
         <Routes>
-          <Route path="/" element={<Layout />}> 
+          <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="index.html" element={<HomePage />} />
             <Route path="stocks" element={<StocksPage />} />
@@ -1714,7 +1713,6 @@ const App: React.FC = () => {
         </Routes>
         </React.Suspense>
       </Router>
-    </I18nProvider>
   );
 };
 

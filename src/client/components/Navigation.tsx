@@ -27,6 +27,7 @@ interface NavigationItem {
   icon: React.ReactNode;
   description?: string;
   submenu?: NavigationItem[];
+  adminOnly?: boolean;
 }
 
 type NavigationProps = {

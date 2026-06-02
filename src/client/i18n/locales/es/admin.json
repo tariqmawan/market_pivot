@@ -1,0 +1,21 @@
+{
+  "adminTopNav": "Navegación de administrador",
+  "openMenu": "Abrir menú",
+  "searchPlaceholder": "Buscar...",
+  "notifications": "Notificaciones",
+  "profile": "Perfil",
+  "adminPortal": "Portal de administrador",
+  "dashboard": "Panel",
+  "users": "Usuarios",
+  "marketData": "Datos de mercado",
+  "news": "Noticias",
+  "billing": "Facturación",
+  "platform": "Plataforma",
+  "analytics": "Analíticas",
+  "settings": "Configuración",
+  "totalUsers": "Usuarios totales",
+  "activeUsers": "Usuarios activos",
+  "revenue": "Ingresos",
+  "exchanges": "Bolsas",
+  "lastUpdated": "Última actualización"
+}

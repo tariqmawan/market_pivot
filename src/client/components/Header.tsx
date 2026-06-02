@@ -16,7 +16,7 @@ import {
   X,
 } from "lucide-react";
 import "./Header.css";
-import { useI18n, languages, type LanguageCode } from "../i18n";
+import { useI18n, SUPPORTED_LANGUAGES, type SupportedLang as LanguageCode } from "../i18n";
 import { useAuthStore } from "../stores/authStore";
 import navigationItems from "./navigationData";
 
@@ -472,18 +472,13 @@ const languageDisplayNames: Record<LanguageCode, string> = {
   en: "English",
   ar: "العربية",
   zh: "中文",
-  ja: "日本語",
-  ko: "한국어",
-  th: "ไทย",
-  vi: "Tiếng Việt",
-  it: "Italiano",
-  es: "Español",
-  de: "Deutsch",
   fr: "Français",
   pt: "Português",
   ru: "Русский",
-  pl: "Polski",
-  tr: "Türkçe",
+  ja: "日本語",
+  ko: "한국어",
+  es: "Español",
+  hi: "हिन्दी",
 };
 
 type HeaderProps = {
@@ -604,11 +599,11 @@ const { openLoginModal, openSignupModal, isAuthenticated, user } = useAuthStore(
 
         <div className="language-scroll" ref={languageScrollRef}>
           <div className="languages">
-            {languages.map((l) => (
+            {SUPPORTED_LANGUAGES.map((l) => (
               <button
                 key={l.code}
                 className={`lang ${l.code === language ? "active" : ""}`}
-                onClick={() => onSelectLanguage(l.code)}
+                onClick={() => onSelectLanguage(l.code as LanguageCode)}
                 type="button"
               >
                 {languageDisplayNames[l.code]}

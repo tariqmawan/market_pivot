@@ -1,0 +1,21 @@
+{
+  "adminTopNav": "एडमिन नेविगेशन",
+  "openMenu": "मेनू खोलें",
+  "searchPlaceholder": "खोजें...",
+  "notifications": "सूचनाएं",
+  "profile": "प्रोफ़ाइल",
+  "adminPortal": "एडमिन पोर्टल",
+  "dashboard": "डैशबोर्ड",
+  "users": "उपयोगकर्ता",
+  "marketData": "मार्केट डेटा",
+  "news": "समाचार",
+  "billing": "बिलिंग",
+  "platform": "प्लेटफ़ॉर्म",
+  "analytics": "विश्लेषण",
+  "settings": "सेटिंग्स",
+  "totalUsers": "कुल उपयोगकर्ता",
+  "activeUsers": "सक्रिय उपयोगकर्ता",
+  "revenue": "राजस्व",
+  "exchanges": "एक्सचेंज",
+  "lastUpdated": "अंतिम अपडेट"
+}

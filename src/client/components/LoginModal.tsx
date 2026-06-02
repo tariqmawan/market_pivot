@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { useI18n } from "../i18n";
 import { useAuthStore } from "../stores/authStore";
@@ -32,8 +32,7 @@ const strengthColors: Record<PasswordStrength, string> = {
 };
 
 const LoginModal: React.FC<{ mode?: "login" | "signup" }> = ({ mode: initialMode = "login" }) => {
-  const { t: _t } = useI18n();
-  const t = _t as (key: string) => string | undefined;
+  const { t } = useI18n();
   const {
     showLoginModal, showSignupModal,
     closeLoginModal, closeSignupModal,
@@ -72,10 +71,6 @@ const LoginModal: React.FC<{ mode?: "login" | "signup" }> = ({ mode: initialMode
    const firstInputRef = React.useRef<HTMLInputElement>(null);
    const modalRef = React.useRef<HTMLDivElement>(null);
    const closeBtnRef = React.useRef<HTMLButtonElement>(null);
-
-   // Focus trap (kept for future focus management)
-   const firstFocusableRef = React.useRef<HTMLInputElement>(null);
-   const lastFocusableRef = React.useRef<HTMLButtonElement>(null);
 
    const isOpen = mode === "signup" ? showSignupModal : showLoginModal;
 
