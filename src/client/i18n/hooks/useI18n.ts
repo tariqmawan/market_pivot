@@ -5,8 +5,9 @@ import { applyDocumentLocale } from "../utils/rtl";
 
 export type LanguageCode = SupportedLang;
 
-// Permissive t() type: accepts any string key, returns string | undefined
-export type TFn = (key: string, options?: Record<string, unknown>) => string | undefined;
+// Permissive t() type: accepts any string key, returns the translation string
+// (falls back to the key itself if not found in any namespace, never undefined)
+export type TFn = (key: string, options?: Record<string, unknown>) => string;
 
 const NAMESPACE_ORDER = [
   "common",
@@ -18,6 +19,7 @@ const NAMESPACE_ORDER = [
   "footer",
   "auth",
   "admin",
+  "pages",
 ] as const;
 
 export function useI18n(): {
@@ -33,8 +35,12 @@ export function useI18n(): {
     applyDocumentLocale(nextLanguage);
   }, []);
 
-  // Cast to permissive type so call sites don't need to be updated when keys are added
-  const t = rawT as unknown as TFn;
+  // Cast to permissive type so call sites don't need to be updated when keys are added.
+  // Wrap with String() to guarantee a string return even when i18next returns the key.
+  const t = ((key: string, options?: Record<string, unknown>) => {
+    const result = rawT(key, options as never) as unknown;
+    return result === undefined || result === null || result === "" ? key : String(result);
+  }) as TFn;
 
   return { language, setLanguage, t };
 }

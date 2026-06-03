@@ -35,7 +35,11 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
     return `$${value.toLocaleString()}`;
   };
 
-  const formatSignedPercent = (value: number) => `${value >= 0 ? "+" : ""}${value.toFixed(2)}%`;
+  const formatSignedPercent = (value: unknown) => {
+    const num = typeof value === "number" ? value : Number(value);
+    if (!Number.isFinite(num)) return "—";
+    return `${num >= 0 ? "+" : ""}${num.toFixed(2)}%`;
+  };
 
   useEffect(() => {
     if (activeTab === "sectors" && sectors.length === 0) {

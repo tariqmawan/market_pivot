@@ -13,6 +13,7 @@ const navigationItems = [
   { path: "/news", label: "news" },
   { path: "/economic-calendar", label: "calendar" },
   { path: "/user", label: "userPanel" },
+  { path: "/admin/login", label: "adminPanel", adminOnly: true },
 ];
 
 export default navigationItems;

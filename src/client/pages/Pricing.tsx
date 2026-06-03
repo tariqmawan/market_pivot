@@ -103,11 +103,10 @@ function CheckIcon({ muted }: { muted?: boolean }) {
   );
 }
 
-function PriceDisplay({ plan, mode, quantity }: { plan: Plan; mode: BillingMode; quantity?: number }) {
-  const basePrice = mode === "annual" ? plan.annualPrice : plan.monthlyPrice;
-  const price = quantity && basePrice !== null ? basePrice * quantity : basePrice;
+function PriceDisplay({ plan, mode }: { plan: Plan; mode: BillingMode }) {
+  const price = mode === "annual" ? plan.annualPrice : plan.monthlyPrice;
 
-  if (basePrice === null) {
+  if (price === null) {
     return (
       <div className="pricing-price-row">
         <span className="pricing-price-amount">Custom</span>
@@ -122,12 +121,12 @@ function PriceDisplay({ plan, mode, quantity }: { plan: Plan; mode: BillingMode;
   return (
     <>
       <div className="pricing-price-row">
-        {price !== null && price > 0 && <span className="pricing-price-currency">$</span>}
+        {price > 0 && <span className="pricing-price-currency">$</span>}
         <span className="pricing-price-amount">{price === 0 ? "Free" : price}</span>
-        {price !== null && price > 0 && <span className="pricing-price-period">/mo</span>}
+        {price > 0 && <span className="pricing-price-period">/mo</span>}
       </div>
       <div className="pricing-price-billed">
-        {mode === "annual" && price !== null && price > 0 && yearlySavings > 0 ? (
+        {mode === "annual" && price > 0 && yearlySavings > 0 ? (
           <>
             <span className="pricing-price-original">${monthly}/mo</span>
             <span className="pricing-price-savings"> · Save ${yearlySavings}/yr</span>
@@ -142,13 +141,7 @@ function PriceDisplay({ plan, mode, quantity }: { plan: Plan; mode: BillingMode;
 
 function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
   const { t } = useI18n();
-
-  const defaultQuantity = 1;
-  const minQuantity = 1;
-  const showQuantitySelector = plan.id !== "free";
-
-  const [quantity, setQuantity] = useState(defaultQuantity);
-
+  
   return (
     <div
       className={`pricing-card${plan.popular ? " pricing-card--popular" : ""}`}
@@ -162,45 +155,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
       <div className="pricing-plan-name">{plan.name}</div>
       <p className="pricing-plan-desc">{t(plan.descriptionKey)}</p>
 
-      <PriceDisplay plan={plan} mode={mode} quantity={showQuantitySelector ? quantity : undefined} />
-
-      {showQuantitySelector && (
-        <div className="pricing-users-section">
-          <div className="pricing-users-label">
-            How many users? (Unlimited)
-          </div>
-
-          <div className="pricing-quantity-row">
-            <button
-              type="button"
-              className="pricing-qty-btn"
-              onClick={() =>
-                setQuantity(prev => Math.max(minQuantity, prev - 1))
-              }
-            >
-              -
-            </button>
-
-            <div className="pricing-qty-display">
-              {quantity}
-            </div>
-
-            <button
-              type="button"
-              className="pricing-qty-btn"
-              onClick={() =>
-                setQuantity(prev => prev + 1)
-              }
-            >
-              +
-            </button>
-          </div>
-
-          <div className="pricing-seat-price">
-            ${plan.monthlyPrice}/seat/mo
-          </div>
-        </div>
-      )}
+      <PriceDisplay plan={plan} mode={mode} />
 
       <button
         className={`pricing-cta pricing-cta--${plan.ctaVariant}`}
@@ -211,7 +166,6 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
       >
         {t(plan.ctaKey)}
       </button>
-
 
       <hr className="pricing-divider" />
 

@@ -1,60 +1,95 @@
-import React, { useState, useRef, useEffect } from "react";
-import { useI18n, languages, type LanguageCode } from "../i18n";
+import React, { useRef, useEffect, useState } from "react";
+import { useI18n, SUPPORTED_LANGUAGES, type SupportedLang } from "../i18n";
 
 interface LanguageSwitcherProps {
-  variant?: "dropdown" | "strip";
+  variant?: "horizontal-scroll" | "dropdown" | "strip";
   className?: string;
 }
 
-// Simple flag mapping for language codes
-const getFlag = (code: LanguageCode): string => {
-  const flagMap: Record<LanguageCode, string> = {
-    en: "🇺🇸",
-    ar: "🇸🇦",
-    zh: "🇨🇳",
-    ja: "🇯🇵",
-    ko: "🇰🇷",
-    th: "🇹🇭",
-    vi: "🇻🇳",
-    it: "🇮🇹",
-    es: "🇪🇸",
-    de: "🇩🇪",
-    fr: "🇫🇷",
-    pt: "🇵🇹",
-    ru: "🇷🇺",
-    pl: "🇵🇱",
-    tr: "🇹🇷",
-  };
-  return flagMap[code] || "🌐";
+// Use only the languages that have actual i18next resources initialized.
+// SUPPORTED_LANGUAGES comes from src/client/i18n/config.ts — single source of truth.
+const FLAGS: Record<SupportedLang, string> = {
+  en: "🇺🇸",
+  ar: "🇸🇦",
+  zh: "🇨🇳",
+  fr: "🇫🇷",
+  pt: "🇵🇹",
+  ru: "🇷🇺",
+  ja: "🇯🇵",
+  ko: "🇰🇷",
+  es: "🇪🇸",
+  hi: "🇮🇳",
 };
 
+const getFlag = (code: SupportedLang): string => FLAGS[code] ?? "🌐";
+
 const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
-  variant = "dropdown",
+  variant = "horizontal-scroll",
   className = "",
 }) => {
   const { language, setLanguage } = useI18n();
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  const current = languages.find((l) => l.code === language) ?? languages[0];
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState(0);
+  const [scrollStart, setScrollStart] = useState(0);
 
-  const handleSelect = (code: LanguageCode) => {
+  const handleSelect = (code: SupportedLang) => {
     setLanguage(code);
-    setOpen(false);
   };
 
-  // Close on outside click
+  // Mouse wheel horizontal scrolling
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer || variant !== "horizontal-scroll") return;
+
+    const handleWheel = (e: WheelEvent) => {
+      // Only handle horizontal scrolling if shift key is pressed or vertical scroll in horizontal scroll container
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        scrollContainer.scrollLeft += e.deltaY;
+      }
     };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
+
+    scrollContainer.addEventListener("wheel", handleWheel, { passive: false });
+    return () => scrollContainer.removeEventListener("wheel", handleWheel);
+  }, [variant]);
+
+  // Touch swipe horizontal scrolling
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer || variant !== "horizontal-scroll") return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      setIsDragging(true);
+      setDragStart(e.touches[0].clientX);
+      setScrollStart(scrollContainer.scrollLeft);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!isDragging) return;
+      const delta = e.touches[0].clientX - dragStart;
+      scrollContainer.scrollLeft = scrollStart - delta;
+    };
+
+    const handleTouchEnd = () => {
+      setIsDragging(false);
+    };
+
+    scrollContainer.addEventListener("touchstart", handleTouchStart, false);
+    scrollContainer.addEventListener("touchmove", handleTouchMove, { passive: true });
+    scrollContainer.addEventListener("touchend", handleTouchEnd, false);
+
+    return () => {
+      scrollContainer.removeEventListener("touchstart", handleTouchStart);
+      scrollContainer.removeEventListener("touchmove", handleTouchMove);
+      scrollContainer.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [isDragging, dragStart, scrollStart, variant]);
 
   if (variant === "strip") {
     return (
       <div className={`lang-strip ${className}`} role="navigation" aria-label="Language selection">
-        {languages.map((lang) => (
+        {SUPPORTED_LANGUAGES.map((lang) => (
           <button
             key={lang.code}
             type="button"
@@ -66,7 +101,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
             <span className="lang-flag" aria-hidden="true">{getFlag(lang.code)}</span>
             <span className="lang-copy">
               <span className="lang-native">{lang.label}</span>
-              <span className="lang-subtitle">{lang.shortLabel}</span>
+              <span className="lang-subtitle">{lang.nativeLabel}</span>
             </span>
           </button>
         ))}
@@ -74,56 +109,32 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     );
   }
 
+  // Horizontal scroll layout - all 8 supported languages
   return (
-    <div className={`lang-switcher ${className}`} ref={ref}>
-      <button
-        type="button"
-        className="lang-switcher-trigger"
-        onClick={() => setOpen((v) => !v)}
-        aria-haspopup="listbox"
-        aria-expanded={open}
-        aria-label={`Language: ${current.label}`}
+    <div className={`lang-scroll-container ${className}`} role="navigation" aria-label="Language selection">
+      <div
+        className="lang-scroll-track"
+        ref={scrollRef}
+        role="region"
+        aria-label="Scrollable language options"
       >
-        <span className="lang-flag" aria-hidden="true">{getFlag(current.code)}</span>
-        <span className="lang-code">{current.shortLabel}</span>
-        <svg
-          className={`lang-chevron ${open ? "open" : ""}`}
-          width="12" height="12" viewBox="0 0 24 24"
-          fill="none" stroke="currentColor" strokeWidth="2.5"
-          aria-hidden="true"
-        >
-          <polyline points="6 9 12 15 18 9" />
-        </svg>
-      </button>
-
-      {open && (
-        <ul
-          className="lang-switcher-menu"
-          role="listbox"
-          aria-label="Select language"
-        >
-          {languages.map((lang) => (
-            <li
-              key={lang.code}
-              role="option"
-              aria-selected={language === lang.code}
-              className={`lang-option ${language === lang.code ? "active" : ""}`}
-              onClick={() => handleSelect(lang.code)}
-              onKeyDown={(e) => e.key === "Enter" && handleSelect(lang.code)}
-              tabIndex={0}
-            >
-              <span className="lang-flag" aria-hidden="true">{getFlag(lang.code)}</span>
+        {SUPPORTED_LANGUAGES.map((lang) => (
+          <button
+            key={lang.code}
+            type="button"
+            className={`lang-scroll-btn ${language === lang.code ? "active" : ""}`}
+            onClick={() => handleSelect(lang.code)}
+            aria-pressed={language === lang.code}
+            title={lang.label}
+          >
+            <span className="lang-flag" aria-hidden="true">{getFlag(lang.code)}</span>
+            <span className="lang-scroll-label">
               <span className="lang-native">{lang.label}</span>
-              <span className="lang-english">{lang.shortLabel}</span>
-              {language === lang.code && (
-                <svg className="lang-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
+              <span className="lang-code">{lang.subtitle}</span>
+            </span>
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

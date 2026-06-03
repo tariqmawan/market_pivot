@@ -172,6 +172,7 @@ const groups: NavGroup[] = [
     icon: <Bell size={18} />,
     items: [
       { label: "News CMS", href: "/admin/news", icon: <Bell size={18} />, permission: PERMISSIONS.NEWS_VIEW },
+      { label: "Economic Calendar", href: "/admin/economic-calendar", icon: <BarChart3 size={18} />, permission: PERMISSIONS.CALENDAR_VIEW },
       { label: "SEO", href: "/admin/seo", icon: <Settings size={18} />, permission: PERMISSIONS.SEO_EDIT },
       { label: "Advertisements", href: "/admin/ads", icon: <BarChart3 size={18} />, permission: PERMISSIONS.ADS_EDIT },
     ],

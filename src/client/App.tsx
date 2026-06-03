@@ -6,6 +6,9 @@ import currenciesData from "../data/currencies.json";
 import cryptoData from "../data/cryptocurrencies.json";
 import regionsData from "../data/regions.json";
 import sectorsData from "../data/sectors.json";
+import { SubscriptionProvider } from "./subscription";
+import { GatedAdvancedScreener } from "./components/GatedAdvancedScreener";
+import { InstallPrompt, OfflineIndicator } from "./pwa";
 const IndicesPage     = React.lazy(() => import("./pages/IndicesPage"));
 const EtfsPage        = React.lazy(() => import("./pages/EtfsPage"));
 const BondsYieldsPage = React.lazy(() => import("./pages/BondsYieldsPage"));
@@ -31,11 +34,16 @@ import { normalizeCryptoPrice } from "./lib/normalize";
 import CurrencyDetail from "./components/CurrencyDetail";
 import ExchangeDetail from "./components/ExchangeDetail";
 import Layout from "./components/Layout";
-import { I18nProvider, useI18n } from "./i18n";
+import PageLoader from "./components/PageLoader";
+import ScrollToTop from "./components/ScrollToTop";
+import { SkeletonStyles } from "./components/Skeleton";
+import { useI18n } from "./i18n";
 import { useAuthStore } from "./stores/authStore";
 import SubMenuNav from "./components/SubMenuNav";
 import "./styles/index.css";
 import "./styles/rtl.css";
+import "./styles/polish.css";
+import "./styles/productization.css";
 const AdminPanel        = React.lazy(() => import("./pages/AdminPanel"));
 const AdminLogin        = React.lazy(() => import("./pages/AdminLogin"));
 const AdminApp          = React.lazy(() => import("./admin/AdminApp"));
@@ -55,6 +63,16 @@ const VolatilityIndexPage = React.lazy(() => import("./pages/VolatilityIndexPage
 const TrendingCoinsPage = React.lazy(() => import("./pages/TrendingCoinsPage"));
 const CryptoCategoryPage = React.lazy(() => import("./pages/CryptoCategoryPage"));
 const CategoryPage      = React.lazy(() => import("./pages/CategoryPage"));
+const StockDetailPage   = React.lazy(() => import("./pages/StockDetailPage"));
+const ForexPage         = React.lazy(() => import("./pages/ForexPage"));
+const RegionsPageNew    = React.lazy(() => import("./pages/RegionsPageNew"));
+const SectorsPageNew    = React.lazy(() => import("./pages/SectorsPageNew"));
+const WatchlistPage     = React.lazy(() => import("./pages/WatchlistPage"));
+const PortfolioPage     = React.lazy(() => import("./pages/PortfolioPage"));
+const UserProfilePage   = React.lazy(() => import("./pages/UserProfilePage"));
+const BillingPage       = React.lazy(() => import("./pages/BillingPage"));
+const OfflinePage       = React.lazy(() => import("./pages/OfflinePage"));
+const NotificationsPage = React.lazy(() => import("./notifications/NotificationsPage"));
 
 
 const exchanges = exchangesData.exchanges as StockExchange[];
@@ -105,7 +123,16 @@ const buildMovers = (exchange: StockExchange, direction: "up" | "down" | "active
   });
 
 const findExchangeById = (id: string | undefined) =>
-  exchanges.find((exchange) => exchange.id.toLowerCase() === id?.toLowerCase());
+  exchanges.find(
+    (exchange) =>
+      exchange.id.toLowerCase() === id?.toLowerCase() ||
+      exchange.mainIndex?.toLowerCase() === id?.toLowerCase()
+  );
+
+const resolveExchangeLookupId = (id: string | undefined) => {
+  const match = findExchangeById(id);
+  return match?.id ?? id;
+};
 
 const majorRates: Record<string, number> = {
   USD: 1,
@@ -383,8 +410,32 @@ const HomePage = () => {
 
 const API_BASE = "http://localhost:3000/api";
 
+/**
+ * Normalize a flat API exchange record (e.g. `tradingHours_open`,
+ * `tradingHours_close`) into the nested shape used by the UI
+ * (`tradingHours: { open, close, timezone }`). Falls back to the
+ * original fields when the API already returns the nested shape.
+ */
+const normalizeExchange = (raw: Record<string, unknown> | null | undefined): StockExchange | null => {
+  if (!raw) return null;
+  const r = raw as Record<string, unknown> & {
+    tradingHours?: { open: string; close: string; timezone?: string };
+    tradingHours_open?: string;
+    tradingHours_close?: string;
+  };
+  if (!r.tradingHours && (r.tradingHours_open || r.tradingHours_close)) {
+    r.tradingHours = {
+      open: r.tradingHours_open ?? "09:00",
+      close: r.tradingHours_close ?? "17:00",
+      timezone: (r.timezone as string) ?? "UTC",
+    };
+  }
+  return r as unknown as StockExchange;
+};
+
 const StocksPage = () => {
   const { exchangeId } = useParams();
+  const resolvedExchangeId = resolveExchangeLookupId(exchangeId?.toLowerCase());
   const { t } = useI18n();
   const location = useLocation();
   const isExchangesPath = location.pathname.startsWith("/exchanges");
@@ -403,30 +454,76 @@ const StocksPage = () => {
     if (!exchangeId) return;
     setIsLoading(true);
 
-    const id = exchangeId.toLowerCase();
+    const id = resolvedExchangeId;
+
+    // Temporary instrumentation (root-cause tracing for NYSE/NASDAQ/LSE)
+    // eslint-disable-next-line no-console
+    console.debug("[StocksPage] exchange route clicked", {
+      rawExchangeId: exchangeId,
+      resolvedExchangeId,
+      matchedByDatasetId: findExchangeById(resolvedExchangeId)?.id,
+      pathname: location.pathname,
+      isExchangesPath,
+    });
 
     Promise.all([
-      fetch(`${API_BASE}/exchanges/${id}`).then(r => r.json()),
-      fetch(`${API_BASE}/exchanges/${id}/summary`).then(r => r.json()),
+      fetch(`${API_BASE}/exchanges/${id}`).then(r => r.json()).then((res) => {
+        // eslint-disable-next-line no-console
+        console.debug("[StocksPage] API /exchanges/:id response", { id, res });
+        return res;
+      }),
+      fetch(`${API_BASE}/exchanges/${id}/summary`).then(r => r.json()).then((res) => {
+        // eslint-disable-next-line no-console
+        console.debug("[StocksPage] API /exchanges/:id/summary response", { id, res });
+        return res;
+      }),
     ])
       .then(([exchRes, summaryRes]) => {
-        if (exchRes.success) setExchange(exchRes.data);
+        // eslint-disable-next-line no-console
+        console.debug("[StocksPage] API responses success flags", {
+          id,
+          exchSuccess: !!exchRes?.success,
+          summarySuccess: !!summaryRes?.success,
+        });
+
+        if (exchRes.success) {
+          const normalized = normalizeExchange(exchRes.data);
+          // eslint-disable-next-line no-console
+          console.debug("[StocksPage] normalized exchange", { id, normalizedId: normalized?.id });
+          if (normalized) setExchange(normalized);
+        }
+
         if (summaryRes.success) {
           const s = summaryRes.data;
           // index snapshot
           if (s.index) setIndexData(s.index);
+
           // movers — fallback to buildMovers agar DB mein nahi hain
-          const ex = exchRes.data ?? findExchangeById(exchangeId);
+          const ex = exchRes.data ?? findExchangeById(resolvedExchangeId);
+          // eslint-disable-next-line no-console
+          console.debug("[StocksPage] movers fallback exchange selection", {
+            id,
+            exFromApi: !!exchRes?.data,
+            exSelectedId: ex?.id,
+          });
+
           setGainers(s.gainers?.length   ? s.gainers   : ex ? buildMovers(ex, "up")     : []);
           setLosers(s.losers?.length     ? s.losers    : ex ? buildMovers(ex, "down")   : []);
           setMostActive(s.mostActive?.length ? s.mostActive : ex ? buildMovers(ex, "active") : []);
+
           // agar index DB mein nahi hai toh JSON se banao
           if (!s.index?.value && ex) setIndexData(buildIndexSnapshot(ex));
         }
       })
-      .catch(() => {
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.error("[StocksPage] API fetch failed, using JSON fallback", { id, err });
+
         // API fail hone par JSON fallback
-        const ex = findExchangeById(exchangeId);
+        const ex = findExchangeById(resolvedExchangeId);
+        // eslint-disable-next-line no-console
+        console.debug("[StocksPage] JSON fallback exchange lookup result", { id: resolvedExchangeId, exId: ex?.id });
+
         if (ex) {
           setExchange(ex);
           setIndexData(buildIndexSnapshot(ex));
@@ -447,7 +544,7 @@ const StocksPage = () => {
       .catch(() => {}); // JSON fallback already set
   }, [exchangeId]);
 
-  const exchangeFallback = exchange ?? findExchangeById(exchangeId);
+  const exchangeFallback = exchange ?? findExchangeById(resolvedExchangeId);
 
   if (exchangeId) {
     if (exchangeFallback || isLoading) {
@@ -1605,47 +1702,53 @@ const UserPanelPage = () => {
   );
 };
 
-function PageLoader() {
-  return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "60vh" }}>
-      <div style={{ width: 36, height: 36, border: "3px solid #e5e7eb", borderTopColor: "#C9A87B", borderRadius: "50%", animation: "mp-spin 0.7s linear infinite" }} />
-      <style>{`@keyframes mp-spin{to{transform:rotate(360deg)}}`}</style>
-    </div>
-  );
+function PageLoaderFallback() {
+  return <PageLoader />;
 }
 
-const App: React.FC = () => {
-  const { isAuthenticated, user } = useAuthStore();
-
+const NotFoundPage = () => {
   return (
-    <I18nProvider>
-      <Router
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <React.Suspense fallback={<PageLoader />}>
+    <div className="page">
+      <div className="section-heading" role="alert">
+        <p className="eyebrow">404</p>
+        <h1>Page not found</h1>
+        <p>The requested page could not be found. Please check the URL or return to the home dashboard.</p>
+        <Link to="/" className="primary-action" style={{ marginTop: "1rem" }}>← Go to home</Link>
+      </div>
+    </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <SubscriptionProvider>
+        <ScrollToTop />
+        <SkeletonStyles />
+        <OfflineIndicator />
+        <InstallPrompt />
+        <React.Suspense fallback={<PageLoaderFallback />}>
         <Routes>
-          <Route path="/" element={<Layout />}> 
+          <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="index.html" element={<HomePage />} />
             <Route path="stocks" element={<StocksPage />} />
-            <Route path="stocks/watchlists" element={<UserPanelPage />} />
-            <Route path="stocks/portfolio" element={<UserPanelPage />} />
+            <Route path="stocks/watchlists" element={<WatchlistPage />} />
+            <Route path="stocks/portfolio" element={<PortfolioPage />} />
             <Route path="stocks/alerts" element={<UserPanelPage />} />
             <Route path="stocks/gainers" element={<PublicModulePage slug="stocks/gainers" eyebrow="Stocks" title="Top Gainers" />} />
             <Route path="stocks/losers" element={<PublicModulePage slug="stocks/losers" eyebrow="Stocks" title="Top Losers" />} />
+            <Route path="stocks/symbol/:symbol" element={<StockDetailPage />} />
             <Route path="stocks/:exchangeId" element={<StocksPage />} />
             <Route path="coverage" element={<CoveragePage />} />
             <Route path="currencies" element={<CurrenciesPage />} />
             <Route path="currencies/:code" element={<CurrenciesPage />} />
             <Route path="crypto" element={<CryptoPage />} />
             <Route path="crypto/:cryptoId" element={<CryptoPage />} />
-            <Route path="regions" element={<RegionsPage />} />
-            <Route path="regions/:regionId" element={<RegionsPage />} />
-            <Route path="sectors" element={<SectorsPage />} />
-            <Route path="sectors/:sectorId" element={<SectorsPage />} />
+            <Route path="regions" element={<RegionsPageNew />} />
+            <Route path="regions/:regionId" element={<RegionsPageNew />} />
+            <Route path="sectors" element={<SectorsPageNew />} />
+            <Route path="sectors/:sectorId" element={<SectorsPageNew />} />
             <Route path="commodities" element={<CommoditiesPage />} />
             <Route path="commodities/:commodityId" element={<CommoditiesPage />} />
             <Route path="dashboard" element={<DashboardPage />} />
@@ -1658,8 +1761,8 @@ const App: React.FC = () => {
             <Route path="markets/volatility-index" element={<VolatilityIndexPage />} />
             <Route path="exchanges" element={<StocksPage />} />
             <Route path="exchanges/region/:regionId" element={<ExchangesByRegionPage />} />
-            <Route path="forex" element={<CurrenciesPage />} />
-            <Route path="forex/:code" element={<CurrenciesPage />} />
+            <Route path="forex" element={<ForexPage />} />
+            <Route path="forex/:code" element={<ForexPage />} />
             <Route path="crypto/trending" element={<TrendingCoinsPage />} />
             <Route path="crypto/meme-coins" element={<CryptoCategoryPage />} />
             <Route path="crypto/defi" element={<CryptoCategoryPage />} />
@@ -1686,19 +1789,27 @@ const App: React.FC = () => {
             <Route path="billing-policy" element={<BillingPolicy />} />
             <Route path="about" element={<AboutMarketsPivot />} />
 
-            <Route path="screener" element={<Screener />} />
+            <Route path="screener" element={<GatedAdvancedScreener />} />
+            <Route path="screener-legacy" element={<Screener />} />
             <Route path="economic-calendar" element={<EconomicCalendar />} />
             <Route path="calendar" element={<EconomicCalendar />} />
 
+            <Route path="watchlists" element={<WatchlistPage />} />
+            <Route path="portfolio" element={<PortfolioPage />} />
+            <Route path="profile" element={<UserProfilePage />} />
             <Route path="user" element={<UserPanelPage />} />
+            <Route path="billing" element={<BillingPage />} />
+            <Route path="notifications" element={<NotificationsPage />} />
+            <Route path="offline" element={<OfflinePage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
 
           <Route path="/admin/*" element={<AdminApp />} />
           <Route path="/admin/login" element={<AdminLogin />} />
         </Routes>
         </React.Suspense>
-      </Router>
-    </I18nProvider>
+      </SubscriptionProvider>
+    </Router>
   );
 };
 

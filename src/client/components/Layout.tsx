@@ -131,16 +131,24 @@ const Layout: React.FC = () => {
     setIsSidebarPreviewOpen(false);
   }, [isMobileViewport]);
 
-  const closeSidebarFromContent = React.useCallback(() => {
+  const closeSidebarFromContent = React.useCallback((event: React.PointerEvent<HTMLElement>) => {
+    if (event.target instanceof HTMLElement && event.target.closest('a, button, input, textarea, select, label')) {
+      return;
+    }
+
     if (isMobileViewport) {
       setIsMobileSidebarOpen(false);
+      return;
+    }
+
+    if (!isSidebarPinnedOpen && !isSidebarPreviewOpen && isHoverSuppressed) {
       return;
     }
 
     setIsSidebarPinnedOpen(false);
     setIsSidebarPreviewOpen(false);
     setIsHoverSuppressed(true);
-  }, [isMobileViewport]);
+  }, [isMobileViewport, isSidebarPinnedOpen, isSidebarPreviewOpen, isHoverSuppressed]);
 
   const handleLeafNavigate = React.useCallback(() => {
     if (isMobileViewport) {
@@ -153,7 +161,7 @@ const Layout: React.FC = () => {
     setIsHoverSuppressed(true);
   }, [isMobileViewport]);
 
-  const isAdminConsole = path === "/admin" || path === "/admin/login" || path.startsWith("/admin?");
+  const isAdminConsole = path === "/admin" || path.startsWith("/admin/");
 
   // Admin sidebar/header require props for mobile toggle.
   // Default to "closed" since we don't have a mobile drawer implementation here.
@@ -174,12 +182,13 @@ const Layout: React.FC = () => {
 
   return (
     <div className="app-shell">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       {isAdminConsole ? (
         <div className="admin-console">
           <AdminHeader onMobileToggle={onMobileToggle} />
           <div className="admin-body">
             <AdminSidebar mobileOpen={mobileOpen} onMobileToggle={onMobileToggle} />
-            <main className="admin-main">
+            <main className="admin-main" id="main-content" tabIndex={-1}>
               <Outlet />
             </main>
           </div>
@@ -239,7 +248,7 @@ const Layout: React.FC = () => {
             </aside>
 
             <div className="app-layout-main" onPointerDown={closeSidebarFromContent}>
-              <main className="site-main">
+              <main className="site-main" id="main-content" tabIndex={-1}>
                 <Outlet />
               </main>
 
@@ -279,6 +288,8 @@ const Layout: React.FC = () => {
                   <Link to="/screener">{t("advancedScreener")}</Link>
                   <Link to="/economic-calendar">{t("calendar")}</Link>
                   <Link to="/pricing">{t("pricing")}</Link>
+                  <Link to="/billing">Billing</Link>
+                  <Link to="/notifications">Notifications</Link>
                 </div>
 
                 <div className="footer-column">
