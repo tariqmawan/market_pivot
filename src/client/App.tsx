@@ -6,6 +6,9 @@ import currenciesData from "../data/currencies.json";
 import cryptoData from "../data/cryptocurrencies.json";
 import regionsData from "../data/regions.json";
 import sectorsData from "../data/sectors.json";
+import { SubscriptionProvider } from "./subscription";
+import { GatedAdvancedScreener } from "./components/GatedAdvancedScreener";
+import { InstallPrompt, OfflineIndicator } from "./pwa";
 const IndicesPage     = React.lazy(() => import("./pages/IndicesPage"));
 const EtfsPage        = React.lazy(() => import("./pages/EtfsPage"));
 const BondsYieldsPage = React.lazy(() => import("./pages/BondsYieldsPage"));
@@ -40,6 +43,7 @@ import SubMenuNav from "./components/SubMenuNav";
 import "./styles/index.css";
 import "./styles/rtl.css";
 import "./styles/polish.css";
+import "./styles/productization.css";
 const AdminPanel        = React.lazy(() => import("./pages/AdminPanel"));
 const AdminLogin        = React.lazy(() => import("./pages/AdminLogin"));
 const AdminApp          = React.lazy(() => import("./admin/AdminApp"));
@@ -66,7 +70,9 @@ const SectorsPageNew    = React.lazy(() => import("./pages/SectorsPageNew"));
 const WatchlistPage     = React.lazy(() => import("./pages/WatchlistPage"));
 const PortfolioPage     = React.lazy(() => import("./pages/PortfolioPage"));
 const UserProfilePage   = React.lazy(() => import("./pages/UserProfilePage"));
-const AdvancedScreenerPage = React.lazy(() => import("./pages/AdvancedScreenerPage"));
+const BillingPage       = React.lazy(() => import("./pages/BillingPage"));
+const OfflinePage       = React.lazy(() => import("./pages/OfflinePage"));
+const NotificationsPage = React.lazy(() => import("./notifications/NotificationsPage"));
 
 
 const exchanges = exchangesData.exchanges as StockExchange[];
@@ -404,6 +410,29 @@ const HomePage = () => {
 
 const API_BASE = "http://localhost:3000/api";
 
+/**
+ * Normalize a flat API exchange record (e.g. `tradingHours_open`,
+ * `tradingHours_close`) into the nested shape used by the UI
+ * (`tradingHours: { open, close, timezone }`). Falls back to the
+ * original fields when the API already returns the nested shape.
+ */
+const normalizeExchange = (raw: Record<string, unknown> | null | undefined): StockExchange | null => {
+  if (!raw) return null;
+  const r = raw as Record<string, unknown> & {
+    tradingHours?: { open: string; close: string; timezone?: string };
+    tradingHours_open?: string;
+    tradingHours_close?: string;
+  };
+  if (!r.tradingHours && (r.tradingHours_open || r.tradingHours_close)) {
+    r.tradingHours = {
+      open: r.tradingHours_open ?? "09:00",
+      close: r.tradingHours_close ?? "17:00",
+      timezone: (r.timezone as string) ?? "UTC",
+    };
+  }
+  return r as unknown as StockExchange;
+};
+
 const StocksPage = () => {
   const { exchangeId } = useParams();
   const resolvedExchangeId = resolveExchangeLookupId(exchangeId?.toLowerCase());
@@ -427,28 +456,74 @@ const StocksPage = () => {
 
     const id = resolvedExchangeId;
 
+    // Temporary instrumentation (root-cause tracing for NYSE/NASDAQ/LSE)
+    // eslint-disable-next-line no-console
+    console.debug("[StocksPage] exchange route clicked", {
+      rawExchangeId: exchangeId,
+      resolvedExchangeId,
+      matchedByDatasetId: findExchangeById(resolvedExchangeId)?.id,
+      pathname: location.pathname,
+      isExchangesPath,
+    });
+
     Promise.all([
-      fetch(`${API_BASE}/exchanges/${id}`).then(r => r.json()),
-      fetch(`${API_BASE}/exchanges/${id}/summary`).then(r => r.json()),
+      fetch(`${API_BASE}/exchanges/${id}`).then(r => r.json()).then((res) => {
+        // eslint-disable-next-line no-console
+        console.debug("[StocksPage] API /exchanges/:id response", { id, res });
+        return res;
+      }),
+      fetch(`${API_BASE}/exchanges/${id}/summary`).then(r => r.json()).then((res) => {
+        // eslint-disable-next-line no-console
+        console.debug("[StocksPage] API /exchanges/:id/summary response", { id, res });
+        return res;
+      }),
     ])
       .then(([exchRes, summaryRes]) => {
-        if (exchRes.success) setExchange(exchRes.data);
+        // eslint-disable-next-line no-console
+        console.debug("[StocksPage] API responses success flags", {
+          id,
+          exchSuccess: !!exchRes?.success,
+          summarySuccess: !!summaryRes?.success,
+        });
+
+        if (exchRes.success) {
+          const normalized = normalizeExchange(exchRes.data);
+          // eslint-disable-next-line no-console
+          console.debug("[StocksPage] normalized exchange", { id, normalizedId: normalized?.id });
+          if (normalized) setExchange(normalized);
+        }
+
         if (summaryRes.success) {
           const s = summaryRes.data;
           // index snapshot
           if (s.index) setIndexData(s.index);
+
           // movers — fallback to buildMovers agar DB mein nahi hain
           const ex = exchRes.data ?? findExchangeById(resolvedExchangeId);
+          // eslint-disable-next-line no-console
+          console.debug("[StocksPage] movers fallback exchange selection", {
+            id,
+            exFromApi: !!exchRes?.data,
+            exSelectedId: ex?.id,
+          });
+
           setGainers(s.gainers?.length   ? s.gainers   : ex ? buildMovers(ex, "up")     : []);
           setLosers(s.losers?.length     ? s.losers    : ex ? buildMovers(ex, "down")   : []);
           setMostActive(s.mostActive?.length ? s.mostActive : ex ? buildMovers(ex, "active") : []);
+
           // agar index DB mein nahi hai toh JSON se banao
           if (!s.index?.value && ex) setIndexData(buildIndexSnapshot(ex));
         }
       })
-      .catch(() => {
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.error("[StocksPage] API fetch failed, using JSON fallback", { id, err });
+
         // API fail hone par JSON fallback
         const ex = findExchangeById(resolvedExchangeId);
+        // eslint-disable-next-line no-console
+        console.debug("[StocksPage] JSON fallback exchange lookup result", { id: resolvedExchangeId, exId: ex?.id });
+
         if (ex) {
           setExchange(ex);
           setIndexData(buildIndexSnapshot(ex));
@@ -1647,8 +1722,11 @@ const NotFoundPage = () => {
 const App: React.FC = () => {
   return (
     <Router>
+      <SubscriptionProvider>
         <ScrollToTop />
         <SkeletonStyles />
+        <OfflineIndicator />
+        <InstallPrompt />
         <React.Suspense fallback={<PageLoaderFallback />}>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -1711,7 +1789,7 @@ const App: React.FC = () => {
             <Route path="billing-policy" element={<BillingPolicy />} />
             <Route path="about" element={<AboutMarketsPivot />} />
 
-            <Route path="screener" element={<AdvancedScreenerPage />} />
+            <Route path="screener" element={<GatedAdvancedScreener />} />
             <Route path="screener-legacy" element={<Screener />} />
             <Route path="economic-calendar" element={<EconomicCalendar />} />
             <Route path="calendar" element={<EconomicCalendar />} />
@@ -1720,6 +1798,9 @@ const App: React.FC = () => {
             <Route path="portfolio" element={<PortfolioPage />} />
             <Route path="profile" element={<UserProfilePage />} />
             <Route path="user" element={<UserPanelPage />} />
+            <Route path="billing" element={<BillingPage />} />
+            <Route path="notifications" element={<NotificationsPage />} />
+            <Route path="offline" element={<OfflinePage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
 
@@ -1727,7 +1808,8 @@ const App: React.FC = () => {
           <Route path="/admin/login" element={<AdminLogin />} />
         </Routes>
         </React.Suspense>
-      </Router>
+      </SubscriptionProvider>
+    </Router>
   );
 };
 

@@ -288,6 +288,8 @@ const Layout: React.FC = () => {
                   <Link to="/screener">{t("advancedScreener")}</Link>
                   <Link to="/economic-calendar">{t("calendar")}</Link>
                   <Link to="/pricing">{t("pricing")}</Link>
+                  <Link to="/billing">Billing</Link>
+                  <Link to="/notifications">Notifications</Link>
                 </div>
 
                 <div className="footer-column">
