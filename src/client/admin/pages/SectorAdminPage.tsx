@@ -4,6 +4,9 @@ import type { AdminColumn } from "../components/ui/AdminTable";
 import type { FormFieldDef } from "../components/ui/AdminFormBuilder";
 import type { AdminFilterDef } from "../components/ui/AdminFilters";
 import { useSectorAdminStore, type AdminSector } from "../stores/sectorStore";
+import { useI18n } from "../../i18n";
+
+
 
 const CATEGORY_OPTIONS = ["Growth", "Cyclical", "Defensive", "Thematic", "Income"].map((c) => ({
   value: c,
@@ -112,6 +115,7 @@ const formFields: FormFieldDef<AdminSector>[] = [
 ];
 
 export default function SectorAdminPage() {
+  const { t } = useI18n();
   const items = useSectorAdminStore((s) => s.items);
 
   const handleRecalcWeights = () => {
@@ -130,7 +134,7 @@ export default function SectorAdminPage() {
 
   return (
     <AdminCrudPage<AdminSector>
-      title="Sectors"
+      title={t("src_client_admin_pages_sectoradminpage__l133__h0")}
       subtitle="Industry sectors, ETFs, market exposure metrics, and performance analytics"
       useStore={useSectorAdminStore}
       columns={columns}

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import type { StockExchange, IndexSnapshot, MarketMover, SectorPerformance, MarketNews } from "../../types";
-import { useI18n } from "../i18n";
+import { fetchJson } from "../lib/apiClient";
 import LineChart from "./LineChart";
 import ChartJSLine from "./ChartJSLine";
 import "./ExchangeDetail.css";
+import { useI18n } from "../i18n";
+
 
 interface ExchangeDetailProps {
   exchange: StockExchange;
@@ -44,16 +46,16 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
   useEffect(() => {
     if (activeTab === "sectors" && sectors.length === 0) {
       setIsTabLoading(true);
-      fetch(`http://localhost:3000/api/exchanges/${exchange.id}/sectors`)
-        .then(r => r.json())
-        .then(res => { if (res.success) setSectors(res.data); })
+      fetchJson<SectorPerformance[]>(`/exchanges/${exchange.id}/sectors`)
+        .then((res) => { if (res.success && res.data) setSectors(res.data); })
+        .catch(() => { /* keep sectors empty; UI shows no-data state */ })
         .finally(() => setIsTabLoading(false));
     }
     if (activeTab === "news" && news.length === 0) {
       setIsTabLoading(true);
-      fetch(`http://localhost:3000/api/exchanges/${exchange.id}/news`)
-        .then(r => r.json())
-        .then(res => { if (res.success) setNews(res.data); })
+      fetchJson<MarketNews[]>(`/exchanges/${exchange.id}/news`)
+        .then((res) => { if (res.success && res.data) setNews(res.data); })
+        .catch(() => { /* keep news empty; UI shows no-data state */ })
         .finally(() => setIsTabLoading(false));
     }
   }, [activeTab, exchange.id, sectors.length, news.length]);

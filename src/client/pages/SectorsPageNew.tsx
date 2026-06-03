@@ -5,6 +5,9 @@ import LineChart from "../components/LineChart";
 import ChartJSLine from "../components/ChartJSLine";
 import { generateSeriesForSymbol, formatSignedPercent, formatMoney } from "../lib/chartSeries";
 import "./SectorsPageNew.css";
+import { useI18n } from "../i18n";
+
+
 
 type Sector = {
   id: string;
@@ -83,6 +86,7 @@ const valuationMetrics = (sector: Sector) => ({
 });
 
 const SectorsPage: React.FC = () => {
+  const { t } = useI18n();
   const { sectorId } = useParams();
   const sector = sectors.find((s) => s.id.toLowerCase() === (sectorId ?? "").toLowerCase());
 
@@ -91,14 +95,14 @@ const SectorsPage: React.FC = () => {
       <div className="page sectors-list">
         <section className="coverage-hero">
           <div>
-            <p className="eyebrow">Equity Themes</p>
-            <h1>Sector Intelligence</h1>
-            <p>Sector overview, performance chart, top companies, sector ETFs, sector heatmap, market weight, valuation metrics, sector news, industry breakdown, and rotation analysis.</p>
+            <p className="eyebrow">{t("src_client_pages_sectorspagenew__l94__h0")}</p>
+            <h1>{t("src_client_pages_sectorspagenew__l95__h1")}</h1>
+            <p>{t("src_client_pages_sectorspagenew__l100_h0")}</p>
           </div>
           <div className="metric-strip">
-            <div className="metric-tile"><span>Sectors</span><strong>{sectors.length}</strong></div>
-            <div className="metric-tile"><span>Top Theme</span><strong>{sectors.sort((a,b) => b.performanceYtd - a.performanceYtd)[0].name}</strong></div>
-            <div className="metric-tile"><span>Total Coverage</span><strong>{formatMoney(sectors.reduce((s, sec) => s + sec.marketCapUSD, 0))}</strong></div>
+            <div className="metric-tile"><span>{t("src_client_pages_sectorspagenew__l99__h3")}</span><strong>{sectors.length}</strong></div>
+            <div className="metric-tile"><span>{t("src_client_pages_sectorspagenew__l100__h4")}</span><strong>{sectors.sort((a,b) => b.performanceYtd - a.performanceYtd)[0].name}</strong></div>
+            <div className="metric-tile"><span>{t("src_client_pages_sectorspagenew__l101__h5")}</span><strong>{formatMoney(sectors.reduce((s, sec) => s + sec.marketCapUSD, 0))}</strong></div>
           </div>
         </section>
 
@@ -113,9 +117,9 @@ const SectorsPage: React.FC = () => {
                 </div>
                 <p>{s.summary}</p>
                 <div className="sector-info-stats">
-                  <div><span>YTD</span><strong className={s.performanceYtd >= 0 ? "positive" : "negative"}>{formatSignedPercent(s.performanceYtd)}</strong></div>
-                  <div><span>PE</span><strong>{s.peRatio.toFixed(1)}</strong></div>
-                  <div><span>Mkt Cap</span><strong>{formatMoney(s.marketCapUSD)}</strong></div>
+                  <div><span>{t("src_client_pages_sectorspagenew__l116__h6")}</span><strong className={s.performanceYtd >= 0 ? "positive" : "negative"}>{formatSignedPercent(s.performanceYtd)}</strong></div>
+                  <div><span>{t("src_client_pages_sectorspagenew__l117__h7")}</span><strong>{s.peRatio.toFixed(1)}</strong></div>
+                  <div><span>{t("src_client_pages_sectorspagenew__l118__h8")}</span><strong>{formatMoney(s.marketCapUSD)}</strong></div>
                 </div>
               </div>
             </Link>
@@ -123,7 +127,7 @@ const SectorsPage: React.FC = () => {
         </section>
 
         <section className="sector-rotation">
-          <h2>Sector Rotation Analysis</h2>
+          <h2>{t("src_client_pages_sectorspagenew__l126__h9")}</h2>
           <div className="rotation-grid">
             {rotationAnalysis().map((s) => (
               <div key={s.id} className={`rotation-card ${s.momentum > 2 ? "hot" : s.momentum < -2 ? "cold" : "neutral"}`}>
@@ -149,7 +153,7 @@ const SectorsPage: React.FC = () => {
     <div className="page sector-detail">
       <section className="coverage-hero sector-hero">
         <div>
-          <Link to="/sectors" className="back-link">← All Sectors</Link>
+          <Link to="/sectors" className="back-link">{t("src_client_pages_sectorspagenew__l152__h11")}</Link>
           <p className="eyebrow">{sector.category} Sector • Volatility: {sector.volatility}</p>
           <h1><span className="sector-hero-icon">{sector.icon}</span> {sector.name}</h1>
           <p>{sector.description}</p>
@@ -159,15 +163,15 @@ const SectorsPage: React.FC = () => {
           </div>
         </div>
         <div className="metric-strip sector-metrics">
-          <div className="metric-tile"><span>Market Cap</span><strong>{formatMoney(sector.marketCapUSD)}</strong></div>
-          <div className="metric-tile"><span>YTD</span><strong className={sector.performanceYtd >= 0 ? "positive" : "negative"}>{formatSignedPercent(sector.performanceYtd)}</strong></div>
-          <div className="metric-tile"><span>PE</span><strong>{sector.peRatio.toFixed(1)}</strong></div>
-          <div className="metric-tile"><span>Yield</span><strong>{sector.dividendYield.toFixed(2)}%</strong></div>
+          <div className="metric-tile"><span>{t("src_client_pages_sectorspagenew__l162__h12")}</span><strong>{formatMoney(sector.marketCapUSD)}</strong></div>
+          <div className="metric-tile"><span>{t("src_client_pages_sectorspagenew__l163__h13")}</span><strong className={sector.performanceYtd >= 0 ? "positive" : "negative"}>{formatSignedPercent(sector.performanceYtd)}</strong></div>
+          <div className="metric-tile"><span>{t("src_client_pages_sectorspagenew__l164__h14")}</span><strong>{sector.peRatio.toFixed(1)}</strong></div>
+          <div className="metric-tile"><span>{t("src_client_pages_sectorspagenew__l165__h15")}</span><strong>{sector.dividendYield.toFixed(2)}%</strong></div>
         </div>
       </section>
 
       <section className="sector-chart-section">
-        <h2>Performance Chart</h2>
+        <h2>{t("src_client_pages_sectorspagenew__l170__h16")}</h2>
         <div className="sector-chart">
           {window.Chart ? (
             <ChartJSLine
@@ -197,7 +201,7 @@ const SectorsPage: React.FC = () => {
 
       <section className="sector-row-grid">
         <div className="sector-card-block">
-          <h3>Top Companies</h3>
+          <h3>{t("src_client_pages_sectorspagenew__l200__h17")}</h3>
           <div className="company-list">
             {sector.topCompanies.map((company, i) => {
               const performance = ((hashString(company) % 200) - 100) / 10;
@@ -215,7 +219,7 @@ const SectorsPage: React.FC = () => {
           </div>
         </div>
         <div className="sector-card-block">
-          <h3>Sector ETFs</h3>
+          <h3>{t("src_client_pages_sectorspagenew__l218__h18")}</h3>
           <div className="etf-list">
             {sector.etfs.map((etf) => {
               const performance = ((hashString(etf) % 200) - 100) / 10;
@@ -232,7 +236,7 @@ const SectorsPage: React.FC = () => {
           </div>
         </div>
         <div className="sector-card-block">
-          <h3>Industry Breakdown</h3>
+          <h3>{t("src_client_pages_sectorspagenew__l235__h19")}</h3>
           <div className="industry-list">
             {industries.map((ind) => (
               <div key={ind.industry} className="industry-row">
@@ -249,7 +253,7 @@ const SectorsPage: React.FC = () => {
 
       <section className="sector-row-grid">
         <div className="sector-card-block">
-          <h3>Trending Stocks</h3>
+          <h3>{t("src_client_pages_sectorspagenew__l252__h20")}</h3>
           <div className="trending-list">
             {sector.trendingStocks.map((stock) => {
               const change = ((hashString(stock) % 200) - 100) / 10;
@@ -263,7 +267,7 @@ const SectorsPage: React.FC = () => {
           </div>
         </div>
         <div className="sector-card-block">
-          <h3>Dividend Leaders</h3>
+          <h3>{t("src_client_pages_sectorspagenew__l266__h21")}</h3>
           <div className="trending-list">
             {sector.dividendLeaders.map((stock) => {
               const change = ((hashString(stock) % 200) - 100) / 10;
@@ -279,24 +283,24 @@ const SectorsPage: React.FC = () => {
           </div>
         </div>
         <div className="sector-card-block">
-          <h3>Valuation Metrics</h3>
+          <h3>{t("src_client_pages_sectorspagenew__l282__h22")}</h3>
           <div className="valuation-list">
-            <div><span>P/E Ratio</span><strong>{valuation.pe.toFixed(1)}</strong></div>
-            <div><span>PEG Ratio</span><strong>{valuation.peg}</strong></div>
-            <div><span>P/B Ratio</span><strong>{valuation.pb}</strong></div>
-            <div><span>P/S Ratio</span><strong>{valuation.ps}</strong></div>
-            <div><span>EV/EBITDA</span><strong>{valuation.evEbitda}</strong></div>
-            <div><span>FCF Yield</span><strong>{valuation.fcfYield}%</strong></div>
-            <div><span>ROE</span><strong>{valuation.roe}%</strong></div>
+            <div><span>{t("src_client_pages_sectorspagenew__l284__h23")}</span><strong>{valuation.pe.toFixed(1)}</strong></div>
+            <div><span>{t("src_client_pages_sectorspagenew__l285__h24")}</span><strong>{valuation.peg}</strong></div>
+            <div><span>{t("src_client_pages_sectorspagenew__l286__h25")}</span><strong>{valuation.pb}</strong></div>
+            <div><span>{t("src_client_pages_sectorspagenew__l287__h26")}</span><strong>{valuation.ps}</strong></div>
+            <div><span>{t("src_client_pages_sectorspagenew__l288__h27")}</span><strong>{valuation.evEbitda}</strong></div>
+            <div><span>{t("src_client_pages_sectorspagenew__l289__h28")}</span><strong>{valuation.fcfYield}%</strong></div>
+            <div><span>{t("src_client_pages_sectorspagenew__l290__h29")}</span><strong>{valuation.roe}%</strong></div>
           </div>
         </div>
       </section>
 
       <section className="sector-card-block">
-        <h3>Related Regions & Themes</h3>
+        <h3>{t("src_client_pages_sectorspagenew__l296__h30")}</h3>
         <div className="related-themes">
           <div>
-            <h4>Regions</h4>
+            <h4>{t("src_client_pages_sectorspagenew__l299__h31")}</h4>
             <div className="tag-cloud">
               {sector.relatedRegions.map((r) => (
                 <Link key={r} to={`/regions/${r}`} className="region-tag">{r.replace(/-/g, " ")}</Link>
@@ -304,7 +308,7 @@ const SectorsPage: React.FC = () => {
             </div>
           </div>
           <div>
-            <h4>News Themes</h4>
+            <h4>{t("src_client_pages_sectorspagenew__l307__h32")}</h4>
             <div className="tag-cloud">
               {sector.newsThemes.map((t) => <span key={t} className="theme-tag">{t}</span>)}
             </div>
@@ -313,7 +317,7 @@ const SectorsPage: React.FC = () => {
       </section>
 
       <section className="sector-card-block">
-        <h3>Sector News</h3>
+        <h3>{t("src_client_pages_sectorspagenew__l316__h33")}</h3>
         <div className="forex-news-grid">
           {[
             { title: `${sector.name} sector rotation accelerates as macro data shifts`, source: "Reuters", tag: sector.name },

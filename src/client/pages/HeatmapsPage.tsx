@@ -5,6 +5,9 @@ import regionsData from "../../data/regions.json";
 import sectorsData from "../../data/sectors.json";
 import type { StockExchange, MarketRegion, StockSector } from "../../types";
 import "../styles/index.css";
+import { useI18n } from "../i18n";
+
+
 
 const exchanges = (exchangesData as any).exchanges as StockExchange[];
 const regions = (regionsData as any).regions as MarketRegion[];
@@ -85,6 +88,7 @@ const HeatmapCell: React.FC<{
 };
 
 const HeatmapsPage: React.FC = () => {
+  const { t } = useI18n();
   const [activeTab, setActiveTab] = React.useState<"equities" | "sectors" | "regions" | "assets">("equities");
 
   const equityHeatmapData = React.useMemo(() => {
@@ -156,21 +160,21 @@ const HeatmapsPage: React.FC = () => {
       {/* Hero Section */}
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">Market Visualization</p>
-          <h1>Global Market Heatmaps</h1>
-          <p>Visual performance tracking across equities, sectors, regions, and asset classes. Green indicates strength, red indicates weakness.</p>
+          <p className="eyebrow">{t("src_client_pages_heatmapspage__l159__h0")}</p>
+          <h1>{t("src_client_pages_heatmapspage__l160__h1")}</h1>
+          <p>{t("src_client_pages_heatmapspage__l165_h0")}</p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>Total Markets</span>
+            <span>{t("src_client_pages_heatmapspage__l165__h3")}</span>
             <strong>{exchanges.length}</strong>
           </div>
           <div className="metric-tile">
-            <span>Sectors Tracked</span>
+            <span>{t("src_client_pages_heatmapspage__l169__h4")}</span>
             <strong>{sectors.length}</strong>
           </div>
           <div className="metric-tile">
-            <span>Regions Covered</span>
+            <span>{t("src_client_pages_heatmapspage__l173__h5")}</span>
             <strong>{regions.length}</strong>
           </div>
         </div>
@@ -272,8 +276,8 @@ const HeatmapsPage: React.FC = () => {
       {/* Legend */}
       <section className="heatmap-legend" style={{ marginTop: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">Performance Scale</p>
-          <h3>Color Interpretation</h3>
+          <p className="eyebrow">{t("src_client_pages_heatmapspage__l275__h6")}</p>
+          <h3>{t("src_client_pages_heatmapspage__l276__h7")}</h3>
         </div>
         <div
           style={{
@@ -292,8 +296,8 @@ const HeatmapsPage: React.FC = () => {
               }}
             />
             <div>
-              <strong>Strong Gains</strong>
-              <p style={{ fontSize: "12px", color: "#475569" }}>+2% or higher</p>
+              <strong>{t("src_client_pages_heatmapspage__l295__h8")}</strong>
+              <p style={{ fontSize: "12px", color: "#475569" }}>{t("src_client_pages_heatmapspage__l296__h9")}</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -306,8 +310,8 @@ const HeatmapsPage: React.FC = () => {
               }}
             />
             <div>
-              <strong>Gains</strong>
-              <p style={{ fontSize: "12px", color: "#475569" }}>0% to +2%</p>
+              <strong>{t("src_client_pages_heatmapspage__l309__h10")}</strong>
+              <p style={{ fontSize: "12px", color: "#475569" }}>{t("src_client_pages_heatmapspage__l310__h11")}</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -320,8 +324,8 @@ const HeatmapsPage: React.FC = () => {
               }}
             />
             <div>
-              <strong>Neutral</strong>
-              <p style={{ fontSize: "12px", color: "#475569" }}>-1% to 0%</p>
+              <strong>{t("src_client_pages_heatmapspage__l323__h12")}</strong>
+              <p style={{ fontSize: "12px", color: "#475569" }}>{t("src_client_pages_heatmapspage__l324__h13")}</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -334,8 +338,8 @@ const HeatmapsPage: React.FC = () => {
               }}
             />
             <div>
-              <strong>Losses</strong>
-              <p style={{ fontSize: "12px", color: "#475569" }}>-2% to -1%</p>
+              <strong>{t("src_client_pages_heatmapspage__l337__h14")}</strong>
+              <p style={{ fontSize: "12px", color: "#475569" }}>{t("src_client_pages_heatmapspage__l338__h15")}</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -348,8 +352,8 @@ const HeatmapsPage: React.FC = () => {
               }}
             />
             <div>
-              <strong>Strong Losses</strong>
-              <p style={{ fontSize: "12px", color: "#475569" }}>-2% or lower</p>
+              <strong>{t("src_client_pages_heatmapspage__l351__h16")}</strong>
+              <p style={{ fontSize: "12px", color: "#475569" }}>{t("src_client_pages_heatmapspage__l352__h17")}</p>
             </div>
           </div>
         </div>
@@ -358,36 +362,36 @@ const HeatmapsPage: React.FC = () => {
       {/* Info Panel */}
       <section className="intelligence-grid" style={{ marginTop: "48px" }}>
         <div className="intelligence-panel">
-          <p className="eyebrow">How to Use</p>
-          <h3>Interactive Heatmaps</h3>
+          <p className="eyebrow">{t("src_client_pages_heatmapspage__l361__h18")}</p>
+          <h3>{t("src_client_pages_heatmapspage__l362__h19")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>Click any cell to view detailed market data</li>
-            <li>Size and color both represent performance</li>
-            <li>Larger cells indicate higher volatility</li>
-            <li>Updated in real-time during market hours</li>
-            <li>Available for historical comparison</li>
+            <li>{t("src_client_pages_heatmapspage__l364__h20")}</li>
+            <li>{t("src_client_pages_heatmapspage__l365__h21")}</li>
+            <li>{t("src_client_pages_heatmapspage__l366__h22")}</li>
+            <li>{t("src_client_pages_heatmapspage__l367__h23")}</li>
+            <li>{t("src_client_pages_heatmapspage__l368__h24")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Market Insights</p>
-          <h3>What to Look For</h3>
+          <p className="eyebrow">{t("src_client_pages_heatmapspage__l372__h25")}</p>
+          <h3>{t("src_client_pages_heatmapspage__l373__h26")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>Sector rotation patterns across equities</li>
-            <li>Geographic performance divergence</li>
-            <li>Cross-asset correlation shifts</li>
-            <li>Breadth signals and momentum changes</li>
-            <li>Risk-on vs risk-off sentiment flow</li>
+            <li>{t("src_client_pages_heatmapspage__l375__h27")}</li>
+            <li>{t("src_client_pages_heatmapspage__l376__h28")}</li>
+            <li>{t("src_client_pages_heatmapspage__l377__h29")}</li>
+            <li>{t("src_client_pages_heatmapspage__l378__h30")}</li>
+            <li>{t("src_client_pages_heatmapspage__l379__h31")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Advanced Tools</p>
-          <h3>Additional Features</h3>
+          <p className="eyebrow">{t("src_client_pages_heatmapspage__l383__h32")}</p>
+          <h3>{t("src_client_pages_heatmapspage__l384__h33")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
             <li>Time period selection (1D, 1W, 1M, YTD, 1Y)</li>
-            <li>Custom threshold filters</li>
-            <li>Performance ranking tables</li>
-            <li>Comparative analysis mode</li>
-            <li>Alert setup on performance thresholds</li>
+            <li>{t("src_client_pages_heatmapspage__l387__h34")}</li>
+            <li>{t("src_client_pages_heatmapspage__l388__h35")}</li>
+            <li>{t("src_client_pages_heatmapspage__l389__h36")}</li>
+            <li>{t("src_client_pages_heatmapspage__l390__h37")}</li>
           </ul>
         </div>
       </section>
@@ -403,8 +407,8 @@ const HeatmapsPage: React.FC = () => {
           border: "1px solid rgba(162, 120, 65, 0.2)",
         }}
       >
-        <p className="eyebrow">Explore More</p>
-        <h3>Dive Deeper Into Markets</h3>
+        <p className="eyebrow">{t("src_client_pages_heatmapspage__l406__h38")}</p>
+        <h3>{t("src_client_pages_heatmapspage__l407__h39")}</h3>
         <p style={{ color: "#475569", marginBottom: "16px", maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
           Use our heatmaps as a starting point to explore detailed breakdowns of any market, sector, or region. Click any cell to view comprehensive analysis.
         </p>

@@ -1,6 +1,9 @@
 import React from "react";
 import { SkeletonTable } from "../../../components/Skeleton";
 import EmptyState from "../../../components/EmptyState";
+import { useI18n } from "../../../i18n";
+
+
 
 export type SortDir = "asc" | "desc";
 
@@ -42,6 +45,7 @@ export default function AdminTable<T extends { id: string }>({
   rowActions,
   initialSort,
 }: AdminTableProps<T>) {
+  const { t } = useI18n();
   const [page, setPage] = React.useState(1);
   const [sortKey, setSortKey] = React.useState<keyof T | string | null>(
     initialSort?.key ?? null
@@ -121,7 +125,7 @@ export default function AdminTable<T extends { id: string }>({
                   type="checkbox"
                   checked={allSelected}
                   onChange={() => onToggleAll?.(pageRows)}
-                  aria-label="Select all on this page"
+                  aria-label={t("src_client_admin_components_ui_admintable__l124__h0")}
                 />
               </th>
             )}

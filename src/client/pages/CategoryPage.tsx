@@ -1,6 +1,9 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import "../styles/index.css";
+import { useI18n } from "../i18n";
+
+
 
 interface CategoryConfig {
   title: string;
@@ -108,6 +111,7 @@ const categoryConfigs: Record<string, CategoryConfig> = {
 };
 
 const CategoryPage: React.FC = () => {
+  const { t } = useI18n();
   const params = useParams<{ "*"?: string }>();
   const path = params["*"] || "news/alerts";
   const config = categoryConfigs[path];
@@ -116,9 +120,9 @@ const CategoryPage: React.FC = () => {
     return (
       <div className="page intelligence-page">
         <div className="section-heading">
-          <p className="eyebrow">Not Found</p>
-          <h1>Category Page</h1>
-          <p>This category is not currently available.</p>
+          <p className="eyebrow">{t("src_client_pages_categorypage__l119__h0")}</p>
+          <h1>{t("src_client_pages_categorypage__l120__h1")}</h1>
+          <p>{t("src_client_pages_categorypage__l121__h2")}</p>
         </div>
         <Link to="/dashboard" className="primary-action" style={{ textDecoration: "none" }}>
           Back to Dashboard
@@ -138,16 +142,16 @@ const CategoryPage: React.FC = () => {
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>Items Tracked</span>
+            <span>{t("src_client_pages_categorypage__l141__h3")}</span>
             <strong>{config.items.length || "Multiple"}</strong>
           </div>
           <div className="metric-tile">
-            <span>Updates Daily</span>
-            <strong>Real-time</strong>
+            <span>{t("src_client_pages_categorypage__l145__h4")}</span>
+            <strong>{t("src_client_pages_categorypage__l146__h5")}</strong>
           </div>
           <div className="metric-tile">
-            <span>Coverage</span>
-            <strong>Global</strong>
+            <span>{t("src_client_pages_categorypage__l149__h6")}</span>
+            <strong>{t("src_client_pages_categorypage__l150__h7")}</strong>
           </div>
         </div>
       </section>
@@ -156,8 +160,8 @@ const CategoryPage: React.FC = () => {
       {config.items.length > 0 && (
         <section style={{ marginBottom: "48px" }}>
           <div style={{ marginBottom: "24px" }}>
-            <p className="eyebrow">Market Data</p>
-            <h2>Current Prices</h2>
+            <p className="eyebrow">{t("src_client_pages_categorypage__l159__h8")}</p>
+            <h2>{t("src_client_pages_categorypage__l160__h9")}</h2>
           </div>
           <div
             style={{
@@ -201,8 +205,8 @@ const CategoryPage: React.FC = () => {
       {/* Features */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">Coverage</p>
-          <h2>What's Included</h2>
+          <p className="eyebrow">{t("src_client_pages_categorypage__l204__h10")}</p>
+          <h2>{t("src_client_pages_categorypage__l205__h11")}</h2>
         </div>
         <div
           style={{
@@ -233,8 +237,8 @@ const CategoryPage: React.FC = () => {
       {/* Insights */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">Key Drivers</p>
-          <h2>What to Watch</h2>
+          <p className="eyebrow">{t("src_client_pages_categorypage__l236__h12")}</p>
+          <h2>{t("src_client_pages_categorypage__l237__h13")}</h2>
         </div>
         <div
           style={{
@@ -273,8 +277,8 @@ const CategoryPage: React.FC = () => {
           textAlign: "center",
         }}
       >
-        <p className="eyebrow">Explore More</p>
-        <h3>Stay Updated</h3>
+        <p className="eyebrow">{t("src_client_pages_categorypage__l276__h14")}</p>
+        <h3>{t("src_client_pages_categorypage__l277__h15")}</h3>
         <p style={{ color: "#475569", marginTop: "8px", marginBottom: "16px" }}>
           Subscribe to alerts and get real-time notifications for this category
         </p>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { useI18n } from "../i18n";
 import AdminErrorBoundary from "./components/AdminErrorBoundary";
 import AdminLayout from "./layout/AdminLayout";
 import DashboardPage from "./pages/DashboardPage";
@@ -41,6 +42,7 @@ function RequireAdmin({ children }: { children: React.ReactNode }) {
 }
 
 export default function AdminApp() {
+  const { t } = useI18n();
   return (
     <RequireAdmin>
       <AdminErrorBoundary>

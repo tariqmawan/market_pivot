@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { isOnline, onNetworkChange } from "../pwa/pwaManager";
+import { useI18n } from "../i18n";
+
+
 
 /**
  * Static offline fallback page. Served by the service worker when a
@@ -8,6 +11,7 @@ import { isOnline, onNetworkChange } from "../pwa/pwaManager";
  * self-recovers as soon as the browser regains connectivity.
  */
 const OfflinePage: React.FC = () => {
+  const { t } = useI18n();
   const [online, setOnline] = useState(isOnline());
 
   useEffect(() => onNetworkChange(setOnline), []);
@@ -15,8 +19,8 @@ const OfflinePage: React.FC = () => {
   return (
     <div className="page offline-page" role="alert" aria-live="assertive">
       <section className="offline-hero">
-        <p className="eyebrow">Offline</p>
-        <h1>You’re disconnected from the markets</h1>
+        <p className="eyebrow">{t("src_client_pages_offlinepage__l18__h0")}</p>
+        <h1>{t("src_client_pages_offlinepage__l19__h1")}</h1>
         <p>
           MarketsPivot is showing this page because the browser couldn’t reach our servers
           and the requested page wasn’t cached. Live data will resume automatically as
@@ -36,8 +40,8 @@ const OfflinePage: React.FC = () => {
           </Link>
         </div>
         <ul className="offline-tips">
-          <li>Your watchlist and portfolio are still available offline.</li>
-          <li>Pages you’ve visited recently will load from cache.</li>
+          <li>{t("src_client_pages_offlinepage__l39__h2")}</li>
+          <li>{t("src_client_pages_offlinepage__l40__h3")}</li>
           <li>API-dependent widgets (live prices) will be skipped.</li>
         </ul>
       </section>

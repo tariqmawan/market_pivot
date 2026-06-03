@@ -1,0 +1,21 @@
+{
+  "adminTopNav": "Navigasi admin",
+  "openMenu": "Buka menu",
+  "searchPlaceholder": "Cari...",
+  "notifications": "Notifikasi",
+  "profile": "Profil",
+  "adminPortal": "Portal Admin",
+  "dashboard": "Dasbor",
+  "users": "Pengguna",
+  "marketData": "Data Pasar",
+  "news": "Berita",
+  "billing": "Penagihan",
+  "platform": "Platform",
+  "analytics": "Analitik",
+  "settings": "Pengaturan",
+  "totalUsers": "Total Pengguna",
+  "activeUsers": "Pengguna Aktif",
+  "revenue": "Pendapatan",
+  "exchanges": "Bursa",
+  "lastUpdated": "Terakhir diperbarui"
+}

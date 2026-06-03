@@ -1,0 +1,21 @@
+{
+  "adminTopNav": "Điều hướng quản trị",
+  "openMenu": "Mở menu",
+  "searchPlaceholder": "Tìm kiếm...",
+  "notifications": "Thông báo",
+  "profile": "Hồ sơ",
+  "adminPortal": "Cổng quản trị",
+  "dashboard": "Bảng điều khiển",
+  "users": "Người dùng",
+  "marketData": "Dữ liệu thị trường",
+  "news": "Tin tức",
+  "billing": "Thanh toán",
+  "platform": "Nền tảng",
+  "analytics": "Phân tích",
+  "settings": "Cài đặt",
+  "totalUsers": "Tổng người dùng",
+  "activeUsers": "Người dùng hoạt động",
+  "revenue": "Doanh thu",
+  "exchanges": "Sàn giao dịch",
+  "lastUpdated": "Cập nhật lần cuối"
+}

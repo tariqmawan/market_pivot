@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { SeoHead, buildProductOfferSchema } from "../seo";
+import { useI18n } from "../i18n";
 import {
   PLAN_ORDER,
   PLANS,
@@ -9,6 +10,7 @@ import {
   type PlanId,
 } from "../subscription";
 import { useSubscription } from "../subscription/hooks";
+
 
 const formatDate = (iso: string | null | undefined): string => {
   if (!iso) return "—";
@@ -22,6 +24,7 @@ const formatAmount = (cents: number, currency = "USD"): string => {
 };
 
 const BillingPage: React.FC = () => {
+  const { t } = useI18n();
   const {
     subscription,
     invoices,
@@ -100,16 +103,16 @@ const BillingPage: React.FC = () => {
   return (
     <>
       <SeoHead
-        title="Billing & Subscription"
-        description="Manage your MarketsPivot plan, payment methods, invoices, and usage — all in one place."
+        title={t("src_client_pages_billingpage__l103__h0")}
+        description={t("src_client_pages_billingpage__l104__h1")}
         canonical="/billing"
         jsonLd={jsonLd}
       />
       <div className="page billing-page">
         <section className="coverage-hero">
           <div>
-            <p className="eyebrow">Billing & Subscription</p>
-            <h1>Account & plan</h1>
+            <p className="eyebrow">{t("src_client_pages_billingpage__l111__h2")}</p>
+            <h1>{t("src_client_pages_billingpage__l112__h3")}</h1>
             <p>
               You’re on the <strong>{planName}</strong> plan.{" "}
               {isTrialing && "Your 14-day Pro trial is active — enjoy the upgrade."}{" "}
@@ -118,7 +121,7 @@ const BillingPage: React.FC = () => {
           </div>
           <div className="metric-strip">
             <div className="metric-tile">
-              <span>Current plan</span>
+              <span>{t("src_client_pages_billingpage__l121__h4")}</span>
               <strong>
                 <PlanBadge plan={planName} /> {planName}
               </strong>
@@ -132,7 +135,7 @@ const BillingPage: React.FC = () => {
               </strong>
             </div>
             <div className="metric-tile">
-              <span>Status</span>
+              <span>{t("src_client_pages_billingpage__l135__h5")}</span>
               <strong>
                 {isTrialing ? "Trialing" : isCanceled ? "Canceling" : "Active"}
               </strong>
@@ -142,7 +145,7 @@ const BillingPage: React.FC = () => {
 
         <section className="billing-card">
           <header>
-            <h2>Choose a plan</h2>
+            <h2>{t("src_client_pages_billingpage__l145__h6")}</h2>
             <div className="billing-interval">
               {(["monthly", "yearly"] as const).map((value) => (
                 <button
@@ -203,8 +206,8 @@ const BillingPage: React.FC = () => {
           {!isTrialing && currentPlan === "free" && (
             <div className="billing-trial-cta">
               <div>
-                <strong>Try Pro free for 14 days</strong>
-                <p>Full Pro features — no charge until the trial ends.</p>
+                <strong>{t("src_client_pages_billingpage__l206__h7")}</strong>
+                <p>{t("src_client_pages_billingpage__l207__h8")}</p>
               </div>
               <button
                 type="button"
@@ -220,10 +223,10 @@ const BillingPage: React.FC = () => {
 
         <section className="billing-card">
           <header>
-            <h2>Usage this period</h2>
+            <h2>{t("src_client_pages_billingpage__l223__h9")}</h2>
           </header>
           {isLoading ? (
-            <p>Loading usage…</p>
+            <p>{t("src_client_pages_billingpage__l226__h10")}</p>
           ) : (
             <div className="billing-usage-grid">
               {usage.map((metric) => {
@@ -261,7 +264,7 @@ const BillingPage: React.FC = () => {
 
         <section className="billing-card">
           <header>
-            <h2>Payment method</h2>
+            <h2>{t("src_client_pages_billingpage__l264__h11")}</h2>
           </header>
           {paymentMethods.length === 0 ? (
             <p>No payment method on file. (Free plan)</p>
@@ -274,7 +277,7 @@ const BillingPage: React.FC = () => {
                   <span>
                     Expires {String(pm.expMonth).padStart(2, "0")}/{pm.expYear}
                   </span>
-                  {pm.isDefault && <span className="billing-card-default">Default</span>}
+                  {pm.isDefault && <span className="billing-card-default">{t("src_client_pages_billingpage__l277__h12")}</span>}
                 </li>
               ))}
             </ul>
@@ -283,19 +286,19 @@ const BillingPage: React.FC = () => {
 
         <section className="billing-card">
           <header>
-            <h2>Invoices</h2>
+            <h2>{t("src_client_pages_billingpage__l286__h13")}</h2>
           </header>
           {invoices.length === 0 ? (
-            <p>No invoices yet.</p>
+            <p>{t("src_client_pages_billingpage__l289__h14")}</p>
           ) : (
             <table className="billing-invoice-table">
               <thead>
                 <tr>
-                  <th scope="col">Date</th>
-                  <th scope="col">Description</th>
-                  <th scope="col">Amount</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Invoice</th>
+                  <th scope="col">{t("src_client_pages_billingpage__l294__h15")}</th>
+                  <th scope="col">{t("src_client_pages_billingpage__l295__h16")}</th>
+                  <th scope="col">{t("src_client_pages_billingpage__l296__h17")}</th>
+                  <th scope="col">{t("src_client_pages_billingpage__l297__h18")}</th>
+                  <th scope="col">{t("src_client_pages_billingpage__l298__h19")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -310,7 +313,7 @@ const BillingPage: React.FC = () => {
                       </span>
                     </td>
                     <td>
-                      <a href={invoice.url}>View</a>
+                      <a href={invoice.url}>{t("src_client_pages_billingpage__l313__h20")}</a>
                     </td>
                   </tr>
                 ))}
@@ -321,7 +324,7 @@ const BillingPage: React.FC = () => {
 
         <section className="billing-card billing-danger-zone">
           <header>
-            <h2>Cancel subscription</h2>
+            <h2>{t("src_client_pages_billingpage__l324__h21")}</h2>
           </header>
           {isCanceled ? (
             <div>
@@ -334,7 +337,7 @@ const BillingPage: React.FC = () => {
               </button>
             </div>
           ) : currentPlan === "free" ? (
-            <p>You’re on the Free plan — nothing to cancel.</p>
+            <p>{t("src_client_pages_billingpage__l337__h22")}</p>
           ) : (
             <div>
               <p>
@@ -349,7 +352,7 @@ const BillingPage: React.FC = () => {
         </section>
 
         <p style={{ opacity: 0.7, fontSize: 13 }}>
-          Need help? <Link to="/about">Contact support</Link> · <Link to="/billing-policy">Billing policy</Link>
+          Need help? <Link to="/about">{t("src_client_pages_billingpage__l352__h23")}</Link> · <Link to="/billing-policy">{t("src_client_pages_billingpage__l352__h24")}</Link>
         </p>
       </div>
     </>

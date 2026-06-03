@@ -1,5 +1,8 @@
 import React from "react";
 import { useSEO } from "../lib/useSEO";
+import { useI18n } from "../i18n";
+
+
 
 const GOLD = "#C9A87B";
 const DARK = "#0f172a";
@@ -75,6 +78,7 @@ const sections = [
 ];
 
 const BillingPolicy: React.FC = () => {
+  const { t } = useI18n();
   useSEO({ title: "Billing Policy", description: "MarketsPivot billing policy — plans, refunds, cancellation and payment terms.", canonical: "https://marketspivot.com/billing-policy", noindex: true });
 
   return (
@@ -93,7 +97,7 @@ const BillingPolicy: React.FC = () => {
           <h1 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, color: "#ffffff", lineHeight: 1.1, marginBottom: 14 }}>
             Billing Policy
           </h1>
-          <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 14, fontWeight: 600 }}>Last updated: January 1, 2026</p>
+          <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 14, fontWeight: 600 }}>{t("src_client_pages_billingpolicy__l96__h0")}</p>
         </div>
       </section>
 
@@ -101,8 +105,8 @@ const BillingPolicy: React.FC = () => {
       <section style={{ background: "#f8f9fa", borderBottom: "1px solid #e5e7eb", padding: "48px 5vw" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 36 }}>
-            <div style={{ color: GOLD, fontSize: 11, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 10 }}>Plan Overview</div>
-            <h2 style={{ fontSize: 26, fontWeight: 800, color: DARK }}>Simple, transparent pricing</h2>
+            <div style={{ color: GOLD, fontSize: 11, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 10 }}>{t("src_client_pages_billingpolicy__l104__h1")}</div>
+            <h2 style={{ fontSize: 26, fontWeight: 800, color: DARK }}>{t("src_client_pages_billingpolicy__l105__h2")}</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "#e5e7eb", border: "1px solid #e5e7eb" }}>
             {plans.map((plan) => (
@@ -136,7 +140,7 @@ const BillingPolicy: React.FC = () => {
 
           {/* TOC */}
           <aside style={{ position: "sticky", top: 80, alignSelf: "start" }}>
-            <div style={{ fontSize: 11, fontWeight: 800, color: MUTED, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 12 }}>Contents</div>
+            <div style={{ fontSize: 11, fontWeight: 800, color: MUTED, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 12 }}>{t("src_client_pages_billingpolicy__l139__h3")}</div>
             <nav style={{ display: "grid", gap: 2 }}>
               {sections.map((s) => (
                 <a key={s.title} href={`#${s.title.toLowerCase().replace(/\s+/g, "-")}`}
@@ -147,11 +151,11 @@ const BillingPolicy: React.FC = () => {
               ))}
             </nav>
             <div style={{ marginTop: 32, padding: "14px 16px", background: "#ffffff", border: `1px solid #e5e7eb`, borderLeft: `3px solid ${GOLD}` }}>
-              <div style={{ fontSize: 11, fontWeight: 800, color: MUTED, textTransform: "uppercase", marginBottom: 8 }}>Quick Links</div>
+              <div style={{ fontSize: 11, fontWeight: 800, color: MUTED, textTransform: "uppercase", marginBottom: 8 }}>{t("src_client_pages_billingpolicy__l150__h4")}</div>
               <div style={{ display: "grid", gap: 6 }}>
-                <a href="/privacy" style={{ color: GOLD, fontSize: 13, fontWeight: 700, textDecoration: "none" }}>Privacy Policy →</a>
-                <a href="/terms" style={{ color: GOLD, fontSize: 13, fontWeight: 700, textDecoration: "none" }}>Terms of Service →</a>
-                <a href="/pricing" style={{ color: GOLD, fontSize: 13, fontWeight: 700, textDecoration: "none" }}>View Plans →</a>
+                <a href="/privacy" style={{ color: GOLD, fontSize: 13, fontWeight: 700, textDecoration: "none" }}>{t("src_client_pages_billingpolicy__l152__h5")}</a>
+                <a href="/terms" style={{ color: GOLD, fontSize: 13, fontWeight: 700, textDecoration: "none" }}>{t("src_client_pages_billingpolicy__l153__h6")}</a>
+                <a href="/pricing" style={{ color: GOLD, fontSize: 13, fontWeight: 700, textDecoration: "none" }}>{t("src_client_pages_billingpolicy__l154__h7")}</a>
               </div>
             </div>
           </aside>
@@ -180,7 +184,7 @@ const BillingPolicy: React.FC = () => {
             <div style={{ padding: "20px 24px", background: "#ffffff", borderLeft: `4px solid ${GOLD}`, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
               <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.6, margin: 0 }}>
                 Billing questions?{" "}
-                <a href="mailto:support@marketspivot.example" style={{ color: GOLD, fontWeight: 700 }}>support@marketspivot.example</a>
+                <a href="mailto:support@marketspivot.example" style={{ color: GOLD, fontWeight: 700 }}>{t("src_client_pages_billingpolicy__l183__h8")}</a>
               </p>
             </div>
           </div>

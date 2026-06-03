@@ -1,4 +1,6 @@
 import React from "react";
+import { useI18n } from "../i18n";
+
 
 /**
  * Inline error display — used by data fetches that fail soft, by error boundaries
@@ -15,13 +17,16 @@ export interface ErrorStateProps {
 }
 
 export default function ErrorState({
-  title = "Something went wrong",
+  title,
   message = "We couldn't load this view. Please try again.",
   onRetry,
   retryLabel = "Try again",
   inline,
   secondaryAction,
 }: ErrorStateProps) {
+  const { t } = useI18n();
+  const resolvedTitle = title ?? t("common.error");
+  const resolvedRetryLabel = retryLabel === "Try again" ? t("common.tryAgain") : retryLabel;
   return (
     <div
       role="alert"
@@ -55,7 +60,7 @@ export default function ErrorState({
       >
         !
       </div>
-      <strong style={{ fontSize: 16, color: "#ff9090" }}>{title}</strong>
+      <strong style={{ fontSize: 16, color: "#ff9090" }}>{resolvedTitle}</strong>
       <span style={{ fontSize: 13, color: "rgba(248,250,252,0.7)", maxWidth: 420 }}>
         {message}
       </span>
@@ -76,7 +81,7 @@ export default function ErrorState({
                 fontSize: 13,
               }}
             >
-              {retryLabel}
+              {resolvedRetryLabel}
             </button>
           )}
           {secondaryAction && (

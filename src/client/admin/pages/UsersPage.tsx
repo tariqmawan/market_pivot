@@ -4,10 +4,14 @@ import type { AdminUser } from "../types";
 import DataTable from "../components/ui/DataTable";
 import PageHeader from "../components/ui/PageHeader";
 import { useAuthStore } from "../../stores/authStore";
+import { useI18n } from "../../i18n";
+
+
 
 const ROLES = ["user", "admin", "editor", "analyst", "super_admin"];
 
 export default function UsersPage() {
+  const { t } = useI18n();
   const { user: actor } = useAuthStore();
   const [users, setUsers] = React.useState<AdminUser[]>([]);
   const [loading, setLoading] = React.useState(true);
@@ -67,12 +71,12 @@ export default function UsersPage() {
 
   return (
     <div className="mp-admin-content">
-      <PageHeader title="User Management" subtitle="CRUD, roles, suspend, session control" />
+      <PageHeader title={t("src_client_admin_pages_userspage__l70__h0")} subtitle="CRUD, roles, suspend, session control" />
 
       <div className="mp-admin-toolbar">
         <input
           className="mp-admin-search"
-          placeholder="Search email or name…"
+          placeholder={t("src_client_admin_pages_userspage__l75__h1")}
           value={search}
           onChange={(e) => { setSearch(e.target.value); setPage(1); }}
         />
@@ -136,9 +140,9 @@ export default function UsersPage() {
       />
 
       <div className="mp-admin-pagination">
-        <button type="button" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>Prev</button>
+        <button type="button" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>{t("src_client_admin_pages_userspage__l139__h2")}</button>
         <span>Page {page} · {total} users</span>
-        <button type="button" disabled={users.length < 20} onClick={() => setPage((p) => p + 1)}>Next</button>
+        <button type="button" disabled={users.length < 20} onClick={() => setPage((p) => p + 1)}>{t("src_client_admin_pages_userspage__l141__h3")}</button>
       </div>
     </div>
   );

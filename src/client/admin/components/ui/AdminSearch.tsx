@@ -10,20 +10,21 @@ export interface AdminSearchProps {
 export default function AdminSearch({
   value,
   onChange,
-  placeholder = "Search…",
+  placeholder,
   onSubmit,
 }: AdminSearchProps) {
+  const resolvedPlaceholder = placeholder ?? "Search...";
   return (
     <input
       type="search"
       className="mp-admin-search"
       value={value}
-      placeholder={placeholder}
+      placeholder={resolvedPlaceholder}
       onChange={(e) => onChange(e.target.value)}
       onKeyDown={(e) => {
         if (e.key === "Enter" && onSubmit) onSubmit();
       }}
-      aria-label={placeholder}
+      aria-label={resolvedPlaceholder}
     />
   );
 }

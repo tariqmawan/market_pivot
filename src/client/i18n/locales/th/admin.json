@@ -1,0 +1,21 @@
+{
+  "adminTopNav": "การนำทางผู้ดูแล",
+  "openMenu": "เปิดเมนู",
+  "searchPlaceholder": "ค้นหา...",
+  "notifications": "การแจ้งเตือน",
+  "profile": "โปรไฟล์",
+  "adminPortal": "พอร์ทัลผู้ดูแล",
+  "dashboard": "แดชบอร์ด",
+  "users": "ผู้ใช้",
+  "marketData": "ข้อมูลตลาด",
+  "news": "ข่าว",
+  "billing": "การเรียกเก็บเงิน",
+  "platform": "แพลตฟอร์ม",
+  "analytics": "การวิเคราะห์",
+  "settings": "การตั้งค่า",
+  "totalUsers": "ผู้ใช้ทั้งหมด",
+  "activeUsers": "ผู้ใช้ที่ใช้งานอยู่",
+  "revenue": "รายได้",
+  "exchanges": "ตลาดหลักทรัพย์",
+  "lastUpdated": "อัปเดตล่าสุด"
+}

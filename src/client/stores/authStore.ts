@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import { toAuthUser, type UserRole } from "../lib/roles";
 
-const API = "http://localhost:3000/api";
+const API = import.meta.env.VITE_API_BASE ?? "/api";
 
 let refreshPromise: Promise<boolean> | null = null;
 

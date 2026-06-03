@@ -3,11 +3,13 @@ import AdminCrudPage from "../components/ui/AdminCrudPage";
 import type { AdminColumn } from "../components/ui/AdminTable";
 import type { FormFieldDef } from "../components/ui/AdminFormBuilder";
 import type { AdminFilterDef } from "../components/ui/AdminFilters";
+import { useI18n } from "../../i18n";
 import {
   useAdCampaignAdminStore,
   type AdminAdCampaign,
   type AdPlacement,
 } from "../stores/adStore";
+
 
 const PLACEMENT_OPTIONS: { value: AdPlacement; label: string }[] = [
   { value: "homepage_hero", label: "Homepage Hero" },
@@ -165,11 +167,12 @@ const formFields: FormFieldDef<AdminAdCampaign>[] = [
 ];
 
 export default function AdvertisementAdminPage() {
+  const { t } = useI18n();
   const update = useAdCampaignAdminStore((s) => s.update);
 
   return (
     <AdminCrudPage<AdminAdCampaign>
-      title="Advertisements"
+      title={t("src_client_admin_pages_advertisementadminpage__l172__h0")}
       subtitle="Campaigns, banners, placements, scheduling, impression / click analytics, revenue"
       useStore={useAdCampaignAdminStore}
       columns={columns}

@@ -3,11 +3,13 @@ import AdminCrudPage from "../components/ui/AdminCrudPage";
 import type { AdminColumn } from "../components/ui/AdminTable";
 import type { FormFieldDef } from "../components/ui/AdminFormBuilder";
 import type { AdminFilterDef } from "../components/ui/AdminFilters";
+import { useI18n } from "../../i18n";
 import {
   useEconomicEventAdminStore,
   type AdminEconomicEvent,
   type EventImpact,
 } from "../stores/economicCalendarStore";
+
 
 const IMPACT_OPTIONS: { value: EventImpact; label: string }[] = [
   { value: "low", label: "Low" },
@@ -177,6 +179,7 @@ const formFields: FormFieldDef<AdminEconomicEvent>[] = [
 ];
 
 export default function EconomicCalendarAdminPage() {
+  const { t } = useI18n();
   const items = useEconomicEventAdminStore((s) => s.items);
   const update = useEconomicEventAdminStore((s) => s.update);
   const addMany = useEconomicEventAdminStore((s) => s.addMany);
@@ -220,7 +223,7 @@ export default function EconomicCalendarAdminPage() {
 
   return (
     <AdminCrudPage<AdminEconomicEvent>
-      title="Economic Calendar"
+      title={t("src_client_admin_pages_economiccalendaradminpage__l223__h0")}
       subtitle="Macro releases, central bank decisions, impact tagging, consensus/actual tracking"
       useStore={useEconomicEventAdminStore}
       columns={columns}
@@ -280,10 +283,10 @@ export default function EconomicCalendarAdminPage() {
       exportName="economic-events"
       validate={(entry) => {
         const errs: Partial<Record<keyof AdminEconomicEvent, string>> = {};
-        if (!entry.title.trim()) errs.title = "Event title required";
+        if (!entry.title.trim()) errs.title = t("src_client_admin_pages_economiccalendaradminpage__l283__h1");
         if (!entry.scheduledFor) errs.scheduledFor = "Schedule required";
         if (items.some((e) => e.title === entry.title && e.scheduledFor === entry.scheduledFor && e.id !== entry.id))
-          errs.title = "Duplicate event at same time";
+          errs.title = t("src_client_admin_pages_economiccalendaradminpage__l286__h2");
         return errs;
       }}
     />

@@ -5,8 +5,9 @@ import LineChart from "../components/LineChart";
 import ChartJSLine from "../components/ChartJSLine";
 import EmptyState from "../components/EmptyState";
 import { generateSeriesForSymbol, formatSignedPercent, formatMoney } from "../lib/chartSeries";
-import { useI18n } from "../i18n";
 import "./PortfolioPage.css";
+import { useI18n } from "../i18n";
+
 
 const TYPE_LABELS: Record<Position["type"], string> = {
   stock: "Stock",
@@ -18,6 +19,7 @@ const TYPE_LABELS: Record<Position["type"], string> = {
 };
 
 const PortfolioPage: React.FC = () => {
+  const { t } = useI18n();
   const {
     portfolios,
     activePortfolioId,
@@ -33,7 +35,6 @@ const PortfolioPage: React.FC = () => {
     exportPortfolio,
   } = usePortfolioStore();
   const { log } = useActivityStore();
-  const { t } = useI18n();
 
   const [showAdd, setShowAdd] = React.useState(false);
   const [editingId, setEditingId] = React.useState<string | null>(null);
@@ -173,14 +174,14 @@ const PortfolioPage: React.FC = () => {
     <div className="page portfolio-page">
       <section className="coverage-hero portfolio-hero">
         <div>
-          <p className="eyebrow">Holdings</p>
-          <h1>Portfolio Tracker</h1>
-          <p>Track positions, allocation, performance, P/L, dividends, sector mix, and export across multiple portfolios.</p>
+          <p className="eyebrow">{t("src_client_pages_portfoliopage__l176__h0")}</p>
+          <h1>{t("src_client_pages_portfoliopage__l177__h1")}</h1>
+          <p>{t("src_client_pages_portfoliopage__l179_h0")}</p>
         </div>
         <div className="metric-strip">
-          <div className="metric-tile"><span>Market Value</span><strong>{formatMoney(totals.marketValue)}</strong></div>
-          <div className="metric-tile"><span>Total P/L</span><strong className={totals.pl >= 0 ? "positive" : "negative"}>{formatSignedPercent(totals.plPercent)}</strong></div>
-          <div className="metric-tile"><span>Positions</span><strong>{totals.positionCount}</strong></div>
+          <div className="metric-tile"><span>{t("src_client_pages_portfoliopage__l181__h3")}</span><strong>{formatMoney(totals.marketValue)}</strong></div>
+          <div className="metric-tile"><span>{t("src_client_pages_portfoliopage__l182__h4")}</span><strong className={totals.pl >= 0 ? "positive" : "negative"}>{formatSignedPercent(totals.plPercent)}</strong></div>
+          <div className="metric-tile"><span>{t("src_client_pages_portfoliopage__l183__h5")}</span><strong>{totals.positionCount}</strong></div>
         </div>
       </section>
 
@@ -219,9 +220,9 @@ const PortfolioPage: React.FC = () => {
               )}
               <span>{pf.positions.length} positions • {pf.baseCurrency}</span>
               <div className="portfolio-tab-actions" onClick={(e) => e.stopPropagation()}>
-                <button type="button" onClick={() => { setRenamingId(pf.id); setRenameValue(pf.name); }} title="Rename">✎</button>
+                <button type="button" onClick={() => { setRenamingId(pf.id); setRenameValue(pf.name); }} title={t("src_client_pages_portfoliopage__l222__h6")}>✎</button>
                 {portfolios.length > 1 && (
-                  <button type="button" onClick={() => handleDelete(pf.id, pf.name)} title="Delete">🗑</button>
+                  <button type="button" onClick={() => handleDelete(pf.id, pf.name)} title={t("src_client_pages_portfoliopage__l224__h8")}>{t("src_client_pages_portfoliopage__l224__h7")}</button>
                 )}
               </div>
             </div>
@@ -230,14 +231,14 @@ const PortfolioPage: React.FC = () => {
             <div className="portfolio-tab create-tab">
               <input
                 type="text"
-                placeholder="Portfolio name"
+                placeholder={t("src_client_pages_portfoliopage__l233__h9")}
                 value={newName}
                 onChange={(e) => setNewName(e.target.value)}
                 autoFocus
               />
               <div className="form-actions">
-                <button onClick={handleCreate} className="primary-action-sm" type="button">Create</button>
-                <button onClick={() => { setShowCreate(false); setNewName(""); }} className="secondary-action-sm" type="button">Cancel</button>
+                <button onClick={handleCreate} className="primary-action-sm" type="button">{t("src_client_pages_portfoliopage__l239__h10")}</button>
+                <button onClick={() => { setShowCreate(false); setNewName(""); }} className="secondary-action-sm" type="button">{t("src_client_pages_portfoliopage__l240__h11")}</button>
               </div>
             </div>
           ) : (
@@ -251,24 +252,24 @@ const PortfolioPage: React.FC = () => {
       {/* Summary cards */}
       <section className="portfolio-summary">
         <div className="summary-card highlight">
-          <span>Market Value</span>
+          <span>{t("src_client_pages_portfoliopage__l254__h12")}</span>
           <strong>{formatMoney(totals.marketValue)}</strong>
           <em className={totals.dailyChange >= 0 ? "positive" : "negative"}>
             {totals.dailyChange >= 0 ? "+" : ""}{formatMoney(totals.dailyChange)} ({formatSignedPercent(totals.dailyChangePct)}) today
           </em>
         </div>
         <div className="summary-card">
-          <span>Cost Basis</span>
+          <span>{t("src_client_pages_portfoliopage__l261__h13")}</span>
           <strong>{formatMoney(totals.costBasis)}</strong>
           <em>Across {totals.positionCount} positions</em>
         </div>
         <div className="summary-card">
-          <span>Unrealized P/L</span>
+          <span>{t("src_client_pages_portfoliopage__l266__h14")}</span>
           <strong className={totals.pl >= 0 ? "positive" : "negative"}>{formatMoney(totals.pl)}</strong>
           <em className={totals.pl >= 0 ? "positive" : "negative"}>{formatSignedPercent(totals.plPercent)}</em>
         </div>
         <div className="summary-card">
-          <span>Annual Dividend</span>
+          <span>{t("src_client_pages_portfoliopage__l271__h15")}</span>
           <strong>{formatMoney(totals.dividend)}</strong>
           <em>Yield {(totals.marketValue > 0 ? (totals.dividend / totals.marketValue) * 100 : 0).toFixed(2)}%</em>
         </div>
@@ -277,7 +278,7 @@ const PortfolioPage: React.FC = () => {
       {/* Performance chart */}
       <section className="portfolio-performance">
         <div className="performance-header">
-          <h2>Performance</h2>
+          <h2>{t("src_client_pages_portfoliopage__l280__h16")}</h2>
           <div className="performance-tabs">
             {(["1W", "1M", "3M", "YTD", "1Y", "5Y"] as const).map((p) => (
               <button
@@ -313,11 +314,11 @@ const PortfolioPage: React.FC = () => {
       <div className="portfolio-content">
         <main className="portfolio-main">
           <div className="section-header-row">
-            <h2>Holdings</h2>
+            <h2>{t("src_client_pages_portfoliopage__l316__h17")}</h2>
             <div className="header-actions">
-              <button onClick={() => handleExport("csv")} className="secondary-action-sm" type="button">Export CSV</button>
-              <button onClick={() => handleExport("json")} className="secondary-action-sm" type="button">Export JSON</button>
-              <button onClick={() => setShowAdd(true)} className="primary-action-sm" type="button">+ Add Position</button>
+              <button onClick={() => handleExport("csv")} className="secondary-action-sm" type="button">{t("src_client_pages_portfoliopage__l318__h18")}</button>
+              <button onClick={() => handleExport("json")} className="secondary-action-sm" type="button">{t("src_client_pages_portfoliopage__l319__h19")}</button>
+              <button onClick={() => setShowAdd(true)} className="primary-action-sm" type="button">{t("src_client_pages_portfoliopage__l320__h20")}</button>
             </div>
           </div>
 
@@ -328,10 +329,10 @@ const PortfolioPage: React.FC = () => {
                   <th onClick={() => { setSortBy("symbol"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }} scope="col">
                     Symbol{sortBy === "symbol" ? (sortDir === "asc" ? " ▲" : " ▼") : ""}
                   </th>
-                  <th scope="col">Type</th>
-                  <th className="text-right" scope="col">Quantity</th>
-                  <th className="text-right" scope="col">Avg Cost</th>
-                  <th className="text-right" scope="col">Price</th>
+                  <th scope="col">{t("src_client_pages_portfoliopage__l331__h21")}</th>
+                  <th className="text-right" scope="col">{t("src_client_pages_portfoliopage__l332__h22")}</th>
+                  <th className="text-right" scope="col">{t("src_client_pages_portfoliopage__l333__h23")}</th>
+                  <th className="text-right" scope="col">{t("src_client_pages_portfoliopage__l334__h24")}</th>
                   <th className="text-right" onClick={() => { setSortBy("value"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }} scope="col">
                     Value{sortBy === "value" ? (sortDir === "asc" ? " ▲" : " ▼") : ""}
                   </th>
@@ -344,7 +345,7 @@ const PortfolioPage: React.FC = () => {
                   <th className="text-right" onClick={() => { setSortBy("yield"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }} scope="col">
                     Yield{sortBy === "yield" ? (sortDir === "asc" ? " ▲" : " ▼") : ""}
                   </th>
-                  <th scope="col">Actions</th>
+                  <th scope="col">{t("src_client_pages_portfoliopage__l347__h25")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -408,8 +409,8 @@ const PortfolioPage: React.FC = () => {
                       <td className="text-right">{pos.dividendYield?.toFixed(2) ?? "—"}%</td>
                       <td>
                         <div className="row-actions">
-                          <button type="button" onClick={() => setEditingId(isEditing ? null : pos.id)} className="row-btn" title="Edit">{isEditing ? "💾" : "✎"}</button>
-                          <button type="button" onClick={() => deletePosition(activePortfolio.id, pos.id)} className="row-btn delete" title="Delete">🗑</button>
+                          <button type="button" onClick={() => setEditingId(isEditing ? null : pos.id)} className="row-btn" title={t("src_client_pages_portfoliopage__l411__h26")}>{isEditing ? "💾" : "✎"}</button>
+                          <button type="button" onClick={() => deletePosition(activePortfolio.id, pos.id)} className="row-btn delete" title={t("src_client_pages_portfoliopage__l412__h28")}>{t("src_client_pages_portfoliopage__l412__h27")}</button>
                         </div>
                       </td>
                     </tr>
@@ -439,7 +440,7 @@ const PortfolioPage: React.FC = () => {
 
           {/* Transactions */}
           <div className="transactions-section">
-            <h3>Recent Transactions</h3>
+            <h3>{t("src_client_pages_portfoliopage__l442__h29")}</h3>
             <div className="transactions-list">
               {activePortfolio.transactions.slice(0, 10).map((tx) => {
                 const pos = activePortfolio.positions.find((p) => p.id === tx.positionId);
@@ -460,7 +461,7 @@ const PortfolioPage: React.FC = () => {
 
         <aside className="portfolio-aside">
           <div className="aside-card">
-            <h3>Sector Allocation</h3>
+            <h3>{t("src_client_pages_portfoliopage__l463__h30")}</h3>
             <div className="allocation-list">
               {sectorAllocation.map((s) => (
                 <div key={s.sector} className="allocation-row">
@@ -475,7 +476,7 @@ const PortfolioPage: React.FC = () => {
           </div>
 
           <div className="aside-card">
-            <h3>Asset Allocation</h3>
+            <h3>{t("src_client_pages_portfoliopage__l478__h31")}</h3>
             <div className="allocation-list">
               {assetAllocation.map((a) => {
                 const color = a.type === "stock" ? "#2563eb" : a.type === "crypto" ? "#f59e0b" : a.type === "etf" ? "#8b5cf6" : a.type === "bond" ? "#10b981" : "#94a3b8";
@@ -496,10 +497,10 @@ const PortfolioPage: React.FC = () => {
           </div>
 
           <div className="aside-card">
-            <h3>Portfolio Settings</h3>
+            <h3>{t("src_client_pages_portfoliopage__l499__h32")}</h3>
             <div className="settings-list">
               <div>
-                <span>Base Currency</span>
+                <span>{t("src_client_pages_portfoliopage__l502__h33")}</span>
                 <select
                   value={activePortfolio.baseCurrency}
                   onChange={(e) => setBaseCurrency(activePortfolio.id, e.target.value as Position["type"] & string as never)}
@@ -508,15 +509,15 @@ const PortfolioPage: React.FC = () => {
                 </select>
               </div>
               <div>
-                <span>Total Positions</span>
+                <span>{t("src_client_pages_portfoliopage__l511__h34")}</span>
                 <strong>{totals.positionCount}</strong>
               </div>
               <div>
-                <span>Dividend Yield</span>
+                <span>{t("src_client_pages_portfoliopage__l515__h35")}</span>
                 <strong>{(totals.marketValue > 0 ? (totals.dividend / totals.marketValue) * 100 : 0).toFixed(2)}%</strong>
               </div>
               <div>
-                <span>Last Updated</span>
+                <span>{t("src_client_pages_portfoliopage__l519__h36")}</span>
                 <strong>{new Date(activePortfolio.updatedAt).toLocaleDateString()}</strong>
               </div>
             </div>
@@ -531,6 +532,7 @@ const AddPositionForm: React.FC<{
   onSubmit: (data: Omit<Position, "id">) => void;
   onCancel: () => void;
 }> = ({ onSubmit, onCancel }) => {
+  const { t } = useI18n();
   const [symbol, setSymbol] = React.useState("");
   const [name, setName] = React.useState("");
   const [type, setType] = React.useState<Position["type"]>("stock");
@@ -559,55 +561,55 @@ const AddPositionForm: React.FC<{
 
   return (
     <form className="add-form" onSubmit={handleSubmit}>
-      <h3>Add Position</h3>
+      <h3>{t("src_client_pages_portfoliopage__l562__h37")}</h3>
       <div className="form-grid">
         <div>
-          <label>Symbol</label>
-          <input value={symbol} onChange={(e) => setSymbol(e.target.value)} placeholder="AAPL" required />
+          <label>{t("src_client_pages_portfoliopage__l565__h38")}</label>
+          <input value={symbol} onChange={(e) => setSymbol(e.target.value)} placeholder={t("src_client_pages_portfoliopage__l566__h39")} required />
         </div>
         <div>
-          <label>Name</label>
-          <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Apple Inc." required />
+          <label>{t("src_client_pages_portfoliopage__l569__h40")}</label>
+          <input value={name} onChange={(e) => setName(e.target.value)} placeholder={t("src_client_pages_portfoliopage__l570__h41")} required />
         </div>
         <div>
-          <label>Type</label>
+          <label>{t("src_client_pages_portfoliopage__l573__h42")}</label>
           <select value={type} onChange={(e) => setType(e.target.value as Position["type"])}>
-            <option value="stock">Stock</option>
-            <option value="etf">ETF</option>
-            <option value="crypto">Crypto</option>
-            <option value="forex">Forex</option>
-            <option value="commodity">Commodity</option>
-            <option value="bond">Bond</option>
+            <option value="stock">{t("src_client_pages_portfoliopage__l575__h43")}</option>
+            <option value="etf">{t("src_client_pages_portfoliopage__l576__h44")}</option>
+            <option value="crypto">{t("src_client_pages_portfoliopage__l577__h45")}</option>
+            <option value="forex">{t("src_client_pages_portfoliopage__l578__h46")}</option>
+            <option value="commodity">{t("src_client_pages_portfoliopage__l579__h47")}</option>
+            <option value="bond">{t("src_client_pages_portfoliopage__l580__h48")}</option>
           </select>
         </div>
         <div>
-          <label>Sector</label>
-          <input value={sector} onChange={(e) => setSector(e.target.value)} placeholder="Technology" />
+          <label>{t("src_client_pages_portfoliopage__l584__h49")}</label>
+          <input value={sector} onChange={(e) => setSector(e.target.value)} placeholder={t("src_client_pages_portfoliopage__l585__h50")} />
         </div>
         <div>
-          <label>Quantity</label>
+          <label>{t("src_client_pages_portfoliopage__l588__h51")}</label>
           <input type="number" step="any" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} min={0} required />
         </div>
         <div>
-          <label>Avg Cost</label>
+          <label>{t("src_client_pages_portfoliopage__l592__h52")}</label>
           <input type="number" step="any" value={averageCost} onChange={(e) => setAverageCost(Number(e.target.value))} min={0} required />
         </div>
         <div>
-          <label>Current Price</label>
+          <label>{t("src_client_pages_portfoliopage__l596__h53")}</label>
           <input type="number" step="any" value={currentPrice} onChange={(e) => setCurrentPrice(Number(e.target.value))} min={0} />
         </div>
         <div>
-          <label>Dividend Yield %</label>
+          <label>{t("src_client_pages_portfoliopage__l600__h54")}</label>
           <input type="number" step="any" value={dividendYield} onChange={(e) => setDividendYield(Number(e.target.value))} min={0} />
         </div>
         <div>
-          <label>Purchase Date</label>
+          <label>{t("src_client_pages_portfoliopage__l604__h55")}</label>
           <input type="date" value={purchaseDate} onChange={(e) => setPurchaseDate(e.target.value)} />
         </div>
       </div>
       <div className="form-actions">
-        <button type="submit" className="primary-action-sm">Add</button>
-        <button type="button" onClick={onCancel} className="secondary-action-sm">Cancel</button>
+        <button type="submit" className="primary-action-sm">{t("src_client_pages_portfoliopage__l609__h56")}</button>
+        <button type="button" onClick={onCancel} className="secondary-action-sm">{t("src_client_pages_portfoliopage__l610__h57")}</button>
       </div>
     </form>
   );

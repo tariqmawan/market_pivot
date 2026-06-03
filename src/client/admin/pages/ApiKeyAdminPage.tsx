@@ -3,12 +3,14 @@ import AdminCrudPage from "../components/ui/AdminCrudPage";
 import type { AdminColumn } from "../components/ui/AdminTable";
 import type { FormFieldDef } from "../components/ui/AdminFormBuilder";
 import type { AdminFilterDef } from "../components/ui/AdminFilters";
+import { useI18n } from "../../i18n";
 import {
   useApiKeyAdminStore,
   maskApiKey,
   type AdminApiKey,
   type ApiProvider,
 } from "../stores/apiKeyStore";
+
 
 const PROVIDER_OPTIONS: { value: ApiProvider; label: string }[] = [
   { value: "Finnhub", label: "Finnhub" },
@@ -146,12 +148,13 @@ const formFields: FormFieldDef<AdminApiKey>[] = [
 ];
 
 export default function ApiKeyAdminPage() {
+  const { t } = useI18n();
   const items = useApiKeyAdminStore((s) => s.items);
   const update = useApiKeyAdminStore((s) => s.update);
 
   return (
     <AdminCrudPage<AdminApiKey>
-      title="API Keys"
+      title={t("src_client_admin_pages_apikeyadminpage__l154__h0")}
       subtitle="Provider keys, environments, rotation, quota monitoring, health checks"
       useStore={useApiKeyAdminStore}
       columns={columns}
@@ -222,7 +225,7 @@ export default function ApiKeyAdminPage() {
       exportName="api-keys"
       validate={(entry) => {
         const errs: Partial<Record<keyof AdminApiKey, string>> = {};
-        if (!entry.label.trim()) errs.label = "Label required";
+        if (!entry.label.trim()) errs.label = t("src_client_admin_pages_apikeyadminpage__l225__h1");
         if (!entry.keyMasked.trim()) errs.keyMasked = "Key required";
         if (entry.monthlyUsage > entry.monthlyQuota && entry.monthlyQuota > 0)
           errs.monthlyUsage = "Usage cannot exceed quota";
@@ -231,7 +234,7 @@ export default function ApiKeyAdminPage() {
           entry.keyMasked = maskApiKey(entry.keyMasked);
         }
         if (items.some((k) => k.label === entry.label && k.id !== entry.id))
-          errs.label = "A key with this label already exists";
+          errs.label = t("src_client_admin_pages_apikeyadminpage__l234__h2");
         return errs;
       }}
     />

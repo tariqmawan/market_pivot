@@ -1,8 +1,12 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import newsData from "../../data/news.json";
+import { useI18n } from "../i18n";
+
+
 
 const ArticlePage: React.FC = () => {
+  const { t } = useI18n();
   const { id } = useParams<{ id: string }>();
   const articles = (newsData as any).articles as any[];
   const article = articles.find((a) => a.id === id);
@@ -19,9 +23,9 @@ const ArticlePage: React.FC = () => {
     return (
       <div className="page">
         <div className="section-heading">
-          <h1>Article not found</h1>
-          <p>The article you requested could not be found.</p>
-          <Link to="/news">Back to news</Link>
+          <h1>{t("src_client_pages_article__l22__h0")}</h1>
+          <p>{t("src_client_pages_article__l23__h1")}</p>
+          <Link to="/news">{t("src_client_pages_article__l24__h2")}</Link>
         </div>
       </div>
     );
@@ -34,7 +38,7 @@ const ArticlePage: React.FC = () => {
         <h1 style={{ marginTop: 12 }}>{article.title}</h1>
         <p style={{ color: '#777' }}>{article.source} • {new Date(article.publishedAt).toLocaleString()}</p>
         <p style={{ lineHeight: 1.8 }}>{article.summary}</p>
-        <p>Full article available at <a href={article.url} target="_blank" rel="noreferrer">external link</a></p>
+        <p>{t("src_client_pages_article__l41_h0")} <a href={article.url} target="_blank" rel="noreferrer">{t("src_client_pages_article__l37__h4")}</a></p>
       </article>
     </div>
   );

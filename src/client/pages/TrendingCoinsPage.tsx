@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import cryptoData from "../../data/cryptocurrencies.json";
 import type { Cryptocurrency } from "../../types";
 import "../styles/index.css";
+import { useI18n } from "../i18n";
+
+
 
 const cryptocurrencies = (cryptoData as any).cryptocurrencies as Cryptocurrency[];
 
@@ -14,6 +17,7 @@ const formatMoney = (value: number) => {
 };
 
 const TrendingCoinsPage: React.FC = () => {
+  const { t } = useI18n();
   const trendingCoins = React.useMemo(() => {
     return cryptocurrencies.slice(0, 12).map((coin, idx) => ({
       ...coin,
@@ -30,22 +34,22 @@ const TrendingCoinsPage: React.FC = () => {
       {/* Hero Section */}
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">Cryptocurrency</p>
-          <h1>Trending Coins</h1>
-          <p>Real-time trending cryptocurrencies by trading activity, social momentum, and market cap growth.</p>
+          <p className="eyebrow">{t("src_client_pages_trendingcoinspage__l33__h0")}</p>
+          <h1>{t("src_client_pages_trendingcoinspage__l34__h1")}</h1>
+          <p>{t("src_client_pages_trendingcoinspage__l35__h2")}</p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>Total Coins Tracked</span>
+            <span>{t("src_client_pages_trendingcoinspage__l39__h3")}</span>
             <strong>{cryptocurrencies.length}</strong>
           </div>
           <div className="metric-tile">
-            <span>Market Cap</span>
-            <strong>$2.1T</strong>
+            <span>{t("src_client_pages_trendingcoinspage__l43__h4")}</span>
+            <strong>{t("src_client_pages_trendingcoinspage__l44__h5")}</strong>
           </div>
           <div className="metric-tile">
-            <span>24h Volume</span>
-            <strong>$85B</strong>
+            <span>{t("src_client_pages_trendingcoinspage__l47__h6")}</span>
+            <strong>{t("src_client_pages_trendingcoinspage__l48__h7")}</strong>
           </div>
         </div>
       </section>
@@ -53,8 +57,8 @@ const TrendingCoinsPage: React.FC = () => {
       {/* Trending Coins Grid */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">Market Leaders</p>
-          <h2>Top Trending Cryptocurrencies</h2>
+          <p className="eyebrow">{t("src_client_pages_trendingcoinspage__l56__h8")}</p>
+          <h2>{t("src_client_pages_trendingcoinspage__l57__h9")}</h2>
         </div>
         <div
           style={{
@@ -139,11 +143,11 @@ const TrendingCoinsPage: React.FC = () => {
                   }}
                 >
                   <div>
-                    <span>24h Vol</span>
+                    <span>{t("src_client_pages_trendingcoinspage__l142__h10")}</span>
                     <strong style={{ display: "block" }}>{formatMoney(coin.volume24h)}</strong>
                   </div>
                   <div>
-                    <span>Supply</span>
+                    <span>{t("src_client_pages_trendingcoinspage__l146__h11")}</span>
                     <strong style={{ display: "block" }}>{(coin.circulatingSupply / 1e6).toFixed(0)}M</strong>
                   </div>
                 </div>
@@ -156,36 +160,36 @@ const TrendingCoinsPage: React.FC = () => {
       {/* Insights */}
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">What's Trending</p>
-          <h3>Market Dynamics</h3>
+          <p className="eyebrow">{t("src_client_pages_trendingcoinspage__l159__h12")}</p>
+          <h3>{t("src_client_pages_trendingcoinspage__l160__h13")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>Social media mentions</li>
-            <li>Exchange inflow/outflow</li>
-            <li>Developer activity</li>
-            <li>On-chain transactions</li>
-            <li>Trading volume spikes</li>
+            <li>{t("src_client_pages_trendingcoinspage__l162__h14")}</li>
+            <li>{t("src_client_pages_trendingcoinspage__l163__h15")}</li>
+            <li>{t("src_client_pages_trendingcoinspage__l164__h16")}</li>
+            <li>{t("src_client_pages_trendingcoinspage__l165__h17")}</li>
+            <li>{t("src_client_pages_trendingcoinspage__l166__h18")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Risk Factors</p>
-          <h3>Considerations</h3>
+          <p className="eyebrow">{t("src_client_pages_trendingcoinspage__l170__h19")}</p>
+          <h3>{t("src_client_pages_trendingcoinspage__l171__h20")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>High volatility risk</li>
-            <li>Low liquidity concerns</li>
-            <li>Market manipulation risk</li>
-            <li>Regulatory changes</li>
-            <li>Technology risk</li>
+            <li>{t("src_client_pages_trendingcoinspage__l173__h21")}</li>
+            <li>{t("src_client_pages_trendingcoinspage__l174__h22")}</li>
+            <li>{t("src_client_pages_trendingcoinspage__l175__h23")}</li>
+            <li>{t("src_client_pages_trendingcoinspage__l176__h24")}</li>
+            <li>{t("src_client_pages_trendingcoinspage__l177__h25")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Trading Tips</p>
-          <h3>Smart Strategies</h3>
+          <p className="eyebrow">{t("src_client_pages_trendingcoinspage__l181__h26")}</p>
+          <h3>{t("src_client_pages_trendingcoinspage__l182__h27")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>Validate on-chain metrics</li>
-            <li>Check developer updates</li>
-            <li>Monitor volume patterns</li>
-            <li>Use proper position sizing</li>
-            <li>Set strict stop-losses</li>
+            <li>{t("src_client_pages_trendingcoinspage__l184__h28")}</li>
+            <li>{t("src_client_pages_trendingcoinspage__l185__h29")}</li>
+            <li>{t("src_client_pages_trendingcoinspage__l186__h30")}</li>
+            <li>{t("src_client_pages_trendingcoinspage__l187__h31")}</li>
+            <li>{t("src_client_pages_trendingcoinspage__l188__h32")}</li>
           </ul>
         </div>
       </section>
@@ -201,8 +205,8 @@ const TrendingCoinsPage: React.FC = () => {
           textAlign: "center",
         }}
       >
-        <p className="eyebrow">Crypto Research</p>
-        <h3>Deep Dive Into Coins</h3>
+        <p className="eyebrow">{t("src_client_pages_trendingcoinspage__l204__h33")}</p>
+        <h3>{t("src_client_pages_trendingcoinspage__l205__h34")}</h3>
         <p style={{ color: "#475569", marginTop: "8px", marginBottom: "16px" }}>
           Click any coin to view detailed charts, on-chain metrics, exchange listings, and news
         </p>

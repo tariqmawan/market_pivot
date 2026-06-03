@@ -2,8 +2,11 @@ import React from "react";
 import newsData from "../../data/news.json";
 import { Link } from "react-router-dom";
 import "./News.css";
+import { useI18n } from "../i18n";
+
 
 const NewsPage: React.FC = () => {
+  const { t } = useI18n();
   const articles = (newsData as any).articles as any[];
   // sort by publishedAt desc
   const sorted = [...articles].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
@@ -13,10 +16,10 @@ const NewsPage: React.FC = () => {
   const trending = sorted.slice(0, 5);
 
   React.useEffect(() => {
-    document.title = `Latest News — MarketsPivot`;
+    document.title = t("news.latestNews");
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute('content', 'Latest market news and headlines from MarketsPivot');
-  }, []);
+    if (meta) meta.setAttribute('content', t("news.latestMarketNews"));
+  }, [t]);
 
   return (
     <div className="news-page">
@@ -28,7 +31,7 @@ const NewsPage: React.FC = () => {
               <p style={{ color: '#888', margin: 0, fontSize: 13 }}>{featured.source} • {new Date(featured.publishedAt).toLocaleString()}</p>
               <h1>{featured.title}</h1>
               <p>{featured.summary}</p>
-              <Link to={`/news/${featured.id}`}>Read more →</Link>
+              <Link to={`/news/${featured.id}`}>{t("news.readMore")}</Link>
             </div>
           </article>
         )}
@@ -49,7 +52,7 @@ const NewsPage: React.FC = () => {
 
       <aside className="sidebar">
         <div className="trending">
-          <h3>Latest</h3>
+          <h3>{t("news.latest")}</h3>
           <ul>
             {trending.map((t) => (
               <li key={t.id}><strong>{t.title}</strong><div style={{ color: '#666', fontSize: 12 }}>{t.source} • {new Date(t.publishedAt).toLocaleTimeString()}</div></li>
@@ -58,7 +61,7 @@ const NewsPage: React.FC = () => {
         </div>
 
         <div className="topics">
-          <h3>Topics</h3>
+          <h3>{t("news.topics")}</h3>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
             {[...new Set(articles.flatMap((a: any) => a.tags))].map((tag) => (
               <span key={tag} style={{ background: '#f4f4f4', padding: '6px 8px', borderRadius: 4, fontSize: 13 }}>{tag}</span>

@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useI18n } from "../i18n";
+
+
 
 type ScreenerRow = {
   symbol: string;
@@ -23,6 +26,7 @@ const rows: ScreenerRow[] = [
 const sectors = ["All", "Technology", "Financials", "Industrials", "Energy", "Healthcare"];
 
 const Screener: React.FC = () => {
+  const { t } = useI18n();
   const [query, setQuery] = React.useState("");
   const [exchange, setExchange] = React.useState("All");
   const [sector, setSector] = React.useState("All");
@@ -41,15 +45,15 @@ const Screener: React.FC = () => {
     <div className="page tool-page screener-page">
       <section className="tool-hero">
         <div>
-          <p className="eyebrow">Market Screener</p>
-          <h1>Discover market leaders with cleaner filters.</h1>
+          <p className="eyebrow">{t("src_client_pages_screener__l44__h0")}</p>
+          <h1>{t("src_client_pages_screener__l45__h1")}</h1>
           <p>
             Scan global symbols by exchange, sector, momentum, and quality score in a modern
             workspace-style view.
           </p>
         </div>
         <div className="tool-hero-panel">
-          <span>Matches</span>
+          <span>{t("src_client_pages_screener__l52__h2")}</span>
           <strong>{filtered.length}</strong>
           <em>{exchange === "All" ? "All exchanges" : exchange}</em>
         </div>
@@ -74,8 +78,8 @@ const Screener: React.FC = () => {
         <aside className="tool-filter-card">
           <div className="tool-card-head">
             <div>
-              <p className="eyebrow">Filters</p>
-              <h2>Screen setup</h2>
+              <p className="eyebrow">{t("src_client_pages_screener__l77__h3")}</p>
+              <h2>{t("src_client_pages_screener__l78__h4")}</h2>
             </div>
             <button
               type="button"
@@ -86,34 +90,34 @@ const Screener: React.FC = () => {
                 setSector("All");
                 setMinChange("0");
               }}
-              aria-label="Reset filters"
+              aria-label={t("src_client_pages_screener__l89__h5")}
             >
               Reset
             </button>
           </div>
 
           <label className="tool-field">
-            <span>Symbol / Company</span>
-            <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="AAPL, NVIDIA, TSLA" />
+            <span>{t("src_client_pages_screener__l96__h7")}</span>
+            <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t("src_client_pages_screener__l97__h8")} />
           </label>
 
           <label className="tool-field">
-            <span>Exchange</span>
+            <span>{t("src_client_pages_screener__l101__h9")}</span>
             <select value={exchange} onChange={(e) => setExchange(e.target.value)}>
-              <option value="All">All Exchanges</option>
-              <option value="NYSE">NYSE</option>
-              <option value="NASDAQ">NASDAQ</option>
-              <option value="LSE">LSE</option>
-              <option value="TSE">TSE</option>
+              <option value="All">{t("src_client_pages_screener__l103__h10")}</option>
+              <option value="NYSE">{t("src_client_pages_screener__l104__h11")}</option>
+              <option value="NASDAQ">{t("src_client_pages_screener__l105__h12")}</option>
+              <option value="LSE">{t("src_client_pages_screener__l106__h13")}</option>
+              <option value="TSE">{t("src_client_pages_screener__l107__h14")}</option>
             </select>
           </label>
 
           <label className="tool-field">
-            <span>Minimum 24h Change</span>
+            <span>{t("src_client_pages_screener__l112__h15")}</span>
             <input value={minChange} onChange={(e) => setMinChange(e.target.value)} type="number" step="0.01" />
           </label>
 
-          <div className="tool-segmented" aria-label="Sector filter">
+          <div className="tool-segmented" aria-label={t("src_client_pages_screener__l116__h16")}>
             {sectors.map((item) => (
               <button
                 type="button"
@@ -130,22 +134,22 @@ const Screener: React.FC = () => {
         <section className="tool-results-card">
           <div className="tool-card-head">
             <div>
-              <p className="eyebrow">Results</p>
-              <h2>Matching Symbols</h2>
+              <p className="eyebrow">{t("src_client_pages_screener__l133__h18")}</p>
+              <h2>{t("src_client_pages_screener__l134__h19")}</h2>
             </div>
-            <span className="tool-live-chip">Demo data</span>
+            <span className="tool-live-chip">{t("src_client_pages_screener__l136__h20")}</span>
           </div>
 
           <div className="tool-table-wrap">
             <table className="tool-table">
               <thead>
                 <tr>
-                  <th>Symbol</th>
-                  <th>Sector</th>
-                  <th>Price</th>
-                  <th>24h</th>
-                  <th>Volume</th>
-                  <th>Score</th>
+                  <th>{t("src_client_pages_screener__l143__h21")}</th>
+                  <th>{t("src_client_pages_screener__l144__h22")}</th>
+                  <th>{t("src_client_pages_screener__l145__h23")}</th>
+                  <th>{t("src_client_pages_screener__l146__h24")}</th>
+                  <th>{t("src_client_pages_screener__l147__h25")}</th>
+                  <th>{t("src_client_pages_screener__l148__h26")}</th>
                 </tr>
               </thead>
               <tbody>

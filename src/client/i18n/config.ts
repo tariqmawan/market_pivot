@@ -113,6 +113,83 @@ import hiFooter from "./locales/hi/footer.json";
 import hiAdmin from "./locales/hi/admin.json";
 import hiPages from "./locales/hi/pages.json";
 
+import thCommon from "./locales/th/common.json";
+import thAuth from "./locales/th/auth.json";
+import thNav from "./locales/th/nav.json";
+import thMarkets from "./locales/th/markets.json";
+import thForex from "./locales/th/forex.json";
+import thCrypto from "./locales/th/crypto.json";
+import thDashboard from "./locales/th/dashboard.json";
+import thFooter from "./locales/th/footer.json";
+import thAdmin from "./locales/th/admin.json";
+import thPages from "./locales/th/pages.json";
+
+import viCommon from "./locales/vi/common.json";
+import viAuth from "./locales/vi/auth.json";
+import viNav from "./locales/vi/nav.json";
+import viMarkets from "./locales/vi/markets.json";
+import viForex from "./locales/vi/forex.json";
+import viCrypto from "./locales/vi/crypto.json";
+import viDashboard from "./locales/vi/dashboard.json";
+import viFooter from "./locales/vi/footer.json";
+import viAdmin from "./locales/vi/admin.json";
+import viPages from "./locales/vi/pages.json";
+
+import deCommon from "./locales/de/common.json";
+import deAuth from "./locales/de/auth.json";
+import deNav from "./locales/de/nav.json";
+import deMarkets from "./locales/de/markets.json";
+import deForex from "./locales/de/forex.json";
+import deCrypto from "./locales/de/crypto.json";
+import deDashboard from "./locales/de/dashboard.json";
+import deFooter from "./locales/de/footer.json";
+import deAdmin from "./locales/de/admin.json";
+import dePages from "./locales/de/pages.json";
+
+import plCommon from "./locales/pl/common.json";
+import plAuth from "./locales/pl/auth.json";
+import plNav from "./locales/pl/nav.json";
+import plMarkets from "./locales/pl/markets.json";
+import plForex from "./locales/pl/forex.json";
+import plCrypto from "./locales/pl/crypto.json";
+import plDashboard from "./locales/pl/dashboard.json";
+import plFooter from "./locales/pl/footer.json";
+import plAdmin from "./locales/pl/admin.json";
+import plPages from "./locales/pl/pages.json";
+
+import trCommon from "./locales/tr/common.json";
+import trAuth from "./locales/tr/auth.json";
+import trNav from "./locales/tr/nav.json";
+import trMarkets from "./locales/tr/markets.json";
+import trForex from "./locales/tr/forex.json";
+import trCrypto from "./locales/tr/crypto.json";
+import trDashboard from "./locales/tr/dashboard.json";
+import trFooter from "./locales/tr/footer.json";
+import trAdmin from "./locales/tr/admin.json";
+import trPages from "./locales/tr/pages.json";
+
+import idCommon from "./locales/id/common.json";
+import idAuth from "./locales/id/auth.json";
+import idNav from "./locales/id/nav.json";
+import idMarkets from "./locales/id/markets.json";
+import idForex from "./locales/id/forex.json";
+import idCrypto from "./locales/id/crypto.json";
+import idDashboard from "./locales/id/dashboard.json";
+import idFooter from "./locales/id/footer.json";
+import idAdmin from "./locales/id/admin.json";
+import idPages from "./locales/id/pages.json";
+
+import msCommon from "./locales/ms/common.json";
+import msAuth from "./locales/ms/auth.json";
+import msNav from "./locales/ms/nav.json";
+import msMarkets from "./locales/ms/markets.json";
+import msForex from "./locales/ms/forex.json";
+import msCrypto from "./locales/ms/crypto.json";
+import msDashboard from "./locales/ms/dashboard.json";
+import msFooter from "./locales/ms/footer.json";
+import msAdmin from "./locales/ms/admin.json";
+import msPages from "./locales/ms/pages.json";
+
 export const RTL_LANGUAGES = new Set(["ar", "he", "fa", "ur"]);
 
 export const SUPPORTED_LANGUAGES = [
@@ -126,6 +203,13 @@ export const SUPPORTED_LANGUAGES = [
   { code: "ko", label: "Korean", nativeLabel: "한국어", subtitle: "Korean", flag: "🇰🇷" },
   { code: "es", label: "Spanish", nativeLabel: "Español", subtitle: "Spanish", flag: "🇪🇸" },
   { code: "hi", label: "Hindi", nativeLabel: "हिन्दी", subtitle: "Hindi", flag: "🇮🇳" },
+  { code: "th", label: "Thai", nativeLabel: "ไทย", subtitle: "Thai", flag: "🇹🇭" },
+  { code: "vi", label: "Vietnamese", nativeLabel: "Tiếng Việt", subtitle: "Vietnamese", flag: "🇻🇳" },
+  { code: "de", label: "German", nativeLabel: "Deutsch", subtitle: "German", flag: "🇩🇪" },
+  { code: "pl", label: "Polish", nativeLabel: "Polski", subtitle: "Polish", flag: "🇵🇱" },
+  { code: "tr", label: "Turkish", nativeLabel: "Türkçe", subtitle: "Turkish", flag: "🇹🇷" },
+  { code: "id", label: "Indonesian", nativeLabel: "Bahasa Indonesia", subtitle: "Indonesian", flag: "🇮🇩" },
+  { code: "ms", label: "Malay", nativeLabel: "Bahasa Melayu", subtitle: "Malay", flag: "🇲🇾" },
 ] as const;
 
 export type SupportedLang = typeof SUPPORTED_LANGUAGES[number]["code"];
@@ -152,6 +236,13 @@ const i18nResources: any = {
   ko: { common: koCommon, auth: koAuth, nav: koNav, markets: koMarkets, forex: koForex, crypto: koCrypto, dashboard: koDashboard, footer: koFooter, admin: koAdmin, pages: koPages },
   es: { common: esCommon, auth: esAuth, nav: esNav, markets: esMarkets, forex: esForex, crypto: esCrypto, dashboard: esDashboard, footer: esFooter, admin: esAdmin, pages: esPages },
   hi: { common: hiCommon, auth: hiAuth, nav: hiNav, markets: hiMarkets, forex: hiForex, crypto: hiCrypto, dashboard: hiDashboard, footer: hiFooter, admin: hiAdmin, pages: hiPages },
+  th: { common: thCommon, auth: thAuth, nav: thNav, markets: thMarkets, forex: thForex, crypto: thCrypto, dashboard: thDashboard, footer: thFooter, admin: thAdmin, pages: thPages },
+  vi: { common: viCommon, auth: viAuth, nav: viNav, markets: viMarkets, forex: viForex, crypto: viCrypto, dashboard: viDashboard, footer: viFooter, admin: viAdmin, pages: viPages },
+  de: { common: deCommon, auth: deAuth, nav: deNav, markets: deMarkets, forex: deForex, crypto: deCrypto, dashboard: deDashboard, footer: deFooter, admin: deAdmin, pages: dePages },
+  pl: { common: plCommon, auth: plAuth, nav: plNav, markets: plMarkets, forex: plForex, crypto: plCrypto, dashboard: plDashboard, footer: plFooter, admin: plAdmin, pages: plPages },
+  tr: { common: trCommon, auth: trAuth, nav: trNav, markets: trMarkets, forex: trForex, crypto: trCrypto, dashboard: trDashboard, footer: trFooter, admin: trAdmin, pages: trPages },
+  id: { common: idCommon, auth: idAuth, nav: idNav, markets: idMarkets, forex: idForex, crypto: idCrypto, dashboard: idDashboard, footer: idFooter, admin: idAdmin, pages: idPages },
+  ms: { common: msCommon, auth: msAuth, nav: msNav, markets: msMarkets, forex: msForex, crypto: msCrypto, dashboard: msDashboard, footer: msFooter, admin: msAdmin, pages: msPages },
 };
 
 i18n
@@ -163,6 +254,19 @@ i18n
     fallbackNS: NAMESPACES.filter((namespace) => namespace !== "common"),
     fallbackLng: "en",
     supportedLngs: SUPPORTED_LANGUAGES.map((l) => l.code),
+    // Strict behavior:
+    // - load: "currentOnly" — never load regional variants (e.g. en-US, pt-BR) which
+    //   would create mixed-script output when the user picks a base language.
+    // - nonExplicitSupportedLngs: false — if user code isn't in supportedLngs, i18next
+    //   falls back cleanly to fallbackLng (en) instead of attempting a fuzzy match.
+    // - cleanCode: true — strip region tags (e.g. "en-US" → "en") so users on regional
+    //   browsers still land on the correct supported language.
+    // - returnEmptyString: false — when a key truly has no value, return the key (not "")
+    //   so we can detect it in useI18n and explicitly try EN.
+    load: "currentOnly",
+    nonExplicitSupportedLngs: false,
+    cleanCode: true,
+    returnEmptyString: false,
     interpolation: { escapeValue: false },
     detection: {
       order: ["localStorage", "navigator"],

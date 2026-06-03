@@ -3,12 +3,16 @@ import { Link } from "react-router-dom";
 import exchangesData from "../../data/exchanges.json";
 import type { StockExchange } from "../../types";
 import "../styles/index.css";
+import { useI18n } from "../i18n";
+
+
 
 const exchanges = (exchangesData as any).exchanges as StockExchange[];
 
 const formatSignedPercent = (value: number) => `${value >= 0 ? "+" : ""}${value.toFixed(2)}%`;
 
 const AfterHoursPage: React.FC = () => {
+  const { t } = useI18n();
   const afterHoursData = React.useMemo(() => {
     return [
       { symbol: "AAPL", name: "Apple Inc.", afterHours: 194.25, regular: 193.80, change: 0.45, changePercent: 0.23 },
@@ -31,22 +35,22 @@ const AfterHoursPage: React.FC = () => {
       {/* Hero Section */}
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">Extended Trading</p>
-          <h1>After-Hours Market Activity</h1>
-          <p>Track earnings reactions, after-hours movers, and extended session volume for US equities.</p>
+          <p className="eyebrow">{t("src_client_pages_afterhourspage__l34__h0")}</p>
+          <h1>{t("src_client_pages_afterhourspage__l35__h1")}</h1>
+          <p>{t("src_client_pages_afterhourspage__l36__h2")}</p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>Session Status</span>
-            <strong>Active</strong>
+            <span>{t("src_client_pages_afterhourspage__l40__h3")}</span>
+            <strong>{t("src_client_pages_afterhourspage__l41__h4")}</strong>
           </div>
           <div className="metric-tile">
-            <span>Closing Time</span>
-            <strong>6:00 PM ET</strong>
+            <span>{t("src_client_pages_afterhourspage__l44__h5")}</span>
+            <strong>{t("src_client_pages_afterhourspage__l45__h6")}</strong>
           </div>
           <div className="metric-tile">
-            <span>Volume</span>
-            <strong>~520M</strong>
+            <span>{t("src_client_pages_afterhourspage__l48__h7")}</span>
+            <strong>{t("src_client_pages_afterhourspage__l49__h8")}</strong>
           </div>
         </div>
       </section>
@@ -54,8 +58,8 @@ const AfterHoursPage: React.FC = () => {
       {/* After-Hours Movers */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">After-Hours Movements</p>
-          <h2>Top Movers</h2>
+          <p className="eyebrow">{t("src_client_pages_afterhourspage__l57__h9")}</p>
+          <h2>{t("src_client_pages_afterhourspage__l58__h10")}</h2>
           <p style={{ color: "#475569", marginTop: "4px" }}>
             Stocks with significant price action during extended trading (4:00 PM - 8:00 PM ET)
           </p>
@@ -72,11 +76,11 @@ const AfterHoursPage: React.FC = () => {
           >
             <thead>
               <tr style={{ borderBottom: "2px solid #e2e8f0" }}>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>Symbol</th>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>Company</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>Regular Close</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>After-Hours</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>Change</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_afterhourspage__l75__h11")}</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_afterhourspage__l76__h12")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_afterhourspage__l77__h13")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_afterhourspage__l78__h14")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_afterhourspage__l79__h15")}</th>
               </tr>
             </thead>
             <tbody>
@@ -106,8 +110,8 @@ const AfterHoursPage: React.FC = () => {
       {/* Earnings Reactions */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">Corporate Events</p>
-          <h2>Earnings Reports & Reactions</h2>
+          <p className="eyebrow">{t("src_client_pages_afterhourspage__l109__h16")}</p>
+          <h2>{t("src_client_pages_afterhourspage__l110__h17")}</h2>
         </div>
         <div
           style={{
@@ -161,8 +165,8 @@ const AfterHoursPage: React.FC = () => {
           border: "1px solid rgba(162, 120, 65, 0.2)",
         }}
       >
-        <p className="eyebrow">Session Details</p>
-        <h3>Understanding After-Hours Trading</h3>
+        <p className="eyebrow">{t("src_client_pages_afterhourspage__l164__h18")}</p>
+        <h3>{t("src_client_pages_afterhourspage__l165__h19")}</h3>
         <div
           style={{
             display: "grid",
@@ -172,20 +176,20 @@ const AfterHoursPage: React.FC = () => {
           }}
         >
           <div>
-            <strong>Trading Hours</strong>
-            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>4:00 PM - 8:00 PM ET</p>
+            <strong>{t("src_client_pages_afterhourspage__l175__h20")}</strong>
+            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>{t("src_client_pages_afterhourspage__l176__h21")}</p>
           </div>
           <div>
-            <strong>Liquidity</strong>
-            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>Lower volume than regular hours</p>
+            <strong>{t("src_client_pages_afterhourspage__l179__h22")}</strong>
+            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>{t("src_client_pages_afterhourspage__l180__h23")}</p>
           </div>
           <div>
-            <strong>Spreads</strong>
-            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>Wider bid-ask spreads</p>
+            <strong>{t("src_client_pages_afterhourspage__l183__h24")}</strong>
+            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>{t("src_client_pages_afterhourspage__l184__h25")}</p>
           </div>
           <div>
-            <strong>Volatility</strong>
-            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>Can be higher on earnings</p>
+            <strong>{t("src_client_pages_afterhourspage__l187__h26")}</strong>
+            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>{t("src_client_pages_afterhourspage__l188__h27")}</p>
           </div>
         </div>
         <div style={{ marginTop: "20px" }}>

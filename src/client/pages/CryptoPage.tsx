@@ -4,6 +4,7 @@ import type { Cryptocurrency } from "../../types";
 import CryptoDetail from "../components/CryptoDetail";
 import { useI18n } from "../i18n";
 
+
 type PaginatedResponse<T> = {
   success: boolean;
   data: T[];
@@ -29,8 +30,8 @@ const AssetCard: React.FC<{
 );
 
 export default function CryptoPage() {
-  const { cryptoId } = useParams();
   const { t } = useI18n();
+  const { cryptoId } = useParams();
 
   const [list, setList] = React.useState<Cryptocurrency[]>([]);
   const [listLoading, setListLoading] = React.useState(false);
@@ -79,7 +80,7 @@ export default function CryptoPage() {
   }, [cryptoId]);
 
   if (cryptoId) {
-    if (detailLoading) return <div className="page"><p>Loading crypto…</p></div>;
+    if (detailLoading) return <div className="page"><p>{t("src_client_pages_cryptopage__l82__h0")}</p></div>;
     if (detailError || !crypto) return <div className="page"><p>{detailError ?? "Crypto not found"}</p></div>;
     return <CryptoDetail crypto={crypto} isLoading={false} />;
   }
@@ -93,20 +94,20 @@ export default function CryptoPage() {
       </div>
 
       {listError ? <p className="error">{listError}</p> : null}
-      {listLoading ? <p>Loading…</p> : null}
+      {listLoading ? <p>{t("src_client_pages_cryptopage__l96__h1")}</p> : null}
 
       {overview ? (
         <div className="info-grid" style={{ marginBottom: 16 }}>
           <div className="info-card">
-            <h4>Top Gainers</h4>
+            <h4>{t("src_client_pages_cryptopage__l101__h2")}</h4>
             <p>{overview.gainers?.slice(0, 3).map((g) => g.symbol ?? g.name).join(", ") || "-"}</p>
           </div>
           <div className="info-card">
-            <h4>Top Losers</h4>
+            <h4>{t("src_client_pages_cryptopage__l105__h3")}</h4>
             <p>{overview.losers?.slice(0, 3).map((g) => g.symbol ?? g.name).join(", ") || "-"}</p>
           </div>
           <div className="info-card">
-            <h4>Trending</h4>
+            <h4>{t("src_client_pages_cryptopage__l109__h4")}</h4>
             <p>{overview.trending?.slice(0, 3).map((g) => g.symbol ?? g.name).join(", ") || "-"}</p>
           </div>
         </div>

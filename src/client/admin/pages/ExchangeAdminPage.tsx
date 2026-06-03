@@ -4,6 +4,9 @@ import type { AdminColumn } from "../components/ui/AdminTable";
 import type { FormFieldDef } from "../components/ui/AdminFormBuilder";
 import type { AdminFilterDef } from "../components/ui/AdminFilters";
 import { useExchangeAdminStore, type AdminExchange } from "../stores/exchangeStore";
+import { useI18n } from "../../i18n";
+
+
 
 const STATUS_OPTIONS = [
   { value: "open", label: "Open" },
@@ -150,12 +153,13 @@ const formFields: FormFieldDef<AdminExchange>[] = [
 ];
 
 export default function ExchangeAdminPage() {
+  const { t } = useI18n();
   const items = useExchangeAdminStore((s) => s.items);
   const update = useExchangeAdminStore((s) => s.update);
 
   return (
     <AdminCrudPage<AdminExchange>
-      title="Exchanges"
+      title={t("src_client_admin_pages_exchangeadminpage__l158__h0")}
       subtitle="Trading venues, sessions, regions, status, holidays, and metadata"
       useStore={useExchangeAdminStore}
       columns={columns}

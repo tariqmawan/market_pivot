@@ -4,6 +4,7 @@ import AdminCrudPage from "../components/ui/AdminCrudPage";
 import AdminAnalyticsCards from "../components/ui/AdminAnalyticsCards";
 import type { AdminColumn } from "../components/ui/AdminTable";
 import type { FormFieldDef } from "../components/ui/AdminFormBuilder";
+import { useI18n } from "../../i18n";
 import {
   useSeoMetaAdminStore,
   useSeoRedirectAdminStore,
@@ -12,6 +13,7 @@ import {
   type SeoRedirect,
   type SeoSitemapEntry,
 } from "../stores/seoStore";
+
 
 type Tab = "meta" | "redirects" | "sitemap" | "robots";
 
@@ -182,6 +184,7 @@ Disallow: /api
 Sitemap: https://marketspivot.com/sitemap.xml`;
 
 function RobotsTab() {
+  const { t } = useI18n();
   const [text, setText] = React.useState<string>(() => {
     try {
       return localStorage.getItem("mp-admin-seo-robots") ?? DEFAULT_ROBOTS;
@@ -204,7 +207,7 @@ function RobotsTab() {
   return (
     <div className="mp-admin-content">
       <PageHeader
-        title="robots.txt"
+        title={t("src_client_admin_pages_seoadminpage__l207__h0")}
         subtitle="Crawl directives for search engine bots"
         actions={
           <>
@@ -240,6 +243,7 @@ function RobotsTab() {
 }
 
 export default function SeoAdminPage() {
+  const { t } = useI18n();
   const [tab, setTab] = React.useState<Tab>("meta");
 
   const metaItems = useSeoMetaAdminStore((s) => s.items);
@@ -272,7 +276,7 @@ export default function SeoAdminPage() {
     <div>
       <div className="mp-admin-content" style={{ paddingBottom: 0 }}>
         <PageHeader
-          title="SEO Management"
+          title={t("src_client_admin_pages_seoadminpage__l275__h1")}
           subtitle="Meta tags, OpenGraph, Twitter cards, canonicals, redirects, sitemap, structured data"
         />
         {summary}
@@ -307,7 +311,7 @@ export default function SeoAdminPage() {
 
       {tab === "meta" && (
         <AdminCrudPage<SeoMetaEntry>
-          title="Page Meta"
+          title={t("src_client_admin_pages_seoadminpage__l310__h2")}
           subtitle="Per-route SEO metadata, OpenGraph, Twitter cards, canonical URLs, and JSON-LD schema"
           useStore={useSeoMetaAdminStore}
           columns={metaColumns}
@@ -349,7 +353,7 @@ export default function SeoAdminPage() {
 
       {tab === "redirects" && (
         <AdminCrudPage<SeoRedirect>
-          title="Redirects"
+          title={t("src_client_admin_pages_seoadminpage__l352__h3")}
           subtitle="Path-level URL redirects with status code and analytics"
           useStore={useSeoRedirectAdminStore}
           columns={redirectColumns}
@@ -378,7 +382,7 @@ export default function SeoAdminPage() {
 
       {tab === "sitemap" && (
         <AdminCrudPage<SeoSitemapEntry>
-          title="Sitemap Entries"
+          title={t("src_client_admin_pages_seoadminpage__l381__h4")}
           subtitle="sitemap.xml management — paths, priority, change frequency"
           useStore={useSeoSitemapAdminStore}
           columns={sitemapColumns}

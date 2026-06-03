@@ -3,6 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import cryptoData from "../../data/cryptocurrencies.json";
 import type { Cryptocurrency } from "../../types";
 import "../styles/index.css";
+import { useI18n } from "../i18n";
+
+
 
 const cryptocurrencies = (cryptoData as any).cryptocurrencies as Cryptocurrency[];
 
@@ -34,11 +37,12 @@ const categoryConfigs: Record<string, { title: string; description: string; eyeb
 };
 
 const CryptoCategoryPage: React.FC = () => {
+  const { t } = useI18n();
   const { category } = useParams<{ category?: string }>();
   const config = category ? categoryConfigs[category] : categoryConfigs["layer-1"];
 
   if (!config) {
-    return <div className="page"><p>Category not found</p></div>;
+    return <div className="page"><p>{t("src_client_pages_cryptocategorypage__l41__h0")}</p></div>;
   }
 
   return (
@@ -52,16 +56,16 @@ const CryptoCategoryPage: React.FC = () => {
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>Coins Listed</span>
+            <span>{t("src_client_pages_cryptocategorypage__l55__h1")}</span>
             <strong>{config.coins.length}</strong>
           </div>
           <div className="metric-tile">
-            <span>Total Volume</span>
-            <strong>$12.5B</strong>
+            <span>{t("src_client_pages_cryptocategorypage__l59__h2")}</span>
+            <strong>{t("src_client_pages_cryptocategorypage__l60__h3")}</strong>
           </div>
           <div className="metric-tile">
-            <span>Avg Return</span>
-            <strong>+24.5%</strong>
+            <span>{t("src_client_pages_cryptocategorypage__l63__h4")}</span>
+            <strong>{t("src_client_pages_cryptocategorypage__l64__h5")}</strong>
           </div>
         </div>
       </section>
@@ -69,7 +73,7 @@ const CryptoCategoryPage: React.FC = () => {
       {/* Coins List */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">Top Assets</p>
+          <p className="eyebrow">{t("src_client_pages_cryptocategorypage__l72__h6")}</p>
           <h2>{config.title} Coins</h2>
         </div>
         <div style={{ overflowX: "auto" }}>
@@ -82,11 +86,11 @@ const CryptoCategoryPage: React.FC = () => {
           >
             <thead>
               <tr style={{ borderBottom: "2px solid #e2e8f0" }}>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>Rank</th>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>Name</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>Price</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>24h Change</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>Market Cap</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_cryptocategorypage__l85__h7")}</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_cryptocategorypage__l86__h8")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_cryptocategorypage__l87__h9")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_cryptocategorypage__l88__h10")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_cryptocategorypage__l89__h11")}</th>
               </tr>
             </thead>
             <tbody>
@@ -132,36 +136,36 @@ const CryptoCategoryPage: React.FC = () => {
       {/* Key Metrics */}
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">Category Metrics</p>
-          <h3>Market Health</h3>
+          <p className="eyebrow">{t("src_client_pages_cryptocategorypage__l135__h12")}</p>
+          <h3>{t("src_client_pages_cryptocategorypage__l136__h13")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>Dominance index</li>
-            <li>Trading volume trends</li>
-            <li>Volatility index</li>
-            <li>Market sentiment</li>
-            <li>Developer activity</li>
+            <li>{t("src_client_pages_cryptocategorypage__l138__h14")}</li>
+            <li>{t("src_client_pages_cryptocategorypage__l139__h15")}</li>
+            <li>{t("src_client_pages_cryptocategorypage__l140__h16")}</li>
+            <li>{t("src_client_pages_cryptocategorypage__l141__h17")}</li>
+            <li>{t("src_client_pages_cryptocategorypage__l142__h18")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Analysis</p>
-          <h3>Technical Outlook</h3>
+          <p className="eyebrow">{t("src_client_pages_cryptocategorypage__l146__h19")}</p>
+          <h3>{t("src_client_pages_cryptocategorypage__l147__h20")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>Support levels</li>
-            <li>Resistance points</li>
-            <li>Moving averages</li>
-            <li>RSI indicators</li>
-            <li>Pattern analysis</li>
+            <li>{t("src_client_pages_cryptocategorypage__l149__h21")}</li>
+            <li>{t("src_client_pages_cryptocategorypage__l150__h22")}</li>
+            <li>{t("src_client_pages_cryptocategorypage__l151__h23")}</li>
+            <li>{t("src_client_pages_cryptocategorypage__l152__h24")}</li>
+            <li>{t("src_client_pages_cryptocategorypage__l153__h25")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">News</p>
-          <h3>Updates</h3>
+          <p className="eyebrow">{t("src_client_pages_cryptocategorypage__l157__h26")}</p>
+          <h3>{t("src_client_pages_cryptocategorypage__l158__h27")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>Protocol updates</li>
-            <li>Partnership news</li>
-            <li>Exchange listings</li>
-            <li>Regulatory changes</li>
-            <li>Security audits</li>
+            <li>{t("src_client_pages_cryptocategorypage__l160__h28")}</li>
+            <li>{t("src_client_pages_cryptocategorypage__l161__h29")}</li>
+            <li>{t("src_client_pages_cryptocategorypage__l162__h30")}</li>
+            <li>{t("src_client_pages_cryptocategorypage__l163__h31")}</li>
+            <li>{t("src_client_pages_cryptocategorypage__l164__h32")}</li>
           </ul>
         </div>
       </section>
@@ -177,8 +181,8 @@ const CryptoCategoryPage: React.FC = () => {
           textAlign: "center",
         }}
       >
-        <p className="eyebrow">Explore Assets</p>
-        <h3>Research Cryptocurrencies</h3>
+        <p className="eyebrow">{t("src_client_pages_cryptocategorypage__l180__h33")}</p>
+        <h3>{t("src_client_pages_cryptocategorypage__l181__h34")}</h3>
         <div style={{ marginTop: "16px" }}>
           <Link to="/crypto" className="primary-action" style={{ textDecoration: "none" }}>
             View All Coins

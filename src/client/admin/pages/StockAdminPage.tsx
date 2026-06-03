@@ -5,6 +5,9 @@ import type { FormFieldDef } from "../components/ui/AdminFormBuilder";
 import type { AdminFilterDef } from "../components/ui/AdminFilters";
 import { useStockAdminStore, type AdminStock } from "../stores/stockStore";
 import { useExchangeAdminStore } from "../stores/exchangeStore";
+import { useI18n } from "../../i18n";
+
+
 
 const SECTOR_OPTIONS = [
   "Technology",
@@ -101,6 +104,7 @@ const columns: AdminColumn<AdminStock>[] = [
 ];
 
 export default function StockAdminPage() {
+  const { t } = useI18n();
   const items = useStockAdminStore((s) => s.items);
   const update = useStockAdminStore((s) => s.update);
   const addMany = useStockAdminStore((s) => s.addMany);
@@ -214,7 +218,7 @@ export default function StockAdminPage() {
 
   return (
     <AdminCrudPage<AdminStock>
-      title="Stocks"
+      title={t("src_client_admin_pages_stockadminpage__l217__h0")}
       subtitle="Listed companies, sectors, financials, earnings, dividends, and IPO management"
       useStore={useStockAdminStore}
       columns={columns}

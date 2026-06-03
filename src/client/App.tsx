@@ -33,7 +33,7 @@ import { fetchJson } from "./lib/apiClient";
 import { normalizeCryptoPrice } from "./lib/normalize";
 import CurrencyDetail from "./components/CurrencyDetail";
 import ExchangeDetail from "./components/ExchangeDetail";
-import Layout from "./components/Layout";
+import { Layout } from "./components/Layout";
 import PageLoader from "./components/PageLoader";
 import ScrollToTop from "./components/ScrollToTop";
 import { SkeletonStyles } from "./components/Skeleton";
@@ -44,7 +44,6 @@ import "./styles/index.css";
 import "./styles/rtl.css";
 import "./styles/polish.css";
 import "./styles/productization.css";
-const AdminPanel        = React.lazy(() => import("./pages/AdminPanel"));
 const AdminLogin        = React.lazy(() => import("./pages/AdminLogin"));
 const AdminApp          = React.lazy(() => import("./admin/AdminApp"));
 const NewsPage          = React.lazy(() => import("./pages/News"));
@@ -408,7 +407,7 @@ const HomePage = () => {
   );
 };
 
-const API_BASE = "http://localhost:3000/api";
+const API_BASE = import.meta.env.VITE_API_BASE ?? "/api";
 
 /**
  * Normalize a flat API exchange record (e.g. `tradingHours_open`,

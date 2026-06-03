@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/index.css";
+import { useI18n } from "../i18n";
+
+
 
 const formatMoney = (value: number) => {
   if (value >= 1e12) return `$${(value / 1e12).toFixed(1)}T`;
@@ -11,6 +14,7 @@ const formatMoney = (value: number) => {
 const formatSignedPercent = (value: number) => `${value >= 0 ? "+" : ""}${value.toFixed(2)}%`;
 
 const MoversPage: React.FC = () => {
+  const { t } = useI18n();
   const [activeTab, setActiveTab] = React.useState<"gainers" | "losers" | "active">("gainers");
 
   const gainers = React.useMemo(() => {
@@ -64,22 +68,22 @@ const MoversPage: React.FC = () => {
       {/* Hero Section */}
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">Market Movements</p>
-          <h1>Top Movers & Activity</h1>
-          <p>Track market leaders, laggards, and most active stocks to spot trends and volatility.</p>
+          <p className="eyebrow">{t("src_client_pages_moverspage__l67__h0")}</p>
+          <h1>{t("src_client_pages_moverspage__l68__h1")}</h1>
+          <p>{t("src_client_pages_moverspage__l69__h2")}</p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>Top Gainer</span>
-            <strong>+4.20%</strong>
+            <span>{t("src_client_pages_moverspage__l73__h3")}</span>
+            <strong>{t("src_client_pages_moverspage__l74__h4")}</strong>
           </div>
           <div className="metric-tile">
-            <span>Top Loser</span>
-            <strong>-5.82%</strong>
+            <span>{t("src_client_pages_moverspage__l77__h5")}</span>
+            <strong>{t("src_client_pages_moverspage__l78__h6")}</strong>
           </div>
           <div className="metric-tile">
-            <span>Avg Volume</span>
-            <strong>156M</strong>
+            <span>{t("src_client_pages_moverspage__l81__h7")}</span>
+            <strong>{t("src_client_pages_moverspage__l82__h8")}</strong>
           </div>
         </div>
       </section>
@@ -149,13 +153,13 @@ const MoversPage: React.FC = () => {
           >
             <thead>
               <tr style={{ borderBottom: "2px solid #e2e8f0" }}>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>Rank</th>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>Symbol</th>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>Company</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>Price</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>Change</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>Volume</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>Market Cap</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_moverspage__l152__h9")}</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_moverspage__l153__h10")}</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_moverspage__l154__h11")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_moverspage__l155__h12")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_moverspage__l156__h13")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_moverspage__l157__h14")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_moverspage__l158__h15")}</th>
               </tr>
             </thead>
             <tbody>
@@ -193,36 +197,36 @@ const MoversPage: React.FC = () => {
       {/* Market Insights */}
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">Market Signals</p>
-          <h3>What to Watch</h3>
+          <p className="eyebrow">{t("src_client_pages_moverspage__l196__h16")}</p>
+          <h3>{t("src_client_pages_moverspage__l197__h17")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>Concentration of gains in mega-cap tech</li>
-            <li>Sector rotation patterns</li>
-            <li>Volume-confirmed breakouts</li>
-            <li>Earnings-driven reactions</li>
-            <li>Technical resistance levels</li>
+            <li>{t("src_client_pages_moverspage__l199__h18")}</li>
+            <li>{t("src_client_pages_moverspage__l200__h19")}</li>
+            <li>{t("src_client_pages_moverspage__l201__h20")}</li>
+            <li>{t("src_client_pages_moverspage__l202__h21")}</li>
+            <li>{t("src_client_pages_moverspage__l203__h22")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Analysis Tools</p>
-          <h3>Screening Options</h3>
+          <p className="eyebrow">{t("src_client_pages_moverspage__l207__h23")}</p>
+          <h3>{t("src_client_pages_moverspage__l208__h24")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>Filter by market cap range</li>
-            <li>Volume threshold filters</li>
-            <li>Sector-specific sorting</li>
-            <li>Price range selection</li>
-            <li>Time period comparison</li>
+            <li>{t("src_client_pages_moverspage__l210__h25")}</li>
+            <li>{t("src_client_pages_moverspage__l211__h26")}</li>
+            <li>{t("src_client_pages_moverspage__l212__h27")}</li>
+            <li>{t("src_client_pages_moverspage__l213__h28")}</li>
+            <li>{t("src_client_pages_moverspage__l214__h29")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Strategy Ideas</p>
-          <h3>Common Approaches</h3>
+          <p className="eyebrow">{t("src_client_pages_moverspage__l218__h30")}</p>
+          <h3>{t("src_client_pages_moverspage__l219__h31")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>Momentum trading on gainers</li>
-            <li>Contrarian plays on losers</li>
-            <li>Mean reversion setups</li>
-            <li>Breakout continuation trades</li>
-            <li>Volume-based confirmation</li>
+            <li>{t("src_client_pages_moverspage__l221__h32")}</li>
+            <li>{t("src_client_pages_moverspage__l222__h33")}</li>
+            <li>{t("src_client_pages_moverspage__l223__h34")}</li>
+            <li>{t("src_client_pages_moverspage__l224__h35")}</li>
+            <li>{t("src_client_pages_moverspage__l225__h36")}</li>
           </ul>
         </div>
       </section>
@@ -238,8 +242,8 @@ const MoversPage: React.FC = () => {
           textAlign: "center",
         }}
       >
-        <p className="eyebrow">Advanced Analysis</p>
-        <h3>Dive Deeper Into Markets</h3>
+        <p className="eyebrow">{t("src_client_pages_moverspage__l241__h37")}</p>
+        <h3>{t("src_client_pages_moverspage__l242__h38")}</h3>
         <div style={{ marginTop: "16px" }}>
           <Link to="/screener" className="primary-action" style={{ textDecoration: "none" }}>
             Launch Advanced Screener
