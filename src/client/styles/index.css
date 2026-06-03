@@ -1554,7 +1554,7 @@ body.light {
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-  color: rgba(231, 244, 238, 0.55);
+  color: #ffffff;
   font-size: clamp(12px, 0.9vw, 14px);
   font-weight: 600;
   padding-top: clamp(18px, 2vw, 28px);
@@ -3572,7 +3572,7 @@ tbody tr:hover {
 
 .footer-bottom {
   text-align: center;
-  color: var(--text-secondary);
+  color: #ffffff;
   font-size: 0.85rem;
 }
 

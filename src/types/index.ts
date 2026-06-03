@@ -153,6 +153,7 @@ export interface Cryptocurrency {
     | "Stablecoin"
     | "Infrastructure"
     | "Payments"
+    | "Meme"
     | "Emerging/Growth";
   description: string;
   launched: number;
