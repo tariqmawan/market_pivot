@@ -136,7 +136,7 @@ export const notificationStore = {
   },
 
   archiveOne(id: string): void {
-    setAll(getAll().map((n) => (n.id === id ? { ...n, archived: true } : n)));
+    setAll(getAll().map((n) => (n.id === id ? { ...n, archived: !n.archived } : n)));
   },
 
   archiveAll(): void {
