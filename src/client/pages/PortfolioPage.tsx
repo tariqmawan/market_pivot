@@ -1,4 +1,5 @@
 import React from "react";
+import { HiPencil, HiTrash, HiCheckCircle, HiArrowDownTray, HiPlus } from "react-icons/hi2";
 import { usePortfolioStore, type Position } from "../stores/portfolioStore";
 import { useActivityStore } from "../stores/activityStore";
 import LineChart from "../components/LineChart";
@@ -172,7 +173,7 @@ const PortfolioPage: React.FC = () => {
   return (
     <div className="page portfolio-page">
       <section className="coverage-hero portfolio-hero">
-        <div>
+        <div className="portfolio-hero-copy">
           <p className="eyebrow">Holdings</p>
           <h1>Portfolio Tracker</h1>
           <p>Track positions, allocation, performance, P/L, dividends, sector mix, and export across multiple portfolios.</p>
@@ -219,9 +220,9 @@ const PortfolioPage: React.FC = () => {
               )}
               <span>{pf.positions.length} positions • {pf.baseCurrency}</span>
               <div className="portfolio-tab-actions" onClick={(e) => e.stopPropagation()}>
-                <button type="button" onClick={() => { setRenamingId(pf.id); setRenameValue(pf.name); }} title="Rename">✎</button>
+                <button type="button" onClick={() => { setRenamingId(pf.id); setRenameValue(pf.name); }} title="Rename"><HiPencil size={12} /></button>
                 {portfolios.length > 1 && (
-                  <button type="button" onClick={() => handleDelete(pf.id, pf.name)} title="Delete">🗑</button>
+                  <button type="button" onClick={() => handleDelete(pf.id, pf.name)} title="Delete"><HiTrash size={12} /></button>
                 )}
               </div>
             </div>
@@ -315,9 +316,9 @@ const PortfolioPage: React.FC = () => {
           <div className="section-header-row">
             <h2>Holdings</h2>
             <div className="header-actions">
-              <button onClick={() => handleExport("csv")} className="secondary-action-sm" type="button">Export CSV</button>
-              <button onClick={() => handleExport("json")} className="secondary-action-sm" type="button">Export JSON</button>
-              <button onClick={() => setShowAdd(true)} className="primary-action-sm" type="button">+ Add Position</button>
+              <button onClick={() => handleExport("csv")} className="secondary-action-sm icon-btn" type="button"><HiArrowDownTray size={14} /> CSV</button>
+              <button onClick={() => handleExport("json")} className="secondary-action-sm icon-btn" type="button"><HiArrowDownTray size={14} /> JSON</button>
+              <button onClick={() => setShowAdd(true)} className="primary-action-sm icon-btn" type="button"><HiPlus size={14} /> Add Position</button>
             </div>
           </div>
 
@@ -408,8 +409,8 @@ const PortfolioPage: React.FC = () => {
                       <td className="text-right">{pos.dividendYield?.toFixed(2) ?? "—"}%</td>
                       <td>
                         <div className="row-actions">
-                          <button type="button" onClick={() => setEditingId(isEditing ? null : pos.id)} className="row-btn" title="Edit">{isEditing ? "💾" : "✎"}</button>
-                          <button type="button" onClick={() => deletePosition(activePortfolio.id, pos.id)} className="row-btn delete" title="Delete">🗑</button>
+                          <button type="button" onClick={() => setEditingId(isEditing ? null : pos.id)} className="row-btn" title="Edit">{isEditing ? <HiCheckCircle size={14} /> : <HiPencil size={13} />}</button>
+                          <button type="button" onClick={() => deletePosition(activePortfolio.id, pos.id)} className="row-btn delete" title="Delete"><HiTrash size={13} /></button>
                         </div>
                       </td>
                     </tr>
@@ -461,63 +462,69 @@ const PortfolioPage: React.FC = () => {
         <aside className="portfolio-aside">
           <div className="aside-card">
             <h3>Sector Allocation</h3>
-            <div className="allocation-list">
-              {sectorAllocation.map((s) => (
-                <div key={s.sector} className="allocation-row">
-                  <span>{s.sector}</span>
-                  <div className="allocation-track">
-                    <div style={{ width: `${s.percent}%`, backgroundColor: "linear-gradient(90deg, #A27841 0%, #c89b5e 100%)" }} />
+            <div className="aside-card-body">
+              <div className="allocation-list">
+                {sectorAllocation.map((s) => (
+                  <div key={s.sector} className="allocation-row">
+                    <span>{s.sector}</span>
+                    <div className="allocation-track">
+                      <div style={{ width: `${s.percent}%`, background: "linear-gradient(90deg,#A27841,#c89b5e)" }} />
+                    </div>
+                    <strong>{s.percent.toFixed(1)}%</strong>
                   </div>
-                  <strong>{s.percent.toFixed(1)}%</strong>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
           <div className="aside-card">
             <h3>Asset Allocation</h3>
-            <div className="allocation-list">
-              {assetAllocation.map((a) => {
-                const color = a.type === "stock" ? "#2563eb" : a.type === "crypto" ? "#f59e0b" : a.type === "etf" ? "#8b5cf6" : a.type === "bond" ? "#10b981" : "#94a3b8";
-                return (
-                  <div key={a.type} className="allocation-row">
-                    <span className="allocation-label">
-                      <span className="allocation-dot" style={{ backgroundColor: color }} />
-                      {TYPE_LABELS[a.type]}
-                    </span>
-                    <div className="allocation-track">
-                      <div style={{ width: `${a.percent}%`, backgroundColor: color }} />
+            <div className="aside-card-body">
+              <div className="allocation-list">
+                {assetAllocation.map((a) => {
+                  const color = a.type === "stock" ? "#2563eb" : a.type === "crypto" ? "#f59e0b" : a.type === "etf" ? "#8b5cf6" : a.type === "bond" ? "#10b981" : "#94a3b8";
+                  return (
+                    <div key={a.type} className="allocation-row">
+                      <span className="allocation-label">
+                        <span className="allocation-dot" style={{ backgroundColor: color }} />
+                        {TYPE_LABELS[a.type]}
+                      </span>
+                      <div className="allocation-track">
+                        <div style={{ width: `${a.percent}%`, backgroundColor: color }} />
+                      </div>
+                      <strong>{a.percent.toFixed(1)}%</strong>
                     </div>
-                    <strong>{a.percent.toFixed(1)}%</strong>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
 
           <div className="aside-card">
             <h3>Portfolio Settings</h3>
-            <div className="settings-list">
-              <div>
-                <span>Base Currency</span>
-                <select
-                  value={activePortfolio.baseCurrency}
-                  onChange={(e) => setBaseCurrency(activePortfolio.id, e.target.value as Position["type"] & string as never)}
-                >
-                  {["USD", "EUR", "GBP", "JPY", "INR"].map((c) => <option key={c} value={c}>{c}</option>)}
-                </select>
-              </div>
-              <div>
-                <span>Total Positions</span>
-                <strong>{totals.positionCount}</strong>
-              </div>
-              <div>
-                <span>Dividend Yield</span>
-                <strong>{(totals.marketValue > 0 ? (totals.dividend / totals.marketValue) * 100 : 0).toFixed(2)}%</strong>
-              </div>
-              <div>
-                <span>Last Updated</span>
-                <strong>{new Date(activePortfolio.updatedAt).toLocaleDateString()}</strong>
+            <div className="aside-card-body">
+              <div className="settings-list">
+                <div>
+                  <span>Base Currency</span>
+                  <select
+                    value={activePortfolio.baseCurrency}
+                    onChange={(e) => setBaseCurrency(activePortfolio.id, e.target.value as Position["type"] & string as never)}
+                  >
+                    {["USD", "EUR", "GBP", "JPY", "INR"].map((c) => <option key={c} value={c}>{c}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <span>Total Positions</span>
+                  <strong>{totals.positionCount}</strong>
+                </div>
+                <div>
+                  <span>Dividend Yield</span>
+                  <strong>{(totals.marketValue > 0 ? (totals.dividend / totals.marketValue) * 100 : 0).toFixed(2)}%</strong>
+                </div>
+                <div>
+                  <span>Last Updated</span>
+                  <strong>{new Date(activePortfolio.updatedAt).toLocaleDateString()}</strong>
+                </div>
               </div>
             </div>
           </div>
