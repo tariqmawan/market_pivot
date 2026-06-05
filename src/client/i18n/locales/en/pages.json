@@ -127,7 +127,6 @@
   "annual": "Annual",
   "save30Percent": "Save 30%",
   "mostPopular": "Most Popular",
-
   "starterPlanDescription": "Essential PDF tools for light usage",
   "starterCta": "Get Started",
   "starterFeaturesLabel": "Starter features include",
@@ -136,7 +135,6 @@
   "starterFeature3": "Standard support",
   "starterFeature4": "5 eSignatures per month",
   "starterFeature5": "Self & Multi-party signing",
-
   "professionalPlanDescription": "Advanced tools for individual professionals",
   "professionalCta": "Upgrade",
   "professionalFeaturesLabel": "Professional features include",
@@ -145,7 +143,6 @@
   "professionalFeature3": "25 eSignatures per month",
   "professionalFeature4": "Self & Multi-party signing",
   "professionalFeature5": "Document templates",
-
   "businessPlanDescription": "Best for teams and growing businesses",
   "businessCta": "Upgrade",
   "businessFeaturesLabel": "Business features include",
@@ -154,7 +151,6 @@
   "businessFeature3": "Unlimited eSignatures",
   "businessFeature4": "Self & Multi-party signing",
   "businessFeature5": "Team collaboration",
-
   "enterprisePlanDescription": "Custom solutions with unlimited power for enterprises",
   "enterpriseCta": "Contact Sales",
   "enterpriseFeaturesLabel": "Enterprise features include",
@@ -163,20 +159,16 @@
   "enterpriseFeature3": "Unlimited eSignatures",
   "enterpriseFeature4": "Self & Multi-party signing",
   "enterpriseFeature5": "Custom integrations",
-
   "contactSales": "Contact Sales",
-
   "guaranteeMoneyBack": "30-day money-back guarantee",
   "guaranteeNoCreditCard": "No credit card for free plan",
   "guaranteeCancelAnytime": "Cancel or downgrade anytime",
   "guarantee247Support": "24/7 support on all paid plans",
-
   "pricingHaveQuestions": "Have questions?",
   "pricingReadFaq": "Read our FAQ",
   "pricingOr": "or",
   "pricingTalkToTeam": "talk to our team",
   "pricingAllPlansInclude": "All plans include bank-grade 256-bit SSL encryption and GDPR-compliant data handling.",
-
   "screener": {
     "title": "Advanced Market Screener",
     "subtitle": "Screen stocks, forex, crypto, and ETFs across 15+ filters with sorting, saved screens, and CSV export.",

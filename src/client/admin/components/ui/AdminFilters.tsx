@@ -84,7 +84,7 @@ export default function AdminFilters({
           onClick={onReset}
           style={{ marginBottom: 2 }}
         >
-          Reset filters
+          {t("adminFilters.resetFilters")}
         </button>
       )}
     </div>

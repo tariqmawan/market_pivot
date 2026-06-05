@@ -195,7 +195,7 @@ export const RTL_LANGUAGES = new Set(["ar", "he", "fa", "ur"]);
 export const SUPPORTED_LANGUAGES = [
   { code: "en", label: "English", nativeLabel: "English", subtitle: "English", flag: "🇺🇸" },
   { code: "ar", label: "Arabic", nativeLabel: "العربية", subtitle: "Arabic", flag: "🇸🇦" },
-  { code: "zh", label: "Simplified Chinese", nativeLabel: "中文(简体)", subtitle: "Simplified Chinese", flag: "🇨🇳" },
+  { code: "zh", label: "Simplified Chinese", nativeLabel: "中文", subtitle: "Simplified Chinese", flag: "🇨🇳" },
   { code: "fr", label: "French", nativeLabel: "Français", subtitle: "French", flag: "🇫🇷" },
   { code: "pt", label: "Portuguese", nativeLabel: "Português", subtitle: "Portuguese", flag: "🇵🇹" },
   { code: "ru", label: "Russian", nativeLabel: "Русский", subtitle: "Russian", flag: "🇷🇺" },

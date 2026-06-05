@@ -206,7 +206,7 @@ const Navigation: React.FC<NavigationProps> = ({
 }) => {
   const location = useLocation();
   const { t: _t } = useI18n();
-  const t = _t as (key: string) => string | undefined;
+  const t = _t as (key: string, options?: Record<string, unknown>) => string | undefined;
   const [expandedMenus, setExpandedMenus] = useState<Record<string, boolean>>(() => {
     const initial: Record<string, boolean> = {};
     navigationItems.forEach((item) => {
@@ -384,7 +384,7 @@ const translateLabel = (path: string | undefined, fallback: string) => {
                      type="button"
                     className="submenu-toggle-btn"
                     onClick={(e) => toggleMenu(item.path, e)}
-                    aria-label={t(`${item.label}`) ? `Toggle ${t(`${item.label}`)} submenu` : `Toggle ${item.label} submenu`}
+                    aria-label={t("toggleSubmenu", { label: translateLabel(item.path, item.label) } as any)}
                     aria-expanded={isExpanded}
                     aria-controls={`nav-submenu-${item.path.replace(/[^a-z0-9]/gi, "-")}`}
                   >

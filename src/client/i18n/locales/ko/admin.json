@@ -24,5 +24,21 @@
   "deployments": "배포",
   "maintenance": "유지보수",
   "supportTickets": "지원 티켓",
-  "adminHelp": "관리자 도움말"
+  "adminHelp": "관리자 도움말",
+  "adminTopNav": "Admin navigation",
+  "openMenu": "Open menu",
+  "searchPlaceholder": "Search...",
+  "notifications": "Notifications",
+  "profile": "Profile",
+  "adminPortal": "Admin Portal",
+  "dashboard": "Dashboard",
+  "users": "Users",
+  "marketData": "Market Data",
+  "news": "News",
+  "platform": "Platform",
+  "totalUsers": "Total Users",
+  "activeUsers": "Active Users",
+  "revenue": "Revenue",
+  "exchanges": "Exchanges",
+  "lastUpdated": "Last updated"
 }

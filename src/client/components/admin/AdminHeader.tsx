@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useI18n } from "../../i18n";
+import { SUPPORTED_LANGUAGES, useI18n, type SupportedLang } from "../../i18n";
 
 
 
 function Magnifier() {
-  const { t } = useI18n();
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -59,7 +58,7 @@ export default function AdminHeader({
   userEmail?: string;
   onLogout?: () => void;
 }) {
-  const { t } = useI18n();
+  const { t, language, setLanguage } = useI18n();
   return (
     <header className="mp-admin-header" aria-label={t("src_client_components_admin_adminheader__l59__h0")}>
       <button type="button" className="mp-admin-hamburger" onClick={onMobileToggle} aria-label={t("src_client_components_admin_adminheader__l60__h2")}>
@@ -88,10 +87,17 @@ export default function AdminHeader({
           <span className="mp-admin-lang-icon" aria-hidden="true">
             <GlobeIcon />
           </span>
-          <select className="mp-admin-lang-select" defaultValue="en">
-            <option value="en">{t("src_client_components_admin_adminheader__l87__h7")}</option>
-            <option value="es">{t("src_client_components_admin_adminheader__l88__h8")}</option>
-            <option value="fr">{t("src_client_components_admin_adminheader__l89__h9")}</option>
+          <select
+            className="mp-admin-lang-select"
+            value={language}
+            aria-label={t("preferredLanguage")}
+            onChange={(event) => setLanguage(event.target.value as SupportedLang)}
+          >
+            {SUPPORTED_LANGUAGES.map((lang) => (
+              <option key={lang.code} value={lang.code}>
+                {lang.nativeLabel}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -103,7 +109,7 @@ export default function AdminHeader({
           </div>
           {onLogout ? (
             <button type="button" className="mp-admin-user-link" onClick={onLogout}>
-              Logout
+              {t("logout")}
             </button>
           ) : (
             <Link to="/user" className="mp-admin-user-link">{t("src_client_components_admin_adminheader__l104__h10")}</Link>

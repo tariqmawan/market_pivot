@@ -1,4 +1,5 @@
 import React from "react";
+import { useI18n } from "../../../i18n";
 
 export interface BulkAction {
   label: string;
@@ -20,6 +21,7 @@ export default function AdminBulkActions({
   actions,
   onClear,
 }: AdminBulkActionsProps) {
+  const { t } = useI18n();
   if (selection.length === 0) return null;
 
   return (
@@ -36,7 +38,7 @@ export default function AdminBulkActions({
       }}
     >
       <strong style={{ color: "#f0c060", fontSize: 13, fontWeight: 900 }}>
-        {selection.length} of {total} selected
+        {t("adminBulkActions.selectedCount", { selected: selection.length, total })}
       </strong>
       <span
         style={{ height: 18, width: 1, background: "rgba(255,255,255,0.18)" }}
@@ -69,7 +71,7 @@ export default function AdminBulkActions({
         style={{ marginLeft: "auto" }}
         onClick={onClear}
       >
-        Clear selection
+        {t("adminBulkActions.clearSelection")}
       </button>
     </div>
   );
