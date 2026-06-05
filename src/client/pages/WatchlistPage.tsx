@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HiPencil, HiTrash, HiBell, HiBellSlash, HiArrowTrendingUp, HiXMark, HiPlus, HiMagnifyingGlass } from "react-icons/hi2";
 import { useWatchlistStore, type WatchlistSymbol } from "../stores/watchlistStore";
 import { useActivityStore } from "../stores/activityStore";
 import { fetchJson } from "../lib/apiClient";
@@ -202,7 +203,7 @@ const WatchlistPage: React.FC = () => {
   return (
     <div className="page watchlist-page">
       <section className="coverage-hero watchlist-hero">
-        <div>
+        <div className="watchlist-hero-copy">
           <p className="eyebrow">{t("watchlist.savedMarkets")}</p>
           <h1>{t("watchlist.title")}</h1>
           <p>{t("watchlist.subtitle")}</p>
@@ -218,8 +219,8 @@ const WatchlistPage: React.FC = () => {
         {/* Sidebar */}
         <aside className="watchlist-sidebar">
           <div className="watchlist-sidebar-header">
-            <h3>{t("watchlist.myLists")}</h3>
-            <button type="button" onClick={() => setShowCreate(true)} className="add-list-btn">{t("watchlist.newList")}</button>
+            <h3>My Lists</h3>
+            <button type="button" onClick={() => setShowCreate(true)} className="add-list-btn"><HiPlus size={13} /> New</button>
           </div>
 
           {showCreate && (
@@ -287,16 +288,16 @@ const WatchlistPage: React.FC = () => {
                       setRenamingId(wl.id);
                       setRenameValue(wl.name);
                     }}
-                    aria-label={t("src_client_pages_watchlistpage__l289__h1")}
-                    title={t("src_client_pages_watchlistpage__l290__h3")}
-                  >✎</button>
+                    aria-label="Rename"
+                    title="Rename"
+                  ><HiPencil size={13} /></button>
                   {watchlists.length > 1 && (
                     <button
                       type="button"
                       onClick={() => handleDelete(wl.id, wl.name)}
-                      aria-label={t("src_client_pages_watchlistpage__l296__h4")}
-                      title={t("src_client_pages_watchlistpage__l297__h6")}
-                    >{t("src_client_pages_watchlistpage__l298__h7")}</button>
+                      aria-label="Delete"
+                      title="Delete"
+                    ><HiTrash size={13} /></button>
                   )}
                 </div>
               </div>
@@ -309,14 +310,14 @@ const WatchlistPage: React.FC = () => {
           {activeWatchlist ? (
             <>
               <div className="watchlist-header">
-                <div>
+                <div className="watchlist-header-left">
                   <h2>{activeWatchlist.icon} {activeWatchlist.name}</h2>
                   <p>{activeWatchlist.description || "No description"}</p>
                 </div>
                 <div className="watchlist-summary">
-                  <div><span>{t("src_client_pages_watchlistpage__l316__h8")}</span><strong>{activeWatchlist.symbols.length}</strong></div>
-                  <div><span>{t("src_client_pages_watchlistpage__l317__h9")}</span><strong className="positive">{activeWatchlist.symbols.filter((s) => s.changePercent >= 0).length}</strong></div>
-                  <div><span>{t("src_client_pages_watchlistpage__l318__h10")}</span><strong className="negative">{activeWatchlist.symbols.filter((s) => s.changePercent < 0).length}</strong></div>
+                  <div className="wl-stat"><span>Symbols</span><strong>{activeWatchlist.symbols.length}</strong></div>
+                  <div className="wl-stat"><span>Gainers</span><strong className="positive">{activeWatchlist.symbols.filter((s) => s.changePercent >= 0).length}</strong></div>
+                  <div className="wl-stat"><span>Losers</span><strong className="negative">{activeWatchlist.symbols.filter((s) => s.changePercent < 0).length}</strong></div>
                 </div>
               </div>
 
@@ -357,20 +358,19 @@ const WatchlistPage: React.FC = () => {
                 <table className="watchlist-table">
                   <thead>
                     <tr>
-                      <th>{t("src_client_pages_watchlistpage__l359__h14")}</th>
-                      <th>{t("src_client_pages_watchlistpage__l360__h15")}</th>
-                      <th>{t("src_client_pages_watchlistpage__l361__h16")}</th>
-                      <th className="text-right">{t("src_client_pages_watchlistpage__l362__h17")}</th>
-                      <th className="text-right">{t("src_client_pages_watchlistpage__l363__h18")}</th>
-                      <th className="text-right">{t("src_client_pages_watchlistpage__l364__h19")}</th>
-                      <th>{t("src_client_pages_watchlistpage__l365__h20")}</th>
-                      <th>{t("src_client_pages_watchlistpage__l366__h21")}</th>
+                      <th>Symbol</th>
+                      <th>Type</th>
+                      <th className="text-right">Price</th>
+                      <th className="text-right">Change</th>
+                      <th className="text-right">Chg %</th>
+                      <th>Alert</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {sortedSymbols.length === 0 ? (
                       <tr>
-                        <td colSpan={8}>
+                        <td colSpan={7}>
                           <EmptyState
                             compact
                             icon="⭐"
@@ -382,14 +382,16 @@ const WatchlistPage: React.FC = () => {
                     ) : sortedSymbols.map((sym) => (
                       <tr key={sym.symbol}>
                         <td>
-                          <strong>{sym.symbol}</strong>
+                          <div className="sym-cell">
+                            <strong>{sym.symbol}</strong>
+                            <span>{sym.name}</span>
+                          </div>
                         </td>
-                        <td>{sym.name}</td>
                         <td>
                           <span className={`type-pill type-${sym.type}`}>{sym.type}</span>
                         </td>
-                        <td className="text-right">
-                          <strong>${sym.price.toFixed(sym.type === "currency" ? 4 : 2)}</strong>
+                        <td className="text-right price-cell">
+                          ${sym.price.toFixed(sym.type === "currency" ? 4 : 2)}
                         </td>
                         <td className={`text-right ${sym.change >= 0 ? "positive" : "negative"}`}>
                           {sym.change >= 0 ? "+" : ""}{sym.change.toFixed(sym.type === "currency" ? 4 : 2)}
@@ -405,7 +407,7 @@ const WatchlistPage: React.FC = () => {
                               className={sym.alertEnabled ? "active" : ""}
                               aria-label={t("src_client_pages_watchlistpage__l405__h22")}
                             >
-                              {sym.alertEnabled ? "🔔" : "🔕"}
+                              {sym.alertEnabled ? <HiBell size={15} /> : <HiBellSlash size={15} />}
                             </button>
                             {sym.alertEnabled && (
                               <span className="alert-price">@ ${sym.alertPrice?.toFixed(2) ?? "—"}</span>
@@ -414,8 +416,8 @@ const WatchlistPage: React.FC = () => {
                         </td>
                         <td>
                           <div className="row-actions">
-                            <Link to={sym.type === "currency" ? `/currencies/${sym.symbol.split("/")[0]}` : `/${sym.type === "crypto" ? "crypto" : "stocks"}/${sym.symbol.split("/")[0]}`} className="view-btn" title={t("viewDetails")}>📈</Link>
-                            <button type="button" onClick={() => handleRemove(sym.symbol)} className="remove-btn" title={t("delete")}>✕</button>
+                            <Link to={sym.type === "currency" ? `/currencies/${sym.symbol.split("/")[0]}` : `/${sym.type === "crypto" ? "crypto" : "stocks"}/${sym.symbol.split("/")[0]}`} className="view-btn" title="View"><HiArrowTrendingUp size={14} /></Link>
+                            <button type="button" onClick={() => handleRemove(sym.symbol)} className="remove-btn" title="Remove"><HiXMark size={14} /></button>
                           </div>
                         </td>
                       </tr>
@@ -433,55 +435,62 @@ const WatchlistPage: React.FC = () => {
 
         {/* Search panel */}
         <aside className="search-panel">
-          <h3>{t("watchlist.addSymbol")}</h3>
-          <input
-            type="text"
-            placeholder={t("watchlist.searchPlaceholder")}
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input"
-          />
-          <div className="search-filters">
-            {(["all", "stock", "crypto", "currency"] as const).map((t) => (
-              <button
-                key={t}
-                type="button"
-                onClick={() => setSearchType(t)}
-                className={searchType === t ? "active" : ""}
-              >
-                {t}
-              </button>
-            ))}
+          <div className="search-panel-header">
+            <h3><HiMagnifyingGlass size={13} /> Add Symbol</h3>
           </div>
-          <div className="search-results">
-            {searchTerm && searchResults.length === 0 && (
-              <p className="empty">{t("watchlist.noMatches")}</p>
-            )}
-            {!searchTerm && (
-              <p className="empty">{t("watchlist.typeToSearch")}</p>
-            )}
-            {searchResults.map((sym) => {
-              const isAdded = isInWatchlist(sym.symbol);
-              return (
-                <div key={sym.symbol} className="search-result-row">
-                  <div className="search-result-info">
-                    <strong>{sym.symbol}</strong>
-                    <span>{sym.name}</span>
-                    <em className={sym.changePercent >= 0 ? "positive" : "negative"}>
-                      {formatSignedPercent(sym.changePercent)}
-                    </em>
+          <div className="search-panel-body">
+            <div className="search-input-wrap">
+              <span className="search-input-icon"><HiMagnifyingGlass size={14} /></span>
+              <input
+                type="text"
+                placeholder="Search symbol or name…"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-input"
+              />
+            </div>
+            <div className="search-filters">
+              {(["all", "stock", "crypto", "currency"] as const).map((t) => (
+                <button
+                  key={t}
+                  type="button"
+                  onClick={() => setSearchType(t)}
+                  className={searchType === t ? "active" : ""}
+                >
+                  {t}
+                </button>
+              ))}
+            </div>
+            <div className="search-results">
+              {searchTerm && searchResults.length === 0 && (
+                <p className="empty">No matches found</p>
+              )}
+              {!searchTerm && (
+                <p className="empty">Search stocks, crypto &amp; currencies to add to this list</p>
+              )}
+              {searchResults.map((sym) => {
+                const isAdded = isInWatchlist(sym.symbol);
+                return (
+                  <div key={sym.symbol} className="search-result-row">
+                    <div className="search-result-info">
+                      <strong>{sym.symbol}</strong>
+                      <span>{sym.name}</span>
+                      <em className={sym.changePercent >= 0 ? "positive" : "negative"}>
+                        {formatSignedPercent(sym.changePercent)}
+                      </em>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleAdd(sym)}
+                      disabled={isAdded}
+                      className="add-btn"
+                    >
+                      {isAdded ? "✓ Added" : "+ Add"}
+                    </button>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => handleAdd(sym)}
-                    disabled={isAdded}
-                    className="add-btn"
-                  >
-                    {isAdded ? t("watchlist.added") : t("watchlist.addBtn")}
-                  </button>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </aside>
       </div>

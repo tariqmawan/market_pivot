@@ -40,10 +40,17 @@ import { SkeletonStyles } from "./components/Skeleton";
 import { useI18n } from "./i18n";
 import { useAuthStore } from "./stores/authStore";
 import SubMenuNav from "./components/SubMenuNav";
+import {
+  HiSquares2X2, HiArrowTrendingUp, HiFaceSmile,
+  HiCircleStack, HiServerStack, HiShieldCheck,
+  HiBolt, HiCube, HiSun, HiWrench, HiSparkles,
+} from "react-icons/hi2";
 import "./styles/index.css";
 import "./styles/rtl.css";
 import "./styles/polish.css";
 import "./styles/productization.css";
+import "./styles/CoveragePage.css";
+const AdminPanel        = React.lazy(() => import("./pages/AdminPanel"));
 const AdminLogin        = React.lazy(() => import("./pages/AdminLogin"));
 const AdminApp          = React.lazy(() => import("./admin/AdminApp"));
 const NewsPage          = React.lazy(() => import("./pages/News"));
@@ -839,7 +846,7 @@ const CoveragePage = () => {
   const { t } = useI18n();
 
   return (
-    <div className="page intelligence-page">
+    <div className="coverage-page">
       <section className="coverage-hero">
         <div>
           <p className="eyebrow">{t("assetCoverage")}</p>
@@ -982,12 +989,12 @@ const CryptoPage = () => {
       <SubMenuNav
         title="Cryptocurrency Categories"
         items={[
-          { label: "📊 All Cryptocurrencies", path: "/crypto" },
-          { label: "🔥 Trending", path: "/crypto/trending" },
-          { label: "🎭 Meme Coins", path: "/crypto/meme-coins" },
-          { label: "💰 DeFi", path: "/crypto/defi" },
-          { label: "⛓️ Layer 1", path: "/crypto/layer-1" },
-          { label: "💵 Stablecoins", path: "/crypto/stablecoins" },
+          { label: "All Cryptocurrencies", path: "/crypto",          icon: <HiSquares2X2 size={14} /> },
+          { label: "Trending",             path: "/crypto/trending", icon: <HiArrowTrendingUp size={14} /> },
+          { label: "Meme Coins",           path: "/crypto/meme-coins", icon: <HiFaceSmile size={14} /> },
+          { label: "DeFi",                 path: "/crypto/defi",     icon: <HiCircleStack size={14} /> },
+          { label: "Layer 1",              path: "/crypto/layer-1",  icon: <HiServerStack size={14} /> },
+          { label: "Stablecoins",          path: "/crypto/stablecoins", icon: <HiShieldCheck size={14} /> },
         ]}
       />
       <div className="page">
@@ -1380,6 +1387,45 @@ const SectorsPage = () => {
 
 
 
+const COMMODITY_CATEGORIES = [
+  {
+    id: "energy",
+    label: "Energy",
+    desc: "Oil, Gas & Power",
+    path: "/commodities/energy",
+    icon: <HiBolt size={28} />,
+    color: "#f59e0b",
+    bg: "#fffbeb",
+  },
+  {
+    id: "metals",
+    label: "Metals",
+    desc: "Precious & Industrial",
+    path: "/commodities/metals",
+    icon: <HiCube size={28} />,
+    color: "#6366f1",
+    bg: "#eef2ff",
+  },
+  {
+    id: "agriculture",
+    label: "Agriculture",
+    desc: "Crops & Grains",
+    path: "/commodities/agriculture",
+    icon: <HiSun size={28} />,
+    color: "#16a34a",
+    bg: "#f0fdf4",
+  },
+  {
+    id: "industrial",
+    label: "Industrial",
+    desc: "Raw Materials",
+    path: "/commodities/industrial",
+    icon: <HiWrench size={28} />,
+    color: "#0ea5e9",
+    bg: "#f0f9ff",
+  },
+];
+
 const CommoditiesPage = () => {
   const { commodityId } = useParams();
   const commodity = commodities.find(
@@ -1429,11 +1475,11 @@ const CommoditiesPage = () => {
       <SubMenuNav
         title="Commodity Categories"
         items={[
-          { label: "📊 All Commodities", path: "/commodities" },
-          { label: "⚡ Energy", path: "/commodities/energy" },
-          { label: "💎 Metals", path: "/commodities/metals" },
-          { label: "🌾 Agriculture", path: "/commodities/agriculture" },
-          { label: "🏭 Industrial", path: "/commodities/industrial" },
+          { label: "All Commodities", path: "/commodities" },
+          { label: "Energy", path: "/commodities/energy" },
+          { label: "Metals", path: "/commodities/metals" },
+          { label: "Agriculture", path: "/commodities/agriculture" },
+          { label: "Industrial", path: "/commodities/industrial" },
         ]}
       />
       <div className="page intelligence-page">
@@ -1442,6 +1488,31 @@ const CommoditiesPage = () => {
           <h1>Energy, Metals, Agriculture & Industrial Inputs</h1>
           <p>Spot prices, futures references, supply regions, demand trends, currency correlations, and macro impact.</p>
         </div>
+
+        <div className="commodity-categories-grid">
+          {COMMODITY_CATEGORIES.map((cat) => {
+            const count = commodities.filter(
+              (c) => c.category.toLowerCase() === cat.id
+            ).length;
+            return (
+              <Link key={cat.id} to={cat.path} className="commodity-category-card">
+                <div
+                  className="commodity-category-icon"
+                  style={{ color: cat.color, background: cat.bg }}
+                >
+                  {cat.icon}
+                </div>
+                <div className="commodity-category-info">
+                  <strong>{cat.label}</strong>
+                  <span>{cat.desc}</span>
+                  <span className="commodity-category-count">{count} assets</span>
+                </div>
+                <HiSparkles size={14} className="commodity-category-arrow" style={{ color: cat.color }} />
+              </Link>
+            );
+          })}
+        </div>
+
         <div className="asset-grid compact">
           {commodities.map((item) => (
             <AssetCard

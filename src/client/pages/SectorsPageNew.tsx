@@ -1,5 +1,10 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
+import {
+  HiArrowLeft, HiUser, HiComputerDesktop, HiCpuChip, HiBanknotes,
+  HiBolt, HiBeaker, HiHome, HiTruck, HiShieldCheck, HiCube, HiHeart,
+  HiBuildingOffice2, HiRocketLaunch, HiWrench,
+} from "react-icons/hi2";
 import sectorsData from "../../data/sectors.json";
 import LineChart from "../components/LineChart";
 import ChartJSLine from "../components/ChartJSLine";
@@ -8,6 +13,27 @@ import "./SectorsPageNew.css";
 import { useI18n } from "../i18n";
 
 
+
+const SECTOR_ICONS: Record<string, React.ReactNode> = {
+  technology:       <HiComputerDesktop size={28} />,
+  banking:          <HiBanknotes size={28} />,
+  ai:               <HiCpuChip size={28} />,
+  energy:           <HiBolt size={28} />,
+  healthcare:       <HiHeart size={28} />,
+  mining:           <HiCube size={28} />,
+  "real-estate":    <HiHome size={28} />,
+  semiconductor:    <HiCpuChip size={28} />,
+  ev:               <HiTruck size={28} />,
+  "electric-vehicles": <HiTruck size={28} />,
+  defence:          <HiShieldCheck size={28} />,
+  defense:          <HiShieldCheck size={28} />,
+  pharma:           <HiBeaker size={28} />,
+  realestate:       <HiHome size={28} />,
+  fintech:          <HiBanknotes size={28} />,
+  aerospace:        <HiRocketLaunch size={28} />,
+  industrial:       <HiWrench size={28} />,
+  "real estate":    <HiHome size={28} />,
+};
 
 type Sector = {
   id: string;
@@ -151,22 +177,56 @@ const SectorsPage: React.FC = () => {
 
   return (
     <div className="page sector-detail">
-      <section className="coverage-hero sector-hero">
-        <div>
-          <Link to="/sectors" className="back-link">{t("src_client_pages_sectorspagenew__l152__h11")}</Link>
-          <p className="eyebrow">{sector.category} Sector • Volatility: {sector.volatility}</p>
-          <h1><span className="sector-hero-icon">{sector.icon}</span> {sector.name}</h1>
-          <p>{sector.description}</p>
-          <div className="sector-hero-actions">
+      <section className="sector-hero">
+        <div className="sector-hero-inner">
+          {/* Top nav */}
+          <Link to="/sectors" className="back-link">
+            <HiArrowLeft size={14} /> All Sectors
+          </Link>
+
+          {/* Eyebrow badges */}
+          <div className="sector-hero-badges">
             <span className="sector-cat-pill">{sector.category}</span>
-            <span className="sector-investor">👤 {sector.investorProfile}</span>
+            <span className="sector-vol-pill">Volatility: {sector.volatility}</span>
+          </div>
+
+          {/* Title with icon badge */}
+          <div className="sector-hero-title-row">
+            <div className="sector-title-icon-badge">
+              {SECTOR_ICONS[sector.id.toLowerCase()] ?? <HiComputerDesktop size={28} />}
+            </div>
+            <h1>{sector.name}</h1>
+          </div>
+
+          <p className="sector-hero-desc">{sector.description}</p>
+
+          {/* Investor profile */}
+          <div className="sector-investor-row">
+            <HiUser size={13} />
+            <span>{sector.investorProfile}</span>
           </div>
         </div>
-        <div className="metric-strip sector-metrics">
-          <div className="metric-tile"><span>{t("src_client_pages_sectorspagenew__l162__h12")}</span><strong>{formatMoney(sector.marketCapUSD)}</strong></div>
-          <div className="metric-tile"><span>{t("src_client_pages_sectorspagenew__l163__h13")}</span><strong className={sector.performanceYtd >= 0 ? "positive" : "negative"}>{formatSignedPercent(sector.performanceYtd)}</strong></div>
-          <div className="metric-tile"><span>{t("src_client_pages_sectorspagenew__l164__h14")}</span><strong>{sector.peRatio.toFixed(1)}</strong></div>
-          <div className="metric-tile"><span>{t("src_client_pages_sectorspagenew__l165__h15")}</span><strong>{sector.dividendYield.toFixed(2)}%</strong></div>
+
+        {/* Metric cards row */}
+        <div className="sector-hero-metrics">
+          <div className="sector-metric-card">
+            <span>Market Cap</span>
+            <strong>{formatMoney(sector.marketCapUSD)}</strong>
+          </div>
+          <div className="sector-metric-card">
+            <span>YTD</span>
+            <strong className={sector.performanceYtd >= 0 ? "positive" : "negative"}>
+              {formatSignedPercent(sector.performanceYtd)}
+            </strong>
+          </div>
+          <div className="sector-metric-card">
+            <span>P/E Ratio</span>
+            <strong>{sector.peRatio.toFixed(1)}</strong>
+          </div>
+          <div className="sector-metric-card">
+            <span>Div. Yield</span>
+            <strong>{sector.dividendYield.toFixed(2)}%</strong>
+          </div>
         </div>
       </section>
 
