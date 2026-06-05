@@ -469,25 +469,7 @@ const submenuPanels: Record<string, SubmenuPanelData> = {
   },
 };
 
-const languageDisplayNames: Record<LanguageCode, string> = {
-  en: "English",
-  ar: "العربية",
-  zh: "中文",
-  fr: "Français",
-  pt: "Português",
-  ru: "Русский",
-  ja: "日本語",
-  ko: "한국어",
-  es: "Español",
-  hi: "हिन्दी",
-  th: "ไทย",
-  vi: "Tiếng Việt",
-  de: "Deutsch",
-  pl: "Polski",
-  tr: "Türkçe",
-  id: "Bahasa Indonesia",
-  ms: "Bahasa Melayu",
-};
+
 
 type HeaderProps = {
   selectedCategory?: string;
@@ -614,7 +596,7 @@ const { openLoginModal, openSignupModal, isAuthenticated, user } = useAuthStore(
                 onClick={() => onSelectLanguage(l.code as LanguageCode)}
                 type="button"
               >
-                {languageDisplayNames[l.code]}
+                {l.nativeLabel}
               </button>
             ))}
           </div>
@@ -626,7 +608,7 @@ const { openLoginModal, openSignupModal, isAuthenticated, user } = useAuthStore(
           type="button"
           className={`sidebar-menu-toggle ${isSidebarCollapsed ? "collapsed" : ""}`}
           onClick={onSidebarToggle}
-          aria-label={isSidebarCollapsed ? "Open navigation sidebar" : "Collapse navigation sidebar"}
+          aria-label={isSidebarCollapsed ? t("openNavigationSidebar") : t("collapseNavigationSidebar")}
           aria-expanded={!isSidebarCollapsed}
         >
           <span className="hamburger-lines" aria-hidden="true">

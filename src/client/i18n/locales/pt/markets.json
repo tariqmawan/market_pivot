@@ -124,7 +124,7 @@
   "currencyCorrelation": "Correlação cambial",
   "commoditiesTitle": "Commodities",
   "commoditiesHeading": "Energia, metais, agricultura e insumos industriais",
-  "commoditiesIntro": "Preços à vista, referências de futuros, regiões de oferta, tendências de demanda, correlações cambiais e impacto macro.",
+  "commoditiesIntro": "Spot prices, futures references, supply regions, demand trends, currency correlations, and macro impact.",
   "moduleWorkspaceCopy": "Este workspace faz parte da estrutura de inteligência de mercados globais da MarketsPivot.",
   "moduleFeatureReady": "Pronto para APIs ao vivo, filtros, gráficos e fluxos de trabalho salvos.",
   "planned": "Planejado",

@@ -174,7 +174,7 @@ export default function AdminTable<T extends { id: string }>({
                       type="checkbox"
                       checked={isSelected}
                       onChange={() => onToggleSelect(row.id)}
-                      aria-label={`Select row ${row.id}`}
+                      aria-label={t("adminTable.selectRow", { id: row.id })}
                     />
                   </td>
                 )}
@@ -211,8 +211,11 @@ export default function AdminTable<T extends { id: string }>({
           }}
         >
           <span>
-            Showing {(safePage - 1) * pageSize + 1}–
-            {Math.min(safePage * pageSize, sorted.length)} of {sorted.length}
+            {t("adminTable.showingRange", {
+              from: (safePage - 1) * pageSize + 1,
+              to: Math.min(safePage * pageSize, sorted.length),
+              total: sorted.length,
+            })}
           </span>
           <div style={{ display: "flex", gap: 6 }}>
             <button

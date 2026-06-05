@@ -16,7 +16,7 @@ const ErrorFallback: React.FC<{ message: string; onRetry: () => void }> = ({ mes
   return (
     <>
       <h2>{t("somethingWentWrong")}</h2>
-      <p>{message}</p>
+      <p>{message || t("error")}</p>
       <button type="button" onClick={onRetry}>
         {t("tryAgain")}
       </button>
@@ -28,7 +28,7 @@ export default class ErrorBoundary extends React.Component<Props, State> {
   state: State = { hasError: false, message: "" };
 
   static getDerivedStateFromError(error: Error): State {
-    return { hasError: true, message: error.message || "Something went wrong" };
+    return { hasError: true, message: error.message || "" };
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {

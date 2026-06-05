@@ -1,6 +1,6 @@
 {
   "appName": "MarketsPivot",
-  "tagline": "Bloomberg-Style Financial Markets",
+  "tagline": "Bloomberg-style financial markets",
   "loading": "Loading...",
   "error": "Something went wrong",
   "tryAgain": "Try again",
@@ -8,7 +8,7 @@
   "comingSoon": "Coming soon",
   "learnMore": "Learn more",
   "viewAll": "View all",
-  "viewDetails": "View Details",
+  "viewDetails": "View details",
   "close": "Close",
   "save": "Save",
   "cancel": "Cancel",
@@ -29,11 +29,11 @@
   "login": "Login",
   "signUp": "Sign Up",
   "profile": "Profile",
-  "live": "LIVE",
-  "new": "NEW",
-  "hot": "HOT",
-  "beta": "BETA",
-  "pro": "PRO",
+  "live": "Live",
+  "new": "New",
+  "hot": "Hot",
+  "beta": "Beta",
+  "pro": "Pro",
   "free": "Free",
   "premium": "Premium",
   "positive": "positive",
@@ -57,7 +57,7 @@
   "7d": "7d",
   "30d": "30d",
   "1y": "1Y",
-  "allTime": "All Time",
+  "allTime": "All time",
   "preferredLanguage": "Preferred Language",
   "pricing": "Pricing",
   "billingPeriod": "Billing period",
@@ -1158,5 +1158,53 @@
   "src_client_pages_advancedscreenerpage__l434_h0": "Min ($)",
   "src_client_pages_advancedscreenerpage__l435_h1": "Max ($)",
   "src_client_pages_advancedscreenerpage__l542_h2": "Description (optional)",
-  "src_client_admin_pages_platformpage__l393_h0": "User-agent: *\nAllow: /"
+  "src_client_admin_pages_platformpage__l393_h0": "User-agent: *\nAllow: /",
+  "languageSelector": "Language selector",
+  "languageOptions": "Language options",
+  "openNavigationSidebar": "Open navigation sidebar",
+  "collapseNavigationSidebar": "Collapse navigation sidebar",
+  "toggleSubmenu": "Toggle {{label}} submenu",
+  "adminCrud": {
+    "deleteConfirm": "Delete this record? This cannot be undone.",
+    "exportCsv": "Export CSV",
+    "newRecord": "New",
+    "searchEntity": "Search {{entity}}...",
+    "deleteCount": "Delete ({{count}})",
+    "deleteSelectedConfirm": "Delete {{count}} selected records?",
+    "empty": "No {{entity}} yet. Click New to create one.",
+    "editEntity": "Edit {{entity}}",
+    "newEntity": "New {{entity}}",
+    "saveChanges": "Save changes",
+    "create": "Create"
+  },
+  "adminSeo": {
+    "saved": "Saved!",
+    "errorSaving": "Error saving.",
+    "resetDefaults": "Reset to defaults.",
+    "metaTags": "Meta tags — {{page}}",
+    "ogTitle": "OG Title",
+    "ogImageUrl": "OG Image URL",
+    "ogDescription": "OG Description",
+    "canonicalUrl": "Canonical URL",
+    "index": "Index",
+    "follow": "Follow",
+    "robotsTxt": "Robots.txt",
+    "sitemapHint": "Enable XML sitemap generation at /sitemap.xml",
+    "disableSitemap": "Disable sitemap",
+    "enableSitemap": "Enable sitemap",
+    "resetToDefaults": "Reset to defaults",
+    "saveSettings": "Save SEO settings"
+  },
+  "saving": "Saving...",
+  "adminBulkActions": {
+    "selectedCount": "{{selected}} of {{total}} selected",
+    "clearSelection": "Clear selection"
+  },
+  "adminFilters": {
+    "resetFilters": "Reset filters"
+  },
+  "adminTable": {
+    "selectRow": "Select row {{id}}",
+    "showingRange": "Showing {{from}}-{{to}} of {{total}}"
+  }
 }

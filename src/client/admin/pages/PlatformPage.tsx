@@ -133,17 +133,17 @@ function SeoTab() {
   function handleSave() {
     try {
       localStorage.setItem(LS_KEY, JSON.stringify(settings));
-      setToast("Saved!");
+      setToast(t("adminSeo.saved"));
       setTimeout(() => setToast(null), 2800);
     } catch {
-      setToast("Error saving.");
+      setToast(t("adminSeo.errorSaving"));
       setTimeout(() => setToast(null), 2800);
     }
   }
 
   function handleReset() {
     setSettings(DEFAULT_SEO_SETTINGS);
-    setToast("Reset to defaults.");
+    setToast(t("adminSeo.resetDefaults"));
     setTimeout(() => setToast(null), 2800);
   }
 
@@ -255,7 +255,7 @@ function SeoTab() {
       {/* Meta fields */}
       <div className="mp-admin-card">
         <div className="mp-admin-card-head">
-          <h2>Meta Tags — {activePage}</h2>
+          <h2>{t("adminSeo.metaTags", { page: activePage } as any)}</h2>
           <span className="mp-admin-muted">{t("src_client_admin_pages_platformpage__l255__h2")}</span>
         </div>
 
@@ -299,9 +299,7 @@ function SeoTab() {
 
           {/* Two-column: OG Title + OG Image */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-            <label style={labelStyle}>
-              OG Title
-              <input
+            <label style={labelStyle}>{t("adminSeo.ogTitle")}<input
                 type="text"
                 value={meta.ogTitle}
                 onChange={(e) => updateMeta("ogTitle", e.target.value)}
@@ -309,9 +307,7 @@ function SeoTab() {
                 style={inputStyle}
               />
             </label>
-            <label style={labelStyle}>
-              OG Image URL
-              <input
+            <label style={labelStyle}>{t("adminSeo.ogImageUrl")}<input
                 type="text"
                 value={meta.ogImage}
                 onChange={(e) => updateMeta("ogImage", e.target.value)}
@@ -322,9 +318,7 @@ function SeoTab() {
           </div>
 
           {/* OG Description */}
-          <label style={labelStyle}>
-            OG Description
-            <textarea
+          <label style={labelStyle}>{t("adminSeo.ogDescription")}<textarea
               value={meta.ogDescription}
               rows={2}
               onChange={(e) => updateMeta("ogDescription", e.target.value)}
@@ -335,9 +329,7 @@ function SeoTab() {
 
           {/* Canonical + robots row */}
           <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 16 }}>
-            <label style={labelStyle}>
-              Canonical URL
-              <input
+            <label style={labelStyle}>{t("adminSeo.canonicalUrl")}<input
                 type="text"
                 value={meta.canonical}
                 onChange={(e) => updateMeta("canonical", e.target.value)}
@@ -345,9 +337,7 @@ function SeoTab() {
                 style={inputStyle}
               />
             </label>
-            <label style={labelStyle}>
-              Index
-              <select
+            <label style={labelStyle}>{t("adminSeo.index")}<select
                 value={meta.robots_index}
                 onChange={(e) => updateMeta("robots_index", e.target.value as "index" | "noindex")}
                 style={inputStyle}
@@ -356,9 +346,7 @@ function SeoTab() {
                 <option value="noindex">{t("src_client_admin_pages_platformpage__l352__h10")}</option>
               </select>
             </label>
-            <label style={labelStyle}>
-              Follow
-              <select
+            <label style={labelStyle}>{t("adminSeo.follow")}<select
                 value={meta.robots_follow}
                 onChange={(e) => updateMeta("robots_follow", e.target.value as "follow" | "nofollow")}
                 style={inputStyle}
@@ -382,9 +370,7 @@ function SeoTab() {
         <div className="mp-admin-customer-form" style={{ gap: 16 }}>
 
           {/* Robots.txt */}
-          <label style={labelStyle}>
-            Robots.txt
-            <textarea
+          <label style={labelStyle}>{t("adminSeo.robotsTxt")}<textarea
               value={settings.robotsTxt}
               rows={6}
               onChange={(e) =>
@@ -410,7 +396,7 @@ function SeoTab() {
             <div>
               <div style={{ color: "#f8fafc", fontWeight: 900, fontSize: 14 }}>{t("src_client_admin_pages_platformpage__l407__h15")}</div>
               <div className="mp-admin-muted" style={{ marginTop: 2 }}>
-                Enable XML sitemap generation at /sitemap.xml
+                {t("adminSeo.sitemapHint")}
               </div>
             </div>
             <button
@@ -431,7 +417,7 @@ function SeoTab() {
                 flexShrink: 0,
               }}
               aria-pressed={settings.sitemapEnabled}
-              title={settings.sitemapEnabled ? "Disable sitemap" : "Enable sitemap"}
+              title={settings.sitemapEnabled ? t("adminSeo.disableSitemap") : t("adminSeo.enableSitemap")}
             >
               <span
                 style={{
@@ -462,12 +448,8 @@ function SeoTab() {
             color: "rgba(248,250,252,0.82)",
             border: "1px solid rgba(255,255,255,0.14)",
           }}
-        >
-          Reset to Defaults
-        </button>
-        <button className="mp-admin-action-btn" onClick={handleSave}>
-          Save SEO Settings
-        </button>
+        >{t("adminSeo.resetToDefaults")}</button>
+        <button className="mp-admin-action-btn" onClick={handleSave}>{t("adminSeo.saveSettings")}</button>
       </div>
 
     </div>

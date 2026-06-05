@@ -1,4 +1,5 @@
 import React from "react";
+import { useI18n } from "../../../i18n";
 
 export interface AdminCrudModalProps {
   open: boolean;
@@ -27,6 +28,7 @@ export default function AdminCrudModal({
   width = 720,
   hideFooter,
 }: AdminCrudModalProps) {
+  const { t } = useI18n();
   React.useEffect(() => {
     if (!open) return;
     const handler = (e: KeyboardEvent) => {
@@ -88,7 +90,7 @@ export default function AdminCrudModal({
                     : undefined
                 }
               >
-                {saving ? "Saving…" : saveLabel}
+                {saving ? t("saving") : saveLabel}
               </button>
             )}
             <button
@@ -97,7 +99,7 @@ export default function AdminCrudModal({
               onClick={onClose}
               disabled={saving}
             >
-              Cancel
+              {t("cancel")}
             </button>
           </div>
         )}

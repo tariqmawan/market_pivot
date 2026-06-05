@@ -1,6 +1,6 @@
 {
   "currencyType": "Loại tiền tệ",
-  "centralBank": "Ngân hàng trung ương",
+  "centralBank": "Central Bank",
   "exchangeRates": "Tỷ giá hối đoái",
   "converter": "Bộ chuyển đổi",
   "popularPairs": "Cặp phổ biến",
@@ -20,15 +20,15 @@
   "interestRate": "Lãi suất",
   "inflationRate": "Tỷ lệ lạm phát",
   "gdpGrowth": "Tăng trưởng GDP",
-  "employment": "Việc làm",
+  "employment": "Employment",
   "dataLoading": "Đang tải dữ liệu...",
   "economicNews": "Tin tức & cập nhật kinh tế",
   "currencyNewsComing": "Tin kinh tế mới nhất sẽ hiển thị tại đây",
-  "currencyNewsSubtitle": "Quyết định lãi suất, báo cáo lạm phát và hơn thế nữa",
+  "currencyNewsSubtitle": "Interest rate decisions, inflation reports, and more",
   "vsUsd": "so với USD",
   "high52w": "Cao 52 tuần",
   "low52w": "Thấp 52 tuần",
-  "annualRate": "Tỷ lệ hàng năm",
-  "quarterlyRate": "Tỷ lệ hàng quý",
+  "annualRate": "Annual rate",
+  "quarterlyRate": "Quarterly rate",
   "change24h": "Thay đổi 24h"
 }

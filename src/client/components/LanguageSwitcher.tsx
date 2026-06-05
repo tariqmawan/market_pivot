@@ -1,37 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
-import { useI18n, SUPPORTED_LANGUAGES, type SupportedLang } from "../i18n";
-
-
-
+import React, { useEffect, useRef, useState } from "react";
+import { SUPPORTED_LANGUAGES, useI18n, type SupportedLang } from "../i18n";
 
 interface LanguageSwitcherProps {
   variant?: "horizontal-scroll" | "dropdown" | "strip";
   className?: string;
 }
-
-// Use only the languages that have actual i18next resources initialized.
-// SUPPORTED_LANGUAGES comes from src/client/i18n/config.ts — single source of truth.
-const FLAGS: Record<SupportedLang, string> = {
-  en: "🇺🇸",
-  ar: "🇸🇦",
-  zh: "🇨🇳",
-  fr: "🇫🇷",
-  pt: "🇵🇹",
-  ru: "🇷🇺",
-  ja: "🇯🇵",
-  ko: "🇰🇷",
-  es: "🇪🇸",
-  hi: "🇮🇳",
-  th: "🇹🇭",
-  vi: "🇻🇳",
-  de: "🇩🇪",
-  pl: "🇵🇱",
-  tr: "🇹🇷",
-  id: "🇮🇩",
-  ms: "🇲🇾",
-};
-
-const getFlag = (code: SupportedLang): string => FLAGS[code] ?? "🌐";
 
 const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   variant = "horizontal-scroll",
@@ -47,16 +20,14 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     setLanguage(code);
   };
 
-  // Mouse wheel horizontal scrolling
   useEffect(() => {
     const scrollContainer = scrollRef.current;
-    if (!scrollContainer || variant !== "horizontal-scroll") return;
+    if (!scrollContainer || variant === "dropdown") return;
 
-    const handleWheel = (e: WheelEvent) => {
-      // Only handle horizontal scrolling if shift key is pressed or vertical scroll in horizontal scroll container
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        e.preventDefault();
-        scrollContainer.scrollLeft += e.deltaY;
+    const handleWheel = (event: WheelEvent) => {
+      if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+        event.preventDefault();
+        scrollContainer.scrollLeft += event.deltaY;
       }
     };
 
@@ -64,20 +35,19 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     return () => scrollContainer.removeEventListener("wheel", handleWheel);
   }, [variant]);
 
-  // Touch swipe horizontal scrolling
   useEffect(() => {
     const scrollContainer = scrollRef.current;
-    if (!scrollContainer || variant !== "horizontal-scroll") return;
+    if (!scrollContainer || variant === "dropdown") return;
 
-    const handleTouchStart = (e: TouchEvent) => {
+    const handleTouchStart = (event: TouchEvent) => {
       setIsDragging(true);
-      setDragStart(e.touches[0].clientX);
+      setDragStart(event.touches[0].clientX);
       setScrollStart(scrollContainer.scrollLeft);
     };
 
-    const handleTouchMove = (e: TouchEvent) => {
+    const handleTouchMove = (event: TouchEvent) => {
       if (!isDragging) return;
-      const delta = e.touches[0].clientX - dragStart;
+      const delta = event.touches[0].clientX - dragStart;
       scrollContainer.scrollLeft = scrollStart - delta;
     };
 
@@ -94,11 +64,30 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
       scrollContainer.removeEventListener("touchmove", handleTouchMove);
       scrollContainer.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [isDragging, dragStart, scrollStart, variant]);
+  }, [dragStart, isDragging, scrollStart, variant]);
+
+  if (variant === "dropdown") {
+    return (
+      <label className={`lang-switcher-select ${className}`}>
+        <span className="sr-only">{t("preferredLanguage")}</span>
+        <select
+          value={language}
+          aria-label={t("preferredLanguage")}
+          onChange={(event) => handleSelect(event.target.value as SupportedLang)}
+        >
+          {SUPPORTED_LANGUAGES.map((lang) => (
+            <option key={lang.code} value={lang.code}>
+              {lang.nativeLabel}
+            </option>
+          ))}
+        </select>
+      </label>
+    );
+  }
 
   if (variant === "strip") {
     return (
-      <div className={`lang-strip ${className}`} role="navigation" aria-label={t("src_client_components_languageswitcher__l98__h0")}>
+      <div className={`lang-strip ${className}`} role="navigation" aria-label={t("languageSelector")}>
         {SUPPORTED_LANGUAGES.map((lang) => (
           <button
             key={lang.code}
@@ -107,9 +96,8 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
             onClick={() => handleSelect(lang.code)}
             aria-pressed={language === lang.code}
             title={lang.nativeLabel}
-            // Prevent duplicate rendering: key already used in DOM, lang.nativeLabel rendered once.
           >
-            <span className="lang-flag" aria-hidden="true">{getFlag(lang.code)}</span>
+            <span className="lang-flag" aria-hidden="true">{lang.flag}</span>
             <span className="lang-copy">
               <span className="lang-native">{lang.nativeLabel}</span>
             </span>
@@ -119,15 +107,9 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     );
   }
 
-  // Horizontal scroll layout — all 17 supported languages
   return (
-    <div className={`lang-scroll-container ${className}`} role="navigation" aria-label={t("src_client_components_languageswitcher__l121__h2")}>
-      <div
-        className="lang-scroll-track"
-        ref={scrollRef}
-        role="region"
-        aria-label={t("src_client_components_languageswitcher__l126__h4")}
-      >
+    <div className={`lang-scroll-container ${className}`} role="navigation" aria-label={t("languageSelector")}>
+      <div className="lang-scroll-track" ref={scrollRef} role="region" aria-label={t("languageOptions")}>
         {SUPPORTED_LANGUAGES.map((lang) => (
           <button
             key={lang.code}
@@ -137,7 +119,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
             aria-pressed={language === lang.code}
             title={lang.nativeLabel}
           >
-            <span className="lang-flag" aria-hidden="true">{getFlag(lang.code)}</span>
+            <span className="lang-flag" aria-hidden="true">{lang.flag}</span>
             <span className="lang-scroll-label">
               <span className="lang-native">{lang.nativeLabel}</span>
             </span>

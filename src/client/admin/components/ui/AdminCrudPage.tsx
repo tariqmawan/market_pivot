@@ -11,6 +11,7 @@ import AdminAnalyticsCards, {
 } from "./AdminAnalyticsCards";
 import { downloadCsv, toCsv, matchesSearch } from "../../lib/helpers";
 import type { CrudStoreState, CrudEntity } from "../../lib/createCrudStore";
+import { useI18n } from "../../../i18n";
 
 export interface AdminCrudPageProps<T extends CrudEntity> {
   title: string;
@@ -56,6 +57,7 @@ export default function AdminCrudPage<T extends CrudEntity>({
   extraBulkActions,
   validate,
 }: AdminCrudPageProps<T>) {
+  const { t } = useI18n();
   const store = useStore();
   const [search, setSearch] = React.useState("");
   const [filterValues, setFilterValues] = React.useState<Record<string, string>>({});
@@ -104,7 +106,7 @@ export default function AdminCrudPage<T extends CrudEntity>({
   };
 
   const handleDelete = (id: string) => {
-    if (!window.confirm("Delete this record? This cannot be undone.")) return;
+    if (!window.confirm(t("adminCrud.deleteConfirm"))) return;
     store.remove(id);
   };
 
@@ -156,16 +158,12 @@ export default function AdminCrudPage<T extends CrudEntity>({
               type="button"
               className="mp-admin-link-btn"
               onClick={handleExport}
-            >
-              📥 Export CSV
-            </button>
+            >{t("adminCrud.exportCsv")}</button>
             <button
               type="button"
               className="mp-admin-action-btn"
               onClick={openCreate}
-            >
-              + New
-            </button>
+            >{t("adminCrud.newRecord")}</button>
           </>
         }
       />
@@ -185,7 +183,7 @@ export default function AdminCrudPage<T extends CrudEntity>({
           <AdminSearch
             value={search}
             onChange={setSearch}
-            placeholder={`Search ${title.toLowerCase()}…`}
+            placeholder={t("adminCrud.searchEntity", { entity: title.toLowerCase() } as any)}
           />
         </div>
         {filters && filters.length > 0 && (
@@ -203,9 +201,9 @@ export default function AdminCrudPage<T extends CrudEntity>({
         total={filtered.length}
         actions={[
           {
-            label: `Delete (${store.selection.length})`,
+            label: t("adminCrud.deleteCount", { count: store.selection.length } as any),
             destructive: true,
-            confirm: `Delete ${store.selection.length} selected records?`,
+            confirm: t("adminCrud.deleteSelectedConfirm", { count: store.selection.length } as any),
             onRun: (ids) => store.removeMany(ids),
           },
           ...(extraBulkActions ?? []),
@@ -233,30 +231,26 @@ export default function AdminCrudPage<T extends CrudEntity>({
               type="button"
               className="mp-admin-link-btn"
               onClick={() => openEdit(row)}
-            >
-              Edit
-            </button>
+            >{t("edit")}</button>
             <button
               type="button"
               className="mp-admin-link-btn"
               onClick={() => handleDelete(row.id)}
               style={{ color: "#ff9090" }}
-            >
-              Delete
-            </button>
+            >{t("delete")}</button>
             {rowExtraActions?.(row)}
           </div>
         )}
-        emptyMessage={`No ${title.toLowerCase()} yet. Click "+ New" to create one.`}
+        emptyMessage={t("adminCrud.empty", { entity: title.toLowerCase() } as any)}
       />
 
       <AdminCrudModal
         open={modalOpen}
-        title={editing ? `Edit ${title.replace(/s$/i, "")}` : `New ${title.replace(/s$/i, "")}`}
+        title={editing ? t("adminCrud.editEntity", { entity: title.replace(/s$/i, "") } as any) : t("adminCrud.newEntity", { entity: title.replace(/s$/i, "") } as any)}
         subtitle={editing ? `ID: ${editing.id}` : subtitle}
         onClose={() => setModalOpen(false)}
         onSave={handleSave}
-        saveLabel={editing ? "Save changes" : "Create"}
+        saveLabel={editing ? t("adminCrud.saveChanges") : t("adminCrud.create")}
       >
         <AdminFormBuilder
           fields={formFields}
