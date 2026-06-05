@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import bondsYieldsData from "../../data/bonds_yields.json";
 import "../styles/index.css";
+import { useI18n } from "../i18n";
+
+
 
 type BondsYieldsItem = {
   id: string;
@@ -20,6 +23,7 @@ const bondsYields = (bondsYieldsData as any).bondsYields as BondsYieldsItem[];
 const formatSignedPercent = (value: number) => `${value >= 0 ? "+" : ""}${value.toFixed(2)}%`;
 
 const BondsYieldsPage: React.FC = () => {
+  const { t } = useI18n();
   const [selectedCountry, setSelectedCountry] = React.useState<string | null>(null);
 
   // Group yields by country
@@ -48,22 +52,22 @@ const BondsYieldsPage: React.FC = () => {
       {/* Hero Section */}
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">Fixed Income</p>
-          <h1>Bonds & Yield Curves</h1>
-          <p>Real-time yield tracking across global sovereign debt markets, yield curves, and spread analysis.</p>
+          <p className="eyebrow">{t("src_client_pages_bondsyieldspage__l51__h0")}</p>
+          <h1>{t("src_client_pages_bondsyieldspage__l52__h1")}</h1>
+          <p>{t("src_client_pages_bondsyieldspage__l53__h2")}</p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>US 10Y Yield</span>
-            <strong>4.31%</strong>
+            <span>{t("src_client_pages_bondsyieldspage__l57__h3")}</span>
+            <strong>{t("src_client_pages_bondsyieldspage__l58__h4")}</strong>
           </div>
           <div className="metric-tile">
-            <span>US 2Y Yield</span>
-            <strong>4.89%</strong>
+            <span>{t("src_client_pages_bondsyieldspage__l61__h5")}</span>
+            <strong>{t("src_client_pages_bondsyieldspage__l62__h6")}</strong>
           </div>
           <div className="metric-tile">
-            <span>2-10 Spread</span>
-            <strong>-58bp</strong>
+            <span>{t("src_client_pages_bondsyieldspage__l65__h7")}</span>
+            <strong>{t("src_client_pages_bondsyieldspage__l66__h8")}</strong>
           </div>
         </div>
       </section>
@@ -111,8 +115,8 @@ const BondsYieldsPage: React.FC = () => {
       {/* Yield Grid */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">Global Yields</p>
-          <h2>Bond Yields by Tenor</h2>
+          <p className="eyebrow">{t("src_client_pages_bondsyieldspage__l114__h9")}</p>
+          <h2>{t("src_client_pages_bondsyieldspage__l115__h10")}</h2>
         </div>
         <div
           style={{
@@ -163,7 +167,7 @@ const BondsYieldsPage: React.FC = () => {
                 }}
               >
                 <div>
-                  <span>Today</span>
+                  <span>{t("src_client_pages_bondsyieldspage__l166__h11")}</span>
                   <em
                     style={{
                       display: "block",
@@ -176,7 +180,7 @@ const BondsYieldsPage: React.FC = () => {
                   </em>
                 </div>
                 <div>
-                  <span>YTD</span>
+                  <span>{t("src_client_pages_bondsyieldspage__l179__h12")}</span>
                   <em
                     style={{
                       display: "block",
@@ -197,8 +201,8 @@ const BondsYieldsPage: React.FC = () => {
       {/* Yield Curve Section */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">Spreads & Relationships</p>
-          <h2>Yield Curve Spreads</h2>
+          <p className="eyebrow">{t("src_client_pages_bondsyieldspage__l200__h13")}</p>
+          <h2>{t("src_client_pages_bondsyieldspage__l201__h14")}</h2>
         </div>
         <div style={{ overflowX: "auto" }}>
           <table
@@ -210,10 +214,10 @@ const BondsYieldsPage: React.FC = () => {
           >
             <thead>
               <tr style={{ borderBottom: "2px solid #e2e8f0" }}>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>Spread</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_bondsyieldspage__l213__h15")}</th>
                 <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>Value (bp)</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>Change</th>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>Signal</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_bondsyieldspage__l215__h16")}</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_bondsyieldspage__l216__h17")}</th>
               </tr>
             </thead>
             <tbody>
@@ -244,33 +248,33 @@ const BondsYieldsPage: React.FC = () => {
       {/* Insights */}
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">Rate Environment</p>
-          <h3>Current Regime</h3>
+          <p className="eyebrow">{t("src_client_pages_bondsyieldspage__l247__h18")}</p>
+          <h3>{t("src_client_pages_bondsyieldspage__l248__h19")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>Higher for longer narrative</li>
-            <li>Fed likely near peak rates</li>
-            <li>Term premium elevated</li>
-            <li>Curve steepening pressure</li>
+            <li>{t("src_client_pages_bondsyieldspage__l250__h20")}</li>
+            <li>{t("src_client_pages_bondsyieldspage__l251__h21")}</li>
+            <li>{t("src_client_pages_bondsyieldspage__l252__h22")}</li>
+            <li>{t("src_client_pages_bondsyieldspage__l253__h23")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Market Drivers</p>
-          <h3>Key Factors</h3>
+          <p className="eyebrow">{t("src_client_pages_bondsyieldspage__l257__h24")}</p>
+          <h3>{t("src_client_pages_bondsyieldspage__l258__h25")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>Inflation data expectations</li>
-            <li>Central bank communications</li>
-            <li>Growth/recession signals</li>
-            <li>Global rate differentials</li>
+            <li>{t("src_client_pages_bondsyieldspage__l260__h26")}</li>
+            <li>{t("src_client_pages_bondsyieldspage__l261__h27")}</li>
+            <li>{t("src_client_pages_bondsyieldspage__l262__h28")}</li>
+            <li>{t("src_client_pages_bondsyieldspage__l263__h29")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Trading Ideas</p>
-          <h3>Fixed Income Strategies</h3>
+          <p className="eyebrow">{t("src_client_pages_bondsyieldspage__l267__h30")}</p>
+          <h3>{t("src_client_pages_bondsyieldspage__l268__h31")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
             <li>Curve trades (steepeners/flatteners)</li>
-            <li>Cross-country spread trades</li>
-            <li>Duration positioning</li>
-            <li>Breakeven inflation trades</li>
+            <li>{t("src_client_pages_bondsyieldspage__l271__h32")}</li>
+            <li>{t("src_client_pages_bondsyieldspage__l272__h33")}</li>
+            <li>{t("src_client_pages_bondsyieldspage__l273__h34")}</li>
           </ul>
         </div>
       </section>
@@ -286,8 +290,8 @@ const BondsYieldsPage: React.FC = () => {
           textAlign: "center",
         }}
       >
-        <p className="eyebrow">Macro Analysis</p>
-        <h3>Monitor Economic Indicators</h3>
+        <p className="eyebrow">{t("src_client_pages_bondsyieldspage__l289__h35")}</p>
+        <h3>{t("src_client_pages_bondsyieldspage__l290__h36")}</h3>
         <p style={{ color: "#475569", marginTop: "8px", marginBottom: "16px" }}>
           Yield curves anticipate economic changes — track them for macro alpha signals
         </p>

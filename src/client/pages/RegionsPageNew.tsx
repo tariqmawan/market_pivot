@@ -8,6 +8,9 @@ import ChartJSLine from "../components/ChartJSLine";
 import { generateSeriesForSymbol, formatSignedPercent, formatMoney } from "../lib/chartSeries";
 import type { StockExchange, Currency } from "../../types";
 import "./RegionsPageNew.css";
+import { useI18n } from "../i18n";
+
+
 
 type RegionData = {
   id: string;
@@ -155,6 +158,7 @@ const REGION_DETAIL_MAP: Record<string, {
 };
 
 const RegionsPage: React.FC = () => {
+  const { t } = useI18n();
   const { regionId } = useParams();
   const region = regions.find((r) => r.id.toLowerCase() === (regionId ?? "").toLowerCase());
   const detail = region ? REGION_DETAIL_MAP[region.id] : null;
@@ -164,14 +168,14 @@ const RegionsPage: React.FC = () => {
       <div className="page regions-list">
         <section className="coverage-hero">
           <div>
-            <p className="eyebrow">Global Markets</p>
-            <h1>Regional Intelligence</h1>
-            <p>Regional indices, GDP, inflation, unemployment, interest rates, market performance, macro outlook, economic calendar, heatmap, regional news, and country breakdown across six global regions.</p>
+            <p className="eyebrow">{t("src_client_pages_regionspagenew__l167__h0")}</p>
+            <h1>{t("src_client_pages_regionspagenew__l168__h1")}</h1>
+            <p>{t("src_client_pages_regionspagenew__l173_h0")}</p>
           </div>
           <div className="metric-strip">
-            <div className="metric-tile"><span>Regions</span><strong>{regions.length}</strong></div>
-            <div className="metric-tile"><span>Countries</span><strong>{regions.reduce((s, r) => s + r.countries.length, 0)}</strong></div>
-            <div className="metric-tile"><span>Exchanges</span><strong>{exchanges.length}</strong></div>
+            <div className="metric-tile"><span>{t("src_client_pages_regionspagenew__l172__h3")}</span><strong>{regions.length}</strong></div>
+            <div className="metric-tile"><span>{t("src_client_pages_regionspagenew__l173__h4")}</span><strong>{regions.reduce((s, r) => s + r.countries.length, 0)}</strong></div>
+            <div className="metric-tile"><span>{t("src_client_pages_regionspagenew__l174__h5")}</span><strong>{exchanges.length}</strong></div>
           </div>
         </section>
 
@@ -186,9 +190,9 @@ const RegionsPage: React.FC = () => {
                 </div>
                 <p className="region-summary">{r.summary}</p>
                 <div className="region-card-stats">
-                  <div><span>GDP Growth</span><strong>{r.gdpGrowth.toFixed(1)}%</strong></div>
-                  <div><span>Inflation</span><strong>{r.inflation.toFixed(1)}%</strong></div>
-                  <div><span>Countries</span><strong>{r.countries.length}</strong></div>
+                  <div><span>{t("src_client_pages_regionspagenew__l189__h6")}</span><strong>{r.gdpGrowth.toFixed(1)}%</strong></div>
+                  <div><span>{t("src_client_pages_regionspagenew__l190__h7")}</span><strong>{r.inflation.toFixed(1)}%</strong></div>
+                  <div><span>{t("src_client_pages_regionspagenew__l191__h8")}</span><strong>{r.countries.length}</strong></div>
                 </div>
                 <div className="region-card-footer">
                   {r.currencies.slice(0, 4).map((c) => <span key={c} className="mini-pill">{c}</span>)}
@@ -208,21 +212,21 @@ const RegionsPage: React.FC = () => {
     <div className="page region-detail">
       <section className="coverage-hero region-hero">
         <div>
-          <Link to="/regions" className="back-link">← All Regions</Link>
+          <Link to="/regions" className="back-link">{t("src_client_pages_regionspagenew__l211__h9")}</Link>
           <p className="eyebrow">{region.type} • {region.countries.length} countries</p>
           <h1>{detail.name}</h1>
           <p>{region.summary}</p>
         </div>
         <div className="metric-strip region-metrics">
-          <div className="metric-tile"><span>GDP</span><strong>{formatMoney(detail.gdp)}</strong></div>
-          <div className="metric-tile"><span>GDP Growth</span><strong className="positive">{detail.gdpGrowth.toFixed(1)}%</strong></div>
-          <div className="metric-tile"><span>Inflation</span><strong>{detail.inflation.toFixed(1)}%</strong></div>
-          <div className="metric-tile"><span>Population</span><strong>{detail.population}</strong></div>
+          <div className="metric-tile"><span>{t("src_client_pages_regionspagenew__l217__h10")}</span><strong>{formatMoney(detail.gdp)}</strong></div>
+          <div className="metric-tile"><span>{t("src_client_pages_regionspagenew__l218__h11")}</span><strong className="positive">{detail.gdpGrowth.toFixed(1)}%</strong></div>
+          <div className="metric-tile"><span>{t("src_client_pages_regionspagenew__l219__h12")}</span><strong>{detail.inflation.toFixed(1)}%</strong></div>
+          <div className="metric-tile"><span>{t("src_client_pages_regionspagenew__l220__h13")}</span><strong>{detail.population}</strong></div>
         </div>
       </section>
 
       <section className="region-tabs-section">
-        <h2>Regional Indices</h2>
+        <h2>{t("src_client_pages_regionspagenew__l225__h14")}</h2>
         <div className="indices-grid">
           {detail.majorIndices.map((idx) => (
             <div key={idx.name} className="index-card">
@@ -257,19 +261,19 @@ const RegionsPage: React.FC = () => {
 
       <section className="region-macro-grid">
         <div className="macro-card">
-          <h3>Macro Snapshot</h3>
+          <h3>{t("src_client_pages_regionspagenew__l260__h15")}</h3>
           <div className="macro-stats">
-            <div><span>GDP</span><strong>{formatMoney(detail.gdp)}</strong></div>
-            <div><span>GDP Growth</span><strong className={detail.gdpGrowth >= 0 ? "positive" : "negative"}>{detail.gdpGrowth.toFixed(1)}%</strong></div>
-            <div><span>Inflation</span><strong className={detail.inflation > 3 ? "negative" : "neutral"}>{detail.inflation.toFixed(1)}%</strong></div>
-            <div><span>Unemployment</span><strong>{detail.unemployment.toFixed(1)}%</strong></div>
-            <div><span>Interest Rate</span><strong>{detail.interestRate.toFixed(2)}%</strong></div>
-            <div><span>Market Cap</span><strong>{formatMoney(detail.marketCap)}</strong></div>
+            <div><span>{t("src_client_pages_regionspagenew__l262__h16")}</span><strong>{formatMoney(detail.gdp)}</strong></div>
+            <div><span>{t("src_client_pages_regionspagenew__l263__h17")}</span><strong className={detail.gdpGrowth >= 0 ? "positive" : "negative"}>{detail.gdpGrowth.toFixed(1)}%</strong></div>
+            <div><span>{t("src_client_pages_regionspagenew__l264__h18")}</span><strong className={detail.inflation > 3 ? "negative" : "neutral"}>{detail.inflation.toFixed(1)}%</strong></div>
+            <div><span>{t("src_client_pages_regionspagenew__l265__h19")}</span><strong>{detail.unemployment.toFixed(1)}%</strong></div>
+            <div><span>{t("src_client_pages_regionspagenew__l266__h20")}</span><strong>{detail.interestRate.toFixed(2)}%</strong></div>
+            <div><span>{t("src_client_pages_regionspagenew__l267__h21")}</span><strong>{formatMoney(detail.marketCap)}</strong></div>
           </div>
           <p className="macro-outlook">{detail.macroOutlook}</p>
         </div>
         <div className="macro-card">
-          <h3>Market Performance</h3>
+          <h3>{t("src_client_pages_regionspagenew__l272__h22")}</h3>
           <div className="performance-grid">
             {["1D", "1W", "1M", "3M", "YTD", "1Y"].map((p, i) => {
               const value = ((i * 17 + 11) % 200) / 10 - 5;
@@ -286,7 +290,7 @@ const RegionsPage: React.FC = () => {
 
       <section className="region-row-grid">
         <div className="region-card-block">
-          <h3>Major Exchanges</h3>
+          <h3>{t("src_client_pages_regionspagenew__l289__h23")}</h3>
           <div className="exchanges-list">
             {regionExchanges.length > 0 ? regionExchanges.map((ex) => (
               <Link key={ex.id} to={`/stocks/${ex.id}`} className="exchange-row">
@@ -298,13 +302,13 @@ const RegionsPage: React.FC = () => {
               </Link>
             )) : region.majorExchanges.map((ex) => (
               <Link key={ex} to={`/stocks/${ex}`} className="exchange-row">
-                <div><strong>{ex}</strong><span>Major exchange</span></div>
+                <div><strong>{ex}</strong><span>{t("src_client_pages_regionspagenew__l301__h24")}</span></div>
               </Link>
             ))}
           </div>
         </div>
         <div className="region-card-block">
-          <h3>Currencies</h3>
+          <h3>{t("src_client_pages_regionspagenew__l307__h25")}</h3>
           <div className="exchanges-list">
             {regionCurrencies.length > 0 ? regionCurrencies.map((c) => (
               <Link key={c.code} to={`/currencies/${c.code}`} className="exchange-row">
@@ -316,13 +320,13 @@ const RegionsPage: React.FC = () => {
               </Link>
             )) : region.currencies.map((c) => (
               <Link key={c} to={`/currencies/${c}`} className="exchange-row">
-                <div><strong>{c}</strong><span>Major currency</span></div>
+                <div><strong>{c}</strong><span>{t("src_client_pages_regionspagenew__l319__h26")}</span></div>
               </Link>
             ))}
           </div>
         </div>
         <div className="region-card-block">
-          <h3>Country Breakdown</h3>
+          <h3>{t("src_client_pages_regionspagenew__l325__h27")}</h3>
           <div className="country-list">
             {region.countries.map((country, i) => {
               const gdpShare = 30 + (i * 7 + 13) % 50;
@@ -359,7 +363,7 @@ const RegionsPage: React.FC = () => {
           </div>
         </div>
         <div className="region-card-block">
-          <h3>Sector Leaders</h3>
+          <h3>{t("src_client_pages_regionspagenew__l362__h28")}</h3>
           <div className="exchanges-list">
             {region.sectorLeaders.map((s) => (
               <div key={s} className="sector-row">
@@ -371,7 +375,7 @@ const RegionsPage: React.FC = () => {
           </div>
         </div>
         <div className="region-card-block">
-          <h3>Heatmap</h3>
+          <h3>{t("src_client_pages_regionspagenew__l374__h29")}</h3>
           <div className="region-heatmap">
             {region.currencies.slice(0, 8).map((c, i) => {
               const value = ((i * 13 + 7) % 200) / 10 - 5;
@@ -391,7 +395,7 @@ const RegionsPage: React.FC = () => {
       </section>
 
       <section className="region-card-block">
-        <h3>Regional News</h3>
+        <h3>{t("src_client_pages_regionspagenew__l394__h30")}</h3>
         <div className="forex-news-grid">
           {[
             { title: `${detail.name} central bank signals data-dependent path`, tag: "Policy", source: "Reuters" },

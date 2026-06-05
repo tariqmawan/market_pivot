@@ -4,6 +4,9 @@ import type { AdminColumn } from "../components/ui/AdminTable";
 import type { FormFieldDef } from "../components/ui/AdminFormBuilder";
 import type { AdminFilterDef } from "../components/ui/AdminFilters";
 import { useCoinAdminStore, type AdminCoin } from "../stores/cryptoStore";
+import { useI18n } from "../../i18n";
+
+
 
 const CATEGORY_OPTIONS = [
   "Layer 1",
@@ -138,12 +141,13 @@ const formFields: FormFieldDef<AdminCoin>[] = [
 ];
 
 export default function CryptoAdminPage() {
+  const { t } = useI18n();
   const items = useCoinAdminStore((s) => s.items);
   const update = useCoinAdminStore((s) => s.update);
 
   return (
     <AdminCrudPage<AdminCoin>
-      title="Cryptocurrencies"
+      title={t("src_client_admin_pages_cryptoadminpage__l146__h0")}
       subtitle="Coin metadata, supply, consensus, ecosystem, and exchange listings"
       useStore={useCoinAdminStore}
       columns={columns}

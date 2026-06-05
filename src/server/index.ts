@@ -24,6 +24,7 @@ import { createRouter as createScreenerRouter }  from "./routes/screener";
 import { createRouter as createCalendarRouter }  from "./routes/calendar";
 import { createRouter as createAdminRouter }     from "./routes/admin";
 import { createRouter as createWatchlistRouter }   from "./routes/watchlist";
+import { createCatalogRouter }                     from "./routes/catalog";
 
 import { corsOptions, createRateLimiter, sanitizeShortText, securityHeaders } from "./security";
 import { initAdminWebSocket } from "./websocket/adminHub";
@@ -68,6 +69,8 @@ app.use("/api/watchlist",  createWatchlistRouter(db));
 app.use("/api/screener",   createScreenerRouter(db));
 app.use("/api/calendar",   createCalendarRouter(db));
 app.use("/api/admin",      createAdminRouter(db));
+app.use("/api/catalog",    createCatalogRouter());
+app.use("/api/stocks",     createCatalogRouter()); // GET /api/stocks/:symbol — same router
 
 // ─── Dashboard ────────────────────────────────────────────────────────────────
 app.get("/api/dashboard", async (req: Request, res: Response) => {

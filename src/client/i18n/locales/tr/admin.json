@@ -1,0 +1,21 @@
+{
+  "adminTopNav": "Yönetici navigasyonu",
+  "openMenu": "Menüyü aç",
+  "searchPlaceholder": "Ara...",
+  "notifications": "Bildirimler",
+  "profile": "Profil",
+  "adminPortal": "Yönetici Portalı",
+  "dashboard": "Kontrol Paneli",
+  "users": "Kullanıcılar",
+  "marketData": "Piyasa Verileri",
+  "news": "Haberler",
+  "billing": "Faturalandırma",
+  "platform": "Platform",
+  "analytics": "Analitik",
+  "settings": "Ayarlar",
+  "totalUsers": "Toplam Kullanıcı",
+  "activeUsers": "Aktif Kullanıcılar",
+  "revenue": "Gelir",
+  "exchanges": "Borsalar",
+  "lastUpdated": "Son güncelleme"
+}

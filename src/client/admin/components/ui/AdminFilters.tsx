@@ -1,4 +1,7 @@
 import React from "react";
+import { useI18n } from "../../../i18n";
+
+
 
 export interface AdminSelectOption {
   value: string;
@@ -26,6 +29,7 @@ export default function AdminFilters({
   onChange,
   onReset,
 }: AdminFiltersProps) {
+  const { t } = useI18n();
   return (
     <div
       style={{
@@ -55,7 +59,7 @@ export default function AdminFilters({
               value={value[f.key] ?? ""}
               onChange={(e) => onChange(f.key, e.target.value)}
             >
-              <option value="">All</option>
+              <option value="">{t("src_client_admin_components_ui_adminfilters__l58__h0")}</option>
               {f.options?.map((o) => (
                 <option key={o.value} value={o.value}>
                   {o.label}

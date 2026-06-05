@@ -3,13 +3,16 @@ import { Outlet, useLocation, Link } from "react-router-dom";
 import { Mail, ShieldCheck } from "lucide-react";
 import Header from "./Header";
 import Navigation from "./Navigation";
+import { useI18n } from "../i18n";
 import navigationItems from "./navigationData";
 import LoginModal from "./LoginModal";
 import "./Layout.css";
 import { useAuthStore } from "../stores/authStore";
 import AdminSidebar from "./admin/AdminSidebar";
 import AdminHeader from "./admin/AdminHeader";
-import { useI18n } from "../i18n";
+
+
+
 
 const getSelectedCategoryPath = (path: string) => {
   if (path === "/indices" || path === "/etfs" || path === "/bonds-yields") return "/coverage";
@@ -23,6 +26,7 @@ const getSelectedCategoryPath = (path: string) => {
 };
 
 const Layout: React.FC = () => {
+  const { t } = useI18n();
   const location = useLocation();
   const { isAuthenticated, user, logout } = useAuthStore();
 
@@ -173,8 +177,6 @@ const Layout: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = React.useState<string>(() => {
     return getSelectedCategoryPath(path);
   });
-  const { t: _t } = useI18n();
-  const t = _t as (key: string) => string | undefined;
 
   React.useEffect(() => {
     setSelectedCategory(getSelectedCategoryPath(path));
@@ -182,7 +184,7 @@ const Layout: React.FC = () => {
 
   return (
     <div className="app-shell">
-      <a href="#main-content" className="skip-link">Skip to main content</a>
+      <a href="#main-content" className="skip-link">{t("src_client_components_layout__l185__h0")}</a>
       {isAdminConsole ? (
         <div className="admin-console">
           <AdminHeader onMobileToggle={onMobileToggle} />
@@ -225,14 +227,14 @@ const Layout: React.FC = () => {
             <button
               type="button"
               className={`sidebar-backdrop ${isMobileSidebarOpen ? "visible" : ""}`}
-              aria-label="Close navigation menu"
+              aria-label={t("src_client_components_layout__l228__h1")}
               onClick={closeMobileSidebar}
             />
 
             <aside
               ref={sidebarRef}
               className={`site-sidebar ${isMobileSidebarOpen ? "open" : ""}`}
-              aria-label="Main navigation"
+              aria-label={t("src_client_components_layout__l235__h3")}
               onMouseEnter={openSidebarPreview}
               onMouseLeave={closeSidebarPreview}
               onFocus={handleSidebarFocus}
@@ -256,28 +258,28 @@ const Layout: React.FC = () => {
             <div className="footer-inner">
               <div className="footer-top">
                 <div className="footer-brand">
-                  <Link to="/" className="footer-logo-card" aria-label={"MarketsPivot home"}>
-                    <img src="/logos/marketpivot.jpeg" alt="MarketsPivot" />
+                  <Link to="/" className="footer-logo-card" aria-label={t("src_client_components_layout__l259__h5")}>
+                    <img src="/logos/marketpivot.jpeg" alt={t("src_client_components_layout__l260__h7")} />
                   </Link>
                   <p>{t("globalMarkets")}</p>
-                  <div className="footer-socials" aria-label="Social links">
+                  <div className="footer-socials" aria-label={t("src_client_components_layout__l263__h8")}>
                     <a href="https://x.com" aria-label="X">
                       <span>X</span>
                     </a>
-                    <a href="mailto:support@marketspivot.com" aria-label="Email">
+                    <a href="mailto:support@marketspivot.com" aria-label={t("src_client_components_layout__l267__h10")}>
                       <Mail size={22} />
                     </a>
-                    <a href="https://facebook.com" aria-label="Facebook">
+                    <a href="https://facebook.com" aria-label={t("src_client_components_layout__l270__h12")}>
                       <span>f</span>
                     </a>
-                    <a href="https://instagram.com" aria-label="Instagram">
+                    <a href="https://instagram.com" aria-label={t("src_client_components_layout__l273__h14")}>
                       <span>◎</span>
                     </a>
-                    <a href="https://tiktok.com" aria-label="TikTok">
+                    <a href="https://tiktok.com" aria-label={t("src_client_components_layout__l276__h16")}>
                       <span>♪</span>
                     </a>
-                    <a href="https://linkedin.com" aria-label="LinkedIn">
-                      <span>in</span>
+                    <a href="https://linkedin.com" aria-label={t("src_client_components_layout__l279__h18")}>
+                      <span>{t("src_client_components_layout__l280__h20")}</span>
                     </a>
                   </div>
                 </div>
@@ -288,8 +290,8 @@ const Layout: React.FC = () => {
                   <Link to="/screener">{t("advancedScreener")}</Link>
                   <Link to="/economic-calendar">{t("calendar")}</Link>
                   <Link to="/pricing">{t("pricing")}</Link>
-                  <Link to="/billing">Billing</Link>
-                  <Link to="/notifications">Notifications</Link>
+                  <Link to="/billing">{t("src_client_components_layout__l291__h21")}</Link>
+                  <Link to="/notifications">{t("src_client_components_layout__l292__h22")}</Link>
                 </div>
 
                 <div className="footer-column">
@@ -321,7 +323,7 @@ const Layout: React.FC = () => {
               </div>
 
               <div className="footer-bottom">
-                <div className="footer-copy">© 2026 MarketsPivot. All rights reserved.</div>
+                <div className="footer-copy">{t("src_client_components_layout__l324__h23")}</div>
                 <div className="footer-secure">
                   <ShieldCheck size={18} />
                   <span>{t("footerSecure")}</span>
@@ -339,5 +341,4 @@ const Layout: React.FC = () => {
   );
 };
 
-export default Layout;
 export { Layout };

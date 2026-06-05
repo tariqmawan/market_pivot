@@ -1,10 +1,13 @@
 import React, { useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
-import { useI18n } from "../i18n";
 import { useAuthStore } from "../stores/authStore";
 import { Eye, EyeOff, AlertCircle, CheckCircle2, Shield, X } from "lucide-react";
+import { useI18n } from "../i18n";
 
-const API = "http://localhost:3000/api";
+
+// Use the same env-driven API base as apiClient.ts and authStore.
+// Falls back to "/api" in dev (Vite proxy) and an absolute VITE_API_BASE in prod.
+const API = (import.meta.env.VITE_API_BASE as string | undefined) ?? "/api";
 
 type ModalMode = "login" | "signup" | "forgot" | "forgot-sent" | "reset";
 

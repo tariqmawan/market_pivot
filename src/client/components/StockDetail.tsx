@@ -6,8 +6,9 @@ import { generateSeriesForSymbol, formatMoney, formatSignedPercent, formatVolume
 import { useWatchlistStore } from "../stores/watchlistStore";
 import { usePortfolioStore } from "../stores/portfolioStore";
 import { useActivityStore } from "../stores/activityStore";
-import { useI18n } from "../i18n";
 import "./StockDetail.css";
+import { useI18n } from "../i18n";
+
 
 export interface StockData {
   symbol: string;
@@ -73,10 +74,10 @@ const daysUntil = (dateStr: string) => {
 };
 
 const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ stock, allStocks }) => {
+  const { t } = useI18n();
   const [timeframe, setTimeframe] = React.useState<Timeframe>("1M");
   const [activeTab, setActiveTab] = React.useState<"overview" | "financials" | "earnings" | "insider" | "ratings" | "news">("overview");
   const [actionToast, setActionToast] = React.useState<string | null>(null);
-  const { t } = useI18n();
 
   const { watchlists, activeWatchlistId, addSymbol } = useWatchlistStore();
   const { portfolios, activePortfolioId, addPosition } = usePortfolioStore();
@@ -208,7 +209,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
             <div className="stock-ticker-badge">{stock.symbol.charAt(0)}</div>
             <div>
               <div className="stock-meta-line">
-                <Link to="/stocks" className="back-link">← Stocks</Link>
+                <Link to="/stocks" className="back-link">{t("src_client_components_stockdetail__l211__h0")}</Link>
                 <span className="exchange-pill">{stock.exchange}</span>
                 <span className="sector-pill">{stock.sector}</span>
                 <span className="industry-pill">{stock.industry}</span>
@@ -222,7 +223,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
 
           <div className="stock-price-block">
             <div className="stock-price-row">
-              <span className="price-label">Current Price</span>
+              <span className="price-label">{t("src_client_components_stockdetail__l225__h1")}</span>
               <span className={`stock-change-pill ${tone}`}>
                 {arrow} {formatSignedPercent(stock.changePercent)}
               </span>
@@ -232,10 +233,10 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
               {stock.change >= 0 ? "+" : ""}{stock.change.toFixed(2)} ({formatSignedPercent(stock.changePercent)}) today
             </div>
             <div className="quick-stats-row">
-              <div><span>Open</span><strong>${stock.open.toFixed(2)}</strong></div>
-              <div><span>Prev Close</span><strong>${stock.previousClose.toFixed(2)}</strong></div>
-              <div><span>Day Range</span><strong>${stock.dayLow.toFixed(2)} – ${stock.dayHigh.toFixed(2)}</strong></div>
-              <div><span>52W Range</span><strong>${stock.yearLow.toFixed(2)} – ${stock.yearHigh.toFixed(2)}</strong></div>
+              <div><span>{t("src_client_components_stockdetail__l235__h2")}</span><strong>${stock.open.toFixed(2)}</strong></div>
+              <div><span>{t("src_client_components_stockdetail__l236__h3")}</span><strong>${stock.previousClose.toFixed(2)}</strong></div>
+              <div><span>{t("src_client_components_stockdetail__l237__h4")}</span><strong>${stock.dayLow.toFixed(2)} – ${stock.dayHigh.toFixed(2)}</strong></div>
+              <div><span>{t("src_client_components_stockdetail__l238__h5")}</span><strong>${stock.yearLow.toFixed(2)} – ${stock.yearHigh.toFixed(2)}</strong></div>
             </div>
           </div>
         </div>
@@ -270,7 +271,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
       </section>
 
       {/* Tabs */}
-      <nav className="stock-tabs" aria-label="Stock detail sections">
+      <nav className="stock-tabs" aria-label={t("src_client_components_stockdetail__l273__h6")}>
         {[
           { id: "overview",   label: t("stockDetail.tabOverview") },
           { id: "financials", label: t("stockDetail.tabFinancials") },
@@ -299,52 +300,52 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
           <div className="overview-grid">
             {/* Company Profile */}
             <section className="info-card">
-              <h3>Company Profile</h3>
+              <h3>{t("src_client_components_stockdetail__l302__h8")}</h3>
               <dl className="info-list">
-                <div><dt>Name</dt><dd>{stock.name}</dd></div>
-                <div><dt>Ticker</dt><dd>{stock.symbol}</dd></div>
-                <div><dt>Exchange</dt><dd>{stock.exchange}</dd></div>
-                <div><dt>Sector</dt><dd><Link to={`/sectors/${stock.sector.toLowerCase().replace(/\s+/g, "-")}`}>{stock.sector}</Link></dd></div>
-                <div><dt>Industry</dt><dd>{stock.industry}</dd></div>
-                <div><dt>Employees</dt><dd>{stock.employees.toLocaleString()}</dd></div>
-                <div><dt>Headquarters</dt><dd>{stock.headquarters}</dd></div>
-                <div><dt>Founded</dt><dd>{stock.founded}</dd></div>
-                <div><dt>CEO</dt><dd>{stock.ceo}</dd></div>
-                <div><dt>Website</dt><dd><a href={stock.website} target="_blank" rel="noopener noreferrer">{stock.website}</a></dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l304__h9")}</dt><dd>{stock.name}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l305__h10")}</dt><dd>{stock.symbol}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l306__h11")}</dt><dd>{stock.exchange}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l307__h12")}</dt><dd><Link to={`/sectors/${stock.sector.toLowerCase().replace(/\s+/g, "-")}`}>{stock.sector}</Link></dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l308__h13")}</dt><dd>{stock.industry}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l309__h14")}</dt><dd>{stock.employees.toLocaleString()}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l310__h15")}</dt><dd>{stock.headquarters}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l311__h16")}</dt><dd>{stock.founded}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l312__h17")}</dt><dd>{stock.ceo}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l313__h18")}</dt><dd><a href={stock.website} target="_blank" rel="noopener noreferrer">{stock.website}</a></dd></div>
               </dl>
             </section>
 
             {/* Key Statistics */}
             <section className="info-card">
-              <h3>Key Statistics</h3>
+              <h3>{t("src_client_components_stockdetail__l319__h19")}</h3>
               <dl className="info-list">
-                <div><dt>Market Cap</dt><dd>{formatMoney(stock.marketCap)}</dd></div>
-                <div><dt>P/E Ratio</dt><dd>{stock.pe.toFixed(1)}</dd></div>
-                <div><dt>EPS</dt><dd>${stock.eps.toFixed(2)}</dd></div>
-                <div><dt>Beta</dt><dd>{stock.beta.toFixed(2)}</dd></div>
-                <div><dt>Dividend Yield</dt><dd>{stock.dividendYield.toFixed(2)}%</dd></div>
-                <div><dt>Shares Outstanding</dt><dd>{(stock.sharesOutstanding / 1e9).toFixed(2)}B</dd></div>
-                <div><dt>Volume</dt><dd>{formatVolume(stock.volume)}</dd></div>
-                <div><dt>Avg Volume</dt><dd>{formatVolume(stock.avgVolume)}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l321__h20")}</dt><dd>{formatMoney(stock.marketCap)}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l322__h21")}</dt><dd>{stock.pe.toFixed(1)}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l323__h22")}</dt><dd>${stock.eps.toFixed(2)}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l324__h23")}</dt><dd>{stock.beta.toFixed(2)}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l325__h24")}</dt><dd>{stock.dividendYield.toFixed(2)}%</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l326__h25")}</dt><dd>{(stock.sharesOutstanding / 1e9).toFixed(2)}B</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l327__h26")}</dt><dd>{formatVolume(stock.volume)}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l328__h27")}</dt><dd>{formatVolume(stock.avgVolume)}</dd></div>
               </dl>
             </section>
 
             {/* Trading Performance */}
             <section className="info-card">
-              <h3>Trading Performance</h3>
+              <h3>{t("src_client_components_stockdetail__l334__h28")}</h3>
               <dl className="info-list">
-                <div><dt>Day High</dt><dd className="positive">${stock.dayHigh.toFixed(2)}</dd></div>
-                <div><dt>Day Low</dt><dd className="negative">${stock.dayLow.toFixed(2)}</dd></div>
-                <div><dt>52W High</dt><dd className="positive">${stock.yearHigh.toFixed(2)}</dd></div>
-                <div><dt>52W Low</dt><dd className="negative">${stock.yearLow.toFixed(2)}</dd></div>
-                <div><dt>From 52W High</dt><dd className={stock.price >= stock.yearHigh ? "positive" : "negative"}>{((stock.price / stock.yearHigh - 1) * 100).toFixed(2)}%</dd></div>
-                <div><dt>From 52W Low</dt><dd className={stock.price > stock.yearLow ? "positive" : "negative"}>{((stock.price / stock.yearLow - 1) * 100).toFixed(2)}%</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l336__h29")}</dt><dd className="positive">${stock.dayHigh.toFixed(2)}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l337__h30")}</dt><dd className="negative">${stock.dayLow.toFixed(2)}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l338__h31")}</dt><dd className="positive">${stock.yearHigh.toFixed(2)}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l339__h32")}</dt><dd className="negative">${stock.yearLow.toFixed(2)}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l340__h33")}</dt><dd className={stock.price >= stock.yearHigh ? "positive" : "negative"}>{((stock.price / stock.yearHigh - 1) * 100).toFixed(2)}%</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l341__h34")}</dt><dd className={stock.price > stock.yearLow ? "positive" : "negative"}>{((stock.price / stock.yearLow - 1) * 100).toFixed(2)}%</dd></div>
               </dl>
             </section>
 
             {/* Tags */}
             <section className="info-card">
-              <h3>Tags & Themes</h3>
+              <h3>{t("src_client_components_stockdetail__l347__h35")}</h3>
               <div className="tag-cloud">
                 {stock.tags.map((tag) => (
                   <span key={tag} className="tag-chip">{tag}</span>
@@ -387,39 +388,39 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
         {activeTab === "financials" && (
           <div className="financials-grid">
             <section className="info-card wide">
-              <h3>Income Statement</h3>
+              <h3>{t("src_client_components_stockdetail__l390__h36")}</h3>
               <dl className="info-list">
                 <div><dt>Revenue (TTM)</dt><dd>{formatMoney(stock.revenue)}</dd></div>
                 <div><dt>Net Income (TTM)</dt><dd>{formatMoney(stock.netIncome)}</dd></div>
-                <div><dt>Operating Margin</dt><dd>{stock.operatingMargin.toFixed(2)}%</dd></div>
-                <div><dt>Free Cash Flow</dt><dd>{formatMoney(stock.freeCashFlow)}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l394__h37")}</dt><dd>{stock.operatingMargin.toFixed(2)}%</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l395__h38")}</dt><dd>{formatMoney(stock.freeCashFlow)}</dd></div>
                 <div><dt>EPS (TTM)</dt><dd>${stock.eps.toFixed(2)}</dd></div>
-                <div><dt>Quarterly Revenue Growth</dt><dd className={stock.quarterlyRevenueGrowth >= 0 ? "positive" : "negative"}>{formatSignedPercent(stock.quarterlyRevenueGrowth)}</dd></div>
-                <div><dt>Quarterly Earnings Growth</dt><dd className={stock.quarterlyEarningsGrowth >= 0 ? "positive" : "negative"}>{formatSignedPercent(stock.quarterlyEarningsGrowth)}</dd></div>
-                <div><dt>Profit Margin</dt><dd>{((stock.netIncome / stock.revenue) * 100).toFixed(2)}%</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l397__h39")}</dt><dd className={stock.quarterlyRevenueGrowth >= 0 ? "positive" : "negative"}>{formatSignedPercent(stock.quarterlyRevenueGrowth)}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l398__h40")}</dt><dd className={stock.quarterlyEarningsGrowth >= 0 ? "positive" : "negative"}>{formatSignedPercent(stock.quarterlyEarningsGrowth)}</dd></div>
+                <div><dt>{t("src_client_components_stockdetail__l399__h41")}</dt><dd>{((stock.netIncome / stock.revenue) * 100).toFixed(2)}%</dd></div>
               </dl>
             </section>
             <section className="info-card">
-              <h3>Balance Snapshot</h3>
+              <h3>{t("src_client_components_stockdetail__l403__h42")}</h3>
               <div className="balance-stats">
                 <div>
-                  <span>Cash & Equivalents</span>
+                  <span>{t("src_client_components_stockdetail__l406__h43")}</span>
                   <strong>{formatMoney(stock.freeCashFlow * 1.2)}</strong>
                 </div>
                 <div>
-                  <span>Total Debt</span>
+                  <span>{t("src_client_components_stockdetail__l410__h44")}</span>
                   <strong>{formatMoney(stock.revenue * 0.15)}</strong>
                 </div>
                 <div>
-                  <span>Debt/Equity</span>
+                  <span>{t("src_client_components_stockdetail__l414__h45")}</span>
                   <strong>0.42</strong>
                 </div>
                 <div>
-                  <span>Return on Equity</span>
+                  <span>{t("src_client_components_stockdetail__l418__h46")}</span>
                   <strong>{((stock.netIncome / (stock.marketCap * 0.6)) * 100).toFixed(1)}%</strong>
                 </div>
                 <div>
-                  <span>Current Ratio</span>
+                  <span>{t("src_client_components_stockdetail__l422__h47")}</span>
                   <strong>1.85</strong>
                 </div>
               </div>
@@ -447,29 +448,29 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
         {activeTab === "earnings" && (
           <div className="earnings-grid">
             <section className="info-card">
-              <h3>Next Earnings</h3>
+              <h3>{t("src_client_components_stockdetail__l450__h48")}</h3>
               <div className="next-earnings">
                 <div className="ne-date">{formatEarningsDate(stock.nextEarningsDate)}</div>
                 <div className="ne-countdown">
                   in {daysUntil(stock.nextEarningsDate)} days
                 </div>
                 <div className="ne-meta">
-                  <div><span>EPS Estimate</span><strong>${(stock.eps * 0.95).toFixed(2)}</strong></div>
-                  <div><span>Revenue Estimate</span><strong>{formatMoney(stock.revenue / 4)}</strong></div>
+                  <div><span>{t("src_client_components_stockdetail__l457__h49")}</span><strong>${(stock.eps * 0.95).toFixed(2)}</strong></div>
+                  <div><span>{t("src_client_components_stockdetail__l458__h50")}</span><strong>{formatMoney(stock.revenue / 4)}</strong></div>
                 </div>
               </div>
             </section>
 
             <section className="info-card wide">
-              <h3>Earnings History</h3>
+              <h3>{t("src_client_components_stockdetail__l464__h51")}</h3>
               <div className="earnings-table-wrap">
                 <table className="earnings-table">
                   <thead>
                     <tr>
-                      <th>Quarter</th>
-                      <th>EPS Estimate</th>
-                      <th>EPS Actual</th>
-                      <th>Surprise</th>
+                      <th>{t("src_client_components_stockdetail__l469__h52")}</th>
+                      <th>{t("src_client_components_stockdetail__l470__h53")}</th>
+                      <th>{t("src_client_components_stockdetail__l471__h54")}</th>
+                      <th>{t("src_client_components_stockdetail__l472__h55")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -489,7 +490,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
             </section>
 
             <section className="info-card wide">
-              <h3>EPS Surprises</h3>
+              <h3>{t("src_client_components_stockdetail__l492__h56")}</h3>
               <div className="surprise-chart">
                 {earningsHistory.map((row) => {
                   const heightPct = Math.min(100, Math.abs(row.surprisePct) * 12);
@@ -510,7 +511,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
         {activeTab === "insider" && (
           <div className="insider-grid">
             <section className="info-card">
-              <h3>Insider Sentiment</h3>
+              <h3>{t("src_client_components_stockdetail__l513__h57")}</h3>
               <div className="insider-summary">
                 <div className="insider-stat">
                   <span>Buys (90d)</span>
@@ -521,7 +522,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
                   <strong className="negative">{stock.insiderSells}</strong>
                 </div>
                 <div className="insider-stat">
-                  <span>Ownership Change</span>
+                  <span>{t("src_client_components_stockdetail__l524__h58")}</span>
                   <strong className={stock.ownershipChange >= 0 ? "positive" : "negative"}>
                     {stock.ownershipChange >= 0 ? "+" : ""}{stock.ownershipChange.toFixed(2)}%
                   </strong>
@@ -529,18 +530,18 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
               </div>
             </section>
             <section className="info-card wide">
-              <h3>Recent Insider Trades</h3>
+              <h3>{t("src_client_components_stockdetail__l532__h59")}</h3>
               <div className="insider-table-wrap">
                 <table className="insider-table">
                   <thead>
                     <tr>
-                      <th>Insider</th>
-                      <th>Role</th>
-                      <th>Type</th>
-                      <th>Shares</th>
-                      <th>Price</th>
-                      <th>Value</th>
-                      <th>Date</th>
+                      <th>{t("src_client_components_stockdetail__l537__h60")}</th>
+                      <th>{t("src_client_components_stockdetail__l538__h61")}</th>
+                      <th>{t("src_client_components_stockdetail__l539__h62")}</th>
+                      <th>{t("src_client_components_stockdetail__l540__h63")}</th>
+                      <th>{t("src_client_components_stockdetail__l541__h64")}</th>
+                      <th>{t("src_client_components_stockdetail__l542__h65")}</th>
+                      <th>{t("src_client_components_stockdetail__l543__h66")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -569,7 +570,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
         {activeTab === "ratings" && (
           <div className="ratings-grid">
             <section className="info-card">
-              <h3>Analyst Consensus</h3>
+              <h3>{t("src_client_components_stockdetail__l572__h67")}</h3>
               <div className="consensus-block">
                 <div className="consensus-label">{consensusLabel}</div>
                 <div className="consensus-score">{consensusScore.toFixed(2)} / 3.0</div>
@@ -584,8 +585,8 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
                   <div><span className="dot sell" /> Sell {stock.analystSell}</div>
                 </div>
                 <div className="target-block">
-                  <div><span>Avg Target</span><strong>${stock.targetPrice.toFixed(2)}</strong></div>
-                  <div><span>Implied Upside</span>
+                  <div><span>{t("src_client_components_stockdetail__l587__h68")}</span><strong>${stock.targetPrice.toFixed(2)}</strong></div>
+                  <div><span>{t("src_client_components_stockdetail__l588__h69")}</span>
                     <strong className={stock.targetPrice > stock.price ? "positive" : "negative"}>
                       {((stock.targetPrice / stock.price - 1) * 100).toFixed(2)}%
                     </strong>
@@ -594,7 +595,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
               </div>
             </section>
             <section className="info-card wide">
-              <h3>Rating Distribution</h3>
+              <h3>{t("src_client_components_stockdetail__l597__h70")}</h3>
               <div className="rating-dist">
                 {[
                   { label: "Strong Buy", count: Math.round(stock.analystBuy * 0.4), color: "#059669" },
@@ -635,7 +636,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
       {/* Related Companies */}
       {relatedStocks.length > 0 && (
         <section className="related-section">
-          <h3>Related Companies</h3>
+          <h3>{t("src_client_components_stockdetail__l638__h71")}</h3>
           <div className="related-grid">
             {relatedStocks.map((s) => (
               <Link key={s.symbol} to={`/stocks/${s.symbol}`} className="related-card">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuthStore } from "../stores/authStore";
+import { useI18n } from "../i18n";
 import {
    BarChart3,
    Bitcoin,
@@ -19,7 +20,7 @@ import {
    ChevronDown,
  } from "lucide-react";
 import "./Navigation.css";
-import { useI18n } from "../i18n";
+
 
 interface NavigationItem {
   label: string;
@@ -338,7 +339,7 @@ const translateLabel = (path: string | undefined, fallback: string) => {
    return (
      <nav
        className={`enhanced-navigation ${collapsed ? "collapsed" : ""} ${mobileOpen ? "mobile-open" : ""}`}
-       aria-label="Main navigation"
+       aria-label={t("src_client_components_navigation__l341__h0")}
      >
        <div className="nav-items">
          {navigationItems.map((item) => {

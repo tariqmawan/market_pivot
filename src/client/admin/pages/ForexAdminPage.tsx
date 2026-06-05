@@ -4,12 +4,14 @@ import AdminCrudPage from "../components/ui/AdminCrudPage";
 import type { AdminColumn } from "../components/ui/AdminTable";
 import type { FormFieldDef } from "../components/ui/AdminFormBuilder";
 import type { AdminFilterDef } from "../components/ui/AdminFilters";
+import { useI18n } from "../../i18n";
 import {
   useCurrencyAdminStore,
   useCurrencyPairAdminStore,
   type AdminCurrency,
   type AdminCurrencyPair,
 } from "../stores/forexStore";
+
 
 const TIER_OPTIONS = [
   { value: "major", label: "Major" },
@@ -161,6 +163,7 @@ const pairFilters: AdminFilterDef[] = [
 ];
 
 export default function ForexAdminPage() {
+  const { t } = useI18n();
   const [tab, setTab] = React.useState<"currencies" | "pairs">("currencies");
   const currencies = useCurrencyAdminStore((s) => s.items);
 
@@ -182,7 +185,7 @@ export default function ForexAdminPage() {
     <div>
       <div className="mp-admin-content" style={{ paddingBottom: 0 }}>
         <PageHeader
-          title="Forex Management"
+          title={t("src_client_admin_pages_forexadminpage__l185__h0")}
           subtitle="Currencies, central banks, interest rates, and trading pairs"
         />
         <div style={{ display: "flex", gap: 6, marginBottom: 12 }}>
@@ -210,7 +213,7 @@ export default function ForexAdminPage() {
 
       {tab === "currencies" ? (
         <AdminCrudPage<AdminCurrency>
-          title="Currencies"
+          title={t("src_client_admin_pages_forexadminpage__l213__h1")}
           subtitle="Fiat and reserve currencies with central bank metadata"
           useStore={useCurrencyAdminStore}
           columns={currencyColumns}
@@ -261,7 +264,7 @@ export default function ForexAdminPage() {
         />
       ) : (
         <AdminCrudPage<AdminCurrencyPair>
-          title="Currency Pairs"
+          title={t("src_client_admin_pages_forexadminpage__l264__h2")}
           subtitle="Major, cross, and exotic pairs with spread management"
           useStore={useCurrencyPairAdminStore}
           columns={pairColumns}

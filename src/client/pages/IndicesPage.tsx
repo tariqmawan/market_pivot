@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import exchangesData from "../../data/exchanges.json";
 import type { StockExchange, IndexSnapshot } from "../../types";
+import { useI18n } from "../i18n";
+
+
 
 import type { MarketRegion } from "../../types";
 
@@ -31,6 +34,7 @@ const AssetCard: React.FC<{
 );
 
 const IndicesPage: React.FC = () => {
+  const { t } = useI18n();
   const uniqueIndices = React.useMemo(() => {
     const seen = new Set<string>();
     const items = exchanges
@@ -58,9 +62,9 @@ const IndicesPage: React.FC = () => {
   return (
     <div className="page intelligence-page">
       <div className="section-heading">
-        <p className="eyebrow">Indices</p>
-        <h1>Market Indices Coverage</h1>
-        <p>Primary indices mapped across global exchanges with exchange metadata.</p>
+        <p className="eyebrow">{t("src_client_pages_indicespage__l61__h0")}</p>
+        <h1>{t("src_client_pages_indicespage__l62__h1")}</h1>
+        <p>{t("src_client_pages_indicespage__l63__h2")}</p>
       </div>
 
       <div className="asset-grid compact">

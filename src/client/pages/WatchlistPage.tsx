@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 import { HiPencil, HiTrash, HiBell, HiBellSlash, HiArrowTrendingUp, HiXMark, HiPlus, HiMagnifyingGlass } from "react-icons/hi2";
 import { useWatchlistStore, type WatchlistSymbol } from "../stores/watchlistStore";
 import { useActivityStore } from "../stores/activityStore";
-import stocksData from "../../data/stocks.json";
-import cryptocurrenciesData from "../../data/cryptocurrencies.json";
-import currenciesData from "../../data/currencies.json";
+import { fetchJson } from "../lib/apiClient";
 import { formatSignedPercent } from "../lib/chartSeries";
 import EmptyState from "../components/EmptyState";
-import { useI18n } from "../i18n";
 import "./WatchlistPage.css";
+import { useI18n } from "../i18n";
+
 
 type Symbol = {
   symbol: string;
@@ -20,57 +19,23 @@ type Symbol = {
   changePercent: number;
 };
 
-const stocks = (stocksData as { stocks: { symbol: string; name: string; price: number; change: number; changePercent: number }[] }).stocks;
-const cryptos = (cryptocurrenciesData as { cryptocurrencies: { id: string; symbol: string; name: string; circulatingSupply: number }[] }).cryptocurrencies;
-const currencies = (currenciesData as { currencies: { code: string; name: string; symbol: string }[] }).currencies;
-
-const CRYPTO_BASE_PRICES: Record<string, number> = {
-  BTC: 65000, ETH: 3200, BNB: 590, SOL: 145, ADA: 0.48, AVAX: 35,
-  DOT: 6.8, TRX: 0.12, USDT: 1, USDC: 1, DAI: 1, LINK: 14, MATIC: 0.72, UNI: 8.5,
-  ATOM: 8.1, XRP: 0.54, LTC: 82, XLM: 0.11, TON: 6.2, ARB: 1.1,
+// Catalog item shape from /api/catalog
+type CatalogItem = {
+  symbol: string;
+  name: string;
+  type: "stock" | "currency" | "crypto" | "index" | "etf" | "commodity";
+  exchange?: string;
+  currency?: string;
 };
 
-const buildSearchIndex = (): Symbol[] => {
-  const result: Symbol[] = [];
-  stocks.forEach((s) => {
-    result.push({
-      symbol: s.symbol,
-      name: s.name,
-      type: "stock",
-      price: s.price,
-      change: s.change,
-      changePercent: s.changePercent,
-    });
-  });
-  cryptos.forEach((c) => {
-    const basePrice = CRYPTO_BASE_PRICES[c.symbol] ?? 10;
-    const change = ((c.symbol.charCodeAt(0) % 10) - 4) * 0.5;
-    result.push({
-      symbol: c.symbol,
-      name: c.name,
-      type: "crypto",
-      price: basePrice,
-      change: change,
-      changePercent: change,
-    });
-  });
-  currencies.forEach((c) => {
-    const rate = c.code === "USD" ? 1 : (c.code === "JPY" ? 155 : c.code === "INR" ? 83.5 : c.code === "EUR" ? 0.92 : c.code === "GBP" ? 0.79 : 1.5);
-    result.push({
-      symbol: c.code,
-      name: c.name,
-      type: "currency",
-      price: rate,
-      change: rate * 0.005,
-      changePercent: 0.5,
-    });
-  });
-  return result;
+const symbolFromCatalog = (c: CatalogItem): Symbol => {
+  // Price/changes for newly-searched symbols start as 0 — the watchlist row will show "—"
+  // until live data lands via the same catalog endpoint (extended in a future phase).
+  return { symbol: c.symbol, name: c.name, type: c.type, price: 0, change: 0, changePercent: 0 };
 };
-
-const SEARCH_INDEX = buildSearchIndex();
 
 const WatchlistPage: React.FC = () => {
+  const { t } = useI18n();
   const {
     watchlists,
     activeWatchlistId,
@@ -83,7 +48,6 @@ const WatchlistPage: React.FC = () => {
     toggleAlert,
   } = useWatchlistStore();
   const { log } = useActivityStore();
-  const { t } = useI18n();
 
   const [showCreate, setShowCreate] = React.useState(false);
   const [newName, setNewName] = React.useState("");
@@ -96,6 +60,41 @@ const WatchlistPage: React.FC = () => {
   const [filterType, setFilterType] = React.useState<"all" | WatchlistSymbol["type"]>("all");
   const [filterChange, setFilterChange] = React.useState<"all" | "gainers" | "losers">("all");
 
+  // Backend-driven search catalog (replaces the static JSON imports).
+  const [searchResults, setSearchResults] = React.useState<Symbol[]>([]);
+  const [isSearching, setIsSearching] = React.useState(false);
+  const syncFromBackend = useWatchlistStore((s) => s.syncFromBackend);
+
+  // Boot-time: pull the user's watchlists from the backend so the page
+  // reflects the persisted state across devices.
+  React.useEffect(() => {
+    void syncFromBackend();
+  }, [syncFromBackend]);
+
+  // Debounced catalog search via /api/catalog.
+  React.useEffect(() => {
+    if (!searchTerm.trim()) { setSearchResults([]); return; }
+    const ctrl = new AbortController();
+    const timer = setTimeout(async () => {
+      setIsSearching(true);
+      try {
+        const params = new URLSearchParams({ q: searchTerm.trim(), limit: "8" });
+        if (searchType !== "all") params.set("type", searchType);
+        const res = await fetchJson<CatalogItem[]>(`/catalog?${params.toString()}`);
+        if (res.success && Array.isArray(res.data)) {
+          setSearchResults(res.data.map(symbolFromCatalog));
+        } else {
+          setSearchResults([]);
+        }
+      } catch {
+        setSearchResults([]);
+      } finally {
+        setIsSearching(false);
+      }
+    }, 220);
+    return () => { clearTimeout(timer); ctrl.abort(); };
+  }, [searchTerm, searchType]);
+
   const activeWatchlist = watchlists.find((wl) => wl.id === activeWatchlistId) ?? watchlists[0];
 
   React.useEffect(() => {
@@ -106,32 +105,45 @@ const WatchlistPage: React.FC = () => {
 
   const handleCreate = () => {
     if (!newName.trim()) return;
-    const id = createWatchlist(newName.trim(), newDescription.trim());
-    log("watchlist_create", `Created watchlist: ${newName.trim()}`);
+    const name = newName.trim();
+    const description = newDescription.trim();
     setNewName("");
     setNewDescription("");
     setShowCreate(false);
-    setActiveWatchlist(id);
+    // createWatchlist is now async (writes to backend); update UI optimistically
+    // and let the store resolve the id when the server responds.
+    createWatchlist(name, description)
+      .then((id) => {
+        setActiveWatchlist(id);
+        log("watchlist_create", `Created watchlist: ${name}`);
+      })
+      .catch(() => {
+        // Store already rolled back; nothing to do here.
+      });
   };
 
   const handleRename = (id: string) => {
     if (!renameValue.trim()) return;
-    renameWatchlist(id, renameValue.trim());
-    log("watchlist_create", `Renamed watchlist to: ${renameValue.trim()}`);
+    const newName = renameValue.trim();
     setRenamingId(null);
     setRenameValue("");
+    void renameWatchlist(id, newName)
+      .then(() => log("watchlist_create", `Renamed watchlist to: ${newName}`))
+      .catch(() => { /* store already rolled back */ });
   };
 
   const handleDelete = (id: string, name: string) => {
     if (window.confirm(t("watchlist.deleteConfirm", { name }))) {
-      deleteWatchlist(id);
-      log("watchlist_delete", `Deleted watchlist: ${name}`);
+      void deleteWatchlist(id)
+        .then(() => log("watchlist_delete", `Deleted watchlist: ${name}`))
+        .catch(() => { /* store already rolled back */ });
     }
   };
 
   const handleAdd = (symbol: Symbol) => {
     if (!activeWatchlist) return;
-    addSymbol(activeWatchlist.id, {
+    const name = activeWatchlist.name;
+    void addSymbol(activeWatchlist.id, {
       symbol: symbol.symbol,
       name: symbol.name,
       type: symbol.type,
@@ -139,32 +151,25 @@ const WatchlistPage: React.FC = () => {
       change: symbol.change,
       changePercent: symbol.changePercent,
       addedAt: Date.now(),
-    });
-    log("watchlist_add", `Added ${symbol.symbol} to ${activeWatchlist.name}`);
+    })
+      .then(() => log("watchlist_add", `Added ${symbol.symbol} to ${name}`))
+      .catch(() => { /* store already rolled back */ });
   };
 
   const handleRemove = (symbol: string) => {
     if (!activeWatchlist) return;
-    removeSymbol(activeWatchlist.id, symbol);
-    log("watchlist_remove", `Removed ${symbol} from ${activeWatchlist.name}`);
+    const name = activeWatchlist.name;
+    void removeSymbol(activeWatchlist.id, symbol)
+      .then(() => log("watchlist_remove", `Removed ${symbol} from ${name}`))
+      .catch(() => { /* store already rolled back */ });
   };
 
   const handleToggleAlert = (symbol: string, enabled: boolean, price?: number) => {
     if (!activeWatchlist) return;
-    toggleAlert(activeWatchlist.id, symbol, enabled, price);
-    log("alert_create", `${enabled ? "Created" : "Removed"} alert for ${symbol}${price ? ` at $${price}` : ""}`);
+    void toggleAlert(activeWatchlist.id, symbol, enabled, price)
+      .then(() => log("alert_create", `${enabled ? "Created" : "Removed"} alert for ${symbol}${price ? ` at $${price}` : ""}`))
+      .catch(() => { /* local-only UI preference */ });
   };
-
-  const searchResults = React.useMemo(() => {
-    if (!searchTerm) return [];
-    const term = searchTerm.toLowerCase();
-    return SEARCH_INDEX
-      .filter((s) => {
-        if (searchType !== "all" && s.type !== searchType) return false;
-        return s.symbol.toLowerCase().includes(term) || s.name.toLowerCase().includes(term);
-      })
-      .slice(0, 8);
-  }, [searchTerm, searchType]);
 
   const sortedSymbols = React.useMemo(() => {
     if (!activeWatchlist) return [];
@@ -222,20 +227,20 @@ const WatchlistPage: React.FC = () => {
             <div className="create-form">
               <input
                 type="text"
-                placeholder="List name"
+                placeholder={t("watchlist.listName")}
                 value={newName}
                 onChange={(e) => setNewName(e.target.value)}
                 autoFocus
               />
               <input
                 type="text"
-                placeholder="Description (optional)"
+                placeholder={t("watchlist.descriptionOptional")}
                 value={newDescription}
                 onChange={(e) => setNewDescription(e.target.value)}
               />
               <div className="form-actions">
-                <button onClick={handleCreate} className="primary-action-sm" type="button">Create</button>
-                <button onClick={() => { setShowCreate(false); setNewName(""); setNewDescription(""); }} className="secondary-action-sm" type="button">Cancel</button>
+                <button onClick={handleCreate} className="primary-action-sm" type="button">{t("watchlist.create")}</button>
+                <button onClick={() => { setShowCreate(false); setNewName(""); setNewDescription(""); }} className="secondary-action-sm" type="button">{t("cancel")}</button>
               </div>
             </div>
           )}
@@ -318,33 +323,33 @@ const WatchlistPage: React.FC = () => {
 
               <div className="watchlist-controls">
                 <div className="control-group">
-                  <label>Sort:</label>
+                  <label>{t("watchlist.sort")}</label>
                   <select value={sortBy} onChange={(e) => setSortBy(e.target.value as typeof sortBy)}>
-                    <option value="default">Default</option>
-                    <option value="alpha">Alphabetical</option>
-                    <option value="price">Price (high-low)</option>
-                    <option value="change">Change (high-low)</option>
-                    <option value="changePercent">Change % (high-low)</option>
+                    <option value="default">{t("watchlist.sortDefault")}</option>
+                    <option value="alpha">{t("watchlist.sortAlpha")}</option>
+                    <option value="price">{t("watchlist.sortPrice")}</option>
+                    <option value="change">{t("watchlist.sortChange")}</option>
+                    <option value="changePercent">{t("watchlist.sortChangePct")}</option>
                   </select>
                 </div>
                 <div className="control-group">
-                  <label>Type:</label>
+                  <label>{t("watchlist.type")}</label>
                   <select value={filterType} onChange={(e) => setFilterType(e.target.value as typeof filterType)}>
-                    <option value="all">All</option>
-                    <option value="stock">Stocks</option>
-                    <option value="crypto">Crypto</option>
-                    <option value="currency">FX</option>
-                    <option value="etf">ETFs</option>
-                    <option value="commodity">Commodities</option>
-                    <option value="index">Indices</option>
+                    <option value="all">{t("watchlist.filterAll")}</option>
+                    <option value="stock">{t("screener.stocks")}</option>
+                    <option value="crypto">{t("screener.crypto")}</option>
+                    <option value="currency">{t("screener.forex")}</option>
+                    <option value="etf">{t("screener.etfs")}</option>
+                    <option value="commodity">{t("src_client_pages_watchlistpage__l341__h12")}</option>
+                    <option value="index">{t("src_client_pages_watchlistpage__l342__h13")}</option>
                   </select>
                 </div>
                 <div className="control-group">
-                  <label>Movement:</label>
+                  <label>{t("watchlist.movement")}</label>
                   <select value={filterChange} onChange={(e) => setFilterChange(e.target.value as typeof filterChange)}>
-                    <option value="all">All</option>
-                    <option value="gainers">Gainers</option>
-                    <option value="losers">Losers</option>
+                    <option value="all">{t("watchlist.filterAll")}</option>
+                    <option value="gainers">{t("watchlist.filterGainers")}</option>
+                    <option value="losers">{t("watchlist.filterLosers")}</option>
                   </select>
                 </div>
               </div>
@@ -400,7 +405,7 @@ const WatchlistPage: React.FC = () => {
                               type="button"
                               onClick={() => handleToggleAlert(sym.symbol, !sym.alertEnabled, sym.alertPrice)}
                               className={sym.alertEnabled ? "active" : ""}
-                              aria-label="Toggle alert"
+                              aria-label={t("src_client_pages_watchlistpage__l405__h22")}
                             >
                               {sym.alertEnabled ? <HiBell size={15} /> : <HiBellSlash size={15} />}
                             </button>
@@ -423,7 +428,7 @@ const WatchlistPage: React.FC = () => {
             </>
           ) : (
             <div className="empty-active">
-              <p>No active watchlist. Create one from the sidebar.</p>
+              <p>{t("watchlist.noActive")}</p>
             </div>
           )}
         </main>

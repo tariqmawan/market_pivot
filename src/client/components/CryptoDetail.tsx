@@ -1,8 +1,8 @@
 import React from "react";
 import type { Cryptocurrency, CryptoPrice, TradingPair } from "../../types";
-import { useI18n } from "../i18n";
 import LineChart from "./LineChart";
 import ChartJSLine from "./ChartJSLine";
+import { useI18n } from "../i18n";
 import {
   formatCompactUsd,
   formatPercent,
@@ -11,6 +11,7 @@ import {
   formatUsd,
   toNumber,
 } from "../lib/format";
+
 
 interface CryptoDetailProps {
   crypto: Cryptocurrency;
@@ -263,7 +264,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
                   <LineChart data={chartSeries} width={820} height={300} />
                 )
               ) : (
-                <p style={{ color: "#7a8c99", fontSize: "14px" }}>Loading chart...</p>
+                <p style={{ color: "#7a8c99", fontSize: "14px" }}>{t("src_client_components_cryptodetail__l266__h0")}</p>
               )}
             </div>
           </div>
@@ -304,10 +305,10 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr style={{ borderBottom: "2px solid #e2e8f0" }}>
-                  <th style={{ padding: "14px", textAlign: "left", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>Pair</th>
-                  <th style={{ padding: "14px", textAlign: "right", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>Price</th>
-                  <th style={{ padding: "14px", textAlign: "right", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>24h Volume</th>
-                  <th style={{ padding: "14px", textAlign: "left", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>Exchange</th>
+                  <th style={{ padding: "14px", textAlign: "left", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_cryptodetail__l307__h1")}</th>
+                  <th style={{ padding: "14px", textAlign: "right", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_cryptodetail__l308__h2")}</th>
+                  <th style={{ padding: "14px", textAlign: "right", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_cryptodetail__l309__h3")}</th>
+                  <th style={{ padding: "14px", textAlign: "left", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_cryptodetail__l310__h4")}</th>
                 </tr>
               </thead>
               <tbody>

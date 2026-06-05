@@ -3,6 +3,9 @@ import AdminCrudPage from "../components/ui/AdminCrudPage";
 import type { AdminColumn } from "../components/ui/AdminTable";
 import type { FormFieldDef } from "../components/ui/AdminFormBuilder";
 import { useRegionAdminStore, type AdminRegion } from "../stores/regionStore";
+import { useI18n } from "../../i18n";
+
+
 
 const TYPE_OPTIONS = [
   { value: "Developed", label: "Developed" },
@@ -76,11 +79,12 @@ const formFields: FormFieldDef<AdminRegion>[] = [
 ];
 
 export default function RegionAdminPage() {
+  const { t } = useI18n();
   const items = useRegionAdminStore((s) => s.items);
 
   return (
     <AdminCrudPage<AdminRegion>
-      title="Regions"
+      title={t("src_client_admin_pages_regionadminpage__l83__h0")}
       subtitle="Macro regions, GDP, inflation, employment, and economic outlook"
       useStore={useRegionAdminStore}
       columns={columns}

@@ -3,6 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import cryptoData from "../../data/cryptocurrencies.json";
 import type { Cryptocurrency } from "../../types";
 import "../styles/index.css";
+import { useI18n } from "../i18n";
+
+
 
 const cryptocurrencies = (cryptoData as any).cryptocurrencies as Cryptocurrency[];
 

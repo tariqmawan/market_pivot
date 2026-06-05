@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import CurrencyDetail from "../components/CurrencyDetail";
 import { useI18n } from "../i18n";
 
+
 type Currency = {
   code: string;
   name: string;
@@ -31,11 +32,13 @@ const AssetCard: React.FC<{
   title: string;
   meta: string;
   metric: string;
-}> = ({ to, eyebrow, title, meta, metric }) => (
+}> = ({ to, eyebrow, title, meta, metric }) => {
+  const { t } = useI18n();
+  return (
   <Link to={to} className="asset-card forex-card">
     <div className="asset-card-head">
       <span className="eyebrow">{eyebrow}</span>
-      <span className="asset-card-badge">FX</span>
+      <span className="asset-card-badge">{t("src_client_pages_currenciespage__l38__h0")}</span>
     </div>
 
     <h3>{title}</h3>
@@ -45,11 +48,12 @@ const AssetCard: React.FC<{
       <strong>{metric}</strong>
     </div>
   </Link>
-);
+  );
+};
 
 export default function CurrenciesPage() {
-  const { code } = useParams();
   const { t } = useI18n();
+  const { code } = useParams();
 
   const [list, setList] = React.useState<Currency[]>([]);
   const [listLoading, setListLoading] = React.useState(false);
@@ -88,7 +92,7 @@ export default function CurrenciesPage() {
   }, [code]);
 
   if (code) {
-    if (detailLoading) return <div className="page"><p>Loading currency…</p></div>;
+    if (detailLoading) return <div className="page"><p>{t("src_client_pages_currenciespage__l91__h1")}</p></div>;
     if (detailError || !currency) return <div className="page"><p>{detailError ?? "Currency not found"}</p></div>;
     return <CurrencyDetail currency={currency as any} isLoading={false} />;
   }
@@ -102,7 +106,7 @@ export default function CurrenciesPage() {
       </div>
 
       {listError ? <p className="error">{listError}</p> : null}
-      {listLoading ? <p>Loading…</p> : null}
+      {listLoading ? <p>{t("src_client_pages_currenciespage__l105__h2")}</p> : null}
 
       <div className="asset-grid compact">
         {list.map((item) => (

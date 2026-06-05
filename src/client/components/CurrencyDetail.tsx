@@ -2,6 +2,8 @@ import React from "react";
 import type { Currency, CurrencyPair } from "../../types";
 import { useI18n } from "../i18n";
 
+
+
 interface CurrencyDetailProps {
   currency: Currency;
   exchangeRates?: Record<string, number>;
@@ -193,8 +195,8 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
               <table style={{ width: "100%", borderCollapse: "collapse" }}>
                 <thead>
                   <tr style={{ borderBottom: "2px solid #e2e8f0" }}>
-                    <th style={{ padding: "14px", textAlign: "left", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>Currency</th>
-                    <th style={{ padding: "14px", textAlign: "right", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>Rate</th>
+                    <th style={{ padding: "14px", textAlign: "left", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_currencydetail__l196__h0")}</th>
+                    <th style={{ padding: "14px", textAlign: "right", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_currencydetail__l197__h1")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -267,7 +269,7 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
               </div>
             </div>
             <div style={{ padding: "20px", backgroundColor: "#f8fafc", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
-              <p style={{ fontSize: "12px", color: "#7a8c99", margin: "0 0 8px 0", fontWeight: 600 }}>Conversion</p>
+              <p style={{ fontSize: "12px", color: "#7a8c99", margin: "0 0 8px 0", fontWeight: 600 }}>{t("src_client_components_currencydetail__l270__h2")}</p>
               <p style={{ fontSize: "24px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
                 {convertAmount} {currency.code} = <span style={{ color: "#A27841" }}>
                   {((parseFloat(convertAmount) * (exchangeRates[convertTo] || 0))).toFixed(2)} {convertTo}
@@ -283,7 +285,7 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
         {activeTab === "pairs" && (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "16px" }}>
             {popularPairs.length === 0 ? (
-              <p style={{ fontSize: "14px", color: "#7a8c99" }}>Loading pairs...</p>
+              <p style={{ fontSize: "14px", color: "#7a8c99" }}>{t("src_client_components_currencydetail__l286__h3")}</p>
             ) : (
               popularPairs.map((pair) => (
                 <div
@@ -305,19 +307,19 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
                   </div>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "12px" }}>
                     <div>
-                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>24h Change</p>
+                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_currencydetail__l308__h4")}</p>
                       <p style={{ fontSize: "14px", fontWeight: 700, color: pair.change24h >= 0 ? "#059669" : "#dc2626", margin: "0" }}>
                         {pair.change24h >= 0 ? "+" : ""}{pair.change24h.toFixed(2)}%
                       </p>
                     </div>
                     <div>
-                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>52w High</p>
+                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_currencydetail__l314__h5")}</p>
                       <p style={{ fontSize: "14px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
                         {pair.high52w.toFixed(4)}
                       </p>
                     </div>
                     <div>
-                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>52w Low</p>
+                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_currencydetail__l320__h6")}</p>
                       <p style={{ fontSize: "14px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
                         {pair.low52w.toFixed(4)}
                       </p>

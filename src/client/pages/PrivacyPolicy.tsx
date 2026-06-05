@@ -1,5 +1,8 @@
 import React from "react";
 import { useSEO } from "../lib/useSEO";
+import { useI18n } from "../i18n";
+
+
 
 const GOLD = "#C9A87B";
 const DARK = "#0f172a";
@@ -66,6 +69,7 @@ const sections = [
 ];
 
 const PrivacyPolicy: React.FC = () => {
+  const { t } = useI18n();
   useSEO({ title: "Privacy Policy", description: "MarketsPivot privacy policy — how we collect, use, and protect your data.", canonical: "https://marketspivot.com/privacy", noindex: true });
 
   return (
@@ -106,7 +110,7 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* Sidebar TOC */}
           <aside style={{ position: "sticky", top: 80, alignSelf: "start" }}>
-            <div style={{ fontSize: 11, fontWeight: 800, color: MUTED, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 12 }}>Contents</div>
+            <div style={{ fontSize: 11, fontWeight: 800, color: MUTED, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 12 }}>{t("src_client_pages_privacypolicy__l109__h0")}</div>
             <nav style={{ display: "grid", gap: 2 }}>
               {sections.map((s) => (
                 <a

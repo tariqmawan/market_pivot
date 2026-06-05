@@ -2,6 +2,9 @@ import React from "react";
 import { adminDelete, adminGet, adminPost } from "../api/client";
 import DataTable from "../components/ui/DataTable";
 import PageHeader from "../components/ui/PageHeader";
+import { useI18n } from "../../i18n";
+
+
 
 interface NewsRow {
   id: number;
@@ -13,6 +16,7 @@ interface NewsRow {
 }
 
 export default function NewsPage() {
+  const { t } = useI18n();
   const [rows, setRows] = React.useState<NewsRow[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
@@ -51,17 +55,17 @@ export default function NewsPage() {
 
   return (
     <div className="mp-admin-content">
-      <PageHeader title="News CMS" subtitle="Publish, draft workflow, and article management" />
+      <PageHeader title={t("src_client_admin_pages_newspage__l54__h0")} subtitle="Publish, draft workflow, and article management" />
 
       <form className="mp-admin-form-card" onSubmit={publish}>
-        <h3>Quick publish</h3>
+        <h3>{t("src_client_admin_pages_newspage__l57__h1")}</h3>
         <div className="mp-admin-form-grid">
-          <input placeholder="Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
-          <input placeholder="Source" value={form.source} onChange={(e) => setForm({ ...form, source: e.target.value })} required />
-          <input placeholder="URL" value={form.url} onChange={(e) => setForm({ ...form, url: e.target.value })} required />
-          <input placeholder="Category" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} required />
+          <input placeholder={t("src_client_admin_pages_newspage__l59__h2")} value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
+          <input placeholder={t("src_client_admin_pages_newspage__l60__h3")} value={form.source} onChange={(e) => setForm({ ...form, source: e.target.value })} required />
+          <input placeholder={t("src_client_admin_pages_newspage__l61__h4")} value={form.url} onChange={(e) => setForm({ ...form, url: e.target.value })} required />
+          <input placeholder={t("src_client_admin_pages_newspage__l62__h5")} value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} required />
         </div>
-        <button type="submit" className="mp-admin-action-btn">Publish</button>
+        <button type="submit" className="mp-admin-action-btn">{t("src_client_admin_pages_newspage__l64__h6")}</button>
       </form>
 
       {error ? <p className="mp-admin-error-text">{error}</p> : null}
@@ -75,7 +79,7 @@ export default function NewsPage() {
           { key: "category", label: "Category" },
           { key: "publishedAt", label: "Published", render: (r) => new Date(r.publishedAt).toLocaleString() },
           { key: "del", label: "", render: (r) => (
-            <button type="button" className="mp-admin-link-btn" onClick={() => void remove(r.id)}>Delete</button>
+            <button type="button" className="mp-admin-link-btn" onClick={() => void remove(r.id)}>{t("src_client_admin_pages_newspage__l78__h7")}</button>
           )},
         ]}
       />

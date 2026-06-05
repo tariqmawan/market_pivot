@@ -1,4 +1,7 @@
 import React from "react";
+import { useI18n } from "../i18n";
+
+
 
 type Impact = "High" | "Medium" | "Low";
 type DateRange = "Today" | "Tomorrow" | "This Week";
@@ -28,6 +31,7 @@ const impacts: Array<Impact | "All"> = ["All", "High", "Medium", "Low"];
 const dateRanges: DateRange[] = ["Today", "Tomorrow", "This Week"];
 
 const EconomicCalendar: React.FC = () => {
+  const { t } = useI18n();
   const [country, setCountry] = React.useState("All");
   const [impact, setImpact] = React.useState<Impact | "All">("All");
   const [dateRange, setDateRange] = React.useState<DateRange>("Today");
@@ -45,15 +49,15 @@ const EconomicCalendar: React.FC = () => {
     <div className="page tool-page economic-calendar-page">
       <section className="tool-hero calendar-hero">
         <div>
-          <p className="eyebrow">Economic Calendar</p>
-          <h1>Plan around market-moving macro events.</h1>
+          <p className="eyebrow">{t("src_client_pages_economiccalendar__l48__h0")}</p>
+          <h1>{t("src_client_pages_economiccalendar__l49__h1")}</h1>
           <p>
             Track central banks, inflation releases, growth data, and policy events with a cleaner
             timeline built for fast scanning.
           </p>
         </div>
         <div className="tool-hero-panel">
-          <span>High Impact</span>
+          <span>{t("src_client_pages_economiccalendar__l56__h2")}</span>
           <strong>{highImpactCount}</strong>
           <em>{dateRange}</em>
         </div>
@@ -78,12 +82,12 @@ const EconomicCalendar: React.FC = () => {
         <aside className="tool-filter-card">
           <div className="tool-card-head">
             <div>
-              <p className="eyebrow">Filters</p>
-              <h2>Calendar view</h2>
+              <p className="eyebrow">{t("src_client_pages_economiccalendar__l81__h3")}</p>
+              <h2>{t("src_client_pages_economiccalendar__l82__h4")}</h2>
             </div>
           </div>
 
-          <div className="tool-segmented vertical" aria-label="Date range">
+          <div className="tool-segmented vertical" aria-label={t("src_client_pages_economiccalendar__l86__h5")}>
             {dateRanges.map((range) => (
               <button
                 type="button"
@@ -97,7 +101,7 @@ const EconomicCalendar: React.FC = () => {
           </div>
 
           <label className="tool-field">
-            <span>Country</span>
+            <span>{t("src_client_pages_economiccalendar__l100__h7")}</span>
             <select value={country} onChange={(e) => setCountry(e.target.value)}>
               {countries.map((item) => (
                 <option key={item} value={item}>
@@ -108,7 +112,7 @@ const EconomicCalendar: React.FC = () => {
           </label>
 
           <label className="tool-field">
-            <span>Impact</span>
+            <span>{t("src_client_pages_economiccalendar__l111__h8")}</span>
             <select value={impact} onChange={(e) => setImpact(e.target.value as Impact | "All")}>
               {impacts.map((item) => (
                 <option key={item} value={item}>
@@ -122,10 +126,10 @@ const EconomicCalendar: React.FC = () => {
         <section className="calendar-timeline-card">
           <div className="tool-card-head">
             <div>
-              <p className="eyebrow">Timeline</p>
+              <p className="eyebrow">{t("src_client_pages_economiccalendar__l125__h9")}</p>
               <h2>{dateRange}</h2>
             </div>
-            <span className="tool-live-chip">Local time</span>
+            <span className="tool-live-chip">{t("src_client_pages_economiccalendar__l128__h10")}</span>
           </div>
 
           <div className="calendar-timeline">
@@ -143,15 +147,15 @@ const EconomicCalendar: React.FC = () => {
                       <span className={`impact-badge impact-${event.impact.toLowerCase()}`}>{event.impact}</span>
                     </div>
                     <div className="calendar-values">
-                      <span>Forecast <strong>{event.forecast}</strong></span>
-                      <span>Previous <strong>{event.previous}</strong></span>
-                      <span>Actual <strong>{event.actual ?? "Pending"}</strong></span>
+                      <span>{t("src_client_pages_economiccalendar__l150_h0")} <strong>{event.forecast}</strong></span>
+                      <span>{t("src_client_pages_economiccalendar__l151_h1")} <strong>{event.previous}</strong></span>
+                      <span>{t("src_client_pages_economiccalendar__l152_h2")} <strong>{event.actual ?? "Pending"}</strong></span>
                     </div>
                   </div>
                 </article>
               ))
             ) : (
-              <div className="tool-empty">No events found for these filters.</div>
+              <div className="tool-empty">{t("src_client_pages_economiccalendar__l154__h14")}</div>
             )}
           </div>
         </section>

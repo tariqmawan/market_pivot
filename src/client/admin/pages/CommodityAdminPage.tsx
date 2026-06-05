@@ -3,10 +3,12 @@ import AdminCrudPage from "../components/ui/AdminCrudPage";
 import type { AdminColumn } from "../components/ui/AdminTable";
 import type { FormFieldDef } from "../components/ui/AdminFormBuilder";
 import type { AdminFilterDef } from "../components/ui/AdminFilters";
+import { useI18n } from "../../i18n";
 import {
   useCommodityAdminStore,
   type AdminCommodity,
 } from "../stores/commodityStore";
+
 
 const CATEGORY_OPTIONS = [
   "Energy",
@@ -99,6 +101,7 @@ const formFields: FormFieldDef<AdminCommodity>[] = [
 ];
 
 export default function CommodityAdminPage() {
+  const { t } = useI18n();
   const items = useCommodityAdminStore((s) => s.items);
   const update = useCommodityAdminStore((s) => s.update);
 
@@ -117,7 +120,7 @@ export default function CommodityAdminPage() {
   return (
     <>
       <AdminCrudPage<AdminCommodity>
-        title="Commodities"
+        title={t("src_client_admin_pages_commodityadminpage__l120__h0")}
         subtitle="Spot pricing, futures specs, production and supply regions, demand drivers"
         useStore={useCommodityAdminStore}
         columns={columns}
@@ -160,7 +163,7 @@ export default function CommodityAdminPage() {
             type="button"
             className="mp-admin-link-btn"
             onClick={() => setShowSpecModal(row)}
-            title="Edit contract specifications"
+            title={t("src_client_admin_pages_commodityadminpage__l163__h1")}
           >
             Spec
           </button>

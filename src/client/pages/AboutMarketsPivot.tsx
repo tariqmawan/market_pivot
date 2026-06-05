@@ -1,5 +1,8 @@
 import React from "react";
 import { useSEO } from "../lib/useSEO";
+import { useI18n } from "../i18n";
+
+
 
 const GOLD = "#C9A87B";
 const GOLD_LIGHT = "#e8c990";
@@ -52,6 +55,7 @@ const values = [
 ];
 
 const AboutMarketsPivot: React.FC = () => {
+  const { t } = useI18n();
   useSEO({ title: "About MarketsPivot", description: "Learn about MarketsPivot — a Bloomberg-style market intelligence platform covering stocks, forex, crypto and commodities.", canonical: "https://marketspivot.com/about" });
 
   return (
@@ -84,7 +88,7 @@ const AboutMarketsPivot: React.FC = () => {
             lineHeight: 1.08, color: "#ffffff", letterSpacing: "-0.5px", marginBottom: 20,
           }}>
             Market intelligence,<br />
-            <span style={{ color: GOLD }}>built for clarity.</span>
+            <span style={{ color: GOLD }}>{t("src_client_pages_aboutmarketspivot__l87__h0")}</span>
           </h1>
           <p style={{
             fontSize: 18, color: "rgba(255,255,255,0.7)",
@@ -138,7 +142,7 @@ const AboutMarketsPivot: React.FC = () => {
       <section style={{ background: "#f8f9fa", padding: "72px 5vw" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           <div>
-            <div style={{ color: GOLD, fontSize: 11, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>Our Mission</div>
+            <div style={{ color: GOLD, fontSize: 11, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>{t("src_client_pages_aboutmarketspivot__l141__h1")}</div>
             <h2 style={{ fontSize: "clamp(26px, 3vw, 38px)", fontWeight: 800, color: DARK, lineHeight: 1.15, marginBottom: 20 }}>
               Bringing institutional-grade data to everyone
             </h2>
@@ -169,7 +173,7 @@ const AboutMarketsPivot: React.FC = () => {
       <section style={{ background: "#ffffff", padding: "72px 5vw" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <div style={{ color: GOLD, fontSize: 11, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 12 }}>What We Cover</div>
+            <div style={{ color: GOLD, fontSize: 11, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 12 }}>{t("src_client_pages_aboutmarketspivot__l172__h2")}</div>
             <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 800, color: DARK, lineHeight: 1.15 }}>
               Six pillars of market intelligence
             </h2>

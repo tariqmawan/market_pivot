@@ -1,5 +1,8 @@
 import React from "react";
 import { useSEO } from "../lib/useSEO";
+import { useI18n } from "../i18n";
+
+
 
 const GOLD = "#C9A87B";
 const DARK = "#0f172a";
@@ -64,6 +67,7 @@ const sections = [
 ];
 
 const TermsOfService: React.FC = () => {
+  const { t } = useI18n();
   useSEO({ title: "Terms of Service", description: "MarketsPivot terms of service — acceptable use, disclaimers, and account policies.", canonical: "https://marketspivot.com/terms", noindex: true });
 
   return (
@@ -114,7 +118,7 @@ const TermsOfService: React.FC = () => {
 
           {/* Sidebar TOC */}
           <aside style={{ position: "sticky", top: 80, alignSelf: "start" }}>
-            <div style={{ fontSize: 11, fontWeight: 800, color: MUTED, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 12 }}>Contents</div>
+            <div style={{ fontSize: 11, fontWeight: 800, color: MUTED, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 12 }}>{t("src_client_pages_termsofservice__l117__h0")}</div>
             <nav style={{ display: "grid", gap: 2 }}>
               {sections.map((s) => (
                 <a
@@ -135,10 +139,10 @@ const TermsOfService: React.FC = () => {
             </nav>
 
             <div style={{ marginTop: 32, padding: "14px 16px", background: "#ffffff", border: `1px solid #e5e7eb`, borderLeft: `3px solid ${GOLD}` }}>
-              <div style={{ fontSize: 11, fontWeight: 800, color: MUTED, textTransform: "uppercase", marginBottom: 8 }}>Quick Links</div>
+              <div style={{ fontSize: 11, fontWeight: 800, color: MUTED, textTransform: "uppercase", marginBottom: 8 }}>{t("src_client_pages_termsofservice__l138__h1")}</div>
               <div style={{ display: "grid", gap: 6 }}>
-                <a href="/privacy" style={{ color: GOLD, fontSize: 13, fontWeight: 700, textDecoration: "none" }}>Privacy Policy →</a>
-                <a href="/about" style={{ color: GOLD, fontSize: 13, fontWeight: 700, textDecoration: "none" }}>About Us →</a>
+                <a href="/privacy" style={{ color: GOLD, fontSize: 13, fontWeight: 700, textDecoration: "none" }}>{t("src_client_pages_termsofservice__l140__h2")}</a>
+                <a href="/about" style={{ color: GOLD, fontSize: 13, fontWeight: 700, textDecoration: "none" }}>{t("src_client_pages_termsofservice__l141__h3")}</a>
               </div>
             </div>
           </aside>

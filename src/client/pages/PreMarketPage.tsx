@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import exchangesData from "../../data/exchanges.json";
 import type { StockExchange, MarketMover } from "../../types";
 import "../styles/index.css";
+import { useI18n } from "../i18n";
+
+
 
 const exchanges = (exchangesData as any).exchanges as StockExchange[];
 
@@ -61,6 +64,7 @@ const MoverCard: React.FC<{ mover: MarketMover }> = ({ mover }) => (
 );
 
 const PreMarketPage: React.FC = () => {
+  const { t } = useI18n();
   const [isLoading, setIsLoading] = React.useState(false);
 
   // Generate mock pre-market data
@@ -90,22 +94,22 @@ const PreMarketPage: React.FC = () => {
       {/* Hero Section */}
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">Global Markets</p>
-          <h1>Pre-Market Overview</h1>
-          <p>Track index futures, pre-market movers, and overnight sentiment before regular market open.</p>
+          <p className="eyebrow">{t("src_client_pages_premarketpage__l93__h0")}</p>
+          <h1>{t("src_client_pages_premarketpage__l94__h1")}</h1>
+          <p>{t("src_client_pages_premarketpage__l95__h2")}</p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>US Equity Futures</span>
-            <strong>↑0.52%</strong>
+            <span>{t("src_client_pages_premarketpage__l99__h3")}</span>
+            <strong>{t("src_client_pages_premarketpage__l100__h4")}</strong>
           </div>
           <div className="metric-tile">
-            <span>Asia Session</span>
-            <strong>Closed</strong>
+            <span>{t("src_client_pages_premarketpage__l103__h5")}</span>
+            <strong>{t("src_client_pages_premarketpage__l104__h6")}</strong>
           </div>
           <div className="metric-tile">
-            <span>Europe Session</span>
-            <strong>Active</strong>
+            <span>{t("src_client_pages_premarketpage__l107__h7")}</span>
+            <strong>{t("src_client_pages_premarketpage__l108__h8")}</strong>
           </div>
         </div>
       </section>
@@ -113,8 +117,8 @@ const PreMarketPage: React.FC = () => {
       {/* Index Futures Section */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">Key Benchmarks</p>
-          <h2>Global Index Futures</h2>
+          <p className="eyebrow">{t("src_client_pages_premarketpage__l116__h9")}</p>
+          <h2>{t("src_client_pages_premarketpage__l117__h10")}</h2>
         </div>
         <div
           style={{
@@ -157,8 +161,8 @@ const PreMarketPage: React.FC = () => {
       {/* Pre-Market Movers */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">Market Movements</p>
-          <h2>Pre-Market Top Movers</h2>
+          <p className="eyebrow">{t("src_client_pages_premarketpage__l160__h11")}</p>
+          <h2>{t("src_client_pages_premarketpage__l161__h12")}</h2>
         </div>
         <div
           style={{
@@ -176,8 +180,8 @@ const PreMarketPage: React.FC = () => {
       {/* Volume Alerts */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">Notable Activity</p>
-          <h2>Volume Spikes & Gaps</h2>
+          <p className="eyebrow">{t("src_client_pages_premarketpage__l179__h13")}</p>
+          <h2>{t("src_client_pages_premarketpage__l180__h14")}</h2>
         </div>
         <div
           style={{
@@ -218,8 +222,8 @@ const PreMarketPage: React.FC = () => {
           border: "1px solid rgba(162, 120, 65, 0.2)",
         }}
       >
-        <p className="eyebrow">Regular Trading Hours</p>
-        <h3>US Market Opens in ~2 hours 45 minutes</h3>
+        <p className="eyebrow">{t("src_client_pages_premarketpage__l221__h15")}</p>
+        <h3>{t("src_client_pages_premarketpage__l222__h16")}</h3>
         <p style={{ color: "#475569", marginTop: "12px" }}>
           NYSE and NASDAQ open at 9:30 AM ET | Pre-market session continues until open
         </p>

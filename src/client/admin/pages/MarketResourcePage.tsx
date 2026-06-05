@@ -2,6 +2,9 @@ import React from "react";
 import { adminGet, adminPut } from "../api/client";
 import DataTable from "../components/ui/DataTable";
 import PageHeader from "../components/ui/PageHeader";
+import { useI18n } from "../../i18n";
+
+
 
 export default function MarketResourcePage({
   entity,
@@ -12,6 +15,7 @@ export default function MarketResourcePage({
   title: string;
   subtitle: string;
 }) {
+  const { t } = useI18n();
   const [rows, setRows] = React.useState<Record<string, unknown>[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [search, setSearch] = React.useState("");
@@ -72,8 +76,8 @@ export default function MarketResourcePage({
     <div className="mp-admin-content">
       <PageHeader title={title} subtitle={subtitle} />
       <div className="mp-admin-toolbar">
-        <input className="mp-admin-search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search…" />
-        <button type="button" className="mp-admin-action-btn" onClick={() => void load()}>Refresh</button>
+        <input className="mp-admin-search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={t("src_client_admin_pages_marketresourcepage__l75__h0")} />
+        <button type="button" className="mp-admin-action-btn" onClick={() => void load()}>{t("src_client_admin_pages_marketresourcepage__l76__h1")}</button>
       </div>
       {error ? <p className="mp-admin-error-text">{error}</p> : null}
       <DataTable columns={cols} rows={rows} loading={loading} keyField={idField} />
@@ -81,11 +85,11 @@ export default function MarketResourcePage({
       {editing ? (
         <div className="mp-admin-modal-overlay" onClick={() => setEditing(null)}>
           <div className="mp-admin-modal" onClick={(e) => e.stopPropagation()}>
-            <h3>Edit record</h3>
-            <label>Name<input value={String(editing.name ?? "")} onChange={(e) => setEditing({ ...editing, name: e.target.value })} /></label>
+            <h3>{t("src_client_admin_pages_marketresourcepage__l84__h2")}</h3>
+            <label>{t("src_client_admin_pages_marketresourcepage__l85__h3")}<input value={String(editing.name ?? "")} onChange={(e) => setEditing({ ...editing, name: e.target.value })} /></label>
             <div className="mp-admin-modal-actions">
-              <button type="button" className="mp-admin-action-btn" onClick={() => void saveEdit()}>Save</button>
-              <button type="button" className="mp-admin-link-btn" onClick={() => setEditing(null)}>Cancel</button>
+              <button type="button" className="mp-admin-action-btn" onClick={() => void saveEdit()}>{t("src_client_admin_pages_marketresourcepage__l87__h4")}</button>
+              <button type="button" className="mp-admin-link-btn" onClick={() => setEditing(null)}>{t("src_client_admin_pages_marketresourcepage__l88__h5")}</button>
             </div>
           </div>
         </div>

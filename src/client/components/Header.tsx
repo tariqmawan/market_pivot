@@ -20,6 +20,7 @@ import { useI18n, SUPPORTED_LANGUAGES, type SupportedLang as LanguageCode } from
 import { useAuthStore } from "../stores/authStore";
 import navigationItems from "./navigationData";
 
+
 type SubmenuPanelLink = {
   label: string;
   path: string;
@@ -479,6 +480,13 @@ const languageDisplayNames: Record<LanguageCode, string> = {
   ko: "한국어",
   es: "Español",
   hi: "हिन्दी",
+  th: "ไทย",
+  vi: "Tiếng Việt",
+  de: "Deutsch",
+  pl: "Polski",
+  tr: "Türkçe",
+  id: "Bahasa Indonesia",
+  ms: "Bahasa Melayu",
 };
 
 type HeaderProps = {
@@ -630,11 +638,11 @@ const { openLoginModal, openSignupModal, isAuthenticated, user } = useAuthStore(
 
         <div className="brand-left">
           <Link to="/" className="logo-link">
-            <img src="/logos/marketpivot.jpeg" alt="MarketsPivot" className="logo-icon" />
+            <img src="/logos/marketpivot.jpeg" alt={t("src_client_components_header__l640__h0")} className="logo-icon" />
           </Link>
         </div>
 
-        <nav className="header-center-nav" role="navigation" aria-label="Primary navigation">
+        <nav className="header-center-nav" role="navigation" aria-label={t("src_client_components_header__l644__h1")}>
           <div className="header-center-inner">
             {headerNavigationItems.map((item) => (
               <Link

@@ -1,6 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useI18n, SUPPORTED_LANGUAGES, type SupportedLang } from "../i18n";
 
+
+
+
 interface LanguageSwitcherProps {
   variant?: "horizontal-scroll" | "dropdown" | "strip";
   className?: string;
@@ -19,6 +22,13 @@ const FLAGS: Record<SupportedLang, string> = {
   ko: "🇰🇷",
   es: "🇪🇸",
   hi: "🇮🇳",
+  th: "🇹🇭",
+  vi: "🇻🇳",
+  de: "🇩🇪",
+  pl: "🇵🇱",
+  tr: "🇹🇷",
+  id: "🇮🇩",
+  ms: "🇲🇾",
 };
 
 const getFlag = (code: SupportedLang): string => FLAGS[code] ?? "🌐";
@@ -27,7 +37,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   variant = "horizontal-scroll",
   className = "",
 }) => {
-  const { language, setLanguage } = useI18n();
+  const { t, language, setLanguage } = useI18n();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState(0);
@@ -88,7 +98,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
 
   if (variant === "strip") {
     return (
-      <div className={`lang-strip ${className}`} role="navigation" aria-label="Language selection">
+      <div className={`lang-strip ${className}`} role="navigation" aria-label={t("src_client_components_languageswitcher__l98__h0")}>
         {SUPPORTED_LANGUAGES.map((lang) => (
           <button
             key={lang.code}
@@ -96,12 +106,12 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
             className={`lang-strip-btn ${language === lang.code ? "active" : ""}`}
             onClick={() => handleSelect(lang.code)}
             aria-pressed={language === lang.code}
-            title={lang.label}
+            title={lang.nativeLabel}
+            // Prevent duplicate rendering: key already used in DOM, lang.nativeLabel rendered once.
           >
             <span className="lang-flag" aria-hidden="true">{getFlag(lang.code)}</span>
             <span className="lang-copy">
-              <span className="lang-native">{lang.label}</span>
-              <span className="lang-subtitle">{lang.nativeLabel}</span>
+              <span className="lang-native">{lang.nativeLabel}</span>
             </span>
           </button>
         ))}
@@ -109,14 +119,14 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     );
   }
 
-  // Horizontal scroll layout - all 8 supported languages
+  // Horizontal scroll layout — all 17 supported languages
   return (
-    <div className={`lang-scroll-container ${className}`} role="navigation" aria-label="Language selection">
+    <div className={`lang-scroll-container ${className}`} role="navigation" aria-label={t("src_client_components_languageswitcher__l121__h2")}>
       <div
         className="lang-scroll-track"
         ref={scrollRef}
         role="region"
-        aria-label="Scrollable language options"
+        aria-label={t("src_client_components_languageswitcher__l126__h4")}
       >
         {SUPPORTED_LANGUAGES.map((lang) => (
           <button
@@ -125,12 +135,11 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
             className={`lang-scroll-btn ${language === lang.code ? "active" : ""}`}
             onClick={() => handleSelect(lang.code)}
             aria-pressed={language === lang.code}
-            title={lang.label}
+            title={lang.nativeLabel}
           >
             <span className="lang-flag" aria-hidden="true">{getFlag(lang.code)}</span>
             <span className="lang-scroll-label">
-              <span className="lang-native">{lang.label}</span>
-              <span className="lang-code">{lang.subtitle}</span>
+              <span className="lang-native">{lang.nativeLabel}</span>
             </span>
           </button>
         ))}

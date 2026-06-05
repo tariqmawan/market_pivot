@@ -1,10 +1,14 @@
 import React from "react";
 import type { StockSector } from "../../types";
 import sectorsData from "../../data/sectors.json";
+import { useI18n } from "../i18n";
+
+
 
 const stockSectors = (sectorsData as any).sectors as StockSector[];
 
 const EtfsPage: React.FC = () => {
+  const { t } = useI18n();
   const allEtfs = React.useMemo(() => {
     const map = new Map<string, { symbol: string; label: string; categories: string[] }>();
 
@@ -26,18 +30,18 @@ const EtfsPage: React.FC = () => {
   return (
     <div className="page intelligence-page">
       <div className="section-heading">
-        <p className="eyebrow">ETFs & Funds</p>
-        <h1>ETF Coverage by Equity Sectors</h1>
-        <p>Sector-mapped ETF watchlist built from the stock sector dataset.</p>
+        <p className="eyebrow">{t("src_client_pages_etfspage__l29__h0")}</p>
+        <h1>{t("src_client_pages_etfspage__l30__h1")}</h1>
+        <p>{t("src_client_pages_etfspage__l31__h2")}</p>
       </div>
 
       <div className="asset-grid compact">
         {allEtfs.slice(0, 40).map((etf) => (
           <div key={etf.symbol} className="asset-card">
-            <span className="eyebrow">ETF</span>
+            <span className="eyebrow">{t("src_client_pages_etfspage__l37__h3")}</span>
             <h3>{etf.label}</h3>
             <p>{etf.categories.join(" / ")}</p>
-            <strong>Planned</strong>
+            <strong>{t("src_client_pages_etfspage__l40__h4")}</strong>
           </div>
         ))}
       </div>

@@ -1,4 +1,7 @@
 import React from "react";
+import { useI18n } from "../../i18n";
+
+
 
 export default class AdminErrorBoundary extends React.Component<
   { children: React.ReactNode },

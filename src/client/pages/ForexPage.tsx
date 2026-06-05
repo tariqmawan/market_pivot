@@ -5,6 +5,8 @@ import LineChart from "../components/LineChart";
 import ChartJSLine from "../components/ChartJSLine";
 import { generateSeriesForSymbol, formatSignedPercent } from "../lib/chartSeries";
 import "./ForexPage.css";
+import { useI18n } from "../i18n";
+
 
 type Currency = {
   code: string;
@@ -65,6 +67,7 @@ const getStrength = (code: string) => {
 };
 
 const ForexPage: React.FC = () => {
+  const { t } = useI18n();
   const { code: routeCode } = useParams();
   const detailCode = routeCode?.toUpperCase();
   const detailCurrency = detailCode
@@ -182,27 +185,27 @@ const ForexPage: React.FC = () => {
       <div className="page forex-page forex-detail">
         <section className="forex-hero">
           <div>
-            <Link to="/forex" className="back-link">← All Currencies</Link>
+            <Link to="/forex" className="back-link">← {t("forex.allCurrencies")}</Link>
             <p className="eyebrow">{detailCurrency.region} • {detailCurrency.type}</p>
             <h1>{detailCurrency.code} — {detailCurrency.name}</h1>
             <p>{detailCurrency.description || `${detailCurrency.country} currency, issued by ${detailCurrency.centralBank}.`}</p>
           </div>
           <div className="metric-strip">
-            <div className="metric-tile"><span>Code</span><strong>{detailCurrency.code}</strong></div>
-            <div className="metric-tile"><span>Rate vs USD</span><strong>{dcRate.toFixed(detailCurrency.code === "JPY" || detailCurrency.code === "KRW" ? 2 : 4)}</strong></div>
+            <div className="metric-tile"><span>{t("forex.code")}</span><strong>{detailCurrency.code}</strong></div>
+            <div className="metric-tile"><span>{t("forex.rateVsUsd")}</span><strong>{dcRate.toFixed(detailCurrency.code === "JPY" || detailCurrency.code === "KRW" ? 2 : 4)}</strong></div>
             <div className="metric-tile">
-              <span>24h Change</span>
+              <span>{t("forex.change24h")}</span>
               <strong className={change >= 0 ? "positive" : "negative"}>{formatSignedPercent(change)}</strong>
             </div>
-            <div className="metric-tile"><span>Strength</span><strong>{strength.toFixed(1)}</strong></div>
+            <div className="metric-tile"><span>{t("forex.strength")}</span><strong>{strength.toFixed(1)}</strong></div>
           </div>
         </section>
 
         <section className="forex-content">
           <div className="strength-section">
             <div className="section-header-row">
-              <h2>Price Chart — {detailCurrency.code}/USD</h2>
-              <p>1-month rolling rate</p>
+              <h2>{t("forex.priceChart")} — {detailCurrency.code}/USD</h2>
+              <p>{t("forex.monthRollingRate")}</p>
             </div>
             <div style={{ background: "var(--surface,#fff)", border: "1px solid var(--border,#e2e8f0)", borderRadius: 12, padding: "1rem" }}>
               {window.Chart ? (
@@ -215,17 +218,17 @@ const ForexPage: React.FC = () => {
 
           <div className="pairs-section">
             <div className="section-header-row">
-              <h2>Rates vs Major Currencies</h2>
+              <h2>{t("forex.ratesVsMajor")}</h2>
               <p>1 {detailCurrency.code} expressed in other major currencies</p>
             </div>
             <div className="pairs-table-wrap">
               <table className="pairs-table">
                 <thead>
                   <tr>
-                    <th>Pair</th>
-                    <th>Rate</th>
-                    <th>24h Change</th>
-                    <th>Action</th>
+                    <th>{t("forex.pair")}</th>
+                    <th>{t("forex.rate")}</th>
+                    <th>{t("forex.change24h")}</th>
+                    <th>{t("forex.action")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -235,7 +238,7 @@ const ForexPage: React.FC = () => {
                       <td>{r.rate.toFixed(4)}</td>
                       <td className={r.change >= 0 ? "positive" : "negative"}>{formatSignedPercent(r.change)}</td>
                       <td>
-                        <Link to={`/forex/${r.target}`} className="secondary-action-sm">View {r.target}</Link>
+                        <Link to={`/forex/${r.target}`} className="secondary-action-sm">{t("viewDetails")} {r.target}</Link>
                       </td>
                     </tr>
                   ))}
@@ -246,8 +249,8 @@ const ForexPage: React.FC = () => {
 
           <div className="central-section">
             <div className="section-header-row">
-              <h2>Central Bank & Macro Profile</h2>
-              <p>Policy stance and economic context</p>
+              <h2>{t("forex.centralBankMacro")}</h2>
+              <p>{t("src_client_pages_forexpage__l252__h0")}</p>
             </div>
             <div className="central-grid">
               <div className="central-card">
@@ -258,11 +261,11 @@ const ForexPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="central-stats">
-                  <div><span>Policy Rate</span><strong>{(detailCurrency.interestRate ?? 2.5).toFixed(2)}%</strong></div>
-                  <div><span>Inflation</span><strong>{(detailCurrency.inflation ?? 2.5).toFixed(1)}%</strong></div>
-                  <div><span>GDP Growth</span><strong>{(detailCurrency.gdpGrowth ?? 2.0).toFixed(1)}%</strong></div>
+                  <div><span>{t("forex.policyRate")}</span><strong>{(detailCurrency.interestRate ?? 2.5).toFixed(2)}%</strong></div>
+                  <div><span>{t("forex.inflation")}</span><strong>{(detailCurrency.inflation ?? 2.5).toFixed(1)}%</strong></div>
+                  <div><span>{t("forex.gdpGrowth")}</span><strong>{(detailCurrency.gdpGrowth ?? 2.0).toFixed(1)}%</strong></div>
                   <div>
-                    <span>Real Rate</span>
+                    <span>{t("forex.realRate")}</span>
                     <strong className={(detailCurrency.interestRate ?? 2.5) - (detailCurrency.inflation ?? 2.5) > 0 ? "positive" : "negative"}>
                       {((detailCurrency.interestRate ?? 2.5) - (detailCurrency.inflation ?? 2.5)).toFixed(2)}%
                     </strong>
@@ -270,12 +273,12 @@ const ForexPage: React.FC = () => {
                 </div>
               </div>
               <div className="central-card">
-                <div className="central-header"><div><h4>Trade Profile</h4><span>{detailCurrency.country}</span></div></div>
+                <div className="central-header"><div><h4>{t("forex.tradeProfile")}</h4><span>{detailCurrency.country}</span></div></div>
                 <div className="central-stats">
-                  <div><span>Reserve Status</span><strong>{detailCurrency.reserveStatus ?? "Regional"}</strong></div>
-                  <div><span>Capital Flows</span><strong>{detailCurrency.capitalFlows ?? "Open"}</strong></div>
-                  <div><span>Trade Balance</span><strong>{detailCurrency.tradeBalance != null ? `${detailCurrency.tradeBalance > 0 ? "+" : ""}${detailCurrency.tradeBalance.toFixed(1)}%` : "—"}</strong></div>
-                  <div><span>Region</span><strong>{detailCurrency.region}</strong></div>
+                  <div><span>{t("forex.reserveStatus")}</span><strong>{detailCurrency.reserveStatus ?? "Regional"}</strong></div>
+                  <div><span>{t("forex.capitalFlows")}</span><strong>{detailCurrency.capitalFlows ?? "Open"}</strong></div>
+                  <div><span>{t("forex.tradeBalance")}</span><strong>{detailCurrency.tradeBalance != null ? `${detailCurrency.tradeBalance > 0 ? "+" : ""}${detailCurrency.tradeBalance.toFixed(1)}%` : "—"}</strong></div>
+                  <div><span>{t("forex.region")}</span><strong>{detailCurrency.region}</strong></div>
                 </div>
               </div>
             </div>
@@ -283,7 +286,7 @@ const ForexPage: React.FC = () => {
 
           <div className="calendar-section">
             <div className="section-header-row">
-              <h2>Upcoming Events</h2>
+              <h2>{t("forex.upcomingEvents")}</h2>
               <p>Key data releases for {detailCurrency.code}</p>
             </div>
             <div className="econ-events">
@@ -293,7 +296,7 @@ const ForexPage: React.FC = () => {
                   <div className="event-currency">{detailCurrency.code}</div>
                   <div className="event-info">
                     <strong>{event.event}</strong>
-                    <div className="event-meta"><span>Source: {detailCurrency.centralBank}</span></div>
+                    <div className="event-meta"><span>{t("forex.source")}: {detailCurrency.centralBank}</span></div>
                   </div>
                   <div className={`event-impact ${event.impact.toLowerCase()}`}>{event.impact}</div>
                 </div>
@@ -303,7 +306,7 @@ const ForexPage: React.FC = () => {
         </section>
 
         <section className="forex-news">
-          <h2>{detailCurrency.code} News & Insights</h2>
+          <h2>{detailCurrency.code} {t("forex.newsDetail")}</h2>
           <div className="forex-news-grid">
             {[
               { title: `${detailCurrency.code} ${change >= 0 ? "strengthens" : "weakens"} on policy expectations`, source: "Reuters" },
@@ -328,28 +331,28 @@ const ForexPage: React.FC = () => {
       {/* Hero */}
       <section className="forex-hero">
         <div>
-          <p className="eyebrow">Foreign Exchange</p>
-          <h1>Global FX Intelligence</h1>
-          <p>Currency strength, major and exotic pairs, central bank policy, economic calendar, regional flows, and historical charts in one terminal.</p>
+          <p className="eyebrow">{t("forex.foreignExchange")}</p>
+          <h1>{t("forex.globalFxIntelligence")}</h1>
+          <p>{t("forex.fxSubtitle")}</p>
         </div>
         <div className="metric-strip">
-          <div className="metric-tile"><span>Tracked Currencies</span><strong>{currencies.length}</strong></div>
-          <div className="metric-tile"><span>Major Pairs</span><strong>{majorPairs.length}</strong></div>
-          <div className="metric-tile"><span>Central Banks</span><strong>{centralBanks.length}</strong></div>
+          <div className="metric-tile"><span>{t("forex.trackedCurrencies")}</span><strong>{currencies.length}</strong></div>
+          <div className="metric-tile"><span>{t("forex.majorPairs")}</span><strong>{majorPairs.length}</strong></div>
+          <div className="metric-tile"><span>{t("forex.centralBanks")}</span><strong>{centralBanks.length}</strong></div>
         </div>
       </section>
 
       {/* Tabs */}
       <nav className="forex-tabs">
         {[
-          { id: "strength", label: "💪 Currency Strength" },
-          { id: "majors", label: "Major Pairs" },
-          { id: "cross", label: "Cross Pairs" },
-          { id: "exotic", label: "Exotic Pairs" },
-          { id: "central", label: "Central Banks" },
-          { id: "calendar", label: "📅 Calendar" },
-          { id: "volatility", label: "⚡ Volatility" },
-          { id: "heatmap", label: "🔥 Heatmap" },
+          { id: "strength", label: `💪 ${t("forex.currencyStrength")}` },
+          { id: "majors", label: t("forex.majorPairs") },
+          { id: "cross", label: t("forex.crossPairs") },
+          { id: "exotic", label: t("forex.exoticPairs") },
+          { id: "central", label: t("forex.centralBanks") },
+          { id: "calendar", label: `📅 ${t("forex.economicCalendar")}` },
+          { id: "volatility", label: `⚡ ${t("forex.fxVolatility")}` },
+          { id: "heatmap", label: `🔥 ${t("forex.heatmapTitle")}` },
         ].map((tab) => (
           <button
             key={tab.id}
@@ -367,8 +370,8 @@ const ForexPage: React.FC = () => {
         {activeTab === "strength" && (
           <div className="strength-section">
             <div className="section-header-row">
-              <h2>Currency Strength Meter</h2>
-              <p>Real-time strength index across 20+ fiat currencies</p>
+              <h2>{t("forex.currencyStrength")}</h2>
+              <p>{t("forex.strengthSubtitle")}</p>
             </div>
             <div className="strength-grid">
               {strengthList.map((currency) => {
@@ -394,7 +397,7 @@ const ForexPage: React.FC = () => {
             </div>
 
             <div className="regional-perf">
-              <h3>Regional Currency Performance</h3>
+              <h3>{t("forex.regionalPerf")}</h3>
               <div className="regional-grid">
                 {regionalPerformance.map((r) => (
                   <div key={r.region} className="regional-card">
@@ -412,8 +415,8 @@ const ForexPage: React.FC = () => {
         {activeTab === "majors" && (
           <div className="pairs-section">
             <div className="section-header-row">
-              <h2>Major Currency Pairs</h2>
-              <p>Liquidity leaders driving global FX flow</p>
+              <h2>{t("forex.majorPairsTitle")}</h2>
+              <p>{t("forex.majorPairsSubtitle")}</p>
             </div>
             <div className="pairs-grid">
               {majorPairs.map((pair) => (
@@ -443,9 +446,9 @@ const ForexPage: React.FC = () => {
                     )}
                   </div>
                   <div className="pair-stats">
-                    <div><span>52W High</span><strong>{pair.high.toFixed(4)}</strong></div>
-                    <div><span>52W Low</span><strong>{pair.low.toFixed(4)}</strong></div>
-                    <div><span>Volatility</span><strong>{pair.volatility.toFixed(1)}%</strong></div>
+                    <div><span>{t("forex.high52w")}</span><strong>{pair.high.toFixed(4)}</strong></div>
+                    <div><span>{t("forex.low52w")}</span><strong>{pair.low.toFixed(4)}</strong></div>
+                    <div><span>{t("forex.volatility")}</span><strong>{pair.volatility.toFixed(1)}%</strong></div>
                   </div>
                 </div>
               ))}
@@ -456,19 +459,19 @@ const ForexPage: React.FC = () => {
         {activeTab === "cross" && (
           <div className="pairs-section">
             <div className="section-header-row">
-              <h2>Cross Currency Pairs</h2>
-              <p>Major pair crosses with regional and trading themes</p>
+              <h2>{t("forex.crossPairs")}</h2>
+              <p>{t("forex.crossPairsSubtitle")}</p>
             </div>
             <div className="pairs-table-wrap">
               <table className="pairs-table">
                 <thead>
                   <tr>
-                    <th>Pair</th>
-                    <th>Rate</th>
-                    <th>24h Change</th>
-                    <th>52W High</th>
-                    <th>52W Low</th>
-                    <th>Trend</th>
+                    <th>{t("forex.pair")}</th>
+                    <th>{t("forex.rate")}</th>
+                    <th>{t("forex.change24h")}</th>
+                    <th>{t("forex.high52w")}</th>
+                    <th>{t("forex.low52w")}</th>
+                    <th>{t("forex.trend")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -514,8 +517,8 @@ const ForexPage: React.FC = () => {
         {activeTab === "exotic" && (
           <div className="pairs-section">
             <div className="section-header-row">
-              <h2>Exotic Currency Pairs</h2>
-              <p>Higher volatility emerging market currencies</p>
+              <h2>{t("forex.exoticPairs")}</h2>
+              <p>{t("forex.exoticSubtitle")}</p>
             </div>
             <div className="pairs-grid">
               {exoticPairsList.map((pair) => (
@@ -528,8 +531,8 @@ const ForexPage: React.FC = () => {
                   </div>
                   <div className="pair-rate">{pair.rate.toFixed(4)}</div>
                   <div className="pair-stats compact">
-                    <div><span>52W High</span><strong>{pair.high.toFixed(4)}</strong></div>
-                    <div><span>52W Low</span><strong>{pair.low.toFixed(4)}</strong></div>
+                    <div><span>{t("forex.high52w")}</span><strong>{pair.high.toFixed(4)}</strong></div>
+                    <div><span>{t("forex.low52w")}</span><strong>{pair.low.toFixed(4)}</strong></div>
                   </div>
                 </div>
               ))}
@@ -540,8 +543,8 @@ const ForexPage: React.FC = () => {
         {activeTab === "central" && (
           <div className="central-section">
             <div className="section-header-row">
-              <h2>Central Bank Tracker</h2>
-              <p>Policy rates, next decisions, and inflation context</p>
+              <h2>{t("forex.centralBankTracker")}</h2>
+              <p>{t("forex.centralBankSubtitle")}</p>
             </div>
             <div className="central-grid">
               {centralBanks.map((cb) => (
@@ -556,26 +559,26 @@ const ForexPage: React.FC = () => {
                     </div>
                   </div>
                   <div className="central-stats">
-                    <div><span>Policy Rate</span><strong>{cb.rate.toFixed(2)}%</strong></div>
-                    <div><span>Inflation</span><strong>{cb.inflation.toFixed(1)}%</strong></div>
-                    <div><span>Next Meeting</span><strong>{new Date(cb.nextMeeting).toLocaleDateString("en-US", { month: "short", day: "numeric" })}</strong></div>
-                    <div><span>Real Rate</span><strong className={(cb.rate - cb.inflation) > 0 ? "positive" : "negative"}>{(cb.rate - cb.inflation).toFixed(2)}%</strong></div>
+                    <div><span>{t("forex.policyRate")}</span><strong>{cb.rate.toFixed(2)}%</strong></div>
+                    <div><span>{t("forex.inflation")}</span><strong>{cb.inflation.toFixed(1)}%</strong></div>
+                    <div><span>{t("forex.nextMeeting")}</span><strong>{new Date(cb.nextMeeting).toLocaleDateString("en-US", { month: "short", day: "numeric" })}</strong></div>
+                    <div><span>{t("forex.realRate")}</span><strong className={(cb.rate - cb.inflation) > 0 ? "positive" : "negative"}>{(cb.rate - cb.inflation).toFixed(2)}%</strong></div>
                   </div>
                 </div>
               ))}
             </div>
 
             <div className="rates-table-wrap">
-              <h3>Global Interest Rate Comparison</h3>
+              <h3>{t("forex.globalRateComparison")}</h3>
               <table className="rates-table">
                 <thead>
                   <tr>
-                    <th>Currency</th>
-                    <th>Central Bank</th>
-                    <th>Policy Rate</th>
-                    <th>Inflation</th>
-                    <th>Real Rate</th>
-                    <th>Trend</th>
+                    <th>{t("forex.currency")}</th>
+                    <th>{t("forex.centralBank")}</th>
+                    <th>{t("forex.policyRate")}</th>
+                    <th>{t("forex.inflation")}</th>
+                    <th>{t("forex.realRate")}</th>
+                    <th>{t("forex.trend")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -604,8 +607,8 @@ const ForexPage: React.FC = () => {
         {activeTab === "calendar" && (
           <div className="calendar-section">
             <div className="section-header-row">
-              <h2>Economic Calendar</h2>
-              <p>High-impact events across major economies</p>
+              <h2>{t("forex.economicCalendar")}</h2>
+              <p>{t("forex.calendarSubtitle")}</p>
             </div>
             <div className="econ-events">
               {econEvents.map((event, i) => (
@@ -615,8 +618,8 @@ const ForexPage: React.FC = () => {
                   <div className="event-info">
                     <strong>{event.event}</strong>
                     <div className="event-meta">
-                      <span>Forecast: {event.forecast}</span>
-                      <span>Previous: {event.previous}</span>
+                      <span>{t("forex.forecast")}: {event.forecast}</span>
+                      <span>{t("forex.previous")}: {event.previous}</span>
                     </div>
                   </div>
                   <div className={`event-impact ${event.impact.toLowerCase()}`}>{event.impact}</div>
@@ -629,8 +632,8 @@ const ForexPage: React.FC = () => {
         {activeTab === "volatility" && (
           <div className="volatility-section">
             <div className="section-header-row">
-              <h2>FX Volatility Tracker</h2>
-              <p>Realized volatility and momentum across currencies</p>
+              <h2>{t("forex.fxVolatility")}</h2>
+              <p>{t("forex.volatilitySubtitle")}</p>
             </div>
             <div className="vol-list">
               {volatilityData.map((v) => (
@@ -655,8 +658,8 @@ const ForexPage: React.FC = () => {
         {activeTab === "heatmap" && (
           <div className="heatmap-section">
             <div className="section-header-row">
-              <h2>Currency Performance Heatmap</h2>
-              <p>Daily change visualized across all major and emerging currencies</p>
+              <h2>{t("forex.heatmapTitle")}</h2>
+              <p>{t("forex.heatmapSubtitle")}</p>
             </div>
             <div className="fx-heatmap">
               {topMovers.map((c) => {
@@ -679,10 +682,10 @@ const ForexPage: React.FC = () => {
 
       {/* Converter card */}
       <section className="forex-converter">
-        <h2>Currency Converter</h2>
+        <h2>{t("forex.converter")}</h2>
         <div className="converter-row">
           <div className="converter-field">
-            <label>Amount</label>
+            <label>{t("forex.amount")}</label>
             <input
               type="number"
               value={amount}
@@ -691,20 +694,20 @@ const ForexPage: React.FC = () => {
             />
           </div>
           <div className="converter-field">
-            <label>From</label>
+            <label>{t("forex.from")}</label>
             <select value={base} onChange={(e) => setBase(e.target.value)}>
               {Object.keys(majorRates).map((c) => <option key={c} value={c}>{c}</option>)}
             </select>
           </div>
           <div className="converter-swap">⇄</div>
           <div className="converter-field">
-            <label>To</label>
+            <label>{t("forex.to")}</label>
             <select value={quote} onChange={(e) => setQuote(e.target.value)}>
               {Object.keys(majorRates).map((c) => <option key={c} value={c}>{c}</option>)}
             </select>
           </div>
           <div className="converter-result">
-            <span>Result</span>
+            <span>{t("forex.result")}</span>
             <strong>{convertedAmount.toFixed(4)} {quote}</strong>
             <em>1 {base} = {(quoteRate / baseRate).toFixed(4)} {quote}</em>
           </div>
@@ -713,7 +716,7 @@ const ForexPage: React.FC = () => {
 
       {/* News Integration */}
       <section className="forex-news">
-        <h2>FX News & Insights</h2>
+        <h2>{t("forex.newsInsights")}</h2>
         <div className="forex-news-grid">
           {[
             { title: "USD rally pauses ahead of FOMC minutes", source: "Reuters", tag: "USD" },
@@ -726,7 +729,7 @@ const ForexPage: React.FC = () => {
             <article key={i} className="forex-news-card">
               <span className="news-tag">{n.tag}</span>
               <h4>{n.title}</h4>
-              <div className="news-meta"><span>{n.source}</span><span>2h ago</span></div>
+              <div className="news-meta"><span>{n.source}</span><span>{t("src_client_pages_forexpage__l731__h1")}</span></div>
             </article>
           ))}
         </div>

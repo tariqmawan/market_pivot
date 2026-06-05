@@ -84,46 +84,58 @@ export function createMarketDataRouter(db: Knex) {
   });
 
   router.post("/:entity", requirePermission(PERMISSIONS.MARKET_EDIT), async (req, res) => {
-    const cfg = ENTITIES[req.params.entity];
-    if (!cfg || req.params.entity !== "exchanges") {
-      return res.status(400).json({ success: false, error: "Create only supported for exchanges", timestamp: new Date() });
+    const entity = req.params.entity;
+    const cfg = ENTITIES[entity];
+    if (!cfg) {
+      return res.status(404).json({ success: false, error: "Unknown entity", timestamp: new Date() });
     }
 
     try {
-      const id = sanitizeShortText(req.body.id, 20);
-      const name = sanitizeShortText(req.body.name, 120);
-      if (!id || !name) {
-        return res.status(400).json({ success: false, error: "id and name required", timestamp: new Date() });
+      // For each entity we whitelist the columns the client is allowed to supply.
+      // This is the symmetric counterpart of the `editable` allow-list used for PUT.
+      const createable: Record<string, string[]> = {
+        exchanges:       ["id", "name", "country", "countryCode", "region", "timezone", "currency", "mainIndex", "mainIndexName", "website", "description", "marketCap", "listedCompanies", "avgDailyVolume"],
+        cryptos:         ["id", "symbol", "name", "description", "category", "maxSupply", "circulatingSupply"],
+        currencies:      ["code", "name", "description", "centralBank", "symbol"],
+        regions:         ["id", "name", "gdpGrowth", "inflation"],
+        sectors:         ["id", "name", "performanceYtd", "peRatio"],
+        commodities:     ["id", "name", "symbol", "category", "spotPrice", "changePercent24h"],
+        etfs:            ["symbol", "name", "description"],
+        indices:         ["symbol", "name", "description"],
+      };
+      const cols = createable[entity];
+      if (!cols) {
+        return res.status(400).json({ success: false, error: "Create not configured for this entity", timestamp: new Date() });
       }
 
-      const row = {
-        id,
-        name,
-        country: sanitizeShortText(req.body.country, 80) || "Unknown",
-        countryCode: sanitizeShortText(req.body.countryCode, 4) || "XX",
-        region: sanitizeShortText(req.body.region, 80) || "Global",
-        timezone: req.body.timezone || "UTC",
-        currency: req.body.currency || "USD",
-        tradingHours_open: "09:00",
-        tradingHours_close: "17:00",
-        mainIndex: req.body.mainIndex || id,
-        mainIndexName: req.body.mainIndexName || name,
-      };
+      const row: Record<string, unknown> = { created_at: new Date(), updated_at: new Date() };
+      for (const col of cols) {
+        if (req.body[col] === undefined) continue;
+        row[col] = typeof req.body[col] === "string"
+          ? sanitizeShortText(req.body[col], 500)
+          : req.body[col];
+      }
+      // Ensure primary key is present.
+      if (!row[cfg.idCol]) {
+        return res.status(400).json({ success: false, error: `${cfg.idCol} is required`, timestamp: new Date() });
+      }
 
-      await db("exchanges").insert(row);
-      await writeAuditLog(db, req, "market.create", "exchanges", id);
+      await db(cfg.table).insert(row);
+      await writeAuditLog(db, req, "market.create", cfg.table, String(row[cfg.idCol]));
 
       res.status(201).json({ success: true, data: row, timestamp: new Date() });
     } catch (error: unknown) {
-      const msg = error instanceof Error && error.message.includes("duplicate") ? "Exchange ID already exists" : "Create failed";
+      const msg = error instanceof Error && error.message.includes("duplicate")
+        ? `${entity} already exists`
+        : "Create failed";
       res.status(500).json({ success: false, error: msg, timestamp: new Date() });
     }
   });
 
   router.delete("/:entity/:id", requirePermission(PERMISSIONS.MARKET_EDIT), async (req, res) => {
     const cfg = ENTITIES[req.params.entity];
-    if (!cfg || req.params.entity !== "exchanges") {
-      return res.status(400).json({ success: false, error: "Delete only supported for exchanges", timestamp: new Date() });
+    if (!cfg) {
+      return res.status(404).json({ success: false, error: "Unknown entity", timestamp: new Date() });
     }
 
     try {

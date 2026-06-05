@@ -2,6 +2,9 @@ import React from "react";
 import { adminGet } from "../api/client";
 import DataTable from "../components/ui/DataTable";
 import PageHeader from "../components/ui/PageHeader";
+import { useI18n } from "../../i18n";
+
+
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -110,6 +113,7 @@ function loadFromStorage(): SeoSettings {
 // ─── SEO Tab Component ────────────────────────────────────────────────────────
 
 function SeoTab() {
+  const { t } = useI18n();
   const [settings, setSettings] = React.useState<SeoSettings>(() => loadFromStorage());
   const [activePage, setActivePage] = React.useState<SeoPageKey>("Home");
   const [toast, setToast] = React.useState<string | null>(null);
@@ -208,8 +212,8 @@ function SeoTab() {
       {/* Page selector */}
       <div className="mp-admin-card">
         <div className="mp-admin-card-head">
-          <h2>Page</h2>
-          <span className="mp-admin-muted">Select a page to edit its SEO metadata</span>
+          <h2>{t("src_client_admin_pages_platformpage__l211__h0")}</h2>
+          <span className="mp-admin-muted">{t("src_client_admin_pages_platformpage__l212__h1")}</span>
         </div>
         <div
           style={{
@@ -252,7 +256,7 @@ function SeoTab() {
       <div className="mp-admin-card">
         <div className="mp-admin-card-head">
           <h2>Meta Tags — {activePage}</h2>
-          <span className="mp-admin-muted">Search engine & social metadata</span>
+          <span className="mp-admin-muted">{t("src_client_admin_pages_platformpage__l255__h2")}</span>
         </div>
 
         <div className="mp-admin-customer-form" style={{ gap: 16 }}>
@@ -260,7 +264,7 @@ function SeoTab() {
           {/* Title */}
           <label style={labelStyle}>
             <span style={{ display: "flex", justifyContent: "space-between" }}>
-              <span>Title Tag</span>
+              <span>{t("src_client_admin_pages_platformpage__l263__h3")}</span>
               <span style={counterStyle(meta.title.length, 60)}>
                 {meta.title.length}/60
               </span>
@@ -270,7 +274,7 @@ function SeoTab() {
               value={meta.title}
               maxLength={80}
               onChange={(e) => updateMeta("title", e.target.value)}
-              placeholder="Page title for search engines"
+              placeholder={t("src_client_admin_pages_platformpage__l273__h4")}
               style={inputStyle}
             />
           </label>
@@ -278,7 +282,7 @@ function SeoTab() {
           {/* Meta description */}
           <label style={labelStyle}>
             <span style={{ display: "flex", justifyContent: "space-between" }}>
-              <span>Meta Description</span>
+              <span>{t("src_client_admin_pages_platformpage__l281__h5")}</span>
               <span style={counterStyle(meta.description.length, 160)}>
                 {meta.description.length}/160
               </span>
@@ -288,7 +292,7 @@ function SeoTab() {
               maxLength={200}
               rows={3}
               onChange={(e) => updateMeta("description", e.target.value)}
-              placeholder="Brief description shown in search results"
+              placeholder={t("src_client_admin_pages_platformpage__l291__h6")}
               style={textareaStyle}
             />
           </label>
@@ -301,7 +305,7 @@ function SeoTab() {
                 type="text"
                 value={meta.ogTitle}
                 onChange={(e) => updateMeta("ogTitle", e.target.value)}
-                placeholder="Open Graph title"
+                placeholder={t("src_client_admin_pages_platformpage__l304__h7")}
                 style={inputStyle}
               />
             </label>
@@ -324,7 +328,7 @@ function SeoTab() {
               value={meta.ogDescription}
               rows={2}
               onChange={(e) => updateMeta("ogDescription", e.target.value)}
-              placeholder="Open Graph description for social sharing"
+              placeholder={t("src_client_admin_pages_platformpage__l327__h8")}
               style={textareaStyle}
             />
           </label>
@@ -348,8 +352,8 @@ function SeoTab() {
                 onChange={(e) => updateMeta("robots_index", e.target.value as "index" | "noindex")}
                 style={inputStyle}
               >
-                <option value="index">index</option>
-                <option value="noindex">noindex</option>
+                <option value="index">{t("src_client_admin_pages_platformpage__l351__h9")}</option>
+                <option value="noindex">{t("src_client_admin_pages_platformpage__l352__h10")}</option>
               </select>
             </label>
             <label style={labelStyle}>
@@ -359,8 +363,8 @@ function SeoTab() {
                 onChange={(e) => updateMeta("robots_follow", e.target.value as "follow" | "nofollow")}
                 style={inputStyle}
               >
-                <option value="follow">follow</option>
-                <option value="nofollow">nofollow</option>
+                <option value="follow">{t("src_client_admin_pages_platformpage__l362__h11")}</option>
+                <option value="nofollow">{t("src_client_admin_pages_platformpage__l363__h12")}</option>
               </select>
             </label>
           </div>
@@ -371,8 +375,8 @@ function SeoTab() {
       {/* Global settings */}
       <div className="mp-admin-card">
         <div className="mp-admin-card-head">
-          <h2>Global Settings</h2>
-          <span className="mp-admin-muted">Site-wide SEO configuration</span>
+          <h2>{t("src_client_admin_pages_platformpage__l374__h13")}</h2>
+          <span className="mp-admin-muted">{t("src_client_admin_pages_platformpage__l375__h14")}</span>
         </div>
 
         <div className="mp-admin-customer-form" style={{ gap: 16 }}>
@@ -386,7 +390,7 @@ function SeoTab() {
               onChange={(e) =>
                 setSettings((prev) => ({ ...prev, robotsTxt: e.target.value }))
               }
-              placeholder="User-agent: *&#10;Allow: /"
+              placeholder={t("src_client_admin_pages_platformpage__l393_h0")}
               style={{ ...textareaStyle, minHeight: 120, fontFamily: "monospace", fontSize: 13 }}
             />
           </label>
@@ -404,7 +408,7 @@ function SeoTab() {
             }}
           >
             <div>
-              <div style={{ color: "#f8fafc", fontWeight: 900, fontSize: 14 }}>Sitemap</div>
+              <div style={{ color: "#f8fafc", fontWeight: 900, fontSize: 14 }}>{t("src_client_admin_pages_platformpage__l407__h15")}</div>
               <div className="mp-admin-muted" style={{ marginTop: 2 }}>
                 Enable XML sitemap generation at /sitemap.xml
               </div>

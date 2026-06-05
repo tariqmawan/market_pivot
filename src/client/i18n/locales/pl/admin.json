@@ -1,0 +1,21 @@
+{
+  "adminTopNav": "Nawigacja administratora",
+  "openMenu": "Otwórz menu",
+  "searchPlaceholder": "Szukaj...",
+  "notifications": "Powiadomienia",
+  "profile": "Profil",
+  "adminPortal": "Portal administratora",
+  "dashboard": "Pulpit",
+  "users": "Użytkownicy",
+  "marketData": "Dane rynkowe",
+  "news": "Wiadomości",
+  "billing": "Rozliczenia",
+  "platform": "Platforma",
+  "analytics": "Analityka",
+  "settings": "Ustawienia",
+  "totalUsers": "Użytkownicy ogółem",
+  "activeUsers": "Aktywni użytkownicy",
+  "revenue": "Przychód",
+  "exchanges": "Giełdy",
+  "lastUpdated": "Ostatnia aktualizacja"
+}

@@ -9,6 +9,9 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import { formatMoney, formatSignedPercent, formatVolume } from "../lib/chartSeries";
 import "./AdvancedScreenerPage.css";
+import { useI18n } from "../i18n";
+
+
 
 type AssetType = "stock" | "forex" | "crypto" | "etf";
 
@@ -255,6 +258,7 @@ const useScreenStore = create<ScreenState>()(
 );
 
 const AdvancedScreenerPage: React.FC = () => {
+  const { t } = useI18n();
   const { presets, savePreset, deletePreset } = useScreenStore();
   const { log } = useActivityStore();
   const [filters, setFilters] = React.useState<Filters>(DEFAULT_FILTERS);
@@ -358,145 +362,145 @@ const AdvancedScreenerPage: React.FC = () => {
     <div className="page screener-page-new">
       <section className="coverage-hero screener-hero">
         <div>
-          <p className="eyebrow">Screener</p>
-          <h1>Advanced Market Screener</h1>
-          <p>Screen stocks, forex, crypto, and ETFs across 15+ filters with sorting, saved screens, and CSV export.</p>
+          <p className="eyebrow">{t("src_client_pages_advancedscreenerpage__l361__h0")}</p>
+          <h1>{t("src_client_pages_advancedscreenerpage__l362__h1")}</h1>
+          <p>{t("src_client_pages_advancedscreenerpage__l367_h0")}</p>
         </div>
         <div className="metric-strip">
-          <div className="metric-tile"><span>Universe</span><strong>{SCREENER_UNIVERSE.length}</strong></div>
-          <div className="metric-tile"><span>Matches</span><strong className="positive">{filtered.length}</strong></div>
-          <div className="metric-tile"><span>Filters Active</span><strong>{Object.values(filters).filter((v) => v !== "" && v !== "all" && v !== false).length}</strong></div>
+          <div className="metric-tile"><span>{t("src_client_pages_advancedscreenerpage__l366__h3")}</span><strong>{SCREENER_UNIVERSE.length}</strong></div>
+          <div className="metric-tile"><span>{t("src_client_pages_advancedscreenerpage__l367__h4")}</span><strong className="positive">{filtered.length}</strong></div>
+          <div className="metric-tile"><span>{t("src_client_pages_advancedscreenerpage__l368__h5")}</span><strong>{Object.values(filters).filter((v) => v !== "" && v !== "all" && v !== false).length}</strong></div>
         </div>
       </section>
 
       <div className="screener-layout">
         <aside className="screener-filters">
           <div className="filter-header">
-            <h3>Filters</h3>
-            <button onClick={resetFilters} type="button" className="reset-btn">Reset</button>
+            <h3>{t("src_client_pages_advancedscreenerpage__l375__h6")}</h3>
+            <button onClick={resetFilters} type="button" className="reset-btn">{t("src_client_pages_advancedscreenerpage__l376__h7")}</button>
           </div>
 
           <div className="filter-section">
-            <h4>Asset Type</h4>
+            <h4>{t("src_client_pages_advancedscreenerpage__l380__h8")}</h4>
             <select value={filters.assetType} onChange={(e) => updateFilter("assetType", e.target.value as Filters["assetType"])}>
-              <option value="all">All Assets</option>
-              <option value="stock">Stocks</option>
-              <option value="forex">Forex</option>
-              <option value="crypto">Crypto</option>
-              <option value="etf">ETFs</option>
+              <option value="all">{t("src_client_pages_advancedscreenerpage__l382__h9")}</option>
+              <option value="stock">{t("src_client_pages_advancedscreenerpage__l383__h10")}</option>
+              <option value="forex">{t("src_client_pages_advancedscreenerpage__l384__h11")}</option>
+              <option value="crypto">{t("src_client_pages_advancedscreenerpage__l385__h12")}</option>
+              <option value="etf">{t("src_client_pages_advancedscreenerpage__l386__h13")}</option>
             </select>
           </div>
 
           <div className="filter-section">
-            <h4>Search</h4>
-            <input value={filters.query} onChange={(e) => updateFilter("query", e.target.value)} placeholder="Symbol or name" />
+            <h4>{t("src_client_pages_advancedscreenerpage__l391__h14")}</h4>
+            <input value={filters.query} onChange={(e) => updateFilter("query", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l392__h15")} />
           </div>
 
           <div className="filter-section">
-            <h4>Exchange</h4>
+            <h4>{t("src_client_pages_advancedscreenerpage__l396__h16")}</h4>
             <select value={filters.exchange} onChange={(e) => updateFilter("exchange", e.target.value)}>
-              <option value="all">All</option>
+              <option value="all">{t("src_client_pages_advancedscreenerpage__l398__h17")}</option>
               {uniqueExchanges.map((ex) => <option key={ex} value={ex}>{ex}</option>)}
             </select>
           </div>
 
           <div className="filter-section">
-            <h4>Sector</h4>
+            <h4>{t("src_client_pages_advancedscreenerpage__l404__h18")}</h4>
             <select value={filters.sector} onChange={(e) => updateFilter("sector", e.target.value)}>
-              <option value="all">All</option>
+              <option value="all">{t("src_client_pages_advancedscreenerpage__l406__h19")}</option>
               {uniqueSectors.map((s) => <option key={s} value={s}>{s}</option>)}
             </select>
           </div>
 
           <div className="filter-section">
-            <h4>Country</h4>
+            <h4>{t("src_client_pages_advancedscreenerpage__l412__h20")}</h4>
             <select value={filters.country} onChange={(e) => updateFilter("country", e.target.value)}>
-              <option value="all">All</option>
+              <option value="all">{t("src_client_pages_advancedscreenerpage__l414__h21")}</option>
               {uniqueCountries.map((c) => <option key={c} value={c}>{c}</option>)}
             </select>
           </div>
 
           <div className="filter-section">
-            <h4>Price Range</h4>
+            <h4>{t("src_client_pages_advancedscreenerpage__l420__h22")}</h4>
             <div className="dual-input">
-              <input type="number" value={filters.priceMin} onChange={(e) => updateFilter("priceMin", e.target.value)} placeholder="Min" />
-              <input type="number" value={filters.priceMax} onChange={(e) => updateFilter("priceMax", e.target.value)} placeholder="Max" />
+              <input type="number" value={filters.priceMin} onChange={(e) => updateFilter("priceMin", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l422__h23")} />
+              <input type="number" value={filters.priceMax} onChange={(e) => updateFilter("priceMax", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l423__h24")} />
             </div>
           </div>
 
           <div className="filter-section">
-            <h4>Market Cap</h4>
+            <h4>{t("src_client_pages_advancedscreenerpage__l428__h25")}</h4>
             <div className="dual-input">
-              <input type="number" value={filters.marketCapMin} onChange={(e) => updateFilter("marketCapMin", e.target.value)} placeholder="Min ($)" />
-              <input type="number" value={filters.marketCapMax} onChange={(e) => updateFilter("marketCapMax", e.target.value)} placeholder="Max ($)" />
+              <input type="number" value={filters.marketCapMin} onChange={(e) => updateFilter("marketCapMin", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l434_h0")} />
+              <input type="number" value={filters.marketCapMax} onChange={(e) => updateFilter("marketCapMax", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l435_h1")} />
             </div>
           </div>
 
           <div className="filter-section">
             <h4>Volume (min)</h4>
-            <input type="number" value={filters.volumeMin} onChange={(e) => updateFilter("volumeMin", e.target.value)} placeholder="Min volume" />
+            <input type="number" value={filters.volumeMin} onChange={(e) => updateFilter("volumeMin", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l437__h26")} />
           </div>
 
           <div className="filter-section">
-            <h4>P/E Ratio</h4>
+            <h4>{t("src_client_pages_advancedscreenerpage__l441__h27")}</h4>
             <div className="dual-input">
-              <input type="number" value={filters.peMin} onChange={(e) => updateFilter("peMin", e.target.value)} placeholder="Min" />
-              <input type="number" value={filters.peMax} onChange={(e) => updateFilter("peMax", e.target.value)} placeholder="Max" />
+              <input type="number" value={filters.peMin} onChange={(e) => updateFilter("peMin", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l443__h28")} />
+              <input type="number" value={filters.peMax} onChange={(e) => updateFilter("peMax", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l444__h29")} />
             </div>
           </div>
 
           <div className="filter-section">
             <h4>Dividend Yield (min %)</h4>
-            <input type="number" step="0.1" value={filters.dividendMin} onChange={(e) => updateFilter("dividendMin", e.target.value)} placeholder="Min yield %" />
+            <input type="number" step="0.1" value={filters.dividendMin} onChange={(e) => updateFilter("dividendMin", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l450__h30")} />
           </div>
 
           <div className="filter-section">
-            <h4>Beta</h4>
+            <h4>{t("src_client_pages_advancedscreenerpage__l454__h31")}</h4>
             <div className="dual-input">
-              <input type="number" step="0.1" value={filters.betaMin} onChange={(e) => updateFilter("betaMin", e.target.value)} placeholder="Min" />
-              <input type="number" step="0.1" value={filters.betaMax} onChange={(e) => updateFilter("betaMax", e.target.value)} placeholder="Max" />
+              <input type="number" step="0.1" value={filters.betaMin} onChange={(e) => updateFilter("betaMin", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l456__h32")} />
+              <input type="number" step="0.1" value={filters.betaMax} onChange={(e) => updateFilter("betaMax", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l457__h33")} />
             </div>
           </div>
 
           <div className="filter-section">
-            <h4>RSI</h4>
+            <h4>{t("src_client_pages_advancedscreenerpage__l462__h34")}</h4>
             <div className="dual-input">
-              <input type="number" value={filters.rsiMin} onChange={(e) => updateFilter("rsiMin", e.target.value)} placeholder="Min" />
-              <input type="number" value={filters.rsiMax} onChange={(e) => updateFilter("rsiMax", e.target.value)} placeholder="Max" />
+              <input type="number" value={filters.rsiMin} onChange={(e) => updateFilter("rsiMin", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l464__h35")} />
+              <input type="number" value={filters.rsiMax} onChange={(e) => updateFilter("rsiMax", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l465__h36")} />
             </div>
           </div>
 
           <div className="filter-section">
             <h4>Momentum (min)</h4>
-            <input type="number" step="0.1" value={filters.momentumMin} onChange={(e) => updateFilter("momentumMin", e.target.value)} placeholder="Min momentum" />
+            <input type="number" step="0.1" value={filters.momentumMin} onChange={(e) => updateFilter("momentumMin", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l471__h37")} />
           </div>
 
           <div className="filter-section">
             <h4>Volatility (max)</h4>
-            <input type="number" step="0.1" value={filters.volatilityMax} onChange={(e) => updateFilter("volatilityMax", e.target.value)} placeholder="Max volatility" />
+            <input type="number" step="0.1" value={filters.volatilityMax} onChange={(e) => updateFilter("volatilityMax", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l476__h38")} />
           </div>
 
           <div className="filter-section">
-            <h4>Performance %</h4>
+            <h4>{t("src_client_pages_advancedscreenerpage__l480__h39")}</h4>
             <div className="dual-input">
-              <input type="number" step="0.1" value={filters.performanceMin} onChange={(e) => updateFilter("performanceMin", e.target.value)} placeholder="Min %" />
-              <input type="number" step="0.1" value={filters.performanceMax} onChange={(e) => updateFilter("performanceMax", e.target.value)} placeholder="Max %" />
+              <input type="number" step="0.1" value={filters.performanceMin} onChange={(e) => updateFilter("performanceMin", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l482__h40")} />
+              <input type="number" step="0.1" value={filters.performanceMax} onChange={(e) => updateFilter("performanceMax", e.target.value)} placeholder={t("src_client_pages_advancedscreenerpage__l483__h41")} />
             </div>
           </div>
 
           <div className="filter-section">
-            <h4>Moving Averages</h4>
+            <h4>{t("src_client_pages_advancedscreenerpage__l488__h42")}</h4>
             <label className="checkbox-row">
               <input type="checkbox" checked={filters.aboveSma50} onChange={(e) => updateFilter("aboveSma50", e.target.checked)} />
-              <span>Price above SMA 50</span>
+              <span>{t("src_client_pages_advancedscreenerpage__l491__h43")}</span>
             </label>
             <label className="checkbox-row">
               <input type="checkbox" checked={filters.aboveSma200} onChange={(e) => updateFilter("aboveSma200", e.target.checked)} />
-              <span>Price above SMA 200</span>
+              <span>{t("src_client_pages_advancedscreenerpage__l495__h44")}</span>
             </label>
           </div>
 
-          <button type="button" onClick={runScreen} className="run-btn">Run Screen</button>
+          <button type="button" onClick={runScreen} className="run-btn">{t("src_client_pages_advancedscreenerpage__l499__h45")}</button>
         </aside>
 
         <main className="screener-main">
@@ -505,13 +509,13 @@ const AdvancedScreenerPage: React.FC = () => {
               <strong>{filtered.length}</strong> of <strong>{SCREENER_UNIVERSE.length}</strong> symbols match
             </div>
             <div className="toolbar-actions">
-              <button type="button" onClick={() => setShowSaveModal(true)} className="secondary-action-sm">💾 Save Screen</button>
-              <button type="button" onClick={handleExport} className="secondary-action-sm">📥 Export CSV</button>
+              <button type="button" onClick={() => setShowSaveModal(true)} className="secondary-action-sm">{t("src_client_pages_advancedscreenerpage__l508__h47")}</button>
+              <button type="button" onClick={handleExport} className="secondary-action-sm">{t("src_client_pages_advancedscreenerpage__l509__h48")}</button>
             </div>
           </div>
 
           <div className="screener-presets">
-            <h4>Saved Screens</h4>
+            <h4>{t("src_client_pages_advancedscreenerpage__l514__h49")}</h4>
             <div className="presets-grid">
               {presets.map((preset) => (
                 <div key={preset.id} className="preset-card">
@@ -520,7 +524,7 @@ const AdvancedScreenerPage: React.FC = () => {
                     <span>{preset.description}</span>
                   </div>
                   <div className="preset-actions">
-                    <button type="button" onClick={() => applyPreset(preset)} className="preset-btn">Apply</button>
+                    <button type="button" onClick={() => applyPreset(preset)} className="preset-btn">{t("src_client_pages_advancedscreenerpage__l523__h50")}</button>
                     {!preset.isDefault && (
                       <button type="button" onClick={() => deletePreset(preset.id)} className="preset-btn-delete">✕</button>
                     )}
@@ -533,12 +537,12 @@ const AdvancedScreenerPage: React.FC = () => {
           {showSaveModal && (
             <div className="save-modal">
               <div className="modal-content">
-                <h3>Save Current Screen</h3>
-                <input type="text" placeholder="Screen name" value={presetName} onChange={(e) => setPresetName(e.target.value)} autoFocus />
-                <input type="text" placeholder="Description (optional)" value={presetDesc} onChange={(e) => setPresetDesc(e.target.value)} />
+                <h3>{t("src_client_pages_advancedscreenerpage__l536__h51")}</h3>
+                <input type="text" placeholder={t("src_client_pages_advancedscreenerpage__l537__h52")} value={presetName} onChange={(e) => setPresetName(e.target.value)} autoFocus />
+                <input type="text" placeholder={t("src_client_pages_advancedscreenerpage__l542_h2")} value={presetDesc} onChange={(e) => setPresetDesc(e.target.value)} />
                 <div className="modal-actions">
-                  <button onClick={handleSave} type="button" className="primary-action-sm">Save</button>
-                  <button onClick={() => { setShowSaveModal(false); setPresetName(""); setPresetDesc(""); }} type="button" className="secondary-action-sm">Cancel</button>
+                  <button onClick={handleSave} type="button" className="primary-action-sm">{t("src_client_pages_advancedscreenerpage__l540__h53")}</button>
+                  <button onClick={() => { setShowSaveModal(false); setPresetName(""); setPresetDesc(""); }} type="button" className="secondary-action-sm">{t("src_client_pages_advancedscreenerpage__l541__h54")}</button>
                 </div>
               </div>
             </div>
@@ -548,23 +552,23 @@ const AdvancedScreenerPage: React.FC = () => {
             <table className="screener-table">
               <thead>
                 <tr>
-                  <th onClick={() => { setSortBy("symbol"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>Symbol</th>
-                  <th>Type</th>
-                  <th>Sector</th>
-                  <th className="text-right" onClick={() => { setSortBy("price"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>Price</th>
-                  <th className="text-right" onClick={() => { setSortBy("changePercent"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>Change %</th>
-                  <th className="text-right" onClick={() => { setSortBy("volume"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>Volume</th>
-                  <th className="text-right" onClick={() => { setSortBy("marketCap"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>Market Cap</th>
-                  <th className="text-right" onClick={() => { setSortBy("pe"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>PE</th>
-                  <th className="text-right" onClick={() => { setSortBy("dividendYield"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>Yield</th>
-                  <th className="text-right" onClick={() => { setSortBy("beta"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>Beta</th>
-                  <th className="text-right" onClick={() => { setSortBy("rsi"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>RSI</th>
-                  <th className="text-right" onClick={() => { setSortBy("momentum"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>Mom</th>
+                  <th onClick={() => { setSortBy("symbol"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>{t("src_client_pages_advancedscreenerpage__l551__h55")}</th>
+                  <th>{t("src_client_pages_advancedscreenerpage__l552__h56")}</th>
+                  <th>{t("src_client_pages_advancedscreenerpage__l553__h57")}</th>
+                  <th className="text-right" onClick={() => { setSortBy("price"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>{t("src_client_pages_advancedscreenerpage__l554__h58")}</th>
+                  <th className="text-right" onClick={() => { setSortBy("changePercent"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>{t("src_client_pages_advancedscreenerpage__l555__h59")}</th>
+                  <th className="text-right" onClick={() => { setSortBy("volume"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>{t("src_client_pages_advancedscreenerpage__l556__h60")}</th>
+                  <th className="text-right" onClick={() => { setSortBy("marketCap"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>{t("src_client_pages_advancedscreenerpage__l557__h61")}</th>
+                  <th className="text-right" onClick={() => { setSortBy("pe"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>{t("src_client_pages_advancedscreenerpage__l558__h62")}</th>
+                  <th className="text-right" onClick={() => { setSortBy("dividendYield"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>{t("src_client_pages_advancedscreenerpage__l559__h63")}</th>
+                  <th className="text-right" onClick={() => { setSortBy("beta"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>{t("src_client_pages_advancedscreenerpage__l560__h64")}</th>
+                  <th className="text-right" onClick={() => { setSortBy("rsi"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>{t("src_client_pages_advancedscreenerpage__l561__h65")}</th>
+                  <th className="text-right" onClick={() => { setSortBy("momentum"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }}>{t("src_client_pages_advancedscreenerpage__l562__h66")}</th>
                 </tr>
               </thead>
               <tbody>
                 {filtered.length === 0 ? (
-                  <tr><td colSpan={12} className="empty-state">No matches with current filters. Try adjusting your criteria.</td></tr>
+                  <tr><td colSpan={12} className="empty-state">{t("src_client_pages_advancedscreenerpage__l567__h67")}</td></tr>
                 ) : filtered.slice(0, 100).map((r) => (
                   <tr key={`${r.type}-${r.symbol}`}>
                     <td>

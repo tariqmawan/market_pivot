@@ -11,6 +11,13 @@ const FONT_MAP: Record<string, string> = {
   es: "Inter, system-ui, sans-serif",
   ru: "Inter, system-ui, sans-serif",
   ko: "Noto Sans KR, system-ui, sans-serif",
+  th: "'Noto Sans Thai', system-ui, sans-serif",
+  vi: "'Noto Sans', system-ui, sans-serif",
+  de: "Inter, system-ui, sans-serif",
+  pl: "Inter, system-ui, sans-serif",
+  tr: "Inter, system-ui, sans-serif",
+  id: "Inter, system-ui, sans-serif",
+  ms: "Inter, system-ui, sans-serif",
 };
 
 export function applyDocumentLocale(lang: SupportedLang): void {
