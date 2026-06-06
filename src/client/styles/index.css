@@ -4545,35 +4545,81 @@ tbody tr:hover {
 
 .mp-admin-search {
   flex: 1;
-  min-width: 200px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
+  min-width: 160px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: #f8fafc;
+  font-size: 13px;
+  font-weight: 600;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.18s ease;
+}
+
+.mp-admin-search:focus {
+  border-color: rgba(209,170,114,0.5);
+}
+
+.mp-admin-search::placeholder {
+  color: rgba(248,250,252,0.35);
+}
+
+.mp-admin-search option {
+  background: #0f1823;
+  color: #f8fafc;
 }
 
 .mp-admin-select {
-  padding: 6px 10px;
+  padding: 9px 12px;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: #1a2638;
+  color: #f8fafc;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+.mp-admin-select:focus {
+  border-color: #d1aa72;
+  box-shadow: 0 0 0 2px rgba(209,170,114,0.18);
+}
+.mp-admin-select option {
+  background: #1a2638;
+  color: #f8fafc;
 }
 
 .mp-admin-action-btn {
-  padding: 10px 18px;
-  border-radius: 12px;
+  padding: 9px 18px;
+  border-radius: 8px;
   border: none;
-  background: #0f172a;
-  color: #fff;
-  font-weight: 600;
+  background: #d1aa72;
+  color: #0a0e14;
+  font-weight: 700;
+  font-size: 13px;
   cursor: pointer;
+  transition: opacity 0.18s ease;
 }
+
+.mp-admin-action-btn:hover { opacity: 0.88; }
 
 .mp-admin-link-btn {
   background: none;
-  border: none;
-  color: #2563eb;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  color: rgba(248,250,252,0.7);
   font-weight: 600;
+  font-size: 12px;
   cursor: pointer;
-  padding: 0 6px;
+  padding: 6px 12px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.mp-admin-link-btn:hover {
+  color: #f8fafc;
+  border-color: rgba(255,255,255,0.25);
 }
 
 .mp-admin-row-actions {
@@ -4638,24 +4684,51 @@ tbody tr:hover {
 .mp-admin-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.5);
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(4px);
   display: grid;
   place-items: center;
-  z-index: 200;
+  z-index: 1500;
+  padding: 24px;
 }
 
 .mp-admin-modal {
-  background: #fff;
-  padding: 24px;
+  background: #0f1823;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 28px;
   border-radius: 16px;
   min-width: 320px;
   max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: #f8fafc;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
 }
 
 .mp-admin-modal label {
   display: grid;
   gap: 6px;
   margin-bottom: 12px;
+  color: rgba(248,250,252,0.72);
+}
+
+.mp-admin-modal input,
+.mp-admin-modal select,
+.mp-admin-modal textarea {
+  color: #f8fafc;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+}
+
+.mp-admin-modal input::placeholder,
+.mp-admin-modal textarea::placeholder {
+  color: rgba(248,250,252,0.35);
+}
+
+.mp-admin-modal select option {
+  background: #0f1823;
+  color: #f8fafc;
 }
 
 .mp-admin-modal-actions {

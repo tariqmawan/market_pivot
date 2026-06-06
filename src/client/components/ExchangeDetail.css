@@ -8,14 +8,41 @@
 
 /* Hero Section */
 .exchange-hero {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 24px;
-  padding: 24px;
+  padding: 28px 28px 24px;
   background: #fff;
   border-radius: 16px;
   border: 1px solid #e2e8f0;
   margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.exchange-hero-banner {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.exchange-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.exchange-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.88) 50%, rgba(255,255,255,0.70) 100%);
+}
+
+.exchange-hero > *:not(.exchange-hero-banner) {
+  position: relative;
+  z-index: 1;
 }
 
 .exchange-identity {
@@ -24,9 +51,23 @@
   gap: 16px;
 }
 
+.exchange-logo-wrap {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
 .exchange-logo {
-  width: 64px;
-  height: 64px;
+  width: 60px;
+  height: 36px;
   object-fit: contain;
 }
 
@@ -244,12 +285,36 @@ html[dir="rtl"] .market-breadth {
 
 .mover-row {
   display: grid;
-  grid-template-columns: 80px 1fr auto;
-  gap: 12px;
+  grid-template-columns: 36px 72px 1fr auto;
+  gap: 10px;
   align-items: center;
-  padding: 12px 16px;
+  padding: 10px 14px;
   background: #f8fafc;
   border-radius: 8px;
+}
+
+.mover-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  padding: 2px;
+}
+
+.mover-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
 }
 
 .mover-symbol {
@@ -399,7 +464,7 @@ html[dir="rtl"] .mover-symbol {
   }
 
   .mover-row {
-    grid-template-columns: 70px 1fr;
+    grid-template-columns: 32px 60px 1fr;
   }
 
   .mover-change {

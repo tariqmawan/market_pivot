@@ -1003,7 +1003,7 @@
   border-bottom: 1px solid var(--pricing-border);
 }
 
-.pricing-compare-cell--popular {
+.pricing-compare-table .pricing-compare-cell--popular {
   background: #0d1f3c;
   color: #ffffff;
   font-weight: 500;
