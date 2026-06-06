@@ -210,18 +210,31 @@ const RegionsPage: React.FC = () => {
 
   return (
     <div className="page region-detail">
-      <section className="coverage-hero region-hero">
-        <div>
-          <Link to="/regions" className="back-link">{t("src_client_pages_regionspagenew__l211__h9")}</Link>
-          <p className="eyebrow">{region.type} • {region.countries.length} countries</p>
+      <section className="region-hero-wrap">
+        <div className="region-hero-bg">
+          <img src="/logos/stockmarket.jpg" alt="" aria-hidden="true" />
+        </div>
+        <div className="region-hero-overlay" />
+        <div className="region-hero-body">
+          <Link to="/regions" className="back-link">← {t("src_client_pages_regionspagenew__l211__h9")}</Link>
+          <p className="eyebrow">{region.type} &bull; {region.countries.length} countries</p>
           <h1>{detail.name}</h1>
           <p>{region.summary}</p>
         </div>
-        <div className="metric-strip region-metrics">
-          <div className="metric-tile"><span>{t("src_client_pages_regionspagenew__l217__h10")}</span><strong>{formatMoney(detail.gdp)}</strong></div>
-          <div className="metric-tile"><span>{t("src_client_pages_regionspagenew__l218__h11")}</span><strong className="positive">{detail.gdpGrowth.toFixed(1)}%</strong></div>
-          <div className="metric-tile"><span>{t("src_client_pages_regionspagenew__l219__h12")}</span><strong>{detail.inflation.toFixed(1)}%</strong></div>
-          <div className="metric-tile"><span>{t("src_client_pages_regionspagenew__l220__h13")}</span><strong>{detail.population}</strong></div>
+        <div className="region-hero-stats">
+          {[
+            { label: t("src_client_pages_regionspagenew__l217__h10"), value: formatMoney(detail.gdp), cls: "" },
+            { label: t("src_client_pages_regionspagenew__l218__h11"), value: `${detail.gdpGrowth.toFixed(1)}%`, cls: "positive" },
+            { label: t("src_client_pages_regionspagenew__l219__h12"), value: `${detail.inflation.toFixed(1)}%`, cls: "" },
+            { label: t("src_client_pages_regionspagenew__l220__h13"), value: detail.population, cls: "" },
+            { label: "Interest Rate", value: `${detail.interestRate.toFixed(2)}%`, cls: "" },
+            { label: "Market Cap", value: formatMoney(detail.marketCap), cls: "" },
+          ].map((s) => (
+            <div key={s.label} className="region-stat-pill">
+              <span>{s.label}</span>
+              <strong className={s.cls}>{s.value}</strong>
+            </div>
+          ))}
         </div>
       </section>
 

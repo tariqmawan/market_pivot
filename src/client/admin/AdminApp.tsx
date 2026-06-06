@@ -19,6 +19,7 @@ import SeoAdminPage from "./pages/SeoAdminPage";
 import ApiKeyAdminPage from "./pages/ApiKeyAdminPage";
 import AdvertisementAdminPage from "./pages/AdvertisementAdminPage";
 import EconomicCalendarAdminPage from "./pages/EconomicCalendarAdminPage";
+import PricingAdminPage from "./pages/PricingAdminPage";
 import ForbiddenPage from "../components/ForbiddenPage";
 import { useAuthStore } from "../stores/authStore";
 import { canAccessAdmin } from "./permissions";
@@ -59,6 +60,7 @@ export default function AdminApp() {
             <Route path="regions" element={<RegionAdminPage />} />
             <Route path="sectors" element={<SectorAdminPage />} />
             <Route path="billing" element={<BillingPage />} />
+            <Route path="pricing" element={<PricingAdminPage />} />
             <Route path="api" element={<ApiKeyAdminPage />} />
             <Route path="api-keys" element={<ApiKeyAdminPage />} />
             <Route path="seo" element={<SeoAdminPage />} />

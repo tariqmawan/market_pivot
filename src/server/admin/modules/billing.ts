@@ -35,6 +35,41 @@ export function createBillingRouter(db: Knex) {
     }
   });
 
+  router.put("/plans/:id", requirePermission(PERMISSIONS.BILLING_EDIT), async (req, res) => {
+    try {
+      const { id } = req.params;
+      const [row] = await db("subscription_plans")
+        .where({ id })
+        .update({
+          slug: req.body.slug,
+          name: req.body.name,
+          description: req.body.description ?? "",
+          priceMonthly: req.body.priceMonthly ?? 0,
+          priceYearly: req.body.priceYearly ?? 0,
+          currency: req.body.currency ?? "USD",
+          features: JSON.stringify(req.body.features ?? []),
+          isActive: req.body.isActive ?? true,
+          updated_at: db.fn.now(),
+        })
+        .returning("*");
+      await writeAuditLog(db, req, "billing.plan_update", "subscription_plans", Number(id));
+      res.json({ success: true, data: row, timestamp: new Date() });
+    } catch {
+      res.status(500).json({ success: false, error: "Plan update failed", timestamp: new Date() });
+    }
+  });
+
+  router.delete("/plans/:id", requirePermission(PERMISSIONS.BILLING_EDIT), async (req, res) => {
+    try {
+      const { id } = req.params;
+      await db("subscription_plans").where({ id }).delete();
+      await writeAuditLog(db, req, "billing.plan_delete", "subscription_plans", Number(id));
+      res.json({ success: true, timestamp: new Date() });
+    } catch {
+      res.status(500).json({ success: false, error: "Plan delete failed", timestamp: new Date() });
+    }
+  });
+
   router.get("/subscriptions", requirePermission(PERMISSIONS.BILLING_VIEW), async (req, res) => {
     try {
       const page = Math.max(1, Number(req.query.page) || 1);
