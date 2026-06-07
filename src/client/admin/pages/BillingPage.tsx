@@ -42,7 +42,7 @@ export default function BillingPage() {
 
   return (
     <div className="mp-admin-content">
-      <PageHeader title={t("src_client_admin_pages_billingpage__l41__h0")} subtitle="Plans, active subscriptions, revenue lifecycle" />
+      <PageHeader title={t("admin/billingpage.h0_l41")} subtitle="Plans, active subscriptions, revenue lifecycle" />
 
       {/* KPI strip */}
       <section className="mp-admin-grid-4">
@@ -64,15 +64,15 @@ export default function BillingPage() {
       {/* Plans */}
       <GlassCard style={{ marginTop: 18 }}>
         <div className="mp-admin-card-head">
-          <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("src_client_admin_pages_billingpage__l63__h1")}</h3>
+          <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("admin/billingpage.h1")}</h3>
           <span className="mp-admin-muted">{plans.length} plans configured</span>
         </div>
 
         {loading ? (
-          <p className="mp-admin-muted">{t("src_client_admin_pages_billingpage__l68__h2")}</p>
+          <p className="mp-admin-muted">{t("admin/billingpage.h2")}</p>
         ) : plans.length === 0 ? (
           <div style={{ padding: "24px 0", textAlign: "center" }}>
-            <p className="mp-admin-muted" style={{ marginBottom: 12 }}>{t("src_client_admin_pages_billingpage__l75_h0")} <code style={{ background: "rgba(255,255,255,0.08)", padding: "2px 6px" }}>{t("src_client_admin_pages_billingpage__l71__h4")}</code> to seed subscription plans.</p>
+            <p className="mp-admin-muted" style={{ marginBottom: 12 }}>{t("admin/billingpage.h0_l75")} <code style={{ background: "rgba(255,255,255,0.08)", padding: "2px 6px" }}>{t("admin/billingpage.h4")}</code> to seed subscription plans.</p>
           </div>
         ) : (
           <div className="mp-admin-table-wrap">
@@ -93,8 +93,8 @@ export default function BillingPage() {
                     <td style={{ color: C_GOLD }}>${String(plan.priceAnnual ?? "0")}</td>
                     <td>
                       {plan.isActive
-                        ? <Badge>{t("src_client_admin_pages_billingpage__l92__h6")}</Badge>
-                        : <Badge color="rgba(239,68,68,0.12)" text="#ff7070">{t("src_client_admin_pages_billingpage__l93__h7")}</Badge>}
+                        ? <Badge>{t("admin/billingpage.h6")}</Badge>
+                        : <Badge color="rgba(239,68,68,0.12)" text="#ff7070">{t("admin/billingpage.h7")}</Badge>}
                     </td>
                   </tr>
                 ))}
@@ -107,15 +107,15 @@ export default function BillingPage() {
       {/* Subscriptions */}
       <GlassCard style={{ marginTop: 14 }}>
         <div className="mp-admin-card-head">
-          <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("src_client_admin_pages_billingpage__l106__h8")}</h3>
+          <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("admin/billingpage.h8")}</h3>
           <span className="mp-admin-muted">{subs.length} total</span>
         </div>
 
         {loading ? (
-          <p className="mp-admin-muted">{t("src_client_admin_pages_billingpage__l111__h9")}</p>
+          <p className="mp-admin-muted">{t("admin/billingpage.h9")}</p>
         ) : subs.length === 0 ? (
           <div style={{ padding: "24px 0", textAlign: "center" }}>
-            <p className="mp-admin-muted">{t("src_client_admin_pages_billingpage__l114__h10")}</p>
+            <p className="mp-admin-muted">{t("admin/billingpage.h10")}</p>
           </div>
         ) : (
           <div className="mp-admin-table-wrap">
@@ -136,9 +136,9 @@ export default function BillingPage() {
                       <td style={{ color: C_GOLD, fontWeight: 800 }}>{String(sub.planName ?? sub.plan ?? "—")}</td>
                       <td>
                         {status === "active"
-                          ? <Badge>{t("src_client_admin_pages_billingpage__l135__h11")}</Badge>
+                          ? <Badge>{t("admin/billingpage.h11")}</Badge>
                           : status === "cancelled"
-                            ? <Badge color="rgba(239,68,68,0.12)" text="#ff7070">{t("src_client_admin_pages_billingpage__l137__h12")}</Badge>
+                            ? <Badge color="rgba(239,68,68,0.12)" text="#ff7070">{t("admin/billingpage.h12")}</Badge>
                             : <Badge color="rgba(234,179,8,0.12)" text="#fbbf24">{status || "Unknown"}</Badge>}
                       </td>
                       <td style={{ color: C_MUTED, fontSize: 12 }}>

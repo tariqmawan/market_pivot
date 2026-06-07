@@ -1,37 +1,331 @@
 {
-  "currentPrice": "Current Price",
-  "rank": "Rank",
-  "priceMetrics": "Price & Metrics",
-  "tradingPairs": "Trading Pairs",
-  "exchanges": "Exchanges",
-  "charts": "Charts",
-  "onChain": "On-Chain",
-  "category": "Category",
-  "launched": "Launched",
-  "founder": "Founder",
-  "consensus": "Consensus Mechanism",
-  "blockTime": "Block Time",
-  "supplyInfo": "Supply Information",
-  "circulatingSupply": "Circulating Supply",
-  "maxSupply": "Max Supply",
-  "volume24h": "24h Volume",
+  "activeAddresses": "Active Addresses",
   "ath": "All-Time High",
   "atl": "All-Time Low",
-  "marketRank": "Market Rank",
-  "loadingPrice": "Loading price data...",
-  "loadingPairs": "Loading trading pairs...",
-  "price": "Price",
-  "exchange": "Exchange",
-  "listedCryptoExchanges": "Exchanges where this asset is traded",
-  "exchangeExamples": "Binance, Coinbase, Kraken, and more",
-  "priceChart": "Interactive price chart",
-  "volumeOverlay": "With volume overlay",
-  "onChainMetrics": "On-Chain Metrics",
-  "transactionsPerDay": "Transactions Per Day",
-  "activeAddresses": "Active Addresses",
-  "networkFees": "Network Fees",
-  "transactionVolume": "Transaction Volume",
-  "onChainComing": "On-chain data coming soon",
+  "blockTime": "Block Time",
+  "categories": {
+    "defi": {
+      "name": "DeFi"
+    },
+    "infrastructure": {
+      "name": "Infrastructure"
+    },
+    "layer1": {
+      "name": "Layer 1"
+    },
+    "layer2": {
+      "name": "Layer 2"
+    },
+    "meme": {
+      "name": "Meme"
+    },
+    "payments": {
+      "name": "Payments"
+    },
+    "stablecoin": {
+      "name": "Stablecoin"
+    }
+  },
+  "category": "Category",
+  "charts": "Charts",
+  "circulatingSupply": "Circulating Supply",
+  "consensus": "Consensus Mechanism",
   "cryptoNewsComing": "Latest news and updates will display here",
-  "cryptoNewsSubtitle": "Project updates, partnerships, and market news"
+  "cryptoNewsSubtitle": "Project updates, partnerships, and market news",
+  "cryptocurrencies": {
+    "aave": {
+      "name": "Aave",
+      "description": "Decentralised non-custodial liquidity protocol for lending and borrowing"
+    },
+    "arbitrum": {
+      "name": "Arbitrum",
+      "description": "Ethereum layer-2 scaling solution and governance token"
+    },
+    "avalanche2": {
+      "name": "Avalanche",
+      "description": "Subnet and scaling solutions for blockchain applications"
+    },
+    "binancecoin": {
+      "name": "BNB",
+      "description": "Native token of Binance Smart Chain ecosystem"
+    },
+    "bitcoin": {
+      "name": "Bitcoin",
+      "description": "The world's first and largest cryptocurrency by market cap"
+    },
+    "bonk": {
+      "name": "Bonk",
+      "description": "Solana's first major meme coin — airdropped to the community, now a DeFi staple"
+    },
+    "cardano": {
+      "name": "Cardano",
+      "description": "Peer-reviewed blockchain platform with focus on sustainability"
+    },
+    "chainlink": {
+      "name": "Chainlink",
+      "description": "Decentralized oracle network connecting blockchains to real-world data"
+    },
+    "compoundGovernanceToken": {
+      "name": "Compound",
+      "description": "Algorithmic autonomous interest rate protocol for DeFi lending"
+    },
+    "cosmos": {
+      "name": "Cosmos",
+      "description": "Interoperable blockchain ecosystem and Internet of Blockchains"
+    },
+    "curveDaoToken": {
+      "name": "Curve Finance",
+      "description": "Decentralised exchange optimised for stablecoin and pegged-asset swaps"
+    },
+    "dai": {
+      "name": "Dai",
+      "description": "Decentralized USD-backed stablecoin on Ethereum"
+    },
+    "dogecoin": {
+      "name": "Dogecoin",
+      "description": "The original meme coin — started as a joke, became a cultural crypto icon"
+    },
+    "ethereum": {
+      "name": "Ethereum",
+      "description": "Leading smart contract platform and DeFi hub"
+    },
+    "floki": {
+      "name": "FLOKI",
+      "description": "The people's crypto — Elon Musk inspired, community-built meme ecosystem"
+    },
+    "litecoin": {
+      "name": "Litecoin",
+      "description": "Silver to Bitcoin's gold, fast peer-to-peer payments"
+    },
+    "maker": {
+      "name": "Maker",
+      "description": "Governance token of MakerDAO, the protocol behind the DAI stablecoin"
+    },
+    "maticNetwork": {
+      "name": "Polygon",
+      "description": "Ethereum scaling solution enabling faster and cheaper transactions"
+    },
+    "pepe": {
+      "name": "Pepe",
+      "description": "Internet culture meets crypto — the frog meme turned billion-dollar token"
+    },
+    "polkadot": {
+      "name": "Polkadot",
+      "description": "Multi-chain blockchain enabling cross-chain interoperability"
+    },
+    "ripple": {
+      "name": "XRP",
+      "description": "Payment network focused on fast, low-cost international transfers"
+    },
+    "shibaInu": {
+      "name": "Shiba Inu",
+      "description": "The Dogecoin killer — Ethereum-based meme coin with a massive community"
+    },
+    "solana": {
+      "name": "Solana",
+      "description": "High-speed blockchain platform for decentralized applications"
+    },
+    "stellar": {
+      "name": "Stellar",
+      "description": "Blockchain network for financial inclusion and remittances"
+    },
+    "tether": {
+      "name": "Tether",
+      "description": "Most widely used USD-pegged stablecoin"
+    },
+    "theOpenNetwork": {
+      "name": "Toncoin",
+      "description": "Ultra-fast blockchain with focus on messaging and payments"
+    },
+    "tron": {
+      "name": "TRON",
+      "description": "Blockchain platform for decentralized entertainment"
+    },
+    "uniswap": {
+      "name": "Uniswap",
+      "description": "Leading decentralized exchange and DeFi protocol"
+    },
+    "usdCoin": {
+      "name": "USD Coin",
+      "description": "Regulated USD-backed stablecoin"
+    }
+  },
+  "currentPrice": "Current Price",
+  "exchange": "Exchange",
+  "exchangeExamples": "Binance, Coinbase, Kraken, and more",
+  "exchanges": "Exchanges",
+  "founder": "Founder",
+  "launched": "Launched",
+  "listedCryptoExchanges": "Exchanges where this asset is traded",
+  "loadingPairs": "Loading trading pairs...",
+  "loadingPrice": "Loading price data...",
+  "marketRank": "Market Rank",
+  "maxSupply": "Max Supply",
+  "networkFees": "Network Fees",
+  "onChain": "On-Chain",
+  "onChainComing": "On-chain data coming soon",
+  "onChainMetrics": "On-Chain Metrics",
+  "price": "Price",
+  "priceChart": "Interactive price chart",
+  "priceMetrics": "Price & Metrics",
+  "rank": "Rank",
+  "rankNumber": "Rank #{{rank}}",
+  "supplyInfo": "Supply Information",
+  "tradingPairs": "Trading Pairs",
+  "transactionVolume": "Transaction Volume",
+  "transactionsPerDay": "Transactions Per Day",
+  "volume24h": "24h Volume",
+  "volumeOverlay": "With volume overlay",
+  "cryptocurrency": "Cryptocurrency",
+  "cryptocurrencyCategories": "Cryptocurrency Categories",
+  "allCryptocurrencies": "All Cryptocurrencies",
+  "trending": "Trending",
+  "categoryNotFound": "Category Not Found",
+  "categoryNotFoundDescription": "This category doesn't exist. Browse all cryptocurrencies below.",
+  "viewAllCryptocurrencies": "View All Cryptocurrencies",
+  "trendingCoins": {
+    "eyebrow": "Live market data - Cryptocurrency",
+    "titleAccent": "Trending",
+    "titleRest": "Coins",
+    "subtitle": "Real-time trending cryptocurrencies ranked by trading activity, social momentum, and market cap growth. Updated continuously.",
+    "categories": {
+      "all": "All",
+      "layer1": "Layer 1",
+      "layer2": "Layer 2",
+      "defi": "DeFi",
+      "meme": "Meme",
+      "stablecoin": "Stablecoin",
+      "payments": "Payments",
+      "infrastructure": "Infrastructure"
+    },
+    "metrics": {
+      "tracked": "Tracked",
+      "gainers": "Gainers",
+      "topGain24h": "Top Gain 24h",
+      "volumeShort": "24h Vol",
+      "supply": "Supply"
+    },
+    "sentiment": {
+      "hot": "Hot",
+      "rising": "Rising",
+      "active": "Active",
+      "strong": "Strong"
+    },
+    "moreTitle": "More Trending Coins",
+    "emptyCategory": "No coins found in this category.",
+    "insights": {
+      "trending": {
+        "eyebrow": "What's Trending",
+        "title": "Market Dynamics",
+        "items": {
+          "socialMentions": "Social media mentions spike",
+          "exchangeFlows": "Exchange inflow / outflow shifts",
+          "developerActivity": "Developer activity on GitHub",
+          "onChainVolume": "On-chain transaction volume",
+          "volumeBreakouts": "Trading volume breakouts"
+        }
+      },
+      "risk": {
+        "eyebrow": "Risk Factors",
+        "title": "Stay Cautious",
+        "items": {
+          "volatility": "High volatility - price can swing 30%+",
+          "liquidity": "Low liquidity in smaller coins",
+          "manipulation": "Potential market manipulation",
+          "regulation": "Evolving regulatory landscape",
+          "techRisk": "Smart contract / tech risks"
+        }
+      },
+      "tips": {
+        "eyebrow": "Trading Tips",
+        "title": "Smart Strategies",
+        "items": {
+          "onChainValidation": "Validate with on-chain metrics first",
+          "githubActivity": "Check GitHub developer activity",
+          "divergence": "Monitor volume vs. price divergence",
+          "positionSizing": "Use proper position sizing",
+          "stopLosses": "Set strict stop-losses before entry"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Crypto Research",
+      "title": "Deep Dive Into Any Coin",
+      "description": "Click any coin to explore detailed charts, on-chain metrics, exchange listings, and breaking news - all in one place."
+    }
+  },
+  "categoryPages": {
+    "common": {
+      "marketOverview": "Market Overview",
+      "combinedMarketCap": "Combined Market Cap",
+      "topGainer24h": "Top Gainer (24h)",
+      "name": "Name",
+      "price": "Price",
+      "change24h": "24h Change",
+      "marketCap": "Market Cap",
+      "volume24h": "24h Volume",
+      "riskProfile": "Risk Profile",
+      "fullCryptoMarket": "Full Crypto Market",
+      "exploreAllCryptocurrencies": "Explore All Cryptocurrencies"
+    },
+    "meme": {
+      "eyebrow": "Community Tokens",
+      "title": "Meme coins",
+      "body": "Community-driven cryptocurrencies fuelled by viral culture, social momentum, and cult followings. High-risk, high-reward assets where sentiment rules the market.",
+      "metrics": {
+        "coinsListed": "Coins Listed"
+      },
+      "rankingsTitle": "Meme Coin Rankings",
+      "table": {
+        "community": "Community"
+      },
+      "communities": {
+        "DOGE": "Original OG",
+        "SHIB": "ShibArmy",
+        "PEPE": "Pepe Nation",
+        "BONK": "Solana Memes",
+        "FLOKI": "Viking Army"
+      },
+      "insights": {
+        "origins": {
+          "eyebrow": "Origins",
+          "title": "The Meme Coin Story",
+          "items": {
+            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
+            "elon": "Elon Musk tweets as price catalysts",
+            "pumps": "WallStreetBets-style coordinated pumps",
+            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
+            "pepe": "2023 PEPE boom revived the meme cycle",
+            "bonk": "BONK airdropped life into Solana DeFi"
+          }
+        },
+        "risk": {
+          "title": "What Investors Should Know",
+          "items": {
+            "sentiment": "Prices driven almost entirely by sentiment",
+            "pumpDump": "Susceptible to pump-and-dump schemes",
+            "utility": "Minimal or no underlying utility",
+            "volatility": "Extreme volatility - 50%+ swings common",
+            "rugPull": "Rug-pull risk in newer, unaudited coins",
+            "viralCycles": "High correlation with viral media cycles"
+          }
+        },
+        "signals": {
+          "eyebrow": "Community Signals",
+          "title": "How to Track Momentum",
+          "items": {
+            "twitter": "Twitter/X mentions and trending hashtags",
+            "reddit": "Reddit activity on r/CryptoCurrency",
+            "whales": "Whale wallet alerts and large transfers",
+            "listings": "Exchange listing announcements",
+            "google": "Google Trends search volume spikes",
+            "influencers": "Influencer social media activity"
+          }
+        }
+      },
+      "cta": {
+        "description": "Compare meme coins against blue-chip assets, DeFi protocols, and layer-1 blockchains."
+      }
+    }
+  }
 }

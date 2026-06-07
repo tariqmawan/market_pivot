@@ -1,37 +1,331 @@
 {
-  "currentPrice": "Текущая цена",
-  "rank": "Ранг",
-  "priceMetrics": "Цена и метрики",
-  "tradingPairs": "Торговые пары",
-  "exchanges": "Биржи",
-  "charts": "Графики",
-  "onChain": "On-Chain",
-  "category": "Категория",
-  "launched": "Запуск",
-  "founder": "Основатель",
-  "consensus": "Механизм консенсуса",
-  "blockTime": "Время блока",
-  "supplyInfo": "Данные эмиссии",
-  "circulatingSupply": "Объем в обращении",
-  "maxSupply": "Максимальный запас",
-  "volume24h": "Объем 24ч",
+  "activeAddresses": "Активные адреса",
   "ath": "Максимум за всё время",
   "atl": "Минимум за всё время",
-  "marketRank": "Ранг рынка",
-  "loadingPrice": "Загрузка данных о цене...",
-  "loadingPairs": "Загрузка торговых пар...",
-  "price": "Цена",
-  "exchange": "Биржа",
-  "listedCryptoExchanges": "Биржи, где торгуется актив",
-  "exchangeExamples": "Binance, Coinbase, Kraken и др.",
-  "priceChart": "Интерактивный график цен",
-  "volumeOverlay": "С наложением объема",
-  "onChainMetrics": "On-chain метрики",
-  "transactionsPerDay": "Транзакций в день",
-  "activeAddresses": "Активные адреса",
-  "networkFees": "Сетевые комиссии",
-  "transactionVolume": "Объем транзакций",
-  "onChainComing": "Данные on-chain скоро",
+  "blockTime": "Время блока",
+  "categories": {
+    "defi": {
+      "name": "name"
+    },
+    "infrastructure": {
+      "name": "Инфраструктура"
+    },
+    "layer1": {
+      "name": "name"
+    },
+    "layer2": {
+      "name": "name"
+    },
+    "meme": {
+      "name": "Мем"
+    },
+    "payments": {
+      "name": "Платежи"
+    },
+    "stablecoin": {
+      "name": "Стейблкоин"
+    }
+  },
+  "category": "Категория",
+  "charts": "Графики",
+  "circulatingSupply": "Объем в обращении",
+  "consensus": "Механизм консенсуса",
   "cryptoNewsComing": "Последние новости и обновления появятся здесь",
-  "cryptoNewsSubtitle": "Новости проектов, партнёрств и рынка"
+  "cryptoNewsSubtitle": "Новости проектов, партнёрств и рынка",
+  "cryptocurrencies": {
+    "aave": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "arbitrum": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "avalanche2": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "binancecoin": {
+      "name": "BNB",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "bitcoin": {
+      "name": "Bitcoin",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "bonk": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "cardano": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "chainlink": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "compoundGovernanceToken": {
+      "name": "Compound Governance Token",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "cosmos": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "curveDaoToken": {
+      "name": "Curve DAO Token",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "dai": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "dogecoin": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "ethereum": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "floki": {
+      "name": "FLOKI",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "litecoin": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "maker": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "maticNetwork": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "pepe": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "polkadot": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "ripple": {
+      "name": "XRP",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "shibaInu": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "solana": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "stellar": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "tether": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "theOpenNetwork": {
+      "name": "The Open Network",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "tron": {
+      "name": "TRON",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "uniswap": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    },
+    "usdCoin": {
+      "name": "name",
+      "description": "Криптоактив для отслеживания цены, объема, тренда и on-chain контекста."
+    }
+  },
+  "currentPrice": "Текущая цена",
+  "exchange": "Биржа",
+  "exchangeExamples": "Binance, Coinbase, Kraken и др.",
+  "exchanges": "Биржи",
+  "founder": "Основатель",
+  "launched": "Запуск",
+  "listedCryptoExchanges": "Биржи, где торгуется актив",
+  "loadingPairs": "Загрузка торговых пар...",
+  "loadingPrice": "Загрузка данных о цене...",
+  "marketRank": "Ранг рынка",
+  "maxSupply": "Максимальный запас",
+  "networkFees": "Сетевые комиссии",
+  "onChain": "на Chain",
+  "onChainComing": "Данные on-chain скоро",
+  "onChainMetrics": "On-chain метрики",
+  "price": "Цена",
+  "priceChart": "Интерактивный график цен",
+  "priceMetrics": "Цена и метрики",
+  "rank": "Ранг",
+  "rankNumber": "Ранг №{{rank}}",
+  "supplyInfo": "Данные эмиссии",
+  "tradingPairs": "Торговые пары",
+  "transactionVolume": "Объем транзакций",
+  "transactionsPerDay": "Транзакций в день",
+  "volume24h": "Объем 24ч",
+  "volumeOverlay": "С наложением объема",
+  "cryptocurrency": "Криптовалюта",
+  "cryptocurrencyCategories": "Категории криптовалют",
+  "allCryptocurrencies": "Все Криптоcurrencies",
+  "trending": "В тренде",
+  "categoryNotFound": "Категория Not Found",
+  "categoryNotFoundDescription": "category Not Found Описание",
+  "viewAllCryptocurrencies": "Просмотр Все Криптоcurrencies",
+  "trendingCoins": {
+    "eyebrow": "Рыночные данные онлайн - Криптовалюта",
+    "titleAccent": "Трендовые",
+    "titleRest": "монеты",
+    "subtitle": "Трендовые криптовалюты в реальном времени, ранжированные по торговой активности, социальному импульсу и росту капитализации. Обновляется непрерывно.",
+    "categories": {
+      "all": "Все",
+      "layer1": "Уровень 1",
+      "layer2": "Уровень 2",
+      "defi": "DeFi",
+      "meme": "Мем",
+      "stablecoin": "Стейблкоин",
+      "payments": "Платежи",
+      "infrastructure": "Инфраструктура"
+    },
+    "metrics": {
+      "tracked": "Отслеживается",
+      "gainers": "В плюсе",
+      "topGain24h": "Лучший рост 24ч",
+      "volumeShort": "Объем 24ч",
+      "supply": "Предложение"
+    },
+    "sentiment": {
+      "hot": "Горячо",
+      "rising": "Растет",
+      "active": "Активно",
+      "strong": "Сильно"
+    },
+    "moreTitle": "Другие трендовые монеты",
+    "emptyCategory": "В этой категории монеты не найдены.",
+    "insights": {
+      "trending": {
+        "eyebrow": "Что в тренде",
+        "title": "Динамика рынка",
+        "items": {
+          "socialMentions": "Всплеск упоминаний в соцсетях",
+          "exchangeFlows": "Сдвиги притоков / оттоков на биржах",
+          "developerActivity": "Активность разработчиков на GitHub",
+          "onChainVolume": "Объем транзакций on-chain",
+          "volumeBreakouts": "Пробои торгового объема"
+        }
+      },
+      "risk": {
+        "eyebrow": "Факторы риска",
+        "title": "Будьте осторожны",
+        "items": {
+          "volatility": "Высокая волатильность - цена может двигаться на 30%+",
+          "liquidity": "Низкая ликвидность у небольших монет",
+          "manipulation": "Возможная манипуляция рынком",
+          "regulation": "Меняющаяся регуляторная среда",
+          "techRisk": "Риски смарт-контрактов / технологий"
+        }
+      },
+      "tips": {
+        "eyebrow": "Советы по торговле",
+        "title": "Умные стратегии",
+        "items": {
+          "onChainValidation": "Сначала проверяйте on-chain метрики",
+          "githubActivity": "Проверяйте активность разработчиков на GitHub",
+          "divergence": "Следите за расхождением объема и цены",
+          "positionSizing": "Используйте правильный размер позиции",
+          "stopLosses": "Задавайте строгие стоп-лоссы до входа"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Криптоисследование",
+      "title": "Глубокий анализ любой монеты",
+      "description": "Нажмите на любую монету, чтобы изучить подробные графики, on-chain метрики, листинги бирж и срочные новости в одном месте."
+    }
+  },
+  "categoryPages": {
+    "common": {
+      "marketOverview": "Обзор рынка",
+      "combinedMarketCap": "Совокупная капитализация",
+      "topGainer24h": "Лучший рост (24ч)",
+      "name": "Название",
+      "price": "Цена",
+      "change24h": "Изменение 24ч",
+      "marketCap": "Капитализация",
+      "volume24h": "Объем 24ч",
+      "riskProfile": "Профиль риска",
+      "fullCryptoMarket": "Весь крипторынок",
+      "exploreAllCryptocurrencies": "Смотреть все криптовалюты"
+    },
+    "meme": {
+      "eyebrow": "Токены сообщества",
+      "title": "Мем-коины",
+      "body": "Криптовалюты, движимые сообществом, вирусной культурой и социальным импульсом. Это активы с высоким риском, где настроения управляют рынком.",
+      "metrics": {
+        "coinsListed": "Монет в списке"
+      },
+      "rankingsTitle": "Рейтинг мем-коинов",
+      "table": {
+        "community": "Сообщество"
+      },
+      "communities": {
+        "DOGE": "Original OG",
+        "SHIB": "ShibArmy",
+        "PEPE": "Pepe Nation",
+        "BONK": "Solana Memes",
+        "FLOKI": "Viking Army"
+      },
+      "insights": {
+        "origins": {
+          "eyebrow": "Origins",
+          "title": "The Meme Coin Story",
+          "items": {
+            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
+            "elon": "Elon Musk tweets as price catalysts",
+            "pumps": "WallStreetBets-style coordinated pumps",
+            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
+            "pepe": "2023 PEPE boom revived the meme cycle",
+            "bonk": "BONK airdropped life into Solana DeFi"
+          }
+        },
+        "risk": {
+          "title": "What Investors Should Know",
+          "items": {
+            "sentiment": "Prices driven almost entirely by sentiment",
+            "pumpDump": "Susceptible to pump-and-dump schemes",
+            "utility": "Minimal or no underlying utility",
+            "volatility": "Extreme volatility - 50%+ swings common",
+            "rugPull": "Rug-pull risk in newer, unaudited coins",
+            "viralCycles": "High correlation with viral media cycles"
+          }
+        },
+        "signals": {
+          "eyebrow": "Community Signals",
+          "title": "How to Track Momentum",
+          "items": {
+            "twitter": "Twitter/X mentions and trending hashtags",
+            "reddit": "Reddit activity on r/CryptoCurrency",
+            "whales": "Whale wallet alerts and large transfers",
+            "listings": "Exchange listing announcements",
+            "google": "Google Trends search volume spikes",
+            "influencers": "Influencer social media activity"
+          }
+        }
+      },
+      "cta": {
+        "description": "Сравните мем-коины с крупными активами, DeFi-протоколами и блокчейнами уровня 1."
+      }
+    }
+  }
 }

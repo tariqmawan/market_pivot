@@ -55,17 +55,17 @@ export default function NewsPage() {
 
   return (
     <div className="mp-admin-content">
-      <PageHeader title={t("src_client_admin_pages_newspage__l54__h0")} subtitle="Publish, draft workflow, and article management" />
+      <PageHeader title={t("admin/newspage.h0")} subtitle="Publish, draft workflow, and article management" />
 
       <form className="mp-admin-form-card" onSubmit={publish}>
-        <h3>{t("src_client_admin_pages_newspage__l57__h1")}</h3>
+        <h3>{t("admin/newspage.h1")}</h3>
         <div className="mp-admin-form-grid">
-          <input placeholder={t("src_client_admin_pages_newspage__l59__h2")} value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
-          <input placeholder={t("src_client_admin_pages_newspage__l60__h3")} value={form.source} onChange={(e) => setForm({ ...form, source: e.target.value })} required />
-          <input placeholder={t("src_client_admin_pages_newspage__l61__h4")} value={form.url} onChange={(e) => setForm({ ...form, url: e.target.value })} required />
-          <input placeholder={t("src_client_admin_pages_newspage__l62__h5")} value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} required />
+          <input placeholder={t("admin/newspage.h2")} value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
+          <input placeholder={t("admin/newspage.h3")} value={form.source} onChange={(e) => setForm({ ...form, source: e.target.value })} required />
+          <input placeholder={t("admin/newspage.h4")} value={form.url} onChange={(e) => setForm({ ...form, url: e.target.value })} required />
+          <input placeholder={t("admin/newspage.h5")} value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} required />
         </div>
-        <button type="submit" className="mp-admin-action-btn">{t("src_client_admin_pages_newspage__l64__h6")}</button>
+        <button type="submit" className="mp-admin-action-btn">{t("admin/newspage.h6")}</button>
       </form>
 
       {error ? <p className="mp-admin-error-text">{error}</p> : null}
@@ -79,7 +79,7 @@ export default function NewsPage() {
           { key: "category", label: "Category" },
           { key: "publishedAt", label: "Published", render: (r) => new Date(r.publishedAt).toLocaleString() },
           { key: "del", label: "", render: (r) => (
-            <button type="button" className="mp-admin-link-btn" onClick={() => void remove(r.id)}>{t("src_client_admin_pages_newspage__l78__h7")}</button>
+            <button type="button" className="mp-admin-link-btn" onClick={() => void remove(r.id)}>{t("admin/newspage.h7")}</button>
           )},
         ]}
       />

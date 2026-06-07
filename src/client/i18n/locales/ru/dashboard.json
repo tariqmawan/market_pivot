@@ -1,15 +1,37 @@
 {
-  "title": "Глобальный дашборд",
-  "intro": "Акции, FX и крипто в одном пространстве, готовом к живым данным, новостям, графикам и сравнению.",
-  "userPanelTitle": "Ваше рыночное пространство",
-  "userPanelIntro": "Отслеживайте избранные биржи, валюты, криптоактивы, уведомления и портфель в одном удобном дашборде.",
+  "title": "Глобальная панель рынков",
+  "intro": "Следите за акциями, FX, крипто, регионами, секторами, сырьем, событиями, настроениями и списком наблюдения в едином рабочем пространстве.",
+  "liveTapeLabel": "Живая рыночная лента",
+  "crossMarket": "Кросс-рыночный обзор",
+  "topExchange": "Главная биржа",
+  "coreReserve": "Ключевой резерв",
+  "cryptoLeader": "Крипто-лидер",
+  "regionPulse": "Пульс регионов",
+  "sectorPulse": "Пульс секторов",
+  "commodityPulse": "Пульс сырья",
+  "primaryBase": "Основная база конверсии",
+  "majorIndices": "Основные индексы",
+  "worldSnapshot": "Снимок мировых рынков",
+  "marketMovers": "Движения рынка",
+  "gainersAndLosers": "Лидеры роста и падения",
+  "economicEventsToday": "Экономические события сегодня",
+  "macroCalendar": "Макрокалендарь",
+  "marketSentiment": "Настроение рынка",
+  "forexMiniCards": "Мини-карты FX",
+  "currencyPulse": "Пульс валют",
+  "cryptoOverview": "Обзор криптовалют",
+  "marketCapLeaders": "Лидеры капитализации",
+  "commoditySnapshot": "Снимок сырьевого рынка",
+  "spotAndFutures": "Спот и фьючерсы",
+  "watchlistPreview": "Предпросмотр списка наблюдения",
+  "watchlistCopy": "Быстрый доступ к сохраненным символам, межрыночным оповещениям, контексту портфеля и настройкам аккаунта.",
   "portfolioValue": "Стоимость портфеля",
-  "watchlist": "Watchlist",
-  "savedMarkets": "Сохранённые рынки",
+  "watchlist": "Список наблюдения",
+  "savedMarkets": "Сохраненные рынки",
   "activeAlerts": "Активные оповещения",
   "todayPnl": "P/L за сегодня",
   "quickActions": "Быстрые действия",
-  "addWatchlist": "Добавить в watchlist",
+  "addWatchlist": "Добавить список",
   "createAlert": "Создать оповещение",
   "exportReport": "Экспорт отчета",
   "accountSettings": "Настройки аккаунта",
@@ -22,8 +44,40 @@
   "notificationMode": "Режим уведомлений",
   "compactMode": "Компактный режим",
   "emailDigest": "Email-дайджест",
-  "marketOpenAlerts": "Оповещения об открытии рынка",
+  "marketOpenAlerts": "Оповещения открытия рынка",
   "riskProfile": "Профиль риска",
   "moderate": "Умеренный",
-  "marketsFollowed": "Отслеживаемые рынки"
+  "marketsFollowed": "Отслеживаемые рынки",
+  "userPanelTitle": "Ваше рыночное пространство",
+  "userPanelIntro": "Отслеживайте биржи, валюты, криптоактивы, оповещения и портфель в одной понятной панели.",
+  "importance": {
+    "high": "Высокая",
+    "medium": "Средняя",
+    "low": "Низкая"
+  },
+  "economicEvents": {
+    "usCpi": "CPI США",
+    "ecbRemarks": "Комментарии ЕЦБ по политике",
+    "us10yAuction": "Аукцион UST 10Y",
+    "fomcMinutes": "Протокол FOMC"
+  },
+  "sentiment": {
+    "equities": {
+      "label": "Акции",
+      "detail": "Широкий risk-on"
+    },
+    "fx": {
+      "label": "FX",
+      "detail": "Доллар смешанный"
+    },
+    "crypto": {
+      "label": "Крипто",
+      "detail": "Покупка на импульсе"
+    },
+    "commodities": {
+      "label": "Сырье",
+      "detail": "Энергия слабее"
+    }
+  },
+  "currencyRate": "1 {{base}} = {{rate}} {{quote}}"
 }

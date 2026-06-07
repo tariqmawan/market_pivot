@@ -2,7 +2,7 @@
   "adminTopNav": "Navigation admin",
   "openMenu": "Ouvrir le menu",
   "searchPlaceholder": "Rechercher...",
-  "notifications": "Notifications",
+  "notifications": "notifications",
   "profile": "Profil",
   "adminPortal": "Portail admin",
   "dashboard": "Tableau de bord",
@@ -17,5 +17,5 @@
   "activeUsers": "Utilisateurs actifs",
   "revenue": "Revenus",
   "exchanges": "Bourses",
-  "lastUpdated": "Last updated"
+  "lastUpdated": "Dernière mise à jour"
 }

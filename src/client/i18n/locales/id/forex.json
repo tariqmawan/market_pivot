@@ -1,34 +1,190 @@
 {
-  "currencyType": "Jenis Mata Uang",
-  "centralBank": "Bank Sentral",
-  "exchangeRates": "Kurs",
-  "converter": "Konverter",
-  "popularPairs": "Pasangan Populer",
-  "economicData": "Data Ekonomi",
-  "code": "Kode",
-  "symbol": "Simbol",
-  "country": "Negara",
-  "region": "Wilayah",
-  "type": "Jenis",
-  "rate": "Kurs",
-  "bid": "Bid",
-  "ask": "Ask",
-  "spread": "Spread",
-  "loadingRates": "Memuat kurs...",
   "amountPlaceholder": "Masukkan jumlah",
-  "economicIndicators": "Indikator Ekonomi",
-  "interestRate": "Suku Bunga",
-  "inflationRate": "Tingkat Inflasi",
-  "gdpGrowth": "Pertumbuhan PDB",
-  "employment": "Ketenagakerjaan",
-  "dataLoading": "Memuat data...",
-  "economicNews": "Berita & Pembaruan Ekonomi",
+  "annualRate": "Tingkat tahunan",
+  "ask": "Bertanya",
+  "bid": "Penawaran",
+  "centralBank": "Bank Sentral",
+  "change24h": "Perubahan 24j",
+  "code": "Kode",
+  "converter": "Konverter",
+  "countries": {
+    "ae": {
+      "name": "Uni Emirat Arab"
+    },
+    "au": {
+      "name": "Australia"
+    },
+    "br": {
+      "name": "Brazil"
+    },
+    "ca": {
+      "name": "Kanada"
+    },
+    "ch": {
+      "name": "Swiss"
+    },
+    "cl": {
+      "name": "Chili"
+    },
+    "cn": {
+      "name": "Cina"
+    },
+    "eu": {
+      "name": "Uni Eropa"
+    },
+    "gb": {
+      "name": "Inggris Raya"
+    },
+    "hk": {
+      "name": "Hongkong"
+    },
+    "in": {
+      "name": "India"
+    },
+    "jp": {
+      "name": "Jepang"
+    },
+    "kr": {
+      "name": "Korea Selatan"
+    },
+    "mx": {
+      "name": "Meksiko"
+    },
+    "no": {
+      "name": "Norwegia"
+    },
+    "sa": {
+      "name": "Arab Saudi"
+    },
+    "se": {
+      "name": "Swedia"
+    },
+    "sg": {
+      "name": "Singapura"
+    },
+    "us": {
+      "name": "Amerika Serikat"
+    },
+    "za": {
+      "name": "Afrika Selatan"
+    }
+  },
+  "country": "Negara",
+  "currencies": {
+    "aed": {
+      "name": "Dirham UEA",
+      "description": "Mata uang dipatok pada USD di pusat keuangan Teluk"
+    },
+    "aud": {
+      "name": "Dolar Australia",
+      "description": "Mata uang terkait komoditas, pusat utama Asia-Pasifik"
+    },
+    "brl": {
+      "name": "Real Brasil",
+      "description": "Mata uang perekonomian terbesar di Amerika Latin"
+    },
+    "cad": {
+      "name": "Dolar Kanada",
+      "description": "Mata uang terkait komoditas negara G7"
+    },
+    "chf": {
+      "name": "Franc Swiss",
+      "description": "Mata uang safe-haven terkenal dengan stabilitas dan daya beli yang kuat"
+    },
+    "clp": {
+      "name": "Peso Chili",
+      "description": "Mata uang negara Amerika Latin yang stabil secara ekonomi"
+    },
+    "cny": {
+      "name": "Yuan Tiongkok",
+      "description": "Mata uang perekonomian terbesar kedua di dunia"
+    },
+    "eur": {
+      "name": "Euro",
+      "description": "Mata uang Zona Euro, mata uang cadangan terbesar kedua"
+    },
+    "gbp": {
+      "name": "Poundsterling Inggris",
+      "description": "Mata uang Inggris, salah satu mata uang tertua"
+    },
+    "hkd": {
+      "name": "Dolar Hong Kong",
+      "description": "Dipatok ke Dolar AS, mata uang utama pusat keuangan Asia"
+    },
+    "inr": {
+      "name": "Rupee India",
+      "description": "Mata uang negara dengan populasi terbesar di dunia dan perekonomian besar dengan pertumbuhan tercepat"
+    },
+    "jpy": {
+      "name": "Yen Jepang",
+      "description": "Mata uang cadangan terbesar ketiga, aset safe-haven"
+    },
+    "krw": {
+      "name": "Won Korea Selatan",
+      "description": "Mata uang pusat teknologi dan manufaktur utama"
+    },
+    "mxn": {
+      "name": "Peso Meksiko",
+      "description": "Mata uang mitra dagang utama Amerika Utara"
+    },
+    "nok": {
+      "name": "Krone Norwegia",
+      "description": "Mata uang eksportir energi utama, hubungan komoditas yang kuat"
+    },
+    "sar": {
+      "name": "Riyal Arab Saudi",
+      "description": "Mata uang dipatok pada USD eksportir minyak terbesar di dunia"
+    },
+    "sek": {
+      "name": "Krona Swedia",
+      "description": "Mata uang Eropa Utara dengan basis industri"
+    },
+    "sgd": {
+      "name": "Dolar Singapura",
+      "description": "Mata uang regional yang kuat di Asia Tenggara"
+    },
+    "usd": {
+      "name": "Dolar Amerika Serikat",
+      "description": "Mata uang cadangan yang paling banyak digunakan di dunia dan standar global."
+    },
+    "zar": {
+      "name": "Rand Afrika Selatan",
+      "description": "Mata uang negara dengan ekonomi dan produsen komoditas terbesar di Afrika"
+    }
+  },
   "currencyNewsComing": "Berita ekonomi terbaru akan muncul di sini",
   "currencyNewsSubtitle": "Keputusan suku bunga, laporan inflasi, dan lainnya",
-  "vsUsd": "vs USD",
+  "currencyType": "Jenis Mata Uang",
+  "dataLoading": "Memuat data...",
+  "economicData": "Data Ekonomi",
+  "economicIndicators": "Indikator Ekonomi",
+  "economicNews": "Berita & Pembaruan Ekonomi",
+  "employment": "Ketenagakerjaan",
+  "exchangeRates": "Kurs",
+  "gdpGrowth": "Pertumbuhan PDB",
   "high52w": "Tertinggi 52M",
+  "inflationRate": "Tingkat Inflasi",
+  "interestRate": "Suku Bunga",
+  "loadingRates": "Memuat kurs...",
   "low52w": "Terendah 52M",
-  "annualRate": "Tingkat tahunan",
+  "ratesVsMajorSubtitle": "1 {{code}} dinyatakan dalam mata uang utama lainnya",
+  "keyDataReleasesFor": "Rilis data utama untuk {{code}}",
+  "hoursAgo": "{{count}} jam lalu",
+  "popularPairs": "Pasangan Populer",
   "quarterlyRate": "Tingkat kuartalan",
-  "change24h": "Perubahan 24j"
+  "rate": "Kurs",
+  "region": "Wilayah",
+  "spread": "Menyebar",
+  "symbol": "Simbol",
+  "type": "Jenis",
+  "vsUsd": "vs USD",
+  "currencyTypes": {
+    "fiat": "Mata uang fiat"
+  },
+  "centralBanks": {
+    "federalreserve": "Federal Reserve"
+  },
+  "regions": {
+    "northamerica": "Amerika Utara"
+  }
 }

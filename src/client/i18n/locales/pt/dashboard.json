@@ -1,8 +1,30 @@
 {
   "title": "Painel global",
-  "intro": "Ações, FX e cripto em um workspace, prontos para dados ao vivo, notícias, gráficos e comparação.",
-  "userPanelTitle": "Seu workspace de mercado",
-  "userPanelIntro": "Acompanhe suas bolsas favoritas, moedas, ativos cripto, alertas e visão de portfólio em um dashboard limpo.",
+  "intro": "Monitore ações, FX, cripto, regiões, setores, commodities, eventos, sentimento e watchlist em um workspace claro de mercado.",
+  "liveTapeLabel": "Fita de mercado ao vivo",
+  "crossMarket": "Visão cross-market",
+  "topExchange": "Principal bolsa",
+  "coreReserve": "Reserva central",
+  "cryptoLeader": "Líder cripto",
+  "regionPulse": "Pulso regional",
+  "sectorPulse": "Pulso setorial",
+  "commodityPulse": "Pulso de commodities",
+  "primaryBase": "Base de conversão primária",
+  "majorIndices": "Principais índices",
+  "worldSnapshot": "Retrato dos mercados globais",
+  "marketMovers": "Movimentos do mercado",
+  "gainersAndLosers": "Altas e baixas",
+  "economicEventsToday": "Eventos econômicos de hoje",
+  "macroCalendar": "Calendário macro",
+  "marketSentiment": "Sentimento de mercado",
+  "forexMiniCards": "Mini cards de FX",
+  "currencyPulse": "Pulso das moedas",
+  "cryptoOverview": "Visão geral cripto",
+  "marketCapLeaders": "Líderes por capitalização",
+  "commoditySnapshot": "Panorama de commodities",
+  "spotAndFutures": "Spot e futuros",
+  "watchlistPreview": "Prévia da watchlist",
+  "watchlistCopy": "Acesso rápido a símbolos salvos, alertas cross-asset, contexto de portfólio e preferências de conta.",
   "portfolioValue": "Valor do portfólio",
   "watchlist": "Watchlist",
   "savedMarkets": "Mercados salvos",
@@ -21,9 +43,41 @@
   "defaultMarket": "Mercado padrão",
   "notificationMode": "Modo de notificação",
   "compactMode": "Modo compacto",
-  "emailDigest": "Resumo por email",
-  "marketOpenAlerts": "Alertas de abertura de mercado",
+  "emailDigest": "Resumo por e-mail",
+  "marketOpenAlerts": "Alertas de abertura",
   "riskProfile": "Perfil de risco",
   "moderate": "Moderado",
-  "marketsFollowed": "Mercados seguidos"
+  "marketsFollowed": "Mercados seguidos",
+  "userPanelTitle": "Seu workspace de mercado",
+  "userPanelIntro": "Acompanhe bolsas, moedas, criptoativos, alertas e contexto de portfólio em um painel limpo.",
+  "importance": {
+    "high": "Alta",
+    "medium": "Média",
+    "low": "Baixa"
+  },
+  "economicEvents": {
+    "usCpi": "CPI dos EUA",
+    "ecbRemarks": "Comentários de política do BCE",
+    "us10yAuction": "Leilão US 10Y",
+    "fomcMinutes": "Ata do FOMC"
+  },
+  "sentiment": {
+    "equities": {
+      "label": "Ações",
+      "detail": "Amplitude pró-risco"
+    },
+    "fx": {
+      "label": "FX",
+      "detail": "USD misto"
+    },
+    "crypto": {
+      "label": "Cripto",
+      "detail": "Compra por momentum"
+    },
+    "commodities": {
+      "label": "Commodities",
+      "detail": "Energia mais fraca"
+    }
+  },
+  "currencyRate": "1 {{base}} = {{rate}} {{quote}}"
 }

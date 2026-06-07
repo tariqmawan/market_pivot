@@ -154,7 +154,7 @@ export default function ApiKeyAdminPage() {
 
   return (
     <AdminCrudPage<AdminApiKey>
-      title={t("src_client_admin_pages_apikeyadminpage__l154__h0")}
+      title={t("admin/apikeyadminpage.h0")}
       subtitle="Provider keys, environments, rotation, quota monitoring, health checks"
       useStore={useApiKeyAdminStore}
       columns={columns}
@@ -225,7 +225,7 @@ export default function ApiKeyAdminPage() {
       exportName="api-keys"
       validate={(entry) => {
         const errs: Partial<Record<keyof AdminApiKey, string>> = {};
-        if (!entry.label.trim()) errs.label = t("src_client_admin_pages_apikeyadminpage__l225__h1");
+        if (!entry.label.trim()) errs.label = t("admin/apikeyadminpage.h1");
         if (!entry.keyMasked.trim()) errs.keyMasked = "Key required";
         if (entry.monthlyUsage > entry.monthlyQuota && entry.monthlyQuota > 0)
           errs.monthlyUsage = "Usage cannot exceed quota";
@@ -234,7 +234,7 @@ export default function ApiKeyAdminPage() {
           entry.keyMasked = maskApiKey(entry.keyMasked);
         }
         if (items.some((k) => k.label === entry.label && k.id !== entry.id))
-          errs.label = t("src_client_admin_pages_apikeyadminpage__l234__h2");
+          errs.label = t("admin/apikeyadminpage.h2");
         return errs;
       }}
     />

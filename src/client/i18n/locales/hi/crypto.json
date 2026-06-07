@@ -1,37 +1,331 @@
 {
-  "currentPrice": "वर्तमान मूल्य",
-  "rank": "रैंक",
-  "priceMetrics": "मूल्य और मेट्रिक्स",
-  "tradingPairs": "ट्रेडिंग जोड़े",
-  "exchanges": "एक्सचेंज",
-  "charts": "चार्ट",
-  "onChain": "ऑन-चेन",
-  "category": "श्रेणी",
-  "launched": "लॉन्च",
-  "founder": "संस्थापक",
-  "consensus": "सर्वसम्मति तंत्र",
-  "blockTime": "ब्लॉक समय",
-  "supplyInfo": "आपूर्ति जानकारी",
-  "circulatingSupply": "प्रचलित आपूर्ति",
-  "maxSupply": "अधिकतम आपूर्ति",
-  "volume24h": "24 घंटे की मात्रा",
+  "activeAddresses": "सक्रिय पते",
   "ath": "सर्वकालिक उच्च",
   "atl": "सर्वकालिक निम्न",
-  "marketRank": "बाज़ार रैंक",
-  "loadingPrice": "मूल्य डेटा लोड हो रहा है...",
-  "loadingPairs": "ट्रेडिंग जोड़े लोड हो रहे हैं...",
-  "price": "मूल्य",
-  "exchange": "एक्सचेंज",
-  "listedCryptoExchanges": "वे एक्सचेंज जहां यह संपत्ति कारोबार होती है",
-  "exchangeExamples": "Binance, Coinbase, Kraken और अन्य",
-  "priceChart": "इंटरैक्टिव मूल्य चार्ट",
-  "volumeOverlay": "वॉल्यूम ओवरले के साथ",
-  "onChainMetrics": "ऑन-चेन मेट्रिक्स",
-  "transactionsPerDay": "प्रति दिन लेनदेन",
-  "activeAddresses": "सक्रिय पते",
-  "networkFees": "नेटवर्क शुल्क",
-  "transactionVolume": "लेनदेन मात्रा",
-  "onChainComing": "ऑन-चेन डेटा जल्द आ रहा है",
+  "blockTime": "ब्लॉक समय",
+  "categories": {
+    "defi": {
+      "name": "डेफी"
+    },
+    "infrastructure": {
+      "name": "आधारभूत संरचना"
+    },
+    "layer1": {
+      "name": "परत 1"
+    },
+    "layer2": {
+      "name": "परत 2"
+    },
+    "meme": {
+      "name": "MEME"
+    },
+    "payments": {
+      "name": "भुगतान"
+    },
+    "stablecoin": {
+      "name": "स्थिर मुद्रा"
+    }
+  },
+  "category": "श्रेणी",
+  "charts": "चार्ट",
+  "circulatingSupply": "प्रचलित आपूर्ति",
+  "consensus": "सर्वसम्मति तंत्र",
   "cryptoNewsComing": "नवीनतम समाचार और अपडेट यहाँ दिखेंगे",
-  "cryptoNewsSubtitle": "प्रोजेक्ट अपडेट, साझेदारी और बाज़ार समाचार"
+  "cryptoNewsSubtitle": "प्रोजेक्ट अपडेट, साझेदारी और बाज़ार समाचार",
+  "cryptocurrencies": {
+    "aave": {
+      "name": "आवे",
+      "description": "उधार देने और उधार लेने के लिए विकेंद्रीकृत गैर-हिरासत तरलता प्रोटोकॉल"
+    },
+    "arbitrum": {
+      "name": "आर्बिट्रम",
+      "description": "एथेरियम लेयर-2 स्केलिंग समाधान और गवर्नेंस टोकन"
+    },
+    "avalanche2": {
+      "name": "हिमस्खलन",
+      "description": "ब्लॉकचेन अनुप्रयोगों के लिए सबनेट और स्केलिंग समाधान"
+    },
+    "binancecoin": {
+      "name": "BNB",
+      "description": "बिनेंस स्मार्ट चेन इकोसिस्टम का मूल टोकन"
+    },
+    "bitcoin": {
+      "name": "Bitcoin",
+      "description": "मार्केट कैप के हिसाब से दुनिया की पहली और सबसे बड़ी क्रिप्टोकरेंसी"
+    },
+    "bonk": {
+      "name": "बौंक",
+      "description": "सोलाना का पहला प्रमुख मेम सिक्का - समुदाय के लिए प्रसारित किया गया, जो अब डेफी स्टेपल है"
+    },
+    "cardano": {
+      "name": "कार्डानो",
+      "description": "स्थिरता पर ध्यान देने के साथ सहकर्मी-समीक्षित ब्लॉकचेन प्लेटफ़ॉर्म"
+    },
+    "chainlink": {
+      "name": "चेन लिंक",
+      "description": "ब्लॉकचेन को वास्तविक दुनिया के डेटा से जोड़ने वाला विकेंद्रीकृत ओरेकल नेटवर्क"
+    },
+    "compoundGovernanceToken": {
+      "name": "मिश्रण",
+      "description": "DeFi ऋण देने के लिए एल्गोरिथम स्वायत्त ब्याज दर प्रोटोकॉल"
+    },
+    "cosmos": {
+      "name": "ब्रह्मांड",
+      "description": "इंटरऑपरेबल ब्लॉकचेन इकोसिस्टम और ब्लॉकचेन का इंटरनेट"
+    },
+    "curveDaoToken": {
+      "name": "वक्र वित्त",
+      "description": "स्थिर मुद्रा और पेग्ड-एसेट स्वैप के लिए अनुकूलित विकेंद्रीकृत विनिमय"
+    },
+    "dai": {
+      "name": "दाई",
+      "description": "एथेरियम पर विकेंद्रीकृत यूएसडी-समर्थित स्थिर मुद्रा"
+    },
+    "dogecoin": {
+      "name": "डॉगकोइन",
+      "description": "मूल मेम सिक्का - एक मजाक के रूप में शुरू हुआ, एक सांस्कृतिक क्रिप्टो आइकन बन गया"
+    },
+    "ethereum": {
+      "name": "Ethereum",
+      "description": "अग्रणी स्मार्ट कॉन्ट्रैक्ट प्लेटफॉर्म और डेफी हब"
+    },
+    "floki": {
+      "name": "FLOKI",
+      "description": "लोगों की क्रिप्टो - एलोन मस्क से प्रेरित, समुदाय-निर्मित मेम पारिस्थितिकी तंत्र"
+    },
+    "litecoin": {
+      "name": "लाइटकॉइन",
+      "description": "चाँदी से बिटकॉइन का सोना, तेज़ पीयर-टू-पीयर भुगतान"
+    },
+    "maker": {
+      "name": "निर्माता",
+      "description": "मेकरडीएओ का गवर्नेंस टोकन, डीएआई स्थिर मुद्रा के पीछे का प्रोटोकॉल"
+    },
+    "maticNetwork": {
+      "name": "बहुभुज",
+      "description": "एथेरियम स्केलिंग समाधान तेज़ और सस्ते लेनदेन को सक्षम बनाता है"
+    },
+    "pepe": {
+      "name": "पेपे",
+      "description": "इंटरनेट संस्कृति क्रिप्टो से मिलती है - मेंढक मेम अरबों डॉलर का टोकन बन गया"
+    },
+    "polkadot": {
+      "name": "पोल्का डॉट",
+      "description": "मल्टी-चेन ब्लॉकचेन क्रॉस-चेन इंटरऑपरेबिलिटी को सक्षम करता है"
+    },
+    "ripple": {
+      "name": "XRP",
+      "description": "भुगतान नेटवर्क तेज़, कम लागत वाले अंतर्राष्ट्रीय हस्तांतरण पर केंद्रित है"
+    },
+    "shibaInu": {
+      "name": "शीबा इनु",
+      "description": "डॉगकोइन किलर - एक विशाल समुदाय के साथ एथेरियम-आधारित मेम सिक्का"
+    },
+    "solana": {
+      "name": "सोलाना",
+      "description": "विकेंद्रीकृत अनुप्रयोगों के लिए हाई-स्पीड ब्लॉकचेन प्लेटफ़ॉर्म"
+    },
+    "stellar": {
+      "name": "तारकीय",
+      "description": "वित्तीय समावेशन और प्रेषण के लिए ब्लॉकचेन नेटवर्क"
+    },
+    "tether": {
+      "name": "बांधने की रस्सी",
+      "description": "सबसे व्यापक रूप से उपयोग किया जाने वाला यूएसडी-पेग्ड स्थिर सिक्का"
+    },
+    "theOpenNetwork": {
+      "name": "टोनकॉइन",
+      "description": "मैसेजिंग और भुगतान पर फोकस के साथ अल्ट्रा-फास्ट ब्लॉकचेन"
+    },
+    "tron": {
+      "name": "TRON",
+      "description": "विकेंद्रीकृत मनोरंजन के लिए ब्लॉकचेन मंच"
+    },
+    "uniswap": {
+      "name": "यूनिस्वैप",
+      "description": "अग्रणी विकेन्द्रीकृत एक्सचेंज और डेफी प्रोटोकॉल"
+    },
+    "usdCoin": {
+      "name": "अमरीकी डालर का सिक्का",
+      "description": "विनियमित यूएसडी-समर्थित स्थिर मुद्रा"
+    }
+  },
+  "currentPrice": "वर्तमान मूल्य",
+  "exchange": "एक्सचेंज",
+  "exchangeExamples": "Binance, Coinbase, Kraken और अन्य",
+  "exchanges": "एक्सचेंज",
+  "founder": "संस्थापक",
+  "launched": "लॉन्च",
+  "listedCryptoExchanges": "वे एक्सचेंज जहां यह संपत्ति कारोबार होती है",
+  "loadingPairs": "ट्रेडिंग जोड़े लोड हो रहे हैं...",
+  "loadingPrice": "मूल्य डेटा लोड हो रहा है...",
+  "marketRank": "बाज़ार रैंक",
+  "maxSupply": "अधिकतम आपूर्ति",
+  "networkFees": "नेटवर्क शुल्क",
+  "onChain": "ऑन-चेन",
+  "onChainComing": "ऑन-चेन डेटा जल्द आ रहा है",
+  "onChainMetrics": "ऑन-चेन मेट्रिक्स",
+  "price": "मूल्य",
+  "priceChart": "इंटरैक्टिव मूल्य चार्ट",
+  "priceMetrics": "मूल्य और मेट्रिक्स",
+  "rank": "रैंक",
+  "rankNumber": "रैंक #{{rank}}",
+  "supplyInfo": "आपूर्ति जानकारी",
+  "tradingPairs": "ट्रेडिंग जोड़े",
+  "transactionVolume": "लेनदेन मात्रा",
+  "transactionsPerDay": "प्रति दिन लेनदेन",
+  "volume24h": "24 घंटे की मात्रा",
+  "volumeOverlay": "वॉल्यूम ओवरले के साथ",
+  "cryptocurrency": "Cryptocurrency",
+  "cryptocurrencyCategories": "Cryptocurrency Categories",
+  "allCryptocurrencies": "All Cryptocurrencies",
+  "trending": "Trending",
+  "categoryNotFound": "Category Not Found",
+  "categoryNotFoundDescription": "This category doesn't exist. Browse all cryptocurrencies below.",
+  "viewAllCryptocurrencies": "View All Cryptocurrencies",
+  "trendingCoins": {
+    "eyebrow": "लाइव मार्केट डेटा - क्रिप्टोकरेंसी",
+    "titleAccent": "ट्रेंडिंग",
+    "titleRest": "कॉइन",
+    "subtitle": "ट्रेडिंग गतिविधि, सोशल मोमेंटम और मार्केट कैप वृद्धि के आधार पर रैंक की गई रियल-टाइम ट्रेंडिंग क्रिप्टोकरेंसी। लगातार अपडेट होती है।",
+    "categories": {
+      "all": "सभी",
+      "layer1": "लेयर 1",
+      "layer2": "लेयर 2",
+      "defi": "DeFi",
+      "meme": "मीम",
+      "stablecoin": "स्टेबलकॉइन",
+      "payments": "भुगतान",
+      "infrastructure": "इन्फ्रास्ट्रक्चर"
+    },
+    "metrics": {
+      "tracked": "ट्रैक किए गए",
+      "gainers": "लाभ में",
+      "topGain24h": "24घं शीर्ष लाभ",
+      "volumeShort": "24घं वॉल्यूम",
+      "supply": "आपूर्ति"
+    },
+    "sentiment": {
+      "hot": "हॉट",
+      "rising": "बढ़त पर",
+      "active": "सक्रिय",
+      "strong": "मजबूत"
+    },
+    "moreTitle": "और ट्रेंडिंग कॉइन",
+    "emptyCategory": "इस श्रेणी में कोई कॉइन नहीं मिला।",
+    "insights": {
+      "trending": {
+        "eyebrow": "What's Trending",
+        "title": "Market Dynamics",
+        "items": {
+          "socialMentions": "Social media mentions spike",
+          "exchangeFlows": "Exchange inflow / outflow shifts",
+          "developerActivity": "Developer activity on GitHub",
+          "onChainVolume": "On-chain transaction volume",
+          "volumeBreakouts": "Trading volume breakouts"
+        }
+      },
+      "risk": {
+        "eyebrow": "Risk Factors",
+        "title": "Stay Cautious",
+        "items": {
+          "volatility": "High volatility - price can swing 30%+",
+          "liquidity": "Low liquidity in smaller coins",
+          "manipulation": "Potential market manipulation",
+          "regulation": "Evolving regulatory landscape",
+          "techRisk": "Smart contract / tech risks"
+        }
+      },
+      "tips": {
+        "eyebrow": "Trading Tips",
+        "title": "Smart Strategies",
+        "items": {
+          "onChainValidation": "Validate with on-chain metrics first",
+          "githubActivity": "Check GitHub developer activity",
+          "divergence": "Monitor volume vs. price divergence",
+          "positionSizing": "Use proper position sizing",
+          "stopLosses": "Set strict stop-losses before entry"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Crypto Research",
+      "title": "Deep Dive Into Any Coin",
+      "description": "Click any coin to explore detailed charts, on-chain metrics, exchange listings, and breaking news - all in one place."
+    }
+  },
+  "categoryPages": {
+    "common": {
+      "marketOverview": "Market Overview",
+      "combinedMarketCap": "Combined Market Cap",
+      "topGainer24h": "Top Gainer (24h)",
+      "name": "Name",
+      "price": "Price",
+      "change24h": "24h Change",
+      "marketCap": "Market Cap",
+      "volume24h": "24h Volume",
+      "riskProfile": "Risk Profile",
+      "fullCryptoMarket": "Full Crypto Market",
+      "exploreAllCryptocurrencies": "Explore All Cryptocurrencies"
+    },
+    "meme": {
+      "eyebrow": "Community Tokens",
+      "title": "Meme coins",
+      "body": "Community-driven cryptocurrencies fuelled by viral culture, social momentum, and cult followings. High-risk, high-reward assets where sentiment rules the market.",
+      "metrics": {
+        "coinsListed": "Coins Listed"
+      },
+      "rankingsTitle": "Meme Coin Rankings",
+      "table": {
+        "community": "Community"
+      },
+      "communities": {
+        "DOGE": "Original OG",
+        "SHIB": "ShibArmy",
+        "PEPE": "Pepe Nation",
+        "BONK": "Solana Memes",
+        "FLOKI": "Viking Army"
+      },
+      "insights": {
+        "origins": {
+          "eyebrow": "Origins",
+          "title": "The Meme Coin Story",
+          "items": {
+            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
+            "elon": "Elon Musk tweets as price catalysts",
+            "pumps": "WallStreetBets-style coordinated pumps",
+            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
+            "pepe": "2023 PEPE boom revived the meme cycle",
+            "bonk": "BONK airdropped life into Solana DeFi"
+          }
+        },
+        "risk": {
+          "title": "What Investors Should Know",
+          "items": {
+            "sentiment": "Prices driven almost entirely by sentiment",
+            "pumpDump": "Susceptible to pump-and-dump schemes",
+            "utility": "Minimal or no underlying utility",
+            "volatility": "Extreme volatility - 50%+ swings common",
+            "rugPull": "Rug-pull risk in newer, unaudited coins",
+            "viralCycles": "High correlation with viral media cycles"
+          }
+        },
+        "signals": {
+          "eyebrow": "Community Signals",
+          "title": "How to Track Momentum",
+          "items": {
+            "twitter": "Twitter/X mentions and trending hashtags",
+            "reddit": "Reddit activity on r/CryptoCurrency",
+            "whales": "Whale wallet alerts and large transfers",
+            "listings": "Exchange listing announcements",
+            "google": "Google Trends search volume spikes",
+            "influencers": "Influencer social media activity"
+          }
+        }
+      },
+      "cta": {
+        "description": "Compare meme coins against blue-chip assets, DeFi protocols, and layer-1 blockchains."
+      }
+    }
+  }
 }

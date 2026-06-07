@@ -185,7 +185,7 @@ export default function ForexAdminPage() {
     <div>
       <div className="mp-admin-content" style={{ paddingBottom: 0 }}>
         <PageHeader
-          title={t("src_client_admin_pages_forexadminpage__l185__h0")}
+          title={t("admin/forexadminpage.h0")}
           subtitle="Currencies, central banks, interest rates, and trading pairs"
         />
         <div style={{ display: "flex", gap: 6, marginBottom: 12 }}>
@@ -213,7 +213,7 @@ export default function ForexAdminPage() {
 
       {tab === "currencies" ? (
         <AdminCrudPage<AdminCurrency>
-          title={t("src_client_admin_pages_forexadminpage__l213__h1")}
+          title={t("admin/forexadminpage.h1")}
           subtitle="Fiat and reserve currencies with central bank metadata"
           useStore={useCurrencyAdminStore}
           columns={currencyColumns}
@@ -264,7 +264,7 @@ export default function ForexAdminPage() {
         />
       ) : (
         <AdminCrudPage<AdminCurrencyPair>
-          title={t("src_client_admin_pages_forexadminpage__l264__h2")}
+          title={t("admin/forexadminpage.h2")}
           subtitle="Major, cross, and exotic pairs with spread management"
           useStore={useCurrencyPairAdminStore}
           columns={pairColumns}

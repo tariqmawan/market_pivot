@@ -11,6 +11,7 @@ import ChartJSLine from "../components/ChartJSLine";
 import { generateSeriesForSymbol, formatSignedPercent, formatMoney } from "../lib/chartSeries";
 import "./SectorsPageNew.css";
 import { useI18n } from "../i18n";
+import { translateStatic } from "../i18n/translate";
 
 
 
@@ -58,6 +59,10 @@ type Sector = {
 
 const sectors = (sectorsData as { sectors: Sector[] }).sectors;
 
+const sectorKey = (sectorId: string, field: string) => `sectorspagenew.sectors.${sectorId}.${field}`;
+const sectorArrayKey = (sectorId: string, field: string, value: string) =>
+  `sectorspagenew.sectors.${sectorId}.${field}.${value.replace(/[^a-z0-9]+/gi, "_").replace(/^_+|_+$/g, "").toLowerCase()}`;
+
 const hashString = (s: string) => {
   let h = 0;
   for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
@@ -80,7 +85,7 @@ const sectorIndustryBreakdown = (sectorId: string) => {
   const baseIndustries = industryMap[sectorId] ?? ["Large Cap", "Mid Cap", "Small Cap", "Emerging", "Dividend"];
   return baseIndustries.map((industry, i) => {
     const value = 8 + ((seed + i * 31) % 28);
-    return { industry, weight: value };
+    return { industry, key: sectorArrayKey(sectorId, "industries", industry), weight: value };
   });
 };
 
@@ -113,6 +118,15 @@ const valuationMetrics = (sector: Sector) => ({
 
 const SectorsPage: React.FC = () => {
   const { t } = useI18n();
+  const tx = (key: string, fallback: string) => translateStatic(t, key, fallback);
+  const sectorName = (s: Sector) => tx(s.nameKey, s.name);
+  const sectorSummary = (s: Sector) => tx(sectorKey(s.id, "summary"), s.summary);
+  const sectorDescription = (s: Sector) => tx(sectorKey(s.id, "description"), s.description);
+  const sectorCategory = (s: Sector) => tx(`sectorspagenew.categories.${s.category}`, s.category);
+  const sectorVolatility = (s: Sector) => tx(`sectorspagenew.volatility.${s.volatility}`, s.volatility);
+  const sectorInvestorProfile = (s: Sector) => tx(sectorKey(s.id, "investorProfile"), s.investorProfile);
+  const regionLabel = (region: string) => tx(`sectorspagenew.regions.${region}`, region.replace(/-/g, " "));
+  const newsThemeLabel = (s: Sector, theme: string) => tx(sectorArrayKey(s.id, "newsThemes", theme), theme);
   const { sectorId } = useParams();
   const sector = sectors.find((s) => s.id.toLowerCase() === (sectorId ?? "").toLowerCase());
 
@@ -121,31 +135,31 @@ const SectorsPage: React.FC = () => {
       <div className="page sectors-list">
         <section className="coverage-hero">
           <div>
-            <p className="eyebrow">{t("src_client_pages_sectorspagenew__l94__h0")}</p>
-            <h1>{t("src_client_pages_sectorspagenew__l95__h1")}</h1>
-            <p>{t("src_client_pages_sectorspagenew__l100_h0")}</p>
+            <p className="eyebrow">{t("sectorspagenew.h0_l94")}</p>
+            <h1>{t("sectorspagenew.h1")}</h1>
+            <p>{t("sectorspagenew.h0_l100")}</p>
           </div>
           <div className="metric-strip">
-            <div className="metric-tile"><span>{t("src_client_pages_sectorspagenew__l99__h3")}</span><strong>{sectors.length}</strong></div>
-            <div className="metric-tile"><span>{t("src_client_pages_sectorspagenew__l100__h4")}</span><strong>{sectors.sort((a,b) => b.performanceYtd - a.performanceYtd)[0].name}</strong></div>
-            <div className="metric-tile"><span>{t("src_client_pages_sectorspagenew__l101__h5")}</span><strong>{formatMoney(sectors.reduce((s, sec) => s + sec.marketCapUSD, 0))}</strong></div>
+            <div className="metric-tile"><span>{t("sectorspagenew.h3")}</span><strong>{sectors.length}</strong></div>
+            <div className="metric-tile"><span>{t("sectorspagenew.h4")}</span><strong>{sectorName([...sectors].sort((a,b) => b.performanceYtd - a.performanceYtd)[0])}</strong></div>
+            <div className="metric-tile"><span>{t("sectorspagenew.h5")}</span><strong>{formatMoney(sectors.reduce((s, sec) => s + sec.marketCapUSD, 0))}</strong></div>
           </div>
         </section>
 
         <section className="sectors-list-grid">
           {sectors.map((s) => (
             <Link key={s.id} to={`/sectors/${s.id}`} className="sector-list-card">
-              <div className="sector-icon">{s.icon}</div>
+              <div className="sector-icon">{SECTOR_ICONS[s.id.toLowerCase()] ?? <HiComputerDesktop size={28} />}</div>
               <div className="sector-info">
                 <div className="sector-info-top">
-                  <h3>{s.name}</h3>
-                  <span className="sector-cat-pill">{s.category}</span>
+                  <h3>{sectorName(s)}</h3>
+                  <span className="sector-cat-pill">{sectorCategory(s)}</span>
                 </div>
-                <p>{s.summary}</p>
+                <p>{sectorSummary(s)}</p>
                 <div className="sector-info-stats">
-                  <div><span>{t("src_client_pages_sectorspagenew__l116__h6")}</span><strong className={s.performanceYtd >= 0 ? "positive" : "negative"}>{formatSignedPercent(s.performanceYtd)}</strong></div>
-                  <div><span>{t("src_client_pages_sectorspagenew__l117__h7")}</span><strong>{s.peRatio.toFixed(1)}</strong></div>
-                  <div><span>{t("src_client_pages_sectorspagenew__l118__h8")}</span><strong>{formatMoney(s.marketCapUSD)}</strong></div>
+                  <div><span>{t("sectorspagenew.h6")}</span><strong className={s.performanceYtd >= 0 ? "positive" : "negative"}>{formatSignedPercent(s.performanceYtd)}</strong></div>
+                  <div><span>{t("sectorspagenew.h7")}</span><strong>{s.peRatio.toFixed(1)}</strong></div>
+                  <div><span>{t("sectorspagenew.h8")}</span><strong>{formatMoney(s.marketCapUSD)}</strong></div>
                 </div>
               </div>
             </Link>
@@ -153,12 +167,12 @@ const SectorsPage: React.FC = () => {
         </section>
 
         <section className="sector-rotation">
-          <h2>{t("src_client_pages_sectorspagenew__l126__h9")}</h2>
+          <h2>{t("sectorspagenew.h9")}</h2>
           <div className="rotation-grid">
             {rotationAnalysis().map((s) => (
               <div key={s.id} className={`rotation-card ${s.momentum > 2 ? "hot" : s.momentum < -2 ? "cold" : "neutral"}`}>
-                <span className="rotation-icon">{s.icon}</span>
-                <strong>{s.name}</strong>
+                <span className="rotation-icon">{SECTOR_ICONS[s.id.toLowerCase()] ?? <HiComputerDesktop size={28} />}</span>
+                <strong>{sectorName(s)}</strong>
                 <em className={s.momentum >= 0 ? "positive" : "negative"}>
                   {s.momentum >= 0 ? "↑" : "↓"} {formatSignedPercent(s.momentum)}
                 </em>
@@ -181,13 +195,13 @@ const SectorsPage: React.FC = () => {
         <div className="sector-hero-inner">
           {/* Top nav */}
           <Link to="/sectors" className="back-link">
-            <HiArrowLeft size={14} /> All Sectors
+            <HiArrowLeft size={14} /> {t("sectorspagenew.h11")}
           </Link>
 
           {/* Eyebrow badges */}
           <div className="sector-hero-badges">
-            <span className="sector-cat-pill">{sector.category}</span>
-            <span className="sector-vol-pill">Volatility: {sector.volatility}</span>
+            <span className="sector-cat-pill">{sectorCategory(sector)}</span>
+            <span className="sector-vol-pill">{t("sectorspagenew.volatilityLabel")}: {sectorVolatility(sector)}</span>
           </div>
 
           {/* Title with icon badge */}
@@ -195,43 +209,43 @@ const SectorsPage: React.FC = () => {
             <div className="sector-title-icon-badge">
               {SECTOR_ICONS[sector.id.toLowerCase()] ?? <HiComputerDesktop size={28} />}
             </div>
-            <h1>{sector.name}</h1>
+            <h1>{sectorName(sector)}</h1>
           </div>
 
-          <p className="sector-hero-desc">{sector.description}</p>
+          <p className="sector-hero-desc">{sectorDescription(sector)}</p>
 
           {/* Investor profile */}
           <div className="sector-investor-row">
             <HiUser size={13} />
-            <span>{sector.investorProfile}</span>
+            <span>{sectorInvestorProfile(sector)}</span>
           </div>
         </div>
 
         {/* Metric cards row */}
         <div className="sector-hero-metrics">
           <div className="sector-metric-card">
-            <span>Market Cap</span>
+            <span>{t("sectorspagenew.h12")}</span>
             <strong>{formatMoney(sector.marketCapUSD)}</strong>
           </div>
           <div className="sector-metric-card">
-            <span>YTD</span>
+            <span>{t("sectorspagenew.h13")}</span>
             <strong className={sector.performanceYtd >= 0 ? "positive" : "negative"}>
               {formatSignedPercent(sector.performanceYtd)}
             </strong>
           </div>
           <div className="sector-metric-card">
-            <span>P/E Ratio</span>
+            <span>{t("sectorspagenew.h23")}</span>
             <strong>{sector.peRatio.toFixed(1)}</strong>
           </div>
           <div className="sector-metric-card">
-            <span>Div. Yield</span>
+            <span>{t("sectorspagenew.dividendYield")}</span>
             <strong>{sector.dividendYield.toFixed(2)}%</strong>
           </div>
         </div>
       </section>
 
       <section className="sector-chart-section">
-        <h2>{t("src_client_pages_sectorspagenew__l170__h16")}</h2>
+        <h2>{t("sectorspagenew.h16")}</h2>
         <div className="sector-chart">
           {window.Chart ? (
             <ChartJSLine
@@ -261,7 +275,7 @@ const SectorsPage: React.FC = () => {
 
       <section className="sector-row-grid">
         <div className="sector-card-block">
-          <h3>{t("src_client_pages_sectorspagenew__l200__h17")}</h3>
+          <h3>{t("sectorspagenew.h17")}</h3>
           <div className="company-list">
             {sector.topCompanies.map((company, i) => {
               const performance = ((hashString(company) % 200) - 100) / 10;
@@ -270,7 +284,7 @@ const SectorsPage: React.FC = () => {
                   <span className="company-rank">{i + 1}</span>
                   <div className="company-info">
                     <strong>{company}</strong>
-                    <span>Mkt Cap: {formatMoney(100e9 + hashString(company) * 1e7)}</span>
+                    <span>{t("sectorspagenew.h12")}: {formatMoney(100e9 + hashString(company) * 1e7)}</span>
                   </div>
                   <em className={performance >= 0 ? "positive" : "negative"}>{formatSignedPercent(performance)}</em>
                 </div>
@@ -279,7 +293,7 @@ const SectorsPage: React.FC = () => {
           </div>
         </div>
         <div className="sector-card-block">
-          <h3>{t("src_client_pages_sectorspagenew__l218__h18")}</h3>
+          <h3>{t("sectorspagenew.h18")}</h3>
           <div className="etf-list">
             {sector.etfs.map((etf) => {
               const performance = ((hashString(etf) % 200) - 100) / 10;
@@ -287,7 +301,7 @@ const SectorsPage: React.FC = () => {
                 <Link key={etf} to={`/screener?type=etf&symbol=${etf}`} className="etf-row">
                   <div>
                     <strong>{etf}</strong>
-                    <span>ETF • {formatMoney((2 + hashString(etf) % 80) * 1e9)} AUM</span>
+                    <span>{t("sectorspagenew.etfLabel")} • {formatMoney((2 + hashString(etf) % 80) * 1e9)} {t("sectorspagenew.aum")}</span>
                   </div>
                   <em className={performance >= 0 ? "positive" : "negative"}>{formatSignedPercent(performance)}</em>
                 </Link>
@@ -296,11 +310,11 @@ const SectorsPage: React.FC = () => {
           </div>
         </div>
         <div className="sector-card-block">
-          <h3>{t("src_client_pages_sectorspagenew__l235__h19")}</h3>
+          <h3>{t("sectorspagenew.h19")}</h3>
           <div className="industry-list">
             {industries.map((ind) => (
               <div key={ind.industry} className="industry-row">
-                <span>{ind.industry}</span>
+                <span>{tx(ind.key, ind.industry)}</span>
                 <div className="industry-bar">
                   <div className="industry-fill" style={{ width: `${ind.weight * 2}%` }} />
                 </div>
@@ -313,7 +327,7 @@ const SectorsPage: React.FC = () => {
 
       <section className="sector-row-grid">
         <div className="sector-card-block">
-          <h3>{t("src_client_pages_sectorspagenew__l252__h20")}</h3>
+          <h3>{t("sectorspagenew.h20")}</h3>
           <div className="trending-list">
             {sector.trendingStocks.map((stock) => {
               const change = ((hashString(stock) % 200) - 100) / 10;
@@ -327,7 +341,7 @@ const SectorsPage: React.FC = () => {
           </div>
         </div>
         <div className="sector-card-block">
-          <h3>{t("src_client_pages_sectorspagenew__l266__h21")}</h3>
+          <h3>{t("sectorspagenew.h21")}</h3>
           <div className="trending-list">
             {sector.dividendLeaders.map((stock) => {
               const change = ((hashString(stock) % 200) - 100) / 10;
@@ -343,54 +357,54 @@ const SectorsPage: React.FC = () => {
           </div>
         </div>
         <div className="sector-card-block">
-          <h3>{t("src_client_pages_sectorspagenew__l282__h22")}</h3>
+          <h3>{t("sectorspagenew.h22")}</h3>
           <div className="valuation-list">
-            <div><span>{t("src_client_pages_sectorspagenew__l284__h23")}</span><strong>{valuation.pe.toFixed(1)}</strong></div>
-            <div><span>{t("src_client_pages_sectorspagenew__l285__h24")}</span><strong>{valuation.peg}</strong></div>
-            <div><span>{t("src_client_pages_sectorspagenew__l286__h25")}</span><strong>{valuation.pb}</strong></div>
-            <div><span>{t("src_client_pages_sectorspagenew__l287__h26")}</span><strong>{valuation.ps}</strong></div>
-            <div><span>{t("src_client_pages_sectorspagenew__l288__h27")}</span><strong>{valuation.evEbitda}</strong></div>
-            <div><span>{t("src_client_pages_sectorspagenew__l289__h28")}</span><strong>{valuation.fcfYield}%</strong></div>
-            <div><span>{t("src_client_pages_sectorspagenew__l290__h29")}</span><strong>{valuation.roe}%</strong></div>
+            <div><span>{t("sectorspagenew.h23")}</span><strong>{valuation.pe.toFixed(1)}</strong></div>
+            <div><span>{t("sectorspagenew.h24")}</span><strong>{valuation.peg}</strong></div>
+            <div><span>{t("sectorspagenew.h25")}</span><strong>{valuation.pb}</strong></div>
+            <div><span>{t("sectorspagenew.h26")}</span><strong>{valuation.ps}</strong></div>
+            <div><span>{t("sectorspagenew.h27")}</span><strong>{valuation.evEbitda}</strong></div>
+            <div><span>{t("sectorspagenew.h28")}</span><strong>{valuation.fcfYield}%</strong></div>
+            <div><span>{t("sectorspagenew.h29")}</span><strong>{valuation.roe}%</strong></div>
           </div>
         </div>
       </section>
 
       <section className="sector-card-block">
-        <h3>{t("src_client_pages_sectorspagenew__l296__h30")}</h3>
+        <h3>{t("sectorspagenew.h30")}</h3>
         <div className="related-themes">
           <div>
-            <h4>{t("src_client_pages_sectorspagenew__l299__h31")}</h4>
+            <h4>{t("sectorspagenew.h31")}</h4>
             <div className="tag-cloud">
               {sector.relatedRegions.map((r) => (
-                <Link key={r} to={`/regions/${r}`} className="region-tag">{r.replace(/-/g, " ")}</Link>
+                <Link key={r} to={`/regions/${r}`} className="region-tag">{regionLabel(r)}</Link>
               ))}
             </div>
           </div>
           <div>
-            <h4>{t("src_client_pages_sectorspagenew__l307__h32")}</h4>
+            <h4>{t("sectorspagenew.h32")}</h4>
             <div className="tag-cloud">
-              {sector.newsThemes.map((t) => <span key={t} className="theme-tag">{t}</span>)}
+              {sector.newsThemes.map((theme) => <span key={theme} className="theme-tag">{newsThemeLabel(sector, theme)}</span>)}
             </div>
           </div>
         </div>
       </section>
 
       <section className="sector-card-block">
-        <h3>{t("src_client_pages_sectorspagenew__l316__h33")}</h3>
+        <h3>{t("sectorspagenew.h33")}</h3>
         <div className="forex-news-grid">
           {[
-            { title: `${sector.name} sector rotation accelerates as macro data shifts`, source: "Reuters", tag: sector.name },
-            { title: `${sector.topCompanies[0]} reports strong quarterly results, sector lifts`, source: "Bloomberg", tag: "Earnings" },
-            { title: `Analyst update: ${sector.name} outlook remains constructive`, source: "FT", tag: "Analyst" },
-            { title: `${sector.etfs[0]} sees record inflows amid ${sector.name.toLowerCase()} momentum`, source: "WSJ", tag: "Flows" },
-            { title: `${sector.name} sector faces regulatory headwinds in Europe`, source: "Bloomberg", tag: "Regulation" },
-            { title: `${sector.topCompanies[1]} announces strategic partnership`, source: "CNBC", tag: "Strategic" },
+            { title: t("sectorspagenew.news.rotation", { sector: sectorName(sector) }), source: "Reuters", tag: sectorName(sector) },
+            { title: t("sectorspagenew.news.earnings", { company: sector.topCompanies[0] }), source: "Bloomberg", tag: t("sectorspagenew.newsTags.earnings") },
+            { title: t("sectorspagenew.news.analyst", { sector: sectorName(sector) }), source: "FT", tag: t("sectorspagenew.newsTags.analyst") },
+            { title: t("sectorspagenew.news.flows", { etf: sector.etfs[0], sector: sectorName(sector) }), source: "WSJ", tag: t("sectorspagenew.newsTags.flows") },
+            { title: t("sectorspagenew.news.regulation", { sector: sectorName(sector) }), source: "Bloomberg", tag: t("sectorspagenew.newsTags.regulation") },
+            { title: t("sectorspagenew.news.strategic", { company: sector.topCompanies[1] }), source: "CNBC", tag: t("sectorspagenew.newsTags.strategic") },
           ].map((n, i) => (
             <article key={i} className="forex-news-card">
               <span className="news-tag">{n.tag}</span>
               <h4>{n.title}</h4>
-              <div className="news-meta"><span>{n.source}</span><span>{i + 1}h ago</span></div>
+              <div className="news-meta"><span>{n.source}</span><span>{t("forex:hoursAgo", "", { count: i + 1 })}</span></div>
             </article>
           ))}
         </div>

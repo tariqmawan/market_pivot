@@ -6,6 +6,7 @@ import ChartJSLine from "../components/ChartJSLine";
 import { generateSeriesForSymbol, formatSignedPercent } from "../lib/chartSeries";
 import "./ForexPage.css";
 import { useI18n } from "../i18n";
+import { translateStatic } from "../i18n/translate";
 
 
 type Currency = {
@@ -26,6 +27,9 @@ type Currency = {
   reserveStatus?: string;
   capitalFlows?: string;
   logo: string;
+  nameKey?: string;
+  countryKey?: string;
+  descriptionKey?: string;
 };
 
 const currencies = (currenciesData as { currencies: Currency[] }).currencies;
@@ -158,6 +162,9 @@ const ForexPage: React.FC = () => {
 
   // ───── Per-currency detail view (route: /forex/:code) ─────
   if (detailCurrency) {
+    const detailName = translateStatic(t, detailCurrency.nameKey, detailCurrency.name);
+    const detailCountry = translateStatic(t, detailCurrency.countryKey, detailCurrency.country);
+    const detailDescription = translateStatic(t, detailCurrency.descriptionKey, detailCurrency.description);
     const dcRate = majorRates[detailCurrency.code] ?? 1;
     const change = computeChange(detailCurrency.code);
     const strength = getStrength(detailCurrency.code);
@@ -187,8 +194,8 @@ const ForexPage: React.FC = () => {
           <div>
             <Link to="/forex" className="back-link">← {t("forex.allCurrencies")}</Link>
             <p className="eyebrow">{detailCurrency.region} • {detailCurrency.type}</p>
-            <h1>{detailCurrency.code} — {detailCurrency.name}</h1>
-            <p>{detailCurrency.description || `${detailCurrency.country} currency, issued by ${detailCurrency.centralBank}.`}</p>
+            <h1>{detailName}</h1>
+            <p>{detailDescription || `${detailCountry} currency, issued by ${detailCurrency.centralBank}.`}</p>
           </div>
           <div className="metric-strip">
             <div className="metric-tile"><span>{t("forex.code")}</span><strong>{detailCurrency.code}</strong></div>
@@ -219,7 +226,7 @@ const ForexPage: React.FC = () => {
           <div className="pairs-section">
             <div className="section-header-row">
               <h2>{t("forex.ratesVsMajor")}</h2>
-              <p>1 {detailCurrency.code} expressed in other major currencies</p>
+              <p>{t("forex.ratesVsMajorSubtitle", "", { code: detailCurrency.code })}</p>
             </div>
             <div className="pairs-table-wrap">
               <table className="pairs-table">
@@ -250,7 +257,7 @@ const ForexPage: React.FC = () => {
           <div className="central-section">
             <div className="section-header-row">
               <h2>{t("forex.centralBankMacro")}</h2>
-              <p>{t("src_client_pages_forexpage__l252__h0")}</p>
+              <p>{t("forexpage.h0")}</p>
             </div>
             <div className="central-grid">
               <div className="central-card">
@@ -273,7 +280,7 @@ const ForexPage: React.FC = () => {
                 </div>
               </div>
               <div className="central-card">
-                <div className="central-header"><div><h4>{t("forex.tradeProfile")}</h4><span>{detailCurrency.country}</span></div></div>
+                <div className="central-header"><div><h4>{t("forex.tradeProfile")}</h4><span>{detailCountry}</span></div></div>
                 <div className="central-stats">
                   <div><span>{t("forex.reserveStatus")}</span><strong>{detailCurrency.reserveStatus ?? "Regional"}</strong></div>
                   <div><span>{t("forex.capitalFlows")}</span><strong>{detailCurrency.capitalFlows ?? "Open"}</strong></div>
@@ -287,7 +294,7 @@ const ForexPage: React.FC = () => {
           <div className="calendar-section">
             <div className="section-header-row">
               <h2>{t("forex.upcomingEvents")}</h2>
-              <p>Key data releases for {detailCurrency.code}</p>
+              <p>{t("forex.keyDataReleasesFor", "", { code: detailCurrency.code })}</p>
             </div>
             <div className="econ-events">
               {detailEvents.map((event, i) => (
@@ -317,7 +324,7 @@ const ForexPage: React.FC = () => {
               <article key={i} className="forex-news-card">
                 <span className="news-tag">{detailCurrency.code}</span>
                 <h4>{n.title}</h4>
-                <div className="news-meta"><span>{n.source}</span><span>{i + 1}h ago</span></div>
+                <div className="news-meta"><span>{n.source}</span><span>{t("forex.hoursAgo", "", { count: i + 1 })}</span></div>
               </article>
             ))}
           </div>
@@ -729,7 +736,7 @@ const ForexPage: React.FC = () => {
             <article key={i} className="forex-news-card">
               <span className="news-tag">{n.tag}</span>
               <h4>{n.title}</h4>
-              <div className="news-meta"><span>{n.source}</span><span>{t("src_client_pages_forexpage__l731__h1")}</span></div>
+              <div className="news-meta"><span>{n.source}</span><span>{t("forexpage.h1")}</span></div>
             </article>
           ))}
         </div>

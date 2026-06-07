@@ -212,8 +212,8 @@ function SeoTab() {
       {/* Page selector */}
       <div className="mp-admin-card">
         <div className="mp-admin-card-head">
-          <h2>{t("src_client_admin_pages_platformpage__l211__h0")}</h2>
-          <span className="mp-admin-muted">{t("src_client_admin_pages_platformpage__l212__h1")}</span>
+          <h2>{t("admin/platformpage.h0_l211")}</h2>
+          <span className="mp-admin-muted">{t("admin/platformpage.h1")}</span>
         </div>
         <div
           style={{
@@ -256,7 +256,7 @@ function SeoTab() {
       <div className="mp-admin-card">
         <div className="mp-admin-card-head">
           <h2>{t("adminSeo.metaTags", { page: activePage } as any)}</h2>
-          <span className="mp-admin-muted">{t("src_client_admin_pages_platformpage__l255__h2")}</span>
+          <span className="mp-admin-muted">{t("admin/platformpage.h2")}</span>
         </div>
 
         <div className="mp-admin-customer-form" style={{ gap: 16 }}>
@@ -264,7 +264,7 @@ function SeoTab() {
           {/* Title */}
           <label style={labelStyle}>
             <span style={{ display: "flex", justifyContent: "space-between" }}>
-              <span>{t("src_client_admin_pages_platformpage__l263__h3")}</span>
+              <span>{t("admin/platformpage.h3")}</span>
               <span style={counterStyle(meta.title.length, 60)}>
                 {meta.title.length}/60
               </span>
@@ -274,7 +274,7 @@ function SeoTab() {
               value={meta.title}
               maxLength={80}
               onChange={(e) => updateMeta("title", e.target.value)}
-              placeholder={t("src_client_admin_pages_platformpage__l273__h4")}
+              placeholder={t("admin/platformpage.h4")}
               style={inputStyle}
             />
           </label>
@@ -282,7 +282,7 @@ function SeoTab() {
           {/* Meta description */}
           <label style={labelStyle}>
             <span style={{ display: "flex", justifyContent: "space-between" }}>
-              <span>{t("src_client_admin_pages_platformpage__l281__h5")}</span>
+              <span>{t("admin/platformpage.h5")}</span>
               <span style={counterStyle(meta.description.length, 160)}>
                 {meta.description.length}/160
               </span>
@@ -292,7 +292,7 @@ function SeoTab() {
               maxLength={200}
               rows={3}
               onChange={(e) => updateMeta("description", e.target.value)}
-              placeholder={t("src_client_admin_pages_platformpage__l291__h6")}
+              placeholder={t("admin/platformpage.h6")}
               style={textareaStyle}
             />
           </label>
@@ -303,7 +303,7 @@ function SeoTab() {
                 type="text"
                 value={meta.ogTitle}
                 onChange={(e) => updateMeta("ogTitle", e.target.value)}
-                placeholder={t("src_client_admin_pages_platformpage__l304__h7")}
+                placeholder={t("admin/platformpage.h7")}
                 style={inputStyle}
               />
             </label>
@@ -322,7 +322,7 @@ function SeoTab() {
               value={meta.ogDescription}
               rows={2}
               onChange={(e) => updateMeta("ogDescription", e.target.value)}
-              placeholder={t("src_client_admin_pages_platformpage__l327__h8")}
+              placeholder={t("admin/platformpage.h8")}
               style={textareaStyle}
             />
           </label>
@@ -342,8 +342,8 @@ function SeoTab() {
                 onChange={(e) => updateMeta("robots_index", e.target.value as "index" | "noindex")}
                 style={inputStyle}
               >
-                <option value="index">{t("src_client_admin_pages_platformpage__l351__h9")}</option>
-                <option value="noindex">{t("src_client_admin_pages_platformpage__l352__h10")}</option>
+                <option value="index">{t("admin/platformpage.h9")}</option>
+                <option value="noindex">{t("admin/platformpage.h10")}</option>
               </select>
             </label>
             <label style={labelStyle}>{t("adminSeo.follow")}<select
@@ -351,8 +351,8 @@ function SeoTab() {
                 onChange={(e) => updateMeta("robots_follow", e.target.value as "follow" | "nofollow")}
                 style={inputStyle}
               >
-                <option value="follow">{t("src_client_admin_pages_platformpage__l362__h11")}</option>
-                <option value="nofollow">{t("src_client_admin_pages_platformpage__l363__h12")}</option>
+                <option value="follow">{t("admin/platformpage.h11")}</option>
+                <option value="nofollow">{t("admin/platformpage.h12")}</option>
               </select>
             </label>
           </div>
@@ -363,8 +363,8 @@ function SeoTab() {
       {/* Global settings */}
       <div className="mp-admin-card">
         <div className="mp-admin-card-head">
-          <h2>{t("src_client_admin_pages_platformpage__l374__h13")}</h2>
-          <span className="mp-admin-muted">{t("src_client_admin_pages_platformpage__l375__h14")}</span>
+          <h2>{t("admin/platformpage.h13")}</h2>
+          <span className="mp-admin-muted">{t("admin/platformpage.h14")}</span>
         </div>
 
         <div className="mp-admin-customer-form" style={{ gap: 16 }}>
@@ -376,7 +376,7 @@ function SeoTab() {
               onChange={(e) =>
                 setSettings((prev) => ({ ...prev, robotsTxt: e.target.value }))
               }
-              placeholder={t("src_client_admin_pages_platformpage__l393_h0")}
+              placeholder={t("admin/platformpage.h0_l393")}
               style={{ ...textareaStyle, minHeight: 120, fontFamily: "monospace", fontSize: 13 }}
             />
           </label>
@@ -394,7 +394,7 @@ function SeoTab() {
             }}
           >
             <div>
-              <div style={{ color: "#f8fafc", fontWeight: 900, fontSize: 14 }}>{t("src_client_admin_pages_platformpage__l407__h15")}</div>
+              <div style={{ color: "#f8fafc", fontWeight: 900, fontSize: 14 }}>{t("admin/platformpage.h15")}</div>
               <div className="mp-admin-muted" style={{ marginTop: 2 }}>
                 {t("adminSeo.sitemapHint")}
               </div>

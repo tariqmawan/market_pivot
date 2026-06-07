@@ -23,6 +23,14 @@ export interface StockExchange {
   marketCap: number;
   listedCompanies: number;
   avgDailyVolume: number;
+  /** Translation key for the exchange display name. e.g. "markets.exchanges.nyse.name". */
+  nameKey?: string;
+  /** Translation key for the country label. e.g. "markets.countries.us". */
+  countryKey?: string;
+  /** Translation key for the timezone label. e.g. "markets.timezones.americaNewYork". */
+  timezoneKey?: string;
+  /** Translation key for static exchange description. e.g. "markets.exchanges.nyse.description". */
+  descriptionKey?: string;
 }
 
 // Market Summary Types
@@ -76,6 +84,8 @@ export interface MarketRegion {
   calendarFocus: string[];
   sectorLeaders: string[];
   newsThemes: string[];
+  /** Translation key for the region display name. e.g. "markets.regions.americas.name". */
+  nameKey?: string;
 }
 
 export interface StockSector {
@@ -91,6 +101,8 @@ export interface StockSector {
   dividendLeaders: string[];
   relatedRegions: string[];
   newsThemes: string[];
+  /** Translation key for the sector display name. e.g. "markets.sectors.technology.name". */
+  nameKey?: string;
 }
 
 export interface Commodity {
@@ -106,6 +118,8 @@ export interface Commodity {
   demandTrends: string[];
   currencyCorrelation: string;
   economicImpact: string;
+  /** Translation key for the commodity display name. e.g. "markets.commodities.crudeOil.name". */
+  nameKey?: string;
 }
 
 // Currency Types
@@ -120,6 +134,12 @@ export interface Currency {
   centralBank: string;
   description: string;
   logo: string;
+  /** Translation key for the currency display name. e.g. "forex.currencies.usd.name". */
+  nameKey?: string;
+  /** Translation key for the country label. e.g. "forex.countries.us". */
+  countryKey?: string;
+  /** Translation key for static currency description. e.g. "forex.currencies.usd.description". */
+  descriptionKey?: string;
 }
 
 export interface ExchangeRate {
@@ -163,6 +183,12 @@ export interface Cryptocurrency {
   consensusMechanism: string;
   blockTime: number | null;
   logo: string;
+  /** Translation key for the crypto display name. e.g. "crypto.cryptocurrencies.bitcoin.name". */
+  nameKey?: string;
+  /** Translation key for the category label. e.g. "crypto.categories.layer1". */
+  categoryKey?: string;
+  /** Translation key for static crypto description. e.g. "crypto.cryptocurrencies.bitcoin.description". */
+  descriptionKey?: string;
 }
 
 export interface CryptoPrice {

@@ -1,14 +1,36 @@
 {
-  "title": "แดชบอร์ดทั่วโลก",
-  "intro": "หุ้น FX และคริปโตในพื้นที่ทำงานเดียว พร้อมรองรับข้อมูลสด ข่าว แผนภูมิ และโมดูลเปรียบเทียบในอนาคต",
-  "userPanelTitle": "พื้นที่ทำงานตลาดของคุณ",
-  "userPanelIntro": "ติดตามตลาดหลักทรัพย์ สกุลเงิน สินทรัพย์คริปโต การแจ้งเตือน และมุมมองพอร์ตโฟลิโอในแดชบอร์ดเดียว",
+  "title": "แดชบอร์ดตลาดโลก",
+  "intro": "ติดตามหุ้น FX คริปโต ภูมิภาค กลุ่มอุตสาหกรรม สินค้าโภคภัณฑ์ เหตุการณ์ sentiment และ watchlist ในพื้นที่ทำงานเดียว",
+  "liveTapeLabel": "แถบตลาดแบบสด",
+  "crossMarket": "มุมมองข้ามตลาด",
+  "topExchange": "ตลาดชั้นนำ",
+  "coreReserve": "ทุนสำรองหลัก",
+  "cryptoLeader": "ผู้นำคริปโต",
+  "regionPulse": "ชีพจรภูมิภาค",
+  "sectorPulse": "ชีพจรกลุ่มอุตสาหกรรม",
+  "commodityPulse": "ชีพจรสินค้าโภคภัณฑ์",
+  "primaryBase": "ฐานการแปลงหลัก",
+  "majorIndices": "ดัชนีหลัก",
+  "worldSnapshot": "ภาพรวมตลาดโลก",
+  "marketMovers": "หุ้นเคลื่อนไหวในตลาด",
+  "gainersAndLosers": "หุ้นขึ้นและหุ้นลง",
+  "economicEventsToday": "เหตุการณ์เศรษฐกิจวันนี้",
+  "macroCalendar": "ปฏิทินมหภาค",
+  "marketSentiment": "ความเชื่อมั่นตลาด",
+  "forexMiniCards": "การ์ด FX ขนาดเล็ก",
+  "currencyPulse": "ชีพจรสกุลเงิน",
+  "cryptoOverview": "ภาพรวมคริปโต",
+  "marketCapLeaders": "ผู้นำมูลค่าตลาด",
+  "commoditySnapshot": "สแน็ปช็อตสินค้าโภคภัณฑ์",
+  "spotAndFutures": "สปอตและฟิวเจอร์ส",
+  "watchlistPreview": "ตัวอย่างรายการเฝ้าดู",
+  "watchlistCopy": "เข้าถึงสัญลักษณ์ที่บันทึกไว้ การแจ้งเตือนข้ามสินทรัพย์ บริบทพอร์ตโฟลิโอ และการตั้งค่าบัญชีได้รวดเร็ว",
   "portfolioValue": "มูลค่าพอร์ตโฟลิโอ",
   "watchlist": "รายการเฝ้าดู",
   "savedMarkets": "ตลาดที่บันทึกไว้",
   "activeAlerts": "การแจ้งเตือนที่ใช้งานอยู่",
   "todayPnl": "กำไร/ขาดทุนวันนี้",
-  "quickActions": "การดำเนินการด่วน",
+  "quickActions": "การทำงานด่วน",
   "addWatchlist": "เพิ่มรายการเฝ้าดู",
   "createAlert": "สร้างการแจ้งเตือน",
   "exportReport": "ส่งออกรายงาน",
@@ -25,5 +47,37 @@
   "marketOpenAlerts": "แจ้งเตือนเปิดตลาด",
   "riskProfile": "โปรไฟล์ความเสี่ยง",
   "moderate": "ปานกลาง",
-  "marketsFollowed": "ตลาดที่ติดตาม"
+  "marketsFollowed": "ตลาดที่ติดตาม",
+  "userPanelTitle": "พื้นที่ทำงานตลาดของคุณ",
+  "userPanelIntro": "ติดตามตลาด สกุลเงิน คริปโต การแจ้งเตือน และบริบทพอร์ตในแดชบอร์ดเดียว",
+  "importance": {
+    "high": "สูง",
+    "medium": "ปานกลาง",
+    "low": "ต่ำ"
+  },
+  "economicEvents": {
+    "usCpi": "CPI สหรัฐฯ",
+    "ecbRemarks": "ถ้อยแถลงนโยบาย ECB",
+    "us10yAuction": "ประมูลพันธบัตรสหรัฐฯ 10 ปี",
+    "fomcMinutes": "รายงานการประชุม FOMC"
+  },
+  "sentiment": {
+    "equities": {
+      "label": "หุ้น",
+      "detail": "ความเสี่ยงเปิดกว้าง"
+    },
+    "fx": {
+      "label": "FX",
+      "detail": "USD ผสมผสาน"
+    },
+    "crypto": {
+      "label": "คริปโต",
+      "detail": "แรงซื้อจากโมเมนตัม"
+    },
+    "commodities": {
+      "label": "สินค้าโภคภัณฑ์",
+      "detail": "พลังงานอ่อนตัว"
+    }
+  },
+  "currencyRate": "1 {{base}} = {{rate}} {{quote}}"
 }

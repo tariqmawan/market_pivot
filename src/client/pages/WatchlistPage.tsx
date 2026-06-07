@@ -340,8 +340,8 @@ const WatchlistPage: React.FC = () => {
                     <option value="crypto">{t("screener.crypto")}</option>
                     <option value="currency">{t("screener.forex")}</option>
                     <option value="etf">{t("screener.etfs")}</option>
-                    <option value="commodity">{t("src_client_pages_watchlistpage__l341__h12")}</option>
-                    <option value="index">{t("src_client_pages_watchlistpage__l342__h13")}</option>
+                    <option value="commodity">{t("watchlistpage.h12")}</option>
+                    <option value="index">{t("watchlistpage.h13")}</option>
                   </select>
                 </div>
                 <div className="control-group">
@@ -405,7 +405,7 @@ const WatchlistPage: React.FC = () => {
                               type="button"
                               onClick={() => handleToggleAlert(sym.symbol, !sym.alertEnabled, sym.alertPrice)}
                               className={sym.alertEnabled ? "active" : ""}
-                              aria-label={t("src_client_pages_watchlistpage__l405__h22")}
+                              aria-label={t("watchlistpage.h22")}
                             >
                               {sym.alertEnabled ? <HiBell size={15} /> : <HiBellSlash size={15} />}
                             </button>

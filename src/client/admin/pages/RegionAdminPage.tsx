@@ -84,7 +84,7 @@ export default function RegionAdminPage() {
 
   return (
     <AdminCrudPage<AdminRegion>
-      title={t("src_client_admin_pages_regionadminpage__l83__h0")}
+      title={t("admin/regionadminpage.h0")}
       subtitle="Macro regions, GDP, inflation, employment, and economic outlook"
       useStore={useRegionAdminStore}
       columns={columns}

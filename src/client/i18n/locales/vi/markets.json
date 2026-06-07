@@ -1,132 +1,628 @@
 {
-  "title": "Global Markets Intelligence Dashboard",
-  "subtitle": "Live-style overview for indices, movers, FX, crypto, commodities, economic events, sentiment, news, and watchlists.",
-  "globalMarkets": "Global multi-asset markets",
-  "homeTitle": "MarketsPivot",
-  "homeCopy": "Bloomberg-style coverage across equities, fixed income context, FX, commodities, derivatives, and crypto-ready market views.",
-  "intelligenceTitle": "One platform for global market intelligence",
-  "intelligenceCopy": "Track exchange sessions, FX pressure, digital assets, yield-market context, commodities, and derivatives from a single operating view.",
-  "liveTape": "Băng thị trường trực tiếp",
-  "terminalView": "Chế độ Terminal",
-  "assetCoverage": "Asset Coverage",
-  "compareMarkets": "So sánh thị trường cạnh nhau",
-  "compareMarketsCopy": "Move from NYSE to INR, BTC to NASDAQ, or oil to rates without changing workspace.",
-  "marketBrief": "Tóm tắt thị trường",
-  "openingBell": "Chuông mở cửa",
-  "riskView": "Góc nhìn rủi ro",
-  "globalHeatmap": "Global heatmap",
-  "equities": "Cổ phiếu",
-  "stockCount": "stock exchanges",
-  "exchangeDashboards": "Global exchange dashboards",
-  "regionsMeta": "Regional indices, macro calendars, FX, and commodity impact",
-  "currencyCount": "đồng tiền",
-  "fxMeta": "Reserve, trade, and emerging FX",
-  "sectorsMeta": "Stock categories, ETFs, leaders, and sector news",
-  "usdBase": "Chiến lược cơ sở USD",
-  "cryptoMeta": "Công ty dẫn đầu, Stablecoins, DeFi, thanh toán",
-  "cryptoLayer": "Lớp thị trường 24/7",
-  "topGlobalExchanges": "Top Global Stock Exchanges",
-  "exchangeIntro": "Regional coverage with currency, timezone, trading hours, listings, main index, and market cap context.",
-  "topCurrencies": "Top 20 Global Currencies",
-  "currencyIntro": "Major reserves, Asia-Pacific trade currencies, Americas, Europe, Middle East, and Africa coverage.",
-  "topCryptos": "Top 20 Cryptocurrencies",
-  "cryptoIntro": "Core leaders, smart-contract platforms, stablecoins, infrastructure, DeFi, payments, and growth assets.",
-  "crossMarket": "Góc nhìn liên thị trường",
-  "topExchange": "Top exchange",
-  "coreReserve": "Dự trữ cốt lõi",
-  "cryptoLeader": "Tiền mã hóa dẫn đầu",
-  "primaryBase": "Cơ sở quy đổi chính",
-  "marketCap": "Vốn hóa thị trường",
-  "listedCompanies": "Công ty niêm yết",
-  "avgDailyVolume": "Avg Daily Volume",
-  "tradingHours": "Giờ giao dịch",
   "advancers": "Tăng giá",
-  "decliners": "Giảm giá",
-  "chart": "Biểu đồ",
-  "topMovers": "Cổ phiếu biến động mạnh nhất",
-  "founded": "Founded",
-  "mainIndex": "Chỉ số chính",
+  "asiaClosed": "Asia closed mixed; Europe bid",
+  "assetCoverage": "Bảo hiểm tài sản",
+  "avgDailyVolume": "Khối lượng trung bình hàng ngày",
   "baseCurrency": "Tiền tệ cơ sở",
-  "website": "Trang web",
-  "topGainers": "Tăng giá mạnh nhất",
-  "topLosers": "Giảm giá mạnh nhất",
-  "mostActive": "Hoạt động mạnh nhất",
+  "btcMeta": "Rủi ro BTC so với USD, FX và vốn cổ phần",
+  "calendarFocus": "Trọng tâm lịch",
+  "chart": "Biểu đồ",
+  "commodities": {
+    "brent": {
+      "name": "Dầu thô Brent"
+    },
+    "copper": {
+      "name": "đồng"
+    },
+    "crudeOil": {
+      "name": "D?u th? WTI"
+    },
+    "gold": {
+      "name": "Vàng"
+    },
+    "lithium": {
+      "name": "Liti cacbonat"
+    },
+    "naturalGas": {
+      "name": "Khí thiên nhiên"
+    },
+    "silver": {
+      "name": "Bạc"
+    },
+    "uranium": {
+      "name": "Urani"
+    },
+    "wheat": {
+      "name": "Lúa mì"
+    }
+  },
+  "commoditiesHeading": "Năng lượng, kim loại, đầu vào nông nghiệp & công nghiệp",
+  "commoditiesIntro": "Giá giao ngay, tham chiếu tương lai, khu vực cung cấp, xu hướng cầu, tương quan tiền tệ và tác động vĩ mô.",
+  "commoditiesTitle": "Hàng hóa",
+  "commodity": "hàng hóa",
+  "commodityImpact": "Tác động hàng hóa",
+  "commodityIntelligence": "Thông tin hàng hóa",
+  "commodityPulse": "Xung hàng hóa",
+  "commoditySnapshot": "Ảnh chụp nhanh hàng hóa",
+  "companiesLabel": "Công ty:",
+  "compareMarkets": "So sánh thị trường cạnh nhau",
+  "compareMarketsCopy": "Chuyển từ NYSE sang INR, BTC sang NASDAQ hoặc dầu sang tỷ giá mà không thay đổi không gian làm việc.",
+  "coreReserve": "Dự trữ cốt lõi",
+  "countries": {
+    "ae": {
+      "name": "Các tiểu vương quốc Ả Rập thống nhất"
+    },
+    "au": {
+      "name": "Úc"
+    },
+    "br": {
+      "name": "Brasil"
+    },
+    "ca": {
+      "name": "Ca-na-đa"
+    },
+    "ch": {
+      "name": "Thụy Sĩ"
+    },
+    "cl": {
+      "name": "Chilê"
+    },
+    "cn": {
+      "name": "Trung Quốc"
+    },
+    "de": {
+      "name": "nước Đức"
+    },
+    "es": {
+      "name": "Tây ban nha"
+    },
+    "eu": {
+      "name": "European Union"
+    },
+    "gb": {
+      "name": "Vương quốc Anh"
+    },
+    "hk": {
+      "name": "Hồng Kông"
+    },
+    "id": {
+      "name": "In-đô-nê-xi-a"
+    },
+    "in": {
+      "name": "Ấn Độ"
+    },
+    "it": {
+      "name": "Ý"
+    },
+    "jp": {
+      "name": "Nhật Bản"
+    },
+    "kr": {
+      "name": "Hàn Quốc"
+    },
+    "mx": {
+      "name": "México"
+    },
+    "my": {
+      "name": "Ma-lai-xi-a"
+    },
+    "sa": {
+      "name": "Ả Rập Saudi"
+    },
+    "se": {
+      "name": "Nordic and Baltic region"
+    },
+    "sg": {
+      "name": "Xin-ga-po"
+    },
+    "th": {
+      "name": "Thái Lan"
+    },
+    "tw": {
+      "name": "Đài Loan"
+    },
+    "us": {
+      "name": "Hoa Kỳ"
+    },
+    "za": {
+      "name": "Nam Phi"
+    }
+  },
+  "crashAlert": "Cảnh báo sụp đổ",
+  "crossMarket": "Góc nhìn liên thị trường",
+  "cryptoBetaOutperform": "Beta tiền mã hóa vượt trội hơn cổ phiếu",
+  "cryptoIntro": "Các nhà lãnh đạo cốt lõi, nền tảng hợp đồng thông minh, stablecoin, cơ sở hạ tầng, DeFi, thanh toán và tài sản tăng trưởng.",
+  "cryptoLayer": "Lớp thị trường 24/7",
+  "cryptoLeader": "Tiền mã hóa dẫn đầu",
+  "cryptoMeta": "Công ty dẫn đầu, Stablecoins, DeFi, thanh toán",
+  "cryptoOverview": "Tổng quan tiền mã hóa",
+  "currencyCorrelation": "Tương quan tiền tệ",
+  "currencyCount": "đồng tiền",
+  "currencyIntro": "Major reserves, Asia-Pacific trade currencies, Americas, Europe, Middle East, and Africa coverage.",
+  "currencyPulse": "Nhịp tiền tệ",
+  "decliners": "Giảm giá",
+  "demandTrends": "Xu hướng cầu",
+  "dividendLeaders": "Dẫn đầu cổ tức",
+  "economicCalendar": "Lịch kinh tế",
+  "economicEventsToday": "Sự kiện kinh tế hôm nay",
+  "equities": "Cổ phiếu",
+  "equityThemes": "Chủ đề và danh mục vốn chủ sở hữu",
+  "exchangeDashboards": "Bảng điều khiển trao đổi toàn cầu",
+  "exchangeIntro": "Phạm vi khu vực với tiền tệ, múi giờ, giờ giao dịch, danh sách, chỉ số chính và bối cảnh vốn hóa thị trường.",
+  "exchanges": {
+    "adx": {
+      "name": "Sở giao dịch chứng khoán Abu Dhabi",
+      "description": "Sở giao dịch chứng khoán chính của Abu Dhabi"
+    },
+    "asx": {
+      "name": "Sở giao dịch chứng khoán Úc",
+      "description": "Sở giao dịch chứng khoán chính của Australia"
+    },
+    "b3": {
+      "name": "B3 (Brasil Bolsa Balcão)",
+      "description": "Sàn giao dịch chứng khoán lớn nhất Mỹ Latinh"
+    },
+    "bcs": {
+      "name": "Bolsa de Comercio de Santiago",
+      "description": "Sở giao dịch chứng khoán chính của Chile"
+    },
+    "bit": {
+      "name": "Borsa Ý",
+      "description": "Sở giao dịch chứng khoán chính của Ý"
+    },
+    "bm": {
+      "name": "Bursa Malaysia",
+      "description": "Sở giao dịch chứng khoán chính của Malaysia"
+    },
+    "bme": {
+      "name": "Sàn giao dịch BME Tây Ban Nha",
+      "description": "Sở giao dịch chứng khoán chính của Tây Ban Nha"
+    },
+    "bmv": {
+      "name": "Sở giao dịch chứng khoán Mexico",
+      "description": "Sở giao dịch chứng khoán chính của Mexico"
+    },
+    "bse": {
+      "name": "Sở giao dịch chứng khoán Bombay",
+      "description": "Sàn giao dịch chứng khoán lâu đời nhất châu Á"
+    },
+    "dfm": {
+      "name": "Thị trường tài chính Dubai",
+      "description": "Sở giao dịch chứng khoán chính của Dubai"
+    },
+    "euronext": {
+      "name": "Euronext",
+      "description": "Pan-European exchange operating in multiple countries"
+    },
+    "hkex": {
+      "name": "Sở giao dịch chứng khoán Hồng Kông",
+      "description": "Trung tâm tài chính lớn ở châu Á, cửa ngõ vào thị trường Trung Quốc đại lục"
+    },
+    "idx": {
+      "name": "Sở giao dịch chứng khoán Indonesia",
+      "description": "Sở giao dịch chứng khoán chính của Indonesia"
+    },
+    "jse": {
+      "name": "Sở giao dịch chứng khoán Johannesburg",
+      "description": "Sở giao dịch chứng khoán chính của Nam Phi"
+    },
+    "krx": {
+      "name": "Sàn giao dịch Hàn Quốc",
+      "description": "Sở giao dịch chứng khoán chính của Hàn Quốc"
+    },
+    "lse": {
+      "name": "Sở giao dịch chứng khoán Luân Đôn",
+      "description": "Trung tâm tài chính toàn cầu hàng đầu, một trong những sàn giao dịch lâu đời nhất thế giới"
+    },
+    "nasdaq": {
+      "name": "NASDAQ",
+      "description": "Thị trường chứng khoán điện tử nổi tiếng với các công ty công nghệ"
+    },
+    "nse": {
+      "name": "Sở giao dịch chứng khoán quốc gia Ấn Độ",
+      "description": "Sàn giao dịch chứng khoán lớn nhất Ấn Độ, thị trường hàng đầu Nam Á"
+    },
+    "nyse": {
+      "name": "New York Stock Exchange",
+      "description": "Sàn giao dịch chứng khoán lớn nhất và nổi tiếng nhất thế giới"
+    },
+    "omx": {
+      "name": "Nasdaq Nordic",
+      "description": "Nasdaq-operated Nordic and Baltic marketplace covering equities and related listed products"
+    },
+    "set": {
+      "name": "Sở giao dịch chứng khoán Thái Lan",
+      "description": "Sở giao dịch chứng khoán chính của Thái Lan"
+    },
+    "sgx": {
+      "name": "Sàn giao dịch Singapore",
+      "description": "Trung tâm tài chính và sàn giao dịch hàng đầu Đông Nam Á"
+    },
+    "six": {
+      "name": "Sàn giao dịch Thụy Sĩ SIX",
+      "description": "Sở giao dịch chứng khoán chính của Thụy Sĩ"
+    },
+    "sse": {
+      "name": "Sở giao dịch chứng khoán Thượng Hải",
+      "description": "Sàn giao dịch chứng khoán lớn thứ hai thế giới tính theo vốn hóa thị trường"
+    },
+    "szse": {
+      "name": "Sở giao dịch chứng khoán Thâm Quyến",
+      "description": "Sàn giao dịch chứng khoán lớn thứ ba tính theo vốn hóa thị trường"
+    },
+    "tadawul": {
+      "name": "Sàn giao dịch Ả Rập Saudi",
+      "description": "Sở giao dịch chứng khoán chính của Ả Rập Saudi"
+    },
+    "tse": {
+      "name": "Sở giao dịch chứng khoán Tokyo",
+      "description": "Sàn giao dịch chứng khoán lớn nhất Nhật Bản và lâu đời nhất Châu Á"
+    },
+    "tsx": {
+      "name": "Sở giao dịch chứng khoán Toronto",
+      "description": "Sở giao dịch chứng khoán lớn nhất Canada"
+    },
+    "twse": {
+      "name": "Sở giao dịch chứng khoán Đài Loan",
+      "description": "Sở giao dịch chứng khoán chính của Đài Loan"
+    },
+    "xetra": {
+      "name": "Deutsche Börse",
+      "description": "Germany's largest stock exchange and major European trading center"
+    }
+  },
+  "feature": "Tính năng",
+  "federalReserveMeta": "Cục Dự trữ Liên bang / cơ sở toàn cầu",
+  "forexMiniCards": "Thẻ FX nhỏ",
+  "founded": "Được thành lập",
+  "fxMeta": "Dự trữ, giao dịch và ngoại hối mới nổi",
+  "fxPressure": "Áp lực FX: JPY, INR, ZAR cần theo dõi",
+  "gainersAndLosers": "Người được và kẻ thua",
+  "gdpGrowthShort": "Tăng trưởng GDP",
+  "globalHeatmap": "Bản đồ nhiệt toàn cầu",
+  "globalMarkets": "Thị trường đa tài sản toàn cầu",
+  "homeCopy": "Đưa tin theo phong cách Bloomberg về cổ phiếu, bối cảnh thu nhập cố định, ngoại hối, hàng hóa, công cụ phái sinh và quan điểm thị trường sẵn sàng cho tiền điện tử.",
+  "homeTitle": "Thị trườngPivot",
+  "inflation": "Lạm phát",
+  "intelligenceCopy": "Theo dõi các phiên trao đổi, áp lực ngoại hối, tài sản kỹ thuật số, bối cảnh thị trường lợi nhuận, hàng hóa và các công cụ phái sinh từ một chế độ xem hoạt động duy nhất.",
+  "intelligenceTitle": "Một nền tảng cho thông tin thị trường toàn cầu",
+  "keyIndices": "Chỉ số chính",
+  "listedCompanies": "Công ty niêm yết",
+  "liveBadge": "TRỰC TIẾP",
+  "liveTape": "Băng thị trường trực tiếp",
+  "loadingActive": "Đang tải cổ phiếu hoạt động...",
   "loadingGainers": "Đang tải cổ phiếu tăng...",
   "loadingLosers": "Đang tải cổ phiếu giảm...",
-  "loadingActive": "Đang tải cổ phiếu hoạt động...",
-  "liveBadge": "TRỰC TIẾP",
-  "asiaClosed": "Asia closed mixed; Europe bid",
-  "cryptoBetaOutperform": "Beta tiền mã hóa vượt trội hơn cổ phiếu",
-  "fxPressure": "Áp lực FX: JPY, INR, ZAR cần theo dõi",
-  "regionIntelligence": "Tình báo khu vực",
-  "marketsByGeography": "Thị trường theo địa lý",
-  "countries": "quốc gia",
-  "sectorIntelligence": "Sector Intelligence",
-  "equityThemes": "Equity themes and categories",
-  "commodityIntelligence": "Commodity Intelligence",
-  "macroInputs": "Macro inputs and futures",
-  "majorIndices": "Các chỉ số chính",
-  "worldSnapshot": "Ảnh chụp thị trường thế giới",
-  "marketMovers": "Cổ phiếu biến động thị trường",
-  "gainersAndLosers": "Gainers and losers",
-  "economicEventsToday": "Sự kiện kinh tế hôm nay",
+  "loadingSectors": "Đang tải các lĩnh vực...",
   "macroCalendar": "Lịch vĩ mô",
-  "forexMiniCards": "Thẻ FX nhỏ",
-  "currencyPulse": "Nhịp tiền tệ",
-  "cryptoOverview": "Tổng quan tiền mã hóa",
+  "macroInputs": "Đầu vào vĩ mô và tương lai",
+  "mainIndex": "Chỉ số chính",
+  "majorExchanges": "Các sàn giao dịch lớn",
+  "majorIndices": "Các chỉ số chính",
+  "marketBrief": "Tóm tắt thị trường",
+  "marketCap": "Vốn hóa thị trường",
   "marketCapLeaders": "Dẫn đầu vốn hóa",
-  "commoditySnapshot": "Commodity Snapshot",
-  "spotAndFutures": "Spot and futures",
-  "watchlistPreview": "Xem trước danh sách theo dõi",
-  "watchlistCopy": "Fast access to saved symbols, cross-asset alerts, portfolio context, and account preferences.",
-  "sp500Meta": "S&P 500 / USD / New York",
-  "federalReserveMeta": "Federal Reserve / global base",
-  "btcMeta": "BTC vs USD, FX, and equity risk",
-  "regionPulse": "Nhịp khu vực",
-  "sectorPulse": "Sector pulse",
-  "commodityPulse": "Commodity pulse",
-  "gdpGrowthShort": "Tăng trưởng GDP",
-  "marketSentiment": "Tâm lý thị trường",
-  "noTradingPairs": "No trading pairs available.",
-  "loadingSectors": "Loading sectors...",
-  "noSectorData": "No sector data available.",
-  "noNewsAvailable": "No news available for this exchange.",
-  "volumeShort": "KL:",
-  "momentumLabel": "Momentum",
-  "unusualVolLabel": "KL bất thường",
-  "crashAlert": "Cảnh báo sụp đổ",
-  "oversold": "Quá bán",
-  "reversalLabel": "Đảo chiều",
-  "whaleActivity": "Hoạt động cá voi",
-  "unusualActivity": "Hoạt động bất thường",
-  "companiesLabel": "Công ty:",
+  "marketMovers": "Cổ phiếu biến động thị trường",
   "marketRegion": "Khu vực thị trường",
-  "majorExchanges": "Major Exchanges",
-  "keyIndices": "Chỉ số chính",
-  "economicCalendar": "Lịch kinh tế",
-  "sectorLeaders": "Sector Leaders",
-  "commodityImpact": "Commodity Impact",
-  "trendingStocks": "Trending Stocks",
-  "dividendLeaders": "Dẫn đầu cổ tức",
-  "relatedRegions": "Khu vực liên quan",
+  "marketSentiment": "Tâm lý thị trường",
+  "marketsByGeography": "Thị trường theo địa lý",
+  "moduleFeatureReady": "Sẵn sàng cho các API trực tiếp, bộ lọc, biểu đồ và quy trình công việc đã lưu của người dùng.",
+  "moduleWorkspaceCopy": "Không gian làm việc này là một phần của cấu trúc thông tin thị trường toàn cầu của MarketsPivot.",
+  "momentumLabel": "Động lực",
+  "mostActive": "Hoạt động mạnh nhất",
   "newsThemes": "Chủ đề tin tức",
-  "inflation": "Lạm phát",
-  "calendarFocus": "Trọng tâm lịch",
-  "regionsHeading": "Global Market Regions",
-  "regionsIntro": "Regional indices, macro calendars, FX, and commodity impact across global markets.",
-  "stockSector": "Stock Sector",
-  "sectorsTitle": "Sectors",
-  "sectorsHeading": "Stock Categories & Sector Intelligence",
-  "sectorsIntro": "Technology, banking, AI, energy, healthcare, mining, real estate, semiconductor, and thematic equity coverage.",
-  "commodity": "Commodity",
-  "supplyRegions": "Khu vực cung",
-  "demandTrends": "Xu hướng cầu",
-  "currencyCorrelation": "Tương quan tiền tệ",
-  "commoditiesTitle": "Commodities",
-  "commoditiesHeading": "Energy, Metals, Agriculture & Industrial Inputs",
-  "commoditiesIntro": "Spot prices, futures references, supply regions, demand trends, currency correlations, and macro impact.",
-  "moduleWorkspaceCopy": "This workspace is part of the MarketsPivot global markets intelligence structure.",
-  "moduleFeatureReady": "Ready for live APIs, filters, charts, and saved user workflows.",
+  "noNewsAvailable": "Không có tin tức có sẵn cho trao đổi này.",
+  "noSectorData": "Không có dữ liệu ngành.",
+  "noTradingPairs": "Không có cặp giao dịch nào có sẵn.",
+  "openingBell": "Chuông mở cửa",
+  "oversold": "Quá bán",
   "planned": "Đã lên kế hoạch",
-  "feature": "Tính năng"
+  "primaryBase": "Cơ sở quy đổi chính",
+  "regionIntelligence": "Tình báo khu vực",
+  "regionPulse": "Nhịp khu vực",
+  "regions": {
+    "americas": {
+      "name": "Châu Mỹ"
+    },
+    "asiaPacific": {
+      "name": "Asia-Pacific"
+    },
+    "europe": {
+      "name": "Europe"
+    },
+    "middleEastAfrica": {
+      "name": "Trung Đông và Châu Phi"
+    }
+  },
+  "regionsHeading": "Khu vực thị trường toàn cầu",
+  "regionsIntro": "Chỉ số khu vực, lịch vĩ mô, ngoại hối và tác động hàng hóa trên thị trường toàn cầu.",
+  "regionsMeta": "Chỉ số khu vực, lịch vĩ mô, ngoại hối và tác động hàng hóa",
+  "relatedRegions": "Khu vực liên quan",
+  "reversalLabel": "Đảo chiều",
+  "riskView": "Góc nhìn rủi ro",
+  "sectorIntelligence": "Thông tin ngành",
+  "sectorLeaders": "Lãnh đạo ngành",
+  "sectorPulse": "Xung ngành",
+  "sectors": {
+    "ai": {
+      "name": "AI"
+    },
+    "banking": {
+      "name": "Ngân hàng"
+    },
+    "defence": {
+      "name": "Quốc phòng"
+    },
+    "electricVehicles": {
+      "name": "Xe điện"
+    },
+    "energy": {
+      "name": "Năng lượng"
+    },
+    "healthcare": {
+      "name": "Y tế"
+    },
+    "mining": {
+      "name": "Khai khoáng"
+    },
+    "realEstate": {
+      "name": "Bất động sản"
+    },
+    "retail": {
+      "name": "Bán lẻ"
+    },
+    "semiconductor": {
+      "name": "Bán dẫn"
+    },
+    "technology": {
+      "name": "Công nghệ"
+    }
+  },
+  "sectorsHeading": "Danh mục cổ phiếu & Thông tin ngành",
+  "sectorsIntro": "Công nghệ, ngân hàng, AI, năng lượng, chăm sóc sức khỏe, khai thác mỏ, bất động sản, chất bán dẫn và vốn chủ sở hữu theo chủ đề.",
+  "sectorsMeta": "Danh mục cổ phiếu, ETF, lãnh đạo và tin tức ngành",
+  "sectorsTitle": "Lĩnh vực",
+  "sp500Meta": "S&P 500 / USD / New York",
+  "spotAndFutures": "Giao ngay và tương lai",
+  "stockCount": "sàn giao dịch chứng khoán",
+  "stockSector": "Ngành chứng khoán",
+  "subtitle": "Tổng quan theo phong cách trực tiếp về các chỉ số, động lực, FX, tiền điện tử, hàng hóa, sự kiện kinh tế, tâm lý, tin tức và danh sách theo dõi.",
+  "supplyRegions": "Khu vực cung",
+  "terminalView": "Chế độ Terminal",
+  "timezones": {
+    "africaJohannesburg": {
+      "name": "Châu Phi/Johannesburg"
+    },
+    "americaMexicoCity": {
+      "name": "Mỹ/Mexico_City"
+    },
+    "americaNewYork": {
+      "name": "Mỹ/New_York"
+    },
+    "americaSantiago": {
+      "name": "Mỹ/Santiago"
+    },
+    "americaSaoPaulo": {
+      "name": "Mỹ/Sao_Paulo"
+    },
+    "americaToronto": {
+      "name": "Mỹ/Toronto"
+    },
+    "asiaBangkok": {
+      "name": "Châu Á/Bangkok"
+    },
+    "asiaDubai": {
+      "name": "Châu Á/Dubai"
+    },
+    "asiaHongKong": {
+      "name": "Châu Á/Hồng_Kong"
+    },
+    "asiaJakarta": {
+      "name": "Châu Á/Jakarta"
+    },
+    "asiaKolkata": {
+      "name": "Châu Á/Kolkata"
+    },
+    "asiaKualaLumpur": {
+      "name": "Châu Á/Kuala_Lumpur"
+    },
+    "asiaRiyadh": {
+      "name": "Châu Á/Riyadh"
+    },
+    "asiaSeoul": {
+      "name": "Châu Á/Seoul"
+    },
+    "asiaShanghai": {
+      "name": "Châu Á/Thượng Hải"
+    },
+    "asiaSingapore": {
+      "name": "Châu Á/ Singapore"
+    },
+    "asiaTaipei": {
+      "name": "Châu Á/Đài Bắc"
+    },
+    "asiaTokyo": {
+      "name": "Châu Á/Tokyo"
+    },
+    "australiaSydney": {
+      "name": "Úc/Sydney"
+    },
+    "europeBerlin": {
+      "name": "Europe/Berlin"
+    },
+    "europeLondon": {
+      "name": "Europe/London"
+    },
+    "europeMadrid": {
+      "name": "Europe/Madrid"
+    },
+    "europeParis": {
+      "name": "Europe/Paris"
+    },
+    "europeRome": {
+      "name": "Europe/Rome"
+    },
+    "europeStockholm": {
+      "name": "Europe/Stockholm"
+    },
+    "europeZurich": {
+      "name": "Europe/Zurich"
+    }
+  },
+  "title": "Bảng thông tin thị trường toàn cầu",
+  "topCryptos": "20 loại tiền điện tử hàng đầu",
+  "topCurrencies": "20 loại tiền tệ hàng đầu thế giới",
+  "topExchange": "Trao đổi hàng đầu",
+  "topGainers": "Tăng giá mạnh nhất",
+  "topGlobalExchanges": "Sàn giao dịch chứng khoán toàn cầu hàng đầu",
+  "topLosers": "Giảm giá mạnh nhất",
+  "topMovers": "Cổ phiếu biến động mạnh nhất",
+  "tradingHours": "Giờ giao dịch",
+  "trendingStocks": "Cổ phiếu có xu hướng",
+  "unusualActivity": "Hoạt động bất thường",
+  "unusualVolLabel": "KL bất thường",
+  "usdBase": "Chiến lược cơ sở USD",
+  "volumeShort": "KL:",
+  "watchlistCopy": "Truy cập nhanh vào các biểu tượng đã lưu, cảnh báo tài sản chéo, bối cảnh danh mục đầu tư và tùy chọn tài khoản.",
+  "watchlistPreview": "Xem trước danh sách theo dõi",
+  "website": "Trang web",
+  "whaleActivity": "Hoạt động cá voi",
+  "worldSnapshot": "Ảnh chụp thị trường thế giới",
+  "exchangeNetwork": "Mạng trao đổi",
+  "stockExchanges": "Sở giao dịch chứng khoán",
+  "allExchanges": "Tất cả các sàn giao dịch",
+  "advancedScreener": "Trình sàng lọc nâng cao",
+  "regionExchangesTitle": "Trao đổi {{region}}",
+  "regionalExchangeDashboards": "Bảng điều khiển trao đổi khu vực? tiền tệ, múi giờ, giờ giao dịch, công ty niêm yết, chỉ số chính và vốn hóa thị trường.",
+  "noExchangesForRegion": "Không tìm thấy trao đổi nào cho khu vực này.",
+  "exchangeRegions": {
+    "americas": "Châu Mỹ",
+    "northAmerica": "Bắc Mỹ",
+    "europe": "Europe",
+    "asia": "Châu Á",
+    "asiaPacific": "Châu Á Thái Bình Dương",
+    "oceania": "Châu Đại Dương",
+    "middleEast": "Trung Đông",
+    "africa": "Châu phi",
+    "middleEastAfrica": "Trung Đông và Châu Phi",
+    "latinAmerica": "Mỹ Latinh"
+  },
+  "ytdShort": "YTD",
+  "dashboardCards": {
+    "nyseMeta": "S&P 500 / USD / New York",
+    "usdMeta": "Federal Reserve / global base",
+    "bitcoinMeta": "BTC vs USD, FX, and equity risk",
+    "regionMeta": "China growth / Japan yields / India earnings / Australia resources",
+    "sectorMeta": "Cloud capex / AI monetization / Semiconductor supply / Valuations",
+    "commodityMeta": "Feeds transport inflation, energy earnings, fiscal revenue, and global risk sentiment."
+  },
+  "moduleFeatures": {
+    "majorIndicesWidgets": "Major indices widgets",
+    "topGainersLosers": "Top gainers and losers",
+    "heatmaps": "Heatmaps",
+    "marketSentiment": "Market sentiment",
+    "preMarketMovers": "Pre-market movers",
+    "indexFutures": "Index futures",
+    "volumeSpikes": "Volume spikes",
+    "openingWatchlist": "Opening watchlist",
+    "afterHoursMovers": "After-hours movers",
+    "earningsReactions": "Earnings reactions",
+    "extendedSessionVolume": "Extended-session volume",
+    "newsCatalysts": "News catalysts",
+    "equityHeatmaps": "Equity heatmaps",
+    "sectorPerformance": "Sector performance",
+    "regionalBreadth": "Regional breadth",
+    "assetClassComparison": "Asset-class comparison",
+    "topGainers": "Top gainers",
+    "topLosers": "Top losers",
+    "mostActive": "Most active",
+    "unusualVolume": "Unusual volume",
+    "vixOverview": "VIX overview",
+    "fearGreedContext": "Fear and greed context",
+    "volatilityTermStructure": "Volatility term structure",
+    "riskDashboard": "Risk dashboard",
+    "countryFilters": "Country filters",
+    "exchangeStatistics": "Exchange statistics",
+    "listedCompanies": "Listed companies",
+    "regionalNews": "Regional news",
+    "liveGainers": "Live gainers",
+    "volumeFilters": "Volume filters",
+    "marketCapFilters": "Market cap filters",
+    "sectorBreakdown": "Sector breakdown",
+    "liveLosers": "Live losers",
+    "riskAlerts": "Risk alerts",
+    "indexImpact": "Index impact",
+    "watchlistActions": "Watchlist actions",
+    "trendingCoins": "Trending coins",
+    "marketCapRanking": "Market cap ranking",
+    "exchangeListings": "Exchange listings",
+    "historicalPerformance": "Historical performance",
+    "memeCoinRankings": "Meme coin rankings",
+    "volumeBursts": "Volume bursts",
+    "communityMomentum": "Community momentum",
+    "riskFlags": "Risk flags",
+    "defiEcosystem": "DeFi ecosystem",
+    "tvlMetrics": "TVL metrics",
+    "protocolCategories": "Protocol categories",
+    "tokenPerformance": "Token performance",
+    "layer1Chains": "Layer 1 chains",
+    "consensusDetails": "Consensus details",
+    "tokenomics": "Tokenomics",
+    "developerEcosystem": "Developer ecosystem",
+    "stablecoinSupply": "Stablecoin supply",
+    "pegMonitoring": "Peg monitoring",
+    "exchangeLiquidity": "Exchange liquidity",
+    "reserveContext": "Reserve context",
+    "spotPrices": "Spot prices",
+    "futuresPrices": "Futures prices",
+    "supplyDemandAnalysis": "Supply-demand analysis",
+    "correlationAnalysis": "Correlation analysis",
+    "preciousMetals": "Precious metals",
+    "industrialMetals": "Industrial metals",
+    "futuresContracts": "Futures contracts",
+    "currencySensitivity": "Currency sensitivity",
+    "cropMarkets": "Crop markets",
+    "weatherImpact": "Weather impact",
+    "supplyRegions": "Supply regions",
+    "seasonality": "Seasonality",
+    "industrialInputs": "Industrial inputs",
+    "demandTrends": "Demand trends",
+    "manufacturingSignals": "Manufacturing signals",
+    "regionalSupply": "Regional supply",
+    "regionWiseNews": "Region-wise news",
+    "macroSummaries": "Macro summaries",
+    "marketAlerts": "Market alerts",
+    "sectorWiseNews": "Sector-wise news",
+    "themeTracking": "Theme tracking",
+    "aiSummaries": "AI summaries",
+    "etfImpact": "ETF impact",
+    "cryptoNews": "Crypto news",
+    "onChainContext": "On-chain context",
+    "regulationUpdates": "Regulation updates",
+    "exchangeDevelopments": "Exchange developments",
+    "breakingCatalysts": "Breaking catalysts",
+    "importanceFilters": "Importance filters",
+    "liveMarketSummary": "Live market summary",
+    "filters": "Filters",
+    "analyticsWidgets": "Analytics widgets",
+    "relatedNews": "Related news"
+  },
+  "sentiment": {
+    "Equities": {
+      "label": "Equities",
+      "detail": "Risk-on breadth"
+    },
+    "FX": {
+      "label": "FX",
+      "detail": "USD mixed"
+    },
+    "Crypto": {
+      "label": "Crypto",
+      "detail": "Momentum bid"
+    },
+    "Commodities": {
+      "label": "Commodities",
+      "detail": "Energy softer"
+    }
+  }
 }

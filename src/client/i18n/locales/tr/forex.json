@@ -1,34 +1,190 @@
 {
-  "currencyType": "Para birimi türü",
-  "centralBank": "Merkez bankası",
-  "exchangeRates": "Döviz kurları",
-  "converter": "Dönüştürücü",
-  "popularPairs": "Popüler pariteler",
-  "economicData": "Ekonomik veriler",
-  "code": "Kod",
-  "symbol": "Sembol",
-  "country": "Ülke",
-  "region": "Bölge",
-  "type": "Tür",
-  "rate": "Kur",
-  "bid": "Alış",
-  "ask": "Satış",
-  "spread": "Spread",
-  "loadingRates": "Döviz kurları yükleniyor...",
   "amountPlaceholder": "Tutar girin",
-  "economicIndicators": "Ekonomik göstergeler",
-  "interestRate": "Faiz oranı",
-  "inflationRate": "Enflasyon oranı",
-  "gdpGrowth": "GSYİH büyümesi",
-  "employment": "İstihdam",
-  "dataLoading": "Veri yükleniyor...",
-  "economicNews": "Ekonomik haberler & güncellemeler",
+  "annualRate": "Yıllık oran",
+  "ask": "Satış",
+  "bid": "Alış",
+  "centralBank": "Merkez bankası",
+  "change24h": "24s Değişim",
+  "code": "Kod",
+  "converter": "Dönüştürücü",
+  "countries": {
+    "ae": {
+      "name": "Birleşik Arap Emirlikleri"
+    },
+    "au": {
+      "name": "Avustralya"
+    },
+    "br": {
+      "name": "Brezilya"
+    },
+    "ca": {
+      "name": "Kanada"
+    },
+    "ch": {
+      "name": "İsviçre"
+    },
+    "cl": {
+      "name": "Şili"
+    },
+    "cn": {
+      "name": "Çin"
+    },
+    "eu": {
+      "name": "Avrupa Birliği"
+    },
+    "gb": {
+      "name": "Birleşik Krallık"
+    },
+    "hk": {
+      "name": "Hong Kong"
+    },
+    "in": {
+      "name": "Hindistan"
+    },
+    "jp": {
+      "name": "Japonya"
+    },
+    "kr": {
+      "name": "Güney Kore"
+    },
+    "mx": {
+      "name": "Meksika"
+    },
+    "no": {
+      "name": "Norveç"
+    },
+    "sa": {
+      "name": "Suudi Arabistan"
+    },
+    "se": {
+      "name": "İsveç"
+    },
+    "sg": {
+      "name": "Singapur"
+    },
+    "us": {
+      "name": "Amerika Birleşik Devletleri"
+    },
+    "za": {
+      "name": "Güney Afrika"
+    }
+  },
+  "country": "Ülke",
+  "currencies": {
+    "aed": {
+      "name": "BAE Dirhemi",
+      "description": "Para birimi Körfez finans merkezinin ABD dolarına sabitlendi"
+    },
+    "aud": {
+      "name": "Avustralya Doları",
+      "description": "Emtia bağlantılı para birimi, büyük Asya-Pasifik merkezi"
+    },
+    "brl": {
+      "name": "Brezilya Reali",
+      "description": "Latin Amerika'nın en büyük ekonomisinin para birimi"
+    },
+    "cad": {
+      "name": "Kanada Doları",
+      "description": "G7 ülkesinin emtia bağlantılı para birimi"
+    },
+    "chf": {
+      "name": "İsviçre Frangı",
+      "description": "İstikrar ve güçlü satın alma gücüyle bilinen güvenli liman para birimi"
+    },
+    "clp": {
+      "name": "Şili Pezosu",
+      "description": "Ekonomik açıdan istikrarlı Latin Amerika ülkesinin para birimi"
+    },
+    "cny": {
+      "name": "Çin Yuanı",
+      "description": "Dünyanın ikinci büyük ekonomisinin para birimi"
+    },
+    "eur": {
+      "name": "Euro",
+      "description": "Avro Bölgesi'nin para birimi, ikinci en büyük rezerv para birimi"
+    },
+    "gbp": {
+      "name": "İngiliz Sterlini",
+      "description": "İngiltere'nin para birimi, en eski para birimlerinden biri"
+    },
+    "hkd": {
+      "name": "Hong Kong Doları",
+      "description": "Asya'nın finans merkezinin başlıca para birimi olan ABD Dolarına sabitlendi"
+    },
+    "inr": {
+      "name": "Hindistan Rupisi",
+      "description": "Dünyanın en kalabalık ülkesinin ve en hızlı büyüyen büyük ekonomisinin para birimi"
+    },
+    "jpy": {
+      "name": "Japon Yeni",
+      "description": "Üçüncü en büyük rezerv para birimi, güvenli liman varlığı"
+    },
+    "krw": {
+      "name": "Güney Kore Wonu",
+      "description": "Büyük teknoloji ve üretim merkezinin para birimi"
+    },
+    "mxn": {
+      "name": "Meksika Pesosu",
+      "description": "Kuzey Amerika'nın önde gelen ticaret ortağının para birimi"
+    },
+    "nok": {
+      "name": "Norveç Kronu",
+      "description": "Büyük enerji ihracatçısının para birimi, güçlü emtia bağlantıları"
+    },
+    "sar": {
+      "name": "Suudi Arabistan Riyali",
+      "description": "Para birimi dünyanın en büyük petrol ihracatçısının ABD dolarına sabitlendi"
+    },
+    "sek": {
+      "name": "İsveç Kronu",
+      "description": "Endüstriyel temelli Kuzey Avrupa para birimi"
+    },
+    "sgd": {
+      "name": "Singapur Doları",
+      "description": "Güneydoğu Asya'da güçlü bölgesel para birimi"
+    },
+    "usd": {
+      "name": "Amerikan Doları",
+      "description": "Dünyanın en yaygın kullanılan rezerv para birimi ve küresel standardı."
+    },
+    "zar": {
+      "name": "Güney Afrika Randı",
+      "description": "Afrika'nın en büyük ekonomisi ve emtia üreticisinin para birimi"
+    }
+  },
   "currencyNewsComing": "Son ekonomik haberler burada görünecek",
   "currencyNewsSubtitle": "Faiz kararları, enflasyon raporları ve daha fazlası",
-  "vsUsd": "USD karşısında",
+  "currencyType": "Para birimi türü",
+  "dataLoading": "Veri yükleniyor...",
+  "economicData": "Ekonomik veriler",
+  "economicIndicators": "Ekonomik göstergeler",
+  "economicNews": "Ekonomik haberler & güncellemeler",
+  "employment": "İstihdam",
+  "exchangeRates": "Döviz kurları",
+  "gdpGrowth": "GSYİH büyümesi",
   "high52w": "52H Yüksek",
+  "inflationRate": "Enflasyon oranı",
+  "interestRate": "Faiz oranı",
+  "loadingRates": "Döviz kurları yükleniyor...",
   "low52w": "52H Düşük",
-  "annualRate": "Yıllık oran",
+  "popularPairs": "Popüler pariteler",
   "quarterlyRate": "Çeyreklik oran",
-  "change24h": "24s Değişim"
+  "rate": "Kur",
+  "region": "Bölge",
+  "spread": "Yaymak",
+  "symbol": "Sembol",
+  "type": "Tür",
+  "vsUsd": "USD karşısında",
+  "currencyTypes": {
+    "fiat": "İtibari para"
+  },
+  "centralBanks": {
+    "federalreserve": "Federal Rezerv"
+  },
+  "regions": {
+    "northamerica": "Kuzey Amerika"
+  },
+  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
+  "keyDataReleasesFor": "Key data releases for {{code}}",
+  "hoursAgo": "{{count}}h ago"
 }

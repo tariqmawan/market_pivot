@@ -12,13 +12,21 @@
       "description": "The world's most widely used reserve currency and global standard",
       "interestRate": 4.75,
       "inflation": 3.2,
-      "forexPairs": ["EURUSD", "GBPUSD", "USDJPY", "USDCHF"],
+      "forexPairs": [
+        "EURUSD",
+        "GBPUSD",
+        "USDJPY",
+        "USDCHF"
+      ],
       "strengthIndex": 105.2,
       "gdpGrowth": 2.1,
       "tradeBalance": -0.6,
       "reserveStatus": "Primary reserve currency",
       "capitalFlows": "Safe-haven inflows",
-      "logo": "/logos/currencies/usd.svg"
+      "logo": "/logos/currencies/usd.svg",
+      "nameKey": "forex.currencies.usd.name",
+      "countryKey": "forex.countries.us",
+      "descriptionKey": "forex.currencies.usd.description"
     },
     {
       "code": "EUR",
@@ -32,13 +40,21 @@
       "description": "Currency of the Eurozone, second-largest reserve currency",
       "interestRate": 3.5,
       "inflation": 2.5,
-      "forexPairs": ["EURUSD", "EURGBP", "EURJPY", "EURCHF"],
+      "forexPairs": [
+        "EURUSD",
+        "EURGBP",
+        "EURJPY",
+        "EURCHF"
+      ],
       "strengthIndex": 98.6,
       "gdpGrowth": 0.9,
       "tradeBalance": 0.2,
       "reserveStatus": "Second reserve currency",
       "capitalFlows": "Mixed inflows",
-      "logo": "/logos/currencies/eur.svg"
+      "logo": "/logos/currencies/eur.svg",
+      "nameKey": "forex.currencies.eur.name",
+      "countryKey": "forex.countries.eu",
+      "descriptionKey": "forex.currencies.eur.description"
     },
     {
       "code": "JPY",
@@ -52,13 +68,21 @@
       "description": "Third-largest reserve currency, safe-haven asset",
       "interestRate": 0.5,
       "inflation": 1.8,
-      "forexPairs": ["USDJPY", "EURJPY", "GBPJPY", "JPYAUD"],
+      "forexPairs": [
+        "USDJPY",
+        "EURJPY",
+        "GBPJPY",
+        "JPYAUD"
+      ],
       "strengthIndex": 112.1,
       "gdpGrowth": 1.2,
       "tradeBalance": 1.1,
       "reserveStatus": "Third reserve currency",
       "capitalFlows": "Safe-haven demand",
-      "logo": "/logos/currencies/jpy.svg"
+      "logo": "/logos/currencies/jpy.svg",
+      "nameKey": "forex.currencies.jpy.name",
+      "countryKey": "forex.countries.jp",
+      "descriptionKey": "forex.currencies.jpy.description"
     },
     {
       "code": "GBP",
@@ -70,15 +94,23 @@
       "type": "fiat",
       "centralBank": "Bank of England",
       "description": "Currency of the UK, one of the oldest currencies",
-      "interestRate": 5.0,
+      "interestRate": 5,
       "inflation": 2.8,
-      "forexPairs": ["GBPUSD", "EURGBP", "GBPJPY", "GBPCHF"],
+      "forexPairs": [
+        "GBPUSD",
+        "EURGBP",
+        "GBPJPY",
+        "GBPCHF"
+      ],
       "strengthIndex": 103.4,
       "gdpGrowth": 0.5,
       "tradeBalance": -0.4,
       "reserveStatus": "Reserve currency",
       "capitalFlows": "Outflows due to Brexit",
-      "logo": "/logos/currencies/gbp.svg"
+      "logo": "/logos/currencies/gbp.svg",
+      "nameKey": "forex.currencies.gbp.name",
+      "countryKey": "forex.countries.gb",
+      "descriptionKey": "forex.currencies.gbp.description"
     },
     {
       "code": "CHF",
@@ -92,13 +124,21 @@
       "description": "Safe-haven currency known for stability and strong purchasing power",
       "interestRate": 1.75,
       "inflation": 1.3,
-      "forexPairs": ["USDCHF", "EURCHF", "GBPCHF", "JPYCHF"],
+      "forexPairs": [
+        "USDCHF",
+        "EURCHF",
+        "GBPCHF",
+        "JPYCHF"
+      ],
       "strengthIndex": 108.9,
       "gdpGrowth": 0.8,
       "tradeBalance": 1.8,
       "reserveStatus": "Safe-haven reserve",
       "capitalFlows": "Risk-off inflows",
-      "logo": "/logos/currencies/chf.svg"
+      "logo": "/logos/currencies/chf.svg",
+      "nameKey": "forex.currencies.chf.name",
+      "countryKey": "forex.countries.ch",
+      "descriptionKey": "forex.currencies.chf.description"
     },
     {
       "code": "CNY",
@@ -112,13 +152,21 @@
       "description": "Currency of world's second-largest economy",
       "interestRate": 3.25,
       "inflation": 2.1,
-      "forexPairs": ["USDCNY", "EURCNY", "AUDCNY", "CNYINR"],
+      "forexPairs": [
+        "USDCNY",
+        "EURCNY",
+        "AUDCNY",
+        "CNYINR"
+      ],
       "strengthIndex": 95.2,
       "gdpGrowth": 4.3,
       "tradeBalance": 2.5,
       "reserveStatus": "Emerging reserve",
       "capitalFlows": "Capital controls in place",
-      "logo": "/logos/currencies/cny.svg"
+      "logo": "/logos/currencies/cny.svg",
+      "nameKey": "forex.currencies.cny.name",
+      "countryKey": "forex.countries.cn",
+      "descriptionKey": "forex.currencies.cny.description"
     },
     {
       "code": "HKD",
@@ -132,13 +180,21 @@
       "description": "Pegged to the US Dollar, major Asian financial hub currency",
       "interestRate": 4.75,
       "inflation": 1.6,
-      "forexPairs": ["USDHKD", "EURHKD", "GBPHKD", "HKDJPY"],
-      "strengthIndex": 100.0,
+      "forexPairs": [
+        "USDHKD",
+        "EURHKD",
+        "GBPHKD",
+        "HKDJPY"
+      ],
+      "strengthIndex": 100,
       "gdpGrowth": 2.8,
       "tradeBalance": 0.5,
       "reserveStatus": "Pegged to USD",
       "capitalFlows": "Stable, linked to US",
-      "logo": "/logos/currencies/hkd.svg"
+      "logo": "/logos/currencies/hkd.svg",
+      "nameKey": "forex.currencies.hkd.name",
+      "countryKey": "forex.countries.hk",
+      "descriptionKey": "forex.currencies.hkd.description"
     },
     {
       "code": "INR",
@@ -152,13 +208,21 @@
       "description": "Currency of world's most populous country and fastest-growing major economy",
       "interestRate": 5.75,
       "inflation": 2.3,
-      "forexPairs": ["USDINR", "EURINR", "GBPINR", "INRJPY"],
+      "forexPairs": [
+        "USDINR",
+        "EURINR",
+        "GBPINR",
+        "INRJPY"
+      ],
       "strengthIndex": 94.1,
       "gdpGrowth": 6.8,
       "tradeBalance": -1.2,
       "reserveStatus": "Emerging currency",
       "capitalFlows": "Strong FDI inflows",
-      "logo": "/logos/currencies/inr.svg"
+      "logo": "/logos/currencies/inr.svg",
+      "nameKey": "forex.currencies.inr.name",
+      "countryKey": "forex.countries.in",
+      "descriptionKey": "forex.currencies.inr.description"
     },
     {
       "code": "AUD",
@@ -172,13 +236,21 @@
       "description": "Commodity-linked currency, major Asia-Pacific hub",
       "interestRate": 4.1,
       "inflation": 2.9,
-      "forexPairs": ["AUDUSD", "EURAUD", "GBPAUD", "AUDJPY"],
+      "forexPairs": [
+        "AUDUSD",
+        "EURAUD",
+        "GBPAUD",
+        "AUDJPY"
+      ],
       "strengthIndex": 92.3,
       "gdpGrowth": 1.8,
       "tradeBalance": 0.7,
       "reserveStatus": "Commodity currency",
       "capitalFlows": "Linked to commodity prices",
-      "logo": "/logos/currencies/aud.svg"
+      "logo": "/logos/currencies/aud.svg",
+      "nameKey": "forex.currencies.aud.name",
+      "countryKey": "forex.countries.au",
+      "descriptionKey": "forex.currencies.aud.description"
     },
     {
       "code": "SGD",
@@ -192,13 +264,21 @@
       "description": "Strong regional currency in Southeast Asia",
       "interestRate": 3.75,
       "inflation": 2.4,
-      "forexPairs": ["USDSGD", "EURSGD", "GBPSGD", "SGDJPY"],
+      "forexPairs": [
+        "USDSGD",
+        "EURSGD",
+        "GBPSGD",
+        "SGDJPY"
+      ],
       "strengthIndex": 101.2,
       "gdpGrowth": 2.1,
       "tradeBalance": 1.4,
       "reserveStatus": "Regional safe-haven",
       "capitalFlows": "Stable financial hub",
-      "logo": "/logos/currencies/sgd.svg"
+      "logo": "/logos/currencies/sgd.svg",
+      "nameKey": "forex.currencies.sgd.name",
+      "countryKey": "forex.countries.sg",
+      "descriptionKey": "forex.currencies.sgd.description"
     },
     {
       "code": "KRW",
@@ -212,13 +292,21 @@
       "description": "Currency of major tech and manufacturing hub",
       "interestRate": 3.5,
       "inflation": 2.1,
-      "forexPairs": ["USDKRW", "EURKRW", "GBPKRW", "KRWJPY"],
+      "forexPairs": [
+        "USDKRW",
+        "EURKRW",
+        "GBPKRW",
+        "KRWJPY"
+      ],
       "strengthIndex": 96.5,
       "gdpGrowth": 2.6,
       "tradeBalance": 1.1,
       "reserveStatus": "Emerging economy",
       "capitalFlows": "Tech sector-driven",
-      "logo": "/logos/currencies/krw.svg"
+      "logo": "/logos/currencies/krw.svg",
+      "nameKey": "forex.currencies.krw.name",
+      "countryKey": "forex.countries.kr",
+      "descriptionKey": "forex.currencies.krw.description"
     },
     {
       "code": "CAD",
@@ -232,13 +320,21 @@
       "description": "Commodity-linked currency of G7 nation",
       "interestRate": 4.25,
       "inflation": 2.7,
-      "forexPairs": ["USDCAD", "EURCAD", "GBPCAD", "CADJPY"],
+      "forexPairs": [
+        "USDCAD",
+        "EURCAD",
+        "GBPCAD",
+        "CADJPY"
+      ],
       "strengthIndex": 93.1,
       "gdpGrowth": 1.1,
       "tradeBalance": 0.3,
       "reserveStatus": "Commodity currency",
       "capitalFlows": "Oil-linked movements",
-      "logo": "/logos/currencies/cad.svg"
+      "logo": "/logos/currencies/cad.svg",
+      "nameKey": "forex.currencies.cad.name",
+      "countryKey": "forex.countries.ca",
+      "descriptionKey": "forex.currencies.cad.description"
     },
     {
       "code": "BRL",
@@ -252,13 +348,21 @@
       "description": "Currency of Latin America's largest economy",
       "interestRate": 9.25,
       "inflation": 4.1,
-      "forexPairs": ["USDBRL", "EURBRL", "GBPBRL", "BRLJPY"],
+      "forexPairs": [
+        "USDBRL",
+        "EURBRL",
+        "GBPBRL",
+        "BRLJPY"
+      ],
       "strengthIndex": 88.2,
       "gdpGrowth": 2.9,
       "tradeBalance": -0.8,
       "reserveStatus": "Emerging market",
       "capitalFlows": "Commodity-driven",
-      "logo": "/logos/currencies/brl.svg"
+      "logo": "/logos/currencies/brl.svg",
+      "nameKey": "forex.currencies.brl.name",
+      "countryKey": "forex.countries.br",
+      "descriptionKey": "forex.currencies.brl.description"
     },
     {
       "code": "MXN",
@@ -270,15 +374,23 @@
       "type": "fiat",
       "centralBank": "Banco de México",
       "description": "Currency of major North American trade partner",
-      "interestRate": 6.0,
+      "interestRate": 6,
       "inflation": 3.8,
-      "forexPairs": ["USDMXN", "EURMXN", "GBPMXN", "MXNJPY"],
+      "forexPairs": [
+        "USDMXN",
+        "EURMXN",
+        "GBPMXN",
+        "MXNJPY"
+      ],
       "strengthIndex": 90.4,
       "gdpGrowth": 2.2,
       "tradeBalance": -0.5,
       "reserveStatus": "Emerging market",
       "capitalFlows": "Trade-linked",
-      "logo": "/logos/currencies/mxn.svg"
+      "logo": "/logos/currencies/mxn.svg",
+      "nameKey": "forex.currencies.mxn.name",
+      "countryKey": "forex.countries.mx",
+      "descriptionKey": "forex.currencies.mxn.description"
     },
     {
       "code": "CLP",
@@ -292,13 +404,21 @@
       "description": "Currency of economically stable Latin American nation",
       "interestRate": 5.75,
       "inflation": 3.2,
-      "forexPairs": ["USDCLP", "EURCLP", "GBPCLP", "CLPJPY"],
+      "forexPairs": [
+        "USDCLP",
+        "EURCLP",
+        "GBPCLP",
+        "CLPJPY"
+      ],
       "strengthIndex": 89.6,
       "gdpGrowth": 0.3,
       "tradeBalance": 0.9,
       "reserveStatus": "Commodity currency",
       "capitalFlows": "Mining-linked",
-      "logo": "/logos/currencies/clp.svg"
+      "logo": "/logos/currencies/clp.svg",
+      "nameKey": "forex.currencies.clp.name",
+      "countryKey": "forex.countries.cl",
+      "descriptionKey": "forex.currencies.clp.description"
     },
     {
       "code": "SEK",
@@ -312,13 +432,21 @@
       "description": "Northern European currency with industrial base",
       "interestRate": 3.5,
       "inflation": 1.9,
-      "forexPairs": ["USDSEK", "EURSEK", "GBPSEK", "SEKJPY"],
+      "forexPairs": [
+        "USDSEK",
+        "EURSEK",
+        "GBPSEK",
+        "SEKJPY"
+      ],
       "strengthIndex": 97.2,
       "gdpGrowth": 1.3,
       "tradeBalance": 0.4,
       "reserveStatus": "Advanced economy",
       "capitalFlows": "Tech sector flows",
-      "logo": "/logos/currencies/sek.svg"
+      "logo": "/logos/currencies/sek.svg",
+      "nameKey": "forex.currencies.sek.name",
+      "countryKey": "forex.countries.se",
+      "descriptionKey": "forex.currencies.sek.description"
     },
     {
       "code": "NOK",
@@ -332,13 +460,21 @@
       "description": "Currency of major energy exporter, strong commodity links",
       "interestRate": 4.5,
       "inflation": 2.1,
-      "forexPairs": ["USDNOK", "EURNOK", "GBPNOK", "NOKJPY"],
+      "forexPairs": [
+        "USDNOK",
+        "EURNOK",
+        "GBPNOK",
+        "NOKJPY"
+      ],
       "strengthIndex": 99.3,
       "gdpGrowth": 1.1,
       "tradeBalance": 3.2,
       "reserveStatus": "Advanced economy",
       "capitalFlows": "Oil/energy-driven",
-      "logo": "/logos/currencies/nok.svg"
+      "logo": "/logos/currencies/nok.svg",
+      "nameKey": "forex.currencies.nok.name",
+      "countryKey": "forex.countries.no",
+      "descriptionKey": "forex.currencies.nok.description"
     },
     {
       "code": "SAR",
@@ -352,13 +488,21 @@
       "description": "Currency pegged to USD of world's largest oil exporter",
       "interestRate": 4.75,
       "inflation": 1.6,
-      "forexPairs": ["USDSAR", "EURSAR", "GBPSAR", "SARJPY"],
-      "strengthIndex": 100.0,
+      "forexPairs": [
+        "USDSAR",
+        "EURSAR",
+        "GBPSAR",
+        "SARJPY"
+      ],
+      "strengthIndex": 100,
       "gdpGrowth": 2.3,
       "tradeBalance": 4.1,
       "reserveStatus": "Pegged to USD",
       "capitalFlows": "Oil-linked",
-      "logo": "/logos/currencies/sar.svg"
+      "logo": "/logos/currencies/sar.svg",
+      "nameKey": "forex.currencies.sar.name",
+      "countryKey": "forex.countries.sa",
+      "descriptionKey": "forex.currencies.sar.description"
     },
     {
       "code": "AED",
@@ -372,13 +516,21 @@
       "description": "Currency pegged to USD of Gulf financial hub",
       "interestRate": 4.75,
       "inflation": 1.9,
-      "forexPairs": ["USDAED", "EURAED", "GBPAED", "AEDJPY"],
-      "strengthIndex": 100.0,
+      "forexPairs": [
+        "USDAED",
+        "EURAED",
+        "GBPAED",
+        "AEDJPY"
+      ],
+      "strengthIndex": 100,
       "gdpGrowth": 3.4,
       "tradeBalance": 2.8,
       "reserveStatus": "Pegged to USD",
       "capitalFlows": "Sovereign wealth flows",
-      "logo": "/logos/currencies/aed.svg"
+      "logo": "/logos/currencies/aed.svg",
+      "nameKey": "forex.currencies.aed.name",
+      "countryKey": "forex.countries.ae",
+      "descriptionKey": "forex.currencies.aed.description"
     },
     {
       "code": "ZAR",
@@ -392,14 +544,21 @@
       "description": "Currency of largest African economy and commodities producer",
       "interestRate": 8.25,
       "inflation": 3.6,
-      "forexPairs": ["USDZAR", "EURZAR", "GBPZAR", "ZARJPY"],
+      "forexPairs": [
+        "USDZAR",
+        "EURZAR",
+        "GBPZAR",
+        "ZARJPY"
+      ],
       "strengthIndex": 91.2,
       "gdpGrowth": 0.9,
       "tradeBalance": -0.3,
       "reserveStatus": "Emerging market",
       "capitalFlows": "Mining-linked",
-      "logo": "/logos/currencies/zar.svg"
+      "logo": "/logos/currencies/zar.svg",
+      "nameKey": "forex.currencies.zar.name",
+      "countryKey": "forex.countries.za",
+      "descriptionKey": "forex.currencies.zar.description"
     }
   ]
 }
-

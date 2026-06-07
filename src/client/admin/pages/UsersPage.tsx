@@ -71,12 +71,12 @@ export default function UsersPage() {
 
   return (
     <div className="mp-admin-content">
-      <PageHeader title={t("src_client_admin_pages_userspage__l70__h0")} subtitle="CRUD, roles, suspend, session control" />
+      <PageHeader title={t("admin/userspage.h0")} subtitle="CRUD, roles, suspend, session control" />
 
       <div className="mp-admin-toolbar">
         <input
           className="mp-admin-search"
-          placeholder={t("src_client_admin_pages_userspage__l75__h1")}
+          placeholder={t("admin/userspage.h1")}
           value={search}
           onChange={(e) => { setSearch(e.target.value); setPage(1); }}
         />
@@ -140,9 +140,9 @@ export default function UsersPage() {
       />
 
       <div className="mp-admin-pagination">
-        <button type="button" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>{t("src_client_admin_pages_userspage__l139__h2")}</button>
+        <button type="button" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>{t("admin/userspage.h2")}</button>
         <span>Page {page} · {total} users</span>
-        <button type="button" disabled={users.length < 20} onClick={() => setPage((p) => p + 1)}>{t("src_client_admin_pages_userspage__l141__h3")}</button>
+        <button type="button" disabled={users.length < 20} onClick={() => setPage((p) => p + 1)}>{t("admin/userspage.h3")}</button>
       </div>
     </div>
   );

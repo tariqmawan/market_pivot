@@ -1,37 +1,331 @@
 {
-  "currentPrice": "Giá hiện tại",
-  "rank": "Hạng",
-  "priceMetrics": "Giá & số liệu",
-  "tradingPairs": "Cặp giao dịch",
-  "exchanges": "Exchanges",
-  "charts": "Biểu đồ",
-  "onChain": "On-Chain",
-  "category": "Danh mục",
-  "launched": "Ra mắt",
-  "founder": "Người sáng lập",
-  "consensus": "Cơ chế đồng thuận",
-  "blockTime": "Thời gian khối",
-  "supplyInfo": "Thông tin cung",
-  "circulatingSupply": "Cung lưu thông",
-  "maxSupply": "Cung tối đa",
-  "volume24h": "Khối lượng 24h",
+  "activeAddresses": "Địa chỉ hoạt động",
   "ath": "Cao kỷ lục",
   "atl": "Thấp kỷ lục",
-  "marketRank": "Hạng thị trường",
-  "loadingPrice": "Đang tải dữ liệu giá...",
+  "blockTime": "Thời gian khối",
+  "categories": {
+    "defi": {
+      "name": "DeFi"
+    },
+    "infrastructure": {
+      "name": "Cơ sở hạ tầng"
+    },
+    "layer1": {
+      "name": "Lớp 1"
+    },
+    "layer2": {
+      "name": "Lớp 2"
+    },
+    "meme": {
+      "name": "Coin meme"
+    },
+    "payments": {
+      "name": "Thanh toán"
+    },
+    "stablecoin": {
+      "name": "Đồng ổn định"
+    }
+  },
+  "category": "Danh mục",
+  "charts": "Biểu đồ",
+  "circulatingSupply": "Cung lưu thông",
+  "consensus": "Cơ chế đồng thuận",
+  "cryptoNewsComing": "Tin tức và cập nhật mới nhất sẽ hiển thị ở đây",
+  "cryptoNewsSubtitle": "Cập nhật dự án, quan hệ đối tác và tin tức thị trường",
+  "cryptocurrencies": {
+    "aave": {
+      "name": "Aave",
+      "description": "Giao thức thanh khoản không giám sát phi tập trung để cho vay và đi vay"
+    },
+    "arbitrum": {
+      "name": "trọng tài",
+      "description": "Giải pháp mở rộng quy mô lớp 2 của Ethereum và mã thông báo quản trị"
+    },
+    "avalanche2": {
+      "name": "trận tuyết lở",
+      "description": "Giải pháp mạng con và mở rộng quy mô cho các ứng dụng blockchain"
+    },
+    "binancecoin": {
+      "name": "BNB",
+      "description": "Token gốc của hệ sinh thái Binance Smart Chain"
+    },
+    "bitcoin": {
+      "name": "Bitcoin",
+      "description": "Tiền điện tử đầu tiên và lớn nhất thế giới tính theo vốn hóa thị trường"
+    },
+    "bonk": {
+      "name": "Bonk",
+      "description": "Đồng meme lớn đầu tiên của Solana — được airdrop cho cộng đồng, hiện là một mặt hàng chủ lực của DeFi"
+    },
+    "cardano": {
+      "name": "Cardano",
+      "description": "Nền tảng blockchain được đánh giá ngang hàng tập trung vào tính bền vững"
+    },
+    "chainlink": {
+      "name": "Chuỗi liên kết",
+      "description": "Mạng oracle phi tập trung kết nối chuỗi khối với dữ liệu trong thế giới thực"
+    },
+    "compoundGovernanceToken": {
+      "name": "hợp chất",
+      "description": "Giao thức lãi suất tự trị bằng thuật toán cho hoạt động cho vay DeFi"
+    },
+    "cosmos": {
+      "name": "vũ trụ",
+      "description": "Hệ sinh thái blockchain có thể tương tác và Internet của Blockchains"
+    },
+    "curveDaoToken": {
+      "name": "Tài chính đường cong",
+      "description": "Sàn giao dịch phi tập trung được tối ưu hóa cho các giao dịch hoán đổi tài sản ổn định và tài sản cố định"
+    },
+    "dai": {
+      "name": "Đại",
+      "description": "Stablecoin được hỗ trợ bằng USD phi tập trung trên Ethereum"
+    },
+    "dogecoin": {
+      "name": "Dogecoin",
+      "description": "Đồng meme ban đầu — bắt đầu như một trò đùa, đã trở thành một biểu tượng văn hóa về tiền điện tử"
+    },
+    "ethereum": {
+      "name": "Ethereum",
+      "description": "Nền tảng hợp đồng thông minh hàng đầu và trung tâm DeFi"
+    },
+    "floki": {
+      "name": "FLOKI",
+      "description": "Tiền điện tử của mọi người — Hệ sinh thái meme do cộng đồng xây dựng, lấy cảm hứng từ Elon Musk"
+    },
+    "litecoin": {
+      "name": "Litecoin",
+      "description": "Bạc thành vàng của Bitcoin, thanh toán ngang hàng nhanh chóng"
+    },
+    "maker": {
+      "name": "Người tạo",
+      "description": "Mã thông báo quản trị của MakerDAO, giao thức đằng sau DAI stablecoin"
+    },
+    "maticNetwork": {
+      "name": "Đa giác",
+      "description": "Giải pháp mở rộng quy mô Ethereum cho phép giao dịch nhanh hơn và rẻ hơn"
+    },
+    "pepe": {
+      "name": "pepe",
+      "description": "Văn hóa Internet gặp gỡ tiền điện tử - meme ếch đã biến mã thông báo tỷ đô la"
+    },
+    "polkadot": {
+      "name": "chấm bi",
+      "description": "Chuỗi khối đa chuỗi cho phép khả năng tương tác chuỗi chéo"
+    },
+    "ripple": {
+      "name": "XRP",
+      "description": "Mạng thanh toán tập trung vào chuyển khoản quốc tế nhanh chóng, chi phí thấp"
+    },
+    "shibaInu": {
+      "name": "Shiba Inu",
+      "description": "Kẻ giết người Dogecoin - đồng meme dựa trên Ethereum với cộng đồng đông đảo"
+    },
+    "solana": {
+      "name": "Solana",
+      "description": "Nền tảng blockchain tốc độ cao cho các ứng dụng phi tập trung"
+    },
+    "stellar": {
+      "name": "sao",
+      "description": "Mạng lưới chuỗi khối để đưa tài chính và chuyển tiền"
+    },
+    "tether": {
+      "name": "Tether",
+      "description": "Stablecoin được chốt bằng USD được sử dụng rộng rãi nhất"
+    },
+    "theOpenNetwork": {
+      "name": "Toncoin",
+      "description": "Blockchain cực nhanh tập trung vào nhắn tin và thanh toán"
+    },
+    "tron": {
+      "name": "TRON",
+      "description": "Nền tảng blockchain cho giải trí phi tập trung"
+    },
+    "uniswap": {
+      "name": "Uniswap",
+      "description": "Giao thức trao đổi phi tập trung và DeFi hàng đầu"
+    },
+    "usdCoin": {
+      "name": "đồng xu USD",
+      "description": "Stablecoin được hỗ trợ bằng USD được quy định"
+    }
+  },
+  "currentPrice": "Giá hiện tại",
+  "exchange": "Trao đổi",
+  "exchangeExamples": "Binance, Coinbase, Kraken, v.v.",
+  "exchanges": "Trao đổi",
+  "founder": "Người sáng lập",
+  "launched": "Ra mắt",
+  "listedCryptoExchanges": "Sàn giao dịch nơi tài sản này được giao dịch",
   "loadingPairs": "Đang tải cặp giao dịch...",
-  "price": "Giá",
-  "exchange": "Exchange",
-  "listedCryptoExchanges": "Exchanges where this asset is traded",
-  "exchangeExamples": "Binance, Coinbase, Kraken, and more",
-  "priceChart": "Biểu đồ giá tương tác",
-  "volumeOverlay": "Với lớp phủ khối lượng",
-  "onChainMetrics": "Số liệu on-chain",
-  "transactionsPerDay": "Transactions Per Day",
-  "activeAddresses": "Địa chỉ hoạt động",
+  "loadingPrice": "Đang tải dữ liệu giá...",
+  "marketRank": "Hạng thị trường",
+  "maxSupply": "Cung tối đa",
   "networkFees": "Phí mạng",
-  "transactionVolume": "Khối lượng giao dịch",
+  "onChain": "Trên chuỗi",
   "onChainComing": "Dữ liệu on-chain sắp ra mắt",
-  "cryptoNewsComing": "Latest news and updates will display here",
-  "cryptoNewsSubtitle": "Project updates, partnerships, and market news"
+  "onChainMetrics": "Số liệu on-chain",
+  "price": "Giá",
+  "priceChart": "Biểu đồ giá tương tác",
+  "priceMetrics": "Giá & số liệu",
+  "rank": "Hạng",
+  "rankNumber": "Xếp hạng #{{rank}}",
+  "supplyInfo": "Thông tin cung",
+  "tradingPairs": "Cặp giao dịch",
+  "transactionVolume": "Khối lượng giao dịch",
+  "transactionsPerDay": "Giao dịch mỗi ngày",
+  "volume24h": "Khối lượng 24h",
+  "volumeOverlay": "Với lớp phủ khối lượng",
+  "cryptocurrency": "tiền điện tử",
+  "cryptocurrencyCategories": "Danh mục tiền điện tử",
+  "allCryptocurrencies": "Tất cả tiền điện tử",
+  "trending": "Xu hướng",
+  "categoryNotFound": "Không tìm thấy danh mục",
+  "categoryNotFoundDescription": "Thể loại này không tồn tại. Duyệt qua tất cả các loại tiền điện tử bên dưới.",
+  "viewAllCryptocurrencies": "Xem tất cả tiền điện tử",
+  "trendingCoins": {
+    "eyebrow": "Du lieu thi truong truc tiep - Tien ma hoa",
+    "titleAccent": "Coin",
+    "titleRest": "thinh hanh",
+    "subtitle": "Cac tien ma hoa thinh hanh theo thoi gian thuc, xep hang theo hoat dong giao dich, da xa hoi va tang truong von hoa thi truong. Cap nhat lien tuc.",
+    "categories": {
+      "all": "Tat ca",
+      "layer1": "Lop 1",
+      "layer2": "Lop 2",
+      "defi": "DeFi",
+      "meme": "Meme",
+      "stablecoin": "Stablecoin",
+      "payments": "Thanh toan",
+      "infrastructure": "Ha tang"
+    },
+    "metrics": {
+      "tracked": "Tracked",
+      "gainers": "Gainers",
+      "topGain24h": "Top Gain 24h",
+      "volumeShort": "24h Vol",
+      "supply": "Supply"
+    },
+    "sentiment": {
+      "hot": "Hot",
+      "rising": "Rising",
+      "active": "Active",
+      "strong": "Strong"
+    },
+    "moreTitle": "Them coin thinh hanh",
+    "emptyCategory": "Khong tim thay coin trong danh muc nay.",
+    "insights": {
+      "trending": {
+        "eyebrow": "What's Trending",
+        "title": "Market Dynamics",
+        "items": {
+          "socialMentions": "Social media mentions spike",
+          "exchangeFlows": "Exchange inflow / outflow shifts",
+          "developerActivity": "Developer activity on GitHub",
+          "onChainVolume": "On-chain transaction volume",
+          "volumeBreakouts": "Trading volume breakouts"
+        }
+      },
+      "risk": {
+        "eyebrow": "Risk Factors",
+        "title": "Stay Cautious",
+        "items": {
+          "volatility": "High volatility - price can swing 30%+",
+          "liquidity": "Low liquidity in smaller coins",
+          "manipulation": "Potential market manipulation",
+          "regulation": "Evolving regulatory landscape",
+          "techRisk": "Smart contract / tech risks"
+        }
+      },
+      "tips": {
+        "eyebrow": "Trading Tips",
+        "title": "Smart Strategies",
+        "items": {
+          "onChainValidation": "Validate with on-chain metrics first",
+          "githubActivity": "Check GitHub developer activity",
+          "divergence": "Monitor volume vs. price divergence",
+          "positionSizing": "Use proper position sizing",
+          "stopLosses": "Set strict stop-losses before entry"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Crypto Research",
+      "title": "Deep Dive Into Any Coin",
+      "description": "Click any coin to explore detailed charts, on-chain metrics, exchange listings, and breaking news - all in one place."
+    }
+  },
+  "categoryPages": {
+    "common": {
+      "marketOverview": "Market Overview",
+      "combinedMarketCap": "Combined Market Cap",
+      "topGainer24h": "Top Gainer (24h)",
+      "name": "Name",
+      "price": "Price",
+      "change24h": "24h Change",
+      "marketCap": "Market Cap",
+      "volume24h": "24h Volume",
+      "riskProfile": "Risk Profile",
+      "fullCryptoMarket": "Full Crypto Market",
+      "exploreAllCryptocurrencies": "Explore All Cryptocurrencies"
+    },
+    "meme": {
+      "eyebrow": "Community Tokens",
+      "title": "Meme coins",
+      "body": "Community-driven cryptocurrencies fuelled by viral culture, social momentum, and cult followings. High-risk, high-reward assets where sentiment rules the market.",
+      "metrics": {
+        "coinsListed": "Coins Listed"
+      },
+      "rankingsTitle": "Meme Coin Rankings",
+      "table": {
+        "community": "Community"
+      },
+      "communities": {
+        "DOGE": "Original OG",
+        "SHIB": "ShibArmy",
+        "PEPE": "Pepe Nation",
+        "BONK": "Solana Memes",
+        "FLOKI": "Viking Army"
+      },
+      "insights": {
+        "origins": {
+          "eyebrow": "Origins",
+          "title": "The Meme Coin Story",
+          "items": {
+            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
+            "elon": "Elon Musk tweets as price catalysts",
+            "pumps": "WallStreetBets-style coordinated pumps",
+            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
+            "pepe": "2023 PEPE boom revived the meme cycle",
+            "bonk": "BONK airdropped life into Solana DeFi"
+          }
+        },
+        "risk": {
+          "title": "What Investors Should Know",
+          "items": {
+            "sentiment": "Prices driven almost entirely by sentiment",
+            "pumpDump": "Susceptible to pump-and-dump schemes",
+            "utility": "Minimal or no underlying utility",
+            "volatility": "Extreme volatility - 50%+ swings common",
+            "rugPull": "Rug-pull risk in newer, unaudited coins",
+            "viralCycles": "High correlation with viral media cycles"
+          }
+        },
+        "signals": {
+          "eyebrow": "Community Signals",
+          "title": "How to Track Momentum",
+          "items": {
+            "twitter": "Twitter/X mentions and trending hashtags",
+            "reddit": "Reddit activity on r/CryptoCurrency",
+            "whales": "Whale wallet alerts and large transfers",
+            "listings": "Exchange listing announcements",
+            "google": "Google Trends search volume spikes",
+            "influencers": "Influencer social media activity"
+          }
+        }
+      },
+      "cta": {
+        "description": "Compare meme coins against blue-chip assets, DeFi protocols, and layer-1 blockchains."
+      }
+    }
+  }
 }

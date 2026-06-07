@@ -9,10 +9,18 @@
       "spotPrice": 78.4,
       "changePercent24h": 0.6,
       "futuresContract": "CL",
-      "supplyRegions": ["Americas", "Middle East & Africa"],
-      "demandTrends": ["US refinery runs", "China mobility", "OPEC+ supply discipline"],
+      "supplyRegions": [
+        "Americas",
+        "Middle East & Africa"
+      ],
+      "demandTrends": [
+        "US refinery runs",
+        "China mobility",
+        "OPEC+ supply discipline"
+      ],
       "currencyCorrelation": "Usually inversely correlated with USD strength and sensitive to CAD, NOK, and MXN.",
-      "economicImpact": "Feeds transport inflation, energy earnings, fiscal revenue, and global risk sentiment."
+      "economicImpact": "Feeds transport inflation, energy earnings, fiscal revenue, and global risk sentiment.",
+      "nameKey": "markets.commodities.crudeOil.name"
     },
     {
       "id": "brent",
@@ -23,10 +31,18 @@
       "spotPrice": 82.4,
       "changePercent24h": -0.42,
       "futuresContract": "BZ",
-      "supplyRegions": ["Europe", "Middle East & Africa"],
-      "demandTrends": ["Europe energy security", "India imports", "Shipping routes"],
+      "supplyRegions": [
+        "Europe",
+        "Middle East & Africa"
+      ],
+      "demandTrends": [
+        "Europe energy security",
+        "India imports",
+        "Shipping routes"
+      ],
       "currencyCorrelation": "Important for GBP, EUR inflation expectations, and Gulf currency liquidity.",
-      "economicImpact": "Global oil benchmark for fiscal balances, trade deficits, airlines, and petrochemical margins."
+      "economicImpact": "Global oil benchmark for fiscal balances, trade deficits, airlines, and petrochemical margins.",
+      "nameKey": "markets.commodities.brent.name"
     },
     {
       "id": "natural-gas",
@@ -37,10 +53,19 @@
       "spotPrice": 2.8,
       "changePercent24h": 1.1,
       "futuresContract": "NG",
-      "supplyRegions": ["Americas", "Europe", "Middle East & Africa"],
-      "demandTrends": ["LNG demand", "Weather patterns", "Power generation"],
+      "supplyRegions": [
+        "Americas",
+        "Europe",
+        "Middle East & Africa"
+      ],
+      "demandTrends": [
+        "LNG demand",
+        "Weather patterns",
+        "Power generation"
+      ],
       "currencyCorrelation": "Links to EUR industrial costs, USD LNG exports, and Gulf energy flows.",
-      "economicImpact": "Moves utility costs, fertilizer input prices, and European industrial competitiveness."
+      "economicImpact": "Moves utility costs, fertilizer input prices, and European industrial competitiveness.",
+      "nameKey": "markets.commodities.naturalGas.name"
     },
     {
       "id": "gold",
@@ -51,10 +76,19 @@
       "spotPrice": 2350,
       "changePercent24h": 0.35,
       "futuresContract": "GC",
-      "supplyRegions": ["Americas", "Asia-Pacific", "Middle East & Africa"],
-      "demandTrends": ["Central bank buying", "ETF flows", "Real yields"],
+      "supplyRegions": [
+        "Americas",
+        "Asia-Pacific",
+        "Middle East & Africa"
+      ],
+      "demandTrends": [
+        "Central bank buying",
+        "ETF flows",
+        "Real yields"
+      ],
       "currencyCorrelation": "Often rises when real yields fall or USD weakens; important for CHF and ZAR risk views.",
-      "economicImpact": "Reserve asset, inflation hedge, mining earnings driver, and safe-haven sentiment gauge."
+      "economicImpact": "Reserve asset, inflation hedge, mining earnings driver, and safe-haven sentiment gauge.",
+      "nameKey": "markets.commodities.gold.name"
     },
     {
       "id": "silver",
@@ -65,10 +99,18 @@
       "spotPrice": 29.6,
       "changePercent24h": 0.84,
       "futuresContract": "SI",
-      "supplyRegions": ["Americas", "Asia-Pacific"],
-      "demandTrends": ["Solar demand", "Industrial electronics", "Investment flows"],
+      "supplyRegions": [
+        "Americas",
+        "Asia-Pacific"
+      ],
+      "demandTrends": [
+        "Solar demand",
+        "Industrial electronics",
+        "Investment flows"
+      ],
       "currencyCorrelation": "Sensitive to USD, MXN mining exposure, and industrial growth expectations.",
-      "economicImpact": "Blends precious-metal risk hedge behavior with cyclical industrial demand."
+      "economicImpact": "Blends precious-metal risk hedge behavior with cyclical industrial demand.",
+      "nameKey": "markets.commodities.silver.name"
     },
     {
       "id": "copper",
@@ -79,10 +121,18 @@
       "spotPrice": 4.55,
       "changePercent24h": 1.24,
       "futuresContract": "HG",
-      "supplyRegions": ["Americas", "Asia-Pacific"],
-      "demandTrends": ["China construction", "Grid investment", "EV production"],
+      "supplyRegions": [
+        "Americas",
+        "Asia-Pacific"
+      ],
+      "demandTrends": [
+        "China construction",
+        "Grid investment",
+        "EV production"
+      ],
       "currencyCorrelation": "Strong read-through to AUD, CLP, CNY demand, and global manufacturing PMIs.",
-      "economicImpact": "Core industrial growth signal for infrastructure, electrification, and mining equities."
+      "economicImpact": "Core industrial growth signal for infrastructure, electrification, and mining equities.",
+      "nameKey": "markets.commodities.copper.name"
     },
     {
       "id": "wheat",
@@ -93,10 +143,19 @@
       "spotPrice": 6.1,
       "changePercent24h": -0.18,
       "futuresContract": "ZW",
-      "supplyRegions": ["Americas", "Europe", "Asia-Pacific"],
-      "demandTrends": ["Weather", "Black Sea exports", "Food inflation"],
+      "supplyRegions": [
+        "Americas",
+        "Europe",
+        "Asia-Pacific"
+      ],
+      "demandTrends": [
+        "Weather",
+        "Black Sea exports",
+        "Food inflation"
+      ],
       "currencyCorrelation": "Important for emerging-market inflation and trade balances in food-importing economies.",
-      "economicImpact": "Direct food CPI input and political risk indicator for import-dependent regions."
+      "economicImpact": "Direct food CPI input and political risk indicator for import-dependent regions.",
+      "nameKey": "markets.commodities.wheat.name"
     },
     {
       "id": "lithium",
@@ -107,10 +166,18 @@
       "spotPrice": 14200,
       "changePercent24h": -1.8,
       "futuresContract": "Lithium carbonate reference",
-      "supplyRegions": ["Americas", "Asia-Pacific"],
-      "demandTrends": ["EV batteries", "Grid storage", "China cathode inventories"],
+      "supplyRegions": [
+        "Americas",
+        "Asia-Pacific"
+      ],
+      "demandTrends": [
+        "EV batteries",
+        "Grid storage",
+        "China cathode inventories"
+      ],
       "currencyCorrelation": "Linked to AUD, CLP, CNY, and global EV equity sentiment.",
-      "economicImpact": "Key transition-metal input for battery costs, auto margins, and energy storage capex."
+      "economicImpact": "Key transition-metal input for battery costs, auto margins, and energy storage capex.",
+      "nameKey": "markets.commodities.lithium.name"
     },
     {
       "id": "uranium",
@@ -121,10 +188,19 @@
       "spotPrice": 91.5,
       "changePercent24h": 0.25,
       "futuresContract": "U3O8 spot reference",
-      "supplyRegions": ["Americas", "Asia-Pacific", "Middle East & Africa"],
-      "demandTrends": ["Nuclear restarts", "Utility contracting", "Energy security"],
+      "supplyRegions": [
+        "Americas",
+        "Asia-Pacific",
+        "Middle East & Africa"
+      ],
+      "demandTrends": [
+        "Nuclear restarts",
+        "Utility contracting",
+        "Energy security"
+      ],
       "currencyCorrelation": "Links to CAD, AUD, KZT-linked supply risk, and long-duration energy themes.",
-      "economicImpact": "Strategic fuel for nuclear power, grid reliability, and decarbonization policy."
+      "economicImpact": "Strategic fuel for nuclear power, grid reliability, and decarbonization policy.",
+      "nameKey": "markets.commodities.uranium.name"
     }
   ]
 }

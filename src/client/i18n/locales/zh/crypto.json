@@ -1,37 +1,331 @@
 {
-  "currentPrice": "当前价格",
-  "rank": "排名",
-  "priceMetrics": "价格与指标",
-  "tradingPairs": "交易对",
-  "exchanges": "交易所",
-  "charts": "图表",
-  "onChain": "链上",
-  "category": "类别",
-  "launched": "上线时间",
-  "founder": "创始人",
-  "consensus": "共识机制",
-  "blockTime": "出块时间",
-  "supplyInfo": "供应信息",
-  "circulatingSupply": "流通供应量",
-  "maxSupply": "最大供应量",
-  "volume24h": "24小时成交量",
+  "activeAddresses": "活跃地址",
   "ath": "历史最高价",
   "atl": "历史最低价",
-  "marketRank": "市场排名",
-  "loadingPrice": "正在加载价格数据...",
-  "loadingPairs": "正在加载交易对...",
-  "price": "价格",
-  "exchange": "交易所",
-  "listedCryptoExchanges": "该资产可交易的交易所",
-  "exchangeExamples": "Binance、Coinbase、Kraken 等",
-  "priceChart": "交互式价格图表",
-  "volumeOverlay": "含成交量叠加",
-  "onChainMetrics": "链上指标",
-  "transactionsPerDay": "每日交易数",
-  "activeAddresses": "活跃地址",
-  "networkFees": "网络费用",
-  "transactionVolume": "交易量",
-  "onChainComing": "链上数据即将上线",
+  "blockTime": "出块时间",
+  "categories": {
+    "defi": {
+      "name": "市场标题"
+    },
+    "infrastructure": {
+      "name": "市场标题"
+    },
+    "layer1": {
+      "name": "市场标题"
+    },
+    "layer2": {
+      "name": "市场标题"
+    },
+    "meme": {
+      "name": "市场标题"
+    },
+    "payments": {
+      "name": "市场标题"
+    },
+    "stablecoin": {
+      "name": "市场标题"
+    }
+  },
+  "category": "类别",
+  "charts": "图表",
+  "circulatingSupply": "流通供应量",
+  "consensus": "共识机制",
   "cryptoNewsComing": "最新新闻和更新将在此显示",
-  "cryptoNewsSubtitle": "项目更新、合作伙伴关系和市场新闻"
+  "cryptoNewsSubtitle": "项目更新、合作伙伴关系和市场新闻",
+  "cryptocurrencies": {
+    "aave": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "arbitrum": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "avalanche2": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "binancecoin": {
+      "name": "BNB",
+      "description": "市场说明"
+    },
+    "bitcoin": {
+      "name": "比特币",
+      "description": "市场说明"
+    },
+    "bonk": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "cardano": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "chainlink": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "compoundGovernanceToken": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "cosmos": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "curveDaoToken": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "dai": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "dogecoin": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "ethereum": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "floki": {
+      "name": "FLOKI",
+      "description": "市场说明"
+    },
+    "litecoin": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "maker": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "maticNetwork": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "pepe": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "polkadot": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "ripple": {
+      "name": "XRP",
+      "description": "市场说明"
+    },
+    "shibaInu": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "solana": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "stellar": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "tether": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "theOpenNetwork": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "tron": {
+      "name": "TRON",
+      "description": "市场说明"
+    },
+    "uniswap": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "usdCoin": {
+      "name": "市场标题",
+      "description": "市场说明"
+    }
+  },
+  "currentPrice": "当前价格",
+  "exchange": "交易所",
+  "exchangeExamples": "Binance、Coinbase、Kraken 等",
+  "exchanges": "交易所",
+  "founder": "创始人",
+  "launched": "上线时间",
+  "listedCryptoExchanges": "该资产可交易的交易所",
+  "loadingPairs": "正在加载交易对...",
+  "loadingPrice": "正在加载价格数据...",
+  "marketRank": "市场排名",
+  "maxSupply": "最大供应量",
+  "networkFees": "网络费用",
+  "onChain": "链上",
+  "onChainComing": "链上数据即将上线",
+  "onChainMetrics": "链上指标",
+  "price": "价格",
+  "priceChart": "交互式价格图表",
+  "priceMetrics": "价格与指标",
+  "rank": "排名",
+  "rankNumber": "排名 #{{rank}}",
+  "supplyInfo": "供应信息",
+  "tradingPairs": "交易对",
+  "transactionVolume": "交易量",
+  "transactionsPerDay": "每日交易数",
+  "volume24h": "24小时成交量",
+  "volumeOverlay": "含成交量叠加",
+  "cryptocurrency": "市场信息",
+  "cryptocurrencyCategories": "市场信息",
+  "allCryptocurrencies": "市场信息",
+  "trending": "市场信息",
+  "categoryNotFound": "市场信息",
+  "categoryNotFoundDescription": "市场说明",
+  "viewAllCryptocurrencies": "市场信息",
+  "trendingCoins": {
+    "eyebrow": "实时市场数据 - 加密货币",
+    "titleAccent": "热门",
+    "titleRest": "币种",
+    "subtitle": "按交易活跃度、社交动能和市值增长排序的实时热门加密货币，持续更新。",
+    "categories": {
+      "all": "全部",
+      "layer1": "第 1 层",
+      "layer2": "第 2 层",
+      "defi": "DeFi",
+      "meme": "模因",
+      "stablecoin": "稳定币",
+      "payments": "支付",
+      "infrastructure": "基础设施"
+    },
+    "metrics": {
+      "tracked": "跟踪数量",
+      "gainers": "上涨币种",
+      "topGain24h": "24小时最高涨幅",
+      "volumeShort": "24小时量",
+      "supply": "供应量"
+    },
+    "sentiment": {
+      "hot": "热门",
+      "rising": "上升",
+      "active": "活跃",
+      "strong": "强势"
+    },
+    "moreTitle": "更多热门币种",
+    "emptyCategory": "此类别中未找到币种。",
+    "insights": {
+      "trending": {
+        "eyebrow": "What's Trending",
+        "title": "Market Dynamics",
+        "items": {
+          "socialMentions": "Social media mentions spike",
+          "exchangeFlows": "Exchange inflow / outflow shifts",
+          "developerActivity": "Developer activity on GitHub",
+          "onChainVolume": "On-chain transaction volume",
+          "volumeBreakouts": "Trading volume breakouts"
+        }
+      },
+      "risk": {
+        "eyebrow": "Risk Factors",
+        "title": "Stay Cautious",
+        "items": {
+          "volatility": "High volatility - price can swing 30%+",
+          "liquidity": "Low liquidity in smaller coins",
+          "manipulation": "Potential market manipulation",
+          "regulation": "Evolving regulatory landscape",
+          "techRisk": "Smart contract / tech risks"
+        }
+      },
+      "tips": {
+        "eyebrow": "Trading Tips",
+        "title": "Smart Strategies",
+        "items": {
+          "onChainValidation": "Validate with on-chain metrics first",
+          "githubActivity": "Check GitHub developer activity",
+          "divergence": "Monitor volume vs. price divergence",
+          "positionSizing": "Use proper position sizing",
+          "stopLosses": "Set strict stop-losses before entry"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Crypto Research",
+      "title": "Deep Dive Into Any Coin",
+      "description": "Click any coin to explore detailed charts, on-chain metrics, exchange listings, and breaking news - all in one place."
+    }
+  },
+  "categoryPages": {
+    "common": {
+      "marketOverview": "市场概览",
+      "combinedMarketCap": "合计市值",
+      "topGainer24h": "24小时最大涨幅",
+      "name": "名称",
+      "price": "价格",
+      "change24h": "24小时变化",
+      "marketCap": "市值",
+      "volume24h": "24小时成交量",
+      "riskProfile": "风险概况",
+      "fullCryptoMarket": "完整加密市场",
+      "exploreAllCryptocurrencies": "浏览所有加密货币"
+    },
+    "meme": {
+      "eyebrow": "社区代币",
+      "title": "模因币",
+      "body": "由病毒式文化、社交动能和社区追随推动的加密货币。高风险、高回报，市场情绪往往主导价格。",
+      "metrics": {
+        "coinsListed": "已列出币种"
+      },
+      "rankingsTitle": "模因币排名",
+      "table": {
+        "community": "社区"
+      },
+      "communities": {
+        "DOGE": "Original OG",
+        "SHIB": "ShibArmy",
+        "PEPE": "Pepe Nation",
+        "BONK": "Solana Memes",
+        "FLOKI": "Viking Army"
+      },
+      "insights": {
+        "origins": {
+          "eyebrow": "Origins",
+          "title": "The Meme Coin Story",
+          "items": {
+            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
+            "elon": "Elon Musk tweets as price catalysts",
+            "pumps": "WallStreetBets-style coordinated pumps",
+            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
+            "pepe": "2023 PEPE boom revived the meme cycle",
+            "bonk": "BONK airdropped life into Solana DeFi"
+          }
+        },
+        "risk": {
+          "title": "What Investors Should Know",
+          "items": {
+            "sentiment": "Prices driven almost entirely by sentiment",
+            "pumpDump": "Susceptible to pump-and-dump schemes",
+            "utility": "Minimal or no underlying utility",
+            "volatility": "Extreme volatility - 50%+ swings common",
+            "rugPull": "Rug-pull risk in newer, unaudited coins",
+            "viralCycles": "High correlation with viral media cycles"
+          }
+        },
+        "signals": {
+          "eyebrow": "Community Signals",
+          "title": "How to Track Momentum",
+          "items": {
+            "twitter": "Twitter/X mentions and trending hashtags",
+            "reddit": "Reddit activity on r/CryptoCurrency",
+            "whales": "Whale wallet alerts and large transfers",
+            "listings": "Exchange listing announcements",
+            "google": "Google Trends search volume spikes",
+            "influencers": "Influencer social media activity"
+          }
+        }
+      },
+      "cta": {
+        "description": "将模因币与蓝筹资产、DeFi 协议和 Layer 1 区块链进行比较。"
+      }
+    }
+  }
 }

@@ -207,7 +207,7 @@ function RobotsTab() {
   return (
     <div className="mp-admin-content">
       <PageHeader
-        title={t("src_client_admin_pages_seoadminpage__l207__h0")}
+        title={t("admin/seoadminpage.h0")}
         subtitle="Crawl directives for search engine bots"
         actions={
           <>
@@ -276,7 +276,7 @@ export default function SeoAdminPage() {
     <div>
       <div className="mp-admin-content" style={{ paddingBottom: 0 }}>
         <PageHeader
-          title={t("src_client_admin_pages_seoadminpage__l275__h1")}
+          title={t("admin/seoadminpage.h1")}
           subtitle="Meta tags, OpenGraph, Twitter cards, canonicals, redirects, sitemap, structured data"
         />
         {summary}
@@ -311,7 +311,7 @@ export default function SeoAdminPage() {
 
       {tab === "meta" && (
         <AdminCrudPage<SeoMetaEntry>
-          title={t("src_client_admin_pages_seoadminpage__l310__h2")}
+          title={t("admin/seoadminpage.h2")}
           subtitle="Per-route SEO metadata, OpenGraph, Twitter cards, canonical URLs, and JSON-LD schema"
           useStore={useSeoMetaAdminStore}
           columns={metaColumns}
@@ -353,7 +353,7 @@ export default function SeoAdminPage() {
 
       {tab === "redirects" && (
         <AdminCrudPage<SeoRedirect>
-          title={t("src_client_admin_pages_seoadminpage__l352__h3")}
+          title={t("admin/seoadminpage.h3")}
           subtitle="Path-level URL redirects with status code and analytics"
           useStore={useSeoRedirectAdminStore}
           columns={redirectColumns}
@@ -382,7 +382,7 @@ export default function SeoAdminPage() {
 
       {tab === "sitemap" && (
         <AdminCrudPage<SeoSitemapEntry>
-          title={t("src_client_admin_pages_seoadminpage__l381__h4")}
+          title={t("admin/seoadminpage.h4")}
           subtitle="sitemap.xml management — paths, priority, change frequency"
           useStore={useSeoSitemapAdminStore}
           columns={sitemapColumns}

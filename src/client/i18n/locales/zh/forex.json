@@ -1,34 +1,190 @@
 {
-  "currencyType": "货币类型",
-  "centralBank": "中央银行",
-  "exchangeRates": "汇率",
-  "converter": "货币换算器",
-  "popularPairs": "热门货币对",
-  "economicData": "经济数据",
-  "code": "代码",
-  "symbol": "符号",
-  "country": "国家",
-  "region": "地区",
-  "type": "类型",
-  "rate": "汇率",
-  "bid": "买价",
-  "ask": "卖价",
-  "spread": "点差",
-  "loadingRates": "正在加载汇率...",
   "amountPlaceholder": "输入金额",
-  "economicIndicators": "经济指标",
-  "interestRate": "利率",
-  "inflationRate": "通胀率",
-  "gdpGrowth": "GDP 增长",
-  "employment": "就业",
-  "dataLoading": "数据加载中...",
-  "economicNews": "经济新闻与更新",
+  "annualRate": "年化率",
+  "ask": "卖价",
+  "bid": "买价",
+  "centralBank": "中央银行",
+  "change24h": "24小时变化",
+  "code": "代码",
+  "converter": "货币换算器",
+  "countries": {
+    "ae": {
+      "name": "市场标题"
+    },
+    "au": {
+      "name": "市场标题"
+    },
+    "br": {
+      "name": "市场标题"
+    },
+    "ca": {
+      "name": "市场标题"
+    },
+    "ch": {
+      "name": "市场标题"
+    },
+    "cl": {
+      "name": "市场标题"
+    },
+    "cn": {
+      "name": "市场标题"
+    },
+    "eu": {
+      "name": "市场标题"
+    },
+    "gb": {
+      "name": "市场标题"
+    },
+    "hk": {
+      "name": "市场标题"
+    },
+    "in": {
+      "name": "市场标题"
+    },
+    "jp": {
+      "name": "市场标题"
+    },
+    "kr": {
+      "name": "市场标题"
+    },
+    "mx": {
+      "name": "市场标题"
+    },
+    "no": {
+      "name": "市场标题"
+    },
+    "sa": {
+      "name": "市场标题"
+    },
+    "se": {
+      "name": "市场标题"
+    },
+    "sg": {
+      "name": "市场标题"
+    },
+    "us": {
+      "name": "美国"
+    },
+    "za": {
+      "name": "市场标题"
+    }
+  },
+  "country": "国家",
+  "currencies": {
+    "aed": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "aud": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "brl": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "cad": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "chf": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "clp": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "cny": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "eur": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "gbp": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "hkd": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "inr": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "jpy": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "krw": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "mxn": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "nok": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "sar": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "sek": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "sgd": {
+      "name": "市场标题",
+      "description": "市场说明"
+    },
+    "usd": {
+      "name": "美元",
+      "description": "世界上使用最广泛的储备货币和全球标准。"
+    },
+    "zar": {
+      "name": "市场标题",
+      "description": "市场说明"
+    }
+  },
   "currencyNewsComing": "最新经济新闻将在此显示",
   "currencyNewsSubtitle": "利率决议、通胀报告等",
-  "vsUsd": "兑美元",
+  "currencyType": "货币类型",
+  "dataLoading": "数据加载中...",
+  "economicData": "经济数据",
+  "economicIndicators": "经济指标",
+  "economicNews": "经济新闻与更新",
+  "employment": "就业",
+  "exchangeRates": "汇率",
+  "gdpGrowth": "GDP 增长",
   "high52w": "52周高点",
+  "inflationRate": "通胀率",
+  "interestRate": "利率",
+  "loadingRates": "正在加载汇率...",
   "low52w": "52周低点",
-  "annualRate": "年化率",
+  "popularPairs": "热门货币对",
   "quarterlyRate": "季度率",
-  "change24h": "24小时变化"
+  "rate": "汇率",
+  "region": "地区",
+  "spread": "点差",
+  "symbol": "符号",
+  "type": "类型",
+  "vsUsd": "兑美元",
+  "currencyTypes": {
+    "fiat": "法定货币"
+  },
+  "centralBanks": {
+    "federalreserve": "美联储"
+  },
+  "regions": {
+    "northamerica": "北美"
+  },
+  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
+  "keyDataReleasesFor": "Key data releases for {{code}}",
+  "hoursAgo": "{{count}}h ago"
 }

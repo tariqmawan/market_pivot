@@ -1,8 +1,30 @@
 {
-  "title": "Panel global",
-  "intro": "Acciones, FX y cripto en un mismo espacio, listo para datos en vivo, noticias, gráficos y módulos de comparación.",
-  "userPanelTitle": "Tu espacio de mercado",
-  "userPanelIntro": "Sigue tus bolsas, monedas, criptoactivos, alertas y cartera favoritas en un panel limpio.",
+  "title": "Panel global de mercados",
+  "intro": "Supervisa acciones, FX, cripto, regiones, sectores, materias primas, eventos, sentimiento y tu lista en un solo espacio de mercado.",
+  "liveTapeLabel": "Cinta de mercado en vivo",
+  "crossMarket": "Vista cross-market",
+  "topExchange": "Bolsa líder",
+  "coreReserve": "Reserva principal",
+  "cryptoLeader": "Líder cripto",
+  "regionPulse": "Pulso regional",
+  "sectorPulse": "Pulso sectorial",
+  "commodityPulse": "Pulso de commodities",
+  "primaryBase": "Base de conversión principal",
+  "majorIndices": "Índices principales",
+  "worldSnapshot": "Snapshot mundial de mercado",
+  "marketMovers": "Mayores movimientos",
+  "gainersAndLosers": "Alzas y bajas",
+  "economicEventsToday": "Eventos económicos hoy",
+  "macroCalendar": "Calendario macro",
+  "marketSentiment": "Sentimiento de mercado",
+  "forexMiniCards": "Mini tarjetas FX",
+  "currencyPulse": "Pulso de monedas",
+  "cryptoOverview": "Resumen cripto",
+  "marketCapLeaders": "Líderes de capitalización",
+  "commoditySnapshot": "Snapshot de commodities",
+  "spotAndFutures": "Spot y futuros",
+  "watchlistPreview": "Vista previa de lista",
+  "watchlistCopy": "Acceso rápido a símbolos guardados, alertas multi-activo, contexto de cartera y preferencias.",
   "portfolioValue": "Valor de cartera",
   "watchlist": "Lista de seguimiento",
   "savedMarkets": "Mercados guardados",
@@ -22,8 +44,40 @@
   "notificationMode": "Modo de notificación",
   "compactMode": "Modo compacto",
   "emailDigest": "Resumen por correo",
-  "marketOpenAlerts": "Alertas de apertura de mercado",
+  "marketOpenAlerts": "Alertas de apertura",
   "riskProfile": "Perfil de riesgo",
   "moderate": "Moderado",
-  "marketsFollowed": "Mercados seguidos"
+  "marketsFollowed": "Mercados seguidos",
+  "userPanelTitle": "Tu espacio de mercado",
+  "userPanelIntro": "Sigue bolsas, divisas, criptoactivos, alertas y contexto de cartera en un panel limpio.",
+  "importance": {
+    "high": "Alta",
+    "medium": "Media",
+    "low": "Baja"
+  },
+  "economicEvents": {
+    "usCpi": "IPC de EE. UU.",
+    "ecbRemarks": "Comentarios de política del BCE",
+    "us10yAuction": "Subasta US 10Y",
+    "fomcMinutes": "Actas del FOMC"
+  },
+  "sentiment": {
+    "equities": {
+      "label": "Acciones",
+      "detail": "Amplitud risk-on"
+    },
+    "fx": {
+      "label": "FX",
+      "detail": "USD mixto"
+    },
+    "crypto": {
+      "label": "Cripto",
+      "detail": "Compra por momentum"
+    },
+    "commodities": {
+      "label": "Commodities",
+      "detail": "Energía más débil"
+    }
+  },
+  "currencyRate": "1 {{base}} = {{rate}} {{quote}}"
 }

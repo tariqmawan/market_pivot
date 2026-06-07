@@ -248,13 +248,13 @@ export default function AdminSidebar({
       <button
         type="button"
         className={`mp-admin-sidebar-backdrop ${mobileOpen ? "open" : ""}`}
-        aria-label={t("src_client_components_admin_adminsidebar__l247__h0")}
+        aria-label={t("adminAdminsidebar.h0")}
         onClick={onMobileToggle}
       />
 
       <aside
         className={`mp-admin-sidebar ${mobileOpen ? "open" : ""}`}
-        aria-label={t("src_client_components_admin_adminsidebar__l253__h2")}
+        aria-label={t("adminAdminsidebar.h2")}
       >
         <div className="mp-admin-sidebar-inner">
         <div className="mp-admin-sidebar-header">
@@ -263,8 +263,8 @@ export default function AdminSidebar({
               <BarChart3 size={18} />
             </div>
             <div className="mp-admin-logo-text">
-              <div className="mp-admin-logo-title">{t("src_client_components_admin_adminsidebar__l262__h4")}</div>
-              <div className="mp-admin-logo-sub">{t("src_client_components_admin_adminsidebar__l263__h5")}</div>
+              <div className="mp-admin-logo-title">{t("adminAdminsidebar.h4")}</div>
+              <div className="mp-admin-logo-sub">{t("adminAdminsidebar.h5")}</div>
             </div>
           </div>
 
@@ -272,7 +272,7 @@ export default function AdminSidebar({
             type="button"
             className="mp-admin-mobile-close"
             onClick={onMobileToggle}
-            aria-label={t("src_client_components_admin_adminsidebar__l271__h6")}
+            aria-label={t("adminAdminsidebar.h6")}
           >
             <Menu size={18} />
           </button>
@@ -323,7 +323,7 @@ export default function AdminSidebar({
         <div className="mp-admin-sidebar-footer">
           <div className="mp-admin-sidebar-footer-chip">
             <Bell size={16} />
-            <span>{t("src_client_components_admin_adminsidebar__l322__h8")}</span>
+            <span>{t("adminAdminsidebar.h8")}</span>
           </div>
         </div>
       </div>

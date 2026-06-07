@@ -45,6 +45,9 @@ const headerNavigationItems = navigationItems.filter(
   (item) => item.path !== "/dashboard" && item.path !== "/user" && !(item as any).adminOnly
 );
 
+const getLanguageDisplayName = (lang: (typeof SUPPORTED_LANGUAGES)[number]) =>
+  lang.nativeLabel === lang.label ? lang.nativeLabel : `${lang.nativeLabel} / ${lang.label}`;
+
 const submenuPanels: Record<string, SubmenuPanelData> = {
   "/markets": {
     icon: <Globe2 size={panelIconSize} />,
@@ -596,7 +599,7 @@ const { openLoginModal, openSignupModal, isAuthenticated, user } = useAuthStore(
                 onClick={() => onSelectLanguage(l.code as LanguageCode)}
                 type="button"
               >
-                {l.nativeLabel}
+                <span className="lang-name">{getLanguageDisplayName(l)}</span>
               </button>
             ))}
           </div>
@@ -620,11 +623,11 @@ const { openLoginModal, openSignupModal, isAuthenticated, user } = useAuthStore(
 
         <div className="brand-left">
           <Link to="/" className="logo-link">
-            <img src="/logos/marketpivot.jpeg" alt={t("src_client_components_header__l640__h0")} className="logo-icon" />
+            <img src="/logos/marketpivot.jpeg" alt={t("header.h0")} className="logo-icon" />
           </Link>
         </div>
 
-        <nav className="header-center-nav" role="navigation" aria-label={t("src_client_components_header__l644__h1")}>
+        <nav className="header-center-nav" role="navigation" aria-label={t("header.h1")}>
           <div className="header-center-inner">
             {headerNavigationItems.map((item) => (
               <Link

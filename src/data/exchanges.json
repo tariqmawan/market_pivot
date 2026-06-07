@@ -21,7 +21,11 @@
       "logo": "/logos/exchanges/nyse.svg",
       "marketCap": 33000000000000,
       "listedCompanies": 2900,
-      "avgDailyVolume": 89000000000
+      "avgDailyVolume": 89000000000,
+      "nameKey": "markets.exchanges.nyse.name",
+      "countryKey": "markets.countries.us",
+      "timezoneKey": "markets.timezones.americaNewYork",
+      "descriptionKey": "markets.exchanges.nyse.description"
     },
     {
       "id": "NASDAQ",
@@ -44,7 +48,11 @@
       "logo": "/logos/exchanges/nasdaq.svg",
       "marketCap": 18000000000000,
       "listedCompanies": 3700,
-      "avgDailyVolume": 75000000000
+      "avgDailyVolume": 75000000000,
+      "nameKey": "markets.exchanges.nasdaq.name",
+      "countryKey": "markets.countries.us",
+      "timezoneKey": "markets.timezones.americaNewYork",
+      "descriptionKey": "markets.exchanges.nasdaq.description"
     },
     {
       "id": "SSE",
@@ -67,7 +75,11 @@
       "logo": "/logos/exchanges/sse.svg",
       "marketCap": 6500000000000,
       "listedCompanies": 2000,
-      "avgDailyVolume": 45000000000
+      "avgDailyVolume": 45000000000,
+      "nameKey": "markets.exchanges.sse.name",
+      "countryKey": "markets.countries.cn",
+      "timezoneKey": "markets.timezones.asiaShanghai",
+      "descriptionKey": "markets.exchanges.sse.description"
     },
     {
       "id": "SZSE",
@@ -90,7 +102,11 @@
       "logo": "/logos/exchanges/szse.svg",
       "marketCap": 5500000000000,
       "listedCompanies": 2500,
-      "avgDailyVolume": 42000000000
+      "avgDailyVolume": 42000000000,
+      "nameKey": "markets.exchanges.szse.name",
+      "countryKey": "markets.countries.cn",
+      "timezoneKey": "markets.timezones.asiaShanghai",
+      "descriptionKey": "markets.exchanges.szse.description"
     },
     {
       "id": "TSE",
@@ -113,7 +129,11 @@
       "logo": "/logos/exchanges/tse.svg",
       "marketCap": 4500000000000,
       "listedCompanies": 1800,
-      "avgDailyVolume": 25000000000
+      "avgDailyVolume": 25000000000,
+      "nameKey": "markets.exchanges.tse.name",
+      "countryKey": "markets.countries.jp",
+      "timezoneKey": "markets.timezones.asiaTokyo",
+      "descriptionKey": "markets.exchanges.tse.description"
     },
     {
       "id": "HKEX",
@@ -136,7 +156,11 @@
       "logo": "/logos/exchanges/hkex.svg",
       "marketCap": 2800000000000,
       "listedCompanies": 2600,
-      "avgDailyVolume": 18000000000
+      "avgDailyVolume": 18000000000,
+      "nameKey": "markets.exchanges.hkex.name",
+      "countryKey": "markets.countries.hk",
+      "timezoneKey": "markets.timezones.asiaHongKong",
+      "descriptionKey": "markets.exchanges.hkex.description"
     },
     {
       "id": "NSE",
@@ -159,7 +183,11 @@
       "logo": "/logos/exchanges/nse.svg",
       "marketCap": 3800000000000,
       "listedCompanies": 2100,
-      "avgDailyVolume": 12000000000
+      "avgDailyVolume": 12000000000,
+      "nameKey": "markets.exchanges.nse.name",
+      "countryKey": "markets.countries.in",
+      "timezoneKey": "markets.timezones.asiaKolkata",
+      "descriptionKey": "markets.exchanges.nse.description"
     },
     {
       "id": "BSE",
@@ -182,7 +210,11 @@
       "logo": "/logos/exchanges/bse.svg",
       "marketCap": 3200000000000,
       "listedCompanies": 5000,
-      "avgDailyVolume": 8000000000
+      "avgDailyVolume": 8000000000,
+      "nameKey": "markets.exchanges.bse.name",
+      "countryKey": "markets.countries.in",
+      "timezoneKey": "markets.timezones.asiaKolkata",
+      "descriptionKey": "markets.exchanges.bse.description"
     },
     {
       "id": "LSE",
@@ -205,7 +237,11 @@
       "logo": "/logos/exchanges/lse.svg",
       "marketCap": 3100000000000,
       "listedCompanies": 1300,
-      "avgDailyVolume": 15000000000
+      "avgDailyVolume": 15000000000,
+      "nameKey": "markets.exchanges.lse.name",
+      "countryKey": "markets.countries.gb",
+      "timezoneKey": "markets.timezones.europeLondon",
+      "descriptionKey": "markets.exchanges.lse.description"
     },
     {
       "id": "EURONEXT",
@@ -228,7 +264,11 @@
       "logo": "/logos/exchanges/euronext.svg",
       "marketCap": 8500000000000,
       "listedCompanies": 1900,
-      "avgDailyVolume": 22000000000
+      "avgDailyVolume": 22000000000,
+      "nameKey": "markets.exchanges.euronext.name",
+      "countryKey": "markets.countries.eu",
+      "timezoneKey": "markets.timezones.europeParis",
+      "descriptionKey": "markets.exchanges.euronext.description"
     },
     {
       "id": "XETRA",
@@ -251,7 +291,11 @@
       "logo": "/logos/exchanges/xetra.svg",
       "marketCap": 2400000000000,
       "listedCompanies": 610,
-      "avgDailyVolume": 18000000000
+      "avgDailyVolume": 18000000000,
+      "nameKey": "markets.exchanges.xetra.name",
+      "countryKey": "markets.countries.de",
+      "timezoneKey": "markets.timezones.europeBerlin",
+      "descriptionKey": "markets.exchanges.xetra.description"
     },
     {
       "id": "SIX",
@@ -274,7 +318,11 @@
       "logo": "/logos/exchanges/six.svg",
       "marketCap": 1200000000000,
       "listedCompanies": 220,
-      "avgDailyVolume": 8000000000
+      "avgDailyVolume": 8000000000,
+      "nameKey": "markets.exchanges.six.name",
+      "countryKey": "markets.countries.ch",
+      "timezoneKey": "markets.timezones.europeZurich",
+      "descriptionKey": "markets.exchanges.six.description"
     },
     {
       "id": "BME",
@@ -297,7 +345,11 @@
       "logo": "/logos/exchanges/bme.svg",
       "marketCap": 650000000000,
       "listedCompanies": 140,
-      "avgDailyVolume": 5000000000
+      "avgDailyVolume": 5000000000,
+      "nameKey": "markets.exchanges.bme.name",
+      "countryKey": "markets.countries.es",
+      "timezoneKey": "markets.timezones.europeMadrid",
+      "descriptionKey": "markets.exchanges.bme.description"
     },
     {
       "id": "BIT",
@@ -320,7 +372,11 @@
       "logo": "/logos/exchanges/bit.svg",
       "marketCap": 450000000000,
       "listedCompanies": 230,
-      "avgDailyVolume": 3000000000
+      "avgDailyVolume": 3000000000,
+      "nameKey": "markets.exchanges.bit.name",
+      "countryKey": "markets.countries.it",
+      "timezoneKey": "markets.timezones.europeRome",
+      "descriptionKey": "markets.exchanges.bit.description"
     },
     {
       "id": "ASX",
@@ -343,7 +399,11 @@
       "logo": "/logos/exchanges/asx.svg",
       "marketCap": 1800000000000,
       "listedCompanies": 2000,
-      "avgDailyVolume": 7000000000
+      "avgDailyVolume": 7000000000,
+      "nameKey": "markets.exchanges.asx.name",
+      "countryKey": "markets.countries.au",
+      "timezoneKey": "markets.timezones.australiaSydney",
+      "descriptionKey": "markets.exchanges.asx.description"
     },
     {
       "id": "TSX",
@@ -366,7 +426,11 @@
       "logo": "/logos/exchanges/tsx.svg",
       "marketCap": 2100000000000,
       "listedCompanies": 1500,
-      "avgDailyVolume": 12000000000
+      "avgDailyVolume": 12000000000,
+      "nameKey": "markets.exchanges.tsx.name",
+      "countryKey": "markets.countries.ca",
+      "timezoneKey": "markets.timezones.americaToronto",
+      "descriptionKey": "markets.exchanges.tsx.description"
     },
     {
       "id": "KRX",
@@ -389,7 +453,11 @@
       "logo": "/logos/exchanges/krx.svg",
       "marketCap": 1300000000000,
       "listedCompanies": 870,
-      "avgDailyVolume": 8000000000
+      "avgDailyVolume": 8000000000,
+      "nameKey": "markets.exchanges.krx.name",
+      "countryKey": "markets.countries.kr",
+      "timezoneKey": "markets.timezones.asiaSeoul",
+      "descriptionKey": "markets.exchanges.krx.description"
     },
     {
       "id": "TWSE",
@@ -412,7 +480,11 @@
       "logo": "/logos/exchanges/twse.svg",
       "marketCap": 800000000000,
       "listedCompanies": 1800,
-      "avgDailyVolume": 4000000000
+      "avgDailyVolume": 4000000000,
+      "nameKey": "markets.exchanges.twse.name",
+      "countryKey": "markets.countries.tw",
+      "timezoneKey": "markets.timezones.asiaTaipei",
+      "descriptionKey": "markets.exchanges.twse.description"
     },
     {
       "id": "SGX",
@@ -435,7 +507,11 @@
       "logo": "/logos/exchanges/sgx.svg",
       "marketCap": 950000000000,
       "listedCompanies": 700,
-      "avgDailyVolume": 3500000000
+      "avgDailyVolume": 3500000000,
+      "nameKey": "markets.exchanges.sgx.name",
+      "countryKey": "markets.countries.sg",
+      "timezoneKey": "markets.timezones.asiaSingapore",
+      "descriptionKey": "markets.exchanges.sgx.description"
     },
     {
       "id": "IDX",
@@ -458,7 +534,11 @@
       "logo": "/logos/exchanges/idx.svg",
       "marketCap": 650000000000,
       "listedCompanies": 860,
-      "avgDailyVolume": 2000000000
+      "avgDailyVolume": 2000000000,
+      "nameKey": "markets.exchanges.idx.name",
+      "countryKey": "markets.countries.id",
+      "timezoneKey": "markets.timezones.asiaJakarta",
+      "descriptionKey": "markets.exchanges.idx.description"
     },
     {
       "id": "SET",
@@ -481,7 +561,11 @@
       "logo": "/logos/exchanges/set.svg",
       "marketCap": 500000000000,
       "listedCompanies": 730,
-      "avgDailyVolume": 1500000000
+      "avgDailyVolume": 1500000000,
+      "nameKey": "markets.exchanges.set.name",
+      "countryKey": "markets.countries.th",
+      "timezoneKey": "markets.timezones.asiaBangkok",
+      "descriptionKey": "markets.exchanges.set.description"
     },
     {
       "id": "BM",
@@ -504,7 +588,11 @@
       "logo": "/logos/exchanges/bm.svg",
       "marketCap": 550000000000,
       "listedCompanies": 900,
-      "avgDailyVolume": 1800000000
+      "avgDailyVolume": 1800000000,
+      "nameKey": "markets.exchanges.bm.name",
+      "countryKey": "markets.countries.my",
+      "timezoneKey": "markets.timezones.asiaKualaLumpur",
+      "descriptionKey": "markets.exchanges.bm.description"
     },
     {
       "id": "TADAWUL",
@@ -527,7 +615,11 @@
       "logo": "/logos/exchanges/tadawul.svg",
       "marketCap": 2100000000000,
       "listedCompanies": 170,
-      "avgDailyVolume": 3000000000
+      "avgDailyVolume": 3000000000,
+      "nameKey": "markets.exchanges.tadawul.name",
+      "countryKey": "markets.countries.sa",
+      "timezoneKey": "markets.timezones.asiaRiyadh",
+      "descriptionKey": "markets.exchanges.tadawul.description"
     },
     {
       "id": "DFM",
@@ -550,7 +642,11 @@
       "logo": "/logos/exchanges/dfm.svg",
       "marketCap": 180000000000,
       "listedCompanies": 80,
-      "avgDailyVolume": 800000000
+      "avgDailyVolume": 800000000,
+      "nameKey": "markets.exchanges.dfm.name",
+      "countryKey": "markets.countries.ae",
+      "timezoneKey": "markets.timezones.asiaDubai",
+      "descriptionKey": "markets.exchanges.dfm.description"
     },
     {
       "id": "ADX",
@@ -573,7 +669,11 @@
       "logo": "/logos/exchanges/adx.svg",
       "marketCap": 210000000000,
       "listedCompanies": 95,
-      "avgDailyVolume": 950000000
+      "avgDailyVolume": 950000000,
+      "nameKey": "markets.exchanges.adx.name",
+      "countryKey": "markets.countries.ae",
+      "timezoneKey": "markets.timezones.asiaDubai",
+      "descriptionKey": "markets.exchanges.adx.description"
     },
     {
       "id": "JSE",
@@ -596,7 +696,11 @@
       "logo": "/logos/exchanges/jse.svg",
       "marketCap": 900000000000,
       "listedCompanies": 330,
-      "avgDailyVolume": 2500000000
+      "avgDailyVolume": 2500000000,
+      "nameKey": "markets.exchanges.jse.name",
+      "countryKey": "markets.countries.za",
+      "timezoneKey": "markets.timezones.africaJohannesburg",
+      "descriptionKey": "markets.exchanges.jse.description"
     },
     {
       "id": "B3",
@@ -619,7 +723,11 @@
       "logo": "/logos/exchanges/b3.svg",
       "marketCap": 1600000000000,
       "listedCompanies": 350,
-      "avgDailyVolume": 5000000000
+      "avgDailyVolume": 5000000000,
+      "nameKey": "markets.exchanges.b3.name",
+      "countryKey": "markets.countries.br",
+      "timezoneKey": "markets.timezones.americaSaoPaulo",
+      "descriptionKey": "markets.exchanges.b3.description"
     },
     {
       "id": "BMV",
@@ -642,7 +750,11 @@
       "logo": "/logos/exchanges/bmv.svg",
       "marketCap": 450000000000,
       "listedCompanies": 150,
-      "avgDailyVolume": 1500000000
+      "avgDailyVolume": 1500000000,
+      "nameKey": "markets.exchanges.bmv.name",
+      "countryKey": "markets.countries.mx",
+      "timezoneKey": "markets.timezones.americaMexicoCity",
+      "descriptionKey": "markets.exchanges.bmv.description"
     },
     {
       "id": "BCS",
@@ -665,7 +777,11 @@
       "logo": "/logos/exchanges/bcs.svg",
       "marketCap": 280000000000,
       "listedCompanies": 230,
-      "avgDailyVolume": 800000000
+      "avgDailyVolume": 800000000,
+      "nameKey": "markets.exchanges.bcs.name",
+      "countryKey": "markets.countries.cl",
+      "timezoneKey": "markets.timezones.americaSantiago",
+      "descriptionKey": "markets.exchanges.bcs.description"
     },
     {
       "id": "OMX",
@@ -688,7 +804,11 @@
       "logo": "/logos/exchanges/omx.svg",
       "marketCap": 2000000000000,
       "listedCompanies": 1200,
-      "avgDailyVolume": 4500000000
+      "avgDailyVolume": 4500000000,
+      "nameKey": "markets.exchanges.omx.name",
+      "countryKey": "markets.countries.se",
+      "timezoneKey": "markets.timezones.europeStockholm",
+      "descriptionKey": "markets.exchanges.omx.description"
     }
   ]
 }

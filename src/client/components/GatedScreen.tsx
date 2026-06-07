@@ -22,8 +22,8 @@ export const GatedScreen: React.FC<GatedScreenProps> = ({ feature, children }) =
     fallback={
       <div className="page">
         <div className="section-heading">
-          <p className="eyebrow">{t("src_client_components_gatedscreen__l20__h0")}</p>
-          <h1>{t("src_client_components_gatedscreen__l21__h1")}</h1>
+          <p className="eyebrow">{t("gatedscreen.h0")}</p>
+          <h1>{t("gatedscreen.h1")}</h1>
         </div>
       </div>
     }

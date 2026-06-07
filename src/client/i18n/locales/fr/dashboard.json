@@ -1,8 +1,30 @@
 {
   "title": "Tableau de bord mondial",
-  "intro": "Actions, FX et crypto dans un seul espace, prêt pour les données live, actualités, graphiques et comparaisons.",
-  "userPanelTitle": "Votre espace marché",
-  "userPanelIntro": "Suivez vos bourses, devises, actifs crypto, alertes et portefeuille dans un tableau clair.",
+  "intro": "Surveillez actions, FX, crypto, régions, secteurs, matières premières, événements, sentiment et watchlist dans un espace marché clair.",
+  "liveTapeLabel": "Bande de marché en direct",
+  "crossMarket": "Vue cross-marché",
+  "topExchange": "Bourse principale",
+  "coreReserve": "Réserve de base",
+  "cryptoLeader": "Leader crypto",
+  "regionPulse": "Pouls régional",
+  "sectorPulse": "Pouls sectoriel",
+  "commodityPulse": "Pouls matières premières",
+  "primaryBase": "Base de conversion principale",
+  "majorIndices": "Indices majeurs",
+  "worldSnapshot": "Instantané des marchés mondiaux",
+  "marketMovers": "Mouvements de marché",
+  "gainersAndLosers": "Hausses et baisses",
+  "economicEventsToday": "Événements économiques du jour",
+  "macroCalendar": "Calendrier macro",
+  "marketSentiment": "Sentiment de marché",
+  "forexMiniCards": "Mini cartes FX",
+  "currencyPulse": "Pouls des devises",
+  "cryptoOverview": "Aperçu crypto",
+  "marketCapLeaders": "Leaders par capitalisation",
+  "commoditySnapshot": "Instantané matières premières",
+  "spotAndFutures": "Spot et futures",
+  "watchlistPreview": "Aperçu de la watchlist",
+  "watchlistCopy": "Accès rapide aux symboles sauvegardés, alertes multi-actifs, contexte portefeuille et préférences de compte.",
   "portfolioValue": "Valeur du portefeuille",
   "watchlist": "Watchlist",
   "savedMarkets": "Marchés sauvegardés",
@@ -21,9 +43,41 @@
   "defaultMarket": "Marché par défaut",
   "notificationMode": "Mode de notification",
   "compactMode": "Mode compact",
-  "emailDigest": "Digest email",
-  "marketOpenAlerts": "Alertes ouverture de marché",
+  "emailDigest": "Résumé e-mail",
+  "marketOpenAlerts": "Alertes d’ouverture",
   "riskProfile": "Profil de risque",
   "moderate": "Modéré",
-  "marketsFollowed": "Marchés suivis"
+  "marketsFollowed": "Marchés suivis",
+  "userPanelTitle": "Votre espace marché",
+  "userPanelIntro": "Suivez bourses, devises, crypto-actifs, alertes et contexte portefeuille dans un tableau clair.",
+  "importance": {
+    "high": "Élevé",
+    "medium": "Moyen",
+    "low": "Faible"
+  },
+  "economicEvents": {
+    "usCpi": "IPC américain",
+    "ecbRemarks": "Commentaires de politique de la BCE",
+    "us10yAuction": "Adjudication US 10 ans",
+    "fomcMinutes": "Compte rendu du FOMC"
+  },
+  "sentiment": {
+    "equities": {
+      "label": "Actions",
+      "detail": "Largeur risk-on"
+    },
+    "fx": {
+      "label": "FX",
+      "detail": "Dollar mitigé"
+    },
+    "crypto": {
+      "label": "Crypto",
+      "detail": "Demande de momentum"
+    },
+    "commodities": {
+      "label": "Matières premières",
+      "detail": "Énergie plus faible"
+    }
+  },
+  "currencyRate": "1 {{base}} = {{rate}} {{quote}}"
 }

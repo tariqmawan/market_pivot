@@ -339,7 +339,7 @@ const translateLabel = (path: string | undefined, fallback: string) => {
    return (
      <nav
        className={`enhanced-navigation ${collapsed ? "collapsed" : ""} ${mobileOpen ? "mobile-open" : ""}`}
-       aria-label={t("src_client_components_navigation__l341__h0")}
+       aria-label={t("navigation.h0")}
      >
        <div className="nav-items">
          {navigationItems.map((item) => {

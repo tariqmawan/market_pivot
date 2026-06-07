@@ -1,132 +1,628 @@
 {
-  "title": "Tableau de bord des marchés mondiaux",
-  "subtitle": "Vue en temps réel des indices, mouvements, FX, crypto, matières premières, événements économiques, sentiment, actualités et listes de suivi.",
-  "globalMarkets": "Marchés multi-actifs mondiaux",
-  "homeTitle": "MarketsPivot",
-  "homeCopy": "Une couverture de style Bloomberg pour actions, revenu fixe, FX, matières premières, dérivés et crypto.",
-  "intelligenceTitle": "Une plateforme pour l’intelligence des marchés mondiaux",
-  "intelligenceCopy": "Suivez sessions boursières, pression FX, actifs numériques, contexte taux et matières premières dans une vue unifiée.",
-  "liveTape": "Bande de marché en direct",
-  "terminalView": "Vue terminal",
-  "assetCoverage": "Couverture d’actifs",
-  "compareMarkets": "Compare markets side-by-side",
-  "compareMarketsCopy": "Move from NYSE to INR, BTC to NASDAQ, or oil to rates without changing workspace.",
-  "marketBrief": "Brief marché",
-  "openingBell": "Cloche d’ouverture",
-  "riskView": "Vue risque",
-  "globalHeatmap": "Heatmap mondiale",
-  "equities": "Actions",
-  "stockCount": "bourses",
-  "exchangeDashboards": "Tableaux de bord des bourses mondiales",
-  "regionsMeta": "Indices régionaux, calendrier macro, FX et impact matières premières",
-  "currencyCount": "devises",
-  "fxMeta": "Réserves, trading et FX émergents",
-  "sectorsMeta": "Catégories actions, ETF, leaders et actualités sectorielles",
-  "usdBase": "Stratégie base USD",
-  "cryptoMeta": "Leaders, stablecoins, DeFi, paiements",
-  "cryptoLayer": "Couche marché 24/7",
-  "topGlobalExchanges": "Principales bourses mondiales",
-  "exchangeIntro": "Couverture régionale des devises, fuseaux, horaires, cotations, indice principal et capitalisation.",
-  "topCurrencies": "Top 20 devises mondiales",
-  "currencyIntro": "Devises de réserve, Asie-Pacifique, Amériques, Europe, Moyen-Orient et Afrique.",
-  "topCryptos": "Top 20 cryptos",
-  "cryptoIntro": "Leaders, plateformes smart contract, stablecoins, infrastructure, DeFi, paiements et actifs croissants.",
-  "crossMarket": "Vue cross-marché",
-  "topExchange": "Bourse principale",
-  "coreReserve": "Réserve de base",
-  "cryptoLeader": "Leader crypto",
-  "primaryBase": "Base de conversion principale",
-  "marketCap": "Capitalisation",
-  "listedCompanies": "Entreprises cotées",
-  "avgDailyVolume": "Volume moyen journalier",
-  "tradingHours": "Horaires de trading",
   "advancers": "Progressions",
-  "decliners": "Déclins",
-  "chart": "Graphique",
-  "topMovers": "Mouvements clés",
-  "founded": "Fondé",
-  "mainIndex": "Indice principal",
-  "baseCurrency": "Devise de base",
-  "website": "Site web",
-  "topGainers": "Top hausses",
-  "topLosers": "Top baisses",
-  "mostActive": "Plus actif",
-  "loadingGainers": "Chargement des hausses...",
-  "loadingLosers": "Chargement des baisses...",
-  "loadingActive": "Chargement des actifs...",
-  "liveBadge": "EN DIRECT",
   "asiaClosed": "Asie fermée en légère divergence ; Europe acheteuse",
-  "cryptoBetaOutperform": "Crypto beta outperforming equities",
-  "fxPressure": "Pression FX : surveillez JPY, INR, ZAR",
-  "regionIntelligence": "Intelligence régionale",
-  "marketsByGeography": "Marchés par géographie",
-  "countries": "pays",
-  "sectorIntelligence": "Intelligence sectorielle",
-  "equityThemes": "Thèmes actions",
-  "commodityIntelligence": "Intelligence matières premières",
-  "macroInputs": "Entrées macro",
-  "majorIndices": "Indices majeurs",
-  "worldSnapshot": "Instantané mondial",
-  "marketMovers": "Mouvements de marché",
-  "gainersAndLosers": "Hausse et baisse",
-  "economicEventsToday": "Événements économiques du jour",
-  "macroCalendar": "Calendrier macro",
-  "forexMiniCards": "Mini cartes Forex",
-  "currencyPulse": "Pouls des devises",
-  "cryptoOverview": "Aperçu crypto",
-  "marketCapLeaders": "Leaders capitalisation",
-  "commoditySnapshot": "Instantané matières premières",
-  "spotAndFutures": "Spot et futures",
-  "watchlistPreview": "Aperçu de la watchlist",
-  "watchlistCopy": "Accès rapide aux actifs sauvegardés, alertes cross-actifs et préférences de compte.",
-  "sp500Meta": "S&P 500 / USD / New York",
-  "federalReserveMeta": "Réserve fédérale / base globale",
+  "assetCoverage": "Couverture d’actifs",
+  "avgDailyVolume": "Volume moyen journalier",
+  "baseCurrency": "Devise de base",
   "btcMeta": "BTC vs USD, FX et risque actions",
-  "regionPulse": "Pouls régional",
-  "sectorPulse": "Pouls secteur",
-  "commodityPulse": "Pouls matières premières",
-  "gdpGrowthShort": "Croissance PIB",
-  "marketSentiment": "Sentiment du marché",
-  "noTradingPairs": "Aucune paire de trading disponible.",
-  "loadingSectors": "Chargement des secteurs...",
-  "noSectorData": "Aucune donnée sectorielle disponible.",
-  "noNewsAvailable": "Aucune actualité disponible pour cette bourse.",
-  "volumeShort": "Vol :",
-  "momentumLabel": "Momentum",
-  "unusualVolLabel": "Volume inhabituel",
-  "crashAlert": "Alerte chute",
-  "oversold": "Survendu",
-  "reversalLabel": "Renversement",
-  "whaleActivity": "Activité des whales",
-  "unusualActivity": "Activité inhabituelle",
-  "companiesLabel": "Entreprises :",
-  "marketRegion": "Région de marché",
-  "majorExchanges": "Principales bourses",
-  "keyIndices": "Indices clés",
-  "economicCalendar": "Calendrier économique",
-  "sectorLeaders": "Leaders sectoriels",
-  "commodityImpact": "Impact matières premières",
-  "trendingStocks": "Actions tendance",
-  "dividendLeaders": "Leaders de dividende",
-  "relatedRegions": "Régions associées",
-  "newsThemes": "Thèmes d’actualité",
-  "inflation": "Inflation",
   "calendarFocus": "Focus calendrier",
-  "regionsHeading": "Régions de marché mondiales",
-  "regionsIntro": "Couverture des indices régionaux, calendriers macro, FX et impact matières premières.",
-  "stockSector": "Secteur actions",
-  "sectorsTitle": "Secteurs",
-  "sectorsHeading": "Catégories actions et intelligence sectorielle",
-  "sectorsIntro": "Technologie, banque, IA, énergie, santé, mining, immobilier, semi-conducteurs et thèmes actions.",
-  "commodity": "Matière première",
-  "supplyRegions": "Régions d’approvisionnement",
-  "demandTrends": "Tendances de la demande",
-  "currencyCorrelation": "Corrélation des devises",
-  "commoditiesTitle": "Matières premières",
+  "chart": "Graphique",
+  "commodities": {
+    "brent": {
+      "name": "Brent"
+    },
+    "copper": {
+      "name": "Cuivre"
+    },
+    "crudeOil": {
+      "name": "P?trole brut WTI"
+    },
+    "gold": {
+      "name": "Or"
+    },
+    "lithium": {
+      "name": "Lithium"
+    },
+    "naturalGas": {
+      "name": "Gaz naturel"
+    },
+    "silver": {
+      "name": "Argent"
+    },
+    "uranium": {
+      "name": "name"
+    },
+    "wheat": {
+      "name": "Blé"
+    }
+  },
   "commoditiesHeading": "Énergie, métaux, agriculture et intrants industriels",
   "commoditiesIntro": "Prix spot, références futures, régions d’approvisionnement, tendances de la demande, corrélations de devises et impact macro.",
-  "moduleWorkspaceCopy": "Cet espace de travail fait partie de l’architecture MarketsPivot d’intelligence de marché mondial.",
+  "commoditiesTitle": "Matières premières",
+  "commodity": "Matière première",
+  "commodityImpact": "Impact matières premières",
+  "commodityIntelligence": "Intelligence matières premières",
+  "commodityPulse": "Pouls matières premières",
+  "commoditySnapshot": "Instantané matières premières",
+  "companiesLabel": "Entreprises :",
+  "compareMarkets": "Comparer markets side-par-side",
+  "compareMarketsCopy": "Move depuis NYSE vers INR, BTC vers NASDAQ, ou oil vers rates without changing workspace.",
+  "coreReserve": "Réserve de base",
+  "countries": {
+    "ae": {
+      "name": "Émirats arabes unis"
+    },
+    "au": {
+      "name": "Australie"
+    },
+    "br": {
+      "name": "Brésil"
+    },
+    "ca": {
+      "name": "name"
+    },
+    "ch": {
+      "name": "Suisse"
+    },
+    "cl": {
+      "name": "Chili"
+    },
+    "cn": {
+      "name": "Chine"
+    },
+    "de": {
+      "name": "Allemagne"
+    },
+    "es": {
+      "name": "Espagne"
+    },
+    "eu": {
+      "name": "Union européenne"
+    },
+    "gb": {
+      "name": "Royaume-Uni"
+    },
+    "hk": {
+      "name": "name"
+    },
+    "id": {
+      "name": "Indonésie"
+    },
+    "in": {
+      "name": "Inde"
+    },
+    "it": {
+      "name": "Italie"
+    },
+    "jp": {
+      "name": "Japon"
+    },
+    "kr": {
+      "name": "Corée du Sud"
+    },
+    "mx": {
+      "name": "Mexique"
+    },
+    "my": {
+      "name": "Malaisie"
+    },
+    "sa": {
+      "name": "Arabie saoudite"
+    },
+    "se": {
+      "name": "Suède"
+    },
+    "sg": {
+      "name": "Singapour"
+    },
+    "th": {
+      "name": "Thaïlande"
+    },
+    "tw": {
+      "name": "Taïwan"
+    },
+    "us": {
+      "name": "États-Unis"
+    },
+    "za": {
+      "name": "Afrique du Sud"
+    }
+  },
+  "crashAlert": "Alerte chute",
+  "crossMarket": "Vue cross-marché",
+  "cryptoBetaOutperform": "Le bêta crypto surperforme les actions",
+  "cryptoIntro": "Leaders, plateformes smart contract, stablecoins, infrastructure, DeFi, paiements et actifs croissants.",
+  "cryptoLayer": "Couche marché 24/7",
+  "cryptoLeader": "Leader crypto",
+  "cryptoMeta": "Leaders, stablecoins, DeFi, paiements",
+  "cryptoOverview": "Aperçu crypto",
+  "currencyCorrelation": "Corrélation des devises",
+  "currencyCount": "devises",
+  "currencyIntro": "Devises de réserve, Asie-Pacifique, Amériques, Europe, Moyen-Orient et Afrique.",
+  "currencyPulse": "Pouls des devises",
+  "decliners": "Déclins",
+  "demandTrends": "Tendances de la demande",
+  "dividendLeaders": "Leaders de dividende",
+  "economicCalendar": "Calendrier économique",
+  "economicEventsToday": "Événements économiques du jour",
+  "equities": "Actions",
+  "equityThemes": "Thèmes actions",
+  "exchangeDashboards": "Tableaux de bord des bourses mondiales",
+  "exchangeIntro": "Couverture régionale des devises, fuseaux, horaires, cotations, indice principal et capitalisation.",
+  "exchanges": {
+    "adx": {
+      "name": "name",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "asx": {
+      "name": "name",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "b3": {
+      "name": "B3 Brésil",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "bcs": {
+      "name": "Bourse de Santiago",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "bit": {
+      "name": "name",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "bm": {
+      "name": "name",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "bme": {
+      "name": "Bolsas y Mercados Españoles",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "bmv": {
+      "name": "Bourse mexicaine",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "bse": {
+      "name": "Bourse de Bombay",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "dfm": {
+      "name": "name",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "euronext": {
+      "name": "name",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "hkex": {
+      "name": "Bourse de Hong Kong",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "idx": {
+      "name": "name",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "jse": {
+      "name": "Bourse de Johannesburg",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "krx": {
+      "name": "name",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "lse": {
+      "name": "Bourse de Londres",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "nasdaq": {
+      "name": "NASDAQ",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "nse": {
+      "name": "name",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "nyse": {
+      "name": "Bourse de New York",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "omx": {
+      "name": "Nasdaq OMX Nordic",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "set": {
+      "name": "name",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "sgx": {
+      "name": "name",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "six": {
+      "name": "name",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "sse": {
+      "name": "Bourse de Shanghai",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "szse": {
+      "name": "Bourse de Shenzhen",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "tadawul": {
+      "name": "Tadawul",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "tse": {
+      "name": "Bourse de Tokyo",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "tsx": {
+      "name": "Bourse de Toronto",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "twse": {
+      "name": "Bourse de Taïwan",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    },
+    "xetra": {
+      "name": "Xetra",
+      "description": "Tableau de bord régional, horaires de séance, indice principal et données de cotation."
+    }
+  },
+  "feature": "Fonctionnalité",
+  "federalReserveMeta": "Réserve fédérale / base globale",
+  "forexMiniCards": "Mini cartes Forex",
+  "founded": "Fondé",
+  "fxMeta": "Réserves, trading et FX émergents",
+  "fxPressure": "Pression FX : surveillez JPY, INR, ZAR",
+  "gainersAndLosers": "Hausse et baisse",
+  "gdpGrowthShort": "Croissance PIB",
+  "globalHeatmap": "Heatmap mondiale",
+  "globalMarkets": "Marchés multi-actifs mondiaux",
+  "homeCopy": "Une couverture de style Bloomberg pour actions, revenu fixe, FX, matières premières, dérivés et crypto.",
+  "homeTitle": "MarketsPivot",
+  "inflation": "inflation",
+  "intelligenceCopy": "Suivez sessions boursières, pression FX, actifs numériques, contexte taux et matières premières dans une vue unifiée.",
+  "intelligenceTitle": "Une plateforme pour l’intelligence des marchés mondiaux",
+  "keyIndices": "Indices clés",
+  "listedCompanies": "Entreprises cotées",
+  "liveBadge": "EN DIRECT",
+  "liveTape": "Bande de marché en direct",
+  "loadingActive": "Chargement des actifs...",
+  "loadingGainers": "Chargement des hausses...",
+  "loadingLosers": "Chargement des baisses...",
+  "loadingSectors": "Chargement des secteurs...",
+  "macroCalendar": "Calendrier macro",
+  "macroInputs": "Entrées macro",
+  "mainIndex": "Indice principal",
+  "majorExchanges": "Principales bourses",
+  "majorIndices": "Indices majeurs",
+  "marketBrief": "Brief marché",
+  "marketCap": "Capitalisation",
+  "marketCapLeaders": "Leaders capitalisation",
+  "marketMovers": "Mouvements de marché",
+  "marketRegion": "Région de marché",
+  "marketSentiment": "Sentiment du marché",
+  "marketsByGeography": "Marchés par géographie",
   "moduleFeatureReady": "Prêt pour API en direct, filtres, graphiques et workflows utilisateurs sauvegardés.",
+  "moduleWorkspaceCopy": "Cet espace de travail fait partie de l’architecture MarketsPivot d’intelligence de marché mondial.",
+  "momentumLabel": "Momentum",
+  "mostActive": "Plus actif",
+  "newsThemes": "Thèmes d’actualité",
+  "noNewsAvailable": "Aucune actualité disponible pour cette bourse.",
+  "noSectorData": "Aucune donnée sectorielle disponible.",
+  "noTradingPairs": "Aucune paire de trading disponible.",
+  "openingBell": "Cloche d’ouverture",
+  "oversold": "Survendu",
   "planned": "Planifié",
-  "feature": "Fonctionnalité"
+  "primaryBase": "Base de conversion principale",
+  "regionIntelligence": "Intelligence régionale",
+  "regionPulse": "Pouls régional",
+  "regions": {
+    "americas": {
+      "name": "Amériques"
+    },
+    "asiaPacific": {
+      "name": "Asie-Pacifique"
+    },
+    "europe": {
+      "name": "Europe"
+    },
+    "middleEastAfrica": {
+      "name": "Moyen-Orient et Afrique"
+    }
+  },
+  "regionsHeading": "Régions de marché mondiales",
+  "regionsIntro": "Couverture des indices régionaux, calendriers macro, FX et impact matières premières.",
+  "regionsMeta": "Indices régionaux, calendrier macro, FX et impact matières premières",
+  "relatedRegions": "Régions associées",
+  "reversalLabel": "Renversement",
+  "riskView": "Vue risque",
+  "sectorIntelligence": "Intelligence sectorielle",
+  "sectorLeaders": "Leaders sectoriels",
+  "sectorPulse": "Pouls secteur",
+  "sectors": {
+    "ai": {
+      "name": "IA"
+    },
+    "banking": {
+      "name": "Banque"
+    },
+    "defence": {
+      "name": "Défense"
+    },
+    "electricVehicles": {
+      "name": "Véhicules électriques"
+    },
+    "energy": {
+      "name": "Énergie"
+    },
+    "healthcare": {
+      "name": "Santé"
+    },
+    "mining": {
+      "name": "Mines"
+    },
+    "realEstate": {
+      "name": "Immobilier"
+    },
+    "retail": {
+      "name": "Commerce de détail"
+    },
+    "semiconductor": {
+      "name": "Semi-conducteurs"
+    },
+    "technology": {
+      "name": "Technologie"
+    }
+  },
+  "sectorsHeading": "Catégories actions et intelligence sectorielle",
+  "sectorsIntro": "Technologie, banque, IA, énergie, santé, mining, immobilier, semi-conducteurs et thèmes actions.",
+  "sectorsMeta": "Catégories actions, ETF, leaders et actualités sectorielles",
+  "sectorsTitle": "Secteurs",
+  "sp500Meta": "S&P 500 / USD / Nouveau York",
+  "spotAndFutures": "Spot et futures",
+  "stockCount": "bourses",
+  "stockSector": "Secteur actions",
+  "subtitle": "Vue en temps réel des indices, mouvements, FX, crypto, matières premières, événements économiques, sentiment, actualités et listes de suivi.",
+  "supplyRegions": "Régions d’approvisionnement",
+  "terminalView": "Vue terminal",
+  "timezones": {
+    "africaJohannesburg": {
+      "name": "africa Johannesburg"
+    },
+    "americaMexicoCity": {
+      "name": "america Mexique City"
+    },
+    "americaNewYork": {
+      "name": "america Nouveau York"
+    },
+    "americaSantiago": {
+      "name": "america Santiago"
+    },
+    "americaSaoPaulo": {
+      "name": "america Sao Paulo"
+    },
+    "americaToronto": {
+      "name": "america Toronto"
+    },
+    "asiaBangkok": {
+      "name": "asia Bangkok"
+    },
+    "asiaDubai": {
+      "name": "asia Dubai"
+    },
+    "asiaHongKong": {
+      "name": "asia Hong Kong"
+    },
+    "asiaJakarta": {
+      "name": "asia Jakarta"
+    },
+    "asiaKolkata": {
+      "name": "asia Kolkata"
+    },
+    "asiaKualaLumpur": {
+      "name": "asia Kuala Lumpur"
+    },
+    "asiaRiyadh": {
+      "name": "asia Riyadh"
+    },
+    "asiaSeoul": {
+      "name": "asia Seoul"
+    },
+    "asiaShanghai": {
+      "name": "asia Shanghai"
+    },
+    "asiaSingapore": {
+      "name": "asia Singapour"
+    },
+    "asiaTaipei": {
+      "name": "asia Taipei"
+    },
+    "asiaTokyo": {
+      "name": "asia Tokyo"
+    },
+    "australiaSydney": {
+      "name": "australia Sydney"
+    },
+    "europeBerlin": {
+      "name": "europe Berlin"
+    },
+    "europeLondon": {
+      "name": "europe London"
+    },
+    "europeMadrid": {
+      "name": "europe Madrid"
+    },
+    "europeParis": {
+      "name": "europe Paris"
+    },
+    "europeRome": {
+      "name": "europe Rome"
+    },
+    "europeStockholm": {
+      "name": "europe Actionholm"
+    },
+    "europeZurich": {
+      "name": "europe Zurich"
+    }
+  },
+  "title": "Tableau de bord des marchés mondiaux",
+  "topCryptos": "Top 20 cryptos",
+  "topCurrencies": "Top 20 devises mondiales",
+  "topExchange": "Bourse principale",
+  "topGainers": "Top hausses",
+  "topGlobalExchanges": "Principales bourses mondiales",
+  "topLosers": "Top baisses",
+  "topMovers": "Mouvements clés",
+  "tradingHours": "Horaires de trading",
+  "trendingStocks": "Actions tendance",
+  "unusualActivity": "Activité inhabituelle",
+  "unusualVolLabel": "Volume inhabituel",
+  "usdBase": "Stratégie base USD",
+  "volumeShort": "Vol :",
+  "watchlistCopy": "Accès rapide aux actifs sauvegardés, alertes cross-actifs et préférences de compte.",
+  "watchlistPreview": "Aper?u de la liste de suivi",
+  "website": "Site web",
+  "whaleActivity": "Activité des whales",
+  "worldSnapshot": "Instantané mondial",
+  "exchangeNetwork": "Réseau de bourses",
+  "stockExchanges": "Bourses actions",
+  "allExchanges": "Toutes les bourses",
+  "advancedScreener": "Filtreur avancé",
+  "regionExchangesTitle": "{{region}} Bourses",
+  "regionalExchangeDashboards": "Regional exchange dashboards ? currency, timezone, trading hours, listed companies, main index, and market cap.",
+  "noExchangesForRegion": "Aucune bourse trouvée pour cette région.",
+  "exchangeRegions": {
+    "americas": "Amériques",
+    "northAmerica": "Amérique du Nord",
+    "europe": "Europe",
+    "asia": "Asie",
+    "asiaPacific": "Asie-Pacifique",
+    "oceania": "Océanie",
+    "middleEast": "Moyen-Orient",
+    "africa": "Afrique",
+    "middleEastAfrica": "Moyen-Orient et Afrique",
+    "latinAmerica": "Amérique latine"
+  },
+  "ytdShort": "YTD",
+  "dashboardCards": {
+    "nyseMeta": "S&P 500 / USD / New York",
+    "usdMeta": "Federal Reserve / global base",
+    "bitcoinMeta": "BTC face ? l?USD, au FX et au risque actions",
+    "regionMeta": "Croissance chinoise / rendements japonais / r?sultats indiens / ressources australiennes",
+    "sectorMeta": "Capex cloud / mon?tisation IA / offre de semi-conducteurs / valorisations",
+    "commodityMeta": "Feeds transport inflation, energy earnings, fiscal revenue, and global risk sentiment."
+  },
+  "moduleFeatures": {
+    "majorIndicesWidgets": "Major indices widgets",
+    "topGainersLosers": "Top gainers and losers",
+    "heatmaps": "Heatmaps",
+    "marketSentiment": "Market sentiment",
+    "preMarketMovers": "Pre-market movers",
+    "indexFutures": "Index futures",
+    "volumeSpikes": "Volume spikes",
+    "openingWatchlist": "Opening watchlist",
+    "afterHoursMovers": "After-hours movers",
+    "earningsReactions": "Earnings reactions",
+    "extendedSessionVolume": "Extended-session volume",
+    "newsCatalysts": "News catalysts",
+    "equityHeatmaps": "Equity heatmaps",
+    "sectorPerformance": "Sector performance",
+    "regionalBreadth": "Regional breadth",
+    "assetClassComparison": "Asset-class comparison",
+    "topGainers": "Top gainers",
+    "topLosers": "Top losers",
+    "mostActive": "Most active",
+    "unusualVolume": "Unusual volume",
+    "vixOverview": "VIX overview",
+    "fearGreedContext": "Fear and greed context",
+    "volatilityTermStructure": "Volatility term structure",
+    "riskDashboard": "Risk dashboard",
+    "countryFilters": "Country filters",
+    "exchangeStatistics": "Exchange statistics",
+    "listedCompanies": "Listed companies",
+    "regionalNews": "Regional news",
+    "liveGainers": "Live gainers",
+    "volumeFilters": "Volume filters",
+    "marketCapFilters": "Market cap filters",
+    "sectorBreakdown": "Sector breakdown",
+    "liveLosers": "Live losers",
+    "riskAlerts": "Risk alerts",
+    "indexImpact": "Index impact",
+    "watchlistActions": "Watchlist actions",
+    "trendingCoins": "Trending coins",
+    "marketCapRanking": "Market cap ranking",
+    "exchangeListings": "Exchange listings",
+    "historicalPerformance": "Historical performance",
+    "memeCoinRankings": "Meme coin rankings",
+    "volumeBursts": "Volume bursts",
+    "communityMomentum": "Community momentum",
+    "riskFlags": "Risk flags",
+    "defiEcosystem": "DeFi ecosystem",
+    "tvlMetrics": "TVL metrics",
+    "protocolCategories": "Protocol categories",
+    "tokenPerformance": "Token performance",
+    "layer1Chains": "Layer 1 chains",
+    "consensusDetails": "Consensus details",
+    "tokenomics": "Tokenomics",
+    "developerEcosystem": "Developer ecosystem",
+    "stablecoinSupply": "Stablecoin supply",
+    "pegMonitoring": "Peg monitoring",
+    "exchangeLiquidity": "Exchange liquidity",
+    "reserveContext": "Reserve context",
+    "spotPrices": "Spot prices",
+    "futuresPrices": "Futures prices",
+    "supplyDemandAnalysis": "Supply-demand analysis",
+    "correlationAnalysis": "Correlation analysis",
+    "preciousMetals": "Precious metals",
+    "industrialMetals": "Industrial metals",
+    "futuresContracts": "Futures contracts",
+    "currencySensitivity": "Currency sensitivity",
+    "cropMarkets": "Crop markets",
+    "weatherImpact": "Weather impact",
+    "supplyRegions": "Supply regions",
+    "seasonality": "Seasonality",
+    "industrialInputs": "Industrial inputs",
+    "demandTrends": "Demand trends",
+    "manufacturingSignals": "Manufacturing signals",
+    "regionalSupply": "Regional supply",
+    "regionWiseNews": "Region-wise news",
+    "macroSummaries": "Macro summaries",
+    "marketAlerts": "Market alerts",
+    "sectorWiseNews": "Sector-wise news",
+    "themeTracking": "Theme tracking",
+    "aiSummaries": "AI summaries",
+    "etfImpact": "ETF impact",
+    "cryptoNews": "Crypto news",
+    "onChainContext": "On-chain context",
+    "regulationUpdates": "Regulation updates",
+    "exchangeDevelopments": "Exchange developments",
+    "breakingCatalysts": "Breaking catalysts",
+    "importanceFilters": "Importance filters",
+    "liveMarketSummary": "Live market summary",
+    "filters": "Filters",
+    "analyticsWidgets": "Analytics widgets",
+    "relatedNews": "Related news"
+  },
+  "sentiment": {
+    "Equities": {
+      "label": "Equities",
+      "detail": "Risk-on breadth"
+    },
+    "FX": {
+      "label": "FX",
+      "detail": "USD mixed"
+    },
+    "Crypto": {
+      "label": "Crypto",
+      "detail": "Momentum bid"
+    },
+    "Commodities": {
+      "label": "Commodities",
+      "detail": "Energy softer"
+    }
+  }
 }

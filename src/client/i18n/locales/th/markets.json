@@ -1,132 +1,628 @@
 {
-  "title": "แดชบอร์ดข่าวกรองตลาดทั่วโลก",
-  "subtitle": "ภาพรวมสไตล์สดสำหรับดัชนี หุ้นเคลื่อนไหว FX คริปโต สินค้าโภคภัณฑ์ เหตุการณ์เศรษฐกิจ ความเชื่อมั่น ข่าว และรายการเฝ้าดู",
-  "globalMarkets": "ตลาดหลายสินทรัพย์ทั่วโลก",
-  "homeTitle": "MarketsPivot",
-  "homeCopy": "ครอบคลุมสไตล์ Bloomberg ตั้งแต่ตราสารทุน บริบทตราสารหนี้ FX สินค้าโภคภัณฑ์ อนุพันธ์ และมุมมองตลาดที่พร้อมสำหรับคริปโต",
-  "intelligenceTitle": "หนึ่งแพลตฟอร์มสำหรับข่าวกรองตลาดโลก",
-  "intelligenceCopy": "ติดตามเซสชันการซื้อขาย แรงกดดัน FX สินทรัพย์ดิจิทัล บริบทตลาดผลตอบแทน สินค้าโภคภัณฑ์ และอนุพันธ์จากมุมมองการทำงานเดียว",
-  "liveTape": "สายตลาดสด",
-  "terminalView": "มุมมองเทอร์มินัล",
-  "assetCoverage": "ความครอบคลุมสินทรัพย์",
-  "compareMarkets": "เปรียบเทียบตลาดเคียงข้างกัน",
-  "compareMarketsCopy": "ย้ายจาก NYSE ไปยัง INR, BTC ไปยัง NASDAQ หรือน้ำมันไปยังอัตราดอกเบี้ยโดยไม่ต้องเปลี่ยนพื้นที่ทำงาน",
-  "marketBrief": "บทสรุปตลาด",
-  "openingBell": "ระฆังเปิดตลาด",
-  "riskView": "มุมมองความเสี่ยง",
-  "globalHeatmap": "แผนที่ความร้อนทั่วโลก",
-  "equities": "ตราสารทุน",
-  "stockCount": "ตลาดหุ้น",
-  "exchangeDashboards": "แดชบอร์ดตลาดหลักทรัพย์ทั่วโลก",
-  "regionsMeta": "ดัชนีระดับภูมิภาค ปฏิทินเศรษฐกิจมหภาค FX และผลกระทบของสินค้าโภคภัณฑ์",
-  "currencyCount": "สกุลเงิน",
-  "fxMeta": "ทุนสำรอง การค้า และ FX ในตลาดเกิดใหม่",
-  "sectorsMeta": "หมวดหุ้น ETFs ผู้นำ และข่าวกลุ่มอุตสาหกรรม",
-  "usdBase": "กลยุทธ์ฐาน USD",
-  "cryptoMeta": "ผู้นำ Stablecoins DeFi การชำระเงิน",
-  "cryptoLayer": "ชั้นตลาด 24/7",
-  "topGlobalExchanges": "ตลาดหลักทรัพย์ชั้นนำทั่วโลก",
-  "exchangeIntro": "ความครอบคลุมระดับภูมิภาคพร้อมสกุลเงิน เขตเวลา ชั่วโมงซื้อขาย รายชื่อ ดัชนีหลัก และบริบทมูลค่าตลาด",
-  "topCurrencies": "20 สกุลเงินชั้นนำของโลก",
-  "currencyIntro": "ทุนสำรองหลัก สกุลเงินการค้าเอเชียแปซิฟิก อเมริกา ยุโรป ตะวันออกกลาง และแอฟริกา",
-  "topCryptos": "20 คริปโตเคอร์เรนซีชั้นนำ",
-  "cryptoIntro": "ผู้นำหลัก แพลตฟอร์มสัญญาอัจฉริยะ Stablecoins โครงสร้างพื้นฐาน DeFi การชำระเงิน และสินทรัพย์ที่เติบโต",
-  "crossMarket": "มุมมองข้ามตลาด",
-  "topExchange": "ตลาดชั้นนำ",
-  "coreReserve": "ทุนสำรองหลัก",
-  "cryptoLeader": "ผู้นำคริปโต",
-  "primaryBase": "ฐานการแปลงหลัก",
-  "marketCap": "มูลค่าตลาด",
-  "listedCompanies": "บริษัทจดทะเบียน",
-  "avgDailyVolume": "ปริมาณเฉลี่ยต่อวัน",
-  "tradingHours": "ชั่วโมงซื้อขาย",
   "advancers": "หุ้นขึ้น",
-  "decliners": "หุ้นลง",
-  "chart": "แผนภูมิ",
-  "topMovers": "หุ้นเคลื่อนไหวสูงสุด",
-  "founded": "ก่อตั้ง",
-  "mainIndex": "ดัชนีหลัก",
-  "baseCurrency": "สกุลเงินหลัก",
-  "website": "เว็บไซต์",
-  "topGainers": "หุ้นขึ้นสูงสุด",
-  "topLosers": "หุ้นลงสูงสุด",
-  "mostActive": "ซื้อขายมากที่สุด",
-  "loadingGainers": "กำลังโหลดหุ้นขึ้น...",
-  "loadingLosers": "กำลังโหลดหุ้นลง...",
-  "loadingActive": "กำลังโหลดหุ้นที่ใช้งาน...",
-  "liveBadge": "สด",
   "asiaClosed": "เอเชียปิดผสม ยุโรปเสนอซื้อ",
-  "cryptoBetaOutperform": "เบต้าคริปโตทำผลงานดีกว่าตราสารทุน",
-  "fxPressure": "แรงกดดัน FX: JPY INR ZAR เฝ้าดู",
-  "regionIntelligence": "ข่าวกรองระดับภูมิภาค",
-  "marketsByGeography": "ตลาดตามภูมิศาสตร์",
-  "countries": "ประเทศ",
-  "sectorIntelligence": "ข่าวกรองกลุ่มอุตสาหกรรม",
-  "equityThemes": "ธีมและหมวดหมู่ตราสารทุน",
-  "commodityIntelligence": "ข่าวกรองสินค้าโภคภัณฑ์",
-  "macroInputs": "อินพุตมหภาคและฟิวเจอร์ส",
-  "majorIndices": "ดัชนีหลัก",
-  "worldSnapshot": "ภาพรวมตลาดโลก",
-  "marketMovers": "หุ้นเคลื่อนไหวในตลาด",
-  "gainersAndLosers": "หุ้นขึ้นและหุ้นลง",
-  "economicEventsToday": "เหตุการณ์เศรษฐกิจวันนี้",
-  "macroCalendar": "ปฏิทินมหภาค",
-  "forexMiniCards": "การ์ด FX ขนาดเล็ก",
-  "currencyPulse": "ชีพจรสกุลเงิน",
-  "cryptoOverview": "ภาพรวมคริปโต",
-  "marketCapLeaders": "ผู้นำมูลค่าตลาด",
-  "commoditySnapshot": "สแน็ปช็อตสินค้าโภคภัณฑ์",
-  "spotAndFutures": "สปอตและฟิวเจอร์ส",
-  "watchlistPreview": "ตัวอย่างรายการเฝ้าดู",
-  "watchlistCopy": "เข้าถึงสัญลักษณ์ที่บันทึกไว้อย่างรวดเร็ว การแจ้งเตือนข้ามสินทรัพย์ บริบทพอร์ตโฟลิโอ และการตั้งค่าบัญชี",
-  "sp500Meta": "S&P 500 / USD / นิวยอร์ก",
-  "federalReserveMeta": "Federal Reserve / ฐานทั่วโลก",
+  "assetCoverage": "ความครอบคลุมสินทรัพย์",
+  "avgDailyVolume": "ปริมาณเฉลี่ยต่อวัน",
+  "baseCurrency": "สกุลเงินหลัก",
   "btcMeta": "BTC เทียบ USD FX และความเสี่ยงตราสารทุน",
-  "regionPulse": "ชีพจรภูมิภาค",
-  "sectorPulse": "ชีพจรกลุ่มอุตสาหกรรม",
-  "commodityPulse": "ชีพจรสินค้าโภคภัณฑ์",
-  "gdpGrowthShort": "การเติบโต GDP",
-  "marketSentiment": "ความเชื่อมั่นตลาด",
-  "noTradingPairs": "ไม่มีคู่ซื้อขาย",
-  "loadingSectors": "กำลังโหลดกลุ่มอุตสาหกรรม...",
-  "noSectorData": "ไม่มีข้อมูลกลุ่มอุตสาหกรรม",
-  "noNewsAvailable": "ไม่มีข่าวสำหรับตลาดนี้",
-  "volumeShort": "ปริมาณ:",
-  "momentumLabel": "โมเมนตัม",
-  "unusualVolLabel": "ปริมาณผิดปกติ",
-  "crashAlert": "แจ้งเตือนวิกฤต",
-  "oversold": "ขายมากเกินไป",
-  "reversalLabel": "กลับตัว",
-  "whaleActivity": "กิจกรรมวาฬ",
-  "unusualActivity": "กิจกรรมผิดปกติ",
-  "companiesLabel": "บริษัท:",
-  "marketRegion": "ภูมิภาคตลาด",
-  "majorExchanges": "ตลาดหลักทรัพย์หลัก",
-  "keyIndices": "ดัชนีสำคัญ",
-  "economicCalendar": "ปฏิทินเศรษฐกิจ",
-  "sectorLeaders": "ผู้นำกลุ่มอุตสาหกรรม",
-  "commodityImpact": "ผลกระทบสินค้าโภคภัณฑ์",
-  "trendingStocks": "หุ้นที่กำลังมาแรง",
-  "dividendLeaders": "ผู้นำปันผล",
-  "relatedRegions": "ภูมิภาคที่เกี่ยวข้อง",
-  "newsThemes": "ธีมข่าว",
-  "inflation": "เงินเฟ้อ",
   "calendarFocus": "ปฏิทินสำคัญ",
-  "regionsHeading": "ภูมิภาคตลาดทั่วโลก",
-  "regionsIntro": "ดัชนีระดับภูมิภาค ปฏิทินเศรษฐกิจมหภาค FX และผลกระทบของสินค้าโภคภัณฑ์ทั่วตลาดโลก",
-  "stockSector": "กลุ่มหุ้น",
-  "sectorsTitle": "กลุ่มอุตสาหกรรม",
-  "sectorsHeading": "หมวดหุ้นและข่าวกรองกลุ่มอุตสาหกรรม",
-  "sectorsIntro": "เทคโนโลยี ธนาคาร AI พลังงาน สาธารณสุข เหมืองแร่ อสังหาริมทรัพย์ เซมิคอนดักเตอร์ และความครอบคลุมตราสารทุนเชิงธีม",
-  "commodity": "สินค้าโภคภัณฑ์",
-  "supplyRegions": "ภูมิภาคอุปทาน",
-  "demandTrends": "แนวโน้มอุปสงค์",
-  "currencyCorrelation": "ความสัมพันธ์สกุลเงิน",
-  "commoditiesTitle": "สินค้าโภคภัณฑ์",
+  "chart": "แผนภูมิ",
+  "commodities": {
+    "brent": {
+      "name": "Brent Crude"
+    },
+    "copper": {
+      "name": "Copper"
+    },
+    "crudeOil": {
+      "name": "Crude Oil WTI"
+    },
+    "gold": {
+      "name": "Gold"
+    },
+    "lithium": {
+      "name": "Lithium Carbonate"
+    },
+    "naturalGas": {
+      "name": "Natural Gas"
+    },
+    "silver": {
+      "name": "Silver"
+    },
+    "uranium": {
+      "name": "Uranium"
+    },
+    "wheat": {
+      "name": "Wheat"
+    }
+  },
   "commoditiesHeading": "พลังงาน โลหะ เกษตรกรรม และวัตถุดิบอุตสาหกรรม",
   "commoditiesIntro": "ราคาสปอต การอ้างอิงฟิวเจอร์ส ภูมิภาคอุปทาน แนวโน้มอุปสงค์ ความสัมพันธ์สกุลเงิน และผลกระทบมหภาค",
-  "moduleWorkspaceCopy": "พื้นที่ทำงานนี้เป็นส่วนหนึ่งของโครงสร้างข่าวกรองตลาดโลกของ MarketsPivot",
+  "commoditiesTitle": "สินค้าโภคภัณฑ์",
+  "commodity": "สินค้าโภคภัณฑ์",
+  "commodityImpact": "ผลกระทบสินค้าโภคภัณฑ์",
+  "commodityIntelligence": "ข่าวกรองสินค้าโภคภัณฑ์",
+  "commodityPulse": "ชีพจรสินค้าโภคภัณฑ์",
+  "commoditySnapshot": "สแน็ปช็อตสินค้าโภคภัณฑ์",
+  "companiesLabel": "บริษัท:",
+  "compareMarkets": "เปรียบเทียบตลาดเคียงข้างกัน",
+  "compareMarketsCopy": "ย้ายจาก NYSE ไปยัง INR, BTC ไปยัง NASDAQ หรือน้ำมันไปยังอัตราดอกเบี้ยโดยไม่ต้องเปลี่ยนพื้นที่ทำงาน",
+  "coreReserve": "ทุนสำรองหลัก",
+  "countries": {
+    "ae": {
+      "name": "United Arab Emirates"
+    },
+    "au": {
+      "name": "Australia"
+    },
+    "br": {
+      "name": "Brazil"
+    },
+    "ca": {
+      "name": "Canada"
+    },
+    "ch": {
+      "name": "Switzerland"
+    },
+    "cl": {
+      "name": "Chile"
+    },
+    "cn": {
+      "name": "China"
+    },
+    "de": {
+      "name": "Germany"
+    },
+    "es": {
+      "name": "Spain"
+    },
+    "eu": {
+      "name": "European Union"
+    },
+    "gb": {
+      "name": "United Kingdom"
+    },
+    "hk": {
+      "name": "Hong Kong"
+    },
+    "id": {
+      "name": "Indonesia"
+    },
+    "in": {
+      "name": "India"
+    },
+    "it": {
+      "name": "Italy"
+    },
+    "jp": {
+      "name": "Japan"
+    },
+    "kr": {
+      "name": "South Korea"
+    },
+    "mx": {
+      "name": "Mexico"
+    },
+    "my": {
+      "name": "Malaysia"
+    },
+    "sa": {
+      "name": "Saudi Arabia"
+    },
+    "se": {
+      "name": "Nordic and Baltic region"
+    },
+    "sg": {
+      "name": "Singapore"
+    },
+    "th": {
+      "name": "Thailand"
+    },
+    "tw": {
+      "name": "Taiwan"
+    },
+    "us": {
+      "name": "United States"
+    },
+    "za": {
+      "name": "South Africa"
+    }
+  },
+  "crashAlert": "แจ้งเตือนวิกฤต",
+  "crossMarket": "มุมมองข้ามตลาด",
+  "cryptoBetaOutperform": "เบต้าคริปโตทำผลงานดีกว่าตราสารทุน",
+  "cryptoIntro": "ผู้นำหลัก แพลตฟอร์มสัญญาอัจฉริยะ Stablecoins โครงสร้างพื้นฐาน DeFi การชำระเงิน และสินทรัพย์ที่เติบโต",
+  "cryptoLayer": "ชั้นตลาด 24/7",
+  "cryptoLeader": "ผู้นำคริปโต",
+  "cryptoMeta": "ผู้นำ Stablecoins DeFi การชำระเงิน",
+  "cryptoOverview": "ภาพรวมคริปโต",
+  "currencyCorrelation": "ความสัมพันธ์สกุลเงิน",
+  "currencyCount": "สกุลเงิน",
+  "currencyIntro": "ทุนสำรองหลัก สกุลเงินการค้าเอเชียแปซิฟิก อเมริกา ยุโรป ตะวันออกกลาง และแอฟริกา",
+  "currencyPulse": "ชีพจรสกุลเงิน",
+  "decliners": "หุ้นลง",
+  "demandTrends": "แนวโน้มอุปสงค์",
+  "dividendLeaders": "ผู้นำปันผล",
+  "economicCalendar": "ปฏิทินเศรษฐกิจ",
+  "economicEventsToday": "เหตุการณ์เศรษฐกิจวันนี้",
+  "equities": "ตราสารทุน",
+  "equityThemes": "ธีมและหมวดหมู่ตราสารทุน",
+  "exchangeDashboards": "แดชบอร์ดตลาดหลักทรัพย์ทั่วโลก",
+  "exchangeIntro": "ความครอบคลุมระดับภูมิภาคพร้อมสกุลเงิน เขตเวลา ชั่วโมงซื้อขาย รายชื่อ ดัชนีหลัก และบริบทมูลค่าตลาด",
+  "exchanges": {
+    "adx": {
+      "name": "Abu Dhabi Securities Exchange",
+      "description": "Abu Dhabi's primary stock exchange"
+    },
+    "asx": {
+      "name": "Australian Securities Exchange",
+      "description": "Australia's primary stock exchange"
+    },
+    "b3": {
+      "name": "B3 (Brasil Bolsa Balcão)",
+      "description": "Latin America's largest stock exchange"
+    },
+    "bcs": {
+      "name": "Bolsa de Comercio de Santiago",
+      "description": "Chile's primary stock exchange"
+    },
+    "bit": {
+      "name": "Borsa Italiana",
+      "description": "Italy's main stock exchange"
+    },
+    "bm": {
+      "name": "Bursa Malaysia",
+      "description": "Malaysia's primary stock exchange"
+    },
+    "bme": {
+      "name": "BME Spanish Exchanges",
+      "description": "Spain's principal stock exchange"
+    },
+    "bmv": {
+      "name": "Mexican Stock Exchange",
+      "description": "Mexico's primary stock exchange"
+    },
+    "bse": {
+      "name": "Bombay Stock Exchange",
+      "description": "Oldest stock exchange in Asia"
+    },
+    "dfm": {
+      "name": "Dubai Financial Market",
+      "description": "Dubai's primary stock exchange"
+    },
+    "euronext": {
+      "name": "Euronext",
+      "description": "Pan-European exchange operating in multiple countries"
+    },
+    "hkex": {
+      "name": "Hong Kong Stock Exchange",
+      "description": "Major financial hub in Asia, gateway to mainland China markets"
+    },
+    "idx": {
+      "name": "Indonesia Stock Exchange",
+      "description": "Indonesia's primary stock exchange"
+    },
+    "jse": {
+      "name": "Johannesburg Stock Exchange",
+      "description": "South Africa's primary stock exchange"
+    },
+    "krx": {
+      "name": "Korea Exchange",
+      "description": "South Korea's primary stock exchange"
+    },
+    "lse": {
+      "name": "London Stock Exchange",
+      "description": "Leading global financial hub, one of the world's oldest exchanges"
+    },
+    "nasdaq": {
+      "name": "NASDAQ",
+      "description": "Electronic stock market known for tech companies"
+    },
+    "nse": {
+      "name": "National Stock Exchange of India",
+      "description": "India's largest stock exchange, leading market for South Asia"
+    },
+    "nyse": {
+      "name": "New York Stock Exchange",
+      "description": "The largest and most well-known stock exchange in the world"
+    },
+    "omx": {
+      "name": "Nasdaq Nordic",
+      "description": "Nasdaq-operated Nordic and Baltic marketplace covering equities and related listed products"
+    },
+    "set": {
+      "name": "Stock Exchange of Thailand",
+      "description": "Thailand's primary stock exchange"
+    },
+    "sgx": {
+      "name": "Singapore Exchange",
+      "description": "Southeast Asia's leading financial center and exchange"
+    },
+    "six": {
+      "name": "SIX Swiss Exchange",
+      "description": "Switzerland's primary stock exchange"
+    },
+    "sse": {
+      "name": "Shanghai Stock Exchange",
+      "description": "Second-largest stock exchange in the world by market cap"
+    },
+    "szse": {
+      "name": "Shenzhen Stock Exchange",
+      "description": "Third-largest stock exchange by market cap"
+    },
+    "tadawul": {
+      "name": "Saudi Exchange",
+      "description": "Saudi Arabia's primary stock exchange"
+    },
+    "tse": {
+      "name": "Tokyo Stock Exchange",
+      "description": "Largest stock exchange in Japan and Asia's oldest"
+    },
+    "tsx": {
+      "name": "Toronto Stock Exchange",
+      "description": "Canada's largest stock exchange"
+    },
+    "twse": {
+      "name": "Taiwan Stock Exchange",
+      "description": "Taiwan's primary stock exchange"
+    },
+    "xetra": {
+      "name": "Deutsche Börse",
+      "description": "Germany's largest stock exchange and major European trading center"
+    }
+  },
+  "feature": "ฟีเจอร์",
+  "federalReserveMeta": "Federal Reserve / ฐานทั่วโลก",
+  "forexMiniCards": "การ์ด FX ขนาดเล็ก",
+  "founded": "ก่อตั้ง",
+  "fxMeta": "ทุนสำรอง การค้า และ FX ในตลาดเกิดใหม่",
+  "fxPressure": "แรงกดดัน FX: JPY INR ZAR เฝ้าดู",
+  "gainersAndLosers": "หุ้นขึ้นและหุ้นลง",
+  "gdpGrowthShort": "การเติบโต GDP",
+  "globalHeatmap": "แผนที่ความร้อนทั่วโลก",
+  "globalMarkets": "ตลาดหลายสินทรัพย์ทั่วโลก",
+  "homeCopy": "ครอบคลุมสไตล์ Bloomberg ตั้งแต่ตราสารทุน บริบทตราสารหนี้ FX สินค้าโภคภัณฑ์ อนุพันธ์ และมุมมองตลาดที่พร้อมสำหรับคริปโต",
+  "homeTitle": "MarketsPivot",
+  "inflation": "เงินเฟ้อ",
+  "intelligenceCopy": "ติดตามเซสชันการซื้อขาย แรงกดดัน FX สินทรัพย์ดิจิทัล บริบทตลาดผลตอบแทน สินค้าโภคภัณฑ์ และอนุพันธ์จากมุมมองการทำงานเดียว",
+  "intelligenceTitle": "หนึ่งแพลตฟอร์มสำหรับข่าวกรองตลาดโลก",
+  "keyIndices": "ดัชนีสำคัญ",
+  "listedCompanies": "บริษัทจดทะเบียน",
+  "liveBadge": "สด",
+  "liveTape": "สายตลาดสด",
+  "loadingActive": "กำลังโหลดหุ้นที่ใช้งาน...",
+  "loadingGainers": "กำลังโหลดหุ้นขึ้น...",
+  "loadingLosers": "กำลังโหลดหุ้นลง...",
+  "loadingSectors": "กำลังโหลดกลุ่มอุตสาหกรรม...",
+  "macroCalendar": "ปฏิทินมหภาค",
+  "macroInputs": "อินพุตมหภาคและฟิวเจอร์ส",
+  "mainIndex": "ดัชนีหลัก",
+  "majorExchanges": "ตลาดหลักทรัพย์หลัก",
+  "majorIndices": "ดัชนีหลัก",
+  "marketBrief": "บทสรุปตลาด",
+  "marketCap": "มูลค่าตลาด",
+  "marketCapLeaders": "ผู้นำมูลค่าตลาด",
+  "marketMovers": "หุ้นเคลื่อนไหวในตลาด",
+  "marketRegion": "ภูมิภาคตลาด",
+  "marketSentiment": "ความเชื่อมั่นตลาด",
+  "marketsByGeography": "ตลาดตามภูมิศาสตร์",
   "moduleFeatureReady": "พร้อมสำหรับ API สด ตัวกรอง แผนภูมิ และเวิร์กโฟลว์ผู้ใช้ที่บันทึกไว้",
+  "moduleWorkspaceCopy": "พื้นที่ทำงานนี้เป็นส่วนหนึ่งของโครงสร้างข่าวกรองตลาดโลกของ MarketsPivot",
+  "momentumLabel": "โมเมนตัม",
+  "mostActive": "ซื้อขายมากที่สุด",
+  "newsThemes": "ธีมข่าว",
+  "noNewsAvailable": "ไม่มีข่าวสำหรับตลาดนี้",
+  "noSectorData": "ไม่มีข้อมูลกลุ่มอุตสาหกรรม",
+  "noTradingPairs": "ไม่มีคู่ซื้อขาย",
+  "openingBell": "ระฆังเปิดตลาด",
+  "oversold": "ขายมากเกินไป",
   "planned": "วางแผน",
-  "feature": "ฟีเจอร์"
+  "primaryBase": "ฐานการแปลงหลัก",
+  "regionIntelligence": "ข่าวกรองระดับภูมิภาค",
+  "regionPulse": "ชีพจรภูมิภาค",
+  "regions": {
+    "americas": {
+      "name": "Americas"
+    },
+    "asiaPacific": {
+      "name": "Asia-Pacific"
+    },
+    "europe": {
+      "name": "Europe"
+    },
+    "middleEastAfrica": {
+      "name": "Middle East & Africa"
+    }
+  },
+  "regionsHeading": "ภูมิภาคตลาดทั่วโลก",
+  "regionsIntro": "ดัชนีระดับภูมิภาค ปฏิทินเศรษฐกิจมหภาค FX และผลกระทบของสินค้าโภคภัณฑ์ทั่วตลาดโลก",
+  "regionsMeta": "ดัชนีระดับภูมิภาค ปฏิทินเศรษฐกิจมหภาค FX และผลกระทบของสินค้าโภคภัณฑ์",
+  "relatedRegions": "ภูมิภาคที่เกี่ยวข้อง",
+  "reversalLabel": "กลับตัว",
+  "riskView": "มุมมองความเสี่ยง",
+  "sectorIntelligence": "ข่าวกรองกลุ่มอุตสาหกรรม",
+  "sectorLeaders": "ผู้นำกลุ่มอุตสาหกรรม",
+  "sectorPulse": "ชีพจรกลุ่มอุตสาหกรรม",
+  "sectors": {
+    "ai": {
+      "name": "AI"
+    },
+    "banking": {
+      "name": "ธนาคาร"
+    },
+    "defence": {
+      "name": "กลาโหม"
+    },
+    "electricVehicles": {
+      "name": "ยานยนต์ไฟฟ้า"
+    },
+    "energy": {
+      "name": "พลังงาน"
+    },
+    "healthcare": {
+      "name": "สาธารณสุข"
+    },
+    "mining": {
+      "name": "เหมืองแร่"
+    },
+    "realEstate": {
+      "name": "อสังหาริมทรัพย์"
+    },
+    "retail": {
+      "name": "ค้าปลีก"
+    },
+    "semiconductor": {
+      "name": "เซมิคอนดักเตอร์"
+    },
+    "technology": {
+      "name": "เทคโนโลยี"
+    }
+  },
+  "sectorsHeading": "หมวดหุ้นและข่าวกรองกลุ่มอุตสาหกรรม",
+  "sectorsIntro": "เทคโนโลยี ธนาคาร AI พลังงาน สาธารณสุข เหมืองแร่ อสังหาริมทรัพย์ เซมิคอนดักเตอร์ และความครอบคลุมตราสารทุนเชิงธีม",
+  "sectorsMeta": "หมวดหุ้น ETFs ผู้นำ และข่าวกลุ่มอุตสาหกรรม",
+  "sectorsTitle": "กลุ่มอุตสาหกรรม",
+  "sp500Meta": "S&P 500 / USD / นิวยอร์ก",
+  "spotAndFutures": "สปอตและฟิวเจอร์ส",
+  "stockCount": "ตลาดหุ้น",
+  "stockSector": "กลุ่มหุ้น",
+  "subtitle": "ภาพรวมสไตล์สดสำหรับดัชนี หุ้นเคลื่อนไหว FX คริปโต สินค้าโภคภัณฑ์ เหตุการณ์เศรษฐกิจ ความเชื่อมั่น ข่าว และรายการเฝ้าดู",
+  "supplyRegions": "ภูมิภาคอุปทาน",
+  "terminalView": "มุมมองเทอร์มินัล",
+  "timezones": {
+    "africaJohannesburg": {
+      "name": "Africa/Johannesburg"
+    },
+    "americaMexicoCity": {
+      "name": "America/Mexico_City"
+    },
+    "americaNewYork": {
+      "name": "America/New_York"
+    },
+    "americaSantiago": {
+      "name": "America/Santiago"
+    },
+    "americaSaoPaulo": {
+      "name": "America/Sao_Paulo"
+    },
+    "americaToronto": {
+      "name": "America/Toronto"
+    },
+    "asiaBangkok": {
+      "name": "Asia/Bangkok"
+    },
+    "asiaDubai": {
+      "name": "Asia/Dubai"
+    },
+    "asiaHongKong": {
+      "name": "Asia/Hong_Kong"
+    },
+    "asiaJakarta": {
+      "name": "Asia/Jakarta"
+    },
+    "asiaKolkata": {
+      "name": "Asia/Kolkata"
+    },
+    "asiaKualaLumpur": {
+      "name": "Asia/Kuala_Lumpur"
+    },
+    "asiaRiyadh": {
+      "name": "Asia/Riyadh"
+    },
+    "asiaSeoul": {
+      "name": "Asia/Seoul"
+    },
+    "asiaShanghai": {
+      "name": "Asia/Shanghai"
+    },
+    "asiaSingapore": {
+      "name": "Asia/Singapore"
+    },
+    "asiaTaipei": {
+      "name": "Asia/Taipei"
+    },
+    "asiaTokyo": {
+      "name": "Asia/Tokyo"
+    },
+    "australiaSydney": {
+      "name": "Australia/Sydney"
+    },
+    "europeBerlin": {
+      "name": "Europe/Berlin"
+    },
+    "europeLondon": {
+      "name": "Europe/London"
+    },
+    "europeMadrid": {
+      "name": "Europe/Madrid"
+    },
+    "europeParis": {
+      "name": "Europe/Paris"
+    },
+    "europeRome": {
+      "name": "Europe/Rome"
+    },
+    "europeStockholm": {
+      "name": "Europe/Stockholm"
+    },
+    "europeZurich": {
+      "name": "Europe/Zurich"
+    }
+  },
+  "title": "แดชบอร์ดข่าวกรองตลาดทั่วโลก",
+  "topCryptos": "20 คริปโตเคอร์เรนซีชั้นนำ",
+  "topCurrencies": "20 สกุลเงินชั้นนำของโลก",
+  "topExchange": "ตลาดชั้นนำ",
+  "topGainers": "หุ้นขึ้นสูงสุด",
+  "topGlobalExchanges": "ตลาดหลักทรัพย์ชั้นนำทั่วโลก",
+  "topLosers": "หุ้นลงสูงสุด",
+  "topMovers": "หุ้นเคลื่อนไหวสูงสุด",
+  "tradingHours": "ชั่วโมงซื้อขาย",
+  "trendingStocks": "หุ้นที่กำลังมาแรง",
+  "unusualActivity": "กิจกรรมผิดปกติ",
+  "unusualVolLabel": "ปริมาณผิดปกติ",
+  "usdBase": "กลยุทธ์ฐาน USD",
+  "volumeShort": "ปริมาณ:",
+  "watchlistCopy": "เข้าถึงสัญลักษณ์ที่บันทึกไว้อย่างรวดเร็ว การแจ้งเตือนข้ามสินทรัพย์ บริบทพอร์ตโฟลิโอ และการตั้งค่าบัญชี",
+  "watchlistPreview": "ตัวอย่างรายการเฝ้าดู",
+  "website": "เว็บไซต์",
+  "whaleActivity": "กิจกรรมวาฬ",
+  "worldSnapshot": "ภาพรวมตลาดโลก",
+  "exchangeNetwork": "Exchange Network",
+  "stockExchanges": "Stock Exchanges",
+  "allExchanges": "All Exchanges",
+  "advancedScreener": "Advanced Screener",
+  "regionExchangesTitle": "{{region}} Exchanges",
+  "regionalExchangeDashboards": "Regional exchange dashboards ? currency, timezone, trading hours, listed companies, main index, and market cap.",
+  "noExchangesForRegion": "No exchanges found for this region.",
+  "exchangeRegions": {
+    "americas": "Americas",
+    "northAmerica": "North America",
+    "europe": "Europe",
+    "asia": "Asia",
+    "asiaPacific": "Asia Pacific",
+    "oceania": "Oceania",
+    "middleEast": "Middle East",
+    "africa": "Africa",
+    "middleEastAfrica": "Middle East & Africa",
+    "latinAmerica": "Latin America"
+  },
+  "ytdShort": "YTD",
+  "dashboardCards": {
+    "nyseMeta": "S&P 500 / USD / New York",
+    "usdMeta": "Federal Reserve / global base",
+    "bitcoinMeta": "BTC vs USD, FX, and equity risk",
+    "regionMeta": "China growth / Japan yields / India earnings / Australia resources",
+    "sectorMeta": "Cloud capex / AI monetization / Semiconductor supply / Valuations",
+    "commodityMeta": "Feeds transport inflation, energy earnings, fiscal revenue, and global risk sentiment."
+  },
+  "moduleFeatures": {
+    "majorIndicesWidgets": "Major indices widgets",
+    "topGainersLosers": "Top gainers and losers",
+    "heatmaps": "Heatmaps",
+    "marketSentiment": "Market sentiment",
+    "preMarketMovers": "Pre-market movers",
+    "indexFutures": "Index futures",
+    "volumeSpikes": "Volume spikes",
+    "openingWatchlist": "Opening watchlist",
+    "afterHoursMovers": "After-hours movers",
+    "earningsReactions": "Earnings reactions",
+    "extendedSessionVolume": "Extended-session volume",
+    "newsCatalysts": "News catalysts",
+    "equityHeatmaps": "Equity heatmaps",
+    "sectorPerformance": "Sector performance",
+    "regionalBreadth": "Regional breadth",
+    "assetClassComparison": "Asset-class comparison",
+    "topGainers": "Top gainers",
+    "topLosers": "Top losers",
+    "mostActive": "Most active",
+    "unusualVolume": "Unusual volume",
+    "vixOverview": "VIX overview",
+    "fearGreedContext": "Fear and greed context",
+    "volatilityTermStructure": "Volatility term structure",
+    "riskDashboard": "Risk dashboard",
+    "countryFilters": "Country filters",
+    "exchangeStatistics": "Exchange statistics",
+    "listedCompanies": "Listed companies",
+    "regionalNews": "Regional news",
+    "liveGainers": "Live gainers",
+    "volumeFilters": "Volume filters",
+    "marketCapFilters": "Market cap filters",
+    "sectorBreakdown": "Sector breakdown",
+    "liveLosers": "Live losers",
+    "riskAlerts": "Risk alerts",
+    "indexImpact": "Index impact",
+    "watchlistActions": "Watchlist actions",
+    "trendingCoins": "Trending coins",
+    "marketCapRanking": "Market cap ranking",
+    "exchangeListings": "Exchange listings",
+    "historicalPerformance": "Historical performance",
+    "memeCoinRankings": "Meme coin rankings",
+    "volumeBursts": "Volume bursts",
+    "communityMomentum": "Community momentum",
+    "riskFlags": "Risk flags",
+    "defiEcosystem": "DeFi ecosystem",
+    "tvlMetrics": "TVL metrics",
+    "protocolCategories": "Protocol categories",
+    "tokenPerformance": "Token performance",
+    "layer1Chains": "Layer 1 chains",
+    "consensusDetails": "Consensus details",
+    "tokenomics": "Tokenomics",
+    "developerEcosystem": "Developer ecosystem",
+    "stablecoinSupply": "Stablecoin supply",
+    "pegMonitoring": "Peg monitoring",
+    "exchangeLiquidity": "Exchange liquidity",
+    "reserveContext": "Reserve context",
+    "spotPrices": "Spot prices",
+    "futuresPrices": "Futures prices",
+    "supplyDemandAnalysis": "Supply-demand analysis",
+    "correlationAnalysis": "Correlation analysis",
+    "preciousMetals": "Precious metals",
+    "industrialMetals": "Industrial metals",
+    "futuresContracts": "Futures contracts",
+    "currencySensitivity": "Currency sensitivity",
+    "cropMarkets": "Crop markets",
+    "weatherImpact": "Weather impact",
+    "supplyRegions": "Supply regions",
+    "seasonality": "Seasonality",
+    "industrialInputs": "Industrial inputs",
+    "demandTrends": "Demand trends",
+    "manufacturingSignals": "Manufacturing signals",
+    "regionalSupply": "Regional supply",
+    "regionWiseNews": "Region-wise news",
+    "macroSummaries": "Macro summaries",
+    "marketAlerts": "Market alerts",
+    "sectorWiseNews": "Sector-wise news",
+    "themeTracking": "Theme tracking",
+    "aiSummaries": "AI summaries",
+    "etfImpact": "ETF impact",
+    "cryptoNews": "Crypto news",
+    "onChainContext": "On-chain context",
+    "regulationUpdates": "Regulation updates",
+    "exchangeDevelopments": "Exchange developments",
+    "breakingCatalysts": "Breaking catalysts",
+    "importanceFilters": "Importance filters",
+    "liveMarketSummary": "Live market summary",
+    "filters": "Filters",
+    "analyticsWidgets": "Analytics widgets",
+    "relatedNews": "Related news"
+  },
+  "sentiment": {
+    "Equities": {
+      "label": "Equities",
+      "detail": "Risk-on breadth"
+    },
+    "FX": {
+      "label": "FX",
+      "detail": "USD mixed"
+    },
+    "Crypto": {
+      "label": "Crypto",
+      "detail": "Momentum bid"
+    },
+    "Commodities": {
+      "label": "Commodities",
+      "detail": "Energy softer"
+    }
+  }
 }

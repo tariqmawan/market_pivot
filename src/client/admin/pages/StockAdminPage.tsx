@@ -218,7 +218,7 @@ export default function StockAdminPage() {
 
   return (
     <AdminCrudPage<AdminStock>
-      title={t("src_client_admin_pages_stockadminpage__l217__h0")}
+      title={t("admin/stockadminpage.h0")}
       subtitle="Listed companies, sectors, financials, earnings, dividends, and IPO management"
       useStore={useStockAdminStore}
       columns={columns}

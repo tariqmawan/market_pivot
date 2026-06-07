@@ -1,34 +1,190 @@
 {
-  "currencyType": "Type de devise",
-  "centralBank": "Banque centrale",
-  "exchangeRates": "Taux de change",
-  "converter": "Convertisseur",
-  "popularPairs": "Paires populaires",
-  "economicData": "Données économiques",
-  "code": "Code",
-  "symbol": "Symbole",
-  "country": "Pays",
-  "region": "Région",
-  "type": "Type",
-  "rate": "Taux",
-  "bid": "Achat",
-  "ask": "Vente",
-  "spread": "Spread",
-  "loadingRates": "Chargement des taux...",
   "amountPlaceholder": "Entrez un montant",
-  "economicIndicators": "Indicateurs économiques",
-  "interestRate": "Taux d'intérêt",
-  "inflationRate": "Taux d'inflation",
-  "gdpGrowth": "Croissance du PIB",
-  "employment": "Emploi",
-  "dataLoading": "Chargement des données...",
-  "economicNews": "Actualités économiques",
+  "annualRate": "Taux annuel",
+  "ask": "Vente",
+  "bid": "Achat",
+  "centralBank": "Banque centrale",
+  "change24h": "Variation 24h",
+  "code": "Code",
+  "converter": "Convertisseur",
+  "countries": {
+    "ae": {
+      "name": "Émirats arabes unis"
+    },
+    "au": {
+      "name": "Australie"
+    },
+    "br": {
+      "name": "Brésil"
+    },
+    "ca": {
+      "name": "name"
+    },
+    "ch": {
+      "name": "Suisse"
+    },
+    "cl": {
+      "name": "Chili"
+    },
+    "cn": {
+      "name": "Chine"
+    },
+    "eu": {
+      "name": "Union européenne"
+    },
+    "gb": {
+      "name": "Royaume-Uni"
+    },
+    "hk": {
+      "name": "name"
+    },
+    "in": {
+      "name": "Inde"
+    },
+    "jp": {
+      "name": "Japon"
+    },
+    "kr": {
+      "name": "Corée du Sud"
+    },
+    "mx": {
+      "name": "Mexique"
+    },
+    "no": {
+      "name": "Norvège"
+    },
+    "sa": {
+      "name": "Arabie saoudite"
+    },
+    "se": {
+      "name": "Suède"
+    },
+    "sg": {
+      "name": "Singapour"
+    },
+    "us": {
+      "name": "États-Unis"
+    },
+    "za": {
+      "name": "Afrique du Sud"
+    }
+  },
+  "country": "Pays",
+  "currencies": {
+    "aed": {
+      "name": "Dirham des Émirats",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "aud": {
+      "name": "Dollar australien",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "brl": {
+      "name": "Réal brésilien",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "cad": {
+      "name": "Dollar canadien",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "chf": {
+      "name": "Franc suisse",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "clp": {
+      "name": "Peso chilien",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "cny": {
+      "name": "Yuan chinois",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "eur": {
+      "name": "name",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "gbp": {
+      "name": "Livre sterling",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "hkd": {
+      "name": "Dollar de Hong Kong",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "inr": {
+      "name": "Roupie indienne",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "jpy": {
+      "name": "Yen japonais",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "krw": {
+      "name": "Won sud-coréen",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "mxn": {
+      "name": "Peso mexicain",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "nok": {
+      "name": "Couronne norvégienne",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "sar": {
+      "name": "Riyal saoudien",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "sek": {
+      "name": "Couronne suédoise",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "sgd": {
+      "name": "Dollar de Singapour",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "usd": {
+      "name": "Dollar américain",
+      "description": "La monnaie de réserve la plus utilisée au monde et une référence mondiale."
+    },
+    "zar": {
+      "name": "Rand sud-africain",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    }
+  },
   "currencyNewsComing": "Les dernières actualités économiques s’afficheront ici",
   "currencyNewsSubtitle": "Décisions de taux, rapports d’inflation et plus",
-  "vsUsd": "contre USD",
+  "currencyType": "Type de devise",
+  "dataLoading": "Chargement des données...",
+  "economicData": "Données économiques",
+  "economicIndicators": "Indicateurs économiques",
+  "economicNews": "Actualités économiques",
+  "employment": "Emploi",
+  "exchangeRates": "Taux de change",
+  "gdpGrowth": "Croissance du PIB",
   "high52w": "Plus haut 52 sem.",
+  "inflationRate": "Taux d'inflation",
+  "interestRate": "Taux d'intérêt",
+  "loadingRates": "Chargement des taux...",
   "low52w": "Plus bas 52 sem.",
-  "annualRate": "Taux annuel",
+  "popularPairs": "Paires populaires",
   "quarterlyRate": "Taux trimestriel",
-  "change24h": "Variation 24h"
+  "rate": "Taux",
+  "region": "Région",
+  "spread": "spread",
+  "symbol": "Symbole",
+  "type": "Type",
+  "vsUsd": "contre USD",
+  "currencyTypes": {
+    "fiat": "Monnaie fiduciaire"
+  },
+  "centralBanks": {
+    "federalreserve": "Réserve fédérale"
+  },
+  "regions": {
+    "northamerica": "Amérique du Nord"
+  },
+  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
+  "keyDataReleasesFor": "Key data releases for {{code}}",
+  "hoursAgo": "{{count}}h ago"
 }

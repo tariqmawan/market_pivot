@@ -1,37 +1,331 @@
 {
-  "currentPrice": "현재 가격",
-  "rank": "순위",
-  "priceMetrics": "가격 및 지표",
-  "tradingPairs": "거래 쌍",
-  "exchanges": "거래소",
-  "charts": "차트",
-  "onChain": "온체인",
-  "category": "카테고리",
-  "launched": "출시",
-  "founder": "창립자",
-  "consensus": "합의 메커니즘",
-  "blockTime": "블록 시간",
-  "supplyInfo": "공급 정보",
-  "circulatingSupply": "유통 공급",
-  "maxSupply": "최대 공급",
-  "volume24h": "24시간 거래량",
+  "activeAddresses": "활성 주소",
   "ath": "최고가",
   "atl": "최저가",
-  "marketRank": "시장 순위",
-  "loadingPrice": "가격 데이터 로딩 중...",
-  "loadingPairs": "거래 쌍 로딩 중...",
-  "price": "가격",
-  "exchange": "거래소",
-  "listedCryptoExchanges": "해당 자산이 거래되는 거래소",
-  "exchangeExamples": "Binance, Coinbase, Kraken 등",
-  "priceChart": "대화형 가격 차트",
-  "volumeOverlay": "거래량 오버레이",
-  "onChainMetrics": "온체인 메트릭",
-  "transactionsPerDay": "일일 거래 수",
-  "activeAddresses": "활성 주소",
-  "networkFees": "네트워크 수수료",
-  "transactionVolume": "거래량",
-  "onChainComing": "온체인 데이터 준비 중",
+  "blockTime": "블록 시간",
+  "categories": {
+    "defi": {
+      "name": "디파이"
+    },
+    "infrastructure": {
+      "name": "하부 구조"
+    },
+    "layer1": {
+      "name": "레이어 1"
+    },
+    "layer2": {
+      "name": "레이어 2"
+    },
+    "meme": {
+      "name": "밈"
+    },
+    "payments": {
+      "name": "결제"
+    },
+    "stablecoin": {
+      "name": "스테이블코인"
+    }
+  },
+  "category": "카테고리",
+  "charts": "차트",
+  "circulatingSupply": "유통 공급",
+  "consensus": "합의 메커니즘",
   "cryptoNewsComing": "최신 뉴스 및 업데이트가 여기에 표시됩니다",
-  "cryptoNewsSubtitle": "프로젝트 업데이트, 파트너십 및 시장 뉴스"
+  "cryptoNewsSubtitle": "프로젝트 업데이트, 파트너십 및 시장 뉴스",
+  "cryptocurrencies": {
+    "aave": {
+      "name": "아베",
+      "description": "대출 및 차용을 위한 분산형 비수탁 유동성 프로토콜"
+    },
+    "arbitrum": {
+      "name": "중재",
+      "description": "Ethereum 레이어-2 확장 솔루션 및 거버넌스 토큰"
+    },
+    "avalanche2": {
+      "name": "눈사태",
+      "description": "블록체인 애플리케이션을 위한 서브넷 및 확장 솔루션"
+    },
+    "binancecoin": {
+      "name": "BNB",
+      "description": "바이낸스 스마트 체인 생태계의 기본 토큰"
+    },
+    "bitcoin": {
+      "name": "Bitcoin",
+      "description": "시가총액 기준 세계 최초이자 최대 규모의 암호화폐"
+    },
+    "bonk": {
+      "name": "봉크",
+      "description": "Solana의 첫 번째 주요 밈 코인 — 커뮤니티에 에어드랍되었으며 이제 DeFi의 주요 코인이 되었습니다."
+    },
+    "cardano": {
+      "name": "카르다노",
+      "description": "지속 가능성에 초점을 맞춘 동료 검토 블록체인 플랫폼"
+    },
+    "chainlink": {
+      "name": "체인링크",
+      "description": "블록체인을 실제 데이터에 연결하는 분산형 오라클 네트워크"
+    },
+    "compoundGovernanceToken": {
+      "name": "화합물",
+      "description": "DeFi 대출을 위한 알고리즘 자율 금리 프로토콜"
+    },
+    "cosmos": {
+      "name": "코스모스",
+      "description": "상호 운용 가능한 블록체인 생태계와 블록체인 인터넷"
+    },
+    "curveDaoToken": {
+      "name": "커브 파이낸스",
+      "description": "스테이블코인 및 고정 자산 스왑에 최적화된 탈중앙화 거래소"
+    },
+    "dai": {
+      "name": "다이",
+      "description": "이더리움의 분산형 USD 지원 스테이블코인"
+    },
+    "dogecoin": {
+      "name": "도지코인",
+      "description": "오리지널 밈 코인 — 농담으로 시작하여 문화적 암호화폐 아이콘이 되었습니다"
+    },
+    "ethereum": {
+      "name": "이더리움",
+      "description": "최고의 스마트 계약 플랫폼 및 DeFi 허브"
+    },
+    "floki": {
+      "name": "FLOKI",
+      "description": "사람들의 암호화폐 — Elon Musk에서 영감을 받아 커뮤니티가 구축한 밈 생태계"
+    },
+    "litecoin": {
+      "name": "라이트코인",
+      "description": "은에서 비트코인의 금으로, 빠른 P2P 결제"
+    },
+    "maker": {
+      "name": "만드는 사람",
+      "description": "DAI 스테이블코인의 기반이 되는 프로토콜인 MakerDAO의 거버넌스 토큰"
+    },
+    "maticNetwork": {
+      "name": "다각형",
+      "description": "더 빠르고 저렴한 거래를 가능하게 하는 이더리움 확장 솔루션"
+    },
+    "pepe": {
+      "name": "페페",
+      "description": "인터넷 문화와 암호화폐의 만남 — 개구리 밈이 수십억 달러 규모의 토큰으로 변모함"
+    },
+    "polkadot": {
+      "name": "폴카닷",
+      "description": "크로스체인 상호 운용성을 가능하게 하는 멀티체인 블록체인"
+    },
+    "ripple": {
+      "name": "XRP",
+      "description": "빠르고 저렴한 국제 송금에 초점을 맞춘 결제 네트워크"
+    },
+    "shibaInu": {
+      "name": "시바견",
+      "description": "Dogecoin 킬러 — 대규모 커뮤니티를 갖춘 이더리움 기반 밈 코인"
+    },
+    "solana": {
+      "name": "솔라나",
+      "description": "분산형 애플리케이션을 위한 고속 블록체인 플랫폼"
+    },
+    "stellar": {
+      "name": "주요한",
+      "description": "금융 통합 및 송금을 위한 블록체인 네트워크"
+    },
+    "tether": {
+      "name": "밧줄",
+      "description": "가장 널리 사용되는 USD 고정 스테이블코인"
+    },
+    "theOpenNetwork": {
+      "name": "톤코인",
+      "description": "메시지와 결제에 초점을 맞춘 초고속 블록체인"
+    },
+    "tron": {
+      "name": "TRON",
+      "description": "분산형 엔터테인먼트를 위한 블록체인 플랫폼"
+    },
+    "uniswap": {
+      "name": "유니스왑",
+      "description": "선도적인 탈중앙화 거래소 및 DeFi 프로토콜"
+    },
+    "usdCoin": {
+      "name": "USD 코인",
+      "description": "규제된 USD 지원 스테이블코인"
+    }
+  },
+  "currentPrice": "현재 가격",
+  "exchange": "거래소",
+  "exchangeExamples": "Binance, Coinbase, Kraken 등",
+  "exchanges": "거래소",
+  "founder": "창립자",
+  "launched": "출시",
+  "listedCryptoExchanges": "해당 자산이 거래되는 거래소",
+  "loadingPairs": "거래 쌍 로딩 중...",
+  "loadingPrice": "가격 데이터 로딩 중...",
+  "marketRank": "시장 순위",
+  "maxSupply": "최대 공급",
+  "networkFees": "네트워크 수수료",
+  "onChain": "온체인",
+  "onChainComing": "온체인 데이터 준비 중",
+  "onChainMetrics": "온체인 메트릭",
+  "price": "가격",
+  "priceChart": "대화형 가격 차트",
+  "priceMetrics": "가격 및 지표",
+  "rank": "순위",
+  "rankNumber": "순위 #{{rank}}",
+  "supplyInfo": "공급 정보",
+  "tradingPairs": "거래 쌍",
+  "transactionVolume": "거래량",
+  "transactionsPerDay": "일일 거래 수",
+  "volume24h": "24시간 거래량",
+  "volumeOverlay": "거래량 오버레이",
+  "cryptocurrency": "암호화폐",
+  "cryptocurrencyCategories": "암호화폐 카테고리",
+  "allCryptocurrencies": "모든 암호화폐",
+  "trending": "인기 급상승",
+  "categoryNotFound": "카테고리를 찾을 수 없습니다",
+  "categoryNotFoundDescription": "해당 카테고리가 존재하지 않습니다. 아래에서 모든 암호화폐를 찾아보세요.",
+  "viewAllCryptocurrencies": "모든 암호화폐 보기",
+  "trendingCoins": {
+    "eyebrow": "실시간 시장 데이터 - 암호화폐",
+    "titleAccent": "트렌딩",
+    "titleRest": "코인",
+    "subtitle": "거래 활동, 소셜 모멘텀, 시가총액 성장 기준으로 순위를 매긴 실시간 트렌딩 암호화폐입니다. 지속적으로 업데이트됩니다.",
+    "categories": {
+      "all": "전체",
+      "layer1": "레이어 1",
+      "layer2": "레이어 2",
+      "defi": "DeFi",
+      "meme": "밈",
+      "stablecoin": "스테이블코인",
+      "payments": "결제",
+      "infrastructure": "인프라"
+    },
+    "metrics": {
+      "tracked": "추적 중",
+      "gainers": "상승 코인",
+      "topGain24h": "24시간 최고 상승",
+      "volumeShort": "24시간 거래량",
+      "supply": "공급량"
+    },
+    "sentiment": {
+      "hot": "인기",
+      "rising": "상승 중",
+      "active": "활발",
+      "strong": "강세"
+    },
+    "moreTitle": "더 많은 트렌딩 코인",
+    "emptyCategory": "이 카테고리에서 코인을 찾을 수 없습니다.",
+    "insights": {
+      "trending": {
+        "eyebrow": "What's Trending",
+        "title": "Market Dynamics",
+        "items": {
+          "socialMentions": "Social media mentions spike",
+          "exchangeFlows": "Exchange inflow / outflow shifts",
+          "developerActivity": "Developer activity on GitHub",
+          "onChainVolume": "On-chain transaction volume",
+          "volumeBreakouts": "Trading volume breakouts"
+        }
+      },
+      "risk": {
+        "eyebrow": "Risk Factors",
+        "title": "Stay Cautious",
+        "items": {
+          "volatility": "High volatility - price can swing 30%+",
+          "liquidity": "Low liquidity in smaller coins",
+          "manipulation": "Potential market manipulation",
+          "regulation": "Evolving regulatory landscape",
+          "techRisk": "Smart contract / tech risks"
+        }
+      },
+      "tips": {
+        "eyebrow": "Trading Tips",
+        "title": "Smart Strategies",
+        "items": {
+          "onChainValidation": "Validate with on-chain metrics first",
+          "githubActivity": "Check GitHub developer activity",
+          "divergence": "Monitor volume vs. price divergence",
+          "positionSizing": "Use proper position sizing",
+          "stopLosses": "Set strict stop-losses before entry"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Crypto Research",
+      "title": "Deep Dive Into Any Coin",
+      "description": "Click any coin to explore detailed charts, on-chain metrics, exchange listings, and breaking news - all in one place."
+    }
+  },
+  "categoryPages": {
+    "common": {
+      "marketOverview": "시장 개요",
+      "combinedMarketCap": "합산 시가총액",
+      "topGainer24h": "최고 상승 (24시간)",
+      "name": "이름",
+      "price": "가격",
+      "change24h": "24시간 변화",
+      "marketCap": "시가총액",
+      "volume24h": "24시간 거래량",
+      "riskProfile": "위험 프로필",
+      "fullCryptoMarket": "전체 암호화폐 시장",
+      "exploreAllCryptocurrencies": "모든 암호화폐 보기"
+    },
+    "meme": {
+      "eyebrow": "커뮤니티 토큰",
+      "title": "밈 코인",
+      "body": "바이럴 문화, 소셜 모멘텀, 강한 커뮤니티가 이끄는 암호화폐입니다. 시장 심리가 가격을 지배하는 고위험 고수익 자산입니다.",
+      "metrics": {
+        "coinsListed": "상장 코인"
+      },
+      "rankingsTitle": "밈 코인 순위",
+      "table": {
+        "community": "커뮤니티"
+      },
+      "communities": {
+        "DOGE": "Original OG",
+        "SHIB": "ShibArmy",
+        "PEPE": "Pepe Nation",
+        "BONK": "Solana Memes",
+        "FLOKI": "Viking Army"
+      },
+      "insights": {
+        "origins": {
+          "eyebrow": "Origins",
+          "title": "The Meme Coin Story",
+          "items": {
+            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
+            "elon": "Elon Musk tweets as price catalysts",
+            "pumps": "WallStreetBets-style coordinated pumps",
+            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
+            "pepe": "2023 PEPE boom revived the meme cycle",
+            "bonk": "BONK airdropped life into Solana DeFi"
+          }
+        },
+        "risk": {
+          "title": "What Investors Should Know",
+          "items": {
+            "sentiment": "Prices driven almost entirely by sentiment",
+            "pumpDump": "Susceptible to pump-and-dump schemes",
+            "utility": "Minimal or no underlying utility",
+            "volatility": "Extreme volatility - 50%+ swings common",
+            "rugPull": "Rug-pull risk in newer, unaudited coins",
+            "viralCycles": "High correlation with viral media cycles"
+          }
+        },
+        "signals": {
+          "eyebrow": "Community Signals",
+          "title": "How to Track Momentum",
+          "items": {
+            "twitter": "Twitter/X mentions and trending hashtags",
+            "reddit": "Reddit activity on r/CryptoCurrency",
+            "whales": "Whale wallet alerts and large transfers",
+            "listings": "Exchange listing announcements",
+            "google": "Google Trends search volume spikes",
+            "influencers": "Influencer social media activity"
+          }
+        }
+      },
+      "cta": {
+        "description": "밈 코인을 블루칩 자산, DeFi 프로토콜, 레이어 1 블록체인과 비교하세요."
+      }
+    }
+  }
 }

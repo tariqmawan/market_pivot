@@ -211,7 +211,7 @@ function PriceDisplay({ plan, mode }: { plan: Plan; mode: BillingMode }) {
   if (price === null) {
     return (
       <div className="pricing-price-row">
-        <span className="pricing-price-amount">{t("src_client_pages_pricing__l172__h0")}</span>
+        <span className="pricing-price-amount">{t("pricing.h0")}</span>
       </div>
     );
   }

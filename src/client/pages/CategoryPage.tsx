@@ -2,116 +2,347 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import "../styles/index.css";
 import { useI18n } from "../i18n";
+import { translateStatic } from "../i18n/translate";
 
 
 
+/**
+ * Static category-page config. Each entry now stores *translation keys* instead
+ * of hardcoded English display text, so the language switcher re-renders them
+ * immediately via `t(key, englishFallback)`.
+ */
 interface CategoryConfig {
-  title: string;
-  eyebrow: string;
-  description: string;
+  eyebrowKey: string;
+  titleKey: string;
+  descriptionKey: string;
   icon: string;
-  items: Array<{ name: string; value: string; change: number }>;
-  features: string[];
-  insights: string[];
+  items: Array<{ nameKey: string; value: string; change: number }>;
+  features: Array<{ key: string }>;
+  insights: Array<{ key: string }>;
+  cta: {
+    eyebrowKey: string;
+    titleKey: string;
+    descriptionKey: string;
+    buttonKey: string;
+  };
+  metricLabels: {
+    itemsCount: string;
+    updatesDaily: string;
+    coverage: string;
+  };
+  metricValues: {
+    itemsCountDefault: string;
+    updatesDaily: string;
+    coverage: string;
+  };
 }
 
 const categoryConfigs: Record<string, CategoryConfig> = {
   "commodities/energy": {
-    eyebrow: "Energy Markets",
-    title: "Energy Commodities",
-    description: "Oil, natural gas, coal, and renewable energy commodity prices and futures.",
+    eyebrowKey: "pages.categories.commoditiesEnergy.eyebrow",
+    titleKey: "pages.categories.commoditiesEnergy.title",
+    descriptionKey: "pages.categories.commoditiesEnergy.description",
     icon: "⚡",
     items: [
-      { name: "WTI Crude", value: "$82.40", change: -0.42 },
-      { name: "Brent Crude", value: "$85.20", change: -0.35 },
-      { name: "Natural Gas", value: "$2.85", change: 1.20 },
-      { name: "Coal", value: "$185.50", change: 0.15 },
+      { nameKey: "pages.categoriesItems.commodities.energy.wti", value: "$82.40", change: -0.42 },
+      { nameKey: "pages.categoriesItems.commodities.energy.brent", value: "$85.20", change: -0.35 },
+      { nameKey: "pages.categoriesItems.commodities.energy.naturalGas", value: "$2.85", change: 1.2 },
+      { nameKey: "pages.categoriesItems.commodities.energy.coal", value: "$185.50", change: 0.15 },
     ],
-    features: ["Spot prices", "Futures contracts", "Supply-demand analysis", "Geopolitical impacts"],
-    insights: ["OPEC decisions", "US inventory data", "Global demand trends", "Seasonal patterns"],
+    features: [
+      { key: "pages.categories.commoditiesEnergy.features.spotPrices" },
+      { key: "pages.categories.commoditiesEnergy.features.futuresContracts" },
+      { key: "pages.categories.commoditiesEnergy.features.supplyDemandAnalysis" },
+      { key: "pages.categories.commoditiesEnergy.features.geopoliticalImpacts" },
+    ],
+    insights: [
+      { key: "pages.categories.commoditiesEnergy.insights.opec" },
+      { key: "pages.categories.commoditiesEnergy.insights.usInventory" },
+      { key: "pages.categories.commoditiesEnergy.insights.globalDemand" },
+      { key: "pages.categories.commoditiesEnergy.insights.seasonalPatterns" },
+    ],
+    cta: {
+      eyebrowKey: "categorypage.h14",
+      titleKey: "categorypage.h15",
+      descriptionKey: "categorypage.ctaDescription",
+      buttonKey: "categorypage.openUserPanel",
+    },
+    metricLabels: {
+      itemsCount: "categorypage.h3",
+      updatesDaily: "categorypage.h4",
+      coverage: "categorypage.h6",
+    },
+    metricValues: {
+      itemsCountDefault: "categorypage.multiple",
+      updatesDaily: "categorypage.h5",
+      coverage: "categorypage.h7",
+    },
   },
   "commodities/metals": {
-    eyebrow: "Precious & Industrial",
-    title: "Metals Market",
-    description: "Gold, silver, copper, and industrial metal prices with hedging strategies.",
+    eyebrowKey: "pages.categories.commoditiesMetals.eyebrow",
+    titleKey: "pages.categories.commoditiesMetals.title",
+    descriptionKey: "pages.categories.commoditiesMetals.description",
     icon: "💎",
     items: [
-      { name: "Gold", value: "$2,045/oz", change: 0.55 },
-      { name: "Silver", value: "$24.35/oz", change: 0.80 },
-      { name: "Copper", value: "$3.82/lb", change: -0.25 },
-      { name: "Platinum", value: "$1,025/oz", change: 0.10 },
+      { nameKey: "pages.categoriesItems.commodities.metals.gold", value: "$2,045/oz", change: 0.55 },
+      { nameKey: "pages.categoriesItems.commodities.metals.silver", value: "$24.35/oz", change: 0.8 },
+      { nameKey: "pages.categoriesItems.commodities.metals.copper", value: "$3.82/lb", change: -0.25 },
+      { nameKey: "pages.categoriesItems.commodities.metals.platinum", value: "$1,025/oz", change: 0.1 },
     ],
-    features: ["Precious metals", "Industrial metals", "Futures pricing", "Safe-haven flows"],
-    insights: ["USD strength", "Fed policy impact", "Industrial demand", "Inflation hedge"],
+    features: [
+      { key: "pages.categories.commoditiesMetals.features.preciousMetals" },
+      { key: "pages.categories.commoditiesMetals.features.industrialMetals" },
+      { key: "pages.categories.commoditiesMetals.features.futuresPricing" },
+      { key: "pages.categories.commoditiesMetals.features.safeHavenFlows" },
+    ],
+    insights: [
+      { key: "pages.categories.commoditiesMetals.insights.usdStrength" },
+      { key: "pages.categories.commoditiesMetals.insights.fedPolicyImpact" },
+      { key: "pages.categories.commoditiesMetals.insights.industrialDemand" },
+      { key: "pages.categories.commoditiesMetals.insights.inflationHedge" },
+    ],
+    cta: {
+      eyebrowKey: "categorypage.h14",
+      titleKey: "categorypage.h15",
+      descriptionKey: "categorypage.ctaDescription",
+      buttonKey: "categorypage.openUserPanel",
+    },
+    metricLabels: {
+      itemsCount: "categorypage.h3",
+      updatesDaily: "categorypage.h4",
+      coverage: "categorypage.h6",
+    },
+    metricValues: {
+      itemsCountDefault: "categorypage.multiple",
+      updatesDaily: "categorypage.h5",
+      coverage: "categorypage.h7",
+    },
   },
   "commodities/agriculture": {
-    eyebrow: "Agri Commodities",
-    title: "Agriculture Markets",
-    description: "Crop commodities including wheat, corn, soybeans, and sugar futures.",
+    eyebrowKey: "pages.categories.commoditiesAgriculture.eyebrow",
+    titleKey: "pages.categories.commoditiesAgriculture.title",
+    descriptionKey: "pages.categories.commoditiesAgriculture.description",
     icon: "🌾",
     items: [
-      { name: "Wheat", value: "$718.50", change: -1.20 },
-      { name: "Corn", value: "$485.25", change: 0.45 },
-      { name: "Soybeans", value: "$1,245.75", change: -0.85 },
-      { name: "Sugar", value: "$21.45", change: 0.30 },
+      { nameKey: "pages.categoriesItems.commodities.agriculture.wheat", value: "$718.50", change: -1.2 },
+      { nameKey: "pages.categoriesItems.commodities.agriculture.corn", value: "$485.25", change: 0.45 },
+      { nameKey: "pages.categoriesItems.commodities.agriculture.soybeans", value: "$1,245.75", change: -0.85 },
+      { nameKey: "pages.categoriesItems.commodities.agriculture.sugar", value: "$21.45", change: 0.3 },
     ],
-    features: ["Crop cycles", "Weather impacts", "Supply estimates", "Seasonal trends"],
-    insights: ["Harvest reports", "Weather patterns", "Global supply", "Demand shifts"],
+    features: [
+      { key: "pages.categories.commoditiesAgriculture.features.cropCycles" },
+      { key: "pages.categories.commoditiesAgriculture.features.weatherImpacts" },
+      { key: "pages.categories.commoditiesAgriculture.features.supplyEstimates" },
+      { key: "pages.categories.commoditiesAgriculture.features.seasonalTrends" },
+    ],
+    insights: [
+      { key: "pages.categories.commoditiesAgriculture.insights.harvestReports" },
+      { key: "pages.categories.commoditiesAgriculture.insights.weatherPatterns" },
+      { key: "pages.categories.commoditiesAgriculture.insights.globalSupply" },
+      { key: "pages.categories.commoditiesAgriculture.insights.demandShifts" },
+    ],
+    cta: {
+      eyebrowKey: "categorypage.h14",
+      titleKey: "categorypage.h15",
+      descriptionKey: "categorypage.ctaDescription",
+      buttonKey: "categorypage.openUserPanel",
+    },
+    metricLabels: {
+      itemsCount: "categorypage.h3",
+      updatesDaily: "categorypage.h4",
+      coverage: "categorypage.h6",
+    },
+    metricValues: {
+      itemsCountDefault: "categorypage.multiple",
+      updatesDaily: "categorypage.h5",
+      coverage: "categorypage.h7",
+    },
   },
   "commodities/industrial": {
-    eyebrow: "Industrial Inputs",
-    title: "Industrial Commodities",
-    description: "Industrial materials like lithium, rare earths, and construction commodities.",
+    eyebrowKey: "pages.categories.commoditiesIndustrial.eyebrow",
+    titleKey: "pages.categories.commoditiesIndustrial.title",
+    descriptionKey: "pages.categories.commoditiesIndustrial.description",
     icon: "🏭",
     items: [
-      { name: "Lithium", value: "$520/ton", change: 2.10 },
-      { name: "Steel", value: "$485/ton", change: -0.60 },
-      { name: "Aluminum", value: "$2,450/ton", change: 0.35 },
-      { name: "Uranium", value: "$85.50", change: 1.45 },
+      { nameKey: "pages.categoriesItems.commodities.industrial.lithium", value: "$520/ton", change: 2.1 },
+      { nameKey: "pages.categoriesItems.commodities.industrial.steel", value: "$485/ton", change: -0.6 },
+      { nameKey: "pages.categoriesItems.commodities.industrial.aluminum", value: "$2,450/ton", change: 0.35 },
+      { nameKey: "pages.categoriesItems.commodities.industrial.uranium", value: "$85.50", change: 1.45 },
     ],
-    features: ["Energy transition", "Manufacturing demand", "EV demand", "Tech usage"],
-    insights: ["Green transition", "Supply chain", "Demand cycle", "Technology trends"],
+    features: [
+      { key: "pages.categories.commoditiesIndustrial.features.energyTransition" },
+      { key: "pages.categories.commoditiesIndustrial.features.manufacturingDemand" },
+      { key: "pages.categories.commoditiesIndustrial.features.evDemand" },
+      { key: "pages.categories.commoditiesIndustrial.features.techUsage" },
+    ],
+    insights: [
+      { key: "pages.categories.commoditiesIndustrial.insights.greenTransition" },
+      { key: "pages.categories.commoditiesIndustrial.insights.supplyChain" },
+      { key: "pages.categories.commoditiesIndustrial.insights.demandCycle" },
+      { key: "pages.categories.commoditiesIndustrial.insights.technologyTrends" },
+    ],
+    cta: {
+      eyebrowKey: "categorypage.h14",
+      titleKey: "categorypage.h15",
+      descriptionKey: "categorypage.ctaDescription",
+      buttonKey: "categorypage.openUserPanel",
+    },
+    metricLabels: {
+      itemsCount: "categorypage.h3",
+      updatesDaily: "categorypage.h4",
+      coverage: "categorypage.h6",
+    },
+    metricValues: {
+      itemsCountDefault: "categorypage.multiple",
+      updatesDaily: "categorypage.h5",
+      coverage: "categorypage.h7",
+    },
   },
   "news/regions": {
-    eyebrow: "Global Markets",
-    title: "Regional News",
-    description: "Market news and analysis categorized by geographic regions and trading blocs.",
+    eyebrowKey: "pages.categories.newsRegions.eyebrow",
+    titleKey: "pages.categories.newsRegions.title",
+    descriptionKey: "pages.categories.newsRegions.description",
     icon: "🌍",
     items: [],
-    features: ["Americas news", "Europe coverage", "Asia-Pacific", "EMEA updates"],
-    insights: ["Regional GDP", "Earnings season", "Central banks", "Trade policies"],
+    features: [
+      { key: "pages.categories.newsRegions.features.americasNews" },
+      { key: "pages.categories.newsRegions.features.europeCoverage" },
+      { key: "pages.categories.newsRegions.features.asiaPacific" },
+      { key: "pages.categories.newsRegions.features.emeaUpdates" },
+    ],
+    insights: [
+      { key: "pages.categories.newsRegions.insights.regionalGdp" },
+      { key: "pages.categories.newsRegions.insights.earningsSeason" },
+      { key: "pages.categories.newsRegions.insights.centralBanks" },
+      { key: "pages.categories.newsRegions.insights.tradePolicies" },
+    ],
+    cta: {
+      eyebrowKey: "categorypage.h14",
+      titleKey: "categorypage.h15",
+      descriptionKey: "categorypage.ctaDescription",
+      buttonKey: "categorypage.openUserPanel",
+    },
+    metricLabels: {
+      itemsCount: "categorypage.h3",
+      updatesDaily: "categorypage.h4",
+      coverage: "categorypage.h6",
+    },
+    metricValues: {
+      itemsCountDefault: "categorypage.multiple",
+      updatesDaily: "categorypage.h5",
+      coverage: "categorypage.h7",
+    },
   },
   "news/sectors": {
-    eyebrow: "Equity Markets",
-    title: "Sector News",
-    description: "Sector-specific news including earnings, M&A, and thematic trends.",
+    eyebrowKey: "pages.categories.newsSectors.eyebrow",
+    titleKey: "pages.categories.newsSectors.title",
+    descriptionKey: "pages.categories.newsSectors.description",
     icon: "📈",
     items: [],
-    features: ["Tech coverage", "Financial news", "Healthcare updates", "Energy sector"],
-    insights: ["Earnings reports", "Industry trends", "M&A activity", "Regulatory news"],
+    features: [
+      { key: "pages.categories.newsSectors.features.techCoverage" },
+      { key: "pages.categories.newsSectors.features.financialNews" },
+      { key: "pages.categories.newsSectors.features.healthcareUpdates" },
+      { key: "pages.categories.newsSectors.features.energySector" },
+    ],
+    insights: [
+      { key: "pages.categories.newsSectors.insights.earningsReports" },
+      { key: "pages.categories.newsSectors.insights.industryTrends" },
+      { key: "pages.categories.newsSectors.insights.maActivity" },
+      { key: "pages.categories.newsSectors.insights.regulatoryNews" },
+    ],
+    cta: {
+      eyebrowKey: "categorypage.h14",
+      titleKey: "categorypage.h15",
+      descriptionKey: "categorypage.ctaDescription",
+      buttonKey: "categorypage.openUserPanel",
+    },
+    metricLabels: {
+      itemsCount: "categorypage.h3",
+      updatesDaily: "categorypage.h4",
+      coverage: "categorypage.h6",
+    },
+    metricValues: {
+      itemsCountDefault: "categorypage.multiple",
+      updatesDaily: "categorypage.h5",
+      coverage: "categorypage.h7",
+    },
   },
   "news/crypto": {
-    eyebrow: "Digital Assets",
-    title: "Crypto News",
-    description: "Cryptocurrency market news, regulation updates, and on-chain analysis.",
+    eyebrowKey: "pages.categories.newsCrypto.eyebrow",
+    titleKey: "pages.categories.newsCrypto.title",
+    descriptionKey: "pages.categories.newsCrypto.description",
     icon: "₿",
     items: [],
-    features: ["Price movements", "Regulation", "On-chain data", "Exchange news"],
-    insights: ["Regulatory updates", "Protocol news", "Market sentiment", "Developer activity"],
+    features: [
+      { key: "pages.categories.newsCrypto.features.priceMovements" },
+      { key: "pages.categories.newsCrypto.features.regulation" },
+      { key: "pages.categories.newsCrypto.features.onChainData" },
+      { key: "pages.categories.newsCrypto.features.exchangeNews" },
+    ],
+    insights: [
+      { key: "pages.categories.newsCrypto.insights.regulatoryUpdates" },
+      { key: "pages.categories.newsCrypto.insights.protocolNews" },
+      { key: "pages.categories.newsCrypto.insights.marketSentiment" },
+      { key: "pages.categories.newsCrypto.insights.developerActivity" },
+    ],
+    cta: {
+      eyebrowKey: "categorypage.h14",
+      titleKey: "categorypage.h15",
+      descriptionKey: "categorypage.ctaDescription",
+      buttonKey: "categorypage.openUserPanel",
+    },
+    metricLabels: {
+      itemsCount: "categorypage.h3",
+      updatesDaily: "categorypage.h4",
+      coverage: "categorypage.h6",
+    },
+    metricValues: {
+      itemsCountDefault: "categorypage.multiple",
+      updatesDaily: "categorypage.h5",
+      coverage: "categorypage.h7",
+    },
   },
   "news/alerts": {
-    eyebrow: "Real-Time Updates",
-    title: "Market Alerts",
-    description: "Breaking news, critical events, and market-moving catalysts in real-time.",
+    eyebrowKey: "pages.categories.newsAlerts.eyebrow",
+    titleKey: "pages.categories.newsAlerts.title",
+    descriptionKey: "pages.categories.newsAlerts.description",
     icon: "🚨",
     items: [],
-    features: ["Breaking news", "Market moving", "Critical alerts", "Watchlist alerts"],
-    insights: ["Earnings surprises", "Economic data", "Policy changes", "Macro events"],
+    features: [
+      { key: "pages.categories.newsAlerts.features.breakingNews" },
+      { key: "pages.categories.newsAlerts.features.marketMoving" },
+      { key: "pages.categories.newsAlerts.features.criticalAlerts" },
+      { key: "pages.categories.newsAlerts.features.watchlistAlerts" },
+    ],
+    insights: [
+      { key: "pages.categories.newsAlerts.insights.earningsSurprises" },
+      { key: "pages.categories.newsAlerts.insights.economicData" },
+      { key: "pages.categories.newsAlerts.insights.policyChanges" },
+      { key: "pages.categories.newsAlerts.insights.macroEvents" },
+    ],
+    cta: {
+      eyebrowKey: "categorypage.h14",
+      titleKey: "categorypage.h15",
+      descriptionKey: "categorypage.ctaDescription",
+      buttonKey: "categorypage.openUserPanel",
+    },
+    metricLabels: {
+      itemsCount: "categorypage.h3",
+      updatesDaily: "categorypage.h4",
+      coverage: "categorypage.h6",
+    },
+    metricValues: {
+      itemsCountDefault: "categorypage.multiple",
+      updatesDaily: "categorypage.h5",
+      coverage: "categorypage.h7",
+    },
   },
 };
 
 const CategoryPage: React.FC = () => {
   const { t } = useI18n();
+  const tx = (key: string) => translateStatic(t, key, key);
   const params = useParams<{ "*"?: string }>();
   const path = params["*"] || "news/alerts";
   const config = categoryConfigs[path];
@@ -120,12 +351,12 @@ const CategoryPage: React.FC = () => {
     return (
       <div className="page intelligence-page">
         <div className="section-heading">
-          <p className="eyebrow">{t("src_client_pages_categorypage__l119__h0")}</p>
-          <h1>{t("src_client_pages_categorypage__l120__h1")}</h1>
-          <p>{t("src_client_pages_categorypage__l121__h2")}</p>
+          <p className="eyebrow">{t("categorypage.h0")}</p>
+          <h1>{t("categorypage.h1")}</h1>
+          <p>{t("categorypage.h2")}</p>
         </div>
         <Link to="/dashboard" className="primary-action" style={{ textDecoration: "none" }}>
-          Back to Dashboard
+          {t("categorypage.backToDashboard")}
         </Link>
       </div>
     );
@@ -133,36 +364,36 @@ const CategoryPage: React.FC = () => {
 
   return (
     <div className="page intelligence-page">
-      {/* Hero Section */}
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">{config.eyebrow}</p>
-          <h1>{config.title}</h1>
-          <p>{config.description}</p>
+          <p className="eyebrow">{tx(config.eyebrowKey)}</p>
+          <h1>{tx(config.titleKey)}</h1>
+          <p>{tx(config.descriptionKey)}</p>
         </div>
+
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>{t("src_client_pages_categorypage__l141__h3")}</span>
-            <strong>{config.items.length || "Multiple"}</strong>
+            <span>{tx(config.metricLabels.itemsCount)}</span>
+            <strong>{config.items.length || tx(config.metricValues.itemsCountDefault)}</strong>
           </div>
           <div className="metric-tile">
-            <span>{t("src_client_pages_categorypage__l145__h4")}</span>
-            <strong>{t("src_client_pages_categorypage__l146__h5")}</strong>
+            <span>{tx(config.metricLabels.updatesDaily)}</span>
+            <strong>{tx(config.metricValues.updatesDaily)}</strong>
           </div>
           <div className="metric-tile">
-            <span>{t("src_client_pages_categorypage__l149__h6")}</span>
-            <strong>{t("src_client_pages_categorypage__l150__h7")}</strong>
+            <span>{tx(config.metricLabels.coverage)}</span>
+            <strong>{tx(config.metricValues.coverage)}</strong>
           </div>
         </div>
       </section>
 
-      {/* Items Grid (if applicable) */}
       {config.items.length > 0 && (
         <section style={{ marginBottom: "48px" }}>
           <div style={{ marginBottom: "24px" }}>
-            <p className="eyebrow">{t("src_client_pages_categorypage__l159__h8")}</p>
-            <h2>{t("src_client_pages_categorypage__l160__h9")}</h2>
+            <p className="eyebrow">{t("categorypage.h8")}</p>
+            <h2>{t("categorypage.h9")}</h2>
           </div>
+
           <div
             style={{
               display: "grid",
@@ -172,7 +403,7 @@ const CategoryPage: React.FC = () => {
           >
             {config.items.map((item) => (
               <div
-                key={item.name}
+                key={item.nameKey}
                 style={{
                   padding: "16px",
                   border: "1px solid #e2e8f0",
@@ -181,7 +412,7 @@ const CategoryPage: React.FC = () => {
                 }}
               >
                 <p style={{ fontSize: "12px", fontWeight: 600, color: "#475569", marginBottom: "8px" }}>
-                  {item.name}
+                  {tx(item.nameKey)}
                 </p>
                 <strong style={{ fontSize: "18px", display: "block" }}>{item.value}</strong>
                 <em
@@ -194,7 +425,8 @@ const CategoryPage: React.FC = () => {
                     marginTop: "4px",
                   }}
                 >
-                  {item.change >= 0 ? "+" : ""}{item.change.toFixed(2)}%
+                  {item.change >= 0 ? "+" : ""}
+                  {item.change.toFixed(2)}%
                 </em>
               </div>
             ))}
@@ -202,12 +434,12 @@ const CategoryPage: React.FC = () => {
         </section>
       )}
 
-      {/* Features */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">{t("src_client_pages_categorypage__l204__h10")}</p>
-          <h2>{t("src_client_pages_categorypage__l205__h11")}</h2>
+          <p className="eyebrow">{t("categorypage.h10")}</p>
+          <h2>{t("categorypage.h11")}</h2>
         </div>
+
         <div
           style={{
             display: "grid",
@@ -217,7 +449,7 @@ const CategoryPage: React.FC = () => {
         >
           {config.features.map((feature) => (
             <div
-              key={feature}
+              key={feature.key}
               style={{
                 padding: "16px",
                 border: "1px solid #e2e8f0",
@@ -225,21 +457,19 @@ const CategoryPage: React.FC = () => {
                 backgroundColor: "#fff",
               }}
             >
-              <strong style={{ display: "block", marginBottom: "8px" }}>{feature}</strong>
-              <p style={{ fontSize: "12px", color: "#475569" }}>
-                Comprehensive tracking and analysis included
-              </p>
+              <strong style={{ display: "block", marginBottom: "8px" }}>{tx(feature.key)}</strong>
+              <p style={{ fontSize: "12px", color: "#475569" }}>{tx("categorypage.featureDescription")}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Insights */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">{t("src_client_pages_categorypage__l236__h12")}</p>
-          <h2>{t("src_client_pages_categorypage__l237__h13")}</h2>
+          <p className="eyebrow">{t("categorypage.h12")}</p>
+          <h2>{t("categorypage.h13")}</h2>
         </div>
+
         <div
           style={{
             display: "grid",
@@ -249,7 +479,7 @@ const CategoryPage: React.FC = () => {
         >
           {config.insights.map((insight) => (
             <div
-              key={insight}
+              key={insight.key}
               style={{
                 padding: "16px",
                 border: "2px solid #A27841",
@@ -257,16 +487,13 @@ const CategoryPage: React.FC = () => {
                 backgroundColor: "rgba(162, 120, 65, 0.05)",
               }}
             >
-              <strong style={{ color: "#A27841" }}>{insight}</strong>
-              <p style={{ fontSize: "12px", color: "#475569", marginTop: "8px" }}>
-                Monitor for market impact and opportunities
-              </p>
+              <strong style={{ color: "#A27841" }}>{tx(insight.key)}</strong>
+              <p style={{ fontSize: "12px", color: "#475569", marginTop: "8px" }}>{tx("categorypage.insightDescription")}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* CTA */}
       <section
         style={{
           marginTop: "48px",
@@ -277,13 +504,11 @@ const CategoryPage: React.FC = () => {
           textAlign: "center",
         }}
       >
-        <p className="eyebrow">{t("src_client_pages_categorypage__l276__h14")}</p>
-        <h3>{t("src_client_pages_categorypage__l277__h15")}</h3>
-        <p style={{ color: "#475569", marginTop: "8px", marginBottom: "16px" }}>
-          Subscribe to alerts and get real-time notifications for this category
-        </p>
+        <p className="eyebrow">{tx(config.cta.eyebrowKey)}</p>
+        <h3>{tx(config.cta.titleKey)}</h3>
+        <p style={{ color: "#475569", marginTop: "8px", marginBottom: "16px" }}>{tx(config.cta.descriptionKey)}</p>
         <Link to="/user" className="primary-action" style={{ textDecoration: "none" }}>
-          Manage Alerts
+          {tx(config.cta.buttonKey)}
         </Link>
       </section>
     </div>

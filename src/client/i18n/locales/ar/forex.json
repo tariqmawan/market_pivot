@@ -1,34 +1,190 @@
 {
-  "currencyType": "نوع العملة",
-  "centralBank": "البنك المركزي",
-  "exchangeRates": "أسعار الصرف",
-  "converter": "محول العملات",
-  "popularPairs": "الأزواج الشائعة",
-  "economicData": "البيانات الاقتصادية",
-  "code": "الرمز",
-  "symbol": "الرمز",
-  "country": "الدولة",
-  "region": "المنطقة",
-  "type": "النوع",
-  "rate": "السعر",
-  "bid": "العرض",
-  "ask": "الطلب",
-  "spread": "الفارق",
-  "loadingRates": "جارٍ تحميل أسعار الصرف...",
   "amountPlaceholder": "أدخل المبلغ",
-  "economicIndicators": "المؤشرات الاقتصادية",
-  "interestRate": "سعر الفائدة",
-  "inflationRate": "معدل التضخم",
-  "gdpGrowth": "نمو الناتج المحلي",
-  "employment": "التوظيف",
-  "dataLoading": "جارٍ تحميل البيانات...",
-  "economicNews": "الأخبار والتحديثات الاقتصادية",
+  "annualRate": "المعدل السنوي",
+  "ask": "الطلب",
+  "bid": "العرض",
+  "centralBank": "البنك المركزي",
+  "change24h": "التغيير خلال 24 ساعة",
+  "code": "الرمز",
+  "converter": "محول العملات",
+  "countries": {
+    "ae": {
+      "name": "United Arab Emirates"
+    },
+    "au": {
+      "name": "Australia"
+    },
+    "br": {
+      "name": "Brazil"
+    },
+    "ca": {
+      "name": "Canada"
+    },
+    "ch": {
+      "name": "Switzerland"
+    },
+    "cl": {
+      "name": "Chile"
+    },
+    "cn": {
+      "name": "China"
+    },
+    "eu": {
+      "name": "European Union"
+    },
+    "gb": {
+      "name": "United Kingdom"
+    },
+    "hk": {
+      "name": "Hong Kong"
+    },
+    "in": {
+      "name": "India"
+    },
+    "jp": {
+      "name": "Japan"
+    },
+    "kr": {
+      "name": "South Korea"
+    },
+    "mx": {
+      "name": "Mexico"
+    },
+    "no": {
+      "name": "Norway"
+    },
+    "sa": {
+      "name": "Saudi Arabia"
+    },
+    "se": {
+      "name": "Sweden"
+    },
+    "sg": {
+      "name": "Singapore"
+    },
+    "us": {
+      "name": "الولايات المتحدة"
+    },
+    "za": {
+      "name": "South Africa"
+    }
+  },
+  "country": "الدولة",
+  "currencies": {
+    "aed": {
+      "name": "UAE Dirham",
+      "description": "Currency pegged to USD of Gulf financial hub"
+    },
+    "aud": {
+      "name": "Australian Dollar",
+      "description": "Commodity-linked currency, major Asia-Pacific hub"
+    },
+    "brl": {
+      "name": "Brazilian Real",
+      "description": "Currency of Latin America's largest economy"
+    },
+    "cad": {
+      "name": "Canadian Dollar",
+      "description": "Commodity-linked currency of G7 nation"
+    },
+    "chf": {
+      "name": "Swiss Franc",
+      "description": "Safe-haven currency known for stability and strong purchasing power"
+    },
+    "clp": {
+      "name": "Chilean Peso",
+      "description": "Currency of economically stable Latin American nation"
+    },
+    "cny": {
+      "name": "Chinese Yuan",
+      "description": "Currency of world's second-largest economy"
+    },
+    "eur": {
+      "name": "Euro",
+      "description": "Currency of the Eurozone, second-largest reserve currency"
+    },
+    "gbp": {
+      "name": "British Pound Sterling",
+      "description": "Currency of the UK, one of the oldest currencies"
+    },
+    "hkd": {
+      "name": "Hong Kong Dollar",
+      "description": "Pegged to the US Dollar, major Asian financial hub currency"
+    },
+    "inr": {
+      "name": "Indian Rupee",
+      "description": "Currency of world's most populous country and fastest-growing major economy"
+    },
+    "jpy": {
+      "name": "Japanese Yen",
+      "description": "Third-largest reserve currency, safe-haven asset"
+    },
+    "krw": {
+      "name": "South Korean Won",
+      "description": "Currency of major tech and manufacturing hub"
+    },
+    "mxn": {
+      "name": "Mexican Peso",
+      "description": "Currency of major North American trade partner"
+    },
+    "nok": {
+      "name": "Norwegian Krone",
+      "description": "Currency of major energy exporter, strong commodity links"
+    },
+    "sar": {
+      "name": "Saudi Arabian Riyal",
+      "description": "Currency pegged to USD of world's largest oil exporter"
+    },
+    "sek": {
+      "name": "Swedish Krona",
+      "description": "Northern European currency with industrial base"
+    },
+    "sgd": {
+      "name": "Singapore Dollar",
+      "description": "Strong regional currency in Southeast Asia"
+    },
+    "usd": {
+      "name": "الدولار الأمريكي",
+      "description": "أكثر عملة احتياطية استخداما في العالم ومعيار عالمي."
+    },
+    "zar": {
+      "name": "South African Rand",
+      "description": "Currency of largest African economy and commodities producer"
+    }
+  },
   "currencyNewsComing": "ستظهر أحدث الأخبار الاقتصادية هنا",
   "currencyNewsSubtitle": "قرارات أسعار الفائدة وتقارير التضخم والمزيد",
-  "vsUsd": "مقابل الدولار",
+  "currencyType": "نوع العملة",
+  "dataLoading": "جارٍ تحميل البيانات...",
+  "economicData": "البيانات الاقتصادية",
+  "economicIndicators": "المؤشرات الاقتصادية",
+  "economicNews": "الأخبار والتحديثات الاقتصادية",
+  "employment": "التوظيف",
+  "exchangeRates": "أسعار الصرف",
+  "gdpGrowth": "نمو الناتج المحلي",
   "high52w": "أعلى 52 أسبوع",
+  "inflationRate": "معدل التضخم",
+  "interestRate": "سعر الفائدة",
+  "loadingRates": "جارٍ تحميل أسعار الصرف...",
   "low52w": "أدنى 52 أسبوع",
-  "annualRate": "المعدل السنوي",
+  "popularPairs": "الأزواج الشائعة",
   "quarterlyRate": "المعدل الربعي",
-  "change24h": "التغيير خلال 24 ساعة"
+  "rate": "السعر",
+  "region": "المنطقة",
+  "spread": "الفارق",
+  "symbol": "الرمز",
+  "type": "النوع",
+  "vsUsd": "مقابل الدولار",
+  "currencyTypes": {
+    "fiat": "عملة ورقية"
+  },
+  "centralBanks": {
+    "federalreserve": "الاحتياطي الفيدرالي"
+  },
+  "regions": {
+    "northamerica": "أمريكا الشمالية"
+  },
+  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
+  "keyDataReleasesFor": "Key data releases for {{code}}",
+  "hoursAgo": "{{count}}h ago"
 }

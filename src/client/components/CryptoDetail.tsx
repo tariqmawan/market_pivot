@@ -3,6 +3,7 @@ import type { Cryptocurrency, CryptoPrice, TradingPair } from "../../types";
 import LineChart from "./LineChart";
 import ChartJSLine from "./ChartJSLine";
 import { useI18n } from "../i18n";
+import { translateStatic } from "../i18n/translate";
 import {
   formatCompactUsd,
   formatPercent,
@@ -57,6 +58,9 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
   const price = safePrice(priceData);
   const changePct = toNumber(priceData?.changePercent24h);
   const change24h = toNumber(priceData?.change24h);
+  const cryptoName = translateStatic(t, crypto.nameKey, crypto.name);
+  const cryptoCategory = translateStatic(t, crypto.categoryKey, crypto.category);
+  const cryptoDescription = translateStatic(t, crypto.descriptionKey, crypto.description);
 
   const chartSeries = React.useMemo(() => {
     const base = price > 0 ? price : 100;
@@ -99,7 +103,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
             {crypto.logo && !imageError ? (
               <img
                 src={crypto.logo}
-                alt={crypto.name}
+                alt={cryptoName}
                 style={{
                   width: "100%",
                   height: "100%",
@@ -116,21 +120,21 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
           <div style={{ flex: 1 }}>
             <div style={{ marginBottom: "8px" }}>
               <h1 style={{ fontSize: "28px", fontWeight: 700, margin: "0", color: "#0f172a" }}>
-                {crypto.symbol}
+                {cryptoName}
               </h1>
               <p style={{ fontSize: "13px", color: "#7a8c99", margin: "4px 0 0 0", fontWeight: 500 }}>
-                {crypto.name} • Rank #{priceData?.rank || "—"}
+                {crypto.symbol} • {cryptoCategory} • {t("crypto.rankNumber", { rank: priceData?.rank ?? "—" })}
               </p>
             </div>
             <p style={{ fontSize: "14px", color: "#475569", lineHeight: "1.5", margin: "12px 0 0 0", maxWidth: "500px" }}>
-              {crypto.description}
+              {cryptoDescription}
             </p>
 
             {/* Price & Key Metrics */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "16px", marginTop: "20px" }}>
               <div style={{ padding: "12px", backgroundColor: "#f8fafc", borderRadius: "8px" }}>
                 <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 6px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                  Price
+                  {t("crypto:price")}
                 </p>
                 <p style={{ fontSize: "20px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
                   {formatUsd(price)}
@@ -138,7 +142,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
               </div>
               <div style={{ padding: "12px", backgroundColor: "#f8fafc", borderRadius: "8px" }}>
                 <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 6px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                  24h Change
+                  {t("forex:change24h")}
                 </p>
                 <p style={{ fontSize: "18px", fontWeight: 700, color: changePct >= 0 ? "#059669" : "#dc2626", margin: "0" }}>
                   {changePct >= 0 ? "+" : ""}{formatPercent(changePct)}
@@ -146,7 +150,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
               </div>
               <div style={{ padding: "12px", backgroundColor: "#f8fafc", borderRadius: "8px" }}>
                 <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 6px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                  Market Cap
+                  {t("markets:marketCap")}
                 </p>
                 <p style={{ fontSize: "16px", fontWeight: 700, color: "#A27841", margin: "0" }}>
                   {formatCompactUsd(priceData?.marketCap || 0)}
@@ -154,7 +158,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
               </div>
               <div style={{ padding: "12px", backgroundColor: "#f8fafc", borderRadius: "8px" }}>
                 <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 6px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                  24h Volume
+                  {t("crypto:volume24h")}
                 </p>
                 <p style={{ fontSize: "16px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
                   {formatCompactUsd(priceData?.volume24h || 0)}
@@ -167,13 +171,13 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
         {/* Tab Navigation */}
         <div style={{ display: "flex", gap: "2px", borderBottom: "1px solid #e2e8f0", paddingBottom: "0", overflowX: "auto" }}>
           {[
-            { id: "price", label: "💰 Price & Metrics" },
-            { id: "charts", label: "📊 Charts" },
-            { id: "pairs", label: "🔀 Trading Pairs" },
-            { id: "exchanges", label: "🏪 Exchanges" },
-            { id: "overview", label: "ℹ️ Overview" },
-            { id: "on-chain", label: "⛓️ On-Chain" },
-            { id: "news", label: "📰 News" },
+            { id: "price", label: t("crypto:priceMetrics") },
+            { id: "charts", label: t("markets:chart") },
+            { id: "pairs", label: t("common:src_client_components_cryptodetail__l307__h1") },
+            { id: "exchanges", label: t("crypto:exchanges") },
+            { id: "overview", label: t("nav:overview") },
+            { id: "on-chain", label: t("common:src_client_pages_cryptocategorypage__l142__h18") },
+            { id: "news", label: t("nav:news") },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -202,10 +206,10 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
         {activeTab === "price" && (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "16px" }}>
             {[
-              { label: "Current Price", value: formatUsd(price), color: "#A27841" },
-              { label: "24h Change", value: formatPercent(changePct), color: changePct >= 0 ? "#059669" : "#dc2626" },
-              { label: "Market Cap", value: formatCompactUsd(priceData?.marketCap || 0), color: "#0f172a" },
-              { label: "24h Volume", value: formatCompactUsd(priceData?.volume24h || 0), color: "#0f172a" },
+              { label: t("crypto:currentPrice"), value: formatUsd(price), color: "#A27841" },
+              { label: t("forex:change24h"), value: formatPercent(changePct), color: changePct >= 0 ? "#059669" : "#dc2626" },
+              { label: t("markets:marketCap"), value: formatCompactUsd(priceData?.marketCap || 0), color: "#0f172a" },
+              { label: t("crypto:volume24h"), value: formatCompactUsd(priceData?.volume24h || 0), color: "#0f172a" },
               { label: "All-Time High", value: formatUsd(priceData?.ath || 0), color: "#0f172a" },
               { label: "All-Time Low", value: formatUsd(priceData?.atl || 0), color: "#0f172a" },
               { label: "Circulating Supply", value: formatSupply(priceData?.circulatingSupply || 0), color: "#0f172a" },
@@ -234,7 +238,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
         {activeTab === "charts" && (
           <div style={{ backgroundColor: "#fafbfc", padding: "24px", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
             <p style={{ fontSize: "12px", color: "#7a8c99", margin: "0 0 16px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
-              Price Chart
+              {t("crypto:priceChart")}
             </p>
             <div style={{ display: "flex", gap: "8px", marginBottom: "24px", flexWrap: "wrap" }}>
               {["1H", "24H", "7D", "1M", "1Y", "ALL"].map((tf) => (
@@ -264,7 +268,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
                   <LineChart data={chartSeries} width={820} height={300} />
                 )
               ) : (
-                <p style={{ color: "#7a8c99", fontSize: "14px" }}>{t("src_client_components_cryptodetail__l266__h0")}</p>
+                <p style={{ color: "#7a8c99", fontSize: "14px" }}>{t("cryptodetail.h0")}</p>
               )}
             </div>
           </div>
@@ -273,9 +277,9 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
         {activeTab === "overview" && (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
             {[
-              { label: "Symbol", value: crypto.symbol },
-              { label: "Category", value: crypto.category },
-              { label: "Founded", value: crypto.launched },
+              { label: t("forex:symbol"), value: crypto.symbol },
+              { label: t("crypto:category"), value: cryptoCategory },
+              { label: t("markets:founded"), value: crypto.launched },
               { label: "Founder", value: crypto.founder },
               { label: "Consensus Mechanism", value: crypto.consensusMechanism },
               { label: "Block Time", value: crypto.blockTime ? `${crypto.blockTime} seconds` : "—" },
@@ -305,10 +309,10 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr style={{ borderBottom: "2px solid #e2e8f0" }}>
-                  <th style={{ padding: "14px", textAlign: "left", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_cryptodetail__l307__h1")}</th>
-                  <th style={{ padding: "14px", textAlign: "right", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_cryptodetail__l308__h2")}</th>
-                  <th style={{ padding: "14px", textAlign: "right", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_cryptodetail__l309__h3")}</th>
-                  <th style={{ padding: "14px", textAlign: "left", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_cryptodetail__l310__h4")}</th>
+                  <th style={{ padding: "14px", textAlign: "left", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("cryptodetail.h1")}</th>
+                  <th style={{ padding: "14px", textAlign: "right", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("cryptodetail.h2")}</th>
+                  <th style={{ padding: "14px", textAlign: "right", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("cryptodetail.h3")}</th>
+                  <th style={{ padding: "14px", textAlign: "left", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("cryptodetail.h4")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -336,7 +340,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
             {exchangeListings.length === 0 ? (
               <div style={{ padding: "40px", textAlign: "center", backgroundColor: "#f8fafc", borderRadius: "8px", border: "1px solid #e2e8f0", gridColumn: "1 / -1" }}>
                 <p style={{ fontSize: "14px", color: "#7a8c99", margin: "0" }}>
-                  Exchange listings for {crypto.symbol} coming soon
+                  {t("crypto:listedCryptoExchanges")} {crypto.symbol}
                 </p>
               </div>
             ) : (
@@ -355,7 +359,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
                     <strong style={{ fontSize: "15px", color: "#0f172a" }}>{ex.exchange}</strong>
                   </div>
                   <p style={{ fontSize: "12px", color: "#7a8c99", margin: "0" }}>
-                    Volume: <strong style={{ color: "#0f172a" }}>{formatCompactUsd(ex.totalVolume)}</strong>
+                    {t("common:src_client_pages_cryptocategorypage__l59__h2")}: <strong style={{ color: "#0f172a" }}>{formatCompactUsd(ex.totalVolume)}</strong>
                   </p>
                 </div>
               ))
@@ -396,7 +400,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
             {news.length === 0 ? (
               <div style={{ padding: "40px", textAlign: "center", backgroundColor: "#f8fafc", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
                 <p style={{ fontSize: "14px", color: "#7a8c99", margin: "0" }}>
-                  No news available for {crypto.symbol}
+                  {t("markets:noNewsAvailable")} {crypto.symbol}
                 </p>
               </div>
             ) : (

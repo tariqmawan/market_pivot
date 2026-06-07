@@ -38,6 +38,7 @@ import PageLoader from "./components/PageLoader";
 import ScrollToTop from "./components/ScrollToTop";
 import { SkeletonStyles } from "./components/Skeleton";
 import { useI18n } from "./i18n";
+import { translateStatic } from "./i18n/translate";
 import { useAuthStore } from "./stores/authStore";
 import SubMenuNav from "./components/SubMenuNav";
 import {
@@ -322,15 +323,15 @@ const HomePage = () => {
           <div className="brief-grid">
             <div>
               <span>{t("openingBell")}</span>
-              <strong>Asia closed mixed; Europe bid</strong>
+              <strong>{t("markets:asiaClosed")}</strong>
             </div>
             <div>
               <span>{t("riskView")}</span>
-              <strong>Crypto beta outperforming equities</strong>
+              <strong>{t("markets:cryptoBetaOutperform")}</strong>
             </div>
             <div>
               <span>{t("globalHeatmap")}</span>
-              <strong>FX pressure: JPY, INR, ZAR watch</strong>
+              <strong>{t("markets:fxPressure")}</strong>
             </div>
           </div>
         </div>
@@ -374,36 +375,36 @@ const HomePage = () => {
 
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">Regional Intelligence</p>
-          <h2>Markets by geography</h2>
+          <p className="eyebrow">{t("markets:regionIntelligence")}</p>
+          <h2>{t("markets:marketsByGeography")}</h2>
           <div className="mini-list">
             {marketRegions.map((region) => (
               <Link to={`/regions/${region.id}`} key={region.id}>
-                <span>{region.name}</span>
-                <strong>{region.countries.length} countries</strong>
+                <span>{translateStatic(t, region.nameKey, region.name)}</span>
+                <strong>{region.countries.length} {t("common:regionspagenew.h4")}</strong>
               </Link>
             ))}
           </div>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Sector Intelligence</p>
-          <h2>Equity themes and categories</h2>
+          <p className="eyebrow">{t("markets:sectorIntelligence")}</p>
+          <h2>{t("markets:equityThemes")}</h2>
           <div className="mini-list">
             {stockSectors.slice(0, 5).map((sector) => (
               <Link to={`/sectors/${sector.id}`} key={sector.id}>
-                <span>{sector.name}</span>
+                <span>{translateStatic(t, sector.nameKey, sector.name)}</span>
                 <strong>{formatSignedPercent(sector.performanceYtd)} YTD</strong>
               </Link>
             ))}
           </div>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Commodity Intelligence</p>
-          <h2>Macro inputs and futures</h2>
+          <p className="eyebrow">{t("markets:commodityIntelligence")}</p>
+          <h2>{t("markets:macroInputs")}</h2>
           <div className="mini-list">
             {commodities.slice(0, 5).map((commodity) => (
               <Link to={`/commodities/${commodity.id}`} key={commodity.id}>
-                <span>{commodity.name}</span>
+                <span>{translateStatic(t, commodity.nameKey, commodity.name)}</span>
                 <strong>{formatMoney(commodity.spotPrice)}</strong>
               </Link>
             ))}
@@ -567,7 +568,7 @@ const StocksPage = () => {
     }
     return (
       <div className="page">
-        <p>Exchange not found: {exchangeId}</p>
+        <p>{t("common:categorypage.h0")}: {exchangeId}</p>
       </div>
     );
   }
@@ -577,30 +578,32 @@ const StocksPage = () => {
       {isExchangesPath ? (
         <SubMenuNav
           title="Exchange Network"
+          titleKey="markets.exchangeNetwork"
           items={[
-            { label: "All Exchanges", path: "/exchanges" },
-            { label: "Americas", path: "/exchanges/region/americas" },
-            { label: "Europe", path: "/exchanges/region/europe" },
-            { label: "Asia Pacific", path: "/exchanges/region/asia-pacific" },
-            { label: "Middle East & Africa", path: "/exchanges/region/middle-east-africa" },
-            { label: "Latin America", path: "/exchanges/region/latin-america" },
+            { label: "All Exchanges", labelKey: "markets.allExchanges", path: "/exchanges" },
+            { label: "Americas", labelKey: "markets.exchangeRegions.americas", path: "/exchanges/region/americas" },
+            { label: "Europe", labelKey: "markets.exchangeRegions.europe", path: "/exchanges/region/europe" },
+            { label: "Asia Pacific", labelKey: "markets.exchangeRegions.asiaPacific", path: "/exchanges/region/asia-pacific" },
+            { label: "Middle East & Africa", labelKey: "markets.exchangeRegions.middleEastAfrica", path: "/exchanges/region/middle-east-africa" },
+            { label: "Latin America", labelKey: "markets.exchangeRegions.latinAmerica", path: "/exchanges/region/latin-america" },
           ]}
         />
       ) : (
         <SubMenuNav
           title="Stock Exchanges"
+          titleKey="markets.stockExchanges"
           items={[
-            { label: "All Exchanges", path: "/stocks" },
-            { label: "Top Gainers", path: "/stocks/gainers" },
-            { label: "Top Losers", path: "/stocks/losers" },
-            { label: "Market Movers", path: "/markets/movers" },
-            { label: "Advanced Screener", path: "/screener" },
+            { label: "All Exchanges", labelKey: "markets.allExchanges", path: "/stocks" },
+            { label: "Top Gainers", labelKey: "markets.topGainers", path: "/stocks/gainers" },
+            { label: "Top Losers", labelKey: "markets.topLosers", path: "/stocks/losers" },
+            { label: "Market Movers", labelKey: "markets.marketMovers", path: "/markets/movers" },
+            { label: "Advanced Screener", labelKey: "markets.advancedScreener", path: "/screener" },
           ]}
         />
       )}
       <div className="page">
         <div className="section-heading">
-          <p className="eyebrow">{isExchangesPath ? "Exchange Network" : t("equities")}</p>
+          <p className="eyebrow">{isExchangesPath ? t("markets:exchangeNetwork") : t("equities")}</p>
           <h1>{t("topGlobalExchanges")}</h1>
           <p>{t("exchangeIntro")}</p>
         </div>
@@ -609,8 +612,8 @@ const StocksPage = () => {
             <AssetCard
               key={item.id}
               to={`/stocks/${item.id}`}
-              eyebrow={`${item.country} / ${item.currency}`}
-              title={item.name}
+              eyebrow={`${translateStatic(t, item.countryKey, item.country)} / ${item.currency}`}
+              title={translateStatic(t, item.nameKey, item.name)}
               meta={`${item.mainIndexName} / ${item.tradingHours?.open ?? "09:00"}-${item.tradingHours?.close ?? "17:00"}`}
               metric={formatMoney(item.marketCap)}
             />
@@ -647,17 +650,31 @@ const EXCHANGE_REGION_LABEL: Record<string, string> = {
   "latin-america": "Latin America",
 };
 
+const EXCHANGE_REGION_LABEL_KEY: Record<string, string> = {
+  americas: "markets.exchangeRegions.americas",
+  "north-america": "markets.exchangeRegions.northAmerica",
+  europe: "markets.exchangeRegions.europe",
+  asia: "markets.exchangeRegions.asia",
+  "asia-pacific": "markets.exchangeRegions.asiaPacific",
+  oceania: "markets.exchangeRegions.oceania",
+  "middle-east": "markets.exchangeRegions.middleEast",
+  africa: "markets.exchangeRegions.africa",
+  "middle-east-africa": "markets.exchangeRegions.middleEastAfrica",
+  "latin-america": "markets.exchangeRegions.latinAmerica",
+};
+
 const EXCHANGE_REGION_SUBMENU = [
-  { label: "All Exchanges", path: "/exchanges" },
-  { label: "Americas", path: "/exchanges/region/americas" },
-  { label: "Europe", path: "/exchanges/region/europe" },
-  { label: "Asia Pacific", path: "/exchanges/region/asia-pacific" },
-  { label: "Middle East & Africa", path: "/exchanges/region/middle-east-africa" },
-  { label: "Latin America", path: "/exchanges/region/latin-america" },
+  { label: "All Exchanges", labelKey: "markets.allExchanges", path: "/exchanges" },
+  { label: "Americas", labelKey: "markets.exchangeRegions.americas", path: "/exchanges/region/americas" },
+  { label: "Europe", labelKey: "markets.exchangeRegions.europe", path: "/exchanges/region/europe" },
+  { label: "Asia Pacific", labelKey: "markets.exchangeRegions.asiaPacific", path: "/exchanges/region/asia-pacific" },
+  { label: "Middle East & Africa", labelKey: "markets.exchangeRegions.middleEastAfrica", path: "/exchanges/region/middle-east-africa" },
+  { label: "Latin America", labelKey: "markets.exchangeRegions.latinAmerica", path: "/exchanges/region/latin-america" },
 ];
 
 const ExchangesByRegionPage = () => {
   const { regionId } = useParams();
+  const { t } = useI18n();
   const [allExchanges, setAllExchanges] = React.useState<StockExchange[]>(exchanges);
 
   React.useEffect(() => {
@@ -672,16 +689,16 @@ const ExchangesByRegionPage = () => {
   const filtered = dataRegions.length
     ? allExchanges.filter((ex) => dataRegions.includes(ex.region))
     : allExchanges;
-  const label = EXCHANGE_REGION_LABEL[key] ?? "All Regions";
+  const label = translateStatic(t, EXCHANGE_REGION_LABEL_KEY[key], EXCHANGE_REGION_LABEL[key] ?? "All Regions");
 
   return (
     <>
-      <SubMenuNav title="Exchange Network" items={EXCHANGE_REGION_SUBMENU} />
+      <SubMenuNav title="Exchange Network" titleKey="markets.exchangeNetwork" items={EXCHANGE_REGION_SUBMENU} />
       <div className="page">
         <div className="section-heading">
-          <p className="eyebrow">Exchange Network</p>
-          <h1>{label} Exchanges</h1>
-          <p>Regional exchange dashboards — currency, timezone, trading hours, listed companies, main index, and market cap.</p>
+          <p className="eyebrow">{t("markets:exchangeNetwork")}</p>
+          <h1>{t("markets:regionExchangesTitle", { region: label })}</h1>
+          <p>{t("markets:regionalExchangeDashboards")}</p>
         </div>
         {filtered.length > 0 ? (
           <div className="asset-grid">
@@ -689,15 +706,15 @@ const ExchangesByRegionPage = () => {
               <AssetCard
                 key={item.id}
                 to={`/stocks/${item.id}`}
-                eyebrow={`${item.country} / ${item.currency}`}
-                title={item.name}
+                eyebrow={`${translateStatic(t, item.countryKey, item.country)} / ${item.currency}`}
+                title={translateStatic(t, item.nameKey, item.name)}
                 meta={`${item.mainIndexName} / ${item.tradingHours?.open ?? "09:00"}-${item.tradingHours?.close ?? "17:00"}`}
                 metric={formatMoney(item.marketCap)}
               />
             ))}
           </div>
         ) : (
-          <p style={{ color: "#7a8c99", marginTop: "24px" }}>No exchanges found for this region.</p>
+          <p style={{ color: "#7a8c99", marginTop: "24px" }}>{t("markets:noExchangesForRegion")}</p>
         )}
       </div>
     </>
@@ -809,7 +826,7 @@ const CurrenciesPage = () => {
         />
       );
     }
-    return <div className="page"><p>Currency not found: {code}</p></div>;
+    return <div className="page"><p>{t("common:categorypage.h0")}: {code}</p></div>;
   }
 
   // ── List page render ────────────────────────────────────────────────────
@@ -831,8 +848,8 @@ const CurrenciesPage = () => {
               key={item.code}
               to={`/currencies/${item.code}`}
               eyebrow={item.region}
-              title={`${item.code} - ${item.name}`}
-              meta={`${item.country} / ${item.centralBank}`}
+              title={`${item.code} - ${translateStatic(t, item.nameKey, item.name)}`}
+              meta={`${translateStatic(t, item.countryKey, item.country)} / ${item.centralBank}`}
               metric={rateStr}
             />
           );
@@ -873,24 +890,24 @@ const CoveragePage = () => {
       <section className="dashboard-grid spotlight-grid">
         <AssetCard
           to="/indices"
-          eyebrow="Indices"
-          title="Market Indices"
-          meta="Global benchmark snapshots and index-level coverage"
-          metric="Live-style"
+          eyebrow={t("common:watchlistpage.h13")}
+          title={t("common:indicespage.h1")}
+          meta={t("common:indicespage.h2")}
+          metric={t("common:categorypage.h5")}
         />
         <AssetCard
           to="/etfs"
-          eyebrow="ETFs"
-          title="ETF Coverage"
-          meta="Sector ETFs, allocation context, and fund coverage"
-          metric="Research"
+          eyebrow={t("common:etfspage.h0")}
+          title={t("common:etfspage.h1")}
+          meta={t("common:etfspage.h2")}
+          metric={t("common:cryptocategorypage.h34")}
         />
         <AssetCard
           to="/bonds-yields"
-          eyebrow="Fixed Income"
-          title="Bonds & Yields"
-          meta="Yield curves, rates context, and macro coverage"
-          metric="Macro"
+          eyebrow={t("common:bondsyieldspage.h0")}
+          title={t("common:bondsyieldspage.h1")}
+          meta={t("common:bondsyieldspage.h2")}
+          metric={t("markets:macroCalendar")}
         />
       </section>
     </div>
@@ -949,7 +966,7 @@ const CryptoPage = () => {
         <div className="page">
           <p className="error">{detail.error}</p>
           <button type="button" onClick={detail.retry}>
-            Retry
+            {t("common:tryAgain")}
           </button>
         </div>
       );
@@ -978,7 +995,7 @@ const CryptoPage = () => {
     }
     return (
       <div className="page">
-        <p>Crypto not found: {cryptoId}</p>
+        <p>{t("crypto:categoryNotFound")}: {cryptoId}</p>
       </div>
     );
   }
@@ -988,13 +1005,14 @@ const CryptoPage = () => {
     <>
       <SubMenuNav
         title="Cryptocurrency Categories"
+        titleKey="crypto:cryptocurrencyCategories"
         items={[
-          { label: "All Cryptocurrencies", path: "/crypto",          icon: <HiSquares2X2 size={14} /> },
-          { label: "Trending",             path: "/crypto/trending", icon: <HiArrowTrendingUp size={14} /> },
-          { label: "Meme Coins",           path: "/crypto/meme-coins", icon: <HiFaceSmile size={14} /> },
-          { label: "DeFi",                 path: "/crypto/defi",     icon: <HiCircleStack size={14} /> },
-          { label: "Layer 1",              path: "/crypto/layer-1",  icon: <HiServerStack size={14} /> },
-          { label: "Stablecoins",          path: "/crypto/stablecoins", icon: <HiShieldCheck size={14} /> },
+          { label: "All Cryptocurrencies", labelKey: "crypto:allCryptocurrencies", path: "/crypto", icon: <HiSquares2X2 size={14} /> },
+          { label: "Trending", labelKey: "crypto:trending", path: "/crypto/trending", icon: <HiArrowTrendingUp size={14} /> },
+          { label: "Meme Coins", labelKey: "crypto:categories.meme.name", path: "/crypto/meme-coins", icon: <HiFaceSmile size={14} /> },
+          { label: "DeFi", labelKey: "crypto:categories.defi.name", path: "/crypto/defi", icon: <HiCircleStack size={14} /> },
+          { label: "Layer 1", labelKey: "crypto:categories.layer1.name", path: "/crypto/layer-1", icon: <HiServerStack size={14} /> },
+          { label: "Stablecoins", labelKey: "crypto:categories.stablecoin.name", path: "/crypto/stablecoins", icon: <HiShieldCheck size={14} /> },
         ]}
       />
       <div className="page">
@@ -1011,8 +1029,8 @@ const CryptoPage = () => {
               <AssetCard
                 key={item.id}
                 to={`/crypto/${item.id}`}
-                eyebrow={item.category}
-                title={`${item.name} (${item.symbol})`}
+                eyebrow={translateStatic(t, item.categoryKey, item.category)}
+                title={`${translateStatic(t, item.nameKey, item.name)} (${item.symbol})`}
                 meta={`Rank #${price.rank} / ${item.consensusMechanism}`}
                 metric={`${formatMoney(price.marketCap)} market cap`}
               />
@@ -1033,21 +1051,21 @@ const DashboardPage = () => {
   const topGainers = buildMovers(exchanges[0], "up").slice(0, 4);
   const topLosers = buildMovers(exchanges[1], "down").slice(0, 4);
   const economicEvents = [
-    ["08:30", "US CPI", "High"],
-    ["10:00", "ECB policy remarks", "Medium"],
-    ["13:00", "US 10Y auction", "Medium"],
-    ["19:00", "FOMC minutes", "High"],
+    { time: "08:30", labelKey: "dashboard:economicEvents.usCpi", importanceKey: "dashboard:importance.high" },
+    { time: "10:00", labelKey: "dashboard:economicEvents.ecbRemarks", importanceKey: "dashboard:importance.medium" },
+    { time: "13:00", labelKey: "dashboard:economicEvents.us10yAuction", importanceKey: "dashboard:importance.medium" },
+    { time: "19:00", labelKey: "dashboard:economicEvents.fomcMinutes", importanceKey: "dashboard:importance.high" },
   ];
   const sentiment = [
-    ["Equities", 64, "Risk-on breadth"],
-    ["FX", 48, "USD mixed"],
-    ["Crypto", 72, "Momentum bid"],
-    ["Commodities", 41, "Energy softer"],
+    { key: "equities", score: 64 },
+    { key: "fx", score: 48 },
+    { key: "crypto", score: 72 },
+    { key: "commodities", score: 41 },
   ];
 
   return (
     <div className="page market-home">
-      <section className="market-tape" aria-label={t("liveTape")}>
+      <section className="market-tape" aria-label={t("dashboard:liveTapeLabel")}>
         {marketTape.map((item) => (
           <div key={item.label} className="tape-item">
             <span>{item.label}</span>
@@ -1058,24 +1076,24 @@ const DashboardPage = () => {
       </section>
 
       <div className="section-heading">
-        <p className="eyebrow">{t("crossMarket")}</p>
-        <h1>{t("heroTitle")}</h1>
-        <p>{t("heroCopy")}</p>
+        <p className="eyebrow">{t("dashboard:crossMarket")}</p>
+        <h1>{t("dashboard:title")}</h1>
+        <p>{t("dashboard:intro")}</p>
       </div>
 
       <section className="dashboard-grid">
-        <AssetCard to="/stocks/NYSE" eyebrow={t("topExchange")} title="New York Stock Exchange" meta="S&P 500 / USD / New York" metric={formatMoney(exchanges[0].marketCap)} />
-        <AssetCard to="/currencies/USD" eyebrow={t("coreReserve")} title="United States Dollar" meta="Federal Reserve / global base" metric={t("primaryBase")} />
-        <AssetCard to="/crypto/bitcoin" eyebrow={t("cryptoLeader")} title="Bitcoin" meta="BTC vs USD, FX, and equity risk" metric={formatMoney(getCryptoPrice(cryptocurrencies[0], 0).marketCap)} />
-        <AssetCard to={`/regions/${leadingRegion.id}`} eyebrow="Region pulse" title={leadingRegion.name} meta={leadingRegion.newsThemes.join(" / ")} metric={`${leadingRegion.gdpGrowth.toFixed(1)}% GDP growth`} />
-        <AssetCard to={`/sectors/${leadingSector.id}`} eyebrow="Sector pulse" title={leadingSector.name} meta={leadingSector.newsThemes.join(" / ")} metric={`${formatSignedPercent(leadingSector.performanceYtd)} YTD`} />
-        <AssetCard to={`/commodities/${leadingCommodity.id}`} eyebrow="Commodity pulse" title={leadingCommodity.name} meta={leadingCommodity.economicImpact} metric={`${formatMoney(leadingCommodity.spotPrice)} / ${leadingCommodity.unit}`} />
+        <AssetCard to="/stocks/NYSE" eyebrow={t("dashboard:topExchange")} title={t("markets:exchanges.nyse.name")} meta={t("markets:dashboardCards.nyseMeta")} metric={formatMoney(exchanges[0].marketCap)} />
+        <AssetCard to="/currencies/USD" eyebrow={t("dashboard:coreReserve")} title={t("forex:currencies.usd.name")} meta={t("markets:dashboardCards.usdMeta")} metric={t("dashboard:primaryBase")} />
+        <AssetCard to="/crypto/bitcoin" eyebrow={t("dashboard:cryptoLeader")} title={t("crypto:cryptocurrencies.bitcoin.name")} meta={t("markets:dashboardCards.bitcoinMeta")} metric={formatMoney(getCryptoPrice(cryptocurrencies[0], 0).marketCap)} />
+        <AssetCard to={`/regions/${leadingRegion.id}`} eyebrow={t("dashboard:regionPulse")} title={t("markets:regions.asiaPacific.name")} meta={t("markets:dashboardCards.regionMeta")} metric={`${leadingRegion.gdpGrowth.toFixed(1)}% ${t("markets:gdpGrowthShort")}`} />
+        <AssetCard to={`/sectors/${leadingSector.id}`} eyebrow={t("dashboard:sectorPulse")} title={t("markets:sectors.technology.name")} meta={t("markets:dashboardCards.sectorMeta")} metric={`${formatSignedPercent(leadingSector.performanceYtd)} ${t("markets:ytdShort")}`} />
+        <AssetCard to={`/commodities/${leadingCommodity.id}`} eyebrow={t("dashboard:commodityPulse")} title={t("markets:commodities.crudeOil.name")} meta={t("markets:dashboardCards.commodityMeta")} metric={`${formatMoney(leadingCommodity.spotPrice)} / ${leadingCommodity.unit}`} />
       </section>
 
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("majorIndices")}</p>
-          <h2>{t("worldSnapshot")}</h2>
+          <p className="eyebrow">{t("dashboard:majorIndices")}</p>
+          <h2>{t("dashboard:worldSnapshot")}</h2>
           <div className="mini-list">
             {topIndices.map((index) => (
               <Link to={`/stocks/${index.exchangeId}`} key={index.id}>
@@ -1087,8 +1105,8 @@ const DashboardPage = () => {
         </div>
 
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("marketMovers")}</p>
-          <h2>{t("gainersAndLosers")}</h2>
+          <p className="eyebrow">{t("dashboard:marketMovers")}</p>
+          <h2>{t("dashboard:gainersAndLosers")}</h2>
           <div className="mini-list">
             {[...topGainers, ...topLosers].slice(0, 6).map((mover) => (
               <Link to="/stocks/gainers" key={mover.symbol}>
@@ -1100,13 +1118,13 @@ const DashboardPage = () => {
         </div>
 
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("economicEventsToday")}</p>
-          <h2>{t("macroCalendar")}</h2>
+          <p className="eyebrow">{t("dashboard:economicEventsToday")}</p>
+          <h2>{t("dashboard:macroCalendar")}</h2>
           <div className="mini-list">
-            {economicEvents.map(([time, label, importance]) => (
-              <Link to="/economic-calendar" key={`${time}-${label}`}>
-                <span>{time} / {label}</span>
-                <strong>{importance}</strong>
+            {economicEvents.map((event) => (
+              <Link to="/economic-calendar" key={`${event.time}-${event.labelKey}`}>
+                <span>{event.time} / {t(event.labelKey)}</span>
+                <strong>{t(event.importanceKey)}</strong>
               </Link>
             ))}
           </div>
@@ -1114,33 +1132,33 @@ const DashboardPage = () => {
       </section>
 
       <section className="dashboard-grid spotlight-grid">
-        {sentiment.map(([label, score, detail]) => (
-          <div className="asset-card" key={label}>
-            <span className="eyebrow">Market Sentiment</span>
-            <h3>{label}</h3>
-            <p>{detail}</p>
-            <strong>{score}/100</strong>
+        {sentiment.map((item) => (
+          <div className="asset-card" key={item.key}>
+            <span className="eyebrow">{t("dashboard:marketSentiment")}</span>
+            <h3>{t(`dashboard:sentiment.${item.key}.label`)}</h3>
+            <p>{t(`dashboard:sentiment.${item.key}.detail`)}</p>
+            <strong>{item.score}/100</strong>
           </div>
         ))}
       </section>
 
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("forexMiniCards")}</p>
-          <h2>{t("currencyPulse")}</h2>
+          <p className="eyebrow">{t("dashboard:forexMiniCards")}</p>
+          <h2>{t("dashboard:currencyPulse")}</h2>
           <div className="mini-list">
             {["USD", "EUR", "JPY", "INR"].map((code) => (
               <Link to={`/currencies/${code}`} key={code}>
                 <span>{code}</span>
-                <strong>1 USD = {majorRates[code].toFixed(code === "JPY" || code === "INR" ? 2 : 4)}</strong>
+                <strong>{t("dashboard:currencyRate", { base: "USD", quote: code, rate: majorRates[code].toFixed(code === "JPY" || code === "INR" ? 2 : 4) })}</strong>
               </Link>
             ))}
           </div>
         </div>
 
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("cryptoOverview")}</p>
-          <h2>{t("marketCapLeaders")}</h2>
+          <p className="eyebrow">{t("dashboard:cryptoOverview")}</p>
+          <h2>{t("dashboard:marketCapLeaders")}</h2>
           <div className="mini-list">
             {cryptocurrencies.slice(0, 4).map((coin, index) => {
               const price = getCryptoPrice(coin, index);
@@ -1155,12 +1173,12 @@ const DashboardPage = () => {
         </div>
 
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("commoditySnapshot")}</p>
-          <h2>{t("spotAndFutures")}</h2>
+          <p className="eyebrow">{t("dashboard:commoditySnapshot")}</p>
+          <h2>{t("dashboard:spotAndFutures")}</h2>
           <div className="mini-list">
             {commodities.slice(0, 4).map((commodity) => (
               <Link to={`/commodities/${commodity.id}`} key={commodity.id}>
-                <span>{commodity.name}</span>
+                <span>{translateStatic(t, commodity.nameKey, commodity.name)}</span>
                 <strong>{formatMoney(commodity.spotPrice)} / {formatSignedPercent(commodity.changePercent24h)}</strong>
               </Link>
             ))}
@@ -1169,8 +1187,8 @@ const DashboardPage = () => {
       </section>
 
       <section className="comparison-strip">
-        <h2>{t("watchlistPreview")}</h2>
-        <p>{t("watchlistCopy")}</p>
+        <h2>{t("dashboard:watchlistPreview")}</h2>
+        <p>{t("dashboard:watchlistCopy")}</p>
         <div className="comparison-route">
           {userWatchlist.map((item) => (
             <span key={item.symbol}>{item.symbol} {item.move}</span>
@@ -1182,28 +1200,28 @@ const DashboardPage = () => {
 };
 
 const moduleFeatures: Record<string, string[]> = {
-  "markets/global-overview": ["Major indices widgets", "Top gainers and losers", "Heatmaps", "Market sentiment"],
-  "markets/pre-market": ["Pre-market movers", "Index futures", "Volume spikes", "Opening watchlist"],
-  "markets/after-hours": ["After-hours movers", "Earnings reactions", "Extended-session volume", "News catalysts"],
-  "markets/heatmaps": ["Equity heatmaps", "Sector performance", "Regional breadth", "Asset-class comparison"],
-  "markets/movers": ["Top gainers", "Top losers", "Most active", "Unusual volume"],
-  "markets/volatility-index": ["VIX overview", "Fear and greed context", "Volatility term structure", "Risk dashboard"],
-  "exchanges/region/americas": ["Country filters", "Exchange statistics", "Listed companies", "Regional news"],
-  "stocks/gainers": ["Live gainers", "Volume filters", "Market cap filters", "Sector breakdown"],
-  "stocks/losers": ["Live losers", "Risk alerts", "Index impact", "Watchlist actions"],
-  "crypto/trending": ["Trending coins", "Market cap ranking", "Exchange listings", "Historical performance"],
-  "crypto/meme-coins": ["Meme coin rankings", "Volume bursts", "Community momentum", "Risk flags"],
-  "crypto/defi": ["DeFi ecosystem", "TVL metrics", "Protocol categories", "Token performance"],
-  "crypto/layer-1": ["Layer 1 chains", "Consensus details", "Tokenomics", "Developer ecosystem"],
-  "crypto/stablecoins": ["Stablecoin supply", "Peg monitoring", "Exchange liquidity", "Reserve context"],
-  "commodities/energy": ["Spot prices", "Futures prices", "Supply-demand analysis", "Correlation analysis"],
-  "commodities/metals": ["Precious metals", "Industrial metals", "Futures contracts", "Currency sensitivity"],
-  "commodities/agriculture": ["Crop markets", "Weather impact", "Supply regions", "Seasonality"],
-  "commodities/industrial": ["Industrial inputs", "Demand trends", "Manufacturing signals", "Regional supply"],
-  "news/regions": ["Region-wise news", "Macro summaries", "Country filters", "Market alerts"],
-  "news/sectors": ["Sector-wise news", "Theme tracking", "AI summaries", "ETF impact"],
-  "news/crypto": ["Crypto news", "On-chain context", "Regulation updates", "Exchange developments"],
-  "news/alerts": ["Market alerts", "Breaking catalysts", "Watchlist alerts", "Importance filters"],
+  "markets/global-overview": ["majorIndicesWidgets", "topGainersLosers", "heatmaps", "marketSentiment"],
+  "markets/pre-market": ["preMarketMovers", "indexFutures", "volumeSpikes", "openingWatchlist"],
+  "markets/after-hours": ["afterHoursMovers", "earningsReactions", "extendedSessionVolume", "newsCatalysts"],
+  "markets/heatmaps": ["equityHeatmaps", "sectorPerformance", "regionalBreadth", "assetClassComparison"],
+  "markets/movers": ["topGainers", "topLosers", "mostActive", "unusualVolume"],
+  "markets/volatility-index": ["vixOverview", "fearGreedContext", "volatilityTermStructure", "riskDashboard"],
+  "exchanges/region/americas": ["countryFilters", "exchangeStatistics", "listedCompanies", "regionalNews"],
+  "stocks/gainers": ["liveGainers", "volumeFilters", "marketCapFilters", "sectorBreakdown"],
+  "stocks/losers": ["liveLosers", "riskAlerts", "indexImpact", "watchlistActions"],
+  "crypto/trending": ["trendingCoins", "marketCapRanking", "exchangeListings", "historicalPerformance"],
+  "crypto/meme-coins": ["memeCoinRankings", "volumeBursts", "communityMomentum", "riskFlags"],
+  "crypto/defi": ["defiEcosystem", "tvlMetrics", "protocolCategories", "tokenPerformance"],
+  "crypto/layer-1": ["layer1Chains", "consensusDetails", "tokenomics", "developerEcosystem"],
+  "crypto/stablecoins": ["stablecoinSupply", "pegMonitoring", "exchangeLiquidity", "reserveContext"],
+  "commodities/energy": ["spotPrices", "futuresPrices", "supplyDemandAnalysis", "correlationAnalysis"],
+  "commodities/metals": ["preciousMetals", "industrialMetals", "futuresContracts", "currencySensitivity"],
+  "commodities/agriculture": ["cropMarkets", "weatherImpact", "supplyRegions", "seasonality"],
+  "commodities/industrial": ["industrialInputs", "demandTrends", "manufacturingSignals", "regionalSupply"],
+  "news/regions": ["regionWiseNews", "macroSummaries", "countryFilters", "marketAlerts"],
+  "news/sectors": ["sectorWiseNews", "themeTracking", "aiSummaries", "etfImpact"],
+  "news/crypto": ["cryptoNews", "onChainContext", "regulationUpdates", "exchangeDevelopments"],
+  "news/alerts": ["marketAlerts", "breakingCatalysts", "watchlistAlerts", "importanceFilters"],
 };
 
 const titleFromSlug = (slug: string) =>
@@ -1215,22 +1233,23 @@ const titleFromSlug = (slug: string) =>
     .join(" ") ?? "Market Module";
 
 const PublicModulePage: React.FC<{ slug: string; eyebrow: string; title?: string }> = ({ slug, eyebrow, title }) => {
-  const features = moduleFeatures[slug] ?? ["Live market summary", "Filters", "Analytics widgets", "Related news"];
+  const { t } = useI18n();
+  const features = moduleFeatures[slug] ?? ["liveMarketSummary", "filters", "analyticsWidgets", "relatedNews"];
 
   return (
     <div className="page intelligence-page">
       <div className="section-heading">
-        <p className="eyebrow">{eyebrow}</p>
-        <h1>{title ?? titleFromSlug(slug)}</h1>
-        <p>This workspace is part of the MarketsPivot global markets intelligence structure.</p>
+        <p className="eyebrow">{t(eyebrow)}</p>
+        <h1>{title ? t(title) : titleFromSlug(slug)}</h1>
+        <p>{t("markets:moduleWorkspaceCopy")}</p>
       </div>
       <div className="asset-grid compact">
         {features.map((feature) => (
           <div key={feature} className="asset-card">
-            <span className="eyebrow">Feature</span>
-            <h3>{feature}</h3>
-            <p>Ready for live APIs, filters, charts, and saved user workflows.</p>
-            <strong>Planned</strong>
+            <span className="eyebrow">{t("markets:feature")}</span>
+            <h3>{t(`markets:moduleFeatures.${feature}`)}</h3>
+            <p>{t("markets:moduleFeatureReady")}</p>
+            <strong>{t("markets:planned")}</strong>
           </div>
         ))}
       </div>
@@ -1239,6 +1258,7 @@ const PublicModulePage: React.FC<{ slug: string; eyebrow: string; title?: string
 };
 
 const RegionsPage = () => {
+  const { t } = useI18n();
   const { regionId } = useParams();
   const region = marketRegions.find((item) => item.id.toLowerCase() === regionId?.toLowerCase());
 
@@ -1247,40 +1267,40 @@ const RegionsPage = () => {
       <div className="page intelligence-page">
         <section className="coverage-hero">
           <div>
-            <p className="eyebrow">Market Region</p>
-            <h1>{region.name}</h1>
+            <p className="eyebrow">{t("markets:marketRegion")}</p>
+            <h1>{translateStatic(t, region.nameKey, region.name)}</h1>
             <p>{region.summary}</p>
           </div>
           <div className="metric-strip">
-            <MetricTile label="GDP Growth" value={`${region.gdpGrowth.toFixed(1)}%`} tone="positive" />
-            <MetricTile label="Inflation" value={`${region.inflation.toFixed(1)}%`} />
-            <MetricTile label="Countries" value={String(region.countries.length)} />
+            <MetricTile label={t("markets:gdpGrowthShort")} value={`${region.gdpGrowth.toFixed(1)}%`} tone="positive" />
+            <MetricTile label={t("markets:inflation")} value={`${region.inflation.toFixed(1)}%`} />
+            <MetricTile label={t("common:regionspagenew.h4")} value={String(region.countries.length)} />
           </div>
         </section>
 
         <section className="detail-grid">
           <div className="detail-panel wide">
-            <p className="eyebrow">Major Exchanges</p>
+            <p className="eyebrow">{t("markets:majorExchanges")}</p>
             <ChipList items={region.majorExchanges} toPrefix="/stocks/" />
           </div>
           <div className="detail-panel">
-            <p className="eyebrow">Currencies</p>
+            <p className="eyebrow">{t("markets:currencyCount")}</p>
             <ChipList items={region.currencies} toPrefix="/currencies/" />
           </div>
           <div className="detail-panel">
-            <p className="eyebrow">Key Indices</p>
+            <p className="eyebrow">{t("markets:keyIndices")}</p>
             <ChipList items={region.keyIndices} />
           </div>
           <div className="detail-panel">
-            <p className="eyebrow">Economic Calendar</p>
+            <p className="eyebrow">{t("markets:economicCalendar")}</p>
             <ChipList items={region.calendarFocus} />
           </div>
           <div className="detail-panel">
-            <p className="eyebrow">Sector Leaders</p>
+            <p className="eyebrow">{t("markets:sectorLeaders")}</p>
             <ChipList items={region.sectorLeaders} />
           </div>
           <div className="detail-panel wide">
-            <p className="eyebrow">Commodity Impact</p>
+            <p className="eyebrow">{t("markets:commodityImpact")}</p>
             <p>{region.commodityImpact}</p>
           </div>
         </section>
@@ -1291,9 +1311,9 @@ const RegionsPage = () => {
   return (
     <div className="page intelligence-page">
       <div className="section-heading">
-        <p className="eyebrow">Regions</p>
-        <h1>Global Market Regions</h1>
-        <p>Regional indices, currencies, macro calendars, commodity exposure, exchange coverage, and sector leadership in one map.</p>
+        <p className="eyebrow">{t("markets:regionsTitle")}</p>
+        <h1>{t("markets:regionsHeading")}</h1>
+        <p>{t("markets:regionsIntro")}</p>
       </div>
       <div className="market-map-grid">
         {marketRegions.map((item) => (
@@ -1301,7 +1321,7 @@ const RegionsPage = () => {
             key={item.id}
             to={`/regions/${item.id}`}
             eyebrow={item.group}
-            title={item.name}
+            title={translateStatic(t, item.nameKey, item.name)}
             meta={`${item.countries.join(", ")} / ${item.currencies.join(", ")}`}
             metric={`${item.gdpGrowth.toFixed(1)}% GDP / ${item.inflation.toFixed(1)}% CPI`}
           />
@@ -1312,6 +1332,7 @@ const RegionsPage = () => {
 };
 
 const SectorsPage = () => {
+  const { t } = useI18n();
   const { sectorId } = useParams();
   const sector = stockSectors.find((item) => item.id.toLowerCase() === sectorId?.toLowerCase());
 
@@ -1320,40 +1341,40 @@ const SectorsPage = () => {
       <div className="page intelligence-page">
         <section className="coverage-hero">
           <div>
-            <p className="eyebrow">Stock Sector</p>
-            <h1>{sector.name}</h1>
+            <p className="eyebrow">{t("markets:stockSector")}</p>
+            <h1>{translateStatic(t, sector.nameKey, sector.name)}</h1>
             <p>{sector.summary}</p>
           </div>
           <div className="metric-strip">
-            <MetricTile label="Category" value={sector.category} />
-            <MetricTile label="Sector PE" value={sector.peRatio.toFixed(1)} />
+            <MetricTile label={t("crypto:category")} value={sector.category} />
+            <MetricTile label={t("common:sectorspagenew.h23")} value={sector.peRatio.toFixed(1)} />
             <MetricTile label="YTD" value={formatSignedPercent(sector.performanceYtd)} tone={sector.performanceYtd >= 0 ? "positive" : "negative"} />
           </div>
         </section>
 
         <section className="detail-grid">
           <div className="detail-panel wide">
-            <p className="eyebrow">Top Companies</p>
+            <p className="eyebrow">{t("common:sectorspagenew.h17")}</p>
             <ChipList items={sector.topCompanies} />
           </div>
           <div className="detail-panel">
-            <p className="eyebrow">ETFs</p>
+            <p className="eyebrow">{t("nav:etfs")}</p>
             <ChipList items={sector.etfs} />
           </div>
           <div className="detail-panel">
-            <p className="eyebrow">Trending Stocks</p>
+            <p className="eyebrow">{t("markets:trendingStocks")}</p>
             <ChipList items={sector.trendingStocks} />
           </div>
           <div className="detail-panel">
-            <p className="eyebrow">Dividend Leaders</p>
+            <p className="eyebrow">{t("markets:dividendLeaders")}</p>
             <ChipList items={sector.dividendLeaders} />
           </div>
           <div className="detail-panel">
-            <p className="eyebrow">Related Regions</p>
+            <p className="eyebrow">{t("markets:relatedRegions")}</p>
             <ChipList items={sector.relatedRegions} toPrefix="/regions/" />
           </div>
           <div className="detail-panel wide">
-            <p className="eyebrow">News Themes</p>
+            <p className="eyebrow">{t("markets:newsThemes")}</p>
             <ChipList items={sector.newsThemes} />
           </div>
         </section>
@@ -1364,9 +1385,9 @@ const SectorsPage = () => {
   return (
     <div className="page intelligence-page">
       <div className="section-heading">
-        <p className="eyebrow">Sectors</p>
-        <h1>Stock Categories & Sector Intelligence</h1>
-        <p>Technology, banking, AI, energy, healthcare, mining, real estate, semiconductor, and thematic equity coverage.</p>
+        <p className="eyebrow">{t("markets:sectorsTitle")}</p>
+        <h1>{t("markets:sectorsHeading")}</h1>
+        <p>{t("markets:sectorsIntro")}</p>
       </div>
       <div className="asset-grid compact">
         {stockSectors.map((item) => (
@@ -1374,7 +1395,7 @@ const SectorsPage = () => {
             key={item.id}
             to={`/sectors/${item.id}`}
             eyebrow={item.category}
-            title={item.name}
+            title={translateStatic(t, item.nameKey, item.name)}
             meta={`${item.topCompanies.slice(0, 3).join(", ")} / ${item.etfs.join(", ")}`}
             metric={`${formatSignedPercent(item.performanceYtd)} YTD / ${item.peRatio.toFixed(1)} PE`}
           />
@@ -1390,8 +1411,8 @@ const SectorsPage = () => {
 const COMMODITY_CATEGORIES = [
   {
     id: "energy",
-    label: "Energy",
-    desc: "Oil, Gas & Power",
+    labelKey: "nav:energy",
+    descKey: "pages:category.commoditiesEnergy.description",
     path: "/commodities/energy",
     icon: <HiBolt size={28} />,
     color: "#f59e0b",
@@ -1399,8 +1420,8 @@ const COMMODITY_CATEGORIES = [
   },
   {
     id: "metals",
-    label: "Metals",
-    desc: "Precious & Industrial",
+    labelKey: "nav:metals",
+    descKey: "pages:category.commoditiesMetals.description",
     path: "/commodities/metals",
     icon: <HiCube size={28} />,
     color: "#6366f1",
@@ -1408,8 +1429,8 @@ const COMMODITY_CATEGORIES = [
   },
   {
     id: "agriculture",
-    label: "Agriculture",
-    desc: "Crops & Grains",
+    labelKey: "nav:agriculture",
+    descKey: "pages:category.commoditiesAgriculture.description",
     path: "/commodities/agriculture",
     icon: <HiSun size={28} />,
     color: "#16a34a",
@@ -1417,8 +1438,8 @@ const COMMODITY_CATEGORIES = [
   },
   {
     id: "industrial",
-    label: "Industrial",
-    desc: "Raw Materials",
+    labelKey: "nav:industrial",
+    descKey: "pages:category.commoditiesIndustrial.description",
     path: "/commodities/industrial",
     icon: <HiWrench size={28} />,
     color: "#0ea5e9",
@@ -1427,6 +1448,7 @@ const COMMODITY_CATEGORIES = [
 ];
 
 const CommoditiesPage = () => {
+  const { t } = useI18n();
   const { commodityId } = useParams();
   const commodity = commodities.find(
     (item) => item.id.toLowerCase() === commodityId?.toLowerCase() || item.symbol.toLowerCase() === commodityId?.toLowerCase()
@@ -1437,32 +1459,32 @@ const CommoditiesPage = () => {
       <div className="page intelligence-page">
         <section className="coverage-hero">
           <div>
-            <p className="eyebrow">Commodity</p>
-            <h1>{commodity.name}</h1>
+            <p className="eyebrow">{t("markets:commodity")}</p>
+            <h1>{translateStatic(t, commodity.nameKey, commodity.name)}</h1>
             <p>{commodity.economicImpact}</p>
           </div>
           <div className="metric-strip">
-            <MetricTile label="Spot Price" value={`${formatMoney(commodity.spotPrice)} / ${commodity.unit}`} />
-            <MetricTile label="24h Move" value={formatSignedPercent(commodity.changePercent24h)} tone={commodity.changePercent24h >= 0 ? "positive" : "negative"} />
-            <MetricTile label="Futures" value={commodity.futuresContract} />
+            <MetricTile label={t("markets:spotAndFutures")} value={`${formatMoney(commodity.spotPrice)} / ${commodity.unit}`} />
+            <MetricTile label={t("common:watchlistpage.h18")} value={formatSignedPercent(commodity.changePercent24h)} tone={commodity.changePercent24h >= 0 ? "positive" : "negative"} />
+            <MetricTile label={t("common:premarketpage.h3")} value={commodity.futuresContract} />
           </div>
         </section>
 
         <section className="detail-grid">
           <div className="detail-panel">
-            <p className="eyebrow">Category</p>
+            <p className="eyebrow">{t("crypto:category")}</p>
             <strong>{commodity.category}</strong>
           </div>
           <div className="detail-panel">
-            <p className="eyebrow">Supply Regions</p>
+            <p className="eyebrow">{t("markets:supplyRegions")}</p>
             <ChipList items={commodity.supplyRegions} />
           </div>
           <div className="detail-panel wide">
-            <p className="eyebrow">Demand Trends</p>
+            <p className="eyebrow">{t("markets:demandTrends")}</p>
             <ChipList items={commodity.demandTrends} />
           </div>
           <div className="detail-panel wide">
-            <p className="eyebrow">Currency Correlation</p>
+            <p className="eyebrow">{t("markets:currencyCorrelation")}</p>
             <p>{commodity.currencyCorrelation}</p>
           </div>
         </section>
@@ -1473,20 +1495,21 @@ const CommoditiesPage = () => {
   return (
     <>
       <SubMenuNav
-        title="Commodity Categories"
+        title={t("common:watchlistpage.h12")}
+        titleKey="common:watchlistpage.h12"
         items={[
-          { label: "All Commodities", path: "/commodities" },
-          { label: "Energy", path: "/commodities/energy" },
-          { label: "Metals", path: "/commodities/metals" },
-          { label: "Agriculture", path: "/commodities/agriculture" },
-          { label: "Industrial", path: "/commodities/industrial" },
+          { label: "All Commodities", labelKey: "common:watchlistpage.h12", path: "/commodities" },
+          { label: "Energy", labelKey: "nav:energy", path: "/commodities/energy" },
+          { label: "Metals", labelKey: "nav:metals", path: "/commodities/metals" },
+          { label: "Agriculture", labelKey: "nav:agriculture", path: "/commodities/agriculture" },
+          { label: "Industrial", labelKey: "nav:industrial", path: "/commodities/industrial" },
         ]}
       />
       <div className="page intelligence-page">
         <div className="section-heading">
-          <p className="eyebrow">Commodities</p>
-          <h1>Energy, Metals, Agriculture & Industrial Inputs</h1>
-          <p>Spot prices, futures references, supply regions, demand trends, currency correlations, and macro impact.</p>
+          <p className="eyebrow">{t("common:watchlistpage.h12")}</p>
+          <h1>{t("markets:commoditiesHeading")}</h1>
+          <p>{t("markets:commoditiesIntro")}</p>
         </div>
 
         <div className="commodity-categories-grid">
@@ -1503,9 +1526,9 @@ const CommoditiesPage = () => {
                   {cat.icon}
                 </div>
                 <div className="commodity-category-info">
-                  <strong>{cat.label}</strong>
-                  <span>{cat.desc}</span>
-                  <span className="commodity-category-count">{count} assets</span>
+                  <strong>{t(cat.labelKey)}</strong>
+                  <span>{t(cat.descKey)}</span>
+                  <span className="commodity-category-count">{count} {t("common:categorypage.h3")}</span>
                 </div>
                 <HiSparkles size={14} className="commodity-category-arrow" style={{ color: cat.color }} />
               </Link>
@@ -1519,7 +1542,7 @@ const CommoditiesPage = () => {
               key={item.id}
               to={`/commodities/${item.id}`}
               eyebrow={item.category}
-              title={`${item.name} (${item.symbol})`}
+              title={`${translateStatic(t, item.nameKey, item.name)} (${item.symbol})`}
               meta={`${item.futuresContract} / ${item.supplyRegions.join(", ")}`}
               metric={`${formatMoney(item.spotPrice)} / ${item.unit} (${formatSignedPercent(item.changePercent24h)})`}
             />
@@ -1603,8 +1626,8 @@ const UserPanelPage = () => {
           <div className="user-profile-card">
             <span className="avatar">M</span>
             <div>
-              <strong>Markets workspace</strong>
-              <p>Sign in to unlock watchlists, alerts, preferences, and portfolio dashboard.</p>
+              <strong>{t("dashboard:userPanelTitle")}</strong>
+              <p>{t("dashboard:userPanelIntro")}</p>
             </div>
           </div>
         </section>
@@ -1617,8 +1640,8 @@ const UserPanelPage = () => {
       <section className="user-hero">
         <div>
           <p className="eyebrow">{t("userPanel")}</p>
-          <h1>Welcome, {displayName.split(" ")[0]}</h1>
-          <p>Your watchlist, alerts, portfolio mix, and account preferences in one dashboard.</p>
+          <h1>{t("auth:loginTitle")}, {displayName.split(" ")[0]}</h1>
+          <p>{t("dashboard:userPanelIntro")}</p>
         </div>
         <div className="user-profile-card">
           <span className="avatar">{user.name.charAt(0).toUpperCase()}</span>
@@ -1628,8 +1651,8 @@ const UserPanelPage = () => {
                 <input value={name} onChange={(e) => setName(e.target.value)} />
                 <input value={email} onChange={(e) => setEmail(e.target.value)} />
                 <div style={{ marginTop: 8 }}>
-                  <button onClick={saveProfile} className="primary-action">Save</button>
-                  <button onClick={() => setEditing(false)} className="secondary-action">Cancel</button>
+                  <button onClick={saveProfile} className="primary-action">{t("common:save")}</button>
+                  <button onClick={() => setEditing(false)} className="secondary-action">{t("common:cancel")}</button>
                 </div>
               </div>
             ) : (
@@ -1637,7 +1660,7 @@ const UserPanelPage = () => {
                 <strong>{user.name}</strong>
                 <p>{user.email}</p>
                 <div style={{ marginTop: 8 }}>
-                  <button onClick={() => setEditing(true)} className="secondary-action">Edit Profile</button>
+                  <button onClick={() => setEditing(true)} className="secondary-action">{t("common:portfoliopage.h26")}</button>
                   <button onClick={logout} className="link-button">{t("logout")}</button>
                 </div>
               </div>
@@ -1648,10 +1671,10 @@ const UserPanelPage = () => {
 
       <section className="user-stat-grid">
         {[
-          { label: "Watchlist", value: String(userWatchlist.length), meta: "Saved markets", highlight: true },
-          { label: "Alerts", value: String(userAlerts.length), meta: "Active signals" },
-          { label: "Base FX", value: "USD", meta: "Default currency" },
-          { label: "Risk", value: "Moderate", meta: "Profile mode" },
+          { label: t("dashboard:watchlist"), value: String(userWatchlist.length), meta: t("dashboard:savedMarkets"), highlight: true },
+          { label: t("nav:alerts"), value: String(userAlerts.length), meta: t("dashboard:alertCenter") },
+          { label: t("dashboard:baseCurrencyPreference"), value: "USD", meta: t("dashboard:defaultMarket") },
+          { label: t("dashboard:riskProfile"), value: t("dashboard:moderate"), meta: t("dashboard:preferences") },
         ].map((item) => (
           <div key={item.label} className={`user-stat-card ${item.highlight ? "highlight" : ""}`}>
             <span>{item.label}</span>
@@ -1688,7 +1711,7 @@ const UserPanelPage = () => {
             <div className="user-section-header">
               <div>
                 <p className="eyebrow">{t("portfolioAllocation")}</p>
-                <h2>Multi-asset mix</h2>
+                <h2>{t("common:portfoliopage.h31")}</h2>
               </div>
             </div>
             <div className="allocation-bars">
@@ -1712,10 +1735,10 @@ const UserPanelPage = () => {
           <div className="user-market-card">
             <div className="user-section-header">
               <div>
-                <p className="eyebrow">Market Pulse</p>
-                <h2>Today’s dashboard</h2>
+                <p className="eyebrow">{t("markets:marketBrief")}</p>
+                <h2>{t("dashboard:title")}</h2>
               </div>
-              <span className="user-live-pill">Live</span>
+              <span className="user-live-pill">{t("common:live")}</span>
             </div>
             <div className="user-pulse-grid">
               {[
@@ -1745,8 +1768,8 @@ const UserPanelPage = () => {
           <div className="preference-card">
             <p className="eyebrow">{t("preferences")}</p>
             <div><span>{t("baseCurrencyPreference")}</span><strong>USD</strong></div>
-            <div><span>{t("defaultMarket")}</span><strong>Global</strong></div>
-            <div><span>{t("notificationMode")}</span><strong>Email</strong></div>
+            <div><span>{t("defaultMarket")}</span><strong>{t("common:categorypage.h7")}</strong></div>
+            <div><span>{t("notificationMode")}</span><strong>{t("common:layout.h10")}</strong></div>
             <div><span>{t("riskProfile")}</span><strong>{t("moderate")}</strong></div>
           </div>
 
@@ -1777,13 +1800,14 @@ function PageLoaderFallback() {
 }
 
 const NotFoundPage = () => {
+  const { t } = useI18n();
   return (
     <div className="page">
       <div className="section-heading" role="alert">
         <p className="eyebrow">404</p>
-        <h1>Page not found</h1>
-        <p>The requested page could not be found. Please check the URL or return to the home dashboard.</p>
-        <Link to="/" className="primary-action" style={{ marginTop: "1rem" }}>← Go to home</Link>
+        <h1>{t("common:categorypage.h0")}</h1>
+        <p>{t("common:categorypage.h2")}</p>
+        <Link to="/" className="primary-action" style={{ marginTop: "1rem" }}>{t("common:back")} {t("nav:dashboard")}</Link>
       </div>
     </div>
   );
@@ -1806,8 +1830,8 @@ const App: React.FC = () => {
             <Route path="stocks/watchlists" element={<WatchlistPage />} />
             <Route path="stocks/portfolio" element={<PortfolioPage />} />
             <Route path="stocks/alerts" element={<UserPanelPage />} />
-            <Route path="stocks/gainers" element={<PublicModulePage slug="stocks/gainers" eyebrow="Stocks" title="Top Gainers" />} />
-            <Route path="stocks/losers" element={<PublicModulePage slug="stocks/losers" eyebrow="Stocks" title="Top Losers" />} />
+            <Route path="stocks/gainers" element={<PublicModulePage slug="stocks/gainers" eyebrow="nav:stocks" title="markets:topGainers" />} />
+            <Route path="stocks/losers" element={<PublicModulePage slug="stocks/losers" eyebrow="nav:stocks" title="markets:topLosers" />} />
             <Route path="stocks/symbol/:symbol" element={<StockDetailPage />} />
             <Route path="stocks/:exchangeId" element={<StocksPage />} />
             <Route path="coverage" element={<CoveragePage />} />

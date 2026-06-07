@@ -15,7 +15,7 @@ const ForbiddenPage: React.FC<{ message?: string }> = ({ message }) => {
   <div className="page">
     <EmptyState
       icon="🛡"
-      title={t("src_client_components_forbiddenpage__l13__h0")}
+      title={t("forbiddenpage.h0")}
       description={
         message ??
         "You don't have permission to view this page. Please contact your administrator if you believe this is a mistake."

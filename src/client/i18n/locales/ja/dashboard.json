@@ -1,14 +1,36 @@
 {
-  "title": "グローバルダッシュボード",
-  "intro": "株式、FX、暗号資産を一つの画面で管理。将来のライブデータ、ニュース、チャート、比較モジュールにも対応。",
-  "userPanelTitle": "あなたのマーケットワークスペース",
-  "userPanelIntro": "お気に入りの取引所、通貨、暗号資産、アラート、ポートフォリオを一つの洗練されたダッシュボードで。",
+  "title": "グローバル市場ダッシュボード",
+  "intro": "株式、FX、暗号資産、地域、セクター、商品、イベント、センチメント、ウォッチリストを一つのワークスペースで確認できます。",
+  "liveTapeLabel": "ライブマーケットテープ",
+  "crossMarket": "クロスマーケットビュー",
+  "topExchange": "主要取引所",
+  "coreReserve": "コア準備通貨",
+  "cryptoLeader": "暗号資産リーダー",
+  "regionPulse": "地域パルス",
+  "sectorPulse": "セクターパルス",
+  "commodityPulse": "商品パルス",
+  "primaryBase": "主要換算基準",
+  "majorIndices": "主要指数",
+  "worldSnapshot": "世界市場スナップショット",
+  "marketMovers": "マーケットムーバー",
+  "gainersAndLosers": "上昇・下落銘柄",
+  "economicEventsToday": "本日の経済イベント",
+  "macroCalendar": "マクロカレンダー",
+  "marketSentiment": "市場センチメント",
+  "forexMiniCards": "FXミニカード",
+  "currencyPulse": "通貨パルス",
+  "cryptoOverview": "暗号資産概況",
+  "marketCapLeaders": "時価総額リーダー",
+  "commoditySnapshot": "商品スナップショット",
+  "spotAndFutures": "現物と先物",
+  "watchlistPreview": "ウォッチリストプレビュー",
+  "watchlistCopy": "保存銘柄、クロスアセットアラート、ポートフォリオ文脈、アカウント設定にすばやくアクセスできます。",
   "portfolioValue": "ポートフォリオ価値",
   "watchlist": "ウォッチリスト",
   "savedMarkets": "保存済み市場",
-  "activeAlerts": "アクティブアラート",
+  "activeAlerts": "有効なアラート",
   "todayPnl": "本日の損益",
-  "quickActions": "クイックアクション",
+  "quickActions": "クイック操作",
   "addWatchlist": "ウォッチリスト追加",
   "createAlert": "アラート作成",
   "exportReport": "レポート出力",
@@ -18,12 +40,44 @@
   "alertCenter": "アラートセンター",
   "preferences": "設定",
   "baseCurrencyPreference": "基軸通貨",
-  "defaultMarket": "デフォルト市場",
+  "defaultMarket": "既定市場",
   "notificationMode": "通知モード",
   "compactMode": "コンパクトモード",
   "emailDigest": "メールダイジェスト",
-  "marketOpenAlerts": "マーケットオープンアラート",
+  "marketOpenAlerts": "市場開始アラート",
   "riskProfile": "リスクプロファイル",
-  "moderate": "中立",
-  "marketsFollowed": "フォロー中の市場"
+  "moderate": "中程度",
+  "marketsFollowed": "フォロー中の市場",
+  "userPanelTitle": "あなたの市場ワークスペース",
+  "userPanelIntro": "取引所、通貨、暗号資産、アラート、ポートフォリオ文脈を一つの画面で追跡できます。",
+  "importance": {
+    "high": "高",
+    "medium": "中",
+    "low": "低"
+  },
+  "economicEvents": {
+    "usCpi": "米国CPI",
+    "ecbRemarks": "ECB政策発言",
+    "us10yAuction": "米10年債入札",
+    "fomcMinutes": "FOMC議事要旨"
+  },
+  "sentiment": {
+    "equities": {
+      "label": "株式",
+      "detail": "リスクオンの広がり"
+    },
+    "fx": {
+      "label": "FX",
+      "detail": "米ドルはまちまち"
+    },
+    "crypto": {
+      "label": "暗号資産",
+      "detail": "モメンタム買い"
+    },
+    "commodities": {
+      "label": "商品",
+      "detail": "エネルギーは軟調"
+    }
+  },
+  "currencyRate": "1 {{base}} = {{rate}} {{quote}}"
 }

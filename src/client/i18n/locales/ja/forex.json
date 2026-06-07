@@ -1,34 +1,190 @@
 {
-  "currencyType": "通貨タイプ",
-  "centralBank": "中央銀行",
-  "exchangeRates": "為替レート",
-  "converter": "通貨コンバーター",
-  "popularPairs": "人気通貨ペア",
-  "economicData": "経済データ",
-  "code": "コード",
-  "symbol": "シンボル",
-  "country": "国",
-  "region": "地域",
-  "type": "種類",
-  "rate": "レート",
-  "bid": "買値",
-  "ask": "売値",
-  "spread": "スプレッド",
-  "loadingRates": "為替レートを読み込み中...",
   "amountPlaceholder": "金額を入力",
-  "economicIndicators": "経済指標",
-  "interestRate": "金利",
-  "inflationRate": "インフレ率",
-  "gdpGrowth": "GDP成長率",
-  "employment": "雇用",
-  "dataLoading": "データを読み込み中...",
-  "economicNews": "経済ニュースと更新",
+  "annualRate": "年率",
+  "ask": "売値",
+  "bid": "買値",
+  "centralBank": "中央銀行",
+  "change24h": "24時間変動",
+  "code": "コード",
+  "converter": "通貨コンバーター",
+  "countries": {
+    "ae": {
+      "name": "アラブ首長国連邦"
+    },
+    "au": {
+      "name": "オーストラリア"
+    },
+    "br": {
+      "name": "ブラジル"
+    },
+    "ca": {
+      "name": "カナダ"
+    },
+    "ch": {
+      "name": "スイス"
+    },
+    "cl": {
+      "name": "チリ"
+    },
+    "cn": {
+      "name": "中国"
+    },
+    "eu": {
+      "name": "欧州連合"
+    },
+    "gb": {
+      "name": "英国"
+    },
+    "hk": {
+      "name": "香港"
+    },
+    "in": {
+      "name": "インド"
+    },
+    "jp": {
+      "name": "日本"
+    },
+    "kr": {
+      "name": "韓国"
+    },
+    "mx": {
+      "name": "メキシコ"
+    },
+    "no": {
+      "name": "ノルウェー"
+    },
+    "sa": {
+      "name": "サウジアラビア"
+    },
+    "se": {
+      "name": "スウェーデン"
+    },
+    "sg": {
+      "name": "シンガポール"
+    },
+    "us": {
+      "name": "米国"
+    },
+    "za": {
+      "name": "南アフリカ"
+    }
+  },
+  "country": "国",
+  "currencies": {
+    "aed": {
+      "name": "name",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "aud": {
+      "name": "豪ドル",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "brl": {
+      "name": "ブラジルレアル",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "cad": {
+      "name": "カナダドル",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "chf": {
+      "name": "スイスフラン",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "clp": {
+      "name": "チリペソ",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "cny": {
+      "name": "中国人民元",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "eur": {
+      "name": "ユーロ",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "gbp": {
+      "name": "英ポンド",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "hkd": {
+      "name": "香港ドル",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "inr": {
+      "name": "インドルピー",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "jpy": {
+      "name": "日本円",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "krw": {
+      "name": "韓国ウォン",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "mxn": {
+      "name": "メキシコペソ",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "nok": {
+      "name": "ノルウェークローネ",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "sar": {
+      "name": "サウジリヤル",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "sek": {
+      "name": "スウェーデンクローナ",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "sgd": {
+      "name": "シンガポールドル",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    },
+    "usd": {
+      "name": "米ドル",
+      "description": "世界で最も広く使われている準備通貨であり、世界標準です。"
+    },
+    "zar": {
+      "name": "南アフリカランド",
+      "description": "FXフロー、準備金、マクロシグナルを追跡する通貨。"
+    }
+  },
   "currencyNewsComing": "経済ニュースがここに表示されます",
   "currencyNewsSubtitle": "金利決定、インフレ報告など",
-  "vsUsd": "対USD",
+  "currencyType": "通貨タイプ",
+  "dataLoading": "データを読み込み中...",
+  "economicData": "経済データ",
+  "economicIndicators": "経済指標",
+  "economicNews": "経済ニュースと更新",
+  "employment": "雇用",
+  "exchangeRates": "為替レート",
+  "gdpGrowth": "GDP成長率",
   "high52w": "52週高値",
+  "inflationRate": "インフレ率",
+  "interestRate": "金利",
+  "loadingRates": "為替レートを読み込み中...",
   "low52w": "52週安値",
-  "annualRate": "年率",
+  "popularPairs": "人気通貨ペア",
   "quarterlyRate": "四半期率",
-  "change24h": "24時間変動"
+  "rate": "レート",
+  "region": "地域",
+  "spread": "スプレッド",
+  "symbol": "シンボル",
+  "type": "種類",
+  "vsUsd": "対USD",
+  "currencyTypes": {
+    "fiat": "法定通貨"
+  },
+  "centralBanks": {
+    "federalreserve": "連邦準備制度"
+  },
+  "regions": {
+    "northamerica": "北米"
+  },
+  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
+  "keyDataReleasesFor": "Key data releases for {{code}}",
+  "hoursAgo": "{{count}}h ago"
 }

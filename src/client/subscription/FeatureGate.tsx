@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useFeatureAccess } from "./hooks";
 import { getFeatureRule } from "./featureMatrix";
 import { PLANS } from "./plans";
+import { useI18n } from "../i18n";
 
 export interface FeatureGateProps {
   /** Feature key from the feature matrix. */
@@ -52,16 +53,21 @@ export interface UpgradePromptProps {
 }
 
 export const UpgradePrompt: React.FC<UpgradePromptProps> = ({ feature, variant = "card" }) => {
+  const { t } = useI18n();
   const rule = getFeatureRule(feature);
   const requiredPlan = rule?.requires ?? "pro";
   const planName = PLANS[requiredPlan as keyof typeof PLANS]?.name ?? "Pro";
-  const description = rule?.description ?? "Unlock this feature with a paid plan.";
+  const description = t(
+    `subscription.features.${feature}.description`,
+    rule?.description ?? t("subscription.upgrade.defaultDescription")
+  );
+  const planNameText = t(`subscription.plans.${requiredPlan}`, planName);
 
   if (variant === "inline") {
     return (
       <span className="mp-upgrade-inline">
         <Link to="/pricing" className="mp-upgrade-link">
-          Upgrade to {planName}
+          {t("subscription.upgrade.upgradeToPlan", "", { plan: planNameText })}
         </Link>
       </span>
     );
@@ -70,10 +76,10 @@ export const UpgradePrompt: React.FC<UpgradePromptProps> = ({ feature, variant =
   if (variant === "banner") {
     return (
       <div className="mp-upgrade-banner" role="status">
-        <strong>{planName} feature</strong>
+        <strong>{t("subscription.upgrade.planFeature", "", { plan: planNameText })}</strong>
         <span>{description}</span>
         <Link to="/pricing" className="primary-action">
-          Upgrade
+          {t("subscription.upgrade.upgrade")}
         </Link>
       </div>
     );
@@ -82,15 +88,15 @@ export const UpgradePrompt: React.FC<UpgradePromptProps> = ({ feature, variant =
   return (
     <div className="mp-upgrade-card" role="status" aria-live="polite">
       <div className="mp-upgrade-icon">{lockSvg}</div>
-      <p className="eyebrow">{planName} plan</p>
-      <h3>This feature requires {planName}</h3>
+      <p className="eyebrow">{t("subscription.upgrade.planLabel", "", { plan: planNameText })}</p>
+      <h3>{t("subscription.upgrade.requiresPlan", "", { plan: planNameText })}</h3>
       <p>{description}</p>
       <div className="mp-upgrade-actions">
         <Link to="/pricing" className="primary-action">
-          See plans
+          {t("subscription.upgrade.seePlans")}
         </Link>
         <Link to="/pricing" className="secondary-action">
-          Compare features
+          {t("subscription.upgrade.compareFeatures")}
         </Link>
       </div>
     </div>

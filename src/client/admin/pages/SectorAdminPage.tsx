@@ -134,7 +134,7 @@ export default function SectorAdminPage() {
 
   return (
     <AdminCrudPage<AdminSector>
-      title={t("src_client_admin_pages_sectoradminpage__l133__h0")}
+      title={t("admin/sectoradminpage.h0")}
       subtitle="Industry sectors, ETFs, market exposure metrics, and performance analytics"
       useStore={useSectorAdminStore}
       columns={columns}

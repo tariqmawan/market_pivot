@@ -1,0 +1,5 @@
+- [ ] Update `market_pivot/src/client/pages/EconomicCalendar.tsx` to remove hardcoded strings and use i18n keys
+- [ ] Add `economiccalendar` keys under `pages.json` for all supported languages in `market_pivot/src/client/i18n/locales/*/pages.json`
+- [ ] Ensure no hardcoded “Pending/Unchanged/Today/Tomorrow/This Week/country names/metric labels” remain in EconomicCalendar UI
+- [ ] Run typecheck/build to confirm compile + i18n runtime safety
+- [ ] (Optional) i18n audit script run if available to confirm missing keys

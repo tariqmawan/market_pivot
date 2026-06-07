@@ -54,8 +54,18 @@ function sameArray(a, b) {
 }
 
 const mojibakePattern = /(?:Ã|Â|Ø|Ù|à¤|à¥|ðŸ|�|Tr�duction|अनुवाद:)/;
+const questionDamagePattern = /\?{2,}/;
+const inlineQuestionDamagePattern = /[\p{L}]\?[\p{L}]/gu;
 const todoPattern = /TODO translation|translate me|missing translation/i;
 const generatedKeyPattern = /^(codemod_|src_client_)/;
+
+function isDamagedLocaleValue(value) {
+  if (typeof value !== "string") return false;
+  if (value.trim() === "" || mojibakePattern.test(value) || questionDamagePattern.test(value) || todoPattern.test(value)) {
+    return true;
+  }
+  return [...value.matchAll(inlineQuestionDamagePattern)].length >= 2;
+}
 
 function listFiles(dir, out = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -169,7 +179,7 @@ for (const fileName of enFiles) {
         placeholderMismatches += 1;
         issues.push(`Placeholder mismatch: ${lang}/${fileName}:${key}`);
       }
-      if (typeof localValue === "string" && (localValue.trim() === "" || mojibakePattern.test(localValue) || todoPattern.test(localValue))) {
+      if (isDamagedLocaleValue(localValue)) {
         badLocaleValues += 1;
         issues.push(`Bad locale value: ${lang}/${fileName}:${key} = ${localValue.slice(0, 80)}`);
       }

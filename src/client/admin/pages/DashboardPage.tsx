@@ -94,7 +94,7 @@ export default function DashboardPage() {
   if (error) {
     return (
       <div className="mp-admin-content">
-        <PageHeader title={t("src_client_admin_pages_dashboardpage__l94__h0")} subtitle="Live platform metrics" />
+        <PageHeader title={t("admin/dashboardpage.h0")} subtitle="Live platform metrics" />
         <p className="mp-admin-muted">{error}</p>
         <button type="button" className="mp-admin-action-btn" onClick={() => void reload()}>
           Retry
@@ -110,7 +110,7 @@ export default function DashboardPage() {
   return (
     <div className="mp-admin-content">
       <PageHeader
-        title={t("src_client_admin_pages_dashboardpage__l110__h1")}
+        title={t("admin/dashboardpage.h1")}
         subtitle="Real-time data from PostgreSQL — updates every 15s via WebSocket"
         actions={
           <button type="button" className="mp-admin-action-btn" onClick={() => void reload()} disabled={loading}>
@@ -121,20 +121,20 @@ export default function DashboardPage() {
 
       {/* KPI Row */}
       <section className="mp-admin-grid-4">
-        <KpiCard label={t("src_client_admin_pages_dashboardpage__l121__h2")} value={loading ? "…" : String(stats?.users.total ?? 0)} sub="Registered accounts" color={C_GOLD_BRIGHT} />
-        <KpiCard label={t("src_client_admin_pages_dashboardpage__l122__h3")} value={loading ? "…" : String(stats?.users.active ?? 0)} sub="Last 30 days" color="#6ee7b7" />
-        <KpiCard label={t("src_client_admin_pages_dashboardpage__l123__h4")} value={loading ? "…" : String(stats?.subscriptions.active ?? 0)} sub="Paying customers" color={C_GOLD} />
-        <KpiCard label={t("src_client_admin_pages_dashboardpage__l124__h5")} value={loading ? "…" : `$${stats?.revenue.mrrEstimate ?? 0}`} sub="Monthly recurring" color="#f0c060" />
+        <KpiCard label={t("admin/dashboardpage.h2")} value={loading ? "…" : String(stats?.users.total ?? 0)} sub="Registered accounts" color={C_GOLD_BRIGHT} />
+        <KpiCard label={t("admin/dashboardpage.h3")} value={loading ? "…" : String(stats?.users.active ?? 0)} sub="Last 30 days" color="#6ee7b7" />
+        <KpiCard label={t("admin/dashboardpage.h4")} value={loading ? "…" : String(stats?.subscriptions.active ?? 0)} sub="Paying customers" color={C_GOLD} />
+        <KpiCard label={t("admin/dashboardpage.h5")} value={loading ? "…" : `$${stats?.revenue.mrrEstimate ?? 0}`} sub="Monthly recurring" color="#f0c060" />
       </section>
 
       {/* Charts Row 1 */}
       <section className="mp-admin-grid-2" style={{ marginTop: 18 }}>
         {/* User Trend Area Chart */}
         <GlassCard>
-          <SectionTitle>{t("src_client_admin_pages_dashboardpage__l131__h6")}</SectionTitle>
+          <SectionTitle>{t("admin/dashboardpage.h6")}</SectionTitle>
           <div className="mp-admin-card-head" style={{ marginBottom: 12 }}>
-            <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("src_client_admin_pages_dashboardpage__l133__h7")}</h3>
-            <span className="mp-admin-muted">{t("src_client_admin_pages_dashboardpage__l134__h8")}</span>
+            <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("admin/dashboardpage.h7")}</h3>
+            <span className="mp-admin-muted">{t("admin/dashboardpage.h8")}</span>
           </div>
           <ResponsiveContainer width="100%" height={200}>
             <AreaChart data={userTrend} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
@@ -163,10 +163,10 @@ export default function DashboardPage() {
 
         {/* Content Pie Chart */}
         <GlassCard>
-          <SectionTitle>{t("src_client_admin_pages_dashboardpage__l163__h9")}</SectionTitle>
+          <SectionTitle>{t("admin/dashboardpage.h9")}</SectionTitle>
           <div className="mp-admin-card-head" style={{ marginBottom: 12 }}>
-            <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("src_client_admin_pages_dashboardpage__l165__h10")}</h3>
-            <span className="mp-admin-muted">{t("src_client_admin_pages_dashboardpage__l166__h11")}</span>
+            <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("admin/dashboardpage.h10")}</h3>
+            <span className="mp-admin-muted">{t("admin/dashboardpage.h11")}</span>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <ResponsiveContainer width="55%" height={200}>
@@ -205,10 +205,10 @@ export default function DashboardPage() {
       {/* Charts Row 2 — Market Data Bar */}
       <section style={{ marginTop: 18 }}>
         <GlassCard>
-          <SectionTitle>{t("src_client_admin_pages_dashboardpage__l205__h12")}</SectionTitle>
+          <SectionTitle>{t("admin/dashboardpage.h12")}</SectionTitle>
           <div className="mp-admin-card-head" style={{ marginBottom: 12 }}>
-            <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("src_client_admin_pages_dashboardpage__l207__h13")}</h3>
-            <span className="mp-admin-muted">{t("src_client_admin_pages_dashboardpage__l208__h14")}</span>
+            <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("admin/dashboardpage.h13")}</h3>
+            <span className="mp-admin-muted">{t("admin/dashboardpage.h14")}</span>
           </div>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={marketBar} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
@@ -231,9 +231,9 @@ export default function DashboardPage() {
       {/* Status Row */}
       <section className="mp-admin-grid-2" style={{ marginTop: 18 }}>
         <GlassCard>
-          <SectionTitle>{t("src_client_admin_pages_dashboardpage__l231__h15")}</SectionTitle>
+          <SectionTitle>{t("admin/dashboardpage.h15")}</SectionTitle>
           <div className="mp-admin-card-head">
-            <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("src_client_admin_pages_dashboardpage__l233__h16")}</h3>
+            <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("admin/dashboardpage.h16")}</h3>
             <span
               style={{
                 padding: "4px 10px",
@@ -270,9 +270,9 @@ export default function DashboardPage() {
         </GlassCard>
 
         <GlassCard>
-          <SectionTitle>{t("src_client_admin_pages_dashboardpage__l270__h17")}</SectionTitle>
+          <SectionTitle>{t("admin/dashboardpage.h17")}</SectionTitle>
           <div className="mp-admin-card-head">
-            <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("src_client_admin_pages_dashboardpage__l272__h18")}</h3>
+            <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("admin/dashboardpage.h18")}</h3>
             <span className="mp-admin-muted">Events: {stats?.content.events ?? 0}</span>
           </div>
           <div style={{ display: "grid", gap: 12, marginTop: 8 }}>

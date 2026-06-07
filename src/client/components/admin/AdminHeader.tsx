@@ -60,8 +60,8 @@ export default function AdminHeader({
 }) {
   const { t, language, setLanguage } = useI18n();
   return (
-    <header className="mp-admin-header" aria-label={t("src_client_components_admin_adminheader__l59__h0")}>
-      <button type="button" className="mp-admin-hamburger" onClick={onMobileToggle} aria-label={t("src_client_components_admin_adminheader__l60__h2")}>
+    <header className="mp-admin-header" aria-label={t("adminAdminheader.h0")}>
+      <button type="button" className="mp-admin-hamburger" onClick={onMobileToggle} aria-label={t("adminAdminheader.h2")}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M4 7h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           <path d="M4 12h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -74,12 +74,12 @@ export default function AdminHeader({
           <span className="mp-admin-search-icon" aria-hidden="true">
             <Magnifier />
           </span>
-          <input className="mp-admin-search-input" placeholder={t("src_client_components_admin_adminheader__l73__h4")} />
+          <input className="mp-admin-search-input" placeholder={t("adminAdminheader.h4")} />
         </div>
       </div>
 
       <div className="mp-admin-header-right">
-        <button type="button" className="mp-admin-icon-btn" aria-label={t("src_client_components_admin_adminheader__l78__h5")}>
+        <button type="button" className="mp-admin-icon-btn" aria-label={t("adminAdminheader.h5")}>
           <BellIcon />
         </button>
 
@@ -112,7 +112,7 @@ export default function AdminHeader({
               {t("logout")}
             </button>
           ) : (
-            <Link to="/user" className="mp-admin-user-link">{t("src_client_components_admin_adminheader__l104__h10")}</Link>
+            <Link to="/user" className="mp-admin-user-link">{t("adminAdminheader.h10")}</Link>
           )}
         </div>
       </div>

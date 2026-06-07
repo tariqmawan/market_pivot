@@ -1,6 +1,7 @@
 import React from "react";
 import type { Currency, CurrencyPair } from "../../types";
 import { useI18n } from "../i18n";
+import { translateStatic } from "../i18n/translate";
 
 
 
@@ -34,6 +35,20 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
   const [convertAmount, setConvertAmount] = React.useState<string>("1");
   const [convertTo, setConvertTo] = React.useState<string>("USD");
   const [imageError, setImageError] = React.useState(false);
+  const currencyName = translateStatic(t, currency.nameKey, currency.name);
+  const currencyCountry = translateStatic(t, currency.countryKey, currency.country);
+  const currencyDescription = translateStatic(t, currency.descriptionKey, currency.description);
+  const currencyType = translateStatic(t, `forex.currencyTypes.${currency.type}`, currency.type);
+  const currencyRegion = translateStatic(
+    t,
+    `forex.regions.${currency.region.toLowerCase().replace(/[^a-z0-9]+/g, "")}`,
+    currency.region
+  );
+  const currencyCentralBank = translateStatic(
+    t,
+    `forex.centralBanks.${currency.centralBank.toLowerCase().replace(/[^a-z0-9]+/g, "")}`,
+    currency.centralBank
+  );
 
   return (
     <div style={{ backgroundColor: "#ffffff", minHeight: "100vh", paddingTop: "24px" }}>
@@ -60,7 +75,7 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
             {currency.logo && !imageError ? (
               <img
                 src={currency.logo}
-                alt={currency.name}
+                alt={currencyName}
                 style={{
                   width: "100%",
                   height: "100%",
@@ -76,21 +91,21 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
           <div style={{ flex: 1 }}>
             <div style={{ marginBottom: "8px" }}>
               <h1 style={{ fontSize: "28px", fontWeight: 700, margin: "0", color: "#0f172a" }}>
-                {currency.code}
+                {currencyName}
               </h1>
               <p style={{ fontSize: "13px", color: "#7a8c99", margin: "4px 0 0 0", fontWeight: 500 }}>
-                {currency.name} • {currency.country}
+                {currency.code} • {currencyCountry}
               </p>
             </div>
             <p style={{ fontSize: "14px", color: "#475569", lineHeight: "1.5", margin: "12px 0 0 0", maxWidth: "500px" }}>
-              {currency.description}
+              {currencyDescription}
             </p>
 
             {/* Quick Stats */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "16px", marginTop: "20px" }}>
               <div style={{ padding: "12px", backgroundColor: "#f8fafc", borderRadius: "8px" }}>
                 <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 6px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                  Symbol
+                  {t("forex:symbol")}
                 </p>
                 <p style={{ fontSize: "18px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
                   {currency.symbol}
@@ -98,24 +113,24 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
               </div>
               <div style={{ padding: "12px", backgroundColor: "#f8fafc", borderRadius: "8px" }}>
                 <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 6px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                  Type
+                  {t("forex:currencyType") ?? t("forex:type")}
                 </p>
                 <p style={{ fontSize: "14px", fontWeight: 600, color: "#0f172a", margin: "0" }}>
-                  {currency.type}
+                  {currencyType}
                 </p>
               </div>
               <div style={{ padding: "12px", backgroundColor: "#f8fafc", borderRadius: "8px" }}>
                 <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 6px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                  Central Bank
+                  {t("forex:centralBank")}
                 </p>
                 <p style={{ fontSize: "13px", fontWeight: 600, color: "#0f172a", margin: "0" }}>
-                  {currency.centralBank}
+                  {currencyCentralBank}
                 </p>
               </div>
               {exchangeRates["USD"] && (
                 <div style={{ padding: "12px", backgroundColor: "#f8fafc", borderRadius: "8px" }}>
                   <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 6px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                    vs USD
+                    {t("forex:vsUsd")}
                   </p>
                   <p style={{ fontSize: "16px", fontWeight: 700, color: "#A27841", margin: "0" }}>
                     {exchangeRates["USD"].toFixed(4)}
@@ -129,12 +144,12 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
         {/* Tab Navigation */}
         <div style={{ display: "flex", gap: "2px", borderBottom: "1px solid #e2e8f0", paddingBottom: "0" }}>
           {[
-            { id: "overview", label: "Overview" },
-            { id: "rates", label: "Rates" },
-            { id: "converter", label: "Converter" },
-            { id: "pairs", label: "Popular Pairs" },
-            { id: "economic", label: "Economic" },
-            { id: "news", label: "News" },
+            { id: "overview", label: t("markets:overview") },
+            { id: "rates", label: t("forex:exchangeRates") },
+            { id: "converter", label: t("forex:converter") },
+            { id: "pairs", label: t("forex:popularPairs") },
+            { id: "economic", label: t("forex:economicIndicators") },
+            { id: "news", label: t("markets:news") },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -162,12 +177,12 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
         {activeTab === "overview" && (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
             {[
-              { label: "Code", value: currency.code },
-              { label: "Symbol", value: currency.symbol },
-              { label: "Country", value: currency.country },
-              { label: "Region", value: currency.region },
-              { label: "Type", value: currency.type },
-              { label: "Central Bank", value: currency.centralBank },
+              { label: t("forex:code"), value: currency.code },
+              { label: t("forex:symbol"), value: currency.symbol },
+              { label: t("forex:country"), value: currencyCountry },
+              { label: t("forex:region"), value: currencyRegion },
+              { label: t("forex:currencyType") ?? t("forex:type"), value: currencyType },
+              { label: t("forex:centralBank"), value: currencyCentralBank },
             ].map((item) => (
               <div
                 key={item.label}
@@ -195,8 +210,8 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
               <table style={{ width: "100%", borderCollapse: "collapse" }}>
                 <thead>
                   <tr style={{ borderBottom: "2px solid #e2e8f0" }}>
-                    <th style={{ padding: "14px", textAlign: "left", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_currencydetail__l196__h0")}</th>
-                    <th style={{ padding: "14px", textAlign: "right", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_currencydetail__l197__h1")}</th>
+                    <th style={{ padding: "14px", textAlign: "left", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("currencydetail.h0")}</th>
+                    <th style={{ padding: "14px", textAlign: "right", fontSize: "12px", fontWeight: 600, color: "#7a8c99", textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("currencydetail.h1")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -225,7 +240,7 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
             <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: "16px", alignItems: "flex-end", marginBottom: "32px" }}>
               <div>
                 <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "#7a8c99", marginBottom: "8px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                  From
+                  {t("common:from")}
                 </label>
                 <input
                   type="number"
@@ -246,7 +261,7 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
               <div style={{ fontSize: "18px", color: "#7a8c99", paddingBottom: "2px" }}>→</div>
               <div>
                 <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "#7a8c99", marginBottom: "8px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                  To
+                  {t("common:to")}
                 </label>
                 <select
                   value={convertTo}
@@ -269,7 +284,7 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
               </div>
             </div>
             <div style={{ padding: "20px", backgroundColor: "#f8fafc", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
-              <p style={{ fontSize: "12px", color: "#7a8c99", margin: "0 0 8px 0", fontWeight: 600 }}>{t("src_client_components_currencydetail__l270__h2")}</p>
+              <p style={{ fontSize: "12px", color: "#7a8c99", margin: "0 0 8px 0", fontWeight: 600 }}>{t("currencydetail.h2")}</p>
               <p style={{ fontSize: "24px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
                 {convertAmount} {currency.code} = <span style={{ color: "#A27841" }}>
                   {((parseFloat(convertAmount) * (exchangeRates[convertTo] || 0))).toFixed(2)} {convertTo}
@@ -285,7 +300,7 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
         {activeTab === "pairs" && (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "16px" }}>
             {popularPairs.length === 0 ? (
-              <p style={{ fontSize: "14px", color: "#7a8c99" }}>{t("src_client_components_currencydetail__l286__h3")}</p>
+              <p style={{ fontSize: "14px", color: "#7a8c99" }}>{t("currencydetail.h3")}</p>
             ) : (
               popularPairs.map((pair) => (
                 <div
@@ -307,19 +322,19 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
                   </div>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "12px" }}>
                     <div>
-                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_currencydetail__l308__h4")}</p>
+                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("currencydetail.h4")}</p>
                       <p style={{ fontSize: "14px", fontWeight: 700, color: pair.change24h >= 0 ? "#059669" : "#dc2626", margin: "0" }}>
                         {pair.change24h >= 0 ? "+" : ""}{pair.change24h.toFixed(2)}%
                       </p>
                     </div>
                     <div>
-                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_currencydetail__l314__h5")}</p>
+                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("currencydetail.h5")}</p>
                       <p style={{ fontSize: "14px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
                         {pair.high52w.toFixed(4)}
                       </p>
                     </div>
                     <div>
-                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("src_client_components_currencydetail__l320__h6")}</p>
+                      <p style={{ fontSize: "11px", color: "#7a8c99", margin: "0 0 4px 0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px" }}>{t("currencydetail.h6")}</p>
                       <p style={{ fontSize: "14px", fontWeight: 700, color: "#0f172a", margin: "0" }}>
                         {pair.low52w.toFixed(4)}
                       </p>
@@ -334,10 +349,10 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
         {activeTab === "economic" && (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "16px" }}>
             {[
-              { label: "Interest Rate", value: economicData?.interestRate ? `${economicData.interestRate}%` : "-" },
-              { label: "Inflation Rate", value: economicData?.inflationRate ? `${economicData.inflationRate}%` : "-" },
-              { label: "GDP Growth", value: economicData?.gdpGrowth ? `${economicData.gdpGrowth}%` : "-" },
-              { label: "Central Bank", value: currency.centralBank },
+              { label: t("forex:interestRate"), value: economicData?.interestRate ? `${economicData.interestRate}%` : "-" },
+              { label: t("forex:inflationRate"), value: economicData?.inflationRate ? `${economicData.inflationRate}%` : "-" },
+              { label: t("forex:gdpGrowth"), value: economicData?.gdpGrowth ? `${economicData.gdpGrowth}%` : "-" },
+              { label: t("forex:centralBank"), value: currencyCentralBank },
             ].map((item) => (
               <div
                 key={item.label}
@@ -364,7 +379,7 @@ const CurrencyDetail: React.FC<CurrencyDetailProps> = ({
             {news.length === 0 ? (
               <div style={{ padding: "40px", textAlign: "center", backgroundColor: "#f8fafc", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
                 <p style={{ fontSize: "14px", color: "#7a8c99", margin: "0" }}>
-                  No news available for {currency.code}
+                  {t("markets:noNewsAvailable")} {currency.code}
                 </p>
               </div>
             ) : (

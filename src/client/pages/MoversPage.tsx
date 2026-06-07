@@ -68,22 +68,22 @@ const MoversPage: React.FC = () => {
       {/* Hero Section */}
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">{t("src_client_pages_moverspage__l67__h0")}</p>
-          <h1>{t("src_client_pages_moverspage__l68__h1")}</h1>
-          <p>{t("src_client_pages_moverspage__l69__h2")}</p>
+          <p className="eyebrow">{t("moverspage.h0")}</p>
+          <h1>{t("moverspage.h1")}</h1>
+          <p>{t("moverspage.h2")}</p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>{t("src_client_pages_moverspage__l73__h3")}</span>
-            <strong>{t("src_client_pages_moverspage__l74__h4")}</strong>
+            <span>{t("moverspage.h3")}</span>
+            <strong>{t("moverspage.h4")}</strong>
           </div>
           <div className="metric-tile">
-            <span>{t("src_client_pages_moverspage__l77__h5")}</span>
-            <strong>{t("src_client_pages_moverspage__l78__h6")}</strong>
+            <span>{t("moverspage.h5")}</span>
+            <strong>{t("moverspage.h6")}</strong>
           </div>
           <div className="metric-tile">
-            <span>{t("src_client_pages_moverspage__l81__h7")}</span>
-            <strong>{t("src_client_pages_moverspage__l82__h8")}</strong>
+            <span>{t("moverspage.h7")}</span>
+            <strong>{t("moverspage.h8")}</strong>
           </div>
         </div>
       </section>
@@ -104,7 +104,7 @@ const MoversPage: React.FC = () => {
               transition: "all 0.2s",
             }}
           >
-            🔼 Top Gainers
+            {t("markets:topGainers")}
           </button>
           <button
             onClick={() => setActiveTab("losers")}
@@ -119,7 +119,7 @@ const MoversPage: React.FC = () => {
               transition: "all 0.2s",
             }}
           >
-            🔽 Top Losers
+            {t("markets:topLosers")}
           </button>
           <button
             onClick={() => setActiveTab("active")}
@@ -134,7 +134,7 @@ const MoversPage: React.FC = () => {
               transition: "all 0.2s",
             }}
           >
-            ⚡ Most Active
+            {t("markets:mostActive")}
           </button>
         </div>
       </section>
@@ -153,13 +153,13 @@ const MoversPage: React.FC = () => {
           >
             <thead>
               <tr style={{ borderBottom: "2px solid #e2e8f0" }}>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_moverspage__l152__h9")}</th>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_moverspage__l153__h10")}</th>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_moverspage__l154__h11")}</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_moverspage__l155__h12")}</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_moverspage__l156__h13")}</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_moverspage__l157__h14")}</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_moverspage__l158__h15")}</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("moverspage.h9")}</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("moverspage.h10")}</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("moverspage.h11")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("moverspage.h12")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("moverspage.h13")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("moverspage.h14")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("moverspage.h15")}</th>
               </tr>
             </thead>
             <tbody>
@@ -197,36 +197,36 @@ const MoversPage: React.FC = () => {
       {/* Market Insights */}
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("src_client_pages_moverspage__l196__h16")}</p>
-          <h3>{t("src_client_pages_moverspage__l197__h17")}</h3>
+          <p className="eyebrow">{t("moverspage.h16")}</p>
+          <h3>{t("moverspage.h17")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>{t("src_client_pages_moverspage__l199__h18")}</li>
-            <li>{t("src_client_pages_moverspage__l200__h19")}</li>
-            <li>{t("src_client_pages_moverspage__l201__h20")}</li>
-            <li>{t("src_client_pages_moverspage__l202__h21")}</li>
-            <li>{t("src_client_pages_moverspage__l203__h22")}</li>
+            <li>{t("moverspage.h18")}</li>
+            <li>{t("moverspage.h19")}</li>
+            <li>{t("moverspage.h20")}</li>
+            <li>{t("moverspage.h21")}</li>
+            <li>{t("moverspage.h22")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("src_client_pages_moverspage__l207__h23")}</p>
-          <h3>{t("src_client_pages_moverspage__l208__h24")}</h3>
+          <p className="eyebrow">{t("moverspage.h23")}</p>
+          <h3>{t("moverspage.h24")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>{t("src_client_pages_moverspage__l210__h25")}</li>
-            <li>{t("src_client_pages_moverspage__l211__h26")}</li>
-            <li>{t("src_client_pages_moverspage__l212__h27")}</li>
-            <li>{t("src_client_pages_moverspage__l213__h28")}</li>
-            <li>{t("src_client_pages_moverspage__l214__h29")}</li>
+            <li>{t("moverspage.h25")}</li>
+            <li>{t("moverspage.h26")}</li>
+            <li>{t("moverspage.h27")}</li>
+            <li>{t("moverspage.h28")}</li>
+            <li>{t("moverspage.h29")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("src_client_pages_moverspage__l218__h30")}</p>
-          <h3>{t("src_client_pages_moverspage__l219__h31")}</h3>
+          <p className="eyebrow">{t("moverspage.h30")}</p>
+          <h3>{t("moverspage.h31")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>{t("src_client_pages_moverspage__l221__h32")}</li>
-            <li>{t("src_client_pages_moverspage__l222__h33")}</li>
-            <li>{t("src_client_pages_moverspage__l223__h34")}</li>
-            <li>{t("src_client_pages_moverspage__l224__h35")}</li>
-            <li>{t("src_client_pages_moverspage__l225__h36")}</li>
+            <li>{t("moverspage.h32")}</li>
+            <li>{t("moverspage.h33")}</li>
+            <li>{t("moverspage.h34")}</li>
+            <li>{t("moverspage.h35")}</li>
+            <li>{t("moverspage.h36")}</li>
           </ul>
         </div>
       </section>
@@ -242,11 +242,11 @@ const MoversPage: React.FC = () => {
           textAlign: "center",
         }}
       >
-        <p className="eyebrow">{t("src_client_pages_moverspage__l241__h37")}</p>
-        <h3>{t("src_client_pages_moverspage__l242__h38")}</h3>
+        <p className="eyebrow">{t("moverspage.h37")}</p>
+        <h3>{t("moverspage.h38")}</h3>
         <div style={{ marginTop: "16px" }}>
           <Link to="/screener" className="primary-action" style={{ textDecoration: "none" }}>
-            Launch Advanced Screener
+            {t("common:marketRoutes.launchAdvancedScreener")}
           </Link>
         </div>
       </section>

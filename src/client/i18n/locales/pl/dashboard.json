@@ -1,15 +1,37 @@
 {
-  "title": "Globalny pulpit",
-  "intro": "Akcje, FX i krypto w jednym obszarze roboczym, gotowe na przyszłe dane na żywo, wiadomości, wykresy i moduły porównawcze.",
-  "userPanelTitle": "Twój obszar rynkowy",
-  "userPanelIntro": "Śledź ulubione giełdy, waluty, aktywa krypto, alerty i widok portfela w jednym przejrzystym pulpicie.",
+  "title": "Globalny pulpit rynkowy",
+  "intro": "Monitoruj akcje, FX, krypto, regiony, sektory, surowce, wydarzenia, sentyment i watchlistę w jednym przejrzystym obszarze.",
+  "liveTapeLabel": "Taśma rynku na żywo",
+  "crossMarket": "Widok międzyrynkowy",
+  "topExchange": "Top giełda",
+  "coreReserve": "Rdzeń rezerw",
+  "cryptoLeader": "Lider krypto",
+  "regionPulse": "Puls regionalny",
+  "sectorPulse": "Puls sektorowy",
+  "commodityPulse": "Puls surowcowy",
+  "primaryBase": "Główna baza konwersji",
+  "majorIndices": "Główne indeksy",
+  "worldSnapshot": "Migawka światowego rynku",
+  "marketMovers": "Ruchy rynku",
+  "gainersAndLosers": "Wzrosty i spadki",
+  "economicEventsToday": "Wydarzenia makro dziś",
+  "macroCalendar": "Kalendarz makro",
+  "marketSentiment": "Sentyment rynku",
+  "forexMiniCards": "Mini-karty FX",
+  "currencyPulse": "Puls walut",
+  "cryptoOverview": "Przegląd krypto",
+  "marketCapLeaders": "Liderzy kapitalizacji",
+  "commoditySnapshot": "Migawka surowców",
+  "spotAndFutures": "Spot i futures",
+  "watchlistPreview": "Podgląd watchlisty",
+  "watchlistCopy": "Szybki dostęp do zapisanych symboli, alertów międzyaktywnych, kontekstu portfela i ustawień konta.",
   "portfolioValue": "Wartość portfela",
-  "watchlist": "Lista obserwowanych",
+  "watchlist": "Watchlista",
   "savedMarkets": "Zapisane rynki",
   "activeAlerts": "Aktywne alerty",
   "todayPnl": "Dzisiejszy Z/S",
   "quickActions": "Szybkie akcje",
-  "addWatchlist": "Dodaj listę obserwowanych",
+  "addWatchlist": "Dodaj watchlistę",
   "createAlert": "Utwórz alert",
   "exportReport": "Eksportuj raport",
   "accountSettings": "Ustawienia konta",
@@ -25,5 +47,37 @@
   "marketOpenAlerts": "Alerty otwarcia rynku",
   "riskProfile": "Profil ryzyka",
   "moderate": "Umiarkowany",
-  "marketsFollowed": "Obserwowane rynki"
+  "marketsFollowed": "Obserwowane rynki",
+  "userPanelTitle": "Twój obszar rynkowy",
+  "userPanelIntro": "Śledź giełdy, waluty, aktywa krypto, alerty i kontekst portfela w jednym przejrzystym panelu.",
+  "importance": {
+    "high": "Wysoka",
+    "medium": "Średnia",
+    "low": "Niska"
+  },
+  "economicEvents": {
+    "usCpi": "CPI USA",
+    "ecbRemarks": "Komentarze EBC o polityce",
+    "us10yAuction": "Aukcja US 10Y",
+    "fomcMinutes": "Protokół FOMC"
+  },
+  "sentiment": {
+    "equities": {
+      "label": "Akcje",
+      "detail": "Szeroki risk-on"
+    },
+    "fx": {
+      "label": "FX",
+      "detail": "USD mieszany"
+    },
+    "crypto": {
+      "label": "Krypto",
+      "detail": "Popyt momentum"
+    },
+    "commodities": {
+      "label": "Surowce",
+      "detail": "Energia słabsza"
+    }
+  },
+  "currencyRate": "1 {{base}} = {{rate}} {{quote}}"
 }

@@ -30,18 +30,18 @@ const EtfsPage: React.FC = () => {
   return (
     <div className="page intelligence-page">
       <div className="section-heading">
-        <p className="eyebrow">{t("src_client_pages_etfspage__l29__h0")}</p>
-        <h1>{t("src_client_pages_etfspage__l30__h1")}</h1>
-        <p>{t("src_client_pages_etfspage__l31__h2")}</p>
+        <p className="eyebrow">{t("etfspage.h0")}</p>
+        <h1>{t("etfspage.h1")}</h1>
+        <p>{t("etfspage.h2")}</p>
       </div>
 
       <div className="asset-grid compact">
         {allEtfs.slice(0, 40).map((etf) => (
           <div key={etf.symbol} className="asset-card">
-            <span className="eyebrow">{t("src_client_pages_etfspage__l37__h3")}</span>
+            <span className="eyebrow">{t("etfspage.h3")}</span>
             <h3>{etf.label}</h3>
             <p>{etf.categories.join(" / ")}</p>
-            <strong>{t("src_client_pages_etfspage__l40__h4")}</strong>
+            <strong>{t("etfspage.h4")}</strong>
           </div>
         ))}
       </div>

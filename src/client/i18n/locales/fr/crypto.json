@@ -1,37 +1,331 @@
 {
-  "currentPrice": "Prix actuel",
-  "rank": "Classement",
-  "priceMetrics": "Prix & indicateurs",
-  "tradingPairs": "Paires de trading",
-  "exchanges": "Bourses",
-  "charts": "Graphiques",
-  "onChain": "On-Chain",
-  "category": "Catégorie",
-  "launched": "Lancement",
-  "founder": "Fondateur",
-  "consensus": "Mécanisme de consensus",
-  "blockTime": "Temps de bloc",
-  "supplyInfo": "Informations sur l'offre",
-  "circulatingSupply": "Offre en circulation",
-  "maxSupply": "Offre maximale",
-  "volume24h": "Volume 24h",
+  "activeAddresses": "Adresses actives",
   "ath": "Plus haut historique",
   "atl": "Plus bas historique",
-  "marketRank": "Rang de marché",
-  "loadingPrice": "Chargement des données de prix...",
-  "loadingPairs": "Chargement des paires...",
-  "price": "Prix",
-  "exchange": "Bourse",
-  "listedCryptoExchanges": "Bourses où cet actif est listé",
-  "exchangeExamples": "Binance, Coinbase, Kraken, etc.",
-  "priceChart": "Graphique de prix interactif",
-  "volumeOverlay": "Avec superposition volume",
-  "onChainMetrics": "Indicateurs on-chain",
-  "transactionsPerDay": "Transactions par jour",
-  "activeAddresses": "Adresses actives",
-  "networkFees": "Frais réseau",
-  "transactionVolume": "Volume de transactions",
-  "onChainComing": "On-chain data coming soon",
+  "blockTime": "Temps de bloc",
+  "categories": {
+    "defi": {
+      "name": "name"
+    },
+    "infrastructure": {
+      "name": "name"
+    },
+    "layer1": {
+      "name": "Layer 1"
+    },
+    "layer2": {
+      "name": "name"
+    },
+    "meme": {
+      "name": "name"
+    },
+    "payments": {
+      "name": "Paiements"
+    },
+    "stablecoin": {
+      "name": "name"
+    }
+  },
+  "category": "Catégorie",
+  "charts": "Graphiques",
+  "circulatingSupply": "Offre en circulation",
+  "consensus": "Mécanisme de consensus",
   "cryptoNewsComing": "Les dernières actualités s’afficheront ici",
-  "cryptoNewsSubtitle": "Project updates, partnerships, and market news"
+  "cryptoNewsSubtitle": "Project updates, partnerships, et market news",
+  "cryptocurrencies": {
+    "aave": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "arbitrum": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "avalanche2": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "binancecoin": {
+      "name": "BNB",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "bitcoin": {
+      "name": "Bitcoin",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "bonk": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "cardano": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "chainlink": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "compoundGovernanceToken": {
+      "name": "Compound Governance Token",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "cosmos": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "curveDaoToken": {
+      "name": "Curve DAO Token",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "dai": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "dogecoin": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "ethereum": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "floki": {
+      "name": "FLOKI",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "litecoin": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "maker": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "maticNetwork": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "pepe": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "polkadot": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "ripple": {
+      "name": "XRP",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "shibaInu": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "solana": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "stellar": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "tether": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "theOpenNetwork": {
+      "name": "The Open Network",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "tron": {
+      "name": "TRON",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "uniswap": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    },
+    "usdCoin": {
+      "name": "name",
+      "description": "Actif crypto suivi pour le prix, le volume, la tendance et le contexte on-chain."
+    }
+  },
+  "currentPrice": "Prix actuel",
+  "exchange": "Bourse",
+  "exchangeExamples": "Binance, Coinbase, Kraken, etc.",
+  "exchanges": "Bourses",
+  "founder": "Fondateur",
+  "launched": "Lancement",
+  "listedCryptoExchanges": "Bourses où cet actif est listé",
+  "loadingPairs": "Chargement des paires...",
+  "loadingPrice": "Chargement des données de prix...",
+  "marketRank": "Rang de marché",
+  "maxSupply": "Offre maximale",
+  "networkFees": "Frais réseau",
+  "onChain": "sur Chain",
+  "onChainComing": "sur Chain Coming",
+  "onChainMetrics": "Indicateurs on-chain",
+  "price": "Prix",
+  "priceChart": "Graphique de prix interactif",
+  "priceMetrics": "Prix & indicateurs",
+  "rank": "Classement",
+  "rankNumber": "Rang n° {{rank}}",
+  "supplyInfo": "Informations sur l'offre",
+  "tradingPairs": "Paires de trading",
+  "transactionVolume": "Volume de transactions",
+  "transactionsPerDay": "Transactions par jour",
+  "volume24h": "Volume 24h",
+  "volumeOverlay": "Avec superposition volume",
+  "cryptocurrency": "Cryptomonnaie",
+  "cryptocurrencyCategories": "Catégories crypto",
+  "allCryptocurrencies": "Toutes les cryptomonnaies",
+  "trending": "Tendances",
+  "categoryNotFound": "Catégorie introuvable",
+  "categoryNotFoundDescription": "Cette catégorie n’existe pas. Parcourez toutes les cryptomonnaies ci-dessous.",
+  "viewAllCryptocurrencies": "Voir toutes les cryptomonnaies",
+  "trendingCoins": {
+    "eyebrow": "Donnees de marche en direct - Cryptomonnaies",
+    "titleAccent": "Coins",
+    "titleRest": "tendance",
+    "subtitle": "Cryptomonnaies tendance en temps reel, classees par activite de trading, dynamique sociale et croissance de la capitalisation. Mise a jour en continu.",
+    "categories": {
+      "all": "Tous",
+      "layer1": "Couche 1",
+      "layer2": "Couche 2",
+      "defi": "DeFi",
+      "meme": "Meme",
+      "stablecoin": "Stablecoin",
+      "payments": "Paiements",
+      "infrastructure": "Infrastructure"
+    },
+    "metrics": {
+      "tracked": "Suivis",
+      "gainers": "En hausse",
+      "topGain24h": "Meilleure hausse 24h",
+      "volumeShort": "Vol. 24h",
+      "supply": "Offre"
+    },
+    "sentiment": {
+      "hot": "Tres suivi",
+      "rising": "En hausse",
+      "active": "Actif",
+      "strong": "Solide"
+    },
+    "moreTitle": "Autres coins tendance",
+    "emptyCategory": "Aucun coin trouve dans cette categorie.",
+    "insights": {
+      "trending": {
+        "eyebrow": "Ce qui est tendance",
+        "title": "Dynamiques du marche",
+        "items": {
+          "socialMentions": "Pic de mentions sur les reseaux sociaux",
+          "exchangeFlows": "Variations des flux entrants / sortants des exchanges",
+          "developerActivity": "Activite des developpeurs sur GitHub",
+          "onChainVolume": "Volume de transactions on-chain",
+          "volumeBreakouts": "Cassures du volume de trading"
+        }
+      },
+      "risk": {
+        "eyebrow": "Facteurs de risque",
+        "title": "Restez prudent",
+        "items": {
+          "volatility": "Forte volatilite - le prix peut varier de 30%+",
+          "liquidity": "Faible liquidite sur les petits coins",
+          "manipulation": "Manipulation de marche possible",
+          "regulation": "Cadre reglementaire en evolution",
+          "techRisk": "Risques lies aux smart contracts / a la technologie"
+        }
+      },
+      "tips": {
+        "eyebrow": "Conseils de trading",
+        "title": "Strategies intelligentes",
+        "items": {
+          "onChainValidation": "Validez d abord avec les metriques on-chain",
+          "githubActivity": "Verifiez l activite des developpeurs sur GitHub",
+          "divergence": "Surveillez les divergences volume / prix",
+          "positionSizing": "Utilisez une taille de position adaptee",
+          "stopLosses": "Definissez des stop-loss stricts avant l entree"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Recherche crypto",
+      "title": "Analysez n importe quel coin en profondeur",
+      "description": "Cliquez sur un coin pour explorer des graphiques detailles, des metriques on-chain, les listings d exchanges et les dernieres nouvelles, au meme endroit."
+    }
+  },
+  "categoryPages": {
+    "common": {
+      "marketOverview": "Apercu du marche",
+      "combinedMarketCap": "Capitalisation combinee",
+      "topGainer24h": "Meilleure hausse (24h)",
+      "name": "Nom",
+      "price": "Prix",
+      "change24h": "Variation 24h",
+      "marketCap": "Capitalisation",
+      "volume24h": "Volume 24h",
+      "riskProfile": "Profil de risque",
+      "fullCryptoMarket": "Marche crypto complet",
+      "exploreAllCryptocurrencies": "Explorer toutes les cryptomonnaies"
+    },
+    "meme": {
+      "eyebrow": "Tokens communautaires",
+      "title": "Meme coins",
+      "body": "Cryptomonnaies portees par la communaute, la culture virale, la dynamique sociale et des communautes fideles. Des actifs a haut risque et fort potentiel ou le sentiment domine le marche.",
+      "metrics": {
+        "coinsListed": "Coins listes"
+      },
+      "rankingsTitle": "Classement des meme coins",
+      "table": {
+        "community": "Communaute"
+      },
+      "communities": {
+        "DOGE": "Original OG",
+        "SHIB": "ShibArmy",
+        "PEPE": "Pepe Nation",
+        "BONK": "Solana Memes",
+        "FLOKI": "Viking Army"
+      },
+      "insights": {
+        "origins": {
+          "eyebrow": "Origins",
+          "title": "The Meme Coin Story",
+          "items": {
+            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
+            "elon": "Elon Musk tweets as price catalysts",
+            "pumps": "WallStreetBets-style coordinated pumps",
+            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
+            "pepe": "2023 PEPE boom revived the meme cycle",
+            "bonk": "BONK airdropped life into Solana DeFi"
+          }
+        },
+        "risk": {
+          "title": "What Investors Should Know",
+          "items": {
+            "sentiment": "Prices driven almost entirely by sentiment",
+            "pumpDump": "Susceptible to pump-and-dump schemes",
+            "utility": "Minimal or no underlying utility",
+            "volatility": "Extreme volatility - 50%+ swings common",
+            "rugPull": "Rug-pull risk in newer, unaudited coins",
+            "viralCycles": "High correlation with viral media cycles"
+          }
+        },
+        "signals": {
+          "eyebrow": "Community Signals",
+          "title": "How to Track Momentum",
+          "items": {
+            "twitter": "Twitter/X mentions and trending hashtags",
+            "reddit": "Reddit activity on r/CryptoCurrency",
+            "whales": "Whale wallet alerts and large transfers",
+            "listings": "Exchange listing announcements",
+            "google": "Google Trends search volume spikes",
+            "influencers": "Influencer social media activity"
+          }
+        }
+      },
+      "cta": {
+        "description": "Comparez les meme coins aux grands actifs, aux protocoles DeFi et aux blockchains de couche 1."
+      }
+    }
+  }
 }
