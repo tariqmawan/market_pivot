@@ -174,24 +174,24 @@
   "tradingPairs": "Pasangan Dagangan",
   "transactionVolume": "Volume Transaksi",
   "transactionsPerDay": "Transaksi Sehari",
-  "volume24h": "Volume 24j",
+  "volume24h": "Volum 24j",
   "volumeOverlay": "Dengan tindanan volume",
   "cryptocurrency": "Mata Wang Kripto",
   "cryptocurrencyCategories": "Kategori Mata Wang Kripto",
   "allCryptocurrencies": "Semua Matawang Kripto",
-  "trending": "Sohor Kini",
+  "trending": "Sohor kini",
   "categoryNotFound": "Kategori Tidak Ditemui",
   "categoryNotFoundDescription": "Kategori ini tidak wujud. Semak imbas semua mata wang kripto di bawah.",
-  "viewAllCryptocurrencies": "Lihat Semua Matawang Kripto",
+  "viewAllCryptocurrencies": "Lihat semua kripto",
   "trendingCoins": {
-    "eyebrow": "Data pasaran langsung - Mata wang kripto",
+    "eyebrow": "Data pasaran langsung - Kripto",
     "titleAccent": "Syiling",
-    "titleRest": "trend",
-    "subtitle": "Mata wang kripto trend masa nyata yang disusun mengikut aktiviti dagangan, momentum sosial dan pertumbuhan modal pasaran. Dikemas kini secara berterusan.",
+    "titleRest": "sohor kini",
+    "subtitle": "Kripto sohor kini masa nyata berdasarkan aktiviti dagangan, momentum sosial dan pertumbuhan modal pasaran. Dikemas kini berterusan.",
     "categories": {
       "all": "Semua",
-      "layer1": "Lapisan 1",
-      "layer2": "Lapisan 2",
+      "layer1": "Layer 1",
+      "layer2": "Layer 2",
       "defi": "DeFi",
       "meme": "Meme",
       "stablecoin": "Stablecoin",
@@ -199,29 +199,29 @@
       "infrastructure": "Infrastruktur"
     },
     "metrics": {
-      "tracked": "Dipantau",
+      "tracked": "Dijejak",
       "gainers": "Naik",
       "topGain24h": "Kenaikan tertinggi 24j",
-      "volumeShort": "Vol 24j",
+      "volumeShort": "Vol. 24j",
       "supply": "Bekalan"
     },
     "sentiment": {
-      "hot": "Hangat",
+      "hot": "Panas",
       "rising": "Meningkat",
       "active": "Aktif",
-      "strong": "Kukuh"
+      "strong": "Kuat"
     },
-    "moreTitle": "Lagi syiling trend",
+    "moreTitle": "Lagi syiling sohor kini",
     "emptyCategory": "Tiada syiling ditemui dalam kategori ini.",
     "insights": {
       "trending": {
-        "eyebrow": "Apa yang trend",
+        "eyebrow": "Apa yang sohor kini",
         "title": "Dinamik pasaran",
         "items": {
           "socialMentions": "Sebutan media sosial melonjak",
-          "exchangeFlows": "Peralihan aliran masuk / keluar bursa",
+          "exchangeFlows": "Aliran masuk/keluar bursa berubah",
           "developerActivity": "Aktiviti pembangun di GitHub",
-          "onChainVolume": "Jumlah transaksi on-chain",
+          "onChainVolume": "Volum transaksi on-chain",
           "volumeBreakouts": "Penembusan volum dagangan"
         }
       },
@@ -229,21 +229,21 @@
         "eyebrow": "Faktor risiko",
         "title": "Kekal berhati-hati",
         "items": {
-          "volatility": "Volatiliti tinggi - harga boleh bergerak 30%+",
+          "volatility": "Turun naik tinggi - harga boleh bergerak 30%+",
           "liquidity": "Kecairan rendah dalam syiling kecil",
           "manipulation": "Potensi manipulasi pasaran",
-          "regulation": "Landskap kawal selia yang berubah",
-          "techRisk": "Risiko kontrak pintar / teknologi"
+          "regulation": "Landskap peraturan berubah",
+          "techRisk": "Risiko smart contract / teknologi"
         }
       },
       "tips": {
-        "eyebrow": "Tip dagangan",
+        "eyebrow": "Petua dagangan",
         "title": "Strategi pintar",
         "items": {
           "onChainValidation": "Sahkan dahulu dengan metrik on-chain",
-          "githubActivity": "Semak aktiviti pembangun di GitHub",
-          "divergence": "Pantau divergensi volum berbanding harga",
-          "positionSizing": "Gunakan saiz posisi yang sesuai",
+          "githubActivity": "Semak aktiviti pembangun GitHub",
+          "divergence": "Pantau perbezaan volum dan harga",
+          "positionSizing": "Gunakan saiz kedudukan yang sesuai",
           "stopLosses": "Tetapkan stop-loss ketat sebelum masuk"
         }
       }
@@ -251,7 +251,7 @@
     "cta": {
       "eyebrow": "Penyelidikan kripto",
       "title": "Selami mana-mana syiling",
-      "description": "Klik mana-mana syiling untuk meneroka carta terperinci, metrik on-chain, penyenaraian bursa dan berita terkini di satu tempat."
+      "description": "Klik mana-mana syiling untuk melihat carta terperinci, metrik on-chain, senarai bursa dan berita terkini di satu tempat."
     }
   },
   "categoryPages": {

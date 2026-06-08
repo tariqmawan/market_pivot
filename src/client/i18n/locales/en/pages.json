@@ -401,7 +401,14 @@
     "trackedCurrencies": "Tracked Currencies",
     "tradeBalance": "Trade Balance",
     "tradeProfile": "Trade Profile",
-    "trend": "Trend"
+    "trend": "Trend",
+    "backToAllCurrencies": "Back to all currencies",
+    "currencyIssuedBy": "{{country}} currency, issued by {{centralBank}}.",
+    "open": "Open",
+    "priceChartFor": "Price Chart - {{pair}}",
+    "regional": "Regional",
+    "centralBankMacroSubtitle": "Policy rates, inflation, growth, and trade context",
+    "viewDetails": "View details"
   },
   "news": {
     "latest": "Latest",

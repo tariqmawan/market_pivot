@@ -53,7 +53,7 @@ function sameArray(a, b) {
   return a.length === b.length && a.every((v, i) => v === b[i]);
 }
 
-const mojibakePattern = /(?:Ã|Â|Ø|Ù|à¤|à¥|ðŸ|�|Tr�duction|अनुवाद:)/;
+const mojibakePattern = /(?:Ã[\u0080-\u00bf]?|Â(?:[\u0080-\u009f]|€|™|œ|\u009d)|Ø[\u0080-\u00bf]?|Ù[\u0080-\u00bf]?|à¤|à¥|ðŸ|�|Tr�duction|अनुवाद:)/;
 const questionDamagePattern = /\?{2,}/;
 const inlineQuestionDamagePattern = /[\p{L}]\?[\p{L}]/gu;
 const todoPattern = /TODO translation|translate me|missing translation/i;

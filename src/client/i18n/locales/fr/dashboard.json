@@ -26,12 +26,12 @@
   "watchlistPreview": "Aperçu de la watchlist",
   "watchlistCopy": "Accès rapide aux symboles sauvegardés, alertes multi-actifs, contexte portefeuille et préférences de compte.",
   "portfolioValue": "Valeur du portefeuille",
-  "watchlist": "Watchlist",
+  "watchlist": "Liste de suivi",
   "savedMarkets": "Marchés sauvegardés",
   "activeAlerts": "Alertes actives",
   "todayPnl": "P/L du jour",
   "quickActions": "Actions rapides",
-  "addWatchlist": "Ajouter une watchlist",
+  "addWatchlist": "Ajouter une liste de suivi",
   "createAlert": "Créer une alerte",
   "exportReport": "Exporter le rapport",
   "accountSettings": "Paramètres du compte",
@@ -49,7 +49,7 @@
   "moderate": "Modéré",
   "marketsFollowed": "Marchés suivis",
   "userPanelTitle": "Votre espace marché",
-  "userPanelIntro": "Suivez bourses, devises, crypto-actifs, alertes et contexte portefeuille dans un tableau clair.",
+  "userPanelIntro": "Suivez les bourses, devises, crypto-actifs, alertes et contexte de portefeuille dans un tableau clair.",
   "importance": {
     "high": "Élevé",
     "medium": "Moyen",
@@ -64,7 +64,7 @@
   "sentiment": {
     "equities": {
       "label": "Actions",
-      "detail": "Largeur risk-on"
+      "detail": "Amplitude favorable au risque"
     },
     "fx": {
       "label": "FX",

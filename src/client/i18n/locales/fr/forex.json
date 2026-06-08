@@ -18,7 +18,7 @@
       "name": "Brésil"
     },
     "ca": {
-      "name": "name"
+      "name": "Canada"
     },
     "ch": {
       "name": "Suisse"
@@ -36,7 +36,7 @@
       "name": "Royaume-Uni"
     },
     "hk": {
-      "name": "name"
+      "name": "Hong Kong"
     },
     "in": {
       "name": "Inde"
@@ -100,7 +100,7 @@
       "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
     },
     "eur": {
-      "name": "name",
+      "name": "Euro",
       "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
     },
     "gbp": {
@@ -176,15 +176,85 @@
   "type": "Type",
   "vsUsd": "contre USD",
   "currencyTypes": {
-    "fiat": "Monnaie fiduciaire"
+    "fiat": "Devise fiduciaire",
+    "commodity": "Devise liée aux matières premières",
+    "crypto": "Devise crypto"
   },
   "centralBanks": {
-    "federalreserve": "Réserve fédérale"
+    "federalreserve": "Réserve fédérale",
+    "europeancentralbank": "Banque centrale européenne",
+    "bankofjapan": "Banque du Japon",
+    "bankofengland": "Banque d’Angleterre",
+    "swissnationalbank": "Banque nationale suisse",
+    "peoplesbankofchina": "Banque populaire de Chine",
+    "hongkongmonetaryauthority": "Autorité monétaire de Hong Kong",
+    "reservebankofindia": "Banque de réserve de l’Inde",
+    "reservebankofaustralia": "Banque de réserve d’Australie",
+    "monetaryauthorityofsingapore": "Autorité monétaire de Singapour",
+    "bankofkorea": "Banque de Corée",
+    "bankofcanada": "Banque du Canada",
+    "centralbankofbrazil": "Banque centrale du Brésil",
+    "bancodemxico": "Banque du Mexique",
+    "centralbankofchile": "Banque centrale du Chili",
+    "riksbank": "Riksbank",
+    "norgesbank": "Banque de Norvège",
+    "saudicentralbank": "Banque centrale saoudienne",
+    "centralbankoftheuae": "Banque centrale des ÉAU",
+    "southafricanreservebank": "Banque de réserve sud-africaine"
   },
   "regions": {
-    "northamerica": "Amérique du Nord"
+    "northamerica": "Amérique du Nord",
+    "europe": "Europe",
+    "asia": "Asie",
+    "americas": "Amériques",
+    "middleeast": "Moyen-Orient",
+    "africa": "Afrique"
   },
-  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
-  "keyDataReleasesFor": "Key data releases for {{code}}",
-  "hoursAgo": "{{count}}h ago"
+  "ratesVsMajorSubtitle": "1 {{code}} exprimé dans les autres devises majeures",
+  "keyDataReleasesFor": "Publications clés pour {{code}}",
+  "hoursAgo": "Il y a {{count}} h",
+  "impacts": {
+    "High": "Élevé",
+    "Medium": "Moyen",
+    "Low": "Faible"
+  },
+  "events": {
+    "nonFarmPayrolls": "Emploi non agricole",
+    "ecbPressConference": "Conférence de presse de la BCE",
+    "boeGovernorSpeech": "Discours du gouverneur de la BoE",
+    "fomcMinutes": "Compte rendu du FOMC",
+    "bojSummaryOpinions": "Synthèse des avis de la BoJ",
+    "rbaStatement": "Déclaration de la RBA",
+    "currencyCpiRelease": "Publication de l’IPC {{code}}",
+    "centralBankPolicyUpdate": "Mise à jour de politique de {{centralBank}}",
+    "currencyRetailSales": "Ventes au détail {{code}}",
+    "currencyTradeBalance": "Balance commerciale {{code}}"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "{{code}} se renforce avec les attentes de politique monétaire",
+    "currencyWeakensPolicy": "{{code}} faiblit avec les attentes de politique monétaire",
+    "centralBankDataDependent": "{{centralBank}} signale une trajectoire dépendante des données",
+    "currencyLiquidityRobust": "La liquidité de {{code}} reste robuste dans les flux transfrontaliers",
+    "currencyFairValueUpdated": "Note d’analyste : juste valeur de {{code}} mise à jour",
+    "usdRallyPauses": "La hausse de l’USD marque une pause avant le compte rendu du FOMC",
+    "ecbDataDependent": "La BCE signale une trajectoire dépendante des données, l’EUR reste lourd",
+    "jpyInterventionWatch": "La surveillance d’intervention sur le JPY reprend alors que l’USD/JPY teste 156",
+    "gbpStickyInflation": "La GBP soutenue par une inflation des services persistante",
+    "cnyWeakerMidpoint": "Le CNY sous pression après un fixing plus faible de la PBOC",
+    "audCommodityStrength": "L’AUD porté par la vigueur des matières premières et l’appétit pour le risque"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "Devise de réserve principale",
+    "secondreservecurrency": "Deuxième devise de réserve",
+    "thirdreservecurrency": "Troisième devise de réserve",
+    "regionalreservecurrency": "Devise de réserve régionale",
+    "regional": "Régionale"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "Entrées vers valeurs refuges",
+    "mixedinflows": "Entrées mixtes",
+    "exportdrivenflows": "Flux tirés par les exportations",
+    "commoditylinkedflows": "Flux liés aux matières premières",
+    "open": "Ouvert"
+  }
 }

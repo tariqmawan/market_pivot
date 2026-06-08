@@ -1809,5 +1809,13 @@
   "sectorspagenew.sectors.retail.industries.mid_cap": "Mid Cap",
   "sectorspagenew.sectors.retail.industries.small_cap": "Small Cap",
   "sectorspagenew.sectors.retail.industries.emerging": "Emerging",
-  "sectorspagenew.sectors.retail.industries.dividend": "Dividend"
+  "sectorspagenew.sectors.retail.industries.dividend": "Dividend",
+  "stockdetail.toast.watchlistAdded": "★ เพิ่ม {{symbol}} ลงใน {{name}}",
+  "stockdetail.toast.alertCreated": "🔔 สร้างการแจ้งเตือนสำหรับ {{symbol}} ที่ ${{price}}",
+  "stockdetail.toast.portfolioAdded": "💼 เพิ่ม {{symbol}} ลงใน {{name}}",
+  "stockdetail.tradeTypeBuy": "ซื้อ",
+  "stockdetail.tradeTypeSell": "ขาย",
+  "stockdetail.financials.revenueTTM": "รายได้ (TTM)",
+  "stockdetail.financials.netIncomeTTM": "กำไรสุทธิ (TTM)",
+  "stockdetail.financials.epsTTM": "EPS (TTM)"
 }

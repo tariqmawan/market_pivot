@@ -9,10 +9,10 @@
   "converter": "محول العملات",
   "countries": {
     "ae": {
-      "name": "United Arab Emirates"
+      "name": "الإمارات العربية المتّحدة"
     },
     "au": {
-      "name": "Australia"
+      "name": "أستراليا"
     },
     "br": {
       "name": "Brazil"
@@ -21,7 +21,7 @@
       "name": "Canada"
     },
     "ch": {
-      "name": "Switzerland"
+      "name": "سويسرا"
     },
     "cl": {
       "name": "Chile"
@@ -30,10 +30,10 @@
       "name": "China"
     },
     "eu": {
-      "name": "European Union"
+      "name": "الاتّحاد الأوروبي"
     },
     "gb": {
-      "name": "United Kingdom"
+      "name": "المملكة المتّحدة"
     },
     "hk": {
       "name": "Hong Kong"
@@ -45,7 +45,7 @@
       "name": "Japan"
     },
     "kr": {
-      "name": "South Korea"
+      "name": "كوريا الجنوبية"
     },
     "mx": {
       "name": "Mexico"
@@ -60,88 +60,88 @@
       "name": "Sweden"
     },
     "sg": {
-      "name": "Singapore"
+      "name": "سنغافورة"
     },
     "us": {
       "name": "الولايات المتحدة"
     },
     "za": {
-      "name": "South Africa"
+      "name": "جنوب أفريقيا"
     }
   },
   "country": "الدولة",
   "currencies": {
     "aed": {
-      "name": "UAE Dirham",
-      "description": "Currency pegged to USD of Gulf financial hub"
+      "name": "الدرهم الإماراتي",
+      "description": "عملة مرتبطة بالدولار لمركز مالي خليجي"
     },
     "aud": {
-      "name": "Australian Dollar",
-      "description": "Commodity-linked currency, major Asia-Pacific hub"
+      "name": "الدولار الأسترالي",
+      "description": "عملة مرتبطة بالسلع، مركز رئيسي في آسيا والمحيط الهادئ"
     },
     "brl": {
-      "name": "Brazilian Real",
-      "description": "Currency of Latin America's largest economy"
+      "name": "الريال البرازيلي",
+      "description": "عملة أكبر اقتصاد في أمريكا اللاتينية"
     },
     "cad": {
-      "name": "Canadian Dollar",
-      "description": "Commodity-linked currency of G7 nation"
+      "name": "الدولار الكندي",
+      "description": "عملة مرتبطة بالسلع لإحدى دول مجموعة السبع"
     },
     "chf": {
-      "name": "Swiss Franc",
-      "description": "Safe-haven currency known for stability and strong purchasing power"
+      "name": "الفرنك السويسري",
+      "description": "عملة ملاذ آمن معروفة بالاستقرار وقوّة الشرائية"
     },
     "clp": {
-      "name": "Chilean Peso",
-      "description": "Currency of economically stable Latin American nation"
+      "name": "البيزو التشيلي",
+      "description": "عملة دولة مستقرّة اقتصادياً في أمريكا اللاتينية"
     },
     "cny": {
-      "name": "Chinese Yuan",
-      "description": "Currency of world's second-largest economy"
+      "name": "اليوان الصيني",
+      "description": "عملة ثاني أكبر اقتصاد في العالم"
     },
     "eur": {
       "name": "Euro",
-      "description": "Currency of the Eurozone, second-largest reserve currency"
+      "description": "عملة منطقة اليورو، ثاني أكبر عملة احتياطي"
     },
     "gbp": {
-      "name": "British Pound Sterling",
-      "description": "Currency of the UK, one of the oldest currencies"
+      "name": "الجنيه الإسترليني",
+      "description": "عملة المملكة المتّحدة، من أقدم العملات"
     },
     "hkd": {
       "name": "Hong Kong Dollar",
-      "description": "Pegged to the US Dollar, major Asian financial hub currency"
+      "description": "مرتبطة بالدولار الأمريكي، عملة مركز مالي آسيوي رئيسي"
     },
     "inr": {
-      "name": "Indian Rupee",
-      "description": "Currency of world's most populous country and fastest-growing major economy"
+      "name": "الروبية الهندية",
+      "description": "عملة أكبر دولة سكاناً وأسرع اقتصاد كبير نمواً"
     },
     "jpy": {
-      "name": "Japanese Yen",
-      "description": "Third-largest reserve currency, safe-haven asset"
+      "name": "الين الياباني",
+      "description": "ثالث أكبر عملة احتياطي وأصل ملاذ آمن"
     },
     "krw": {
-      "name": "South Korean Won",
-      "description": "Currency of major tech and manufacturing hub"
+      "name": "الوون الكوري الجنوبي",
+      "description": "عملة مركز رئيسي للتكنولوجيا والتصنيع"
     },
     "mxn": {
-      "name": "Mexican Peso",
-      "description": "Currency of major North American trade partner"
+      "name": "البيزو المكسيكي",
+      "description": "عملة شريك تجاري رئيسي في أمريكا الشمالية"
     },
     "nok": {
-      "name": "Norwegian Krone",
-      "description": "Currency of major energy exporter, strong commodity links"
+      "name": "الكرونة النرويجية",
+      "description": "عملة مصدّر طاقة كبير ذي ارتباطات قوية بالسلع"
     },
     "sar": {
       "name": "Saudi Arabian Riyal",
-      "description": "Currency pegged to USD of world's largest oil exporter"
+      "description": "عملة مرتبطة بالدولار لأكبر مصدّر للنفط في العالم"
     },
     "sek": {
-      "name": "Swedish Krona",
-      "description": "Northern European currency with industrial base"
+      "name": "الكرونة السويدية",
+      "description": "عملة شمال أوروبية ذات قاعدة صناعية"
     },
     "sgd": {
-      "name": "Singapore Dollar",
-      "description": "Strong regional currency in Southeast Asia"
+      "name": "الدولار السنغافوري",
+      "description": "عملة إقليمية قوية في جنوب شرق آسيا"
     },
     "usd": {
       "name": "الدولار الأمريكي",
@@ -149,7 +149,7 @@
     },
     "zar": {
       "name": "South African Rand",
-      "description": "Currency of largest African economy and commodities producer"
+      "description": "عملة أكبر اقتصاد أفريقي ومنتج للسلع"
     }
   },
   "currencyNewsComing": "ستظهر أحدث الأخبار الاقتصادية هنا",
@@ -176,15 +176,85 @@
   "type": "النوع",
   "vsUsd": "مقابل الدولار",
   "currencyTypes": {
-    "fiat": "عملة ورقية"
+    "fiat": "عملة ورقية",
+    "commodity": "عملة سلعية",
+    "crypto": "عملة رقمية"
   },
   "centralBanks": {
-    "federalreserve": "الاحتياطي الفيدرالي"
+    "federalreserve": "Federal Reserve",
+    "europeancentralbank": "البنك المركزي الأوروبي",
+    "bankofjapan": "Bank of Japan",
+    "bankofengland": "Bank of England",
+    "swissnationalbank": "البنك الوطني السويسري",
+    "peoplesbankofchina": "People's Bank of China",
+    "hongkongmonetaryauthority": "Hong Kong Monetary Authority",
+    "reservebankofindia": "Reserve Bank of India",
+    "reservebankofaustralia": "Reserve Bank of Australia",
+    "monetaryauthorityofsingapore": "Monetary Authority of Singapore",
+    "bankofkorea": "Bank of Korea",
+    "bankofcanada": "Bank of Canada",
+    "centralbankofbrazil": "Central Bank of Brazil",
+    "bancodemxico": "Banco de México",
+    "centralbankofchile": "Central Bank of Chile",
+    "riksbank": "Riksbank",
+    "norgesbank": "Norges Bank",
+    "saudicentralbank": "Saudi Central Bank",
+    "centralbankoftheuae": "Central Bank of the UAE",
+    "southafricanreservebank": "South African Reserve Bank"
   },
   "regions": {
-    "northamerica": "أمريكا الشمالية"
+    "northamerica": "أمريكا الشمالية",
+    "europe": "Europe",
+    "asia": "Asia",
+    "americas": "الأمريكتان",
+    "middleeast": "الشرق الأوسط",
+    "africa": "Africa"
   },
-  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
-  "keyDataReleasesFor": "Key data releases for {{code}}",
-  "hoursAgo": "{{count}}h ago"
+  "ratesVsMajorSubtitle": "1 {{code}} مقابل العملات الرئيسية الأخرى",
+  "keyDataReleasesFor": "أبرز إصدارات البيانات لـ {{code}}",
+  "hoursAgo": "قبل {{count}} ساعة",
+  "impacts": {
+    "High": "High",
+    "Medium": "Medium",
+    "Low": "Low"
+  },
+  "events": {
+    "nonFarmPayrolls": "بيانات التوظيف الأمريكية (خارج الزراعة)",
+    "ecbPressConference": "مؤتمر صحفي للبنك المركزي الأوروبي",
+    "boeGovernorSpeech": "خطاب محافظ بنك إنجلترا",
+    "fomcMinutes": "محضر اجتماع الفيدرالي",
+    "bojSummaryOpinions": "ملخّص آراء بنك اليابان",
+    "rbaStatement": "بيان الاحتياطي الأسترالي",
+    "currencyCpiRelease": "إصدار مؤشّر أسعار المستهلك {{code}}",
+    "centralBankPolicyUpdate": "تحديث سياسة {{centralBank}}",
+    "currencyRetailSales": "مبيعات التجزئة {{code}}",
+    "currencyTradeBalance": "الميزان التجاري {{code}}"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "{{code}} يرتفع بفعل توقّعات السياسة النقدية",
+    "currencyWeakensPolicy": "{{code}} يتراجع بفعل توقّعات السياسة النقدية",
+    "centralBankDataDependent": "{{centralBank}} يشير إلى مسار يعتمد على البيانات",
+    "currencyLiquidityRobust": "سيولة {{code}} تظلّ قوية في التدفّقات العابرة للحدود",
+    "currencyFairValueUpdated": "مذكّرة محلّل: تحديث القيمة العادلة لـ {{code}}",
+    "usdRallyPauses": "صعود الدولار يتوقّف قبل صدور محضر الفيدرالي",
+    "ecbDataDependent": "البنك المركزي الأوروبي يلمّح إلى مسار يعتمد على البيانات، واليورو تحت ضغط",
+    "jpyInterventionWatch": "مراقبة التدخّل لشراء الين تعود مع اختبار USD/JPY مستوى 156",
+    "gbpStickyInflation": "الجنيه الإسترليني مدعوم بتضخّم خدمات لاصق",
+    "cnyWeakerMidpoint": "اليوان تحت ضغط مع تثبيت بنك الصين الشعبي على سعر أضعف",
+    "audCommodityStrength": "الدولار الأسترالي يحظى بالطلب على خلفية قوّة السلع والمعنويات الإيجابية"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "عملة احتياطي رئيسية",
+    "secondreservecurrency": "ثاني عملة احتياطي",
+    "thirdreservecurrency": "ثالث عملة احتياطي",
+    "regionalreservecurrency": "عملة احتياطي إقليمية",
+    "regional": "إقليمي"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "تدفّقات إلى أصول الملاذ الآمن",
+    "mixedinflows": "تدفّقات متباينة",
+    "exportdrivenflows": "تدفّقات مدفوعة بالصادرات",
+    "commoditylinkedflows": "تدفّقات مرتبطة بالسلع",
+    "open": "Open"
+  }
 }

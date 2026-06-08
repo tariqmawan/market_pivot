@@ -176,15 +176,85 @@
   "type": "種類",
   "vsUsd": "対USD",
   "currencyTypes": {
-    "fiat": "法定通貨"
+    "fiat": "法定通貨",
+    "commodity": "資源国通貨",
+    "crypto": "暗号資産"
   },
   "centralBanks": {
-    "federalreserve": "連邦準備制度"
+    "federalreserve": "Federal Reserve",
+    "europeancentralbank": "欧州中央銀行",
+    "bankofjapan": "Bank of Japan",
+    "bankofengland": "Bank of England",
+    "swissnationalbank": "スイス国立銀行",
+    "peoplesbankofchina": "People's Bank of China",
+    "hongkongmonetaryauthority": "Hong Kong Monetary Authority",
+    "reservebankofindia": "Reserve Bank of India",
+    "reservebankofaustralia": "Reserve Bank of Australia",
+    "monetaryauthorityofsingapore": "Monetary Authority of Singapore",
+    "bankofkorea": "Bank of Korea",
+    "bankofcanada": "Bank of Canada",
+    "centralbankofbrazil": "Central Bank of Brazil",
+    "bancodemxico": "Banco de México",
+    "centralbankofchile": "Central Bank of Chile",
+    "riksbank": "Riksbank",
+    "norgesbank": "Norges Bank",
+    "saudicentralbank": "Saudi Central Bank",
+    "centralbankoftheuae": "Central Bank of the UAE",
+    "southafricanreservebank": "South African Reserve Bank"
   },
   "regions": {
-    "northamerica": "北米"
+    "northamerica": "北米",
+    "europe": "Europe",
+    "asia": "Asia",
+    "americas": "南北アメリカ",
+    "middleeast": "中東",
+    "africa": "Africa"
   },
-  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
-  "keyDataReleasesFor": "Key data releases for {{code}}",
-  "hoursAgo": "{{count}}h ago"
+  "ratesVsMajorSubtitle": "他の主要通貨で表した 1 {{code}}",
+  "keyDataReleasesFor": "{{code}} の主要経済指標",
+  "hoursAgo": "{{count}}時間前",
+  "impacts": {
+    "High": "High",
+    "Medium": "Medium",
+    "Low": "Low"
+  },
+  "events": {
+    "nonFarmPayrolls": "米雇用統計（非農業部門）",
+    "ecbPressConference": "ECB記者会見",
+    "boeGovernorSpeech": "BoE総裁発言",
+    "fomcMinutes": "FOMC議事要旨",
+    "bojSummaryOpinions": "日銀「主な意見」公表",
+    "rbaStatement": "RBA声明",
+    "currencyCpiRelease": "{{code}} 消費者物価指数（CPI）",
+    "centralBankPolicyUpdate": "{{centralBank}} 金融政策アップデート",
+    "currencyRetailSales": "{{code}} 小売売上高",
+    "currencyTradeBalance": "{{code}} 貿易収支"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "{{code}}、金融政策期待で上昇",
+    "currencyWeakensPolicy": "{{code}}、金融政策期待で下落",
+    "centralBankDataDependent": "{{centralBank}}、データ次第の姿勢を示唆",
+    "currencyLiquidityRobust": "{{code}}、クロスボーダー取引で流動性は引き続き堅調",
+    "currencyFairValueUpdated": "アナリスト・ノート：{{code}} の適正価値を更新",
+    "usdRallyPauses": "FOMC議事要旨を控えてドル高が一服",
+    "ecbDataDependent": "ECBはデータ次第の姿勢、ユーロは重い展開",
+    "jpyInterventionWatch": "USD/JPYが156円を試す中、円買い介入警戒が再燃",
+    "gbpStickyInflation": "ポンドは粘着的なサービス・インフレに支えられる",
+    "cnyWeakerMidpoint": "PBOCが基準値を弱含みに設定し人民元に下押し圧力",
+    "audCommodityStrength": "資源高とリスクオン地合いで豪ドルが買われる"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "主要準備通貨",
+    "secondreservecurrency": "第2の準備通貨",
+    "thirdreservecurrency": "第3の準備通貨",
+    "regionalreservecurrency": "地域準備通貨",
+    "regional": "地域"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "安全資産への資金流入",
+    "mixedinflows": "混合的な資金流入",
+    "exportdrivenflows": "輸出主導の資金フロー",
+    "commoditylinkedflows": "資源価格連動の資金フロー",
+    "open": "Open"
+  }
 }

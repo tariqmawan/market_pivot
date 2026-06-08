@@ -179,12 +179,82 @@
   "type": "Type",
   "vsUsd": "vs USD",
   "currencyTypes": {
-    "fiat": "Fiat currency"
+    "fiat": "Fiat currency",
+    "commodity": "Commodity currency",
+    "crypto": "Crypto currency"
   },
   "centralBanks": {
-    "federalreserve": "Federal Reserve"
+    "federalreserve": "Federal Reserve",
+    "europeancentralbank": "European Central Bank",
+    "bankofjapan": "Bank of Japan",
+    "bankofengland": "Bank of England",
+    "swissnationalbank": "Swiss National Bank",
+    "peoplesbankofchina": "People's Bank of China",
+    "hongkongmonetaryauthority": "Hong Kong Monetary Authority",
+    "reservebankofindia": "Reserve Bank of India",
+    "reservebankofaustralia": "Reserve Bank of Australia",
+    "monetaryauthorityofsingapore": "Monetary Authority of Singapore",
+    "bankofkorea": "Bank of Korea",
+    "bankofcanada": "Bank of Canada",
+    "centralbankofbrazil": "Central Bank of Brazil",
+    "bancodemxico": "Banco de México",
+    "centralbankofchile": "Central Bank of Chile",
+    "riksbank": "Riksbank",
+    "norgesbank": "Norges Bank",
+    "saudicentralbank": "Saudi Central Bank",
+    "centralbankoftheuae": "Central Bank of the UAE",
+    "southafricanreservebank": "South African Reserve Bank"
   },
   "regions": {
-    "northamerica": "North America"
+    "northamerica": "North America",
+    "europe": "Europe",
+    "asia": "Asia",
+    "americas": "Americas",
+    "middleeast": "Middle East",
+    "africa": "Africa"
+  },
+  "impacts": {
+    "High": "High",
+    "Medium": "Medium",
+    "Low": "Low"
+  },
+  "events": {
+    "nonFarmPayrolls": "Non-Farm Payrolls",
+    "ecbPressConference": "ECB Press Conference",
+    "boeGovernorSpeech": "BoE Governor Speech",
+    "fomcMinutes": "FOMC Minutes",
+    "bojSummaryOpinions": "BoJ Summary of Opinions",
+    "rbaStatement": "RBA Statement",
+    "currencyCpiRelease": "{{code}} CPI release",
+    "centralBankPolicyUpdate": "{{centralBank}} policy update",
+    "currencyRetailSales": "{{code}} retail sales",
+    "currencyTradeBalance": "{{code}} trade balance"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "{{code}} strengthens on policy expectations",
+    "currencyWeakensPolicy": "{{code}} weakens on policy expectations",
+    "centralBankDataDependent": "{{centralBank}} signals data-dependent path",
+    "currencyLiquidityRobust": "{{code}} liquidity remains robust in cross-border flows",
+    "currencyFairValueUpdated": "Analyst note: {{code}} fair value updated",
+    "usdRallyPauses": "USD rally pauses ahead of FOMC minutes",
+    "ecbDataDependent": "ECB signals data-dependent path, EUR trades heavy",
+    "jpyInterventionWatch": "JPY intervention watch resumes as USD/JPY tests 156",
+    "gbpStickyInflation": "GBP supported by sticky services inflation",
+    "cnyWeakerMidpoint": "CNY under pressure as PBOC fixes weaker midpoint",
+    "audCommodityStrength": "AUD bid on commodity strength and risk-on tone"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "Primary reserve currency",
+    "secondreservecurrency": "Second reserve currency",
+    "thirdreservecurrency": "Third reserve currency",
+    "regionalreservecurrency": "Regional reserve currency",
+    "regional": "Regional"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "Safe-haven inflows",
+    "mixedinflows": "Mixed inflows",
+    "exportdrivenflows": "Export-driven flows",
+    "commoditylinkedflows": "Commodity-linked flows",
+    "open": "Open"
   }
 }

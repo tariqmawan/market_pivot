@@ -179,19 +179,19 @@
   "cryptocurrency": "Kryptowährung",
   "cryptocurrencyCategories": "Kryptowährungskategorien",
   "allCryptocurrencies": "Alle Kryptowährungen",
-  "trending": "Im Trend",
+  "trending": "Trend",
   "categoryNotFound": "Kategorie nicht gefunden",
   "categoryNotFoundDescription": "Diese Kategorie existiert nicht. Durchsuchen Sie unten alle Kryptowährungen.",
-  "viewAllCryptocurrencies": "Alle Kryptowährungen anzeigen",
+  "viewAllCryptocurrencies": "Alle Kryptowährungen ansehen",
   "trendingCoins": {
-    "eyebrow": "Live-Marktdaten - Kryptowaehrung",
-    "titleAccent": "Trendende",
-    "titleRest": "Coins",
-    "subtitle": "Trendende Kryptowaehrungen in Echtzeit, sortiert nach Handelsaktivitaet, sozialem Momentum und Wachstum der Marktkapitalisierung. Laufend aktualisiert.",
+    "eyebrow": "Live-Marktdaten - Kryptowährungen",
+    "titleAccent": "Trend",
+    "titleRest": "Münzen",
+    "subtitle": "Echtzeit-Trend-Kryptowährungen, sortiert nach Handelsaktivität, sozialem Momentum und Marktkapitalisierungswachstum. Laufend aktualisiert.",
     "categories": {
       "all": "Alle",
-      "layer1": "Layer 1",
-      "layer2": "Layer 2",
+      "layer1": "Schicht 1",
+      "layer2": "Schicht 2",
       "defi": "DeFi",
       "meme": "Meme",
       "stablecoin": "Stablecoin",
@@ -203,55 +203,55 @@
       "gainers": "Gewinner",
       "topGain24h": "Top-Gewinn 24h",
       "volumeShort": "24h Vol.",
-      "supply": "Umlauf"
+      "supply": "Angebot"
     },
     "sentiment": {
-      "hot": "Heiss",
+      "hot": "Heiß",
       "rising": "Steigend",
       "active": "Aktiv",
       "strong": "Stark"
     },
-    "moreTitle": "Weitere trendende Coins",
+    "moreTitle": "Weitere Trend-Coins",
     "emptyCategory": "Keine Coins in dieser Kategorie gefunden.",
     "insights": {
       "trending": {
-        "eyebrow": "Was trendet",
+        "eyebrow": "Was im Trend liegt",
         "title": "Marktdynamik",
         "items": {
-          "socialMentions": "Anstieg der Erwaehnungen in sozialen Medien",
-          "exchangeFlows": "Verschiebungen bei Exchange-Zu- / Abfluessen",
-          "developerActivity": "Entwickleraktivitaet auf GitHub",
-          "onChainVolume": "On-Chain-Transaktionsvolumen",
-          "volumeBreakouts": "Ausbrueche beim Handelsvolumen"
+          "socialMentions": "Social-Media-Erwähnungen steigen stark",
+          "exchangeFlows": "Verschiebungen bei Börsen-Zu- und -Abflüssen",
+          "developerActivity": "Entwickleraktivität auf GitHub",
+          "onChainVolume": "On-chain-Transaktionsvolumen",
+          "volumeBreakouts": "Ausbrüche beim Handelsvolumen"
         }
       },
       "risk": {
         "eyebrow": "Risikofaktoren",
         "title": "Vorsichtig bleiben",
         "items": {
-          "volatility": "Hohe Volatilitaet - Preise koennen um 30%+ schwanken",
-          "liquidity": "Geringe Liquiditaet bei kleineren Coins",
-          "manipulation": "Moegliche Marktmanipulation",
-          "regulation": "Sich wandelndes regulatorisches Umfeld",
-          "techRisk": "Smart-Contract- / Technologierisiken"
+          "volatility": "Hohe Volatilität - Preis kann 30%+ schwanken",
+          "liquidity": "Geringe Liquidität bei kleineren Coins",
+          "manipulation": "Mögliche Marktmanipulation",
+          "regulation": "Sich wandelndes Regulierungsumfeld",
+          "techRisk": "Smart-Contract-/Technologierisiken"
         }
       },
       "tips": {
         "eyebrow": "Trading-Tipps",
         "title": "Smarte Strategien",
         "items": {
-          "onChainValidation": "Zuerst mit On-Chain-Metriken validieren",
-          "githubActivity": "GitHub-Entwickleraktivitaet pruefen",
-          "divergence": "Volumen-Preis-Divergenzen beobachten",
-          "positionSizing": "Angemessene Positionsgroesse verwenden",
-          "stopLosses": "Vor dem Einstieg strikte Stop-Losses setzen"
+          "onChainValidation": "Zuerst mit On-chain-Metriken prüfen",
+          "githubActivity": "GitHub-Entwickleraktivität prüfen",
+          "divergence": "Volumen-/Preisdivergenz überwachen",
+          "positionSizing": "Angemessene Positionsgröße nutzen",
+          "stopLosses": "Strikte Stop-Losses vor Einstieg setzen"
         }
       }
     },
     "cta": {
       "eyebrow": "Krypto-Research",
-      "title": "Jeden Coin im Detail analysieren",
-      "description": "Klicken Sie auf einen Coin, um detaillierte Charts, On-Chain-Metriken, Exchange-Listings und aktuelle Nachrichten an einem Ort zu erkunden."
+      "title": "Jeden Coin tiefer analysieren",
+      "description": "Klicken Sie auf einen Coin, um detaillierte Charts, On-chain-Metriken, Exchange-Listings und aktuelle Nachrichten an einem Ort zu sehen."
     }
   },
   "categoryPages": {
@@ -277,49 +277,49 @@
       },
       "rankingsTitle": "Meme-Coin-Ranking",
       "table": {
-        "community": "Community"
+        "community": "Gemeinschaft"
       },
       "communities": {
-        "DOGE": "Original OG",
+        "DOGE": "Originales OG",
         "SHIB": "ShibArmy",
         "PEPE": "Pepe Nation",
         "BONK": "Solana Memes",
-        "FLOKI": "Viking Army"
+        "FLOKI": "Wikingerarmee"
       },
       "insights": {
         "origins": {
-          "eyebrow": "Origins",
-          "title": "The Meme Coin Story",
+          "eyebrow": "Ursprünge",
+          "title": "Die Meme-Coin-Geschichte",
           "items": {
-            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
-            "elon": "Elon Musk tweets as price catalysts",
-            "pumps": "WallStreetBets-style coordinated pumps",
-            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
-            "pepe": "2023 PEPE boom revived the meme cycle",
-            "bonk": "BONK airdropped life into Solana DeFi"
+            "dogecoin": "Dogecoin (2013) – die ursprüngliche Internet-Scherzmünze",
+            "elon": "Tweets von Elon Musk als Preiskatalysatoren",
+            "pumps": "Passende Pumps im WallStreetBets-Stil",
+            "shiba": "Shiba Inu wurde als „DOGE-Killer“ ins Leben gerufen",
+            "pepe": "Der PEPE-Boom im Jahr 2023 hat den Meme-Zyklus wiederbelebt",
+            "bonk": "BONK brachte Leben in Solana DeFi"
           }
         },
         "risk": {
-          "title": "What Investors Should Know",
+          "title": "Was Anleger wissen sollten",
           "items": {
-            "sentiment": "Prices driven almost entirely by sentiment",
-            "pumpDump": "Susceptible to pump-and-dump schemes",
-            "utility": "Minimal or no underlying utility",
-            "volatility": "Extreme volatility - 50%+ swings common",
-            "rugPull": "Rug-pull risk in newer, unaudited coins",
-            "viralCycles": "High correlation with viral media cycles"
+            "sentiment": "Die Preise werden fast ausschließlich von der Stimmung bestimmt",
+            "pumpDump": "Anfällig für Pump-and-Dump-Systeme",
+            "utility": "Minimaler oder kein zugrunde liegender Nutzen",
+            "volatility": "Extreme Volatilität – Schwankungen von über 50 % üblich",
+            "rugPull": "Rug-Pull-Risiko bei neueren, ungeprüften Münzen",
+            "viralCycles": "Hohe Korrelation mit viralen Medienzyklen"
           }
         },
         "signals": {
-          "eyebrow": "Community Signals",
-          "title": "How to Track Momentum",
+          "eyebrow": "Community-Signale",
+          "title": "So verfolgen Sie die Dynamik",
           "items": {
-            "twitter": "Twitter/X mentions and trending hashtags",
-            "reddit": "Reddit activity on r/CryptoCurrency",
-            "whales": "Whale wallet alerts and large transfers",
-            "listings": "Exchange listing announcements",
-            "google": "Google Trends search volume spikes",
-            "influencers": "Influencer social media activity"
+            "twitter": "Twitter/X-Erwähnungen und Trend-Hashtags",
+            "reddit": "Reddit-Aktivität auf r/CryptoCurrency",
+            "whales": "Whale-Wallet-Warnungen und große Überweisungen",
+            "listings": "Ankündigungen zur Börsennotierung",
+            "google": "Das Suchvolumen von Google Trends steigt",
+            "influencers": "Social-Media-Aktivitäten von Influencern"
           }
         }
       },

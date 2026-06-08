@@ -56,10 +56,10 @@
     "low": "低"
   },
   "economicEvents": {
-    "usCpi": "美国 CPI",
+    "usCpi": "市场数据概览",
     "ecbRemarks": "欧洲央行政策讲话",
     "us10yAuction": "美国 10 年期国债拍卖",
-    "fomcMinutes": "FOMC 会议纪要"
+    "fomcMinutes": "市场数据概览"
   },
   "sentiment": {
     "equities": {
@@ -79,5 +79,5 @@
       "detail": "能源偏弱"
     }
   },
-  "currencyRate": "1 {{base}} = {{rate}} {{quote}}"
+  "currencyRate": "货币"
 }

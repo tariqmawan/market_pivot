@@ -174,24 +174,24 @@
   "tradingPairs": "ट्रेडिंग जोड़े",
   "transactionVolume": "लेनदेन मात्रा",
   "transactionsPerDay": "प्रति दिन लेनदेन",
-  "volume24h": "24 घंटे की मात्रा",
+  "volume24h": "24घं वॉल्यूम",
   "volumeOverlay": "वॉल्यूम ओवरले के साथ",
   "cryptocurrency": "Cryptocurrency",
   "cryptocurrencyCategories": "Cryptocurrency Categories",
   "allCryptocurrencies": "All Cryptocurrencies",
-  "trending": "Trending",
+  "trending": "ट्रेंडिंग",
   "categoryNotFound": "Category Not Found",
   "categoryNotFoundDescription": "This category doesn't exist. Browse all cryptocurrencies below.",
-  "viewAllCryptocurrencies": "View All Cryptocurrencies",
+  "viewAllCryptocurrencies": "सभी क्रिप्टोकरेंसी देखें",
   "trendingCoins": {
-    "eyebrow": "लाइव मार्केट डेटा - क्रिप्टोकरेंसी",
+    "eyebrow": "लाइव बाजार डेटा - क्रिप्टोकरेंसी",
     "titleAccent": "ट्रेंडिंग",
     "titleRest": "कॉइन",
-    "subtitle": "ट्रेडिंग गतिविधि, सोशल मोमेंटम और मार्केट कैप वृद्धि के आधार पर रैंक की गई रियल-टाइम ट्रेंडिंग क्रिप्टोकरेंसी। लगातार अपडेट होती है।",
+    "subtitle": "ट्रेडिंग गतिविधि, सोशल मोमेंटम और मार्केट कैप वृद्धि के आधार पर रियल-टाइम ट्रेंडिंग क्रिप्टोकरेंसी। लगातार अपडेट होती है।",
     "categories": {
       "all": "सभी",
-      "layer1": "लेयर 1",
-      "layer2": "लेयर 2",
+      "layer1": "Layer 1",
+      "layer2": "Layer 2",
       "defi": "DeFi",
       "meme": "मीम",
       "stablecoin": "स्टेबलकॉइन",
@@ -199,15 +199,15 @@
       "infrastructure": "इन्फ्रास्ट्रक्चर"
     },
     "metrics": {
-      "tracked": "ट्रैक किए गए",
-      "gainers": "लाभ में",
-      "topGain24h": "24घं शीर्ष लाभ",
+      "tracked": "ट्रैक",
+      "gainers": "लाभ वाले",
+      "topGain24h": "शीर्ष 24घं लाभ",
       "volumeShort": "24घं वॉल्यूम",
       "supply": "आपूर्ति"
     },
     "sentiment": {
       "hot": "हॉट",
-      "rising": "बढ़त पर",
+      "rising": "बढ़ता",
       "active": "सक्रिय",
       "strong": "मजबूत"
     },
@@ -215,117 +215,119 @@
     "emptyCategory": "इस श्रेणी में कोई कॉइन नहीं मिला।",
     "insights": {
       "trending": {
-        "eyebrow": "What's Trending",
-        "title": "Market Dynamics",
+        "eyebrow": "क्या ट्रेंड में है",
+        "title": "बाजार गतिशीलता",
         "items": {
-          "socialMentions": "Social media mentions spike",
-          "exchangeFlows": "Exchange inflow / outflow shifts",
-          "developerActivity": "Developer activity on GitHub",
-          "onChainVolume": "On-chain transaction volume",
-          "volumeBreakouts": "Trading volume breakouts"
+          "socialMentions": "सोशल मीडिया उल्लेखों में उछाल",
+          "exchangeFlows": "एक्सचेंज इनफ्लो/आउटफ्लो में बदलाव",
+          "developerActivity": "GitHub पर डेवलपर गतिविधि",
+          "onChainVolume": "ऑन-चेन लेनदेन वॉल्यूम",
+          "volumeBreakouts": "ट्रेडिंग वॉल्यूम ब्रेकआउट"
         }
       },
       "risk": {
-        "eyebrow": "Risk Factors",
-        "title": "Stay Cautious",
+        "eyebrow": "जोखिम कारक",
+        "title": "सावधान रहें",
         "items": {
-          "volatility": "High volatility - price can swing 30%+",
-          "liquidity": "Low liquidity in smaller coins",
-          "manipulation": "Potential market manipulation",
-          "regulation": "Evolving regulatory landscape",
-          "techRisk": "Smart contract / tech risks"
+          "volatility": "उच्च अस्थिरता - कीमत 30%+ बदल सकती है",
+          "liquidity": "छोटे कॉइन में कम तरलता",
+          "manipulation": "संभावित बाजार हेरफेर",
+          "regulation": "बदलता नियामकीय माहौल",
+          "techRisk": "स्मार्ट कॉन्ट्रैक्ट / तकनीकी जोखिम"
         }
       },
       "tips": {
-        "eyebrow": "Trading Tips",
-        "title": "Smart Strategies",
+        "eyebrow": "ट्रेडिंग टिप्स",
+        "title": "स्मार्ट रणनीतियां",
         "items": {
-          "onChainValidation": "Validate with on-chain metrics first",
-          "githubActivity": "Check GitHub developer activity",
-          "divergence": "Monitor volume vs. price divergence",
-          "positionSizing": "Use proper position sizing",
-          "stopLosses": "Set strict stop-losses before entry"
+          "onChainValidation": "पहले ऑन-चेन मेट्रिक्स से पुष्टि करें",
+          "githubActivity": "GitHub डेवलपर गतिविधि जांचें",
+          "divergence": "वॉल्यूम बनाम कीमत divergence देखें",
+          "positionSizing": "उचित पोजीशन साइज का उपयोग करें",
+          "stopLosses": "एंट्री से पहले सख्त स्टॉप-लॉस सेट करें"
         }
       }
     },
     "cta": {
-      "eyebrow": "Crypto Research",
-      "title": "Deep Dive Into Any Coin",
-      "description": "Click any coin to explore detailed charts, on-chain metrics, exchange listings, and breaking news - all in one place."
+      "eyebrow": "क्रिप्टो रिसर्च",
+      "title": "किसी भी कॉइन में गहराई से जाएं",
+      "description": "विस्तृत चार्ट, ऑन-चेन मेट्रिक्स, एक्सचेंज लिस्टिंग और ब्रेकिंग न्यूज एक ही जगह देखने के लिए किसी भी कॉइन पर क्लिक करें।"
     }
   },
+
   "categoryPages": {
     "common": {
-      "marketOverview": "Market Overview",
-      "combinedMarketCap": "Combined Market Cap",
-      "topGainer24h": "Top Gainer (24h)",
-      "name": "Name",
-      "price": "Price",
-      "change24h": "24h Change",
-      "marketCap": "Market Cap",
-      "volume24h": "24h Volume",
-      "riskProfile": "Risk Profile",
-      "fullCryptoMarket": "Full Crypto Market",
-      "exploreAllCryptocurrencies": "Explore All Cryptocurrencies"
+      "marketOverview": "मार्केट ओवरव्यू",
+      "combinedMarketCap": "संयुक्त मार्केट कैप",
+      "topGainer24h": "शीर्ष लाभार्थी (24घं)",
+      "name": "नाम",
+      "price": "मूल्य",
+      "change24h": "24घं परिवर्तन",
+      "marketCap": "मार्केट कैप",
+      "volume24h": "24घं वॉल्यूम",
+      "riskProfile": "जोखिम प्रोफ़ाइल",
+      "fullCryptoMarket": "पूर्ण क्रिप्टो मार्केट",
+      "exploreAllCryptocurrencies": "सभी क्रिप्टोकरेंसी एक्सप्लोर करें"
     },
     "meme": {
-      "eyebrow": "Community Tokens",
-      "title": "Meme coins",
-      "body": "Community-driven cryptocurrencies fuelled by viral culture, social momentum, and cult followings. High-risk, high-reward assets where sentiment rules the market.",
+      "eyebrow": "कम्युनिटी टोकन्स",
+      "title": "मीम कॉइन्स",
+      "body": "वायरल संस्कृति, सोशल मोमेंटम और मजबूत समुदायों द्वारा संचालित क्रिप्टोकरेंसी। उच्च जोखिम और उच्च रिटर्न वाली एसेट्स जहाँ बाजार पर सेंटिमेंट का प्रभाव होता है।",
       "metrics": {
-        "coinsListed": "Coins Listed"
+        "coinsListed": "सूचीबद्ध कॉइन्स"
       },
-      "rankingsTitle": "Meme Coin Rankings",
+      "rankingsTitle": "मीम कॉइन रैंकिंग्स",
       "table": {
-        "community": "Community"
+        "community": "कम्युनिटी"
       },
       "communities": {
-        "DOGE": "Original OG",
-        "SHIB": "ShibArmy",
-        "PEPE": "Pepe Nation",
-        "BONK": "Solana Memes",
-        "FLOKI": "Viking Army"
+        "DOGE": "ओरिजिनल OG",
+        "SHIB": "शिबआर्मी",
+        "PEPE": "पेपे नेशन",
+        "BONK": "सोलाना मीम्स",
+        "FLOKI": "वाइकिंग आर्मी"
       },
       "insights": {
         "origins": {
-          "eyebrow": "Origins",
-          "title": "The Meme Coin Story",
+          "eyebrow": "उत्पत्ति",
+          "title": "मीम कॉइन की कहानी",
           "items": {
-            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
-            "elon": "Elon Musk tweets as price catalysts",
-            "pumps": "WallStreetBets-style coordinated pumps",
-            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
-            "pepe": "2023 PEPE boom revived the meme cycle",
-            "bonk": "BONK airdropped life into Solana DeFi"
+            "dogecoin": "Dogecoin (2013) - मूल इंटरनेट मज़ाक कॉइन",
+            "elon": "एलोन मस्क के ट्वीट्स मूल्य उत्प्रेरक के रूप में",
+            "pumps": "WallStreetBets-शैली के समन्वित पंप्स",
+            "shiba": "Shiba Inu को \"DOGE killer\" के रूप में लॉन्च किया गया",
+            "pepe": "2023 PEPE बूम ने मीम साइकिल को फिर से जीवित किया",
+            "bonk": "BONK एयरड्रॉप ने Solana DeFi में नई जान डाली"
           }
         },
         "risk": {
-          "title": "What Investors Should Know",
+          "title": "निवेशकों को क्या जानना चाहिए",
           "items": {
-            "sentiment": "Prices driven almost entirely by sentiment",
-            "pumpDump": "Susceptible to pump-and-dump schemes",
-            "utility": "Minimal or no underlying utility",
-            "volatility": "Extreme volatility - 50%+ swings common",
-            "rugPull": "Rug-pull risk in newer, unaudited coins",
-            "viralCycles": "High correlation with viral media cycles"
+            "sentiment": "कीमतें लगभग पूरी तरह सेंटिमेंट द्वारा संचालित होती हैं",
+            "pumpDump": "पंप-एंड-डंप योजनाओं के प्रति संवेदनशील",
+            "utility": "न्यूनतम या कोई मूलभूत उपयोगिता नहीं",
+            "volatility": "अत्यधिक अस्थिरता - 50%+ उतार-चढ़ाव आम हैं",
+            "rugPull": "नई और बिना ऑडिट वाली कॉइन्स में रग-पुल जोखिम",
+            "viralCycles": "वायरल मीडिया चक्रों के साथ उच्च संबंध"
           }
         },
         "signals": {
-          "eyebrow": "Community Signals",
-          "title": "How to Track Momentum",
+          "eyebrow": "कम्युनिटी सिग्नल्स",
+          "title": "मोमेंटम को कैसे ट्रैक करें",
           "items": {
-            "twitter": "Twitter/X mentions and trending hashtags",
-            "reddit": "Reddit activity on r/CryptoCurrency",
-            "whales": "Whale wallet alerts and large transfers",
-            "listings": "Exchange listing announcements",
-            "google": "Google Trends search volume spikes",
-            "influencers": "Influencer social media activity"
+            "twitter": "Twitter/X उल्लेख और ट्रेंडिंग हैशटैग",
+            "reddit": "r/CryptoCurrency पर Reddit गतिविधि",
+            "whales": "व्हेल वॉलेट अलर्ट्स और बड़े ट्रांसफर्स",
+            "listings": "एक्सचेंज लिस्टिंग घोषणाएँ",
+            "google": "Google Trends खोज वॉल्यूम स्पाइक्स",
+            "influencers": "इन्फ्लुएंसर सोशल मीडिया गतिविधि"
           }
         }
       },
       "cta": {
-        "description": "Compare meme coins against blue-chip assets, DeFi protocols, and layer-1 blockchains."
+        "description": "मीम कॉइन्स की तुलना ब्लू-चिप एसेट्स, DeFi प्रोटोकॉल्स और लेयर-1 ब्लॉकचेन्स के साथ करें।"
       }
     }
   }
 }
+

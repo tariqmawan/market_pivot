@@ -9,147 +9,147 @@
   "converter": "货币换算器",
   "countries": {
     "ae": {
-      "name": "市场标题"
+      "name": "阿联酋"
     },
     "au": {
-      "name": "市场标题"
+      "name": "澳大利亚"
     },
     "br": {
-      "name": "市场标题"
+      "name": "巴西"
     },
     "ca": {
-      "name": "市场标题"
+      "name": "加拿大"
     },
     "ch": {
-      "name": "市场标题"
+      "name": "瑞士"
     },
     "cl": {
-      "name": "市场标题"
+      "name": "智利"
     },
     "cn": {
-      "name": "市场标题"
+      "name": "中国"
     },
     "eu": {
-      "name": "市场标题"
+      "name": "欧盟"
     },
     "gb": {
-      "name": "市场标题"
+      "name": "英国"
     },
     "hk": {
-      "name": "市场标题"
+      "name": "香港"
     },
     "in": {
-      "name": "市场标题"
+      "name": "印度"
     },
     "jp": {
-      "name": "市场标题"
+      "name": "日本"
     },
     "kr": {
-      "name": "市场标题"
+      "name": "韩国"
     },
     "mx": {
-      "name": "市场标题"
+      "name": "墨西哥"
     },
     "no": {
-      "name": "市场标题"
+      "name": "挪威"
     },
     "sa": {
-      "name": "市场标题"
+      "name": "沙特阿拉伯"
     },
     "se": {
-      "name": "市场标题"
+      "name": "瑞典"
     },
     "sg": {
-      "name": "市场标题"
+      "name": "新加坡"
     },
     "us": {
       "name": "美国"
     },
     "za": {
-      "name": "市场标题"
+      "name": "南非"
     }
   },
   "country": "国家",
   "currencies": {
     "aed": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "阿联酋迪拉姆",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "aud": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "澳元",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "brl": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "巴西雷亚尔",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "cad": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加元",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "chf": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "瑞士法郎",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "clp": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "智利比索",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "cny": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "人民币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "eur": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "欧元",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "gbp": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "英镑",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "hkd": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "港元",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "inr": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "印度卢比",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "jpy": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "日元",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "krw": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "韩元",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "mxn": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "墨西哥比索",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "nok": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "挪威克朗",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "sar": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "沙特里亚尔",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "sek": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "瑞典克朗",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "sgd": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "新加坡元",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "usd": {
       "name": "美元",
       "description": "世界上使用最广泛的储备货币和全球标准。"
     },
     "zar": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "南非兰特",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     }
   },
   "currencyNewsComing": "最新经济新闻将在此显示",
@@ -161,7 +161,7 @@
   "economicNews": "经济新闻与更新",
   "employment": "就业",
   "exchangeRates": "汇率",
-  "gdpGrowth": "GDP 增长",
+  "gdpGrowth": "市场数据概览",
   "high52w": "52周高点",
   "inflationRate": "通胀率",
   "interestRate": "利率",
@@ -176,15 +176,85 @@
   "type": "类型",
   "vsUsd": "兑美元",
   "currencyTypes": {
-    "fiat": "法定货币"
+    "fiat": "法定货币",
+    "commodity": "货币",
+    "crypto": "加密货币 货币"
   },
   "centralBanks": {
-    "federalreserve": "美联储"
+    "federalreserve": "美联储",
+    "europeancentralbank": "欧洲央行",
+    "bankofjapan": "日本央行",
+    "bankofengland": "英国央行",
+    "swissnationalbank": "瑞士国家银行",
+    "peoplesbankofchina": "中国人民银行",
+    "hongkongmonetaryauthority": "香港金融管理局",
+    "reservebankofindia": "印度储备银行",
+    "reservebankofaustralia": "澳大利亚储备银行",
+    "monetaryauthorityofsingapore": "新加坡金融管理局",
+    "bankofkorea": "韩国央行",
+    "bankofcanada": "加拿大央行",
+    "centralbankofbrazil": "巴西央行",
+    "bancodemxico": "墨西哥央行",
+    "centralbankofchile": "智利央行",
+    "riksbank": "瑞典央行",
+    "norgesbank": "挪威央行",
+    "saudicentralbank": "沙特央行",
+    "centralbankoftheuae": "阿联酋央行",
+    "southafricanreservebank": "南非储备银行"
   },
   "regions": {
-    "northamerica": "北美"
+    "northamerica": "北美",
+    "europe": "欧洲",
+    "asia": "亚洲",
+    "americas": "美洲",
+    "middleeast": "中东",
+    "africa": "非洲"
   },
-  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
-  "keyDataReleasesFor": "Key data releases for {{code}}",
-  "hoursAgo": "{{count}}h ago"
+  "ratesVsMajorSubtitle": "市场概览",
+  "keyDataReleasesFor": "市场数据概览",
+  "hoursAgo": "市场数据概览",
+  "impacts": {
+    "High": "高",
+    "Medium": "中",
+    "Low": "低"
+  },
+  "events": {
+    "nonFarmPayrolls": "非农就业人数",
+    "ecbPressConference": "欧洲央行新闻发布会",
+    "boeGovernorSpeech": "英国央行行长讲话",
+    "fomcMinutes": "市场数据概览",
+    "bojSummaryOpinions": "市场数据概览",
+    "rbaStatement": "澳大利亚联储声明",
+    "currencyCpiRelease": "货币",
+    "centralBankPolicyUpdate": "市场数据概览",
+    "currencyRetailSales": "货币",
+    "currencyTradeBalance": "货币"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "市场概览",
+    "currencyWeakensPolicy": "市场概览",
+    "centralBankDataDependent": "市场概览",
+    "currencyLiquidityRobust": "市场概览",
+    "currencyFairValueUpdated": "市场概览",
+    "usdRallyPauses": "市场概览",
+    "ecbDataDependent": "市场概览",
+    "jpyInterventionWatch": "市场概览",
+    "gbpStickyInflation": "市场概览",
+    "cnyWeakerMidpoint": "市场概览",
+    "audCommodityStrength": "市场概览"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "货币",
+    "secondreservecurrency": "货币",
+    "thirdreservecurrency": "货币",
+    "regionalreservecurrency": "货币",
+    "regional": "区域"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "避险资金流入",
+    "mixedinflows": "混合型资金流入",
+    "exportdrivenflows": "出口驱动型资金流",
+    "commoditylinkedflows": "大宗商品关联资金流",
+    "open": "开盘"
+  }
 }

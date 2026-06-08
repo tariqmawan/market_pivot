@@ -36,6 +36,16 @@ const currencies = (currenciesData as { currencies: Currency[] }).currencies;
 
 const MAJOR_PAIRS = ["USD", "EUR", "JPY", "GBP", "CHF", "AUD", "CAD", "NZD"];
 const EXOTIC_PAIRS = ["USD/TRY", "USD/ZAR", "USD/MXN", "USD/SEK", "USD/SGD", "USD/HKD", "USD/INR", "USD/BRL"];
+const EMPTY_VALUE = "-";
+
+const keySlug = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, "");
+const currencyTypeKey = (value: Currency["type"]) => `forex:currencyTypes.${value}`;
+const centralBankKey = (value: string) => `forex:centralBanks.${keySlug(value)}`;
+const regionKey = (value: string) => `forex:regions.${keySlug(value)}`;
+const valueKey = (scope: string, value: string) => `forex:${scope}.${keySlug(value)}`;
+const eventTitleKey = (id: string) => `forex:events.${id}`;
+const newsTitleKey = (id: string) => `forex:newsTitles.${id}`;
+const impactKey = (value: string) => `forex:impacts.${value}`;
 
 const majorRates: Record<string, number> = {
   USD: 1, EUR: 0.92, JPY: 155, GBP: 0.79, CHF: 0.91, CNY: 7.24, HKD: 7.82,
@@ -70,8 +80,17 @@ const getStrength = (code: string) => {
   return 60 + (seed % 80); // 60-140
 };
 
+const translateCurrencyName = (t: ReturnType<typeof useI18n>["t"], currency: Currency) =>
+  translateStatic(t, currency.nameKey, currency.name);
+
+const translateCentralBank = (t: ReturnType<typeof useI18n>["t"], centralBank: string) =>
+  t(centralBankKey(centralBank), centralBank);
+
+const translateRegion = (t: ReturnType<typeof useI18n>["t"], region: string) =>
+  t(regionKey(region), region);
+
 const ForexPage: React.FC = () => {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
   const { code: routeCode } = useParams();
   const detailCode = routeCode?.toUpperCase();
   const detailCurrency = detailCode
@@ -138,17 +157,17 @@ const ForexPage: React.FC = () => {
   }));
 
   const econEvents = [
-    { time: "08:30", currency: "USD", event: "Non-Farm Payrolls", impact: "High", forecast: "180K", previous: "227K" },
-    { time: "10:00", currency: "EUR", event: "ECB Press Conference", impact: "High", forecast: "—", previous: "—" },
-    { time: "12:30", currency: "GBP", event: "BoE Governor Speech", impact: "Medium", forecast: "—", previous: "—" },
-    { time: "14:00", currency: "USD", event: "FOMC Minutes", impact: "High", forecast: "—", previous: "—" },
-    { time: "21:50", currency: "JPY", event: "BoJ Summary of Opinions", impact: "Medium", forecast: "—", previous: "—" },
-    { time: "23:30", currency: "AUD", event: "RBA Statement", impact: "High", forecast: "—", previous: "—" },
+    { time: "08:30", currency: "USD", eventKey: "nonFarmPayrolls", impact: "High", forecast: "180K", previous: "227K" },
+    { time: "10:00", currency: "EUR", eventKey: "ecbPressConference", impact: "High", forecast: EMPTY_VALUE, previous: EMPTY_VALUE },
+    { time: "12:30", currency: "GBP", eventKey: "boeGovernorSpeech", impact: "Medium", forecast: EMPTY_VALUE, previous: EMPTY_VALUE },
+    { time: "14:00", currency: "USD", eventKey: "fomcMinutes", impact: "High", forecast: EMPTY_VALUE, previous: EMPTY_VALUE },
+    { time: "21:50", currency: "JPY", eventKey: "bojSummaryOpinions", impact: "Medium", forecast: EMPTY_VALUE, previous: EMPTY_VALUE },
+    { time: "23:30", currency: "AUD", eventKey: "rbaStatement", impact: "High", forecast: EMPTY_VALUE, previous: EMPTY_VALUE },
   ];
 
   const volatilityData = currencies.filter((c) => c.type === "fiat").map((c) => {
     const seed = hashString(c.code);
-    return { code: c.code, name: c.name, volatility: 3 + (seed % 12), trend: (seed % 20) - 10 };
+    return { code: c.code, currency: c, volatility: 3 + (seed % 12), trend: (seed % 20) - 10 };
   }).sort((a, b) => b.volatility - a.volatility).slice(0, 10);
 
   const regionalPerformance = ["Americas", "Europe", "Asia", "Middle East", "Africa"].map((region) => {
@@ -165,6 +184,9 @@ const ForexPage: React.FC = () => {
     const detailName = translateStatic(t, detailCurrency.nameKey, detailCurrency.name);
     const detailCountry = translateStatic(t, detailCurrency.countryKey, detailCurrency.country);
     const detailDescription = translateStatic(t, detailCurrency.descriptionKey, detailCurrency.description);
+    const detailBank = translateCentralBank(t, detailCurrency.centralBank);
+    const detailRegion = translateRegion(t, detailCurrency.region);
+    const detailType = t(currencyTypeKey(detailCurrency.type), detailCurrency.type);
     const dcRate = majorRates[detailCurrency.code] ?? 1;
     const change = computeChange(detailCurrency.code);
     const strength = getStrength(detailCurrency.code);
@@ -182,20 +204,20 @@ const ForexPage: React.FC = () => {
         };
       });
     const detailEvents = [
-      { time: "08:30", event: `${detailCurrency.code} CPI release`, impact: "High" },
-      { time: "12:00", event: `${detailCurrency.centralBank} policy update`, impact: "High" },
-      { time: "14:00", event: `${detailCurrency.code} retail sales`, impact: "Medium" },
-      { time: "16:00", event: `${detailCurrency.code} trade balance`, impact: "Medium" },
+      { time: "08:30", eventKey: "currencyCpiRelease", impact: "High" },
+      { time: "12:00", eventKey: "centralBankPolicyUpdate", impact: "High" },
+      { time: "14:00", eventKey: "currencyRetailSales", impact: "Medium" },
+      { time: "16:00", eventKey: "currencyTradeBalance", impact: "Medium" },
     ];
 
     return (
       <div className="page forex-page forex-detail">
         <section className="forex-hero">
           <div>
-            <Link to="/forex" className="back-link">← {t("forex.allCurrencies")}</Link>
-            <p className="eyebrow">{detailCurrency.region} • {detailCurrency.type}</p>
+            <Link to="/forex" className="back-link">{t("forex.backToAllCurrencies")}</Link>
+            <p className="eyebrow">{detailRegion} / {detailType}</p>
             <h1>{detailName}</h1>
-            <p>{detailDescription || `${detailCountry} currency, issued by ${detailCurrency.centralBank}.`}</p>
+            <p>{detailDescription || t("forex.currencyIssuedBy", "", { country: detailCountry, centralBank: detailBank })}</p>
           </div>
           <div className="metric-strip">
             <div className="metric-tile"><span>{t("forex.code")}</span><strong>{detailCurrency.code}</strong></div>
@@ -211,7 +233,7 @@ const ForexPage: React.FC = () => {
         <section className="forex-content">
           <div className="strength-section">
             <div className="section-header-row">
-              <h2>{t("forex.priceChart")} — {detailCurrency.code}/USD</h2>
+              <h2>{t("forex.priceChartFor", "", { pair: `${detailCurrency.code}/USD` })}</h2>
               <p>{t("forex.monthRollingRate")}</p>
             </div>
             <div style={{ background: "var(--surface,#fff)", border: "1px solid var(--border,#e2e8f0)", borderRadius: 12, padding: "1rem" }}>
@@ -226,7 +248,7 @@ const ForexPage: React.FC = () => {
           <div className="pairs-section">
             <div className="section-header-row">
               <h2>{t("forex.ratesVsMajor")}</h2>
-              <p>{t("forex.ratesVsMajorSubtitle", "", { code: detailCurrency.code })}</p>
+              <p>{t("forex:ratesVsMajorSubtitle", "", { code: detailCurrency.code })}</p>
             </div>
             <div className="pairs-table-wrap">
               <table className="pairs-table">
@@ -245,7 +267,7 @@ const ForexPage: React.FC = () => {
                       <td>{r.rate.toFixed(4)}</td>
                       <td className={r.change >= 0 ? "positive" : "negative"}>{formatSignedPercent(r.change)}</td>
                       <td>
-                        <Link to={`/forex/${r.target}`} className="secondary-action-sm">{t("viewDetails")} {r.target}</Link>
+                        <Link to={`/forex/${r.target}`} className="secondary-action-sm">{t("forex.viewDetails")} {r.target}</Link>
                       </td>
                     </tr>
                   ))}
@@ -257,14 +279,14 @@ const ForexPage: React.FC = () => {
           <div className="central-section">
             <div className="section-header-row">
               <h2>{t("forex.centralBankMacro")}</h2>
-              <p>{t("forexpage.h0")}</p>
+              <p>{t("forex.centralBankMacroSubtitle")}</p>
             </div>
             <div className="central-grid">
               <div className="central-card">
                 <div className="central-header">
                   <div>
                     <h4>{detailCurrency.code}</h4>
-                    <span>{detailCurrency.centralBank}</span>
+                    <span>{detailBank}</span>
                   </div>
                 </div>
                 <div className="central-stats">
@@ -282,10 +304,10 @@ const ForexPage: React.FC = () => {
               <div className="central-card">
                 <div className="central-header"><div><h4>{t("forex.tradeProfile")}</h4><span>{detailCountry}</span></div></div>
                 <div className="central-stats">
-                  <div><span>{t("forex.reserveStatus")}</span><strong>{detailCurrency.reserveStatus ?? "Regional"}</strong></div>
-                  <div><span>{t("forex.capitalFlows")}</span><strong>{detailCurrency.capitalFlows ?? "Open"}</strong></div>
-                  <div><span>{t("forex.tradeBalance")}</span><strong>{detailCurrency.tradeBalance != null ? `${detailCurrency.tradeBalance > 0 ? "+" : ""}${detailCurrency.tradeBalance.toFixed(1)}%` : "—"}</strong></div>
-                  <div><span>{t("forex.region")}</span><strong>{detailCurrency.region}</strong></div>
+                  <div><span>{t("forex.reserveStatus")}</span><strong>{t(valueKey("reserveStatuses", detailCurrency.reserveStatus ?? "Regional"), detailCurrency.reserveStatus ?? t("forex.regional"))}</strong></div>
+                  <div><span>{t("forex.capitalFlows")}</span><strong>{t(valueKey("capitalFlowTypes", detailCurrency.capitalFlows ?? "Open"), detailCurrency.capitalFlows ?? t("forex.open"))}</strong></div>
+                  <div><span>{t("forex.tradeBalance")}</span><strong>{detailCurrency.tradeBalance != null ? `${detailCurrency.tradeBalance > 0 ? "+" : ""}${detailCurrency.tradeBalance.toFixed(1)}%` : EMPTY_VALUE}</strong></div>
+                  <div><span>{t("forex.region")}</span><strong>{detailRegion}</strong></div>
                 </div>
               </div>
             </div>
@@ -294,7 +316,7 @@ const ForexPage: React.FC = () => {
           <div className="calendar-section">
             <div className="section-header-row">
               <h2>{t("forex.upcomingEvents")}</h2>
-              <p>{t("forex.keyDataReleasesFor", "", { code: detailCurrency.code })}</p>
+              <p>{t("forex:keyDataReleasesFor", "", { code: detailCurrency.code })}</p>
             </div>
             <div className="econ-events">
               {detailEvents.map((event, i) => (
@@ -302,10 +324,10 @@ const ForexPage: React.FC = () => {
                   <div className="event-time">{event.time}</div>
                   <div className="event-currency">{detailCurrency.code}</div>
                   <div className="event-info">
-                    <strong>{event.event}</strong>
-                    <div className="event-meta"><span>{t("forex.source")}: {detailCurrency.centralBank}</span></div>
+                    <strong>{t(eventTitleKey(event.eventKey), "", { code: detailCurrency.code, centralBank: detailBank })}</strong>
+                    <div className="event-meta"><span>{t("forex.source")}: {detailBank}</span></div>
                   </div>
-                  <div className={`event-impact ${event.impact.toLowerCase()}`}>{event.impact}</div>
+                  <div className={`event-impact ${event.impact.toLowerCase()}`}>{t(impactKey(event.impact), event.impact)}</div>
                 </div>
               ))}
             </div>
@@ -316,15 +338,15 @@ const ForexPage: React.FC = () => {
           <h2>{detailCurrency.code} {t("forex.newsDetail")}</h2>
           <div className="forex-news-grid">
             {[
-              { title: `${detailCurrency.code} ${change >= 0 ? "strengthens" : "weakens"} on policy expectations`, source: "Reuters" },
-              { title: `${detailCurrency.centralBank} signals data-dependent path`, source: "Bloomberg" },
-              { title: `${detailCurrency.code} liquidity remains robust in cross-border flows`, source: "FT" },
-              { title: `Analyst note: ${detailCurrency.code} fair value updated`, source: "WSJ" },
+              { titleKey: change >= 0 ? "currencyStrengthensPolicy" : "currencyWeakensPolicy", source: "Reuters" },
+              { titleKey: "centralBankDataDependent", source: "Bloomberg" },
+              { titleKey: "currencyLiquidityRobust", source: "FT" },
+              { titleKey: "currencyFairValueUpdated", source: "WSJ" },
             ].map((n, i) => (
               <article key={i} className="forex-news-card">
                 <span className="news-tag">{detailCurrency.code}</span>
-                <h4>{n.title}</h4>
-                <div className="news-meta"><span>{n.source}</span><span>{t("forex.hoursAgo", "", { count: i + 1 })}</span></div>
+                <h4>{t(newsTitleKey(n.titleKey), "", { code: detailCurrency.code, centralBank: detailBank })}</h4>
+                <div className="news-meta"><span>{n.source}</span><span>{t("forex:hoursAgo", "", { count: i + 1 })}</span></div>
               </article>
             ))}
           </div>
@@ -352,14 +374,14 @@ const ForexPage: React.FC = () => {
       {/* Tabs */}
       <nav className="forex-tabs">
         {[
-          { id: "strength", label: `💪 ${t("forex.currencyStrength")}` },
+          { id: "strength", label: t("forex.currencyStrength") },
           { id: "majors", label: t("forex.majorPairs") },
           { id: "cross", label: t("forex.crossPairs") },
           { id: "exotic", label: t("forex.exoticPairs") },
           { id: "central", label: t("forex.centralBanks") },
-          { id: "calendar", label: `📅 ${t("forex.economicCalendar")}` },
-          { id: "volatility", label: `⚡ ${t("forex.fxVolatility")}` },
-          { id: "heatmap", label: `🔥 ${t("forex.heatmapTitle")}` },
+          { id: "calendar", label: t("forex.economicCalendar") },
+          { id: "volatility", label: t("forex.fxVolatility") },
+          { id: "heatmap", label: t("forex.heatmapTitle") },
         ].map((tab) => (
           <button
             key={tab.id}
@@ -387,7 +409,7 @@ const ForexPage: React.FC = () => {
                   <Link key={currency.code} to={`/currencies/${currency.code}`} className={`strength-card tone-${tone}`}>
                     <div className="strength-rank">
                       <span className="strength-code">{currency.code}</span>
-                      <span className="strength-name">{currency.name}</span>
+                      <span className="strength-name">{translateCurrencyName(t, currency)}</span>
                     </div>
                     <div className="strength-bar">
                       <div className="strength-fill" style={{ width: `${Math.min(100, currency.strength)}%` }} />
@@ -407,8 +429,8 @@ const ForexPage: React.FC = () => {
               <h3>{t("forex.regionalPerf")}</h3>
               <div className="regional-grid">
                 {regionalPerformance.map((r) => (
-                  <div key={r.region} className="regional-card">
-                    <span>{r.region}</span>
+                  <div key={translateRegion(t, r.region)} className="regional-card">
+                    <span>{translateRegion(t, r.region)}</span>
                     <strong className={r.performance >= 0 ? "positive" : "negative"}>
                       {formatSignedPercent(r.performance)}
                     </strong>
@@ -559,7 +581,7 @@ const ForexPage: React.FC = () => {
                   <div className="central-header">
                     <div>
                       <h4>{cb.code}</h4>
-                      <span>{cb.centralBank}</span>
+                      <span>{translateCentralBank(t, cb.centralBank)}</span>
                     </div>
                     <div className={`rate-pill ${cb.lastChange >= 0 ? "positive" : "negative"}`}>
                       {cb.lastChange >= 0 ? "+" : ""}{cb.lastChange.toFixed(2)}%
@@ -568,7 +590,7 @@ const ForexPage: React.FC = () => {
                   <div className="central-stats">
                     <div><span>{t("forex.policyRate")}</span><strong>{cb.rate.toFixed(2)}%</strong></div>
                     <div><span>{t("forex.inflation")}</span><strong>{cb.inflation.toFixed(1)}%</strong></div>
-                    <div><span>{t("forex.nextMeeting")}</span><strong>{new Date(cb.nextMeeting).toLocaleDateString("en-US", { month: "short", day: "numeric" })}</strong></div>
+                    <div><span>{t("forex.nextMeeting")}</span><strong>{new Date(cb.nextMeeting).toLocaleDateString(language, { month: "short", day: "numeric" })}</strong></div>
                     <div><span>{t("forex.realRate")}</span><strong className={(cb.rate - cb.inflation) > 0 ? "positive" : "negative"}>{(cb.rate - cb.inflation).toFixed(2)}%</strong></div>
                   </div>
                 </div>
@@ -592,7 +614,7 @@ const ForexPage: React.FC = () => {
                   {centralBanks.map((cb) => (
                     <tr key={`r-${cb.code}`}>
                       <td><strong>{cb.code}</strong></td>
-                      <td>{cb.centralBank}</td>
+                      <td>{translateCentralBank(t, cb.centralBank)}</td>
                       <td>{cb.rate.toFixed(2)}%</td>
                       <td>{cb.inflation.toFixed(1)}%</td>
                       <td className={(cb.rate - cb.inflation) > 0 ? "positive" : "negative"}>
@@ -623,13 +645,13 @@ const ForexPage: React.FC = () => {
                   <div className="event-time">{event.time}</div>
                   <div className="event-currency">{event.currency}</div>
                   <div className="event-info">
-                    <strong>{event.event}</strong>
+                    <strong>{t(eventTitleKey(event.eventKey))}</strong>
                     <div className="event-meta">
                       <span>{t("forex.forecast")}: {event.forecast}</span>
                       <span>{t("forex.previous")}: {event.previous}</span>
                     </div>
                   </div>
-                  <div className={`event-impact ${event.impact.toLowerCase()}`}>{event.impact}</div>
+                  <div className={`event-impact ${event.impact.toLowerCase()}`}>{t(impactKey(event.impact), event.impact)}</div>
                 </div>
               ))}
             </div>
@@ -647,7 +669,7 @@ const ForexPage: React.FC = () => {
                 <div key={v.code} className="vol-row">
                   <div className="vol-info">
                     <strong>{v.code}</strong>
-                    <span>{v.name}</span>
+                    <span>{translateCurrencyName(t, v.currency)}</span>
                   </div>
                   <div className="vol-track">
                     <div className="vol-fill" style={{ width: `${Math.min(100, v.volatility * 8)}%` }} />
@@ -677,7 +699,7 @@ const ForexPage: React.FC = () => {
                 return (
                   <Link key={c.code} to={`/currencies/${c.code}`} className="fx-heat-cell" style={{ backgroundColor: bg }}>
                     <span className="heat-code">{c.code}</span>
-                    <span className="heat-name">{c.name.split(" ")[0]}</span>
+                    <span className="heat-name">{translateCurrencyName(t, c).split(" ")[0]}</span>
                     <em>{formatSignedPercent(c.change)}</em>
                   </Link>
                 );
@@ -726,17 +748,17 @@ const ForexPage: React.FC = () => {
         <h2>{t("forex.newsInsights")}</h2>
         <div className="forex-news-grid">
           {[
-            { title: "USD rally pauses ahead of FOMC minutes", source: "Reuters", tag: "USD" },
-            { title: "ECB signals data-dependent path, EUR trades heavy", source: "Bloomberg", tag: "EUR" },
-            { title: "JPY intervention watch resumes as USD/JPY tests 156", source: "Nikkei", tag: "JPY" },
-            { title: "GBP supported by sticky services inflation", source: "FT", tag: "GBP" },
-            { title: "CNY under pressure as PBOC fixes weaker midpoint", source: "Caixin", tag: "CNY" },
-            { title: "AUD bid on commodity strength and risk-on tone", source: "ABC News", tag: "AUD" },
+            { titleKey: "usdRallyPauses", source: "Reuters", tag: "USD" },
+            { titleKey: "ecbDataDependent", source: "Bloomberg", tag: "EUR" },
+            { titleKey: "jpyInterventionWatch", source: "Nikkei", tag: "JPY" },
+            { titleKey: "gbpStickyInflation", source: "FT", tag: "GBP" },
+            { titleKey: "cnyWeakerMidpoint", source: "Caixin", tag: "CNY" },
+            { titleKey: "audCommodityStrength", source: "ABC News", tag: "AUD" },
           ].map((n, i) => (
             <article key={i} className="forex-news-card">
               <span className="news-tag">{n.tag}</span>
-              <h4>{n.title}</h4>
-              <div className="news-meta"><span>{n.source}</span><span>{t("forexpage.h1")}</span></div>
+              <h4>{t(newsTitleKey(n.titleKey))}</h4>
+              <div className="news-meta"><span>{n.source}</span><span>{t("forex:hoursAgo", "", { count: i + 1 })}</span></div>
             </article>
           ))}
         </div>

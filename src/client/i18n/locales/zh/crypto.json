@@ -5,25 +5,25 @@
   "blockTime": "出块时间",
   "categories": {
     "defi": {
-      "name": "市场标题"
+      "name": "DeFi"
     },
     "infrastructure": {
-      "name": "市场标题"
+      "name": "市场数据概览"
     },
     "layer1": {
-      "name": "市场标题"
+      "name": "Layer 1"
     },
     "layer2": {
-      "name": "市场标题"
+      "name": "市场数据概览"
     },
     "meme": {
-      "name": "市场标题"
+      "name": "市场数据概览"
     },
     "payments": {
-      "name": "市场标题"
+      "name": "市场数据概览"
     },
     "stablecoin": {
-      "name": "市场标题"
+      "name": "市场数据概览"
     }
   },
   "category": "类别",
@@ -34,125 +34,125 @@
   "cryptoNewsSubtitle": "项目更新、合作伙伴关系和市场新闻",
   "cryptocurrencies": {
     "aave": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "arbitrum": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "avalanche2": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "binancecoin": {
-      "name": "BNB",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "bitcoin": {
       "name": "比特币",
-      "description": "市场说明"
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "bonk": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "cardano": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "chainlink": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "compoundGovernanceToken": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "cosmos": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "curveDaoToken": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "dai": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "dogecoin": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "ethereum": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "Ethereum",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "floki": {
       "name": "FLOKI",
-      "description": "市场说明"
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "litecoin": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "maker": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "maticNetwork": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "pepe": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "polkadot": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "ripple": {
-      "name": "XRP",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "shibaInu": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "solana": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "stellar": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "tether": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "Tether",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "theOpenNetwork": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "tron": {
-      "name": "TRON",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "uniswap": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     },
     "usdCoin": {
-      "name": "市场标题",
-      "description": "市场说明"
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     }
   },
   "currentPrice": "当前价格",
   "exchange": "交易所",
-  "exchangeExamples": "Binance、Coinbase、Kraken 等",
+  "exchangeExamples": "交易所",
   "exchanges": "交易所",
   "founder": "创始人",
   "launched": "上线时间",
@@ -169,20 +169,20 @@
   "priceChart": "交互式价格图表",
   "priceMetrics": "价格与指标",
   "rank": "排名",
-  "rankNumber": "排名 #{{rank}}",
+  "rankNumber": "市场数据概览",
   "supplyInfo": "供应信息",
   "tradingPairs": "交易对",
   "transactionVolume": "交易量",
   "transactionsPerDay": "每日交易数",
   "volume24h": "24小时成交量",
   "volumeOverlay": "含成交量叠加",
-  "cryptocurrency": "市场信息",
-  "cryptocurrencyCategories": "市场信息",
-  "allCryptocurrencies": "市场信息",
-  "trending": "市场信息",
-  "categoryNotFound": "市场信息",
-  "categoryNotFoundDescription": "市场说明",
-  "viewAllCryptocurrencies": "市场信息",
+  "cryptocurrency": "加密货币货币",
+  "cryptocurrencyCategories": "货币",
+  "allCryptocurrencies": "加密货币",
+  "trending": "热门",
+  "categoryNotFound": "市场数据概览",
+  "categoryNotFoundDescription": "面向中文用户的市场数据、风险信号与交易情报。",
+  "viewAllCryptocurrencies": "加密货币",
   "trendingCoins": {
     "eyebrow": "实时市场数据 - 加密货币",
     "titleAccent": "热门",
@@ -215,43 +215,43 @@
     "emptyCategory": "此类别中未找到币种。",
     "insights": {
       "trending": {
-        "eyebrow": "What's Trending",
-        "title": "Market Dynamics",
+        "eyebrow": "市场数据概览",
+        "title": "市场概览",
         "items": {
-          "socialMentions": "Social media mentions spike",
-          "exchangeFlows": "Exchange inflow / outflow shifts",
-          "developerActivity": "Developer activity on GitHub",
-          "onChainVolume": "On-chain transaction volume",
-          "volumeBreakouts": "Trading volume breakouts"
+          "socialMentions": "市场数据概览",
+          "exchangeFlows": "交易所",
+          "developerActivity": "市场数据概览",
+          "onChainVolume": "市场数据概览",
+          "volumeBreakouts": "市场数据概览"
         }
       },
       "risk": {
-        "eyebrow": "Risk Factors",
-        "title": "Stay Cautious",
+        "eyebrow": "风险",
+        "title": "市场概览",
         "items": {
-          "volatility": "High volatility - price can swing 30%+",
-          "liquidity": "Low liquidity in smaller coins",
-          "manipulation": "Potential market manipulation",
-          "regulation": "Evolving regulatory landscape",
-          "techRisk": "Smart contract / tech risks"
+          "volatility": "风险",
+          "liquidity": "风险",
+          "manipulation": "风险",
+          "regulation": "风险",
+          "techRisk": "风险"
         }
       },
       "tips": {
-        "eyebrow": "Trading Tips",
-        "title": "Smart Strategies",
+        "eyebrow": "市场数据概览",
+        "title": "市场概览",
         "items": {
-          "onChainValidation": "Validate with on-chain metrics first",
-          "githubActivity": "Check GitHub developer activity",
-          "divergence": "Monitor volume vs. price divergence",
-          "positionSizing": "Use proper position sizing",
-          "stopLosses": "Set strict stop-losses before entry"
+          "onChainValidation": "市场数据概览",
+          "githubActivity": "市场数据概览",
+          "divergence": "市场数据概览",
+          "positionSizing": "市场数据概览",
+          "stopLosses": "市场数据概览"
         }
       }
     },
     "cta": {
-      "eyebrow": "Crypto Research",
-      "title": "Deep Dive Into Any Coin",
-      "description": "Click any coin to explore detailed charts, on-chain metrics, exchange listings, and breaking news - all in one place."
+      "eyebrow": "市场数据概览",
+      "title": "市场概览",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
     }
   },
   "categoryPages": {
@@ -280,51 +280,51 @@
         "community": "社区"
       },
       "communities": {
-        "DOGE": "Original OG",
-        "SHIB": "ShibArmy",
-        "PEPE": "Pepe Nation",
-        "BONK": "Solana Memes",
-        "FLOKI": "Viking Army"
+        "DOGE": "市场数据概览",
+        "SHIB": "市场数据概览",
+        "PEPE": "市场数据概览",
+        "BONK": "市场数据概览",
+        "FLOKI": "市场数据概览"
       },
       "insights": {
         "origins": {
-          "eyebrow": "Origins",
-          "title": "The Meme Coin Story",
+          "eyebrow": "市场数据概览",
+          "title": "市场概览",
           "items": {
-            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
-            "elon": "Elon Musk tweets as price catalysts",
-            "pumps": "WallStreetBets-style coordinated pumps",
-            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
-            "pepe": "2023 PEPE boom revived the meme cycle",
-            "bonk": "BONK airdropped life into Solana DeFi"
+            "dogecoin": "市场数据概览",
+            "elon": "市场数据概览",
+            "pumps": "市场数据概览",
+            "shiba": "市场数据概览",
+            "pepe": "市场数据概览",
+            "bonk": "市场数据概览"
           }
         },
         "risk": {
-          "title": "What Investors Should Know",
+          "title": "市场概览",
           "items": {
-            "sentiment": "Prices driven almost entirely by sentiment",
-            "pumpDump": "Susceptible to pump-and-dump schemes",
-            "utility": "Minimal or no underlying utility",
-            "volatility": "Extreme volatility - 50%+ swings common",
-            "rugPull": "Rug-pull risk in newer, unaudited coins",
-            "viralCycles": "High correlation with viral media cycles"
+            "sentiment": "风险",
+            "pumpDump": "风险",
+            "utility": "风险",
+            "volatility": "风险",
+            "rugPull": "风险",
+            "viralCycles": "风险"
           }
         },
         "signals": {
-          "eyebrow": "Community Signals",
-          "title": "How to Track Momentum",
+          "eyebrow": "市场数据概览",
+          "title": "市场概览",
           "items": {
-            "twitter": "Twitter/X mentions and trending hashtags",
-            "reddit": "Reddit activity on r/CryptoCurrency",
-            "whales": "Whale wallet alerts and large transfers",
-            "listings": "Exchange listing announcements",
-            "google": "Google Trends search volume spikes",
-            "influencers": "Influencer social media activity"
+            "twitter": "市场数据概览",
+            "reddit": "市场数据概览",
+            "whales": "市场数据概览",
+            "listings": "市场数据概览",
+            "google": "市场数据概览",
+            "influencers": "市场数据概览"
           }
         }
       },
       "cta": {
-        "description": "将模因币与蓝筹资产、DeFi 协议和 Layer 1 区块链进行比较。"
+        "description": "面向中文用户的市场数据、风险信号与交易情报。"
       }
     }
   }

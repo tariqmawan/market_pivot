@@ -9,7 +9,7 @@
   "chart": "الرسم البياني",
   "commodities": {
     "brent": {
-      "name": "Brent Crude"
+      "name": "خام برنت"
     },
     "copper": {
       "name": "Copper"
@@ -21,10 +21,10 @@
       "name": "Gold"
     },
     "lithium": {
-      "name": "Lithium Carbonate"
+      "name": "كربونات الليثيوم"
     },
     "naturalGas": {
-      "name": "Natural Gas"
+      "name": "الغاز الطبيعي"
     },
     "silver": {
       "name": "Silver"
@@ -50,10 +50,10 @@
   "coreReserve": "احتياطي رئيسي",
   "countries": {
     "ae": {
-      "name": "United Arab Emirates"
+      "name": "الإمارات العربية المتّحدة"
     },
     "au": {
-      "name": "Australia"
+      "name": "أستراليا"
     },
     "br": {
       "name": "Brazil"
@@ -62,7 +62,7 @@
       "name": "Canada"
     },
     "ch": {
-      "name": "Switzerland"
+      "name": "سويسرا"
     },
     "cl": {
       "name": "Chile"
@@ -77,16 +77,16 @@
       "name": "Spain"
     },
     "eu": {
-      "name": "European Union"
+      "name": "الاتّحاد الأوروبي"
     },
     "gb": {
-      "name": "United Kingdom"
+      "name": "المملكة المتّحدة"
     },
     "hk": {
       "name": "Hong Kong"
     },
     "id": {
-      "name": "Indonesia"
+      "name": "إندونيسيا"
     },
     "in": {
       "name": "India"
@@ -98,34 +98,34 @@
       "name": "Japan"
     },
     "kr": {
-      "name": "South Korea"
+      "name": "كوريا الجنوبية"
     },
     "mx": {
       "name": "Mexico"
     },
     "my": {
-      "name": "Malaysia"
+      "name": "ماليزيا"
     },
     "sa": {
       "name": "Saudi Arabia"
     },
     "se": {
-      "name": "Nordic and Baltic region"
+      "name": "منطقة الشمال ودول البلطيق"
     },
     "sg": {
-      "name": "Singapore"
+      "name": "سنغافورة"
     },
     "th": {
-      "name": "Thailand"
+      "name": "تايلاند"
     },
     "tw": {
       "name": "Taiwan"
     },
     "us": {
-      "name": "United States"
+      "name": "الولايات المتّحدة"
     },
     "za": {
-      "name": "South Africa"
+      "name": "جنوب أفريقيا"
     }
   },
   "crashAlert": "تنبيه هبوط حاد",
@@ -152,103 +152,103 @@
   "exchanges": {
     "adx": {
       "name": "Abu Dhabi Securities Exchange",
-      "description": "Abu Dhabi's primary stock exchange"
+      "description": "البورصة الرئيسية لإمارة أبوظبي"
     },
     "asx": {
       "name": "Australian Securities Exchange",
-      "description": "Australia's primary stock exchange"
+      "description": "البورصة الرئيسية لأستراليا"
     },
     "b3": {
-      "name": "B3 (Brasil Bolsa Balcão)",
-      "description": "Latin America's largest stock exchange"
+      "name": "B3 (بورصة البرازيل)",
+      "description": "أكبر بورصة في أمريكا اللاتينية"
     },
     "bcs": {
-      "name": "Bolsa de Comercio de Santiago",
-      "description": "Chile's primary stock exchange"
+      "name": "بورصة سانتياغو التجارية",
+      "description": "البورصة الرئيسية لتشيلي"
     },
     "bit": {
-      "name": "Borsa Italiana",
-      "description": "Italy's main stock exchange"
+      "name": "بورصة إيطاليا",
+      "description": "البورصة الرئيسية لإيطاليا"
     },
     "bm": {
       "name": "Bursa Malaysia",
-      "description": "Malaysia's primary stock exchange"
+      "description": "البورصة الرئيسية لماليزيا"
     },
     "bme": {
-      "name": "BME Spanish Exchanges",
-      "description": "Spain's principal stock exchange"
+      "name": "البورصات الإسبانية BME",
+      "description": "البورصة الرئيسية لإسبانيا"
     },
     "bmv": {
       "name": "Mexican Stock Exchange",
-      "description": "Mexico's primary stock exchange"
+      "description": "البورصة الرئيسية للمكسيك"
     },
     "bse": {
       "name": "Bombay Stock Exchange",
-      "description": "Oldest stock exchange in Asia"
+      "description": "أقدم بورصة في آسيا"
     },
     "dfm": {
-      "name": "Dubai Financial Market",
-      "description": "Dubai's primary stock exchange"
+      "name": "سوق دبي المالي",
+      "description": "البورصة الرئيسية لدبي"
     },
     "euronext": {
       "name": "Euronext",
-      "description": "Pan-European exchange operating in multiple countries"
+      "description": "بورصة أوروبية تعمل في عدّة دول"
     },
     "hkex": {
       "name": "Hong Kong Stock Exchange",
-      "description": "Major financial hub in Asia, gateway to mainland China markets"
+      "description": "مركز مالي رئيسي في آسيا وبوّابة نحو أسواق الصين"
     },
     "idx": {
       "name": "Indonesia Stock Exchange",
-      "description": "Indonesia's primary stock exchange"
+      "description": "البورصة الرئيسية لإندونيسيا"
     },
     "jse": {
       "name": "Johannesburg Stock Exchange",
-      "description": "South Africa's primary stock exchange"
+      "description": "البورصة الرئيسية لجنوب أفريقيا"
     },
     "krx": {
-      "name": "Korea Exchange",
-      "description": "South Korea's primary stock exchange"
+      "name": "بورصة كوريا",
+      "description": "البورصة الرئيسية لكوريا الجنوبية"
     },
     "lse": {
       "name": "London Stock Exchange",
-      "description": "Leading global financial hub, one of the world's oldest exchanges"
+      "description": "مركز مالي عالمي رائد ومن أقدم بورصات العالم"
     },
     "nasdaq": {
       "name": "NASDAQ",
-      "description": "Electronic stock market known for tech companies"
+      "description": "سوق أوراق مالية إلكتروني معروف بشركات التكنولوجيا"
     },
     "nse": {
       "name": "National Stock Exchange of India",
-      "description": "India's largest stock exchange, leading market for South Asia"
+      "description": "أكبر بورصة في الهند والسوق الرائد في جنوب آسيا"
     },
     "nyse": {
       "name": "New York Stock Exchange",
-      "description": "The largest and most well-known stock exchange in the world"
+      "description": "أكبر وأشهر بورصة أوراق مالية في العالم"
     },
     "omx": {
       "name": "Nasdaq Nordic",
-      "description": "Nasdaq-operated Nordic and Baltic marketplace covering equities and related listed products"
+      "description": "سوق يديره ناسداك يغطّي منطقتي الشمال والبلطيق للأسهم والمنتجات المدرجة ذات الصلة"
     },
     "set": {
       "name": "Stock Exchange of Thailand",
-      "description": "Thailand's primary stock exchange"
+      "description": "البورصة الرئيسية لتايلاند"
     },
     "sgx": {
       "name": "Singapore Exchange",
-      "description": "Southeast Asia's leading financial center and exchange"
+      "description": "أبرز مركز مالي وبورصة في جنوب شرق آسيا"
     },
     "six": {
       "name": "SIX Swiss Exchange",
-      "description": "Switzerland's primary stock exchange"
+      "description": "البورصة الرئيسية لسويسرا"
     },
     "sse": {
       "name": "Shanghai Stock Exchange",
-      "description": "Second-largest stock exchange in the world by market cap"
+      "description": "ثاني أكبر بورصة في العالم من حيث القيمة السوقية"
     },
     "szse": {
       "name": "Shenzhen Stock Exchange",
-      "description": "Third-largest stock exchange by market cap"
+      "description": "ثالث أكبر بورصة من حيث القيمة السوقية"
     },
     "tadawul": {
       "name": "Saudi Exchange",
@@ -256,19 +256,19 @@
     },
     "tse": {
       "name": "Tokyo Stock Exchange",
-      "description": "Largest stock exchange in Japan and Asia's oldest"
+      "description": "أكبر بورصة في اليابان وأقدمها في آسيا"
     },
     "tsx": {
       "name": "Toronto Stock Exchange",
-      "description": "Canada's largest stock exchange"
+      "description": "أكبر بورصة في كندا"
     },
     "twse": {
       "name": "Taiwan Stock Exchange",
-      "description": "Taiwan's primary stock exchange"
+      "description": "البورصة الرئيسية لتايوان"
     },
     "xetra": {
       "name": "Deutsche Börse",
-      "description": "Germany's largest stock exchange and major European trading center"
+      "description": "أكبر بورصة في ألمانيا ومركز تداول أوروبي رئيسي"
     }
   },
   "feature": "ميزة",
@@ -282,7 +282,7 @@
   "globalHeatmap": "خريطة الحرارة العالمية",
   "globalMarkets": "أسواق عالمية متعددة الأصول",
   "homeCopy": "تغطية بأسلوب بلومبرغ للأسهم والدخل الثابت والفوركس والسلع والمشتقات والعملات الرقمية.",
-  "homeTitle": "MarketsPivot",
+  "homeTitle": "ماركتس بيفوت",
   "inflation": "التضخم",
   "intelligenceCopy": "تابع جلسات البورصات وضغط العملات والأصول الرقمية وسياق العوائد والسلع والمشتقات من مساحة تشغيل واحدة.",
   "intelligenceTitle": "منصة واحدة لذكاء الأسواق العالمية",
@@ -322,16 +322,16 @@
   "regionPulse": "نبض المناطق",
   "regions": {
     "americas": {
-      "name": "Americas"
+      "name": "الأمريكتان"
     },
     "asiaPacific": {
-      "name": "Asia-Pacific"
+      "name": "آسيا والمحيط الهادئ"
     },
     "europe": {
       "name": "Europe"
     },
     "middleEastAfrica": {
-      "name": "Middle East & Africa"
+      "name": "الشرق الأوسط وأفريقيا"
     }
   },
   "regionsHeading": "مناطق الأسواق العالمية",
@@ -391,82 +391,82 @@
   "terminalView": "عرض الطرفية",
   "timezones": {
     "africaJohannesburg": {
-      "name": "Africa/Johannesburg"
+      "name": "أفريقيا/جوهانسبرغ"
     },
     "americaMexicoCity": {
-      "name": "America/Mexico_City"
+      "name": "أمريكا/مكسيكو سيتي"
     },
     "americaNewYork": {
-      "name": "America/New_York"
+      "name": "أمريكا/نيويورك"
     },
     "americaSantiago": {
-      "name": "America/Santiago"
+      "name": "أمريكا/سانتياغو"
     },
     "americaSaoPaulo": {
-      "name": "America/Sao_Paulo"
+      "name": "أمريكا/ساو باولو"
     },
     "americaToronto": {
-      "name": "America/Toronto"
+      "name": "أمريكا/تورنتو"
     },
     "asiaBangkok": {
-      "name": "Asia/Bangkok"
+      "name": "آسيا/بانكوك"
     },
     "asiaDubai": {
-      "name": "Asia/Dubai"
+      "name": "آسيا/دبي"
     },
     "asiaHongKong": {
-      "name": "Asia/Hong_Kong"
+      "name": "آسيا/هونغ كونغ"
     },
     "asiaJakarta": {
-      "name": "Asia/Jakarta"
+      "name": "آسيا/جاكرتا"
     },
     "asiaKolkata": {
-      "name": "Asia/Kolkata"
+      "name": "آسيا/كولكاتا"
     },
     "asiaKualaLumpur": {
-      "name": "Asia/Kuala_Lumpur"
+      "name": "آسيا/كوالالمبور"
     },
     "asiaRiyadh": {
-      "name": "Asia/Riyadh"
+      "name": "آسيا/الرياض"
     },
     "asiaSeoul": {
-      "name": "Asia/Seoul"
+      "name": "آسيا/سيول"
     },
     "asiaShanghai": {
-      "name": "Asia/Shanghai"
+      "name": "آسيا/شنغهاي"
     },
     "asiaSingapore": {
-      "name": "Asia/Singapore"
+      "name": "آسيا/سنغافورة"
     },
     "asiaTaipei": {
-      "name": "Asia/Taipei"
+      "name": "آسيا/تايبيه"
     },
     "asiaTokyo": {
-      "name": "Asia/Tokyo"
+      "name": "آسيا/طوكيو"
     },
     "australiaSydney": {
-      "name": "Australia/Sydney"
+      "name": "أستراليا/سيدني"
     },
     "europeBerlin": {
-      "name": "Europe/Berlin"
+      "name": "أوروبا/برلين"
     },
     "europeLondon": {
-      "name": "Europe/London"
+      "name": "أوروبا/لندن"
     },
     "europeMadrid": {
-      "name": "Europe/Madrid"
+      "name": "أوروبا/مدريد"
     },
     "europeParis": {
-      "name": "Europe/Paris"
+      "name": "أوروبا/باريس"
     },
     "europeRome": {
-      "name": "Europe/Rome"
+      "name": "أوروبا/روما"
     },
     "europeStockholm": {
-      "name": "Europe/Stockholm"
+      "name": "أوروبا/ستوكهولم"
     },
     "europeZurich": {
-      "name": "Europe/Zurich"
+      "name": "أوروبا/زيورخ"
     }
   },
   "title": "لوحة معلومات الأسواق العالمية",
@@ -488,141 +488,141 @@
   "website": "الموقع الإلكتروني",
   "whaleActivity": "نشاط كبار المتداولين",
   "worldSnapshot": "لقطة الأسواق العالمية",
-  "exchangeNetwork": "Exchange Network",
+  "exchangeNetwork": "شبكة البورصات",
   "stockExchanges": "Stock Exchanges",
-  "allExchanges": "All Exchanges",
-  "advancedScreener": "Advanced Screener",
-  "regionExchangesTitle": "{{region}} Exchanges",
-  "regionalExchangeDashboards": "Regional exchange dashboards ? currency, timezone, trading hours, listed companies, main index, and market cap.",
-  "noExchangesForRegion": "No exchanges found for this region.",
+  "allExchanges": "كل البورصات",
+  "advancedScreener": "أداة الفرز المتقدّمة",
+  "regionExchangesTitle": "بورصات {{region}}",
+  "regionalExchangeDashboards": "لوحات بورصات إقليمية — العملة، المنطقة الزمنية، ساعات التداول، الشركات المدرجة، المؤشّر الرئيسي، والقيمة السوقية.",
+  "noExchangesForRegion": "لم يتمّ العثور على بورصات لهذه المنطقة.",
   "exchangeRegions": {
-    "americas": "Americas",
-    "northAmerica": "North America",
+    "americas": "الأمريكتان",
+    "northAmerica": "أمريكا الشمالية",
     "europe": "Europe",
     "asia": "Asia",
-    "asiaPacific": "Asia Pacific",
+    "asiaPacific": "آسيا والمحيط الهادئ",
     "oceania": "Oceania",
-    "middleEast": "Middle East",
+    "middleEast": "الشرق الأوسط",
     "africa": "Africa",
-    "middleEastAfrica": "Middle East & Africa",
-    "latinAmerica": "Latin America"
+    "middleEastAfrica": "الشرق الأوسط وأفريقيا",
+    "latinAmerica": "أمريكا اللاتينية"
   },
   "ytdShort": "YTD",
   "dashboardCards": {
-    "nyseMeta": "S&P 500 / USD / New York",
+    "nyseMeta": "S&P 500 / الدولار / نيويورك",
     "usdMeta": "Federal Reserve / global base",
-    "bitcoinMeta": "BTC vs USD, FX, and equity risk",
-    "regionMeta": "China growth / Japan yields / India earnings / Australia resources",
-    "sectorMeta": "Cloud capex / AI monetization / Semiconductor supply / Valuations",
-    "commodityMeta": "Feeds transport inflation, energy earnings, fiscal revenue, and global risk sentiment."
+    "bitcoinMeta": "البتكوين مقابل الدولار، الفوركس، ومخاطر الأسهم",
+    "regionMeta": "نمو الصين / عوائد اليابان / أرباح الهند / موارد أستراليا",
+    "sectorMeta": "نفقات السحابة الرأسمالية / تسييل الذكاء الاصطناعي / إمدادات أشباه الموصلات / التقييمات",
+    "commodityMeta": "تغذّي تضخّم النقل وأرباح الطاقة والإيرادات المالية ومعنويات المخاطر العالمية."
   },
   "moduleFeatures": {
-    "majorIndicesWidgets": "Major indices widgets",
-    "topGainersLosers": "Top gainers and losers",
-    "heatmaps": "Heatmaps",
-    "marketSentiment": "Market sentiment",
-    "preMarketMovers": "Pre-market movers",
-    "indexFutures": "Index futures",
-    "volumeSpikes": "Volume spikes",
-    "openingWatchlist": "Opening watchlist",
-    "afterHoursMovers": "After-hours movers",
-    "earningsReactions": "Earnings reactions",
-    "extendedSessionVolume": "Extended-session volume",
-    "newsCatalysts": "News catalysts",
-    "equityHeatmaps": "Equity heatmaps",
-    "sectorPerformance": "Sector performance",
-    "regionalBreadth": "Regional breadth",
-    "assetClassComparison": "Asset-class comparison",
-    "topGainers": "Top gainers",
-    "topLosers": "Top losers",
-    "mostActive": "Most active",
-    "unusualVolume": "Unusual volume",
-    "vixOverview": "VIX overview",
-    "fearGreedContext": "Fear and greed context",
-    "volatilityTermStructure": "Volatility term structure",
-    "riskDashboard": "Risk dashboard",
-    "countryFilters": "Country filters",
-    "exchangeStatistics": "Exchange statistics",
-    "listedCompanies": "Listed companies",
-    "regionalNews": "Regional news",
-    "liveGainers": "Live gainers",
-    "volumeFilters": "Volume filters",
-    "marketCapFilters": "Market cap filters",
-    "sectorBreakdown": "Sector breakdown",
-    "liveLosers": "Live losers",
-    "riskAlerts": "Risk alerts",
-    "indexImpact": "Index impact",
-    "watchlistActions": "Watchlist actions",
-    "trendingCoins": "Trending coins",
-    "marketCapRanking": "Market cap ranking",
-    "exchangeListings": "Exchange listings",
-    "historicalPerformance": "Historical performance",
-    "memeCoinRankings": "Meme coin rankings",
-    "volumeBursts": "Volume bursts",
-    "communityMomentum": "Community momentum",
-    "riskFlags": "Risk flags",
-    "defiEcosystem": "DeFi ecosystem",
-    "tvlMetrics": "TVL metrics",
-    "protocolCategories": "Protocol categories",
-    "tokenPerformance": "Token performance",
-    "layer1Chains": "Layer 1 chains",
-    "consensusDetails": "Consensus details",
-    "tokenomics": "Tokenomics",
-    "developerEcosystem": "Developer ecosystem",
-    "stablecoinSupply": "Stablecoin supply",
-    "pegMonitoring": "Peg monitoring",
-    "exchangeLiquidity": "Exchange liquidity",
-    "reserveContext": "Reserve context",
-    "spotPrices": "Spot prices",
-    "futuresPrices": "Futures prices",
-    "supplyDemandAnalysis": "Supply-demand analysis",
-    "correlationAnalysis": "Correlation analysis",
-    "preciousMetals": "Precious metals",
-    "industrialMetals": "Industrial metals",
-    "futuresContracts": "Futures contracts",
-    "currencySensitivity": "Currency sensitivity",
-    "cropMarkets": "Crop markets",
-    "weatherImpact": "Weather impact",
-    "supplyRegions": "Supply regions",
-    "seasonality": "Seasonality",
-    "industrialInputs": "Industrial inputs",
-    "demandTrends": "Demand trends",
-    "manufacturingSignals": "Manufacturing signals",
-    "regionalSupply": "Regional supply",
-    "regionWiseNews": "Region-wise news",
-    "macroSummaries": "Macro summaries",
-    "marketAlerts": "Market alerts",
-    "sectorWiseNews": "Sector-wise news",
-    "themeTracking": "Theme tracking",
-    "aiSummaries": "AI summaries",
-    "etfImpact": "ETF impact",
-    "cryptoNews": "Crypto news",
-    "onChainContext": "On-chain context",
-    "regulationUpdates": "Regulation updates",
-    "exchangeDevelopments": "Exchange developments",
-    "breakingCatalysts": "Breaking catalysts",
-    "importanceFilters": "Importance filters",
-    "liveMarketSummary": "Live market summary",
+    "majorIndicesWidgets": "أدوات المؤشّرات الرئيسية",
+    "topGainersLosers": "الرابحون والخاسرون الكبار",
+    "heatmaps": "خرائط حرارية",
+    "marketSentiment": "معنويات السوق",
+    "preMarketMovers": "متحرّكو ما قبل الافتتاح",
+    "indexFutures": "عقود مستقبل المؤشّرات",
+    "volumeSpikes": "ارتفاعات الحجم",
+    "openingWatchlist": "قائمة متابعة الافتتاح",
+    "afterHoursMovers": "متحرّكو ما بعد الإغلاق",
+    "earningsReactions": "ردود فعل الأرباح",
+    "extendedSessionVolume": "حجم الجلسة الممتدّة",
+    "newsCatalysts": "محفّزات الأخبار",
+    "equityHeatmaps": "خرائط حرارية للأسهم",
+    "sectorPerformance": "أداء القطاعات",
+    "regionalBreadth": "الاتّساع الإقليمي",
+    "assetClassComparison": "مقارنة فئات الأصول",
+    "topGainers": "أعلى الرابحين",
+    "topLosers": "أعلى الخاسرين",
+    "mostActive": "الأكثر نشاطاً",
+    "unusualVolume": "حجم غير اعتيادي",
+    "vixOverview": "نظرة على مؤشّر VIX",
+    "fearGreedContext": "سياق الخوف والطمع",
+    "volatilityTermStructure": "بنية آجال التقلّب",
+    "riskDashboard": "لوحة المخاطر",
+    "countryFilters": "فلاتر الدول",
+    "exchangeStatistics": "إحصاءات البورصات",
+    "listedCompanies": "الشركات المدرجة",
+    "regionalNews": "أخبار إقليمية",
+    "liveGainers": "رابحون آنيون",
+    "volumeFilters": "فلاتر الحجم",
+    "marketCapFilters": "فلاتر القيمة السوقية",
+    "sectorBreakdown": "تفصيل قطاعي",
+    "liveLosers": "خاسرون آنيون",
+    "riskAlerts": "تنبيهات المخاطر",
+    "indexImpact": "أثر المؤشّر",
+    "watchlistActions": "إجراءات قائمة المتابعة",
+    "trendingCoins": "العملات الرائجة",
+    "marketCapRanking": "ترتيب القيمة السوقية",
+    "exchangeListings": "إدراجات البورصات",
+    "historicalPerformance": "الأداء التاريخي",
+    "memeCoinRankings": "ترتيب عملات الميم",
+    "volumeBursts": "اندفاعات الحجم",
+    "communityMomentum": "زخم المجتمع",
+    "riskFlags": "إشارات المخاطر",
+    "defiEcosystem": "منظومة DeFi",
+    "tvlMetrics": "مقاييس TVL",
+    "protocolCategories": "فئات البروتوكولات",
+    "tokenPerformance": "أداء الرموز",
+    "layer1Chains": "سلاسل الطبقة الأولى",
+    "consensusDetails": "تفاصيل التوافق",
+    "tokenomics": "اقتصاديات الرموز",
+    "developerEcosystem": "منظومة المطوّرين",
+    "stablecoinSupply": "إمدادات العملات المستقرّة",
+    "pegMonitoring": "مراقبة الربط",
+    "exchangeLiquidity": "سيولة البورصات",
+    "reserveContext": "سياق الاحتياطيات",
+    "spotPrices": "أسعار آنية",
+    "futuresPrices": "أسعار العقود الآجلة",
+    "supplyDemandAnalysis": "تحليل العرض والطلب",
+    "correlationAnalysis": "تحليل الارتباط",
+    "preciousMetals": "المعادن النفيسة",
+    "industrialMetals": "المعادن الصناعية",
+    "futuresContracts": "العقود الآجلة",
+    "currencySensitivity": "الحسّاسية للعملات",
+    "cropMarkets": "أسواق المحاصيل",
+    "weatherImpact": "أثر الطقس",
+    "supplyRegions": "مناطق العرض",
+    "seasonality": "الموسمية",
+    "industrialInputs": "المدخلات الصناعية",
+    "demandTrends": "اتجاهات الطلب",
+    "manufacturingSignals": "إشارات التصنيع",
+    "regionalSupply": "العرض الإقليمي",
+    "regionWiseNews": "أخبار حسب المنطقة",
+    "macroSummaries": "ملخّصات اقتصاد كلّي",
+    "marketAlerts": "تنبيهات السوق",
+    "sectorWiseNews": "أخبار حسب القطاع",
+    "themeTracking": "تتبّع الموضوعات",
+    "aiSummaries": "ملخّصات الذكاء الاصطناعي",
+    "etfImpact": "أثر صناديق ETF",
+    "cryptoNews": "أخبار العملات الرقمية",
+    "onChainContext": "سياق على السلسلة",
+    "regulationUpdates": "تحديثات تنظيمية",
+    "exchangeDevelopments": "تطوّرات البورصات",
+    "breakingCatalysts": "محفّزات عاجلة",
+    "importanceFilters": "فلاتر الأهمّية",
+    "liveMarketSummary": "ملخّص آني للسوق",
     "filters": "Filters",
-    "analyticsWidgets": "Analytics widgets",
-    "relatedNews": "Related news"
+    "analyticsWidgets": "أدوات التحليل",
+    "relatedNews": "أخبار ذات صلة"
   },
   "sentiment": {
     "Equities": {
-      "label": "Equities",
-      "detail": "Risk-on breadth"
+      "label": "الأسهم",
+      "detail": "اتّساع المخاطرة"
     },
     "FX": {
       "label": "FX",
-      "detail": "USD mixed"
+      "detail": "الدولار متفاوت"
     },
     "Crypto": {
       "label": "Crypto",
-      "detail": "Momentum bid"
+      "detail": "زخم شرائي"
     },
     "Commodities": {
-      "label": "Commodities",
-      "detail": "Energy softer"
+      "label": "السلع",
+      "detail": "تراجع في الطاقة"
     }
   }
 }

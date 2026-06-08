@@ -179,79 +179,79 @@
   "cryptocurrency": "Kryptowaluta",
   "cryptocurrencyCategories": "Kategorie kryptowalut",
   "allCryptocurrencies": "Wszystkie kryptowaluty",
-  "trending": "Trendy",
+  "trending": "Trend",
   "categoryNotFound": "Nie znaleziono kategorii",
   "categoryNotFoundDescription": "Ta kategoria nie istnieje. Przeglądaj wszystkie kryptowaluty poniżej.",
   "viewAllCryptocurrencies": "Zobacz wszystkie kryptowaluty",
   "trendingCoins": {
-    "eyebrow": "Dane rynkowe na zywo - Kryptowaluty",
-    "titleAccent": "Trendujace",
+    "eyebrow": "Dane rynkowe na żywo - Kryptowaluty",
+    "titleAccent": "Trendujące",
     "titleRest": "coiny",
-    "subtitle": "Trendujace kryptowaluty w czasie rzeczywistym, uszeregowane wedlug aktywnosci handlowej, impetu spolecznosciowego i wzrostu kapitalizacji. Aktualizowane na biezaco.",
+    "subtitle": "Kryptowaluty w trendzie w czasie rzeczywistym, uszeregowane według aktywności handlowej, momentum społecznego i wzrostu kapitalizacji. Aktualizowane na bieżąco.",
     "categories": {
       "all": "Wszystkie",
-      "layer1": "Warstwa 1",
-      "layer2": "Warstwa 2",
+      "layer1": "Layer 1",
+      "layer2": "Layer 2",
       "defi": "DeFi",
       "meme": "Meme",
       "stablecoin": "Stablecoin",
-      "payments": "Platnosci",
+      "payments": "Płatności",
       "infrastructure": "Infrastruktura"
     },
     "metrics": {
-      "tracked": "Sledzone",
-      "gainers": "Rosnace",
-      "topGain24h": "Najwiekszy wzrost 24h",
+      "tracked": "Śledzone",
+      "gainers": "Zyskujące",
+      "topGain24h": "Największy wzrost 24h",
       "volumeShort": "Wol. 24h",
-      "supply": "Podaz"
+      "supply": "Podaż"
     },
     "sentiment": {
-      "hot": "Goracy",
-      "rising": "Rosnie",
+      "hot": "Gorący",
+      "rising": "Rośnie",
       "active": "Aktywny",
       "strong": "Silny"
     },
-    "moreTitle": "Wiecej trendujacych coinow",
-    "emptyCategory": "Nie znaleziono coinow w tej kategorii.",
+    "moreTitle": "Więcej trendujących coinów",
+    "emptyCategory": "Nie znaleziono coinów w tej kategorii.",
     "insights": {
       "trending": {
         "eyebrow": "Co jest w trendzie",
         "title": "Dynamika rynku",
         "items": {
-          "socialMentions": "Wzrost wzmianek w mediach spolecznosciowych",
-          "exchangeFlows": "Zmiany naplywow / odplywow z gield",
-          "developerActivity": "Aktywnosc deweloperow na GitHub",
+          "socialMentions": "Skok wzmianek w mediach społecznościowych",
+          "exchangeFlows": "Zmiany napływów/odpływów z giełd",
+          "developerActivity": "Aktywność deweloperów na GitHub",
           "onChainVolume": "Wolumen transakcji on-chain",
           "volumeBreakouts": "Wybicia wolumenu handlu"
         }
       },
       "risk": {
         "eyebrow": "Czynniki ryzyka",
-        "title": "Zachowaj ostroznosc",
+        "title": "Zachowaj ostrożność",
         "items": {
-          "volatility": "Wysoka zmiennosc - cena moze ruszyc sie o 30%+",
-          "liquidity": "Niska plynnosc mniejszych coinow",
-          "manipulation": "Mozliwa manipulacja rynkiem",
-          "regulation": "Zmieniajace sie otoczenie regulacyjne",
-          "techRisk": "Ryzyka smart kontraktow / technologii"
+          "volatility": "Wysoka zmienność - cena może ruszyć o 30%+",
+          "liquidity": "Niska płynność mniejszych coinów",
+          "manipulation": "Możliwa manipulacja rynkiem",
+          "regulation": "Zmieniające się regulacje",
+          "techRisk": "Ryzyka smart contractów / technologii"
         }
       },
       "tips": {
-        "eyebrow": "Wskazowki tradingowe",
-        "title": "Madre strategie",
+        "eyebrow": "Wskazówki tradingowe",
+        "title": "Inteligentne strategie",
         "items": {
-          "onChainValidation": "Najpierw weryfikuj metrykami on-chain",
-          "githubActivity": "Sprawdzaj aktywnosc deweloperow na GitHub",
-          "divergence": "Monitoruj dywergencje wolumenu i ceny",
-          "positionSizing": "Stosuj wlasciwy rozmiar pozycji",
-          "stopLosses": "Ustaw scisle stop-lossy przed wejsciem"
+          "onChainValidation": "Najpierw potwierdź metrykami on-chain",
+          "githubActivity": "Sprawdź aktywność deweloperów na GitHub",
+          "divergence": "Monitoruj dywergencję wolumenu i ceny",
+          "positionSizing": "Stosuj właściwy rozmiar pozycji",
+          "stopLosses": "Ustaw ścisłe stop-lossy przed wejściem"
         }
       }
     },
     "cta": {
-      "eyebrow": "Research krypto",
-      "title": "Zbadaj dowolny coin dog?ebnie",
-      "description": "Kliknij dowolny coin, aby zobaczyc szczegolowe wykresy, metryki on-chain, listingi gieldowe i najnowsze wiadomosci w jednym miejscu."
+      "eyebrow": "Badania crypto",
+      "title": "Zbadaj dowolny coin głębiej",
+      "description": "Kliknij coin, aby zobaczyć szczegółowe wykresy, metryki on-chain, listowania giełdowe i najnowsze wiadomości w jednym miejscu."
     }
   },
   "categoryPages": {

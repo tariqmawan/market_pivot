@@ -176,15 +176,85 @@
   "type": "유형",
   "vsUsd": "USD 대비",
   "currencyTypes": {
-    "fiat": "법정화폐"
+    "fiat": "법정화폐",
+    "commodity": "상품 통화",
+    "crypto": "암호화폐"
   },
   "centralBanks": {
-    "federalreserve": "연방준비제도"
+    "federalreserve": "연방준비제도 (Fed)",
+    "europeancentralbank": "유럽중앙은행 (ECB)",
+    "bankofjapan": "일본은행 (BOJ)",
+    "bankofengland": "영란은행 (BOE)",
+    "swissnationalbank": "스위스국립은행 (SNB)",
+    "peoplesbankofchina": "중국인민은행 (PBOC)",
+    "hongkongmonetaryauthority": "홍콩금융관리국 (HKMA)",
+    "reservebankofindia": "인도중앙은행 (RBI)",
+    "reservebankofaustralia": "호주중앙은행 (RBA)",
+    "monetaryauthorityofsingapore": "싱가포르통화청 (MAS)",
+    "bankofkorea": "한국은행 (BOK)",
+    "bankofcanada": "캐나다은행 (BOC)",
+    "centralbankofbrazil": "브라질중앙은행",
+    "bancodemxico": "멕시코은행 (Banxico)",
+    "centralbankofchile": "칠레중앙은행",
+    "riksbank": "스웨덴중앙은행 (릭스뱅크)",
+    "norgesbank": "노르웨이중앙은행",
+    "saudicentralbank": "사우디중앙은행 (SAMA)",
+    "centralbankoftheuae": "UAE중앙은행",
+    "southafricanreservebank": "남아프리카중앙은행 (SARB)"
   },
   "regions": {
-    "northamerica": "북아메리카"
+    "northamerica": "북미",
+    "europe": "유럽",
+    "asia": "아시아",
+    "americas": "미주",
+    "middleeast": "중동",
+    "africa": "아프리카"
   },
-  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
-  "keyDataReleasesFor": "Key data releases for {{code}}",
-  "hoursAgo": "{{count}}h ago"
+  "ratesVsMajorSubtitle": "1 {{code}}의 다른 주요 통화 대비 환율",
+  "keyDataReleasesFor": "{{code}} 주요 경제지표 발표",
+  "hoursAgo": "{{count}}시간 전",
+  "impacts": {
+    "High": "높음",
+    "Medium": "보통",
+    "Low": "낮음"
+  },
+  "events": {
+    "nonFarmPayrolls": "고용보고서 (NFP)",
+    "ecbPressConference": "ECB 기자회견",
+    "boeGovernorSpeech": "BOE 총재 연설",
+    "fomcMinutes": "FOMC 의사록",
+    "bojSummaryOpinions": "BOJ 의견 요약",
+    "rbaStatement": "RBA 성명서",
+    "currencyCpiRelease": "{{code}} CPI 발표",
+    "centralBankPolicyUpdate": "{{centralBank}} 정책 업데이트",
+    "currencyRetailSales": "{{code}} 소매판매",
+    "currencyTradeBalance": "{{code}} 무역수지"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "{{code}} 정책 기대에 강세",
+    "currencyWeakensPolicy": "{{code}} 정책 기대에 약세",
+    "centralBankDataDependent": "{{centralBank}} 데이터 의존적 경로 시사",
+    "currencyLiquidityRobust": "{{code}} 유동성, 국경간 흐름에서 강세 유지",
+    "currencyFairValueUpdated": "애널리스트 노트: {{code}} 공정가치 업데이트",
+    "usdRallyPauses": "USD 랠리, FOMC 의사록 앞두고 숨고르기",
+    "ecbDataDependent": "ECB 데이터 의존적 경로 시사, EUR 약세 거래",
+    "jpyInterventionWatch": "USD/JPY 156 테스트 속 JPY 개입 경계 재개",
+    "gbpStickyInflation": "GBP, 고착화된 서비스 인플레이션에 지지",
+    "cnyWeakerMidpoint": "CNY, PBOC 약한 기준가 고정에 압박",
+    "audCommodityStrength": "AUD, 원자재 강세와 위험선호 분위기에 매수"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "기본 기축통화",
+    "secondreservecurrency": "제2 기축통화",
+    "thirdreservecurrency": "제3 기축통화",
+    "regionalreservecurrency": "지역 기축통화",
+    "regional": "지역"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "안전자산 유입",
+    "mixedinflows": "혼합 유입",
+    "exportdrivenflows": "수출 주도 흐름",
+    "commoditylinkedflows": "원자재 연동 흐름",
+    "open": "개방"
+  }
 }

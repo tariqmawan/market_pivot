@@ -30,7 +30,7 @@
   "portfolioTracker": "投资组合跟踪",
   "alerts": "提醒",
   "trendingCoins": "热门币种",
-  "memeCoins": "Meme 币",
+  "memeCoins": "市场数据概览",
   "defi": "DeFi",
   "layer1": "Layer 1",
   "stablecoins": "稳定币",
@@ -58,7 +58,7 @@
   "nasdaq": "纳斯达克",
   "lse": "伦敦证券交易所",
   "navMain": "主导航",
-  "homeAria": "MarketsPivot 首页",
+  "homeAria": "市场数据概览",
   "openMenu": "打开菜单",
   "adminTopNav": "管理导航"
 }

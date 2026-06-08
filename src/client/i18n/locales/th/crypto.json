@@ -179,29 +179,29 @@
   "cryptocurrency": "Cryptocurrency",
   "cryptocurrencyCategories": "Cryptocurrency Categories",
   "allCryptocurrencies": "All Cryptocurrencies",
-  "trending": "Trending",
+  "trending": "กำลังนิยม",
   "categoryNotFound": "Category Not Found",
   "categoryNotFoundDescription": "This category doesn't exist. Browse all cryptocurrencies below.",
-  "viewAllCryptocurrencies": "View All Cryptocurrencies",
+  "viewAllCryptocurrencies": "ดูคริปโตทั้งหมด",
   "trendingCoins": {
     "eyebrow": "ข้อมูลตลาดสด - คริปโตเคอร์เรนซี",
     "titleAccent": "เหรียญ",
-    "titleRest": "มาแรง",
-    "subtitle": "คริปโตเคอร์เรนซีที่กำลังมาแรงแบบเรียลไทม์ จัดอันดับตามกิจกรรมการซื้อขาย กระแสสังคม และการเติบโตของมูลค่าตลาด",
+    "titleRest": "กำลังนิยม",
+    "subtitle": "คริปโตที่กำลังนิยมแบบเรียลไทม์ จัดอันดับตามกิจกรรมการซื้อขาย โมเมนตัมสังคม และการเติบโตของมูลค่าตลาด อัปเดตต่อเนื่อง",
     "categories": {
       "all": "ทั้งหมด",
-      "layer1": "เลเยอร์ 1",
-      "layer2": "เลเยอร์ 2",
+      "layer1": "Layer 1",
+      "layer2": "Layer 2",
       "defi": "DeFi",
       "meme": "มีม",
-      "stablecoin": "สเตเบิลคอยน์",
+      "stablecoin": "Stablecoin",
       "payments": "การชำระเงิน",
       "infrastructure": "โครงสร้างพื้นฐาน"
     },
     "metrics": {
       "tracked": "ติดตาม",
-      "gainers": "ปรับขึ้น",
-      "topGain24h": "เพิ่มสูงสุด 24ชม.",
+      "gainers": "เหรียญบวก",
+      "topGain24h": "บวกสูงสุด 24ชม.",
       "volumeShort": "ปริมาณ 24ชม.",
       "supply": "อุปทาน"
     },
@@ -211,47 +211,47 @@
       "active": "คึกคัก",
       "strong": "แข็งแกร่ง"
     },
-    "moreTitle": "เหรียญมาแรงเพิ่มเติม",
+    "moreTitle": "เหรียญกำลังนิยมเพิ่มเติม",
     "emptyCategory": "ไม่พบเหรียญในหมวดหมู่นี้",
     "insights": {
       "trending": {
-        "eyebrow": "What's Trending",
-        "title": "Market Dynamics",
+        "eyebrow": "อะไรที่กำลังนิยม",
+        "title": "พลวัตตลาด",
         "items": {
-          "socialMentions": "Social media mentions spike",
-          "exchangeFlows": "Exchange inflow / outflow shifts",
-          "developerActivity": "Developer activity on GitHub",
-          "onChainVolume": "On-chain transaction volume",
-          "volumeBreakouts": "Trading volume breakouts"
+          "socialMentions": "การกล่าวถึงบนโซเชียลพุ่งขึ้น",
+          "exchangeFlows": "กระแสเข้า/ออกจากกระดานเปลี่ยน",
+          "developerActivity": "กิจกรรมนักพัฒนาบน GitHub",
+          "onChainVolume": "ปริมาณธุรกรรมบนเชน",
+          "volumeBreakouts": "ปริมาณซื้อขายทะลุกรอบ"
         }
       },
       "risk": {
-        "eyebrow": "Risk Factors",
-        "title": "Stay Cautious",
+        "eyebrow": "ปัจจัยเสี่ยง",
+        "title": "ระมัดระวัง",
         "items": {
-          "volatility": "High volatility - price can swing 30%+",
-          "liquidity": "Low liquidity in smaller coins",
-          "manipulation": "Potential market manipulation",
-          "regulation": "Evolving regulatory landscape",
-          "techRisk": "Smart contract / tech risks"
+          "volatility": "ความผันผวนสูง - ราคาแกว่งได้ 30%+",
+          "liquidity": "สภาพคล่องต่ำในเหรียญขนาดเล็ก",
+          "manipulation": "อาจมีการปั่นตลาด",
+          "regulation": "กฎระเบียบเปลี่ยนแปลงต่อเนื่อง",
+          "techRisk": "ความเสี่ยงสมาร์ตคอนแทรกต์/เทคโนโลยี"
         }
       },
       "tips": {
-        "eyebrow": "Trading Tips",
-        "title": "Smart Strategies",
+        "eyebrow": "เคล็ดลับเทรด",
+        "title": "กลยุทธ์อัจฉริยะ",
         "items": {
-          "onChainValidation": "Validate with on-chain metrics first",
-          "githubActivity": "Check GitHub developer activity",
-          "divergence": "Monitor volume vs. price divergence",
-          "positionSizing": "Use proper position sizing",
-          "stopLosses": "Set strict stop-losses before entry"
+          "onChainValidation": "ตรวจสอบเมตริก on-chain ก่อน",
+          "githubActivity": "ดู activity นักพัฒนาบน GitHub",
+          "divergence": "ติดตาม divergence ระหว่างปริมาณและราคา",
+          "positionSizing": "ใช้ขนาดสถานะที่เหมาะสม",
+          "stopLosses": "ตั้ง stop-loss เข้มงวดก่อนเข้า"
         }
       }
     },
     "cta": {
-      "eyebrow": "Crypto Research",
-      "title": "Deep Dive Into Any Coin",
-      "description": "Click any coin to explore detailed charts, on-chain metrics, exchange listings, and breaking news - all in one place."
+      "eyebrow": "วิจัยคริปโต",
+      "title": "เจาะลึกเหรียญใดก็ได้",
+      "description": "คลิกเหรียญเพื่อดูกราฟละเอียด เมตริก on-chain รายชื่อกระดาน และข่าวด่วนในที่เดียว"
     }
   },
   "categoryPages": {

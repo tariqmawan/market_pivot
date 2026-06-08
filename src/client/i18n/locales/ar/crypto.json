@@ -8,22 +8,22 @@
       "name": "DeFi"
     },
     "infrastructure": {
-      "name": "Infrastructure"
+      "name": "البنية التحتية"
     },
     "layer1": {
-      "name": "Layer 1"
+      "name": "الطبقة الأولى"
     },
     "layer2": {
-      "name": "Layer 2"
+      "name": "الطبقة الثانية"
     },
     "meme": {
       "name": "Meme"
     },
     "payments": {
-      "name": "Payments"
+      "name": "المدفوعات"
     },
     "stablecoin": {
-      "name": "Stablecoin"
+      "name": "العملات المستقرّة"
     }
   },
   "category": "الفئة",
@@ -35,119 +35,119 @@
   "cryptocurrencies": {
     "aave": {
       "name": "Aave",
-      "description": "Decentralised non-custodial liquidity protocol for lending and borrowing"
+      "description": "بروتوكول لامركزي غير حافظ للسيولة، للإقراض والاقتراض"
     },
     "arbitrum": {
       "name": "Arbitrum",
-      "description": "Ethereum layer-2 scaling solution and governance token"
+      "description": "حلّ توسعة من الطبقة الثانية لإيثريوم ورمز حوكمة"
     },
     "avalanche2": {
       "name": "Avalanche",
-      "description": "Subnet and scaling solutions for blockchain applications"
+      "description": "حلول السلاسل الفرعية والتوسعة لتطبيقات البلوكتشين"
     },
     "binancecoin": {
       "name": "BNB",
-      "description": "Native token of Binance Smart Chain ecosystem"
+      "description": "الرمز الأصلي لمنظومة بينانس سمارت تشين"
     },
     "bitcoin": {
       "name": "Bitcoin",
-      "description": "The world's first and largest cryptocurrency by market cap"
+      "description": "أول وأكبر عملة رقمية في العالم من حيث القيمة السوقية"
     },
     "bonk": {
       "name": "Bonk",
-      "description": "Solana's first major meme coin — airdropped to the community, now a DeFi staple"
+      "description": "أوّل عملة ميم رئيسية على سولانا — وُزِّعت مجاناً للمجتمع، وأصبحت أحد أركان منظومة DeFi"
     },
     "cardano": {
       "name": "Cardano",
-      "description": "Peer-reviewed blockchain platform with focus on sustainability"
+      "description": "منصّة بلوكتشين قائمة على المراجعة العلمية مع تركيز على الاستدامة"
     },
     "chainlink": {
       "name": "Chainlink",
-      "description": "Decentralized oracle network connecting blockchains to real-world data"
+      "description": "شبكة أوراكل لامركزية تربط البلوكتشين ببيانات العالم الحقيقي"
     },
     "compoundGovernanceToken": {
       "name": "Compound",
-      "description": "Algorithmic autonomous interest rate protocol for DeFi lending"
+      "description": "بروتوكول خوارزمي مستقلّ لأسعار الفائدة في إقراض DeFi"
     },
     "cosmos": {
       "name": "Cosmos",
-      "description": "Interoperable blockchain ecosystem and Internet of Blockchains"
+      "description": "منظومة بلوكتشين قابلة للتشغيل البيني تُعرف بـ«إنترنت السلاسل»"
     },
     "curveDaoToken": {
       "name": "Curve Finance",
-      "description": "Decentralised exchange optimised for stablecoin and pegged-asset swaps"
+      "description": "بورصة لامركزية محسَّنة لمبادلة العملات المستقرّة والأصول المرتبطة"
     },
     "dai": {
       "name": "Dai",
-      "description": "Decentralized USD-backed stablecoin on Ethereum"
+      "description": "عملة مستقرّة لامركزية مدعومة بالدولار على إيثريوم"
     },
     "dogecoin": {
       "name": "Dogecoin",
-      "description": "The original meme coin — started as a joke, became a cultural crypto icon"
+      "description": "أوّل عملة ميم — بدأت كمزحة وأصبحت رمزاً ثقافياً في عالم العملات الرقمية"
     },
     "ethereum": {
       "name": "Ethereum",
-      "description": "Leading smart contract platform and DeFi hub"
+      "description": "أبرز منصّة للعقود الذكية وقطب رئيسي لـ DeFi"
     },
     "floki": {
       "name": "FLOKI",
-      "description": "The people's crypto — Elon Musk inspired, community-built meme ecosystem"
+      "description": "عملة شعبية مستوحاة من إيلون ماسك ومبنية على المجتمع"
     },
     "litecoin": {
       "name": "Litecoin",
-      "description": "Silver to Bitcoin's gold, fast peer-to-peer payments"
+      "description": "الفضّة لذهب البتكوين، للمدفوعات السريعة بين الأنداد"
     },
     "maker": {
       "name": "Maker",
-      "description": "Governance token of MakerDAO, the protocol behind the DAI stablecoin"
+      "description": "رمز الحوكمة لـ MakerDAO، البروتوكول وراء العملة المستقرّة DAI"
     },
     "maticNetwork": {
       "name": "Polygon",
-      "description": "Ethereum scaling solution enabling faster and cheaper transactions"
+      "description": "حلّ توسعة لإيثريوم يتيح معاملات أسرع وأرخص"
     },
     "pepe": {
       "name": "Pepe",
-      "description": "Internet culture meets crypto — the frog meme turned billion-dollar token"
+      "description": "ثقافة الإنترنت تلتقي بالعملات الرقمية — ميم الضفدع تحوّل إلى رمز بمليارات الدولارات"
     },
     "polkadot": {
       "name": "Polkadot",
-      "description": "Multi-chain blockchain enabling cross-chain interoperability"
+      "description": "بلوكتشين متعدّد السلاسل يتيح التشغيل البيني"
     },
     "ripple": {
       "name": "XRP",
-      "description": "Payment network focused on fast, low-cost international transfers"
+      "description": "شبكة مدفوعات تركّز على التحويلات الدولية السريعة منخفضة الكلفة"
     },
     "shibaInu": {
       "name": "Shiba Inu",
-      "description": "The Dogecoin killer — Ethereum-based meme coin with a massive community"
+      "description": "منافس دوجكوين — عملة ميم على إيثريوم بمجتمع ضخم"
     },
     "solana": {
       "name": "Solana",
-      "description": "High-speed blockchain platform for decentralized applications"
+      "description": "منصّة بلوكتشين فائقة السرعة للتطبيقات اللامركزية"
     },
     "stellar": {
       "name": "Stellar",
-      "description": "Blockchain network for financial inclusion and remittances"
+      "description": "شبكة بلوكتشين للشمول المالي والتحويلات"
     },
     "tether": {
       "name": "Tether",
-      "description": "Most widely used USD-pegged stablecoin"
+      "description": "أكثر العملات المستقرّة استخداماً، مرتبطة بالدولار"
     },
     "theOpenNetwork": {
       "name": "Toncoin",
-      "description": "Ultra-fast blockchain with focus on messaging and payments"
+      "description": "بلوكتشين فائقة السرعة تركّز على المراسلة والمدفوعات"
     },
     "tron": {
       "name": "TRON",
-      "description": "Blockchain platform for decentralized entertainment"
+      "description": "منصّة بلوكتشين للترفيه اللامركزي"
     },
     "uniswap": {
       "name": "Uniswap",
-      "description": "Leading decentralized exchange and DeFi protocol"
+      "description": "أبرز بورصة لامركزية وبروتوكول DeFi"
     },
     "usdCoin": {
       "name": "USD Coin",
-      "description": "Regulated USD-backed stablecoin"
+      "description": "عملة مستقرّة منظَّمة مدعومة بالدولار"
     }
   },
   "currentPrice": "السعر الحالي",
@@ -169,25 +169,25 @@
   "priceChart": "رسم بياني تفاعلي للسعر",
   "priceMetrics": "السعر والمقاييس",
   "rank": "الترتيب",
-  "rankNumber": "Rank #{{rank}}",
+  "rankNumber": "المرتبة #{{rank}}",
   "supplyInfo": "معلومات العرض",
   "tradingPairs": "أزواج التداول",
   "transactionVolume": "حجم المعاملات",
   "transactionsPerDay": "المعاملات يومياً",
   "volume24h": "حجم 24 ساعة",
   "volumeOverlay": "مع طبقة حجم التداول",
-  "cryptocurrency": "Cryptocurrency",
-  "cryptocurrencyCategories": "Cryptocurrency Categories",
-  "allCryptocurrencies": "All Cryptocurrencies",
-  "trending": "Trending",
-  "categoryNotFound": "Category Not Found",
-  "categoryNotFoundDescription": "This category doesn't exist. Browse all cryptocurrencies below.",
-  "viewAllCryptocurrencies": "View All Cryptocurrencies",
+  "cryptocurrency": "العملة الرقمية",
+  "cryptocurrencyCategories": "فئات العملات الرقمية",
+  "allCryptocurrencies": "كل العملات الرقمية",
+  "trending": "الرائج",
+  "categoryNotFound": "الفئة غير موجودة",
+  "categoryNotFoundDescription": "هذه الفئة غير موجودة. تصفّح كل العملات الرقمية أدناه.",
+  "viewAllCryptocurrencies": "عرض كل العملات الرقمية",
   "trendingCoins": {
-    "eyebrow": "بيانات السوق المباشرة - العملات المشفرة",
-    "titleAccent": "العملات",
-    "titleRest": "الرائجة",
-    "subtitle": "عملات مشفرة رائجة في الوقت الفعلي مرتبة حسب نشاط التداول والزخم الاجتماعي ونمو القيمة السوقية. يتم تحديثها باستمرار.",
+    "eyebrow": "بيانات سوق مباشرة - العملات الرقمية",
+    "titleAccent": "عملات",
+    "titleRest": "رائجة",
+    "subtitle": "عملات رقمية رائجة في الوقت الحقيقي مرتبة حسب نشاط التداول والزخم الاجتماعي ونمو القيمة السوقية. يتم تحديثها باستمرار.",
     "categories": {
       "all": "الكل",
       "layer1": "الطبقة 1",
@@ -195,13 +195,13 @@
       "defi": "DeFi",
       "meme": "ميم",
       "stablecoin": "عملة مستقرة",
-      "payments": "المدفوعات",
-      "infrastructure": "البنية التحتية"
+      "payments": "مدفوعات",
+      "infrastructure": "بنية تحتية"
     },
     "metrics": {
-      "tracked": "المتابعة",
-      "gainers": "الرابحة",
-      "topGain24h": "أعلى مكسب 24 ساعة",
+      "tracked": "متابعة",
+      "gainers": "الرابحون",
+      "topGain24h": "أعلى مكسب 24س",
       "volumeShort": "حجم 24س",
       "supply": "المعروض"
     },
@@ -212,72 +212,72 @@
       "strong": "قوي"
     },
     "moreTitle": "المزيد من العملات الرائجة",
-    "emptyCategory": "لم يتم العثور على عملات في هذه الفئة.",
+    "emptyCategory": "لا توجد عملات في هذه الفئة.",
     "insights": {
       "trending": {
-        "eyebrow": "What's Trending",
-        "title": "Market Dynamics",
+        "eyebrow": "ما الرائج",
+        "title": "ديناميكيات السوق",
         "items": {
-          "socialMentions": "Social media mentions spike",
-          "exchangeFlows": "Exchange inflow / outflow shifts",
-          "developerActivity": "Developer activity on GitHub",
-          "onChainVolume": "On-chain transaction volume",
-          "volumeBreakouts": "Trading volume breakouts"
+          "socialMentions": "ارتفاع إشارات وسائل التواصل",
+          "exchangeFlows": "تحولات تدفقات البورصات",
+          "developerActivity": "نشاط المطورين على GitHub",
+          "onChainVolume": "حجم المعاملات على السلسلة",
+          "volumeBreakouts": "اختراقات حجم التداول"
         }
       },
       "risk": {
-        "eyebrow": "Risk Factors",
-        "title": "Stay Cautious",
+        "eyebrow": "عوامل الخطر",
+        "title": "توخ الحذر",
         "items": {
-          "volatility": "High volatility - price can swing 30%+",
-          "liquidity": "Low liquidity in smaller coins",
-          "manipulation": "Potential market manipulation",
-          "regulation": "Evolving regulatory landscape",
-          "techRisk": "Smart contract / tech risks"
+          "volatility": "تقلبات عالية - قد يتحرك السعر 30%+",
+          "liquidity": "سيولة منخفضة في العملات الصغيرة",
+          "manipulation": "احتمال تلاعب بالسوق",
+          "regulation": "مشهد تنظيمي متغير",
+          "techRisk": "مخاطر العقود الذكية والتقنية"
         }
       },
       "tips": {
-        "eyebrow": "Trading Tips",
-        "title": "Smart Strategies",
+        "eyebrow": "نصائح التداول",
+        "title": "استراتيجيات ذكية",
         "items": {
-          "onChainValidation": "Validate with on-chain metrics first",
-          "githubActivity": "Check GitHub developer activity",
-          "divergence": "Monitor volume vs. price divergence",
-          "positionSizing": "Use proper position sizing",
-          "stopLosses": "Set strict stop-losses before entry"
+          "onChainValidation": "تحقق أولا من مقاييس السلسلة",
+          "githubActivity": "افحص نشاط المطورين على GitHub",
+          "divergence": "راقب تباعد الحجم والسعر",
+          "positionSizing": "استخدم حجما مناسبا للمركز",
+          "stopLosses": "حدد وقف خسارة صارما قبل الدخول"
         }
       }
     },
     "cta": {
-      "eyebrow": "Crypto Research",
-      "title": "Deep Dive Into Any Coin",
-      "description": "Click any coin to explore detailed charts, on-chain metrics, exchange listings, and breaking news - all in one place."
+      "eyebrow": "بحث العملات الرقمية",
+      "title": "تعمق في أي عملة",
+      "description": "انقر على أي عملة لاستكشاف الرسوم التفصيلية ومقاييس السلسلة وإدراجات البورصات والأخبار العاجلة في مكان واحد."
     }
   },
   "categoryPages": {
     "common": {
-      "marketOverview": "Market Overview",
-      "combinedMarketCap": "Combined Market Cap",
-      "topGainer24h": "Top Gainer (24h)",
+      "marketOverview": "نظرة عامة على السوق",
+      "combinedMarketCap": "إجمالي القيمة السوقية",
+      "topGainer24h": "الأعلى ربحاً (24 ساعة)",
       "name": "Name",
       "price": "Price",
-      "change24h": "24h Change",
-      "marketCap": "Market Cap",
-      "volume24h": "24h Volume",
-      "riskProfile": "Risk Profile",
-      "fullCryptoMarket": "Full Crypto Market",
-      "exploreAllCryptocurrencies": "Explore All Cryptocurrencies"
+      "change24h": "التغيّر خلال 24 ساعة",
+      "marketCap": "القيمة السوقية",
+      "volume24h": "الحجم خلال 24 ساعة",
+      "riskProfile": "ملف المخاطر",
+      "fullCryptoMarket": "سوق العملات الرقمية الكامل",
+      "exploreAllCryptocurrencies": "استكشف كل العملات الرقمية"
     },
     "meme": {
-      "eyebrow": "Community Tokens",
-      "title": "Meme coins",
-      "body": "Community-driven cryptocurrencies fuelled by viral culture, social momentum, and cult followings. High-risk, high-reward assets where sentiment rules the market.",
+      "eyebrow": "رموز المجتمع",
+      "title": "عملات الميم",
+      "body": "عملات رقمية مدفوعة بالمجتمع وثقافة فيروسية وزخم اجتماعي. أصول عالية المخاطر والمكافأة تهيمن عليها المعنويات.",
       "metrics": {
-        "coinsListed": "Coins Listed"
+        "coinsListed": "العملات المدرجة"
       },
-      "rankingsTitle": "Meme Coin Rankings",
+      "rankingsTitle": "ترتيب عملات الميم",
       "table": {
-        "community": "Community"
+        "community": "المجتمع"
       },
       "communities": {
         "DOGE": "Original OG",
@@ -289,42 +289,42 @@
       "insights": {
         "origins": {
           "eyebrow": "Origins",
-          "title": "The Meme Coin Story",
+          "title": "قصّة عملات الميم",
           "items": {
-            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
-            "elon": "Elon Musk tweets as price catalysts",
-            "pumps": "WallStreetBets-style coordinated pumps",
-            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
-            "pepe": "2023 PEPE boom revived the meme cycle",
-            "bonk": "BONK airdropped life into Solana DeFi"
+            "dogecoin": "دوجكوين (2013) — أوّل عملة مزحة على الإنترنت",
+            "elon": "تغريدات إيلون ماسك كمحرّكات للسعر",
+            "pumps": "موجات شراء منسَّقة على غرار WallStreetBets",
+            "shiba": "إطلاق شيبا إينو بوصفها \"قاتل دوجكوين\"",
+            "pepe": "طفرة PEPE في 2023 أحيت دورة الميم",
+            "bonk": "توزيع BONK المجاني أنعش منظومة DeFi على سولانا"
           }
         },
         "risk": {
-          "title": "What Investors Should Know",
+          "title": "ما يجب أن يعرفه المستثمرون",
           "items": {
-            "sentiment": "Prices driven almost entirely by sentiment",
-            "pumpDump": "Susceptible to pump-and-dump schemes",
-            "utility": "Minimal or no underlying utility",
-            "volatility": "Extreme volatility - 50%+ swings common",
-            "rugPull": "Rug-pull risk in newer, unaudited coins",
-            "viralCycles": "High correlation with viral media cycles"
+            "sentiment": "الأسعار مدفوعة بالكامل تقريباً بالمعنويات",
+            "pumpDump": "عُرضة لمخطّطات الضخّ والتفريغ",
+            "utility": "فائدة عملية ضئيلة أو معدومة",
+            "volatility": "تقلّب شديد — تحرّكات تتجاوز 50% شائعة",
+            "rugPull": "خطر «سحب البساط» في العملات الجديدة غير المُدقَّقة",
+            "viralCycles": "ارتباط عالٍ بدورات الإعلام الفيروسي"
           }
         },
         "signals": {
-          "eyebrow": "Community Signals",
-          "title": "How to Track Momentum",
+          "eyebrow": "إشارات المجتمع",
+          "title": "كيفية تتبّع الزخم",
           "items": {
-            "twitter": "Twitter/X mentions and trending hashtags",
-            "reddit": "Reddit activity on r/CryptoCurrency",
-            "whales": "Whale wallet alerts and large transfers",
-            "listings": "Exchange listing announcements",
-            "google": "Google Trends search volume spikes",
-            "influencers": "Influencer social media activity"
+            "twitter": "ذِكرٌ في X (تويتر سابقاً) ووسوم رائجة",
+            "reddit": "نشاط Reddit على r/CryptoCurrency",
+            "whales": "تنبيهات محافظ الحيتان وتحويلات كبيرة",
+            "listings": "إعلانات إدراج في البورصات",
+            "google": "قفزات في حجم البحث على Google Trends",
+            "influencers": "نشاط المؤثّرين في وسائل التواصل"
           }
         }
       },
       "cta": {
-        "description": "Compare meme coins against blue-chip assets, DeFi protocols, and layer-1 blockchains."
+        "description": "قارن عملات الميم بأصول من الطراز الأوّل وبروتوكولات DeFi وسلاسل الطبقة الأولى."
       }
     }
   }

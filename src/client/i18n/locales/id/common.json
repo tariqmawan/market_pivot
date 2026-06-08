@@ -1807,5 +1807,13 @@
   "sectorspagenew.sectors.retail.industries.mid_cap": "Mid Cap",
   "sectorspagenew.sectors.retail.industries.small_cap": "Small Cap",
   "sectorspagenew.sectors.retail.industries.emerging": "Emerging",
-  "sectorspagenew.sectors.retail.industries.dividend": "Dividend"
+  "sectorspagenew.sectors.retail.industries.dividend": "Dividend",
+  "stockdetail.toast.watchlistAdded": "★ {{symbol}} ditambahkan ke {{name}}",
+  "stockdetail.toast.alertCreated": "🔔 Peringatan dibuat untuk {{symbol}} @ ${{price}}",
+  "stockdetail.toast.portfolioAdded": "💼 {{symbol}} ditambahkan ke {{name}}",
+  "stockdetail.tradeTypeBuy": "Beli",
+  "stockdetail.tradeTypeSell": "Jual",
+  "stockdetail.financials.revenueTTM": "Pendapatan (TTM)",
+  "stockdetail.financials.netIncomeTTM": "Laba bersih (TTM)",
+  "stockdetail.financials.epsTTM": "EPS (TTM)"
 }

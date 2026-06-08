@@ -174,7 +174,7 @@
   "tradingPairs": "Pasangan Trading",
   "transactionVolume": "Volume Transaksi",
   "transactionsPerDay": "Transaksi Per Hari",
-  "volume24h": "Volume 24j",
+  "volume24h": "Volume 24 jam",
   "volumeOverlay": "Dengan overlay volume",
   "cryptocurrency": "mata uang kripto",
   "cryptocurrencyCategories": "Kategori Mata Uang Kripto",
@@ -182,12 +182,12 @@
   "trending": "Sedang tren",
   "categoryNotFound": "Kategori Tidak Ditemukan",
   "categoryNotFoundDescription": "Kategori ini tidak ada. Telusuri semua mata uang kripto di bawah ini.",
-  "viewAllCryptocurrencies": "Lihat Semua Cryptocurrency",
+  "viewAllCryptocurrencies": "Lihat semua kripto",
   "trendingCoins": {
-    "eyebrow": "Data pasar langsung - Cryptocurrency",
+    "eyebrow": "Data pasar langsung - Kripto",
     "titleAccent": "Koin",
     "titleRest": "tren",
-    "subtitle": "Cryptocurrency yang sedang tren secara real-time, diperingkat berdasarkan aktivitas perdagangan, momentum sosial, dan pertumbuhan kapitalisasi pasar. Diperbarui terus-menerus.",
+    "subtitle": "Kripto yang sedang tren secara real-time berdasarkan aktivitas perdagangan, momentum sosial, dan pertumbuhan kapitalisasi pasar. Diperbarui terus.",
     "categories": {
       "all": "Semua",
       "layer1": "Layer 1",
@@ -202,7 +202,7 @@
       "tracked": "Dipantau",
       "gainers": "Naik",
       "topGain24h": "Kenaikan tertinggi 24j",
-      "volumeShort": "Vol 24j",
+      "volumeShort": "Vol. 24j",
       "supply": "Pasokan"
     },
     "sentiment": {
@@ -212,14 +212,14 @@
       "strong": "Kuat"
     },
     "moreTitle": "Koin tren lainnya",
-    "emptyCategory": "Tidak ada koin ditemukan dalam kategori ini.",
+    "emptyCategory": "Tidak ada koin dalam kategori ini.",
     "insights": {
       "trending": {
         "eyebrow": "Yang sedang tren",
         "title": "Dinamika pasar",
         "items": {
-          "socialMentions": "Lonjakan sebutan di media sosial",
-          "exchangeFlows": "Perubahan arus masuk / keluar bursa",
+          "socialMentions": "Sebutan media sosial melonjak",
+          "exchangeFlows": "Arus masuk/keluar bursa berubah",
           "developerActivity": "Aktivitas developer di GitHub",
           "onChainVolume": "Volume transaksi on-chain",
           "volumeBreakouts": "Breakout volume perdagangan"
@@ -227,12 +227,12 @@
       },
       "risk": {
         "eyebrow": "Faktor risiko",
-        "title": "Tetap berhati-hati",
+        "title": "Tetap hati-hati",
         "items": {
           "volatility": "Volatilitas tinggi - harga bisa bergerak 30%+",
           "liquidity": "Likuiditas rendah pada koin kecil",
           "manipulation": "Potensi manipulasi pasar",
-          "regulation": "Lanskap regulasi yang berkembang",
+          "regulation": "Lanskap regulasi berubah",
           "techRisk": "Risiko smart contract / teknologi"
         }
       },
@@ -241,7 +241,7 @@
         "title": "Strategi cerdas",
         "items": {
           "onChainValidation": "Validasi dulu dengan metrik on-chain",
-          "githubActivity": "Periksa aktivitas developer di GitHub",
+          "githubActivity": "Periksa aktivitas developer GitHub",
           "divergence": "Pantau divergensi volume vs harga",
           "positionSizing": "Gunakan ukuran posisi yang tepat",
           "stopLosses": "Tetapkan stop-loss ketat sebelum masuk"
@@ -249,9 +249,9 @@
       }
     },
     "cta": {
-      "eyebrow": "Riset crypto",
-      "title": "Telusuri koin apa pun lebih dalam",
-      "description": "Klik koin apa pun untuk menjelajahi grafik detail, metrik on-chain, listing bursa, dan berita terbaru di satu tempat."
+      "eyebrow": "Riset kripto",
+      "title": "Selami koin apa pun",
+      "description": "Klik koin mana pun untuk melihat grafik detail, metrik on-chain, listing bursa, dan berita terbaru di satu tempat."
     }
   },
   "categoryPages": {

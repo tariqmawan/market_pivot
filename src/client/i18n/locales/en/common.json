@@ -1806,5 +1806,13 @@
   "sectorspagenew.sectors.retail.industries.mid_cap": "Mid Cap",
   "sectorspagenew.sectors.retail.industries.small_cap": "Small Cap",
   "sectorspagenew.sectors.retail.industries.emerging": "Emerging",
-  "sectorspagenew.sectors.retail.industries.dividend": "Dividend"
+  "sectorspagenew.sectors.retail.industries.dividend": "Dividend",
+  "stockdetail.toast.watchlistAdded": "★ {{symbol}} added to {{name}}",
+  "stockdetail.toast.alertCreated": "🔔 Alert created for {{symbol}} @ ${{price}}",
+  "stockdetail.toast.portfolioAdded": "💼 {{symbol}} added to {{name}}",
+  "stockdetail.tradeTypeBuy": "Buy",
+  "stockdetail.tradeTypeSell": "Sell",
+  "stockdetail.financials.revenueTTM": "Revenue (TTM)",
+  "stockdetail.financials.netIncomeTTM": "Net Income (TTM)",
+  "stockdetail.financials.epsTTM": "EPS (TTM)"
 }

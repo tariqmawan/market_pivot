@@ -11,6 +11,7 @@
     "build:server": "tsc -p tsconfig.server.json",
     "build:client": "vite build",
     "i18n:audit": "node scripts/i18n-audit.cjs",
+    "i18n:native-audit": "node scripts/i18n-native-audit.cjs",
     "i18n:fix": "node scripts/i18n-audit.cjs --fix",
     "preview": "vite preview",
     "start": "node dist/server/index.js",

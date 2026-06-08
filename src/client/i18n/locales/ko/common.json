@@ -1809,5 +1809,13 @@
   "sectorspagenew.sectors.retail.industries.mid_cap": "Mid Cap",
   "sectorspagenew.sectors.retail.industries.small_cap": "Small Cap",
   "sectorspagenew.sectors.retail.industries.emerging": "Emerging",
-  "sectorspagenew.sectors.retail.industries.dividend": "Dividend"
+  "sectorspagenew.sectors.retail.industries.dividend": "Dividend",
+  "stockdetail.toast.watchlistAdded": "★ {{symbol}}(이)가 {{name}} 워치리스트에 추가됨",
+  "stockdetail.toast.alertCreated": "🔔 {{symbol}}에 대한 알림 생성 @ ${{price}}",
+  "stockdetail.toast.portfolioAdded": "💼 {{symbol}}(이)가 {{name}} 포트폴리오에 추가됨",
+  "stockdetail.tradeTypeBuy": "매수",
+  "stockdetail.tradeTypeSell": "매도",
+  "stockdetail.financials.revenueTTM": "매출(TTM)",
+  "stockdetail.financials.netIncomeTTM": "순이익(TTM)",
+  "stockdetail.financials.epsTTM": "EPS(TTM)"
 }

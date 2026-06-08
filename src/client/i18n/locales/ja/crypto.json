@@ -26,7 +26,7 @@
       "name": "ステーブルコイン"
     }
   },
-  "category": "カテゴリ",
+  "category": "カテゴリー",
   "charts": "チャート",
   "circulatingSupply": "流通供給量",
   "consensus": "コンセンサスメカニズム",
@@ -174,7 +174,7 @@
   "tradingPairs": "取引ペア",
   "transactionVolume": "トランザクション量",
   "transactionsPerDay": "1日あたりのトランザクション",
-  "volume24h": "24時間取引量",
+  "volume24h": "24時間出来高",
   "volumeOverlay": "出来高オーバーレイ付き",
   "cryptocurrency": "暗号資産",
   "cryptocurrencyCategories": "cryptocurrency カテゴリ",
@@ -182,16 +182,16 @@
   "trending": "トレンド",
   "categoryNotFound": "category Not Found",
   "categoryNotFoundDescription": "市場の説明",
-  "viewAllCryptocurrencies": "view すべて 暗号資産currencies",
+  "viewAllCryptocurrencies": "すべての暗号資産を見る",
   "trendingCoins": {
     "eyebrow": "ライブ市場データ - 暗号資産",
     "titleAccent": "トレンド",
     "titleRest": "コイン",
-    "subtitle": "取引活動、ソーシャルモメンタム、時価総額の成長でランク付けしたリアルタイムのトレンド暗号資産。継続的に更新されます。",
+    "subtitle": "取引活動、ソーシャルモメンタム、時価総額成長で順位付けしたリアルタイムのトレンド暗号資産。継続的に更新されます。",
     "categories": {
       "all": "すべて",
-      "layer1": "レイヤー 1",
-      "layer2": "レイヤー 2",
+      "layer1": "レイヤー1",
+      "layer2": "レイヤー2",
       "defi": "DeFi",
       "meme": "ミーム",
       "stablecoin": "ステーブルコイン",
@@ -202,7 +202,7 @@
       "tracked": "追跡中",
       "gainers": "上昇銘柄",
       "topGain24h": "24時間最大上昇",
-      "volumeShort": "24時間出来高",
+      "volumeShort": "24h出来高",
       "supply": "供給量"
     },
     "sentiment": {
@@ -212,46 +212,46 @@
       "strong": "強い"
     },
     "moreTitle": "その他のトレンドコイン",
-    "emptyCategory": "このカテゴリーにコインは見つかりません。",
+    "emptyCategory": "このカテゴリーにコインはありません。",
     "insights": {
       "trending": {
-        "eyebrow": "What's Trending",
-        "title": "Market Dynamics",
+        "eyebrow": "今のトレンド",
+        "title": "市場ダイナミクス",
         "items": {
-          "socialMentions": "Social media mentions spike",
-          "exchangeFlows": "Exchange inflow / outflow shifts",
-          "developerActivity": "Developer activity on GitHub",
-          "onChainVolume": "On-chain transaction volume",
-          "volumeBreakouts": "Trading volume breakouts"
+          "socialMentions": "SNSでの言及が急増",
+          "exchangeFlows": "取引所の流入/流出が変化",
+          "developerActivity": "GitHubでの開発活動",
+          "onChainVolume": "オンチェーン取引量",
+          "volumeBreakouts": "取引量のブレイクアウト"
         }
       },
       "risk": {
-        "eyebrow": "Risk Factors",
-        "title": "Stay Cautious",
+        "eyebrow": "リスク要因",
+        "title": "慎重に対応",
         "items": {
-          "volatility": "High volatility - price can swing 30%+",
-          "liquidity": "Low liquidity in smaller coins",
-          "manipulation": "Potential market manipulation",
-          "regulation": "Evolving regulatory landscape",
-          "techRisk": "Smart contract / tech risks"
+          "volatility": "高いボラティリティ - 価格が30%以上動く可能性",
+          "liquidity": "小型コインは流動性が低い",
+          "manipulation": "市場操作の可能性",
+          "regulation": "変化する規制環境",
+          "techRisk": "スマートコントラクト/技術リスク"
         }
       },
       "tips": {
-        "eyebrow": "Trading Tips",
-        "title": "Smart Strategies",
+        "eyebrow": "取引のヒント",
+        "title": "スマート戦略",
         "items": {
-          "onChainValidation": "Validate with on-chain metrics first",
-          "githubActivity": "Check GitHub developer activity",
-          "divergence": "Monitor volume vs. price divergence",
-          "positionSizing": "Use proper position sizing",
-          "stopLosses": "Set strict stop-losses before entry"
+          "onChainValidation": "まずオンチェーン指標を確認",
+          "githubActivity": "GitHubの開発活動を確認",
+          "divergence": "出来高と価格の乖離を監視",
+          "positionSizing": "適切なポジションサイズを使用",
+          "stopLosses": "エントリー前に厳格な損切りを設定"
         }
       }
     },
     "cta": {
-      "eyebrow": "Crypto Research",
-      "title": "Deep Dive Into Any Coin",
-      "description": "Click any coin to explore detailed charts, on-chain metrics, exchange listings, and breaking news - all in one place."
+      "eyebrow": "暗号資産リサーチ",
+      "title": "任意のコインを深掘り",
+      "description": "任意のコインをクリックして、詳細チャート、オンチェーン指標、取引所上場、速報ニュースを一か所で確認できます。"
     }
   },
   "categoryPages": {
@@ -289,37 +289,37 @@
       "insights": {
         "origins": {
           "eyebrow": "Origins",
-          "title": "The Meme Coin Story",
+          "title": "ミームコインの歴史",
           "items": {
-            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
-            "elon": "Elon Musk tweets as price catalysts",
-            "pumps": "WallStreetBets-style coordinated pumps",
-            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
-            "pepe": "2023 PEPE boom revived the meme cycle",
-            "bonk": "BONK airdropped life into Solana DeFi"
+            "dogecoin": "ドージコイン（2013年）— 最初のインターネット・ジョーク・コイン",
+            "elon": "イーロン・マスクのツイートが価格を動かす",
+            "pumps": "WallStreetBets型の協調的なポンプ",
+            "shiba": "「ドージコイン・キラー」として登場したシバイヌ",
+            "pepe": "2023年のPEPE急騰でミーム相場が再点火",
+            "bonk": "BONKのエアドロップがSolana DeFiを活性化"
           }
         },
         "risk": {
-          "title": "What Investors Should Know",
+          "title": "投資家が知っておくべきリスク",
           "items": {
-            "sentiment": "Prices driven almost entirely by sentiment",
-            "pumpDump": "Susceptible to pump-and-dump schemes",
-            "utility": "Minimal or no underlying utility",
-            "volatility": "Extreme volatility - 50%+ swings common",
-            "rugPull": "Rug-pull risk in newer, unaudited coins",
-            "viralCycles": "High correlation with viral media cycles"
+            "sentiment": "価格はほぼセンチメントに依存",
+            "pumpDump": "ポンプ・アンド・ダンプの対象になりやすい",
+            "utility": "実用性がほとんどない",
+            "volatility": "極端なボラティリティ — 50％超の値動きが日常",
+            "rugPull": "未監査の新規銘柄ではラグプル・リスクあり",
+            "viralCycles": "バイラル・メディア・サイクルとの高い相関"
           }
         },
         "signals": {
-          "eyebrow": "Community Signals",
-          "title": "How to Track Momentum",
+          "eyebrow": "コミュニティ・シグナル",
+          "title": "モメンタムの追い方",
           "items": {
-            "twitter": "Twitter/X mentions and trending hashtags",
-            "reddit": "Reddit activity on r/CryptoCurrency",
-            "whales": "Whale wallet alerts and large transfers",
-            "listings": "Exchange listing announcements",
-            "google": "Google Trends search volume spikes",
-            "influencers": "Influencer social media activity"
+            "twitter": "X（旧Twitter）の言及とトレンド・ハッシュタグ",
+            "reddit": "Redditの r/CryptoCurrency の活発度",
+            "whales": "クジラ・ウォレットの動きと大口送金",
+            "listings": "取引所の上場アナウンス",
+            "google": "Googleトレンドの検索急増",
+            "influencers": "インフルエンサーのSNS活動"
           }
         }
       },

@@ -64,7 +64,7 @@ const TIMEFRAMES: Timeframe[] = ["1D", "1W", "1M", "3M", "1Y", "5Y"];
 
 const formatEarningsDate = (dateStr: string) => {
   const date = new Date(dateStr);
-  return date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  return date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
 };
 
 const daysUntil = (dateStr: string) => {
@@ -105,12 +105,12 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
       addedAt: Date.now(),
     });
     log("watchlist_add", `Added ${stock.symbol} to ${activeWatchlist.name}`);
-    showToast(`★ ${stock.symbol} added to ${activeWatchlist.name}`);
+    showToast(t("stockdetail.toast.watchlistAdded", { symbol: stock.symbol, name: activeWatchlist.name }));
   };
 
   const handleCreateAlert = () => {
     log("alert_create", `Created price alert for ${stock.symbol} at $${stock.price.toFixed(2)}`);
-    showToast(`🔔 Alert created for ${stock.symbol} @ $${stock.price.toFixed(2)}`);
+    showToast(t("stockdetail.toast.alertCreated", { symbol: stock.symbol, price: stock.price.toFixed(2) }));
   };
 
   const handleAddPortfolio = () => {
@@ -127,7 +127,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
       purchaseDate: new Date().toISOString().split("T")[0],
     });
     log("portfolio_add", `Added ${stock.symbol} to ${activePortfolio.name}`);
-    showToast(`💼 ${stock.symbol} added to ${activePortfolio.name}`);
+    showToast(t("stockdetail.toast.portfolioAdded", { symbol: stock.symbol, name: activePortfolio.name }));
   };
 
   const series = React.useMemo(
@@ -143,43 +143,46 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
   const holdPct = analystTotal ? (stock.analystHold / analystTotal) * 100 : 0;
   const sellPct = analystTotal ? (stock.analystSell / analystTotal) * 100 : 0;
   const consensusScore = analystTotal ? (stock.analystBuy * 3 + stock.analystHold * 2 + stock.analystSell) / analystTotal : 0;
-  const consensusLabel = consensusScore > 2.5 ? "Strong Buy" : consensusScore > 1.7 ? "Buy" : consensusScore > 1.3 ? "Hold" : "Sell";
+  const consensusLabel = consensusScore > 2.5 ? t("stockdetail.analystStrongBuy") : consensusScore > 1.7 ? t("stockdetail.analystBuy") : consensusScore > 1.3 ? t("stockdetail.analystHold") : t("stockdetail.analystSell");
 
   const earningsHistory = React.useMemo(() => {
-    const quarters = ["Q1 2024", "Q2 2024", "Q3 2024", "Q4 2024", "Q1 2025", "Q2 2025"];
-    return quarters.map((label, i) => {
-      const surprise = ((Math.sin(i + stock.symbol.length) * 7) + (i % 2 === 0 ? 3 : -2));
+    const quarterLabels = ["stockdetail.earningsQuarter1", "stockdetail.earningsQuarter2", "stockdetail.earningsQuarter3", "stockdetail.earningsQuarter4", "stockdetail.earningsQuarter5", "stockdetail.earningsQuarter6"];
+    return quarterLabels.map((labelKey, i) => {
+      const surprise = (Math.sin(i + stock.symbol.length) * 7) + (i % 2 === 0 ? 3 : -2);
       return {
-        quarter: label,
-        estimate: stock.eps * (0.85 + (i * 0.03)),
-        actual: stock.eps * (0.85 + (i * 0.03)) * (1 + surprise / 100),
+        quarter: t(labelKey),
+        estimate: stock.eps * (0.85 + i * 0.03),
+        actual: stock.eps * (0.85 + i * 0.03) * (1 + surprise / 100),
         surprisePct: Number(surprise.toFixed(1)),
       };
     });
-  }, [stock.eps, stock.symbol]);
+  }, [stock.eps, stock.symbol, t]);
 
   const insiderTrades = React.useMemo(() => {
     const insiders = [
-      { name: "CEO", role: "Chief Executive Officer" },
-      { name: "CFO", role: "Chief Financial Officer" },
-      { name: "COO", role: "Chief Operating Officer" },
-      { name: "CTO", role: "Chief Technology Officer" },
-      { name: "Director A", role: "Independent Director" },
-      { name: "VP Sales", role: "VP, Sales" },
-      { name: "President", role: "President" },
+      { name: "CEO", roleKey: "stockdetail.insiderRoleCeo" },
+      { name: "CFO", roleKey: "stockdetail.insiderRoleCfo" },
+      { name: "COO", roleKey: "stockdetail.insiderRoleCoo" },
+      { name: "CTO", roleKey: "stockdetail.insiderRoleCto" },
+      { name: "Director A", roleKey: "stockdetail.insiderRoleIndependentDirector" },
+      { name: "VP Sales", roleKey: "stockdetail.insiderRoleVpSales" },
+      { name: "President", roleKey: "stockdetail.insiderRolePresident" },
     ];
-    return insiders.map((insider, i) => {
-      const isBuy = i % 3 !== 0;
-      const shares = Math.round(5000 + Math.abs(Math.sin(i * 1.7) * 40000));
-      return {
-        ...insider,
-        type: isBuy ? "Buy" : "Sell",
-        shares,
-        price: stock.price * (0.95 + (i * 0.012)),
-        date: new Date(Date.now() - (i + 1) * 86400000 * 12).toISOString().split("T")[0],
-        value: 0,
-      };
-    }).map((t) => ({ ...t, value: t.shares * t.price }));
+    return insiders
+      .map((insider, i) => {
+        const isBuy = i % 3 !== 0;
+        const shares = Math.round(5000 + Math.abs(Math.sin(i * 1.7) * 40000));
+        return {
+          name: insider.name,
+          role: t(insider.roleKey),
+          type: isBuy ? t("stockdetail.tradeTypeBuy") : t("stockdetail.tradeTypeSell"),
+          shares,
+          price: stock.price * (0.95 + (i * 0.012)),
+          date: new Date(Date.now() - (i + 1) * 86400000 * 12).toISOString().split("T")[0],
+          value: 0,
+        };
+      })
+      .map((t) => ({ ...t, value: t.shares * t.price }));
   }, [stock.price]);
 
   const relatedStocks = allStocks.filter((s) =>
@@ -187,12 +190,12 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
   ).slice(0, 6);
 
   const newsItems = [
-    { id: "n1", title: `${stock.symbol} reports record quarterly revenue, beats estimates by ${(Math.random() * 10 + 3).toFixed(1)}%`, source: "MarketWire", publishedAt: new Date(Date.now() - 2 * 3600 * 1000).toISOString(), tag: "Earnings" },
-    { id: "n2", title: `${stock.sector} sector rotation accelerates as ${stock.symbol} leads capex cycle`, source: "Bloomberg", publishedAt: new Date(Date.now() - 6 * 3600 * 1000).toISOString(), tag: "Sector" },
-    { id: "n3", title: `Analyst upgrade: ${stock.symbol} price target raised to $${stock.targetPrice.toFixed(2)}`, source: "Reuters", publishedAt: new Date(Date.now() - 24 * 3600 * 1000).toISOString(), tag: "Analyst" },
-    { id: "n4", title: `${stock.symbol} announces $${(stock.freeCashFlow / 1e9 * 0.05).toFixed(1)}B share buyback program`, source: "CNBC", publishedAt: new Date(Date.now() - 36 * 3600 * 1000).toISOString(), tag: "Buyback" },
-    { id: "n5", title: `Insider activity: ${stock.insiderBuys} buys vs ${stock.insiderSells} sells in past 90 days`, source: "Form4Data", publishedAt: new Date(Date.now() - 48 * 3600 * 1000).toISOString(), tag: "Insider" },
-    { id: "n6", title: `${stock.symbol} expands ${stock.industry.toLowerCase()} footprint with new strategic partnership`, source: "WSJ", publishedAt: new Date(Date.now() - 60 * 3600 * 1000).toISOString(), tag: "Strategic" },
+    { id: "n1", sourceKey: "stockdetail.newsSourceMarketWire", tagKey: "stockdetail.newsTagEarnings", titleKey: "stockdetail.newsTitle1", titleParams: { symbol: stock.symbol, beats: (Math.random() * 10 + 3).toFixed(1) } , publishedAt: new Date(Date.now() - 2 * 3600 * 1000).toISOString() },
+    { id: "n2", sourceKey: "stockdetail.newsSourceBloomberg", tagKey: "stockdetail.newsTagSector", titleKey: "stockdetail.newsTitle2", titleParams: { sector: stock.sector, symbol: stock.symbol }, publishedAt: new Date(Date.now() - 6 * 3600 * 1000).toISOString() },
+    { id: "n3", sourceKey: "stockdetail.newsSourceReuters", tagKey: "stockdetail.newsTagAnalyst", titleKey: "stockdetail.newsTitle3", titleParams: { symbol: stock.symbol, target: stock.targetPrice.toFixed(2) }, publishedAt: new Date(Date.now() - 24 * 3600 * 1000).toISOString() },
+    { id: "n4", sourceKey: "stockdetail.newsSourceCNBC", tagKey: "stockdetail.newsTagBuyback", titleKey: "stockdetail.newsTitle4", titleParams: { symbol: stock.symbol, amountB: (stock.freeCashFlow / 1e9 * 0.05).toFixed(1) }, publishedAt: new Date(Date.now() - 36 * 3600 * 1000).toISOString() },
+    { id: "n5", sourceKey: "stockdetail.newsSourceForm4Data", tagKey: "stockdetail.newsTagInsider", titleKey: "stockdetail.newsTitle5", titleParams: { buys: stock.insiderBuys, sells: stock.insiderSells }, publishedAt: new Date(Date.now() - 48 * 3600 * 1000).toISOString() },
+    { id: "n6", sourceKey: "stockdetail.newsSourceWSJ", tagKey: "stockdetail.newsTagStrategic", titleKey: "stockdetail.newsTitle6", titleParams: { symbol: stock.symbol, industry: stock.industry.toLowerCase() }, publishedAt: new Date(Date.now() - 60 * 3600 * 1000).toISOString() },
   ];
 
   return (
@@ -222,7 +225,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
           </div>
 
           <div className="stock-price-block">
-            <div className="stock-price-row">
+              <div className="stock-price-row">
               <span className="price-label">{t("stockdetail.h1")}</span>
               <span className={`stock-change-pill ${tone}`}>
                 {arrow} {formatSignedPercent(stock.changePercent)}
@@ -230,7 +233,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
             </div>
             <div className="stock-price-value">${stock.price.toFixed(2)}</div>
             <div className={`stock-price-change ${tone}`}>
-              {stock.change >= 0 ? "+" : ""}{stock.change.toFixed(2)} ({formatSignedPercent(stock.changePercent)}) today
+              {stock.change >= 0 ? "+" : ""}{stock.change.toFixed(2)} ({formatSignedPercent(stock.changePercent)}) {t("stockdetail.today")}
             </div>
             <div className="quick-stats-row">
               <div><span>{t("stockdetail.h2")}</span><strong>${stock.open.toFixed(2)}</strong></div>
@@ -257,7 +260,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
               ))}
             </div>
             <div className="chart-meta">
-              <span>Last update: {new Date().toLocaleTimeString()}</span>
+              <span>{t("stockdetail.lastUpdate", { time: new Date().toLocaleTimeString() })}</span>
             </div>
           </div>
           <div className="chart-canvas">
@@ -390,11 +393,11 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
             <section className="info-card wide">
               <h3>{t("stockdetail.h36")}</h3>
               <dl className="info-list">
-                <div><dt>Revenue (TTM)</dt><dd>{formatMoney(stock.revenue)}</dd></div>
-                <div><dt>Net Income (TTM)</dt><dd>{formatMoney(stock.netIncome)}</dd></div>
+                <div><dt>{t("stockdetail.financials.revenueTTM")}</dt><dd>{formatMoney(stock.revenue)}</dd></div>
+                <div><dt>{t("stockdetail.financials.netIncomeTTM")}</dt><dd>{formatMoney(stock.netIncome)}</dd></div>
                 <div><dt>{t("stockdetail.h37")}</dt><dd>{stock.operatingMargin.toFixed(2)}%</dd></div>
                 <div><dt>{t("stockdetail.h38")}</dt><dd>{formatMoney(stock.freeCashFlow)}</dd></div>
-                <div><dt>EPS (TTM)</dt><dd>${stock.eps.toFixed(2)}</dd></div>
+                <div><dt>{t("stockdetail.financials.epsTTM")}</dt><dd>${stock.eps.toFixed(2)}</dd></div>
                 <div><dt>{t("stockdetail.h39")}</dt><dd className={stock.quarterlyRevenueGrowth >= 0 ? "positive" : "negative"}>{formatSignedPercent(stock.quarterlyRevenueGrowth)}</dd></div>
                 <div><dt>{t("stockdetail.h40")}</dt><dd className={stock.quarterlyEarningsGrowth >= 0 ? "positive" : "negative"}>{formatSignedPercent(stock.quarterlyEarningsGrowth)}</dd></div>
                 <div><dt>{t("stockdetail.h41")}</dt><dd>{((stock.netIncome / stock.revenue) * 100).toFixed(2)}%</dd></div>
@@ -426,7 +429,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
               </div>
             </section>
             <section className="info-card wide">
-              <h3>Revenue Trend (Quarterly)</h3>
+              <h3>{t("stockdetail.revenueTrendTitle")}</h3>
               <div className="bar-chart">
                 {[0, 1, 2, 3, 4, 5].map((i) => {
                   const value = stock.revenue / 4 * (0.85 + i * 0.04);
@@ -436,7 +439,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
                     <div key={i} className="bar-col">
                       <div className="bar-value">{formatMoney(value)}</div>
                       <div className="bar" style={{ height: `${heightPct}%` }} />
-                      <div className="bar-label">Q{i + 1}</div>
+                      <div className="bar-label">{t("stockdetail.revenueQuarterLabel", { index: i + 1 })}</div>
                     </div>
                   );
                 })}
@@ -452,7 +455,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
               <div className="next-earnings">
                 <div className="ne-date">{formatEarningsDate(stock.nextEarningsDate)}</div>
                 <div className="ne-countdown">
-                  in {daysUntil(stock.nextEarningsDate)} days
+                  {t("stockdetail.earningsInDays", { days: daysUntil(stock.nextEarningsDate) })}
                 </div>
                 <div className="ne-meta">
                   <div><span>{t("stockdetail.h49")}</span><strong>${(stock.eps * 0.95).toFixed(2)}</strong></div>
@@ -514,11 +517,11 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
               <h3>{t("stockdetail.h57")}</h3>
               <div className="insider-summary">
                 <div className="insider-stat">
-                  <span>Buys (90d)</span>
+                  <span>{t("stockdetail.insiderBuys90d")}</span>
                   <strong className="positive">{stock.insiderBuys}</strong>
                 </div>
                 <div className="insider-stat">
-                  <span>Sells (90d)</span>
+                  <span>{t("stockdetail.insiderSells90d")}</span>
                   <strong className="negative">{stock.insiderSells}</strong>
                 </div>
                 <div className="insider-stat">
@@ -550,7 +553,7 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
                         <td>{trade.name}</td>
                         <td>{trade.role}</td>
                         <td>
-                          <span className={`trade-pill ${trade.type === "Buy" ? "positive" : "negative"}`}>
+                          <span className={`trade-pill ${trade.type === t("stockdetail.tradeTypeBuy") ? "positive" : "negative"}`}>
                             {trade.type}
                           </span>
                         </td>
@@ -580,9 +583,9 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
                   <div className="bar-segment sell" style={{ width: `${sellPct}%` }} />
                 </div>
                 <div className="consensus-legend">
-                  <div><span className="dot buy" /> Buy {stock.analystBuy}</div>
-                  <div><span className="dot hold" /> Hold {stock.analystHold}</div>
-                  <div><span className="dot sell" /> Sell {stock.analystSell}</div>
+                  <div><span className="dot buy" /> {t("stockdetail.analystBuy")} {stock.analystBuy}</div>
+                  <div><span className="dot hold" /> {t("stockdetail.analystHold")} {stock.analystHold}</div>
+                  <div><span className="dot sell" /> {t("stockdetail.analystSell")} {stock.analystSell}</div>
                 </div>
                 <div className="target-block">
                   <div><span>{t("stockdetail.h68")}</span><strong>${stock.targetPrice.toFixed(2)}</strong></div>
@@ -598,11 +601,11 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
               <h3>{t("stockdetail.h70")}</h3>
               <div className="rating-dist">
                 {[
-                  { label: "Strong Buy", count: Math.round(stock.analystBuy * 0.4), color: "#059669" },
-                  { label: "Buy", count: Math.round(stock.analystBuy * 0.6), color: "#10b981" },
-                  { label: "Hold", count: stock.analystHold, color: "#94a3b8" },
-                  { label: "Underperform", count: Math.round(stock.analystSell * 0.6), color: "#f97316" },
-                  { label: "Sell", count: stock.analystSell, color: "#dc2626" },
+                  { label: t("stockdetail.analystStrongBuy"), count: Math.round(stock.analystBuy * 0.4), color: "#059669" },
+                  { label: t("stockdetail.analystBuy"), count: Math.round(stock.analystBuy * 0.6), color: "#10b981" },
+                  { label: t("stockdetail.analystHold"), count: stock.analystHold, color: "#94a3b8" },
+                  { label: t("stockdetail.analystUnderperform"), count: Math.round(stock.analystSell * 0.6), color: "#f97316" },
+                  { label: t("stockdetail.analystSell"), count: stock.analystSell, color: "#dc2626" },
                 ].map((r) => (
                   <div key={r.label} className="rating-row">
                     <span className="rating-label">{r.label}</span>
@@ -618,14 +621,14 @@ const StockDetail: React.FC<{ stock: StockData; allStocks: StockData[] }> = ({ s
         )}
 
         {activeTab === "news" && (
-          <div className="news-grid-tab">
+      <div className="news-grid-tab">
             {newsItems.map((item) => (
               <article key={item.id} className="news-card">
-                <span className="news-tag">{item.tag}</span>
-                <h4>{item.title}</h4>
+                <span className="news-tag">{t(item.tagKey)}</span>
+                <h4>{t(item.titleKey, item.titleParams)}</h4>
                 <div className="news-meta">
-                  <span>{item.source}</span>
-                  <span>{new Date(item.publishedAt).toLocaleDateString()}</span>
+                  <span>{t(item.sourceKey)}</span>
+                  <span>{new Date(item.publishedAt).toLocaleDateString(undefined)}</span>
                 </div>
               </article>
             ))}

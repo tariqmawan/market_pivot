@@ -16,15 +16,15 @@ import "./TrendingCoinsPage.css";
 
 const cryptocurrencies = (cryptoData as any).cryptocurrencies as Cryptocurrency[];
 
-const formatMoney = (v: number) => {
+const formatMoney = (v: number, language: string) => {
   if (v >= 1e12) return `$${(v / 1e12).toFixed(2)}T`;
   if (v >= 1e9) return `$${(v / 1e9).toFixed(1)}B`;
   if (v >= 1e6) return `$${(v / 1e6).toFixed(1)}M`;
-  return `$${v.toLocaleString()}`;
+  return `$${v.toLocaleString(language)}`;
 };
 
-const formatPrice = (v: number) =>
-  v >= 1000 ? `$${v.toLocaleString("en-US", { maximumFractionDigits: 0 })}` : `$${v.toFixed(2)}`;
+const formatPrice = (v: number, language: string) =>
+  v >= 1000 ? `$${v.toLocaleString(language, { maximumFractionDigits: 0 })}` : `$${v.toFixed(2)}`;
 
 const seededChange = (seed: number) => {
   const x = Math.sin(seed + 1) * 10000;
@@ -39,13 +39,6 @@ const SENTIMENT_CLASS: Record<Sentiment, string> = {
   Rising: "sentiment-rising",
   Active: "sentiment-active",
   Strong: "sentiment-strong",
-};
-
-const SENTIMENT_ICON: Record<Sentiment, string> = {
-  Hot: "🔥",
-  Rising: "📈",
-  Active: "⚡",
-  Strong: "💯",
 };
 
 const SENTIMENT_KEY: Record<Sentiment, string> = {
@@ -79,10 +72,8 @@ const CATEGORY_LABEL_KEY: Record<Category, string> = {
   Infrastructure: "crypto:trendingCoins.categories.infrastructure",
 };
 
-const RANK_MEDAL = ["🥇", "🥈", "🥉"];
-
 const TrendingCoinsPage: React.FC = () => {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
   const [activeCategory, setActiveCategory] = useState<Category>("All");
 
   const categoryLabel = (category: Category | string) =>
@@ -136,7 +127,7 @@ const TrendingCoinsPage: React.FC = () => {
           </div>
           <div className="trending-metric-tile">
             <span>{t("crypto:volume24h")}</span>
-            <strong>{formatMoney(totalVolume)}</strong>
+            <strong>{formatMoney(totalVolume, language)}</strong>
           </div>
           <div className="trending-metric-tile positive">
             <span>{t("crypto:trendingCoins.metrics.gainers")}</span>
@@ -173,7 +164,7 @@ const TrendingCoinsPage: React.FC = () => {
               <span className="podium-category-chip">{categoryLabel(coin.category)}</span>
 
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <span className="podium-rank-badge">{RANK_MEDAL[i] ?? `#${coin.rank}`}</span>
+                <span className="podium-rank-badge">#{coin.rank}</span>
                 <div>
                   <p className="podium-name">{coin.name}</p>
                   <p className="podium-symbol">{coin.symbol}</p>
@@ -181,7 +172,7 @@ const TrendingCoinsPage: React.FC = () => {
               </div>
 
               <div>
-                <p className="podium-price">{formatPrice(coin.price)}</p>
+                <p className="podium-price">{formatPrice(coin.price, language)}</p>
                 <span className={`podium-change ${coin.change24h >= 0 ? "up" : "down"}`}>
                   {coin.change24h >= 0 ? <HiArrowTrendingUp /> : <HiArrowTrendingDown />}
                   {coin.change24h >= 0 ? "+" : ""}{coin.change24h.toFixed(2)}%
@@ -191,7 +182,7 @@ const TrendingCoinsPage: React.FC = () => {
               <div className="podium-stats">
                 <div className="podium-stat">
                   <span>{t("crypto:trendingCoins.metrics.volumeShort")}</span>
-                  <strong>{formatMoney(coin.volume24h)}</strong>
+                  <strong>{formatMoney(coin.volume24h, language)}</strong>
                 </div>
                 <div className="podium-stat">
                   <span>{t("crypto:trendingCoins.metrics.supply")}</span>
@@ -220,12 +211,12 @@ const TrendingCoinsPage: React.FC = () => {
                       <p className="trending-card-symbol">{coin.symbol}</p>
                     </div>
                     <span className={`trending-sentiment-badge ${SENTIMENT_CLASS[s]}`}>
-                      <span aria-hidden="true">{SENTIMENT_ICON[s]}</span> {t(SENTIMENT_KEY[s])}
+                      {t(SENTIMENT_KEY[s])}
                     </span>
                   </div>
 
                   <div className="trending-card-price">
-                    <span className="trending-card-price-value">{formatPrice(coin.price)}</span>
+                    <span className="trending-card-price-value">{formatPrice(coin.price, language)}</span>
                     <span className={`trending-card-change ${coin.change24h >= 0 ? "up" : "down"}`}>
                       {coin.change24h >= 0 ? <HiArrowTrendingUp style={{ width: 12, height: 12 }} /> : <HiArrowTrendingDown style={{ width: 12, height: 12 }} />}
                       {coin.change24h >= 0 ? "+" : ""}{coin.change24h.toFixed(2)}%
@@ -235,7 +226,7 @@ const TrendingCoinsPage: React.FC = () => {
                   <div className="trending-card-footer">
                     <div className="trending-card-stat">
                       <span>{t("crypto:volume24h")}</span>
-                      <strong>{formatMoney(coin.volume24h)}</strong>
+                      <strong>{formatMoney(coin.volume24h, language)}</strong>
                       <div className="trending-card-vol-bar">
                         <div className="trending-card-vol-fill" style={{ width: `${coin.volPct}%` }} />
                       </div>
@@ -321,3 +312,4 @@ const TrendingCoinsPage: React.FC = () => {
 };
 
 export default TrendingCoinsPage;
+

@@ -176,15 +176,85 @@
   "type": "Typ",
   "vsUsd": "ggü. USD",
   "currencyTypes": {
-    "fiat": "Fiat-Währung"
+    "fiat": "Fiat-Währung",
+    "commodity": "Rohstoffwährung",
+    "crypto": "Kryptowährung"
   },
   "centralBanks": {
-    "federalreserve": "Federal Reserve"
+    "federalreserve": "Federal Reserve",
+    "europeancentralbank": "Europäische Zentralbank",
+    "bankofjapan": "Bank von Japan",
+    "bankofengland": "Bank von England",
+    "swissnationalbank": "Schweizerische Nationalbank",
+    "peoplesbankofchina": "Volksbank von China",
+    "hongkongmonetaryauthority": "Hongkonger Währungsbehörde",
+    "reservebankofindia": "Reserve Bank of India",
+    "reservebankofaustralia": "Reserve Bank of Australia",
+    "monetaryauthorityofsingapore": "Währungsbehörde von Singapur",
+    "bankofkorea": "Bank von Korea",
+    "bankofcanada": "Bank von Kanada",
+    "centralbankofbrazil": "Zentralbank von Brasilien",
+    "bancodemxico": "Banco de México",
+    "centralbankofchile": "Zentralbank von Chile",
+    "riksbank": "Reichsbank",
+    "norgesbank": "Norges Bank",
+    "saudicentralbank": "Saudische Zentralbank",
+    "centralbankoftheuae": "Zentralbank der VAE",
+    "southafricanreservebank": "Südafrikanische Reservebank"
   },
   "regions": {
-    "northamerica": "Nordamerika"
+    "northamerica": "Nordamerika",
+    "europe": "Europa",
+    "asia": "Asien",
+    "americas": "Amerika",
+    "middleeast": "Naher Osten",
+    "africa": "Afrika"
   },
-  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
-  "keyDataReleasesFor": "Key data releases for {{code}}",
-  "hoursAgo": "{{count}}h ago"
+  "ratesVsMajorSubtitle": "1 {{code}}, ausgedrückt in anderen Hauptwährungen",
+  "keyDataReleasesFor": "Wichtige Datenveröffentlichungen für {{code}}",
+  "hoursAgo": "vor {{count}} Std.",
+  "impacts": {
+    "High": "Hoch",
+    "Medium": "Medium",
+    "Low": "Niedrig"
+  },
+  "events": {
+    "nonFarmPayrolls": "Lohn- und Gehaltsabrechnungen außerhalb der Landwirtschaft",
+    "ecbPressConference": "EZB-Pressekonferenz",
+    "boeGovernorSpeech": "Rede des BoE-Gouverneurs",
+    "fomcMinutes": "FOMC-Protokoll",
+    "bojSummaryOpinions": "Zusammenfassung der Stellungnahmen der BoJ",
+    "rbaStatement": "RBA-Erklärung",
+    "currencyCpiRelease": "{{code}} CPI-Version",
+    "centralBankPolicyUpdate": "{{centralBank}}-Richtlinienaktualisierung",
+    "currencyRetailSales": "{{code}} Einzelhandelsumsätze",
+    "currencyTradeBalance": "{{code}} Handelsbilanz"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "{{code}} bestätigt die politischen Erwartungen",
+    "currencyWeakensPolicy": "{{code}} schwächt sich aufgrund der politischen Erwartungen ab",
+    "centralBankDataDependent": "{{centralBank}} signalisiert datenabhängigen Pfad",
+    "currencyLiquidityRobust": "Die Liquidität von {{code}} bleibt bei grenzüberschreitenden Strömen robust",
+    "currencyFairValueUpdated": "Anmerkung des Analysten: Der beizulegende Zeitwert von {{code}} wurde aktualisiert",
+    "usdRallyPauses": "Die USD-Rallye pausiert vor dem FOMC-Protokoll",
+    "ecbDataDependent": "EZB signalisiert datenabhängigen Kurs, EUR-Handel stark",
+    "jpyInterventionWatch": "Die Beobachtung der JPY-Intervention wird fortgesetzt, da der USD/JPY 156 testet",
+    "gbpStickyInflation": "GBP wird durch anhaltende Inflation im Dienstleistungssektor gestützt",
+    "cnyWeakerMidpoint": "CNY steht unter Druck, da die PBOC einen schwächeren Mittelwert festlegt",
+    "audCommodityStrength": "AUD-Angebot auf Rohstoffstärke und Risikobereitschaft"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "Primäre Reservewährung",
+    "secondreservecurrency": "Zweite Reservewährung",
+    "thirdreservecurrency": "Dritte Reservewährung",
+    "regionalreservecurrency": "Regionale Reservewährung",
+    "regional": "Regional"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "Zuflüsse in sichere Häfen",
+    "mixedinflows": "Gemischte Zuflüsse",
+    "exportdrivenflows": "Exportgesteuerte Abläufe",
+    "commoditylinkedflows": "Warenbezogene Ströme",
+    "open": "Offen"
+  }
 }
