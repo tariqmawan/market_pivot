@@ -1,37 +1,332 @@
 {
-  "currentPrice": "Aktualna cena",
-  "rank": "Pozycja",
-  "priceMetrics": "Cena i wskaźniki",
-  "tradingPairs": "Pary handlowe",
-  "exchanges": "Giełdy",
-  "charts": "Wykresy",
-  "onChain": "On-Chain",
-  "category": "Kategoria",
-  "launched": "Uruchomiony",
-  "founder": "Założyciel",
-  "consensus": "Mechanizm konsensusu",
-  "blockTime": "Czas bloku",
-  "supplyInfo": "Informacje o podaży",
-  "circulatingSupply": "Podaż w obiegu",
-  "maxSupply": "Maks. podaż",
-  "volume24h": "Wolumen 24h",
+  "activeAddresses": "Aktywne adresy",
   "ath": "Najwyższy w historii",
   "atl": "Najniższy w historii",
-  "marketRank": "Pozycja rynkowa",
-  "loadingPrice": "Ładowanie danych cenowych...",
-  "loadingPairs": "Ładowanie par handlowych...",
-  "price": "Cena",
-  "exchange": "Giełda",
-  "listedCryptoExchanges": "Giełdy, na których handlowany jest ten aktyw",
-  "exchangeExamples": "Binance, Coinbase, Kraken i inne",
-  "priceChart": "Interaktywny wykres cenowy",
-  "volumeOverlay": "Z nałożeniem wolumenu",
-  "onChainMetrics": "Wskaźniki on-chain",
-  "transactionsPerDay": "Transakcje dziennie",
-  "activeAddresses": "Aktywne adresy",
-  "networkFees": "Opłaty sieciowe",
-  "transactionVolume": "Wolumen transakcji",
-  "onChainComing": "Dane on-chain wkrótce",
+  "blockTime": "Czas bloku",
+  "categories": {
+    "defi": {
+      "name": "DeFi"
+    },
+    "infrastructure": {
+      "name": "Infrastruktura"
+    },
+    "layer1": {
+      "name": "Warstwa 1"
+    },
+    "layer2": {
+      "name": "Warstwa 2"
+    },
+    "meme": {
+      "name": "Mem"
+    },
+    "payments": {
+      "name": "Płatności"
+    },
+    "stablecoin": {
+      "name": "Stablecoiny"
+    }
+  },
+  "category": "Kategoria",
+  "charts": "Wykresy",
+  "circulatingSupply": "Podaż w obiegu",
+  "consensus": "Mechanizm konsensusu",
   "cryptoNewsComing": "Najnowsze wiadomości i aktualizacje pojawią się tutaj",
-  "cryptoNewsSubtitle": "Aktualizacje projektów, partnerstwa i wiadomości rynkowe"
+  "cryptoNewsSubtitle": "Aktualizacje projektów, partnerstwa i wiadomości rynkowe",
+  "cryptocurrencies": {
+    "aave": {
+      "name": "Aave",
+      "description": "Zdecentralizowany, niepowierniczy protokół płynności dla udzielania i zaciągania pożyczek"
+    },
+    "arbitrum": {
+      "name": "Arbitrum",
+      "description": "Rozwiązanie skalujące i token zarządzania warstwy 2 Ethereum"
+    },
+    "avalanche2": {
+      "name": "Avalanche",
+      "description": "Rozwiązania podsieciowe i skalowalne dla aplikacji typu blockchain"
+    },
+    "binancecoin": {
+      "name": "BNB",
+      "description": "Natywny token ekosystemu Binance Smart Chain"
+    },
+    "bitcoin": {
+      "name": "Bitcoin",
+      "description": "Pierwsza i największa na świecie kryptowaluta pod względem kapitalizacji rynkowej"
+    },
+    "bonk": {
+      "name": "Bonk",
+      "description": "Pierwsza duża moneta memowa Solany — wysłana drogą lotniczą do społeczności, obecnie podstawa DeFi"
+    },
+    "cardano": {
+      "name": "Cardano",
+      "description": "Recenzowana platforma blockchain skupiająca się na zrównoważonym rozwoju"
+    },
+    "chainlink": {
+      "name": "Chainlink",
+      "description": "Zdecentralizowana sieć Oracle łącząca łańcuchy bloków z danymi ze świata rzeczywistego"
+    },
+    "compoundGovernanceToken": {
+      "name": "Compound",
+      "description": "Algorytmiczny autonomiczny protokół stóp procentowych dla pożyczek DeFi"
+    },
+    "cosmos": {
+      "name": "Cosmos",
+      "description": "Interoperacyjny ekosystem blockchain i Internet Blockchains"
+    },
+    "curveDaoToken": {
+      "name": "Curve Finance",
+      "description": "Zdecentralizowana giełda zoptymalizowana pod kątem stabilnych monet i swapów na aktywa stałe"
+    },
+    "dai": {
+      "name": "Dai",
+      "description": "Zdecentralizowana moneta typu stablecoin oparta na USD na Ethereum"
+    },
+    "dogecoin": {
+      "name": "Dogecoin",
+      "description": "Oryginalna moneta memowa – zaczęła się jako żart, stała się kulturową ikoną kryptowalut"
+    },
+    "ethereum": {
+      "name": "Ethereum",
+      "description": "Wiodąca platforma inteligentnych kontraktów i koncentrator DeFi"
+    },
+    "floki": {
+      "name": "FLOKI",
+      "description": "Krypto ludowe — inspirowany Elonem Muskiem ekosystem memów stworzony przez społeczność"
+    },
+    "litecoin": {
+      "name": "Litecoin",
+      "description": "Srebro na złoto Bitcoina, szybkie płatności peer-to-peer"
+    },
+    "maker": {
+      "name": "Maker",
+      "description": "Token zarządzania MakerDAO, protokołu stojącego za stablecoinem DAI"
+    },
+    "maticNetwork": {
+      "name": "Polygon",
+      "description": "Rozwiązanie skalujące Ethereum umożliwiające szybsze i tańsze transakcje"
+    },
+    "pepe": {
+      "name": "Pepe",
+      "description": "Kultura internetowa spotyka się z kryptowalutami — mem z żabą stał się symbolem wartym miliardy dolarów"
+    },
+    "polkadot": {
+      "name": "Polkadot",
+      "description": "Wielołańcuchowy łańcuch bloków umożliwiający interoperacyjność między łańcuchami"
+    },
+    "ripple": {
+      "name": "XRP",
+      "description": "Sieć płatnicza skupiająca się na szybkich i tanich przelewach międzynarodowych"
+    },
+    "shibaInu": {
+      "name": "Shiba Inu",
+      "description": "The Dogecoin Killer — moneta memowa oparta na Ethereum i posiadająca ogromną społeczność"
+    },
+    "solana": {
+      "name": "Solana",
+      "description": "Szybka platforma blockchain dla zdecentralizowanych aplikacji"
+    },
+    "stellar": {
+      "name": "Stellar",
+      "description": "Sieć Blockchain do integracji finansowej i przekazów pieniężnych"
+    },
+    "tether": {
+      "name": "Tether",
+      "description": "Najpowszechniej używana moneta typu stablecoin powiązana z USD"
+    },
+    "theOpenNetwork": {
+      "name": "Toncoin",
+      "description": "Ultraszybki blockchain skupiający się na przesyłaniu wiadomości i płatnościach"
+    },
+    "tron": {
+      "name": "TRON",
+      "description": "Platforma Blockchain dla zdecentralizowanej rozrywki"
+    },
+    "uniswap": {
+      "name": "Uniswap",
+      "description": "Wiodący zdecentralizowany protokół wymiany i DeFi"
+    },
+    "usdCoin": {
+      "name": "USD Coin",
+      "description": "Regulowana moneta typu stablecoin oparta na USD"
+    }
+  },
+  "currentPrice": "Aktualna cena",
+  "exchange": "Giełda",
+  "exchangeExamples": "Binance, Coinbase, Kraken i inne",
+  "exchanges": "Giełdy",
+  "founder": "Założyciel",
+  "launched": "Uruchomiony",
+  "listedCryptoExchanges": "Giełdy, na których handlowany jest ten aktyw",
+  "loadingPairs": "Ładowanie par handlowych...",
+  "loadingPrice": "Ładowanie danych cenowych...",
+  "marketRank": "Pozycja rynkowa",
+  "maxSupply": "Maks. podaż",
+  "networkFees": "Opłaty sieciowe",
+  "onChain": "Na łańcuchu",
+  "onChainComing": "Dane on-chain wkrótce",
+  "onChainMetrics": "Wskaźniki on-chain",
+  "price": "Cena",
+  "priceChart": "Interaktywny wykres cenowy",
+  "priceMetrics": "Cena i wskaźniki",
+  "rank": "Pozycja",
+  "rankNumber": "Pozycja #{{rank}}",
+  "supplyInfo": "Informacje o podaży",
+  "tradingPairs": "Pary handlowe",
+  "transactionVolume": "Wolumen transakcji",
+  "transactionsPerDay": "Transakcje dziennie",
+  "volume24h": "Wolumen 24h",
+  "volumeOverlay": "Z nałożeniem wolumenu",
+  "cryptocurrency": "Kryptowaluta",
+  "cryptocurrencyCategories": "Kategorie kryptowalut",
+  "allCryptocurrencies": "Wszystkie kryptowaluty",
+  "trending": "Trend",
+  "categoryNotFound": "Nie znaleziono kategorii",
+  "categoryNotFoundDescription": "Ta kategoria nie istnieje. Przeglądaj wszystkie kryptowaluty poniżej.",
+  "viewAllCryptocurrencies": "Zobacz wszystkie kryptowaluty",
+  "trendingCoins": {
+    "eyebrow": "Dane rynkowe na żywo - Kryptowaluty",
+    "titleAccent": "Trendujące",
+    "titleRest": "coiny",
+    "subtitle": "Kryptowaluty w trendzie w czasie rzeczywistym, uszeregowane według aktywności handlowej, momentum społecznego i wzrostu kapitalizacji. Aktualizowane na bieżąco.",
+    "categories": {
+      "all": "Wszystkie",
+      "layer1": "Layer 1",
+      "layer2": "Layer 2",
+      "defi": "DeFi",
+      "meme": "Meme",
+      "stablecoin": "Stablecoin",
+      "payments": "Płatności",
+      "infrastructure": "Infrastruktura"
+    },
+    "metrics": {
+      "tracked": "Śledzone",
+      "gainers": "Zyskujące",
+      "topGain24h": "Największy wzrost 24h",
+      "volumeShort": "Wol. 24h",
+      "supply": "Podaż"
+    },
+    "sentiment": {
+      "hot": "Gorący",
+      "rising": "Rośnie",
+      "active": "Aktywny",
+      "strong": "Silny"
+    },
+    "moreTitle": "Więcej trendujących coinów",
+    "emptyCategory": "Nie znaleziono coinów w tej kategorii.",
+    "insights": {
+      "trending": {
+        "eyebrow": "Co jest w trendzie",
+        "title": "Dynamika rynku",
+        "items": {
+          "socialMentions": "Skok wzmianek w mediach społecznościowych",
+          "exchangeFlows": "Zmiany napływów/odpływów z giełd",
+          "developerActivity": "Aktywność deweloperów na GitHub",
+          "onChainVolume": "Wolumen transakcji on-chain",
+          "volumeBreakouts": "Wybicia wolumenu handlu"
+        }
+      },
+      "risk": {
+        "eyebrow": "Czynniki ryzyka",
+        "title": "Zachowaj ostrożność",
+        "items": {
+          "volatility": "Wysoka zmienność - cena może ruszyć o 30%+",
+          "liquidity": "Niska płynność mniejszych coinów",
+          "manipulation": "Możliwa manipulacja rynkiem",
+          "regulation": "Zmieniające się regulacje",
+          "techRisk": "Ryzyka smart contractów / technologii"
+        }
+      },
+      "tips": {
+        "eyebrow": "Wskazówki tradingowe",
+        "title": "Inteligentne strategie",
+        "items": {
+          "onChainValidation": "Najpierw potwierdź metrykami on-chain",
+          "githubActivity": "Sprawdź aktywność deweloperów na GitHub",
+          "divergence": "Monitoruj dywergencję wolumenu i ceny",
+          "positionSizing": "Stosuj właściwy rozmiar pozycji",
+          "stopLosses": "Ustaw ścisłe stop-lossy przed wejściem"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Badania crypto",
+      "title": "Zbadaj dowolny coin głębiej",
+      "description": "Kliknij coin, aby zobaczyć szczegółowe wykresy, metryki on-chain, listowania giełdowe i najnowsze wiadomości w jednym miejscu."
+    }
+  },
+  "categoryPages": {
+    "common": {
+      "marketOverview": "Przegląd rynku",
+      "combinedMarketCap": "Łączna kapitalizacja rynkowa",
+      "topGainer24h": "Największy wzrost (24h)",
+      "name": "Nazwa",
+      "price": "Cena",
+      "change24h": "Zmiana 24h",
+      "marketCap": "Kapitalizacja rynkowa",
+      "volume24h": "Wolumen 24h",
+      "riskProfile": "Profil ryzyka",
+      "fullCryptoMarket": "Cały rynek kryptowalut",
+      "exploreAllCryptocurrencies": "Przeglądaj wszystkie kryptowaluty"
+    },
+    "meme": {
+      "eyebrow": "Tokeny społecznościowe",
+      "title": "Meme coiny",
+      "body": "Kryptowaluty napędzane przez kulturę viralową, momentum społeczne i kultowe społeczności. Wysokie ryzyko, wysoka nagroda — tutaj sentyment rządzi rynkiem.",
+      "metrics": {
+        "coinsListed": "Wylistowane coiny"
+      },
+      "rankingsTitle": "Ranking meme coinów",
+      "table": {
+        "community": "Społeczność"
+      },
+      "communities": {
+        "DOGE": "Oryginalny OG",
+        "SHIB": "ShibArmy",
+        "PEPE": "Pepe Nation",
+        "BONK": "Solana Memes",
+        "FLOKI": "Viking Army"
+      },
+      "insights": {
+        "origins": {
+          "eyebrow": "Początki",
+          "title": "Historia meme coinów",
+          "items": {
+            "dogecoin": "Dogecoin (2013) — oryginalny internetowy żart",
+            "elon": "Tweety Elona Muska jako katalizator cen",
+            "pumps": "Skoordynowane pompy w stylu WallStreetBets",
+            "shiba": "Shiba Inu uruchomiony jako \"zabójca DOGE\"",
+            "pepe": "Boom PEPE w 2023 roku odżywił cykl meme",
+            "bonk": "BONK tchnął życie w Solana DeFi"
+          }
+        },
+        "risk": {
+          "title": "Co inwestorzy powinni wiedzieć",
+          "items": {
+            "sentiment": "Ceny napędzane prawie wyłącznie sentymentem",
+            "pumpDump": "Podatne na schematy pump-and-dump",
+            "utility": "Minimalny lub zerowy użyteczny fundament",
+            "volatility": "Ekstremalna zmienność — skoki 50%+ są częste",
+            "rugPull": "Ryzyko rug-pull w nowszych, nieaudytowanych coinach",
+            "viralCycles": "Wysoka korelacja z cyklami viralowymi"
+          }
+        },
+        "signals": {
+          "eyebrow": "Sygnały społecznościowe",
+          "title": "Jak śledzić momentum",
+          "items": {
+            "twitter": "Wzmianki na Twitter/X i trendingowe hashtagi",
+            "reddit": "Aktywność na Reddit r/CryptoCurrency",
+            "whales": "Alerty portfeli wielorybów i duże transfery",
+            "listings": "Ogłoszenia o listingach na giełdach",
+            "google": "Skoki wyszukiwań w Google Trends",
+            "influencers": "Aktywność influencerów w mediach społecznościowych"
+          }
+        }
+      },
+      "cta": {
+        "description": "Porównaj meme coiny z aktywami blue-chip, protokołami DeFi i blockchainami warstwy 1."
+      }
+    }
+  },
+  "blockTimeSeconds": "{{time}} sekund"
 }

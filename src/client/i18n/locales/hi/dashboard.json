@@ -1,11 +1,33 @@
 {
-  "title": "वैश्विक डैशबोर्ड",
-  "intro": "स्टॉक्स, FX और क्रिप्टो एक ही वर्कस्पेस में, लाइव डेटा, समाचार, चार्ट और तुलना मॉड्यूल के लिए तैयार।",
-  "userPanelTitle": "आपका मार्केट वर्कस्पेस",
-  "userPanelIntro": "अपने पसंदीदा एक्सचेंज, मुद्राएं, क्रिप्टो संपत्तियां, अलर्ट और पोर्टफोलियो एक ही साफ डैशबोर्ड में ट्रैक करें।",
+  "title": "वैश्विक बाजार डैशबोर्ड",
+  "intro": "एक साफ मार्केट वर्कस्पेस में शेयर, FX, क्रिप्टो, क्षेत्र, सेक्टर, कमोडिटी, इवेंट, सेंटीमेंट और वॉचलिस्ट देखें।",
+  "liveTapeLabel": "लाइव मार्केट टेप",
+  "crossMarket": "क्रॉस-मार्केट दृश्य",
+  "topExchange": "शीर्ष एक्सचेंज",
+  "coreReserve": "मुख्य रिजर्व",
+  "cryptoLeader": "क्रिप्टो लीडर",
+  "regionPulse": "क्षेत्र पल्स",
+  "sectorPulse": "सेक्टर पल्स",
+  "commodityPulse": "कमोडिटी पल्स",
+  "primaryBase": "प्राथमिक रूपांतरण आधार",
+  "majorIndices": "प्रमुख सूचकांक",
+  "worldSnapshot": "विश्व बाजार स्नैपशॉट",
+  "marketMovers": "मार्केट मूवर्स",
+  "gainersAndLosers": "बढ़ने और गिरने वाले",
+  "economicEventsToday": "आज की आर्थिक घटनाएं",
+  "macroCalendar": "मैक्रो कैलेंडर",
+  "marketSentiment": "बाजार भावना",
+  "forexMiniCards": "FX मिनी कार्ड",
+  "currencyPulse": "मुद्रा पल्स",
+  "cryptoOverview": "क्रिप्टो अवलोकन",
+  "marketCapLeaders": "मार्केट कैप लीडर्स",
+  "commoditySnapshot": "कमोडिटी स्नैपशॉट",
+  "spotAndFutures": "स्पॉट और फ्यूचर्स",
+  "watchlistPreview": "वॉचलिस्ट प्रीव्यू",
+  "watchlistCopy": "सहेजे गए सिंबल, क्रॉस-एसेट अलर्ट, पोर्टफोलियो संदर्भ और खाता प्राथमिकताओं तक तेज़ पहुंच।",
   "portfolioValue": "पोर्टफोलियो मूल्य",
   "watchlist": "वॉचलिस्ट",
-  "savedMarkets": "सहेजे गए बाज़ार",
+  "savedMarkets": "सहेजे गए बाजार",
   "activeAlerts": "सक्रिय अलर्ट",
   "todayPnl": "आज का लाभ/हानि",
   "quickActions": "त्वरित क्रियाएं",
@@ -14,16 +36,48 @@
   "exportReport": "रिपोर्ट निर्यात करें",
   "accountSettings": "खाता सेटिंग्स",
   "portfolioAllocation": "पोर्टफोलियो आवंटन",
-  "recentActivity": "हालिया गतिविधि",
+  "recentActivity": "हाल की गतिविधि",
   "alertCenter": "अलर्ट केंद्र",
   "preferences": "प्राथमिकताएं",
   "baseCurrencyPreference": "आधार मुद्रा",
-  "defaultMarket": "डिफ़ॉल्ट बाज़ार",
+  "defaultMarket": "डिफ़ॉल्ट बाजार",
   "notificationMode": "सूचना मोड",
   "compactMode": "कॉम्पैक्ट मोड",
   "emailDigest": "ईमेल सारांश",
-  "marketOpenAlerts": "बाज़ार खुलने के अलर्ट",
+  "marketOpenAlerts": "बाजार खुलने के अलर्ट",
   "riskProfile": "जोखिम प्रोफ़ाइल",
   "moderate": "मध्यम",
-  "marketsFollowed": "फ़ॉलो किए गए बाज़ार"
+  "marketsFollowed": "फॉलो किए गए बाजार",
+  "userPanelTitle": "आपका मार्केट वर्कस्पेस",
+  "userPanelIntro": "एक साफ डैशबोर्ड में एक्सचेंज, मुद्राएं, क्रिप्टो संपत्तियां, अलर्ट और पोर्टफोलियो संदर्भ ट्रैक करें।",
+  "importance": {
+    "high": "उच्च",
+    "medium": "मध्यम",
+    "low": "कम"
+  },
+  "economicEvents": {
+    "usCpi": "US CPI",
+    "ecbRemarks": "ECB नीति टिप्पणी",
+    "us10yAuction": "US 10Y नीलामी",
+    "fomcMinutes": "FOMC मिनट्स"
+  },
+  "sentiment": {
+    "equities": {
+      "label": "इक्विटी",
+      "detail": "रिस्क-ऑन विस्तार"
+    },
+    "fx": {
+      "label": "FX",
+      "detail": "USD मिला-जुला"
+    },
+    "crypto": {
+      "label": "क्रिप्टो",
+      "detail": "मोमेंटम खरीदारी"
+    },
+    "commodities": {
+      "label": "कमोडिटी",
+      "detail": "ऊर्जा नरम"
+    }
+  },
+  "currencyRate": "1 {{base}} = {{rate}} {{quote}}"
 }

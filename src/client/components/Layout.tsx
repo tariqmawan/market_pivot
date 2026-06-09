@@ -184,7 +184,7 @@ const Layout: React.FC = () => {
 
   return (
     <div className="app-shell">
-      <a href="#main-content" className="skip-link">{t("src_client_components_layout__l185__h0")}</a>
+      <a href="#main-content" className="skip-link">{t("layout.h0")}</a>
       {isAdminConsole ? (
         <div className="admin-console">
           <AdminHeader onMobileToggle={onMobileToggle} />
@@ -227,14 +227,14 @@ const Layout: React.FC = () => {
             <button
               type="button"
               className={`sidebar-backdrop ${isMobileSidebarOpen ? "visible" : ""}`}
-              aria-label={t("src_client_components_layout__l228__h1")}
+              aria-label={t("layout.h1")}
               onClick={closeMobileSidebar}
             />
 
             <aside
               ref={sidebarRef}
               className={`site-sidebar ${isMobileSidebarOpen ? "open" : ""}`}
-              aria-label={t("src_client_components_layout__l235__h3")}
+              aria-label={t("layout.h3")}
               onMouseEnter={openSidebarPreview}
               onMouseLeave={closeSidebarPreview}
               onFocus={handleSidebarFocus}
@@ -258,28 +258,28 @@ const Layout: React.FC = () => {
             <div className="footer-inner">
               <div className="footer-top">
                 <div className="footer-brand">
-                  <Link to="/" className="footer-logo-card" aria-label={t("src_client_components_layout__l259__h5")}>
-                    <img src="/logos/marketpivot.jpeg" alt={t("src_client_components_layout__l260__h7")} />
+                  <Link to="/" className="footer-logo-card" aria-label={t("layout.h5")}>
+                    <img src="/logos/marketpivot.jpeg" alt={t("layout.h7")} />
                   </Link>
                   <p>{t("globalMarkets")}</p>
-                  <div className="footer-socials" aria-label={t("src_client_components_layout__l263__h8")}>
+                  <div className="footer-socials" aria-label={t("layout.h8")}>
                     <a href="https://x.com" aria-label="X">
                       <span>X</span>
                     </a>
-                    <a href="mailto:support@marketspivot.com" aria-label={t("src_client_components_layout__l267__h10")}>
+                    <a href="mailto:support@marketspivot.com" aria-label={t("layout.h10")}>
                       <Mail size={22} />
                     </a>
-                    <a href="https://facebook.com" aria-label={t("src_client_components_layout__l270__h12")}>
+                    <a href="https://facebook.com" aria-label={t("layout.h12")}>
                       <span>f</span>
                     </a>
-                    <a href="https://instagram.com" aria-label={t("src_client_components_layout__l273__h14")}>
+                    <a href="https://instagram.com" aria-label={t("layout.h14")}>
                       <span>◎</span>
                     </a>
-                    <a href="https://tiktok.com" aria-label={t("src_client_components_layout__l276__h16")}>
+                    <a href="https://tiktok.com" aria-label={t("layout.h16")}>
                       <span>♪</span>
                     </a>
-                    <a href="https://linkedin.com" aria-label={t("src_client_components_layout__l279__h18")}>
-                      <span>{t("src_client_components_layout__l280__h20")}</span>
+                    <a href="https://linkedin.com" aria-label={t("layout.h18")}>
+                      <span>{t("layout.h20")}</span>
                     </a>
                   </div>
                 </div>
@@ -290,8 +290,8 @@ const Layout: React.FC = () => {
                   <Link to="/screener">{t("advancedScreener")}</Link>
                   <Link to="/economic-calendar">{t("calendar")}</Link>
                   <Link to="/pricing">{t("pricing")}</Link>
-                  <Link to="/billing">{t("src_client_components_layout__l291__h21")}</Link>
-                  <Link to="/notifications">{t("src_client_components_layout__l292__h22")}</Link>
+                  <Link to="/billing">{t("layout.h21")}</Link>
+                  <Link to="/notifications">{t("layout.h22")}</Link>
                 </div>
 
                 <div className="footer-column">
@@ -323,7 +323,7 @@ const Layout: React.FC = () => {
               </div>
 
               <div className="footer-bottom">
-                <div className="footer-copy">{t("src_client_components_layout__l324__h23")}</div>
+                <div className="footer-copy">{t("layout.h23")}</div>
                 <div className="footer-secure">
                   <ShieldCheck size={18} />
                   <span>{t("footerSecure")}</span>

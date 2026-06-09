@@ -1,34 +1,190 @@
 {
-  "currencyType": "Tipo de moeda",
-  "centralBank": "Banco central",
-  "exchangeRates": "Taxas de câmbio",
-  "converter": "Conversor",
-  "popularPairs": "Pares populares",
-  "economicData": "Dados econômicos",
-  "code": "Código",
-  "symbol": "Símbolo",
-  "country": "País",
-  "region": "Região",
-  "type": "Tipo",
-  "rate": "Taxa",
-  "bid": "Compra",
-  "ask": "Venda",
-  "spread": "Spread",
-  "loadingRates": "Carregando taxas de câmbio...",
   "amountPlaceholder": "Digite o valor",
-  "economicIndicators": "Indicadores econômicos",
-  "interestRate": "Taxa de juros",
-  "inflationRate": "Inflação",
-  "gdpGrowth": "Crescimento do PIB",
-  "employment": "Emprego",
-  "dataLoading": "Carregando dados...",
-  "economicNews": "Notícias e atualizações econômicas",
+  "annualRate": "Taxa anual",
+  "ask": "Venda",
+  "bid": "Compra",
+  "centralBank": "Banco central",
+  "change24h": "Variação 24h",
+  "code": "Código",
+  "converter": "Conversor",
+  "countries": {
+    "ae": {
+      "name": "Emirados Árabes Unidos"
+    },
+    "au": {
+      "name": "Austrália"
+    },
+    "br": {
+      "name": "Brasil"
+    },
+    "ca": {
+      "name": "Canadá"
+    },
+    "ch": {
+      "name": "Suíça"
+    },
+    "cl": {
+      "name": "name"
+    },
+    "cn": {
+      "name": "name"
+    },
+    "eu": {
+      "name": "União Europeia"
+    },
+    "gb": {
+      "name": "Reino Unido"
+    },
+    "hk": {
+      "name": "name"
+    },
+    "in": {
+      "name": "Índia"
+    },
+    "jp": {
+      "name": "Japão"
+    },
+    "kr": {
+      "name": "Coreia do Sul"
+    },
+    "mx": {
+      "name": "México"
+    },
+    "no": {
+      "name": "Noruega"
+    },
+    "sa": {
+      "name": "Arábia Saudita"
+    },
+    "se": {
+      "name": "Suécia"
+    },
+    "sg": {
+      "name": "Singapura"
+    },
+    "us": {
+      "name": "Estados Unidos"
+    },
+    "za": {
+      "name": "África do Sul"
+    }
+  },
+  "country": "País",
+  "currencies": {
+    "aed": {
+      "name": "Dirham dos Emirados",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "aud": {
+      "name": "Dólar australiano",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "brl": {
+      "name": "Real brasileiro",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "cad": {
+      "name": "Dólar canadense",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "chf": {
+      "name": "Franco suíço",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "clp": {
+      "name": "Peso chileno",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "cny": {
+      "name": "Yuan chinês",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "eur": {
+      "name": "name",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "gbp": {
+      "name": "Libra esterlina",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "hkd": {
+      "name": "Dólar de Hong Kong",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "inr": {
+      "name": "Rúpia indiana",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "jpy": {
+      "name": "Iene japonês",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "krw": {
+      "name": "Won sul-coreano",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "mxn": {
+      "name": "Peso mexicano",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "nok": {
+      "name": "Coroa norueguesa",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "sar": {
+      "name": "Riyal saudita",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "sek": {
+      "name": "Coroa sueca",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "sgd": {
+      "name": "Dólar de Singapura",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    },
+    "usd": {
+      "name": "Dólar americano",
+      "description": "A moeda de reserva mais utilizada do mundo e um padrão global."
+    },
+    "zar": {
+      "name": "Rand sul-africano",
+      "description": "Moeda acompanhada para fluxos de FX, reservas e sinais macro."
+    }
+  },
   "currencyNewsComing": "As últimas notícias econômicas aparecerão aqui",
   "currencyNewsSubtitle": "Decisões de taxas, relatórios de inflação e mais",
-  "vsUsd": "vs USD",
+  "currencyType": "Tipo de moeda",
+  "dataLoading": "Carregando dados...",
+  "economicData": "Dados econômicos",
+  "economicIndicators": "Indicadores econômicos",
+  "economicNews": "Notícias e atualizações econômicas",
+  "employment": "Emprego",
+  "exchangeRates": "Taxas de câmbio",
+  "gdpGrowth": "Crescimento do PIB",
   "high52w": "Máx 52S",
+  "inflationRate": "Inflação",
+  "interestRate": "Taxa de juros",
+  "loadingRates": "Carregando taxas de câmbio...",
   "low52w": "Mín 52S",
-  "annualRate": "Taxa anual",
+  "popularPairs": "Pares populares",
   "quarterlyRate": "Taxa trimestral",
-  "change24h": "Variação 24h"
+  "rate": "Taxa",
+  "region": "Região",
+  "spread": "spread",
+  "symbol": "Símbolo",
+  "type": "Tipo",
+  "vsUsd": "vs Usd",
+  "currencyTypes": {
+    "fiat": "Moeda fiduciária"
+  },
+  "centralBanks": {
+    "federalreserve": "Reserva Federal"
+  },
+  "regions": {
+    "northamerica": "América do Norte"
+  },
+  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
+  "keyDataReleasesFor": "Key data releases for {{code}}",
+  "hoursAgo": "{{count}}h ago"
 }

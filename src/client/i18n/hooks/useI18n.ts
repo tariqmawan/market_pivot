@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18n, { SUPPORTED_LANGUAGES, type SupportedLang } from "../config";
 import { applyDocumentLocale } from "../utils/rtl";
+import { isBrokenTranslation } from "../utils/quality";
 
 export type LanguageCode = SupportedLang;
 
@@ -20,8 +21,13 @@ function resolveValidLang(input: string | null | undefined): LanguageCode {
 }
 
 // Permissive t() type: accepts any string key, returns the translation string
-// (falls back to EN, then to the key itself if not found anywhere, never undefined)
-export type TFn = (key: string, options?: Record<string, unknown>) => string;
+// (falls back to EN, then to the provided defaultValue or the key itself if
+// not found anywhere, never undefined)
+export type TFn = (
+  key: string,
+  defaultValueOrOptions?: string | Record<string, unknown>,
+  options?: Record<string, unknown>,
+) => string;
 
 const NAMESPACE_ORDER = [
   "common",
@@ -82,21 +88,38 @@ export function useI18n(): {
 
   // Strict, EN-only fallback. i18next is configured with fallbackLng: "en", so when a key
   // is missing in the current language it automatically returns the EN value. If the key is
-  // missing in EN too, return the key itself so the UI shows *something* rather than undefined.
-  const t = ((key: string, options?: Record<string, unknown>) => {
-    let result: unknown = rawT(key, options as never);
+  // missing in EN too, return the provided defaultValue (or the key itself) so the UI shows
+  // *something* rather than undefined.
+  const t = ((
+    key: string,
+    defaultValueOrOptions?: string | Record<string, unknown>,
+    options?: Record<string, unknown>,
+  ) => {
+    const hasDefaultValue = typeof defaultValueOrOptions === "string";
+    const defaultValue = hasDefaultValue ? defaultValueOrOptions : undefined;
+    const interpolationOptions = hasDefaultValue ? options : defaultValueOrOptions;
+    const opts = defaultValue !== undefined
+      ? { ...interpolationOptions, defaultValue }
+      : interpolationOptions;
+    let result: unknown = rawT(key, opts as never);
     // i18next can return the key back when a translation is missing (default `returnEmptyString: false`).
     // Treat that as a miss and explicitly try EN.
-    if (typeof result === "string" && result === key && i18nInstance.language !== EN_LANG) {
+    if (
+      typeof result === "string" &&
+      (result === key || isBrokenTranslation(result)) &&
+      i18nInstance.language !== EN_LANG
+    ) {
       const enResult: unknown = (i18nInstance.t as (k: string, o?: Record<string, unknown>) => unknown)(
         key,
-        { ...options, lng: EN_LANG }
+        { ...opts, lng: EN_LANG }
       );
       if (typeof enResult === "string" && enResult.length > 0 && enResult !== key) {
         result = enResult;
       }
     }
-    if (result === undefined || result === null || result === "") return key;
+    if (result === undefined || result === null || result === "") {
+      return defaultValue ?? key;
+    }
     return String(result);
   }) as TFn;
 

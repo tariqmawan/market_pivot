@@ -20,13 +20,6 @@ const getPasswordStrength = (password: string): PasswordStrength => {
   return "strong";
 };
 
-const strengthLabels: Record<PasswordStrength, string> = {
-  weak: "Too short",
-  fair: "Add uppercase, number, symbol",
-  good: "Good, but could be stronger",
-  strong: "Strong password",
-};
-
 const strengthColors: Record<PasswordStrength, string> = {
   weak: "#ef4444",
   fair: "#f59e0b",
@@ -79,19 +72,19 @@ const LoginModal: React.FC<{ mode?: "login" | "signup" }> = ({ mode: initialMode
 
    // Form validation
   const validateEmail = (value: string) => {
-    if (!value) return t("emailRequired") ?? "Email is required";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return t("emailInvalid") ?? "Invalid email format";
+    if (!value) return t("emailRequired");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return t("emailInvalid");
     return null;
   };
 
   const validatePassword = (value: string) => {
-    if (!value) return t("passwordRequired") ?? "Password is required";
-    if (mode === "signup" && value.length < 8) return t("passwordMinLength") ?? "Password must be at least 8 characters";
+    if (!value) return t("passwordRequired");
+    if (mode === "signup" && value.length < 8) return t("passwordMinLength");
     return null;
   };
 
   const validateName = (value: string) => {
-    if (mode === "signup" && !value.trim()) return t("nameRequired") ?? "Full name is required";
+    if (mode === "signup" && !value.trim()) return t("nameRequired");
     return null;
   };
 
@@ -175,7 +168,7 @@ return () => document.removeEventListener("keydown", handleEscape);
       if (data.data?.resetToken) setResetToken(data.data.resetToken);
       setMode("forgot-sent");
     } catch {
-      setForgotError(t("serverError") ?? "Could not connect to server. Please try again.");
+      setForgotError(t("serverError"));
     } finally {
       setForgotLoading(false);
     }
@@ -184,11 +177,11 @@ return () => document.removeEventListener("keydown", handleEscape);
   const handleReset = async (e: React.FormEvent) => {
     e.preventDefault();
     if (resetPassword !== resetConfirmPassword) { 
-      setResetError(t("passwordsMustMatch") ?? "Passwords do not match."); 
+      setResetError(t("passwordsMustMatch")); 
       return; 
     }
     if (resetPassword.length < 8) { 
-      setResetError(t("passwordMinLength") ?? "Password must be at least 8 characters."); 
+      setResetError(t("passwordMinLength")); 
       return; 
     }
     setResetLoading(true); setResetError("");
@@ -199,10 +192,10 @@ return () => document.removeEventListener("keydown", handleEscape);
         body: JSON.stringify({ token: resetToken, newPassword: resetPassword }),
       });
       const data = await res.json();
-      if (!res.ok || !data.success) { setResetError(data.error ?? t("resetFailed") ?? "Reset failed."); return; }
+      if (!res.ok || !data.success) { setResetError(data.error ?? t("resetFailed")); return; }
       setResetDone(true);
     } catch {
-      setResetError(t("serverError") ?? "Could not connect to server.");
+      setResetError(t("serverError"));
     } finally {
       setResetLoading(false);
     }
@@ -244,7 +237,7 @@ return () => document.removeEventListener("keydown", handleEscape);
           ref={closeBtnRef}
           className="modal-close" 
           onClick={onClose} 
-          aria-label={t("close") ?? "Close"}
+          aria-label={t("close")}
         >
           <X size={20} />
         </button>
@@ -263,7 +256,7 @@ return () => document.removeEventListener("keydown", handleEscape);
             <form onSubmit={handleLoginSubmit} className="modal-form">
               {mode === "signup" && (
                 <div className="form-group">
-                  <label htmlFor="name">{t("fullName") ?? "Full Name"}</label>
+                  <label htmlFor="name">{t("fullName")}</label>
                   <div className="input-wrapper">
                     <input 
                       ref={firstInputRef}
@@ -271,7 +264,7 @@ return () => document.removeEventListener("keydown", handleEscape);
                       id="name" 
                       value={name} 
                       onChange={handleNameChange}
-                      placeholder={t("namePlaceholder") ?? "Enter your full name"} 
+                      placeholder={t("namePlaceholder")} 
                       required 
                       disabled={isLoading}
                       aria-invalid={!!nameError}
@@ -284,7 +277,7 @@ return () => document.removeEventListener("keydown", handleEscape);
               )}
               
               <div className="form-group">
-                <label htmlFor="email">{t("emailLabel") ?? "Email address"}</label>
+                <label htmlFor="email">{t("emailLabel")}</label>
                 <div className="input-wrapper">
                   <input 
                     ref={mode === "login" ? firstInputRef : undefined}
@@ -292,7 +285,7 @@ return () => document.removeEventListener("keydown", handleEscape);
                     id="email" 
                     value={email} 
                     onChange={handleEmailChange}
-                    placeholder={t("emailPlaceholder") ?? "you@example.com"} 
+                    placeholder={t("emailPlaceholder")} 
                     required 
                     disabled={isLoading}
                     autoComplete="email"
@@ -305,14 +298,14 @@ return () => document.removeEventListener("keydown", handleEscape);
               </div>
               
               <div className="form-group">
-                <label htmlFor="password">{t("passwordLabel") ?? "Password"}</label>
+                <label htmlFor="password">{t("passwordLabel")}</label>
                 <div className="input-wrapper">
                   <input 
                     type={showPassword ? "text" : "password"} 
                     id="password" 
                     value={password} 
                     onChange={handlePasswordChange}
-                    placeholder={t("passwordPlaceholder") ?? "Your password"} 
+                    placeholder={t("passwordPlaceholder")} 
                     required 
                     minLength={8} 
                     disabled={isLoading}
@@ -324,7 +317,7 @@ return () => document.removeEventListener("keydown", handleEscape);
                     type="button"
                     className="toggle-password"
                     onClick={() => setShowPassword(!showPassword)}
-                    aria-label={showPassword ? (t("hidePassword") ?? "Hide password") : (t("showPassword") ?? "Show password")}
+                    aria-label={showPassword ? t("hidePassword") : t("showPassword")}
                   >
                     {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>
@@ -340,21 +333,21 @@ return () => document.removeEventListener("keydown", handleEscape);
                       />
                     </div>
                     <span className="strength-text" style={{ color: strengthColors[passwordStrength] }}>
-                      {t(`passwordStrength${passwordStrength.charAt(0).toUpperCase() + passwordStrength.slice(1)}`) ?? strengthLabels[passwordStrength]}
+                      {t(`passwordStrength${passwordStrength.charAt(0).toUpperCase() + passwordStrength.slice(1)}`)}
                     </span>
                     {passwordStrength !== "strong" && (
                       <ul className="password-requirements">
                         <li className={password.length >= 8 ? "valid" : ""}>
-                          <CheckCircle2 size={14} /> {t("passwordRequirementLength") ?? "At least 8 characters"}
+                          <CheckCircle2 size={14} /> {t("passwordRequirementLength")}
                         </li>
                         <li className={/[A-Z]/.test(password) ? "valid" : ""}>
-                          <CheckCircle2 size={14} /> {t("passwordRequirementUppercase") ?? "One uppercase letter"}
+                          <CheckCircle2 size={14} /> {t("passwordRequirementUppercase")}
                         </li>
                         <li className={/[0-9]/.test(password) ? "valid" : ""}>
-                          <CheckCircle2 size={14} /> {t("passwordRequirementNumber") ?? "One number"}
+                          <CheckCircle2 size={14} /> {t("passwordRequirementNumber")}
                         </li>
                         <li className={/[!@#$%^&*]/.test(password) ? "valid" : ""}>
-                          <CheckCircle2 size={14} /> {t("passwordRequirementSymbol") ?? "One special character"}
+                          <CheckCircle2 size={14} /> {t("passwordRequirementSymbol")}
                         </li>
                       </ul>
                     )}
@@ -389,32 +382,32 @@ return () => document.removeEventListener("keydown", handleEscape);
               </button>
             </form>
 
-            <div className="divider"><span>{t("continueWith") ?? "Or continue with"}</span></div>
+            <div className="divider"><span>{t("continueWith")}</span></div>
 
             <div className="social-buttons">
-              <button type="button" className="social-button google" disabled title={t("comingSoon") ?? "Coming soon"}>
+              <button type="button" className="social-button google" disabled title={t("comingSoon")}>
                 {t("google")}
               </button>
-              <button type="button" className="social-button apple" disabled title={t("comingSoon") ?? "Coming soon"}>
+              <button type="button" className="social-button apple" disabled title={t("comingSoon")}>
                 {t("apple")}
               </button>
-              <button type="button" className="social-button facebook" disabled title={t("comingSoon") ?? "Coming soon"}>
+              <button type="button" className="social-button facebook" disabled title={t("comingSoon")}>
                 {t("facebook")}
               </button>
-              <button type="button" className="social-button twitter" disabled title={t("comingSoon") ?? "Coming soon"}>
+              <button type="button" className="social-button twitter" disabled title={t("comingSoon")}>
                 {t("twitter")}
               </button>
             </div>
 
             <div className="modal-footer">
               {mode === "login" ? (
-                <p>{t("noAccount") ?? "Don't have an account?"}{" "}
+                <p>{t("noAccount")}{" "}
                   <button type="button" className="link-button" onClick={() => openSignupModal()}>
-                    {t("createAccount") ?? "Create account"}
+                    {t("createAccount")}
                   </button>
                 </p>
               ) : (
-                <p>{t("alreadyHaveAccount") ?? "Already have an account?"}{" "}
+                <p>{t("alreadyHaveAccount")}{" "}
                   <button type="button" className="link-button" onClick={() => openLoginModal()}>
                     {t("login")}
                   </button>
@@ -424,9 +417,9 @@ return () => document.removeEventListener("keydown", handleEscape);
 
             {mode === "signup" && (
               <p className="terms-notice">
-                {t("bySigningUp") ?? "By signing up, you agree to our"}{" "}
+                {t("bySigningUp")}{" "}
                 <button type="button" className="link-button">{t("privacyPolicy")}</button>{" "}
-                {t("andTerms") ?? "and"}{" "}
+                {t("andTerms")}{" "}
                 <button type="button" className="link-button">{t("terms")}</button>.
               </p>
             )}
@@ -440,12 +433,12 @@ return () => document.removeEventListener("keydown", handleEscape);
               <div className="modal-icon">
                 <Shield size={32} style={{ color: "var(--accent-bronze)" }} />
               </div>
-              <h2 id="modal-title">{t("forgotPasswordTitle") ?? "Reset Password"}</h2>
-              <p>{t("forgotPasswordSubtitle") ?? "Enter your email and we'll send you a reset link."}</p>
+              <h2 id="modal-title">{t("forgotPasswordTitle")}</h2>
+              <p>{t("forgotPasswordSubtitle")}</p>
             </div>
             <form onSubmit={handleForgot} className="modal-form">
               <div className="form-group">
-                <label htmlFor="forgotEmail">{t("emailLabel") ?? "Email Address"}</label>
+                <label htmlFor="forgotEmail">{t("emailLabel")}</label>
                 <div className="input-wrapper">
                   <input 
                     ref={firstInputRef}
@@ -453,7 +446,7 @@ return () => document.removeEventListener("keydown", handleEscape);
                     id="forgotEmail" 
                     value={forgotEmail}
                     onChange={(e) => setForgotEmail(e.target.value)}
-                    placeholder={t("emailPlaceholder") ?? "your@email.com"} 
+                    placeholder={t("emailPlaceholder")} 
                     required 
                     disabled={forgotLoading}
                     autoComplete="email"
@@ -462,12 +455,12 @@ return () => document.removeEventListener("keydown", handleEscape);
               </div>
               {forgotError && <p className="auth-error" role="alert"><AlertCircle size={16} /> {forgotError}</p>}
               <button type="submit" className="submit-button" disabled={forgotLoading || !forgotEmail}>
-                {forgotLoading ? <span className="loading-spinner"></span> : (t("sendResetLink") ?? "Send Reset Link")}
+                {forgotLoading ? <span className="loading-spinner"></span> : t("sendResetLink")}
               </button>
             </form>
             <div className="modal-footer">
               <p><button type="button" className="link-button" onClick={() => setMode("login")}>
-                ← {t("backToLogin") ?? "Back to login"}
+                ← {t("backToLogin")}
               </button></p>
             </div>
           </>
@@ -480,29 +473,29 @@ return () => document.removeEventListener("keydown", handleEscape);
               <div className="modal-icon success">
                 <CheckCircle2 size={32} style={{ color: "#10b981" }} />
               </div>
-              <h2 id="modal-title" style={{ color: "#10b981" }}>{t("resetLinkSent") ?? "Link Sent"}</h2>
-              <p>{(t("resetEmailSent") ?? "If {email} is registered, a reset link has been sent.")?.replace("{email}", `<strong>${forgotEmail}</strong>`)}</p>
+              <h2 id="modal-title" style={{ color: "#10b981" }}>{t("resetLinkSent")}</h2>
+              <p>{t("resetEmailSent")?.replace("{email}", `<strong>${forgotEmail}</strong>`)}</p>
             </div>
 
             {devResetUrl && (
               <div className="dev-reset-container">
-                <div className="dev-reset-label">{t("devMode") ?? "🛠 Dev mode — reset link:"}</div>
+                <div className="dev-reset-label">{t("devMode")}</div>
                 <button
                   type="button"
                   className="dev-reset-btn"
                   onClick={() => { setMode("reset"); }}
                 >
-                  {t("clickToReset") ?? "Click to open reset form →"}
+                  {t("clickToReset")}
                 </button>
                 <div className="dev-reset-token">
-                  {t("token") ?? "Token"}: <code>{resetToken}</code>
+                  {t("token")}: <code>{resetToken}</code>
                 </div>
               </div>
             )}
 
             <div className="modal-footer">
               <p><button type="button" className="link-button" onClick={() => setMode("login")}>
-                ← {t("backToLogin") ?? "Back to login"}
+                ← {t("backToLogin")}
               </button></p>
             </div>
           </>
@@ -515,14 +508,14 @@ return () => document.removeEventListener("keydown", handleEscape);
               <div className="modal-icon">
                 <Shield size={32} style={{ color: "var(--accent-bronze)" }} />
               </div>
-              <h2 id="modal-title">{resetDone ? (t("passwordChanged") ?? "✓ Password Changed") : (t("setNewPassword") ?? "Set New Password")}</h2>
-              <p>{resetDone ? (t("passwordUpdated") ?? "Your password has been updated. You can now log in.") : (t("chooseStrongPassword") ?? "Choose a strong new password.")}</p>
+              <h2 id="modal-title">{resetDone ? t("passwordChanged") : t("setNewPassword")}</h2>
+              <p>{resetDone ? t("passwordUpdated") : t("chooseStrongPassword")}</p>
             </div>
 
             {!resetDone ? (
               <form onSubmit={handleReset} className="modal-form">
                 <div className="form-group">
-                  <label htmlFor="resetPassword">{t("newPassword") ?? "New Password"}</label>
+                  <label htmlFor="resetPassword">{t("newPassword")}</label>
                   <div className="input-wrapper">
                     <input 
                       ref={firstInputRef}
@@ -530,7 +523,7 @@ return () => document.removeEventListener("keydown", handleEscape);
                       id="resetPassword" 
                       value={resetPassword}
                       onChange={(e) => setResetPassword(e.target.value)}
-                      placeholder={t("passwordMinLength") ?? "Min 8 characters"} 
+                      placeholder={t("passwordMinLength")} 
                       required 
                       minLength={8} 
                       disabled={resetLoading}
@@ -540,7 +533,7 @@ return () => document.removeEventListener("keydown", handleEscape);
                       type="button"
                       className="toggle-password"
                       onClick={() => setShowPassword(!showPassword)}
-                      aria-label={showPassword ? (t("hidePassword") ?? "Hide password") : (t("showPassword") ?? "Show password")}
+                      aria-label={showPassword ? t("hidePassword") : t("showPassword")}
                     >
                       {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                     </button>
@@ -549,14 +542,14 @@ return () => document.removeEventListener("keydown", handleEscape);
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="resetConfirmPassword">{t("confirmPassword") ?? "Confirm Password"}</label>
+                  <label htmlFor="resetConfirmPassword">{t("confirmPassword")}</label>
                   <div className="input-wrapper">
                     <input 
                       type={showConfirmPassword ? "text" : "password"} 
                       id="resetConfirmPassword" 
                       value={resetConfirmPassword}
                       onChange={(e) => setResetConfirmPassword(e.target.value)}
-                      placeholder={t("confirmPasswordPlaceholder") ?? "Repeat new password"} 
+                      placeholder={t("confirmPasswordPlaceholder")} 
                       required 
                       disabled={resetLoading}
                       autoComplete="new-password"
@@ -565,26 +558,26 @@ return () => document.removeEventListener("keydown", handleEscape);
                       type="button"
                       className="toggle-password"
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      aria-label={showConfirmPassword ? (t("hidePassword") ?? "Hide password") : (t("showPassword") ?? "Show password")}
+                      aria-label={showConfirmPassword ? t("hidePassword") : t("showPassword")}
                     >
                       {showConfirmPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                     </button>
                   </div>
                   {resetPassword && resetConfirmPassword && resetPassword === resetConfirmPassword && (
                     <span className="success-message" style={{ color: "#10b981" }}>
-                      <CheckCircle2 size={14} /> {t("passwordsMatch") ?? "Passwords match"}
+                      <CheckCircle2 size={14} /> {t("passwordsMatch")}
                     </span>
                   )}
                 </div>
                 
                 <button type="submit" className="submit-button" disabled={resetLoading || !resetPassword || !resetConfirmPassword}>
-                  {resetLoading ? <span className="loading-spinner"></span> : (t("setNewPassword") ?? "Set New Password")}
+                  {resetLoading ? <span className="loading-spinner"></span> : t("setNewPassword")}
                 </button>
               </form>
             ) : (
               <div className="success-actions">
                 <button type="button" className="submit-button" onClick={() => { setMode("login"); setResetDone(false); }}>
-                  {t("goToLogin") ?? "Go to Login"}
+                  {t("goToLogin")}
                 </button>
               </div>
             )}
@@ -592,7 +585,7 @@ return () => document.removeEventListener("keydown", handleEscape);
             {!resetDone && (
               <div className="modal-footer">
                 <p><button type="button" className="link-button" onClick={() => setMode("forgot-sent")}>
-                  ← {t("back") ?? "Back"}
+                  ← {t("back")}
                 </button></p>
               </div>
             )}

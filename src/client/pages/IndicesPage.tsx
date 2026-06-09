@@ -62,9 +62,9 @@ const IndicesPage: React.FC = () => {
   return (
     <div className="page intelligence-page">
       <div className="section-heading">
-        <p className="eyebrow">{t("src_client_pages_indicespage__l61__h0")}</p>
-        <h1>{t("src_client_pages_indicespage__l62__h1")}</h1>
-        <p>{t("src_client_pages_indicespage__l63__h2")}</p>
+        <p className="eyebrow">{t("indicespage.h0")}</p>
+        <h1>{t("indicespage.h1")}</h1>
+        <p>{t("indicespage.h2")}</p>
       </div>
 
       <div className="asset-grid compact">

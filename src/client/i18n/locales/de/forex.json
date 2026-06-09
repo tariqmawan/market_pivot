@@ -1,34 +1,260 @@
 {
-  "currencyType": "Währungstyp",
-  "centralBank": "Zentralbank",
-  "exchangeRates": "Wechselkurse",
-  "converter": "Umrechner",
-  "popularPairs": "Beliebte Paare",
-  "economicData": "Konjunkturdaten",
-  "code": "Code",
-  "symbol": "Symbol",
-  "country": "Land",
-  "region": "Region",
-  "type": "Typ",
-  "rate": "Kurs",
-  "bid": "Bid",
-  "ask": "Ask",
-  "spread": "Spread",
-  "loadingRates": "Wechselkurse werden geladen...",
   "amountPlaceholder": "Betrag eingeben",
-  "economicIndicators": "Konjunkturindikatoren",
-  "interestRate": "Zinssatz",
-  "inflationRate": "Inflationsrate",
-  "gdpGrowth": "BIP-Wachstum",
-  "employment": "Beschäftigung",
-  "dataLoading": "Daten werden geladen...",
-  "economicNews": "Wirtschaftsnachrichten & Updates",
+  "annualRate": "Jahresrate",
+  "ask": "Fragen",
+  "bid": "Gebot",
+  "centralBank": "Zentralbank",
+  "change24h": "24h-Veränderung",
+  "code": "Code",
+  "converter": "Umrechner",
+  "countries": {
+    "ae": {
+      "name": "Vereinigte Arabische Emirate"
+    },
+    "au": {
+      "name": "Australien"
+    },
+    "br": {
+      "name": "Brasilien"
+    },
+    "ca": {
+      "name": "Kanada"
+    },
+    "ch": {
+      "name": "Schweiz"
+    },
+    "cl": {
+      "name": "Chile"
+    },
+    "cn": {
+      "name": "China"
+    },
+    "eu": {
+      "name": "europäische Union"
+    },
+    "gb": {
+      "name": "Vereinigtes Königreich"
+    },
+    "hk": {
+      "name": "Hongkong"
+    },
+    "in": {
+      "name": "Indien"
+    },
+    "jp": {
+      "name": "Japan"
+    },
+    "kr": {
+      "name": "Südkorea"
+    },
+    "mx": {
+      "name": "Mexiko"
+    },
+    "no": {
+      "name": "Norwegen"
+    },
+    "sa": {
+      "name": "Saudi-Arabien"
+    },
+    "se": {
+      "name": "Schweden"
+    },
+    "sg": {
+      "name": "Singapur"
+    },
+    "us": {
+      "name": "Vereinigte Staaten"
+    },
+    "za": {
+      "name": "Südafrika"
+    }
+  },
+  "country": "Land",
+  "currencies": {
+    "aed": {
+      "name": "VAE-Dirham",
+      "description": "Die Währung ist an den USD des Golf-Finanzzentrums gekoppelt"
+    },
+    "aud": {
+      "name": "Australischer Dollar",
+      "description": "Rohstoffgebundene Währung, wichtiger Knotenpunkt im asiatisch-pazifischen Raum"
+    },
+    "brl": {
+      "name": "Brasilianischer Real",
+      "description": "Währung der größten Volkswirtschaft Lateinamerikas"
+    },
+    "cad": {
+      "name": "Kanadischer Dollar",
+      "description": "Rohstoffgebundene Währung des G7-Staates"
+    },
+    "chf": {
+      "name": "Schweizer Franken",
+      "description": "Eine sichere Währung, die für Stabilität und starke Kaufkraft bekannt ist"
+    },
+    "clp": {
+      "name": "Chilenischer Peso",
+      "description": "Währung einer wirtschaftlich stabilen lateinamerikanischen Nation"
+    },
+    "cny": {
+      "name": "Chinesischer Yuan",
+      "description": "Währung der zweitgrößten Volkswirtschaft der Welt"
+    },
+    "eur": {
+      "name": "Euro",
+      "description": "Währung der Eurozone, zweitgrößte Reservewährung"
+    },
+    "gbp": {
+      "name": "Britisches Pfund Sterling",
+      "description": "Währung des Vereinigten Königreichs, eine der ältesten Währungen"
+    },
+    "hkd": {
+      "name": "Hongkong-Dollar",
+      "description": "Angebunden an den US-Dollar, die wichtigste Währung des asiatischen Finanzzentrums"
+    },
+    "inr": {
+      "name": "Indische Rupie",
+      "description": "Währung des bevölkerungsreichsten Landes der Welt und der am schnellsten wachsenden großen Volkswirtschaft"
+    },
+    "jpy": {
+      "name": "Japanischer Yen",
+      "description": "Drittgrößte Reservewährung, sicherer Hafen"
+    },
+    "krw": {
+      "name": "Südkoreanischer Won",
+      "description": "Währung des wichtigsten Technologie- und Produktionszentrums"
+    },
+    "mxn": {
+      "name": "Mexikanischer Peso",
+      "description": "Währung des wichtigsten nordamerikanischen Handelspartners"
+    },
+    "nok": {
+      "name": "Norwegische Krone",
+      "description": "Währung des größten Energieexporteurs, starke Rohstoffverbindungen"
+    },
+    "sar": {
+      "name": "Saudi-arabischer Rial",
+      "description": "Die Währung des weltgrößten Ölexporteurs ist an den US-Dollar gekoppelt"
+    },
+    "sek": {
+      "name": "Schwedische Krone",
+      "description": "Nordeuropäische Währung mit industrieller Basis"
+    },
+    "sgd": {
+      "name": "Singapur-Dollar",
+      "description": "Starke Regionalwährung in Südostasien"
+    },
+    "usd": {
+      "name": "US-Dollar",
+      "description": "Die weltweit am häufigsten verwendete Reservewährung und globaler Standard."
+    },
+    "zar": {
+      "name": "Südafrikanischer Rand",
+      "description": "Währung des größten afrikanischen Wirtschafts- und Rohstoffproduzenten"
+    }
+  },
   "currencyNewsComing": "Aktuelle Wirtschaftsnachrichten erscheinen hier",
   "currencyNewsSubtitle": "Zinsentscheidungen, Inflationsberichte und mehr",
-  "vsUsd": "ggü. USD",
+  "currencyType": "Währungstyp",
+  "dataLoading": "Daten werden geladen...",
+  "economicData": "Konjunkturdaten",
+  "economicIndicators": "Konjunkturindikatoren",
+  "economicNews": "Wirtschaftsnachrichten & Updates",
+  "employment": "Beschäftigung",
+  "exchangeRates": "Wechselkurse",
+  "gdpGrowth": "BIP-Wachstum",
   "high52w": "52-W-Hoch",
+  "inflationRate": "Inflationsrate",
+  "interestRate": "Zinssatz",
+  "loadingRates": "Wechselkurse werden geladen...",
   "low52w": "52-W-Tief",
-  "annualRate": "Jahresrate",
+  "popularPairs": "Beliebte Paare",
   "quarterlyRate": "Quartalsrate",
-  "change24h": "24h-Veränderung"
+  "rate": "Kurs",
+  "region": "Region",
+  "spread": "Verbreiten",
+  "symbol": "Symbol",
+  "type": "Typ",
+  "vsUsd": "ggü. USD",
+  "currencyTypes": {
+    "fiat": "Fiat-Währung",
+    "commodity": "Rohstoffwährung",
+    "crypto": "Kryptowährung"
+  },
+  "centralBanks": {
+    "federalreserve": "Federal Reserve",
+    "europeancentralbank": "Europäische Zentralbank",
+    "bankofjapan": "Bank von Japan",
+    "bankofengland": "Bank von England",
+    "swissnationalbank": "Schweizerische Nationalbank",
+    "peoplesbankofchina": "Volksbank von China",
+    "hongkongmonetaryauthority": "Hongkonger Währungsbehörde",
+    "reservebankofindia": "Reserve Bank of India",
+    "reservebankofaustralia": "Reserve Bank of Australia",
+    "monetaryauthorityofsingapore": "Währungsbehörde von Singapur",
+    "bankofkorea": "Bank von Korea",
+    "bankofcanada": "Bank von Kanada",
+    "centralbankofbrazil": "Zentralbank von Brasilien",
+    "bancodemxico": "Banco de México",
+    "centralbankofchile": "Zentralbank von Chile",
+    "riksbank": "Reichsbank",
+    "norgesbank": "Norges Bank",
+    "saudicentralbank": "Saudische Zentralbank",
+    "centralbankoftheuae": "Zentralbank der VAE",
+    "southafricanreservebank": "Südafrikanische Reservebank"
+  },
+  "regions": {
+    "northamerica": "Nordamerika",
+    "europe": "Europa",
+    "asia": "Asien",
+    "americas": "Amerika",
+    "middleeast": "Naher Osten",
+    "africa": "Afrika"
+  },
+  "ratesVsMajorSubtitle": "1 {{code}}, ausgedrückt in anderen Hauptwährungen",
+  "keyDataReleasesFor": "Wichtige Datenveröffentlichungen für {{code}}",
+  "hoursAgo": "vor {{count}} Std.",
+  "impacts": {
+    "High": "Hoch",
+    "Medium": "Medium",
+    "Low": "Niedrig"
+  },
+  "events": {
+    "nonFarmPayrolls": "Lohn- und Gehaltsabrechnungen außerhalb der Landwirtschaft",
+    "ecbPressConference": "EZB-Pressekonferenz",
+    "boeGovernorSpeech": "Rede des BoE-Gouverneurs",
+    "fomcMinutes": "FOMC-Protokoll",
+    "bojSummaryOpinions": "Zusammenfassung der Stellungnahmen der BoJ",
+    "rbaStatement": "RBA-Erklärung",
+    "currencyCpiRelease": "{{code}} CPI-Version",
+    "centralBankPolicyUpdate": "{{centralBank}}-Richtlinienaktualisierung",
+    "currencyRetailSales": "{{code}} Einzelhandelsumsätze",
+    "currencyTradeBalance": "{{code}} Handelsbilanz"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "{{code}} bestätigt die politischen Erwartungen",
+    "currencyWeakensPolicy": "{{code}} schwächt sich aufgrund der politischen Erwartungen ab",
+    "centralBankDataDependent": "{{centralBank}} signalisiert datenabhängigen Pfad",
+    "currencyLiquidityRobust": "Die Liquidität von {{code}} bleibt bei grenzüberschreitenden Strömen robust",
+    "currencyFairValueUpdated": "Anmerkung des Analysten: Der beizulegende Zeitwert von {{code}} wurde aktualisiert",
+    "usdRallyPauses": "Die USD-Rallye pausiert vor dem FOMC-Protokoll",
+    "ecbDataDependent": "EZB signalisiert datenabhängigen Kurs, EUR-Handel stark",
+    "jpyInterventionWatch": "Die Beobachtung der JPY-Intervention wird fortgesetzt, da der USD/JPY 156 testet",
+    "gbpStickyInflation": "GBP wird durch anhaltende Inflation im Dienstleistungssektor gestützt",
+    "cnyWeakerMidpoint": "CNY steht unter Druck, da die PBOC einen schwächeren Mittelwert festlegt",
+    "audCommodityStrength": "AUD-Angebot auf Rohstoffstärke und Risikobereitschaft"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "Primäre Reservewährung",
+    "secondreservecurrency": "Zweite Reservewährung",
+    "thirdreservecurrency": "Dritte Reservewährung",
+    "regionalreservecurrency": "Regionale Reservewährung",
+    "regional": "Regional"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "Zuflüsse in sichere Häfen",
+    "mixedinflows": "Gemischte Zuflüsse",
+    "exportdrivenflows": "Exportgesteuerte Abläufe",
+    "commoditylinkedflows": "Warenbezogene Ströme",
+    "open": "Offen"
+  }
 }

@@ -9,32 +9,93 @@
         {
           "id": "north-america",
           "name": "North America",
-          "countries": ["USA", "Canada"],
-          "majorExchanges": ["NYSE", "NASDAQ", "TSX"],
-          "keyIndices": ["S&P 500", "NASDAQ Composite", "S&P/TSX Composite"]
+          "countries": [
+            "USA",
+            "Canada"
+          ],
+          "majorExchanges": [
+            "NYSE",
+            "NASDAQ",
+            "TSX"
+          ],
+          "keyIndices": [
+            "S&P 500",
+            "NASDAQ Composite",
+            "S&P/TSX Composite"
+          ]
         },
         {
           "id": "latin-america",
           "name": "Latin America",
-          "countries": ["Brazil", "Mexico", "Chile", "Colombia"],
-          "majorExchanges": ["B3", "BMV", "BCS"],
-          "keyIndices": ["Ibovespa", "IPC Mexico", "IPSA"]
+          "countries": [
+            "Brazil",
+            "Mexico",
+            "Chile",
+            "Colombia"
+          ],
+          "majorExchanges": [
+            "B3",
+            "BMV",
+            "BCS"
+          ],
+          "keyIndices": [
+            "Ibovespa",
+            "IPC Mexico",
+            "IPSA"
+          ]
         }
       ],
-      "countries": ["USA", "Canada", "Brazil", "Mexico"],
-      "majorExchanges": ["NYSE", "NASDAQ", "TSX", "B3", "BMV"],
-      "currencies": ["USD", "CAD", "BRL", "MXN"],
-      "keyIndices": ["S&P 500", "NASDAQ Composite", "S&P/TSX Composite", "Ibovespa"],
+      "countries": [
+        "USA",
+        "Canada",
+        "Brazil",
+        "Mexico"
+      ],
+      "majorExchanges": [
+        "NYSE",
+        "NASDAQ",
+        "TSX",
+        "B3",
+        "BMV"
+      ],
+      "currencies": [
+        "USD",
+        "CAD",
+        "BRL",
+        "MXN"
+      ],
+      "keyIndices": [
+        "S&P 500",
+        "NASDAQ Composite",
+        "S&P/TSX Composite",
+        "Ibovespa"
+      ],
       "gdpGrowth": 2.1,
       "inflation": 3.2,
       "commodityImpact": "Oil, copper, soybeans, and gold shape earnings, currencies, and inflation expectations.",
       "tradeBalance": "-0.6%",
-      "calendarFocus": ["FOMC decision", "US CPI", "Nonfarm payrolls", "Brazil Selic decision"],
-      "sectorLeaders": ["Technology", "Banking", "Energy", "Mining"],
-      "newsThemes": ["US rates", "AI earnings", "Latin America commodities", "North America trade"],
+      "calendarFocus": [
+        "FOMC decision",
+        "US CPI",
+        "Nonfarm payrolls",
+        "Brazil Selic decision"
+      ],
+      "sectorLeaders": [
+        "Technology",
+        "Banking",
+        "Energy",
+        "Mining"
+      ],
+      "newsThemes": [
+        "US rates",
+        "AI earnings",
+        "Latin America commodities",
+        "North America trade"
+      ],
       "regionalNews": 5,
       "exchangeCount": 14,
-      "currencyCount": 4
+      "currencyCount": 4,
+      "nameKey": "markets.regions.americas.name"
     },
     {
       "id": "europe",
@@ -45,39 +106,113 @@
         {
           "id": "uk-switzerland",
           "name": "UK & Switzerland",
-          "countries": ["UK", "Switzerland"],
-          "majorExchanges": ["LSE", "SIX"],
-          "keyIndices": ["FTSE 100", "SMI"]
+          "countries": [
+            "UK",
+            "Switzerland"
+          ],
+          "majorExchanges": [
+            "LSE",
+            "SIX"
+          ],
+          "keyIndices": [
+            "FTSE 100",
+            "SMI"
+          ]
         },
         {
           "id": "eurozone",
           "name": "Eurozone",
-          "countries": ["Germany", "France", "Italy", "Spain", "Netherlands", "Belgium"],
-          "majorExchanges": ["XETRA", "EURONEXT", "BME"],
-          "keyIndices": ["DAX", "CAC 40", "STOXX Europe 600"]
+          "countries": [
+            "Germany",
+            "France",
+            "Italy",
+            "Spain",
+            "Netherlands",
+            "Belgium"
+          ],
+          "majorExchanges": [
+            "XETRA",
+            "EURONEXT",
+            "BME"
+          ],
+          "keyIndices": [
+            "DAX",
+            "CAC 40",
+            "STOXX Europe 600"
+          ]
         },
         {
           "id": "nordic",
           "name": "Nordic",
-          "countries": ["Sweden", "Norway", "Denmark"],
-          "majorExchanges": ["OMXS", "OSE"],
-          "keyIndices": ["OMX Stockholm"]
+          "countries": [
+            "Sweden",
+            "Norway",
+            "Denmark"
+          ],
+          "majorExchanges": [
+            "OMXS",
+            "OSE"
+          ],
+          "keyIndices": [
+            "OMX Stockholm"
+          ]
         }
       ],
-      "countries": ["UK", "Germany", "France", "Switzerland", "Italy", "Spain"],
-      "majorExchanges": ["LSE", "XETRA", "EURONEXT", "SIX", "BME"],
-      "currencies": ["EUR", "GBP", "CHF", "SEK", "NOK"],
-      "keyIndices": ["FTSE 100", "DAX", "CAC 40", "SMI", "STOXX Europe 600"],
+      "countries": [
+        "UK",
+        "Germany",
+        "France",
+        "Switzerland",
+        "Italy",
+        "Spain"
+      ],
+      "majorExchanges": [
+        "LSE",
+        "XETRA",
+        "EURONEXT",
+        "SIX",
+        "BME"
+      ],
+      "currencies": [
+        "EUR",
+        "GBP",
+        "CHF",
+        "SEK",
+        "NOK"
+      ],
+      "keyIndices": [
+        "FTSE 100",
+        "DAX",
+        "CAC 40",
+        "SMI",
+        "STOXX Europe 600"
+      ],
       "gdpGrowth": 0.9,
       "inflation": 2.5,
       "commodityImpact": "Natural gas, Brent, and metals affect industrial margins, utilities, and euro-area inflation.",
       "tradeBalance": "+0.2%",
-      "calendarFocus": ["ECB decision", "UK CPI", "Eurozone PMI", "German ZEW"],
-      "sectorLeaders": ["Banking", "Healthcare", "Energy", "Retail"],
-      "newsThemes": ["ECB path", "UK rates", "European banks", "Energy security"],
+      "calendarFocus": [
+        "ECB decision",
+        "UK CPI",
+        "Eurozone PMI",
+        "German ZEW"
+      ],
+      "sectorLeaders": [
+        "Banking",
+        "Healthcare",
+        "Energy",
+        "Retail"
+      ],
+      "newsThemes": [
+        "ECB path",
+        "UK rates",
+        "European banks",
+        "Energy security"
+      ],
       "regionalNews": 7,
       "exchangeCount": 12,
-      "currencyCount": 5
+      "currencyCount": 5,
+      "nameKey": "markets.regions.europe.name"
     },
     {
       "id": "asia-pacific",
@@ -88,46 +223,137 @@
         {
           "id": "north-asia",
           "name": "North Asia",
-          "countries": ["China", "Japan", "South Korea"],
-          "majorExchanges": ["SSE", "SZSE", "JPX", "KRX"],
-          "keyIndices": ["Nikkei 225", "CSI 300", "KOSPI"]
+          "countries": [
+            "China",
+            "Japan",
+            "South Korea"
+          ],
+          "majorExchanges": [
+            "SSE",
+            "SZSE",
+            "JPX",
+            "KRX"
+          ],
+          "keyIndices": [
+            "Nikkei 225",
+            "CSI 300",
+            "KOSPI"
+          ]
         },
         {
           "id": "south-asia",
           "name": "South Asia",
-          "countries": ["India", "Pakistan", "Sri Lanka"],
-          "majorExchanges": ["NSE", "BSE"],
-          "keyIndices": ["Nifty 50", "Sensex"]
+          "countries": [
+            "India",
+            "Pakistan",
+            "Sri Lanka"
+          ],
+          "majorExchanges": [
+            "NSE",
+            "BSE"
+          ],
+          "keyIndices": [
+            "Nifty 50",
+            "Sensex"
+          ]
         },
         {
           "id": "southeast-asia",
           "name": "Southeast Asia",
-          "countries": ["Singapore", "Indonesia", "Thailand", "Philippines", "Vietnam"],
-          "majorExchanges": ["SGX", "IDX", "SET", "PSE", "HNX"],
-          "keyIndices": ["Straits Times", "Jakarta Composite"]
+          "countries": [
+            "Singapore",
+            "Indonesia",
+            "Thailand",
+            "Philippines",
+            "Vietnam"
+          ],
+          "majorExchanges": [
+            "SGX",
+            "IDX",
+            "SET",
+            "PSE",
+            "HNX"
+          ],
+          "keyIndices": [
+            "Straits Times",
+            "Jakarta Composite"
+          ]
         },
         {
           "id": "oceania",
           "name": "Oceania",
-          "countries": ["Australia", "New Zealand"],
-          "majorExchanges": ["ASX", "NZX"],
-          "keyIndices": ["ASX 200", "NZX 50"]
+          "countries": [
+            "Australia",
+            "New Zealand"
+          ],
+          "majorExchanges": [
+            "ASX",
+            "NZX"
+          ],
+          "keyIndices": [
+            "ASX 200",
+            "NZX 50"
+          ]
         }
       ],
-      "countries": ["China", "Japan", "India", "Australia", "Singapore", "Hong Kong"],
-      "majorExchanges": ["SSE", "SZSE", "JPX", "NSE", "ASX", "SGX", "HKEX"],
-      "currencies": ["CNY", "JPY", "INR", "AUD", "SGD", "HKD"],
-      "keyIndices": ["Nikkei 225", "Nifty 50", "Hang Seng", "CSI 300", "ASX 200"],
+      "countries": [
+        "China",
+        "Japan",
+        "India",
+        "Australia",
+        "Singapore",
+        "Hong Kong"
+      ],
+      "majorExchanges": [
+        "SSE",
+        "SZSE",
+        "JPX",
+        "NSE",
+        "ASX",
+        "SGX",
+        "HKEX"
+      ],
+      "currencies": [
+        "CNY",
+        "JPY",
+        "INR",
+        "AUD",
+        "SGD",
+        "HKD"
+      ],
+      "keyIndices": [
+        "Nikkei 225",
+        "Nifty 50",
+        "Hang Seng",
+        "CSI 300",
+        "ASX 200"
+      ],
       "gdpGrowth": 4.3,
       "inflation": 2.8,
       "commodityImpact": "Iron ore, LNG, copper, and crude oil link Australia supply with China and India demand.",
       "tradeBalance": "+2.1%",
-      "calendarFocus": ["China PMI", "Bank of Japan decision", "India CPI", "RBA decision"],
-      "sectorLeaders": ["Semiconductor", "EV", "Technology", "Mining"],
-      "newsThemes": ["China growth", "Japan yields", "India earnings", "Australia resources"],
+      "calendarFocus": [
+        "China PMI",
+        "Bank of Japan decision",
+        "India CPI",
+        "RBA decision"
+      ],
+      "sectorLeaders": [
+        "Semiconductor",
+        "EV",
+        "Technology",
+        "Mining"
+      ],
+      "newsThemes": [
+        "China growth",
+        "Japan yields",
+        "India earnings",
+        "Australia resources"
+      ],
       "regionalNews": 12,
       "exchangeCount": 18,
-      "currencyCount": 8
+      "currencyCount": 8,
+      "nameKey": "markets.regions.asiaPacific.name"
     },
     {
       "id": "middle-east-africa",
@@ -138,32 +364,93 @@
         {
           "id": "gulf",
           "name": "Gulf Cooperation Council",
-          "countries": ["Saudi Arabia", "UAE", "Qatar", "Kuwait", "Bahrain", "Oman"],
-          "majorExchanges": ["TADAWUL", "DFM", "ADX", "ADX"],
-          "keyIndices": ["TASI", "DFM General"]
+          "countries": [
+            "Saudi Arabia",
+            "UAE",
+            "Qatar",
+            "Kuwait",
+            "Bahrain",
+            "Oman"
+          ],
+          "majorExchanges": [
+            "TADAWUL",
+            "DFM",
+            "ADX",
+            "ADX"
+          ],
+          "keyIndices": [
+            "TASI",
+            "DFM General"
+          ]
         },
         {
           "id": "africa",
           "name": "Africa",
-          "countries": ["South Africa", "Nigeria", "Egypt", "Kenya"],
-          "majorExchanges": ["JSE", "NGX", "EGX"],
-          "keyIndices": ["FTSE/JSE All Share", "NSE 30"]
+          "countries": [
+            "South Africa",
+            "Nigeria",
+            "Egypt",
+            "Kenya"
+          ],
+          "majorExchanges": [
+            "JSE",
+            "NGX",
+            "EGX"
+          ],
+          "keyIndices": [
+            "FTSE/JSE All Share",
+            "NSE 30"
+          ]
         }
       ],
-      "countries": ["UAE", "Saudi Arabia", "Qatar", "South Africa"],
-      "majorExchanges": ["TADAWUL", "DFM", "ADX", "JSE"],
-      "currencies": ["AED", "SAR", "ZAR"],
-      "keyIndices": ["TASI", "DFM General", "FTSE/JSE All Share"],
+      "countries": [
+        "UAE",
+        "Saudi Arabia",
+        "Qatar",
+        "South Africa"
+      ],
+      "majorExchanges": [
+        "TADAWUL",
+        "DFM",
+        "ADX",
+        "JSE"
+      ],
+      "currencies": [
+        "AED",
+        "SAR",
+        "ZAR"
+      ],
+      "keyIndices": [
+        "TASI",
+        "DFM General",
+        "FTSE/JSE All Share"
+      ],
       "gdpGrowth": 3.4,
       "inflation": 2.2,
       "commodityImpact": "Crude oil, natural gas, gold, platinum, and uranium connect fiscal revenue with global risk appetite.",
       "tradeBalance": "+3.2%",
-      "calendarFocus": ["OPEC+ meeting", "Saudi PMI", "South Africa CPI", "UAE banking updates"],
-      "sectorLeaders": ["Energy", "Banking", "Real Estate", "Mining"],
-      "newsThemes": ["OPEC policy", "Gulf IPOs", "African mining", "Sovereign wealth flows"],
+      "calendarFocus": [
+        "OPEC+ meeting",
+        "Saudi PMI",
+        "South Africa CPI",
+        "UAE banking updates"
+      ],
+      "sectorLeaders": [
+        "Energy",
+        "Banking",
+        "Real Estate",
+        "Mining"
+      ],
+      "newsThemes": [
+        "OPEC policy",
+        "Gulf IPOs",
+        "African mining",
+        "Sovereign wealth flows"
+      ],
       "regionalNews": 4,
       "exchangeCount": 8,
-      "currencyCount": 3
+      "currencyCount": 3,
+      "nameKey": "markets.regions.middleEastAfrica.name"
     }
   ]
 }

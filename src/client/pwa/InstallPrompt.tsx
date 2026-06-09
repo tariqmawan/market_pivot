@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { consumeInstallPrompt, isInstallPromptAvailable } from "./pwaManager";
+import { useI18n } from "../i18n";
 
 /**
  * Renders a non-intrusive banner that surfaces the browser's install prompt.
@@ -7,6 +8,7 @@ import { consumeInstallPrompt, isInstallPromptAvailable } from "./pwaManager";
  * Auto-hides once the user accepts or dismisses.
  */
 export const InstallPrompt: React.FC = () => {
+  const { t } = useI18n();
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
 
@@ -36,17 +38,17 @@ export const InstallPrompt: React.FC = () => {
   };
 
   return (
-    <div className="mp-install-prompt" role="region" aria-label="Install MarketsPivot">
+    <div className="mp-install-prompt" role="region" aria-label={t("pwa.installAria")}>
       <div>
-        <strong>Install MarketsPivot</strong>
-        <p>Get one-tap access to live markets, even offline.</p>
+        <strong>{t("pwa.installTitle")}</strong>
+        <p>{t("pwa.installDesc")}</p>
       </div>
       <div className="mp-install-prompt-actions">
         <button type="button" onClick={handleInstall} className="primary-action">
-          Install
+          {t("pwa.install")}
         </button>
-        <button type="button" onClick={handleDismiss} className="secondary-action" aria-label="Dismiss install prompt">
-          Not now
+        <button type="button" onClick={handleDismiss} className="secondary-action" aria-label={t("pwa.dismiss")}>
+          {t("pwa.notNow")}
         </button>
       </div>
     </div>

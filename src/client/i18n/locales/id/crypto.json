@@ -1,37 +1,332 @@
 {
-  "currentPrice": "Harga Saat Ini",
-  "rank": "Peringkat",
-  "priceMetrics": "Harga & Metrik",
-  "tradingPairs": "Pasangan Trading",
-  "exchanges": "Bursa",
-  "charts": "Grafik",
-  "onChain": "On-Chain",
-  "category": "Kategori",
-  "launched": "Diluncurkan",
-  "founder": "Pendiri",
-  "consensus": "Mekanisme Konsensus",
-  "blockTime": "Waktu Blok",
-  "supplyInfo": "Informasi Pasokan",
-  "circulatingSupply": "Pasokan Beredar",
-  "maxSupply": "Pasokan Maks",
-  "volume24h": "Volume 24j",
+  "activeAddresses": "Alamat Aktif",
   "ath": "Tertinggi Sepanjang Masa",
   "atl": "Terendah Sepanjang Masa",
-  "marketRank": "Peringkat Pasar",
-  "loadingPrice": "Memuat data harga...",
-  "loadingPairs": "Memuat pasangan trading...",
-  "price": "Harga",
-  "exchange": "Bursa",
-  "listedCryptoExchanges": "Bursa tempat aset ini diperdagangkan",
-  "exchangeExamples": "Binance, Coinbase, Kraken, dan lainnya",
-  "priceChart": "Grafik harga interaktif",
-  "volumeOverlay": "Dengan overlay volume",
-  "onChainMetrics": "Metrik On-Chain",
-  "transactionsPerDay": "Transaksi Per Hari",
-  "activeAddresses": "Alamat Aktif",
-  "networkFees": "Biaya Jaringan",
-  "transactionVolume": "Volume Transaksi",
-  "onChainComing": "Data on-chain segera hadir",
+  "blockTime": "Waktu Blok",
+  "categories": {
+    "defi": {
+      "name": "DeFi"
+    },
+    "infrastructure": {
+      "name": "Infrastruktur"
+    },
+    "layer1": {
+      "name": "Lapisan 1"
+    },
+    "layer2": {
+      "name": "Lapisan 2"
+    },
+    "meme": {
+      "name": "Meme"
+    },
+    "payments": {
+      "name": "Pembayaran"
+    },
+    "stablecoin": {
+      "name": "koin stabil"
+    }
+  },
+  "category": "Kategori",
+  "charts": "Grafik",
+  "circulatingSupply": "Pasokan Beredar",
+  "consensus": "Mekanisme Konsensus",
   "cryptoNewsComing": "Berita dan pembaruan terbaru akan muncul di sini",
-  "cryptoNewsSubtitle": "Pembaruan proyek, kemitraan, dan berita pasar"
+  "cryptoNewsSubtitle": "Pembaruan proyek, kemitraan, dan berita pasar",
+  "cryptocurrencies": {
+    "aave": {
+      "name": "Yaa",
+      "description": "Protokol likuiditas non-penahanan yang terdesentralisasi untuk pinjam meminjam"
+    },
+    "arbitrum": {
+      "name": "Arbitrase",
+      "description": "Solusi penskalaan lapisan-2 Ethereum dan token tata kelola"
+    },
+    "avalanche2": {
+      "name": "Salju longsor",
+      "description": "Solusi subnet dan penskalaan untuk aplikasi blockchain"
+    },
+    "binancecoin": {
+      "name": "BNB",
+      "description": "Token asli ekosistem Binance Smart Chain"
+    },
+    "bitcoin": {
+      "name": "Bitcoin",
+      "description": "Mata uang kripto pertama dan terbesar di dunia berdasarkan kapitalisasi pasar"
+    },
+    "bonk": {
+      "name": "Bonk",
+      "description": "Koin meme besar pertama Solana — dikirimkan ke komunitas, sekarang menjadi kebutuhan utama DeFi"
+    },
+    "cardano": {
+      "name": "Cardano",
+      "description": "Platform blockchain yang ditinjau oleh rekan sejawat dengan fokus pada keberlanjutan"
+    },
+    "chainlink": {
+      "name": "Tautan rantai",
+      "description": "Jaringan oracle terdesentralisasi yang menghubungkan blockchain ke data dunia nyata"
+    },
+    "compoundGovernanceToken": {
+      "name": "Menggabungkan",
+      "description": "Protokol suku bunga otonom algoritmik untuk pinjaman DeFi"
+    },
+    "cosmos": {
+      "name": "Kosmos",
+      "description": "Ekosistem blockchain yang dapat dioperasikan dan Internet Blockchain"
+    },
+    "curveDaoToken": {
+      "name": "Keuangan Kurva",
+      "description": "Pertukaran terdesentralisasi dioptimalkan untuk stablecoin dan pertukaran aset yang dipatok"
+    },
+    "dai": {
+      "name": "hari",
+      "description": "Stablecoin terdesentralisasi yang didukung USD di Ethereum"
+    },
+    "dogecoin": {
+      "name": "Dogecoin",
+      "description": "Koin meme asli — dimulai sebagai lelucon, menjadi ikon budaya kripto"
+    },
+    "ethereum": {
+      "name": "Ethereum",
+      "description": "Platform kontrak pintar terkemuka dan hub DeFi"
+    },
+    "floki": {
+      "name": "FLOKI",
+      "description": "Kripto rakyat — ekosistem meme yang terinspirasi oleh Elon Musk dan dibangun oleh komunitas"
+    },
+    "litecoin": {
+      "name": "koin ringan",
+      "description": "Perak dibandingkan emas Bitcoin, pembayaran peer-to-peer yang cepat"
+    },
+    "maker": {
+      "name": "Pembuat",
+      "description": "Token tata kelola MakerDAO, protokol di balik stablecoin DAI"
+    },
+    "maticNetwork": {
+      "name": "Poligon",
+      "description": "Solusi penskalaan Ethereum memungkinkan transaksi lebih cepat dan lebih murah"
+    },
+    "pepe": {
+      "name": "Pepe",
+      "description": "Budaya internet bertemu dengan kripto — meme katak berubah menjadi token bernilai miliaran dolar"
+    },
+    "polkadot": {
+      "name": "Polkadot",
+      "description": "Blockchain multi-rantai memungkinkan interoperabilitas lintas rantai"
+    },
+    "ripple": {
+      "name": "XRP",
+      "description": "Jaringan pembayaran berfokus pada transfer internasional yang cepat dan berbiaya rendah"
+    },
+    "shibaInu": {
+      "name": "Shiba Inu",
+      "description": "Pembunuh Dogecoin — Koin meme berbasis Ethereum dengan komunitas besar"
+    },
+    "solana": {
+      "name": "Solana",
+      "description": "Platform blockchain berkecepatan tinggi untuk aplikasi terdesentralisasi"
+    },
+    "stellar": {
+      "name": "bintang",
+      "description": "Jaringan Blockchain untuk inklusi keuangan dan pengiriman uang"
+    },
+    "tether": {
+      "name": "Menambatkan",
+      "description": "Stablecoin yang dipatok USD paling banyak digunakan"
+    },
+    "theOpenNetwork": {
+      "name": "koin ton",
+      "description": "Blockchain ultra-cepat dengan fokus pada pengiriman pesan dan pembayaran"
+    },
+    "tron": {
+      "name": "TRON",
+      "description": "Platform Blockchain untuk hiburan terdesentralisasi"
+    },
+    "uniswap": {
+      "name": "Tidak bertukar tempat",
+      "description": "Pertukaran terdesentralisasi dan protokol DeFi terkemuka"
+    },
+    "usdCoin": {
+      "name": "Koin USD",
+      "description": "Stablecoin yang didukung USD teregulasi"
+    }
+  },
+  "currentPrice": "Harga Saat Ini",
+  "exchange": "Bursa",
+  "exchangeExamples": "Binance, Coinbase, Kraken, dan lainnya",
+  "exchanges": "Bursa",
+  "founder": "Pendiri",
+  "launched": "Diluncurkan",
+  "listedCryptoExchanges": "Bursa tempat aset ini diperdagangkan",
+  "loadingPairs": "Memuat pasangan trading...",
+  "loadingPrice": "Memuat data harga...",
+  "marketRank": "Peringkat Pasar",
+  "maxSupply": "Pasokan Maks",
+  "networkFees": "Biaya Jaringan",
+  "onChain": "Di Rantai",
+  "onChainComing": "Data on-chain segera hadir",
+  "onChainMetrics": "Metrik On-Chain",
+  "price": "Harga",
+  "priceChart": "Grafik harga interaktif",
+  "priceMetrics": "Harga & Metrik",
+  "rank": "Peringkat",
+  "rankNumber": "Peringkat #{{rank}}",
+  "supplyInfo": "Informasi Pasokan",
+  "tradingPairs": "Pasangan Trading",
+  "transactionVolume": "Volume Transaksi",
+  "transactionsPerDay": "Transaksi Per Hari",
+  "volume24h": "Volume 24 jam",
+  "volumeOverlay": "Dengan overlay volume",
+  "cryptocurrency": "mata uang kripto",
+  "cryptocurrencyCategories": "Kategori Mata Uang Kripto",
+  "allCryptocurrencies": "Semua Cryptocurrency",
+  "trending": "Sedang tren",
+  "categoryNotFound": "Kategori Tidak Ditemukan",
+  "categoryNotFoundDescription": "Kategori ini tidak ada. Telusuri semua mata uang kripto di bawah ini.",
+  "viewAllCryptocurrencies": "Lihat semua kripto",
+  "trendingCoins": {
+    "eyebrow": "Data pasar langsung - Kripto",
+    "titleAccent": "Koin",
+    "titleRest": "tren",
+    "subtitle": "Kripto yang sedang tren secara real-time berdasarkan aktivitas perdagangan, momentum sosial, dan pertumbuhan kapitalisasi pasar. Diperbarui terus.",
+    "categories": {
+      "all": "Semua",
+      "layer1": "Layer 1",
+      "layer2": "Layer 2",
+      "defi": "DeFi",
+      "meme": "Meme",
+      "stablecoin": "Stablecoin",
+      "payments": "Pembayaran",
+      "infrastructure": "Infrastruktur"
+    },
+    "metrics": {
+      "tracked": "Dipantau",
+      "gainers": "Naik",
+      "topGain24h": "Kenaikan tertinggi 24j",
+      "volumeShort": "Vol. 24j",
+      "supply": "Pasokan"
+    },
+    "sentiment": {
+      "hot": "Panas",
+      "rising": "Naik",
+      "active": "Aktif",
+      "strong": "Kuat"
+    },
+    "moreTitle": "Koin tren lainnya",
+    "emptyCategory": "Tidak ada koin dalam kategori ini.",
+    "insights": {
+      "trending": {
+        "eyebrow": "Yang sedang tren",
+        "title": "Dinamika pasar",
+        "items": {
+          "socialMentions": "Sebutan media sosial melonjak",
+          "exchangeFlows": "Arus masuk/keluar bursa berubah",
+          "developerActivity": "Aktivitas developer di GitHub",
+          "onChainVolume": "Volume transaksi on-chain",
+          "volumeBreakouts": "Breakout volume perdagangan"
+        }
+      },
+      "risk": {
+        "eyebrow": "Faktor risiko",
+        "title": "Tetap hati-hati",
+        "items": {
+          "volatility": "Volatilitas tinggi - harga bisa bergerak 30%+",
+          "liquidity": "Likuiditas rendah pada koin kecil",
+          "manipulation": "Potensi manipulasi pasar",
+          "regulation": "Lanskap regulasi berubah",
+          "techRisk": "Risiko smart contract / teknologi"
+        }
+      },
+      "tips": {
+        "eyebrow": "Tips trading",
+        "title": "Strategi cerdas",
+        "items": {
+          "onChainValidation": "Validasi dulu dengan metrik on-chain",
+          "githubActivity": "Periksa aktivitas developer GitHub",
+          "divergence": "Pantau divergensi volume vs harga",
+          "positionSizing": "Gunakan ukuran posisi yang tepat",
+          "stopLosses": "Tetapkan stop-loss ketat sebelum masuk"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Riset kripto",
+      "title": "Selami koin apa pun",
+      "description": "Klik koin mana pun untuk melihat grafik detail, metrik on-chain, listing bursa, dan berita terbaru di satu tempat."
+    }
+  },
+  "categoryPages": {
+    "common": {
+      "marketOverview": "Market Overview",
+      "combinedMarketCap": "Combined Market Cap",
+      "topGainer24h": "Top Gainer (24h)",
+      "name": "Name",
+      "price": "Price",
+      "change24h": "24h Change",
+      "marketCap": "Market Cap",
+      "volume24h": "24h Volume",
+      "riskProfile": "Risk Profile",
+      "fullCryptoMarket": "Full Crypto Market",
+      "exploreAllCryptocurrencies": "Explore All Cryptocurrencies"
+    },
+    "meme": {
+      "eyebrow": "Community Tokens",
+      "title": "Meme coins",
+      "body": "Community-driven cryptocurrencies fuelled by viral culture, social momentum, and cult followings. High-risk, high-reward assets where sentiment rules the market.",
+      "metrics": {
+        "coinsListed": "Coins Listed"
+      },
+      "rankingsTitle": "Meme Coin Rankings",
+      "table": {
+        "community": "Community"
+      },
+      "communities": {
+        "DOGE": "Original OG",
+        "SHIB": "ShibArmy",
+        "PEPE": "Pepe Nation",
+        "BONK": "Solana Memes",
+        "FLOKI": "Viking Army"
+      },
+      "insights": {
+        "origins": {
+          "eyebrow": "Origins",
+          "title": "The Meme Coin Story",
+          "items": {
+            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
+            "elon": "Elon Musk tweets as price catalysts",
+            "pumps": "WallStreetBets-style coordinated pumps",
+            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
+            "pepe": "2023 PEPE boom revived the meme cycle",
+            "bonk": "BONK airdropped life into Solana DeFi"
+          }
+        },
+        "risk": {
+          "title": "What Investors Should Know",
+          "items": {
+            "sentiment": "Prices driven almost entirely by sentiment",
+            "pumpDump": "Susceptible to pump-and-dump schemes",
+            "utility": "Minimal or no underlying utility",
+            "volatility": "Extreme volatility - 50%+ swings common",
+            "rugPull": "Rug-pull risk in newer, unaudited coins",
+            "viralCycles": "High correlation with viral media cycles"
+          }
+        },
+        "signals": {
+          "eyebrow": "Community Signals",
+          "title": "How to Track Momentum",
+          "items": {
+            "twitter": "Twitter/X mentions and trending hashtags",
+            "reddit": "Reddit activity on r/CryptoCurrency",
+            "whales": "Whale wallet alerts and large transfers",
+            "listings": "Exchange listing announcements",
+            "google": "Google Trends search volume spikes",
+            "influencers": "Influencer social media activity"
+          }
+        }
+      },
+      "cta": {
+        "description": "Compare meme coins against blue-chip assets, DeFi protocols, and layer-1 blockchains."
+      }
+    }
+  },
+  "blockTimeSeconds": "{{time}} detik"
 }

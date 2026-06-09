@@ -1,6 +1,6 @@
 {
-  "adminTopNav": "Yönetici navigasyonu",
-  "openMenu": "Menüyü aç",
+  "adminTopNav": "Yönetici Navigasyonu",
+  "openMenu": "Menüyü Aç",
   "searchPlaceholder": "Ara...",
   "notifications": "Bildirimler",
   "profile": "Profil",
@@ -17,5 +17,5 @@
   "activeUsers": "Aktif Kullanıcılar",
   "revenue": "Gelir",
   "exchanges": "Borsalar",
-  "lastUpdated": "Son güncelleme"
+  "lastUpdated": "Son Güncelleme"
 }

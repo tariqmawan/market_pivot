@@ -1,132 +1,634 @@
 {
-  "title": "वैश्विक मार्केट इंटेलिजेंस डैशबोर्ड",
-  "subtitle": "इंडेक्स, मूवर्स, FX, क्रिप्टो, कमोडिटी, आर्थिक घटनाओं, सेंटिमेंट, समाचार और वॉचलिस्ट का लाइव-स्टाइल अवलोकन।",
-  "globalMarkets": "वैश्विक मल्टी-एसेट बाज़ार",
-  "homeTitle": "MarketsPivot",
-  "homeCopy": "इक्विटी, फिक्स्ड इनकम संदर्भ, FX, कमोडिटी, डेरिवेटिव और क्रिप्टो-रेडी मार्केट व्यू पर ब्लूमबर्ग-शैली कवरेज।",
-  "intelligenceTitle": "वैश्विक मार्केट इंटेलिजेंस के लिए एक मंच",
-  "intelligenceCopy": "एक ही ऑपरेटिंग व्यू से एक्सचेंज सत्र, FX दबाव, डिजिटल एसेट, यील्ड-मार्केट संदर्भ, कमोडिटी और डेरिवेटिव को ट्रैक करें।",
-  "liveTape": "लाइव टेप",
-  "terminalView": "टर्मिनल व्यू",
-  "assetCoverage": "एसेट कवरेज",
-  "compareMarkets": "बाज़ारों की साथ-साथ तुलना",
-  "compareMarketsCopy": "NYSE से INR, BTC से NASDAQ, या तेल से रेट्स पर बिना वर्कस्पेस बदले जाएं।",
-  "marketBrief": "मार्केट ब्रीफ",
-  "openingBell": "ओपनिंग बेल",
-  "riskView": "रिस्क व्यू",
-  "globalHeatmap": "वैश्विक हीटमैप",
-  "equities": "इक्विटी",
-  "stockCount": "एक्सचेंज",
-  "exchangeDashboards": "वैश्विक एक्सचेंज डैशबोर्ड",
-  "regionsMeta": "क्षेत्रीय इंडेक्स, मैक्रो कैलेंडर, FX और कमोडिटी प्रभाव",
-  "currencyCount": "मुद्राएं",
-  "fxMeta": "रिज़र्व, ट्रेड और उभरता FX",
-  "sectorsMeta": "स्टॉक श्रेणियां, ETFs, लीडर्स और सेक्टर समाचार",
-  "usdBase": "USD बेस रणनीति",
-  "cryptoMeta": "लीडर्स, स्टेबलकॉइन्स, DeFi, पेमेंट्स",
-  "cryptoLayer": "24/7 मार्केट लेयर",
-  "topGlobalExchanges": "शीर्ष वैश्विक स्टॉक एक्सचेंज",
-  "exchangeIntro": "मुद्रा, टाइमज़ोन, ट्रेडिंग घंटे, लिस्टिंग, मुख्य सूचकांक और मार्केट कैप संदर्भ के साथ क्षेत्रीय कवरेज।",
-  "topCurrencies": "शीर्ष 20 वैश्विक मुद्राएं",
-  "currencyIntro": "प्रमुख रिज़र्व, एशिया-पैसिफिक ट्रेड मुद्राएं, अमेरिका, यूरोप, मध्य पूर्व और अफ्रीका कवरेज।",
-  "topCryptos": "शीर्ष 20 क्रिप्टोकरेंसी",
-  "cryptoIntro": "कोर लीडर्स, स्मार्ट-कॉन्ट्रैक्ट प्लेटफ़ॉर्म, स्टेबलकॉइन्स, इन्फ्रास्ट्रक्चर, DeFi, पेमेंट्स और ग्रोथ एसेट्स।",
-  "crossMarket": "क्रॉस-मार्केट व्यू",
-  "topExchange": "शीर्ष एक्सचेंज",
-  "coreReserve": "मुख्य रिज़र्व",
-  "cryptoLeader": "क्रिप्टो लीडर",
-  "primaryBase": "प्राथमिक रूपांतरण आधार",
-  "marketCap": "मार्केट कैप",
-  "listedCompanies": "सूचीबद्ध कंपनियां",
-  "avgDailyVolume": "औसत दैनिक वॉल्यूम",
-  "tradingHours": "ट्रेडिंग घंटे",
   "advancers": "बढ़ने वाले",
-  "decliners": "गिरने वाले",
-  "chart": "चार्ट",
-  "topMovers": "टॉप मूवर्स",
-  "founded": "स्थापित",
-  "mainIndex": "मुख्य सूचकांक",
-  "baseCurrency": "आधार मुद्रा",
-  "website": "वेबसाइट",
-  "topGainers": "शीर्ष बढ़ने वाले",
-  "topLosers": "शीर्ष गिरने वाले",
-  "mostActive": "सबसे सक्रिय",
-  "loadingGainers": "बढ़ने वाले लोड हो रहे हैं...",
-  "loadingLosers": "गिरने वाले लोड हो रहे हैं...",
-  "loadingActive": "सक्रिय लोड हो रहे हैं...",
-  "liveBadge": "लाइव",
   "asiaClosed": "एशिया मिश्रित रूप से बंद; यूरोप में मांग",
-  "cryptoBetaOutperform": "क्रिप्टो बीटा इक्विटी से बेहतर प्रदर्शन",
-  "fxPressure": "FX दबाव: JPY, INR, ZAR निगरानी में",
-  "regionIntelligence": "क्षेत्रीय इंटेलिजेंस",
-  "marketsByGeography": "भूगोल के अनुसार बाज़ार",
-  "countries": "देश",
-  "sectorIntelligence": "सेक्टर इंटेलिजेंस",
-  "equityThemes": "इक्विटी थीम और श्रेणियां",
-  "commodityIntelligence": "कमोडिटी इंटेलिजेंस",
-  "macroInputs": "मैक्रो इनपुट और फ्यूचर्स",
-  "majorIndices": "प्रमुख सूचकांक",
-  "worldSnapshot": "विश्व बाज़ार स्नैपशॉट",
-  "marketMovers": "मार्केट मूवर्स",
-  "gainersAndLosers": "बढ़ने और गिरने वाले",
-  "economicEventsToday": "आज की आर्थिक घटनाएं",
-  "macroCalendar": "मैक्रो कैलेंडर",
-  "forexMiniCards": "फॉरेक्स मिनी कार्ड्स",
-  "currencyPulse": "मुद्रा पल्स",
-  "cryptoOverview": "क्रिप्टो अवलोकन",
-  "marketCapLeaders": "मार्केट कैप लीडर्स",
-  "commoditySnapshot": "कमोडिटी स्नैपशॉट",
-  "spotAndFutures": "स्पॉट और फ्यूचर्स",
-  "watchlistPreview": "वॉचलिस्ट प्रीव्यू",
-  "watchlistCopy": "सहेजे गए सिंबल, क्रॉस-एसेट अलर्ट, पोर्टफोलियो संदर्भ और खाता प्राथमिकताओं तक तेज़ पहुंच।",
-  "sp500Meta": "S&P 500 / USD / न्यूयॉर्क",
-  "federalReserveMeta": "फेडरल रिज़र्व / वैश्विक आधार",
+  "assetCoverage": "एसेट कवरेज",
+  "avgDailyVolume": "औसत दैनिक वॉल्यूम",
+  "baseCurrency": "आधार मुद्रा",
   "btcMeta": "BTC बनाम USD, FX और इक्विटी जोखिम",
-  "regionPulse": "क्षेत्र पल्स",
-  "sectorPulse": "सेक्टर पल्स",
-  "commodityPulse": "कमोडिटी पल्स",
-  "gdpGrowthShort": "GDP वृद्धि",
-  "marketSentiment": "मार्केट सेंटिमेंट",
-  "noTradingPairs": "कोई ट्रेडिंग जोड़े उपलब्ध नहीं।",
-  "loadingSectors": "सेक्टर लोड हो रहे हैं...",
-  "noSectorData": "कोई सेक्टर डेटा उपलब्ध नहीं।",
-  "noNewsAvailable": "इस एक्सचेंज के लिए कोई समाचार उपलब्ध नहीं।",
-  "volumeShort": "वॉल्यूम:",
-  "momentumLabel": "मोमेंटम",
-  "unusualVolLabel": "असामान्य वॉल्यूम",
-  "crashAlert": "क्रैश अलर्ट",
-  "oversold": "ओवरसोल्ड",
-  "reversalLabel": "रिवर्सल",
-  "whaleActivity": "व्हेल गतिविधि",
-  "unusualActivity": "असामान्य गतिविधि",
-  "companiesLabel": "कंपनियां:",
-  "marketRegion": "मार्केट क्षेत्र",
-  "majorExchanges": "प्रमुख एक्सचेंज",
-  "keyIndices": "प्रमुख सूचकांक",
-  "economicCalendar": "आर्थिक कैलेंडर",
-  "sectorLeaders": "सेक्टर लीडर्स",
-  "commodityImpact": "कमोडिटी प्रभाव",
-  "trendingStocks": "ट्रेंडिंग स्टॉक्स",
-  "dividendLeaders": "डिविडेंड लीडर्स",
-  "relatedRegions": "संबंधित क्षेत्र",
-  "newsThemes": "समाचार थीम",
-  "inflation": "मुद्रास्फीति",
   "calendarFocus": "कैलेंडर फोकस",
-  "regionsHeading": "वैश्विक मार्केट क्षेत्र",
-  "regionsIntro": "वैश्विक बाज़ारों में क्षेत्रीय सूचकांक, मैक्रो कैलेंडर, FX और कमोडिटी प्रभाव।",
-  "stockSector": "स्टॉक सेक्टर",
-  "sectorsTitle": "सेक्टर्स",
-  "sectorsHeading": "स्टॉक श्रेणियां और सेक्टर इंटेलिजेंस",
-  "sectorsIntro": "टेक्नोलॉजी, बैंकिंग, AI, एनर्जी, हेल्थकेयर, माइनिंग, रियल एस्टेट, सेमीकंडक्टर और थीमैटिक इक्विटी कवरेज।",
-  "commodity": "कमोडिटी",
-  "supplyRegions": "आपूर्ति क्षेत्र",
-  "demandTrends": "मांग रुझान",
-  "currencyCorrelation": "मुद्रा सहसंबंध",
-  "commoditiesTitle": "कमोडिटीज़",
+  "chart": "चार्ट",
+  "commodities": {
+    "brent": {
+      "name": "कच्चा तेल"
+    },
+    "copper": {
+      "name": "ताँबा"
+    },
+    "crudeOil": {
+      "name": "कच्चा तेल WTI"
+    },
+    "gold": {
+      "name": "सोना"
+    },
+    "lithium": {
+      "name": "लिथियम कार्बोनेट"
+    },
+    "naturalGas": {
+      "name": "प्राकृतिक गैस"
+    },
+    "silver": {
+      "name": "चाँदी"
+    },
+    "uranium": {
+      "name": "यूरेनियम"
+    },
+    "wheat": {
+      "name": "गेहूँ"
+    }
+  },
   "commoditiesHeading": "ऊर्जा, धातु, कृषि और औद्योगिक इनपुट",
   "commoditiesIntro": "स्पॉट कीमतें, फ्यूचर्स संदर्भ, आपूर्ति क्षेत्र, मांग रुझान, मुद्रा सहसंबंध और मैक्रो प्रभाव।",
-  "moduleWorkspaceCopy": "यह वर्कस्पेस MarketsPivot वैश्विक मार्केट इंटेलिजेंस संरचना का हिस्सा है।",
+  "commoditiesTitle": "कमोडिटीज़",
+  "commodity": "कमोडिटी",
+  "commodityImpact": "कमोडिटी प्रभाव",
+  "commodityIntelligence": "कमोडिटी इंटेलिजेंस",
+  "commodityPulse": "कमोडिटी पल्स",
+  "commoditySnapshot": "कमोडिटी स्नैपशॉट",
+  "companiesLabel": "कंपनियां:",
+  "compareMarkets": "बाज़ारों की साथ-साथ तुलना",
+  "compareMarketsCopy": "NYSE से INR, BTC से NASDAQ, या तेल से रेट्स पर बिना वर्कस्पेस बदले जाएं।",
+  "coreReserve": "मुख्य रिज़र्व",
+  "countries": {
+    "ae": {
+      "name": "संयुक्त अरब अमीरात"
+    },
+    "au": {
+      "name": "ऑस्ट्रेलिया"
+    },
+    "br": {
+      "name": "ब्राज़िल"
+    },
+    "ca": {
+      "name": "कनाडा"
+    },
+    "ch": {
+      "name": "स्विट्ज़रलैंड"
+    },
+    "cl": {
+      "name": "चिली"
+    },
+    "cn": {
+      "name": "चीन"
+    },
+    "de": {
+      "name": "जर्मनी"
+    },
+    "es": {
+      "name": "स्पेन"
+    },
+    "eu": {
+      "name": "यूरोपीय संघ"
+    },
+    "gb": {
+      "name": "यूनाइटेड किंगडम"
+    },
+    "hk": {
+      "name": "हांगकांग"
+    },
+    "id": {
+      "name": "इंडोनेशिया"
+    },
+    "in": {
+      "name": "भारत"
+    },
+    "it": {
+      "name": "इटली"
+    },
+    "jp": {
+      "name": "जापान"
+    },
+    "kr": {
+      "name": "दक्षिण कोरिया"
+    },
+    "mx": {
+      "name": "मेक्सिको"
+    },
+    "my": {
+      "name": "मलेशिया"
+    },
+    "sa": {
+      "name": "सऊदी अरब"
+    },
+    "se": {
+      "name": "नॉर्डिक और बाल्टिक क्षेत्र"
+    },
+    "sg": {
+      "name": "सिंगापुर"
+    },
+    "th": {
+      "name": "थाईलैंड"
+    },
+    "tw": {
+      "name": "ताइवान"
+    },
+    "us": {
+      "name": "संयुक्त राज्य अमेरिका"
+    },
+    "za": {
+      "name": "दक्षिण अफ़्रीका"
+    }
+  },
+  "crashAlert": "क्रैश अलर्ट",
+  "crossMarket": "क्रॉस-मार्केट व्यू",
+  "cryptoBetaOutperform": "क्रिप्टो बीटा इक्विटी से बेहतर प्रदर्शन",
+  "cryptoIntro": "कोर लीडर्स, स्मार्ट-कॉन्ट्रैक्ट प्लेटफ़ॉर्म, स्टेबलकॉइन्स, इन्फ्रास्ट्रक्चर, DeFi, पेमेंट्स और ग्रोथ एसेट्स।",
+  "cryptoLayer": "24/7 मार्केट लेयर",
+  "cryptoLeader": "क्रिप्टो लीडर",
+  "cryptoMeta": "लीडर्स, स्टेबलकॉइन्स, DeFi, पेमेंट्स",
+  "cryptoOverview": "क्रिप्टो अवलोकन",
+  "currencyCorrelation": "मुद्रा सहसंबंध",
+  "currencyCount": "मुद्राएं",
+  "currencyIntro": "प्रमुख रिज़र्व, एशिया-पैसिफिक ट्रेड मुद्राएं, अमेरिका, यूरोप, मध्य पूर्व और अफ्रीका कवरेज।",
+  "currencyPulse": "मुद्रा पल्स",
+  "decliners": "गिरने वाले",
+  "demandTrends": "मांग रुझान",
+  "dividendLeaders": "डिविडेंड लीडर्स",
+  "economicCalendar": "आर्थिक कैलेंडर",
+  "economicEventsToday": "आज की आर्थिक घटनाएं",
+  "equities": "इक्विटी",
+  "equityThemes": "इक्विटी थीम और श्रेणियां",
+  "exchangeDashboards": "वैश्विक एक्सचेंज डैशबोर्ड",
+  "exchangeIntro": "मुद्रा, टाइमज़ोन, ट्रेडिंग घंटे, लिस्टिंग, मुख्य सूचकांक और मार्केट कैप संदर्भ के साथ क्षेत्रीय कवरेज।",
+  "exchanges": {
+    "adx": {
+      "name": "अबू धाबी सिक्योरिटीज एक्सचेंज",
+      "description": "अबू धाबी का प्राथमिक स्टॉक एक्सचेंज"
+    },
+    "asx": {
+      "name": "ऑस्ट्रेलियाई प्रतिभूति विनिमय",
+      "description": "ऑस्ट्रेलिया का प्राथमिक स्टॉक एक्सचेंज"
+    },
+    "b3": {
+      "name": "बी3 (ब्राज़ील बोल्सा बाल्काओ)",
+      "description": "लैटिन अमेरिका का सबसे बड़ा स्टॉक एक्सचेंज"
+    },
+    "bcs": {
+      "name": "बोल्सा डी कॉमर्सियो डी सैंटियागो",
+      "description": "चिली का प्राथमिक स्टॉक एक्सचेंज"
+    },
+    "bit": {
+      "name": "बोर्सा इटालियाना",
+      "description": "इटली का मुख्य स्टॉक एक्सचेंज"
+    },
+    "bm": {
+      "name": "बर्सा मलेशिया",
+      "description": "मलेशिया का प्राथमिक स्टॉक एक्सचेंज"
+    },
+    "bme": {
+      "name": "बीएमई स्पैनिश एक्सचेंज",
+      "description": "स्पेन का प्रमुख स्टॉक एक्सचेंज"
+    },
+    "bmv": {
+      "name": "मैक्सिकन स्टॉक एक्सचेंज",
+      "description": "मेक्सिको का प्राथमिक स्टॉक एक्सचेंज"
+    },
+    "bse": {
+      "name": "बॉम्बे स्टॉक एक्सचेंज",
+      "description": "एशिया का सबसे पुराना स्टॉक एक्सचेंज"
+    },
+    "dfm": {
+      "name": "दुबई वित्तीय बाजार",
+      "description": "दुबई का प्राथमिक स्टॉक एक्सचेंज"
+    },
+    "euronext": {
+      "name": "यूरोनेक्स्ट",
+      "description": "पैन-यूरोपीय एक्सचेंज कई देशों में संचालित हो रहा है"
+    },
+    "hkex": {
+      "name": "हांगकांग स्टॉक एक्सचेंज",
+      "description": "एशिया में प्रमुख वित्तीय केंद्र, मुख्य भूमि चीन के बाजारों का प्रवेश द्वार"
+    },
+    "idx": {
+      "name": "इंडोनेशिया स्टॉक एक्सचेंज",
+      "description": "इंडोनेशिया का प्राथमिक स्टॉक एक्सचेंज"
+    },
+    "jse": {
+      "name": "जोहान्सबर्ग स्टॉक एक्सचेंज",
+      "description": "दक्षिण अफ्रीका का प्राथमिक स्टॉक एक्सचेंज"
+    },
+    "krx": {
+      "name": "कोरिया एक्सचेंज",
+      "description": "दक्षिण कोरिया का प्राथमिक स्टॉक एक्सचेंज"
+    },
+    "lse": {
+      "name": "लंदन शेयर बाज़ार",
+      "description": "अग्रणी वैश्विक वित्तीय केंद्र, दुनिया के सबसे पुराने एक्सचेंजों में से एक"
+    },
+    "nasdaq": {
+      "name": "NASDAQ",
+      "description": "इलेक्ट्रॉनिक शेयर बाज़ार टेक कंपनियों के लिए जाना जाता है"
+    },
+    "nse": {
+      "name": "भारत का नेशनल स्टॉक एक्सचेंज",
+      "description": "भारत का सबसे बड़ा स्टॉक एक्सचेंज, दक्षिण एशिया के लिए अग्रणी बाज़ार"
+    },
+    "nyse": {
+      "name": "न्यूयॉर्क स्टॉक एक्सचेंज",
+      "description": "दुनिया में सबसे बड़ा और सबसे प्रसिद्ध स्टॉक एक्सचेंज"
+    },
+    "omx": {
+      "name": "नैस्डैक नॉर्डिक",
+      "description": "नैस्डैक द्वारा संचालित नॉर्डिक और बाल्टिक बाज़ार इक्विटी और संबंधित सूचीबद्ध उत्पादों को कवर करता है"
+    },
+    "set": {
+      "name": "थाईलैंड का स्टॉक एक्सचेंज",
+      "description": "थाईलैंड का प्राथमिक स्टॉक एक्सचेंज"
+    },
+    "sgx": {
+      "name": "सिंगापुर एक्सचेंज",
+      "description": "दक्षिणपूर्व एशिया का प्रमुख वित्तीय केंद्र और विनिमय"
+    },
+    "six": {
+      "name": "छह स्विस एक्सचेंज",
+      "description": "स्विट्जरलैंड का प्राथमिक स्टॉक एक्सचेंज"
+    },
+    "sse": {
+      "name": "शंघाई स्टॉक एक्सचेंज",
+      "description": "मार्केट कैप के हिसाब से दुनिया का दूसरा सबसे बड़ा स्टॉक एक्सचेंज"
+    },
+    "szse": {
+      "name": "शेन्ज़ेन स्टॉक एक्सचेंज",
+      "description": "मार्केट कैप के हिसाब से तीसरा सबसे बड़ा स्टॉक एक्सचेंज"
+    },
+    "tadawul": {
+      "name": "सऊदी एक्सचेंज",
+      "description": "सऊदी अरब का प्राथमिक स्टॉक एक्सचेंज"
+    },
+    "tse": {
+      "name": "टोक्यो स्टॉक एक्सचेंज",
+      "description": "जापान का सबसे बड़ा और एशिया का सबसे पुराना स्टॉक एक्सचेंज"
+    },
+    "tsx": {
+      "name": "टोरंटो स्टॉक एक्सचेंज",
+      "description": "कनाडा का सबसे बड़ा स्टॉक एक्सचेंज"
+    },
+    "twse": {
+      "name": "ताइवान स्टॉक एक्सचेंज",
+      "description": "ताइवान का प्राथमिक स्टॉक एक्सचेंज"
+    },
+    "xetra": {
+      "name": "डॉयचे बोरसे",
+      "description": "जर्मनी का सबसे बड़ा स्टॉक एक्सचेंज और प्रमुख यूरोपीय व्यापारिक केंद्र"
+    }
+  },
+  "feature": "फ़ीचर",
+  "federalReserveMeta": "फेडरल रिज़र्व / वैश्विक आधार",
+  "forexMiniCards": "फॉरेक्स मिनी कार्ड्स",
+  "founded": "स्थापित",
+  "fxMeta": "रिज़र्व, ट्रेड और उभरता FX",
+  "fxPressure": "FX दबाव: JPY, INR, ZAR निगरानी में",
+  "gainersAndLosers": "बढ़ने और गिरने वाले",
+  "gdpGrowthShort": "GDP वृद्धि",
+  "globalHeatmap": "वैश्विक हीटमैप",
+  "globalMarkets": "वैश्विक मल्टी-एसेट बाज़ार",
+  "homeCopy": "इक्विटी, फिक्स्ड इनकम संदर्भ, FX, कमोडिटी, डेरिवेटिव और क्रिप्टो-रेडी मार्केट व्यू पर ब्लूमबर्ग-शैली कवरेज।",
+  "homeTitle": "मार्केटपिवोट",
+  "inflation": "मुद्रास्फीति",
+  "intelligenceCopy": "एक ही ऑपरेटिंग व्यू से एक्सचेंज सत्र, FX दबाव, डिजिटल एसेट, यील्ड-मार्केट संदर्भ, कमोडिटी और डेरिवेटिव को ट्रैक करें।",
+  "intelligenceTitle": "वैश्विक मार्केट इंटेलिजेंस के लिए एक मंच",
+  "keyIndices": "प्रमुख सूचकांक",
+  "listedCompanies": "सूचीबद्ध कंपनियां",
+  "liveBadge": "लाइव",
+  "liveTape": "लाइव टेप",
+  "loadingActive": "सक्रिय लोड हो रहे हैं...",
+  "loadingGainers": "बढ़ने वाले लोड हो रहे हैं...",
+  "loadingLosers": "गिरने वाले लोड हो रहे हैं...",
+  "loadingSectors": "सेक्टर लोड हो रहे हैं...",
+  "macroCalendar": "मैक्रो कैलेंडर",
+  "macroInputs": "मैक्रो इनपुट और फ्यूचर्स",
+  "mainIndex": "मुख्य सूचकांक",
+  "majorExchanges": "प्रमुख एक्सचेंज",
+  "majorIndices": "प्रमुख सूचकांक",
+  "marketBrief": "मार्केट ब्रीफ",
+  "marketCap": "मार्केट कैप",
+  "marketCapLeaders": "मार्केट कैप लीडर्स",
+  "marketMovers": "मार्केट मूवर्स",
+  "marketRegion": "मार्केट क्षेत्र",
+  "marketSentiment": "मार्केट सेंटिमेंट",
+  "marketsByGeography": "भूगोल के अनुसार बाज़ार",
   "moduleFeatureReady": "लाइव APIs, फ़िल्टर, चार्ट और सहेजे गए यूज़र वर्कफ़्लो के लिए तैयार।",
+  "moduleWorkspaceCopy": "यह वर्कस्पेस MarketsPivot वैश्विक मार्केट इंटेलिजेंस संरचना का हिस्सा है।",
+  "momentumLabel": "मोमेंटम",
+  "mostActive": "सबसे सक्रिय",
+  "newsThemes": "समाचार थीम",
+  "noNewsAvailable": "इस एक्सचेंज के लिए कोई समाचार उपलब्ध नहीं।",
+  "noSectorData": "कोई सेक्टर डेटा उपलब्ध नहीं।",
+  "noTradingPairs": "कोई ट्रेडिंग जोड़े उपलब्ध नहीं।",
+  "openingBell": "ओपनिंग बेल",
+  "oversold": "ओवरसोल्ड",
   "planned": "नियोजित",
-  "feature": "फ़ीचर"
-}
+  "primaryBase": "प्राथमिक रूपांतरण आधार",
+  "regionIntelligence": "क्षेत्रीय इंटेलिजेंस",
+  "regionPulse": "क्षेत्र पल्स",
+  "regions": {
+    "americas": {
+      "name": "अमेरिका की"
+    },
+    "asiaPacific": {
+      "name": "एशिया-प्रशांत"
+    },
+    "europe": {
+      "name": "यूरोप"
+    },
+    "middleEastAfrica": {
+      "name": "मध्य पूर्व और अफ़्रीका"
+    }
+  },
+  "regionsHeading": "वैश्विक मार्केट क्षेत्र",
+  "regionsIntro": "वैश्विक बाज़ारों में क्षेत्रीय सूचकांक, मैक्रो कैलेंडर, FX और कमोडिटी प्रभाव।",
+  "regionsMeta": "क्षेत्रीय इंडेक्स, मैक्रो कैलेंडर, FX और कमोडिटी प्रभाव",
+  "relatedRegions": "संबंधित क्षेत्र",
+  "reversalLabel": "रिवर्सल",
+  "riskView": "रिस्क व्यू",
+  "sectorIntelligence": "सेक्टर इंटेलिजेंस",
+  "sectorLeaders": "सेक्टर लीडर्स",
+  "sectorPulse": "सेक्टर पल्स",
+  "sectors": {
+    "ai": {
+      "name": "एआई"
+    },
+    "banking": {
+      "name": "बैंकिंग"
+    },
+    "defence": {
+      "name": "रक्षा"
+    },
+    "electricVehicles": {
+      "name": "इलेक्ट्रिक वाहन"
+    },
+    "energy": {
+      "name": "ऊर्जा"
+    },
+    "healthcare": {
+      "name": "स्वास्थ्य सेवा"
+    },
+    "mining": {
+      "name": "खनन"
+    },
+    "realEstate": {
+      "name": "रियल एस्टेट"
+    },
+    "retail": {
+      "name": "रिटेल"
+    },
+    "semiconductor": {
+      "name": "सेमीकंडक्टर"
+    },
+    "technology": {
+      "name": "प्रौद्योगिकी"
+    }
+  },
+  "sectorsHeading": "स्टॉक श्रेणियां और सेक्टर इंटेलिजेंस",
+  "sectorsIntro": "टेक्नोलॉजी, बैंकिंग, AI, एनर्जी, हेल्थकेयर, माइनिंग, रियल एस्टेट, सेमीकंडक्टर और थीमैटिक इक्विटी कवरेज।",
+  "sectorsMeta": "स्टॉक श्रेणियां, ETFs, लीडर्स और सेक्टर समाचार",
+  "sectorsTitle": "सेक्टर्स",
+  "sp500Meta": "S&P 500 / USD / न्यूयॉर्क",
+  "spotAndFutures": "स्पॉट और फ्यूचर्स",
+  "stockCount": "एक्सचेंज",
+  "stockSector": "स्टॉक सेक्टर",
+  "subtitle": "इंडेक्स, मूवर्स, FX, क्रिप्टो, कमोडिटी, आर्थिक घटनाओं, सेंटिमेंट, समाचार और वॉचलिस्ट का लाइव-स्टाइल अवलोकन।",
+  "supplyRegions": "आपूर्ति क्षेत्र",
+  "terminalView": "टर्मिनल व्यू",
+  "timezones": {
+    "africaJohannesburg": {
+      "name": "अफ़्रीका/जोहान्सबर्ग"
+    },
+    "americaMexicoCity": {
+      "name": "अमेरिका/मेक्सिको_सिटी"
+    },
+    "americaNewYork": {
+      "name": "अमेरिका/न्यूयॉर्क"
+    },
+    "americaSantiago": {
+      "name": "अमेरिका/सैंटियागो"
+    },
+    "americaSaoPaulo": {
+      "name": "अमेरिका/साओ_पाउलो"
+    },
+    "americaToronto": {
+      "name": "अमेरिका/टोरंटो"
+    },
+    "asiaBangkok": {
+      "name": "एशिया/बैंकॉक"
+    },
+    "asiaDubai": {
+      "name": "एशिया/दुबई"
+    },
+    "asiaHongKong": {
+      "name": "एशिया/हांगकांग"
+    },
+    "asiaJakarta": {
+      "name": "एशिया/जकार्ता"
+    },
+    "asiaKolkata": {
+      "name": "एशिया/कोलकाता"
+    },
+    "asiaKualaLumpur": {
+      "name": "एशिया/कुआलालंपुर"
+    },
+    "asiaRiyadh": {
+      "name": "एशिया/रियाद"
+    },
+    "asiaSeoul": {
+      "name": "एशिया/सियोल"
+    },
+    "asiaShanghai": {
+      "name": "एशिया/शंघाई"
+    },
+    "asiaSingapore": {
+      "name": "एशिया/सिंगापुर"
+    },
+    "asiaTaipei": {
+      "name": "एशिया/ताइपे"
+    },
+    "asiaTokyo": {
+      "name": "एशिया/टोक्यो"
+    },
+    "australiaSydney": {
+      "name": "ऑस्ट्रेलिया/सिडनी"
+    },
+    "europeBerlin": {
+      "name": "यूरोप/बर्लिन"
+    },
+    "europeLondon": {
+      "name": "यूरोप/लंदन"
+    },
+    "europeMadrid": {
+      "name": "यूरोप/मैड्रिड"
+    },
+    "europeParis": {
+      "name": "यूरोप/पेरिस"
+    },
+    "europeRome": {
+      "name": "यूरोप/रोम"
+    },
+    "europeStockholm": {
+      "name": "यूरोप/स्टॉकहोम"
+    },
+    "europeZurich": {
+      "name": "यूरोप/ज्यूरिख"
+    }
+  },
+  "title": "वैश्विक मार्केट इंटेलिजेंस डैशबोर्ड",
+  "topCryptos": "शीर्ष 20 क्रिप्टोकरेंसी",
+  "topCurrencies": "शीर्ष 20 वैश्विक मुद्राएं",
+  "topExchange": "शीर्ष एक्सचेंज",
+  "topGainers": "शीर्ष बढ़ने वाले",
+  "topGlobalExchanges": "शीर्ष वैश्विक स्टॉक एक्सचेंज",
+  "topLosers": "शीर्ष गिरने वाले",
+  "topMovers": "टॉप मूवर्स",
+  "tradingHours": "ट्रेडिंग घंटे",
+  "trendingStocks": "ट्रेंडिंग स्टॉक्स",
+  "unusualActivity": "असामान्य गतिविधि",
+  "unusualVolLabel": "असामान्य वॉल्यूम",
+  "usdBase": "USD बेस रणनीति",
+  "volumeShort": "वॉल्यूम:",
+  "watchlistCopy": "सहेजे गए सिंबल, क्रॉस-एसेट अलर्ट, पोर्टफोलियो संदर्भ और खाता प्राथमिकताओं तक तेज़ पहुंच।",
+  "watchlistPreview": "वॉचलिस्ट प्रीव्यू",
+  "website": "वेबसाइट",
+  "whaleActivity": "व्हेल गतिविधि",
+  "worldSnapshot": "विश्व बाज़ार स्नैपशॉट",
+  "exchangeNetwork": "एक्सचेंज नेटवर्क",
+  "stockExchanges": "स्टॉक एक्सचेंज",
+  "allExchanges": "सभी एक्सचेंज",
+  "advancedScreener": "उन्नत स्क्रीनर",
+  "regionExchangesTitle": "{{region}} एक्सचेंज",
+  "regionalExchangeDashboards": "क्षेत्रीय एक्सचेंज डैशबोर्ड — मुद्रा, समय क्षेत्र, व्यापार घंटे, सूचीबद्ध कंपनियाँ, मुख्य सूचकांक और मार्केट कैप।",
+  "noExchangesForRegion": "इस क्षेत्र के लिए कोई एक्सचेंज नहीं मिला।",
+  "exchangeRegions": {
+    "americas": "अमेरिका",
+    "northAmerica": "उत्तर अमेरिका",
+    "europe": "यूरोप",
+    "asia": "एशिया",
+    "asiaPacific": "एशिया-प्रशांत",
+    "oceania": "ओशिनिया",
+    "middleEast": "मध्य पूर्व",
+    "africa": "अफ्रीका",
+    "middleEastAfrica": "मध्य पूर्व और अफ्रीका",
+    "latinAmerica": "लैटिन अमेरिका"
+  },
+  
+  "ytdShort": "वर्ष-अब-तक",
+
+  "dashboardCards": {
+    "nyseMeta": "S&P 500 / USD / न्यूयॉर्क",
+    "usdMeta": "फेडरल रिजर्व / वैश्विक आधार",
+    "bitcoinMeta": "BTC बनाम USD, FX और इक्विटी जोखिम",
+    "regionMeta": "चीन विकास / जापान यील्ड / भारत आय / ऑस्ट्रेलिया संसाधन",
+    "sectorMeta": "क्लाउड कैपेक्स / AI मोनेटाइजेशन / सेमीकंडक्टर सप्लाई / वैल्यूएशंस",
+    "commodityMeta": "परिवहन मुद्रास्फीति, ऊर्जा आय, राजकोषीय राजस्व और वैश्विक जोखिम भावना को प्रभावित करता है।"
+  },
+
+  "moduleFeatures": {
+    "majorIndicesWidgets": "मुख्य इंडेक्स विजेट्स",
+    "topGainersLosers": "शीर्ष लाभार्थी और नुकसान वाले",
+    "heatmaps": "हीटमैप्स",
+    "marketSentiment": "मार्केट सेंटिमेंट",
+    "preMarketMovers": "प्री-मार्केट मूवर्स",
+    "indexFutures": "इंडेक्स फ्यूचर्स",
+    "volumeSpikes": "वॉल्यूम स्पाइक्स",
+    "openingWatchlist": "ओपनिंग वॉचलिस्ट",
+    "afterHoursMovers": "आफ्टर-आवर्स मूवर्स",
+    "earningsReactions": "अर्निंग्स प्रतिक्रियाएँ",
+    "extendedSessionVolume": "एक्सटेंडेड-सेशन वॉल्यूम",
+    "newsCatalysts": "समाचार उत्प्रेरक",
+    "equityHeatmaps": "इक्विटी हीटमैप्स",
+    "sectorPerformance": "सेक्टर प्रदर्शन",
+    "regionalBreadth": "क्षेत्रीय व्यापकता",
+    "assetClassComparison": "एसेट-क्लास तुलना",
+    "topGainers": "शीर्ष लाभार्थी",
+    "topLosers": "शीर्ष नुकसान वाले",
+    "mostActive": "सबसे सक्रिय",
+    "unusualVolume": "असामान्य वॉल्यूम",
+    "vixOverview": "VIX अवलोकन",
+    "fearGreedContext": "डर और लालच संदर्भ",
+    "volatilityTermStructure": "वोलैटिलिटी टर्म स्ट्रक्चर",
+    "riskDashboard": "जोखिम डैशबोर्ड",
+    "countryFilters": "देश फ़िल्टर्स",
+    "exchangeStatistics": "एक्सचेंज आँकड़े",
+    "listedCompanies": "सूचीबद्ध कंपनियाँ",
+    "regionalNews": "क्षेत्रीय समाचार",
+    "liveGainers": "लाइव लाभार्थी",
+    "volumeFilters": "वॉल्यूम फ़िल्टर्स",
+    "marketCapFilters": "मार्केट कैप फ़िल्टर्स",
+    "sectorBreakdown": "सेक्टर विभाजन",
+    "liveLosers": "लाइव नुकसान वाले",
+    "riskAlerts": "जोखिम अलर्ट्स",
+    "indexImpact": "इंडेक्स प्रभाव",
+    "watchlistActions": "वॉचलिस्ट क्रियाएँ",
+    "trendingCoins": "ट्रेंडिंग कॉइन्स",
+    "marketCapRanking": "मार्केट कैप रैंकिंग",
+    "exchangeListings": "एक्सचेंज लिस्टिंग्स",
+    "historicalPerformance": "ऐतिहासिक प्रदर्शन",
+    "memeCoinRankings": "मीम कॉइन रैंकिंग्स",
+    "volumeBursts": "वॉल्यूम उछाल",
+    "communityMomentum": "समुदाय मोमेंटम",
+    "riskFlags": "जोखिम संकेत",
+    "defiEcosystem": "DeFi इकोसिस्टम",
+    "tvlMetrics": "TVL मेट्रिक्स",
+    "protocolCategories": "प्रोटोकॉल श्रेणियाँ",
+    "tokenPerformance": "टोकन प्रदर्शन",
+    "layer1Chains": "लेयर 1 चेन",
+    "consensusDetails": "सर्वसम्मति विवरण",
+    "tokenomics": "टोकनोमिक्स",
+    "developerEcosystem": "डेवलपर इकोसिस्टम",
+    "stablecoinSupply": "स्टेबलकॉइन सप्लाई",
+    "pegMonitoring": "पेग मॉनिटरिंग",
+    "exchangeLiquidity": "एक्सचेंज लिक्विडिटी",
+    "reserveContext": "रिजर्व संदर्भ",
+    "spotPrices": "स्पॉट प्राइस",
+    "futuresPrices": "फ्यूचर्स प्राइस",
+    "supplyDemandAnalysis": "सप्लाई-डिमांड विश्लेषण",
+    "correlationAnalysis": "कोरिलेशन विश्लेषण",
+    "preciousMetals": "कीमती धातुएँ",
+    "industrialMetals": "औद्योगिक धातुएँ",
+    "futuresContracts": "फ्यूचर्स कॉन्ट्रैक्ट्स",
+    "currencySensitivity": "मुद्रा संवेदनशीलता",
+    "cropMarkets": "फसल बाजार",
+    "weatherImpact": "मौसम प्रभाव",
+    "supplyRegions": "सप्लाई क्षेत्र",
+    "seasonality": "मौसमी प्रभाव",
+    "industrialInputs": "औद्योगिक इनपुट्स",
+    "demandTrends": "डिमांड ट्रेंड्स",
+    "manufacturingSignals": "मैन्युफैक्चरिंग संकेत",
+    "regionalSupply": "क्षेत्रीय सप्लाई",
+    "regionWiseNews": "क्षेत्रवार समाचार",
+    "macroSummaries": "मैक्रो सारांश",
+    "marketAlerts": "मार्केट अलर्ट्स",
+    "sectorWiseNews": "सेक्टरवार समाचार",
+    "themeTracking": "थीम ट्रैकिंग",
+    "aiSummaries": "AI सारांश",
+    "etfImpact": "ETF प्रभाव",
+    "cryptoNews": "क्रिप्टो समाचार",
+    "onChainContext": "ऑन-चेन संदर्भ",
+    "regulationUpdates": "नियामकीय अपडेट्स",
+    "exchangeDevelopments": "एक्सचेंज विकास",
+    "breakingCatalysts": "ब्रेकिंग उत्प्रेरक",
+    "importanceFilters": "महत्व फ़िल्टर्स",
+    "liveMarketSummary": "लाइव मार्केट सारांश",
+    "filters": "फ़िल्टर्स",
+    "analyticsWidgets": "एनालिटिक्स विजेट्स",
+    "relatedNews": "संबंधित समाचार"
+  },
+
+  "sentiment": {
+    "Equities": {
+      "label": "इक्विटीज़",
+      "detail": "रिस्क-ऑन व्यापकता"
+    },
+
+    "FX": {
+      "label": "FX",
+      "detail": "USD मिश्रित"
+    },
+
+    "Crypto": {
+      "label": "क्रिप्टो",
+      "detail": "मोमेंटम बोली"
+    },
+
+    "Commodities": {
+      "label": "कमोडिटीज़",
+      "detail": "ऊर्जा नरम"
+    }
+  }}

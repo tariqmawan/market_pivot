@@ -1,132 +1,628 @@
 {
-  "title": "Papan Pemuka Risikan Pasaran Global",
-  "subtitle": "Gambaran bergaya langsung untuk indeks, mover, FX, kripto, komoditi, peristiwa makro, sentimen, berita, dan senarai pantau.",
-  "globalMarkets": "Pasaran pelbagai aset global",
-  "homeTitle": "MarketsPivot",
-  "homeCopy": "Liputan bergaya Bloomberg merangkumi ekuiti, konteks bon, FX, komoditi, derivatif, dan pandangan pasaran sedia kripto.",
-  "intelligenceTitle": "Satu platform untuk risikan pasaran global",
-  "intelligenceCopy": "Jejaki sesi bursa, tekanan FX, aset digital, konteks pasaran hasil, komoditi, dan derivatif dari satu pandangan operasi.",
-  "liveTape": "Pita Pasaran Langsung",
-  "terminalView": "Paparan Terminal",
-  "assetCoverage": "Liputan Aset",
-  "compareMarkets": "Bandingkan pasaran bersebelahan",
-  "compareMarketsCopy": "Bergerak dari NYSE ke INR, BTC ke NASDAQ, atau minyak ke kadar faedah tanpa menukar ruang kerja.",
-  "marketBrief": "Ringkasan Pasaran",
-  "openingBell": "Loceng pembukaan",
-  "riskView": "Pandangan risiko",
-  "globalHeatmap": "Peta haba global",
-  "equities": "Ekuiti",
-  "stockCount": "bursa saham",
-  "exchangeDashboards": "Papan pemuka bursa global",
-  "regionsMeta": "Indeks wilayah, kalendar makro, FX, dan impak komoditi",
-  "currencyCount": "mata wang",
-  "fxMeta": "FX rizab, perdagangan, dan pasaran membangun",
-  "sectorsMeta": "Kategori saham, ETF, pemimpin, dan berita sektor",
-  "usdBase": "Strategi asas USD",
-  "cryptoMeta": "Pemimpin, stablecoin, DeFi, pembayaran",
-  "cryptoLayer": "Lapisan pasaran 24/7",
-  "topGlobalExchanges": "Bursa Global Teratas",
-  "exchangeIntro": "Liputan wilayah dengan mata wang, zon masa, waktu dagangan, penyenaraian, indeks utama, dan konteks permodalan pasaran.",
-  "topCurrencies": "20 Mata Wang Global Teratas",
-  "currencyIntro": "Rizab utama, mata wang perdagangan Asia-Pasifik, Amerika, Eropah, Timur Tengah, dan Afrika.",
-  "topCryptos": "20 Kripto Teratas",
-  "cryptoIntro": "Pemimpin teras, platform smart contract, stablecoin, infrastruktur, DeFi, pembayaran, dan aset pertumbuhan.",
-  "crossMarket": "Pandangan rentas pasaran",
-  "topExchange": "Bursa teratas",
-  "coreReserve": "Rizab teras",
-  "cryptoLeader": "Pemimpin kripto",
-  "primaryBase": "Asas penukaran utama",
-  "marketCap": "Permodalan Pasaran",
-  "listedCompanies": "Syarikat Tersenarai",
-  "avgDailyVolume": "Purata Volume Harian",
-  "tradingHours": "Waktu Dagangan",
   "advancers": "Penaik",
-  "decliners": "Penurun",
-  "chart": "Carta",
-  "topMovers": "Mover Teratas",
-  "founded": "Ditubuhkan",
-  "mainIndex": "Indeks Utama",
-  "baseCurrency": "Mata Wang Asas",
-  "website": "Laman web",
-  "topGainers": "Penaik Tertinggi",
-  "topLosers": "Penurun Tertinggi",
-  "mostActive": "Paling Aktif",
-  "loadingGainers": "Memuatkan penaik...",
-  "loadingLosers": "Memuatkan penurun...",
-  "loadingActive": "Memuatkan aktif...",
-  "liveBadge": "LANGSUNG",
   "asiaClosed": "Asia tutup bercampur; Eropah bida",
-  "cryptoBetaOutperform": "Beta kripto mengatasi ekuiti",
-  "fxPressure": "Tekanan FX: JPY, INR, ZAR dipantau",
-  "regionIntelligence": "Risikan Wilayah",
-  "marketsByGeography": "Pasaran mengikut geografi",
-  "countries": "negara",
-  "sectorIntelligence": "Risikan Sektor",
-  "equityThemes": "Tema dan kategori ekuiti",
-  "commodityIntelligence": "Risikan Komoditi",
-  "macroInputs": "Input makro dan futures",
-  "majorIndices": "Indeks Utama",
-  "worldSnapshot": "Snapshot pasaran dunia",
-  "marketMovers": "Pergerakan Pasaran",
-  "gainersAndLosers": "Penaik dan penurun",
-  "economicEventsToday": "Peristiwa Ekonomi Hari Ini",
-  "macroCalendar": "Kalendar makro",
-  "forexMiniCards": "Kad Mini Forex",
-  "currencyPulse": "Nadi mata wang",
-  "cryptoOverview": "Gambaran Kripto",
-  "marketCapLeaders": "Pemimpin permodalan pasaran",
-  "commoditySnapshot": "Snapshot Komoditi",
-  "spotAndFutures": "Spot dan futures",
-  "watchlistPreview": "Pratonton Senarai Pantau",
-  "watchlistCopy": "Akses pantas kepada simbol tersimpan, peringatan rentas aset, konteks portfolio, dan keutamaan akaun.",
-  "sp500Meta": "S&P 500 / USD / New York",
-  "federalReserveMeta": "Federal Reserve / asas global",
+  "assetCoverage": "Liputan Aset",
+  "avgDailyVolume": "Purata Volume Harian",
+  "baseCurrency": "Mata Wang Asas",
   "btcMeta": "BTC lwn USD, FX, dan risiko ekuiti",
-  "regionPulse": "Nadi wilayah",
-  "sectorPulse": "Nadi sektor",
-  "commodityPulse": "Nadi komoditi",
-  "gdpGrowthShort": "Pertumbuhan KDNK",
-  "marketSentiment": "Sentimen Pasaran",
-  "noTradingPairs": "Tiada pasangan dagangan tersedia.",
-  "loadingSectors": "Memuatkan sektor...",
-  "noSectorData": "Tiada data sektor.",
-  "noNewsAvailable": "Tiada berita untuk bursa ini.",
-  "volumeShort": "Vol:",
-  "momentumLabel": "Momentum",
-  "unusualVolLabel": "Vol. Luar Biasa",
-  "crashAlert": "Peringatan Ranap",
-  "oversold": "Terlalu Jual",
-  "reversalLabel": "Pembalikan",
-  "whaleActivity": "Aktiviti Paus",
-  "unusualActivity": "Aktiviti Luar Biasa",
-  "companiesLabel": "Syarikat:",
-  "marketRegion": "Wilayah Pasaran",
-  "majorExchanges": "Bursa Utama",
-  "keyIndices": "Indeks Kunci",
-  "economicCalendar": "Kalendar Ekonomi",
-  "sectorLeaders": "Pemimpin Sektor",
-  "commodityImpact": "Impak Komoditi",
-  "trendingStocks": "Saham Trendi",
-  "dividendLeaders": "Pemimpin Dividen",
-  "relatedRegions": "Wilayah Berkaitan",
-  "newsThemes": "Tema Berita",
-  "inflation": "Inflasi",
   "calendarFocus": "Fokus Kalendar",
-  "regionsHeading": "Wilayah Pasaran Global",
-  "regionsIntro": "Indeks wilayah, kalendar makro, FX, dan impak komoditi merentasi pasaran global.",
-  "stockSector": "Sektor Saham",
-  "sectorsTitle": "Sektor",
-  "sectorsHeading": "Kategori Saham & Risikan Sektor",
-  "sectorsIntro": "Liputan ekuiti teknologi, perbankan, AI, tenaga, kesihatan, perlombongan, hartanah, semikonduktor, dan tematik.",
-  "commodity": "Komoditi",
-  "supplyRegions": "Wilayah Bekalan",
-  "demandTrends": "Trend Permintaan",
-  "currencyCorrelation": "Korelasi Mata Wang",
-  "commoditiesTitle": "Komoditi",
+  "chart": "Carta",
+  "commodities": {
+    "brent": {
+      "name": "Brent Crude"
+    },
+    "copper": {
+      "name": "Tembaga"
+    },
+    "crudeOil": {
+      "name": "Minyak Mentah WTI"
+    },
+    "gold": {
+      "name": "emas"
+    },
+    "lithium": {
+      "name": "Litium Karbonat"
+    },
+    "naturalGas": {
+      "name": "Gas Asli"
+    },
+    "silver": {
+      "name": "Perak"
+    },
+    "uranium": {
+      "name": "Uranium"
+    },
+    "wheat": {
+      "name": "Gandum"
+    }
+  },
   "commoditiesHeading": "Tenaga, Logam, Pertanian & Input Industri",
   "commoditiesIntro": "Harga spot, rujukan futures, wilayah bekalan, trend permintaan, korelasi mata wang, dan impak makro.",
-  "moduleWorkspaceCopy": "Ruang kerja ini adalah sebahagian daripada struktur risikan pasaran global MarketsPivot.",
+  "commoditiesTitle": "Komoditi",
+  "commodity": "Komoditi",
+  "commodityImpact": "Impak Komoditi",
+  "commodityIntelligence": "Risikan Komoditi",
+  "commodityPulse": "Nadi komoditi",
+  "commoditySnapshot": "Snapshot Komoditi",
+  "companiesLabel": "Syarikat:",
+  "compareMarkets": "Bandingkan pasaran bersebelahan",
+  "compareMarketsCopy": "Bergerak dari NYSE ke INR, BTC ke NASDAQ, atau minyak ke kadar faedah tanpa menukar ruang kerja.",
+  "coreReserve": "Rizab teras",
+  "countries": {
+    "ae": {
+      "name": "Emiriah Arab Bersatu"
+    },
+    "au": {
+      "name": "Australia"
+    },
+    "br": {
+      "name": "Brazil"
+    },
+    "ca": {
+      "name": "Kanada"
+    },
+    "ch": {
+      "name": "Switzerland"
+    },
+    "cl": {
+      "name": "Chile"
+    },
+    "cn": {
+      "name": "China"
+    },
+    "de": {
+      "name": "Jerman"
+    },
+    "es": {
+      "name": "Sepanyol"
+    },
+    "eu": {
+      "name": "Kesatuan Eropah"
+    },
+    "gb": {
+      "name": "United Kingdom"
+    },
+    "hk": {
+      "name": "Hong Kong"
+    },
+    "id": {
+      "name": "Indonesia"
+    },
+    "in": {
+      "name": "India"
+    },
+    "it": {
+      "name": "Itali"
+    },
+    "jp": {
+      "name": "Jepun"
+    },
+    "kr": {
+      "name": "Korea Selatan"
+    },
+    "mx": {
+      "name": "Mexico"
+    },
+    "my": {
+      "name": "Malaysia"
+    },
+    "sa": {
+      "name": "Arab Saudi"
+    },
+    "se": {
+      "name": "Wilayah Nordic dan Baltik"
+    },
+    "sg": {
+      "name": "Singapura"
+    },
+    "th": {
+      "name": "Thailand"
+    },
+    "tw": {
+      "name": "Taiwan"
+    },
+    "us": {
+      "name": "Amerika Syarikat"
+    },
+    "za": {
+      "name": "Afrika Selatan"
+    }
+  },
+  "crashAlert": "Peringatan Ranap",
+  "crossMarket": "Pandangan rentas pasaran",
+  "cryptoBetaOutperform": "Beta kripto mengatasi ekuiti",
+  "cryptoIntro": "Pemimpin teras, platform smart contract, stablecoin, infrastruktur, DeFi, pembayaran, dan aset pertumbuhan.",
+  "cryptoLayer": "Lapisan pasaran 24/7",
+  "cryptoLeader": "Pemimpin kripto",
+  "cryptoMeta": "Pemimpin, stablecoin, DeFi, pembayaran",
+  "cryptoOverview": "Gambaran Kripto",
+  "currencyCorrelation": "Korelasi Mata Wang",
+  "currencyCount": "mata wang",
+  "currencyIntro": "Rizab utama, mata wang perdagangan Asia-Pasifik, Amerika, Eropah, Timur Tengah, dan Afrika.",
+  "currencyPulse": "Nadi mata wang",
+  "decliners": "Penurun",
+  "demandTrends": "Trend Permintaan",
+  "dividendLeaders": "Pemimpin Dividen",
+  "economicCalendar": "Kalendar Ekonomi",
+  "economicEventsToday": "Peristiwa Ekonomi Hari Ini",
+  "equities": "Ekuiti",
+  "equityThemes": "Tema dan kategori ekuiti",
+  "exchangeDashboards": "Papan pemuka bursa global",
+  "exchangeIntro": "Liputan wilayah dengan mata wang, zon masa, waktu dagangan, penyenaraian, indeks utama, dan konteks permodalan pasaran.",
+  "exchanges": {
+    "adx": {
+      "name": "Bursa Sekuriti Abu Dhabi",
+      "description": "Bursa saham utama Abu Dhabi"
+    },
+    "asx": {
+      "name": "Bursa Sekuriti Australia",
+      "description": "Bursa saham utama Australia"
+    },
+    "b3": {
+      "name": "B3 (Brasil Bolsa Balcão)",
+      "description": "Bursa saham terbesar di Amerika Latin"
+    },
+    "bcs": {
+      "name": "Bolsa de Comercio de Santiago",
+      "description": "Bursa saham utama Chile"
+    },
+    "bit": {
+      "name": "Borsa Italiana",
+      "description": "Bursa saham utama Itali"
+    },
+    "bm": {
+      "name": "Bursa Malaysia",
+      "description": "Bursa saham utama Malaysia"
+    },
+    "bme": {
+      "name": "BME Pertukaran Sepanyol",
+      "description": "Bursa saham utama Sepanyol"
+    },
+    "bmv": {
+      "name": "Bursa Saham Mexico",
+      "description": "Bursa saham utama Mexico"
+    },
+    "bse": {
+      "name": "Bursa Saham Bombay",
+      "description": "Bursa saham tertua di Asia"
+    },
+    "dfm": {
+      "name": "Pasaran Kewangan Dubai",
+      "description": "Bursa saham utama Dubai"
+    },
+    "euronext": {
+      "name": "Euronext",
+      "description": "Pertukaran Pan-Eropah beroperasi di beberapa negara"
+    },
+    "hkex": {
+      "name": "Bursa Saham Hong Kong",
+      "description": "Hab kewangan utama di Asia, pintu masuk ke pasaran tanah besar China"
+    },
+    "idx": {
+      "name": "Bursa Saham Indonesia",
+      "description": "Bursa saham utama Indonesia"
+    },
+    "jse": {
+      "name": "Bursa Saham Johannesburg",
+      "description": "Bursa saham utama Afrika Selatan"
+    },
+    "krx": {
+      "name": "Korea Exchange",
+      "description": "Bursa saham utama Korea Selatan"
+    },
+    "lse": {
+      "name": "Bursa Saham London",
+      "description": "Hab kewangan global terkemuka, salah satu bursa tertua di dunia"
+    },
+    "nasdaq": {
+      "name": "NASDAQ",
+      "description": "Pasaran saham elektronik yang terkenal dengan syarikat teknologi"
+    },
+    "nse": {
+      "name": "Bursa Saham Kebangsaan India",
+      "description": "Bursa saham terbesar India, pasaran terkemuka untuk Asia Selatan"
+    },
+    "nyse": {
+      "name": "Bursa Saham New York",
+      "description": "Bursa saham terbesar dan paling terkenal di dunia"
+    },
+    "omx": {
+      "name": "Nasdaq Nordic",
+      "description": "Pasaran Nordic dan Baltik kendalian Nasdaq meliputi ekuiti dan produk tersenarai berkaitan"
+    },
+    "set": {
+      "name": "Bursa Saham Thailand",
+      "description": "Bursa saham utama Thailand"
+    },
+    "sgx": {
+      "name": "Bursa Singapura",
+      "description": "Pusat dan pertukaran kewangan terkemuka di Asia Tenggara"
+    },
+    "six": {
+      "name": "ENAM Swiss Exchange",
+      "description": "Bursa saham utama Switzerland"
+    },
+    "sse": {
+      "name": "Bursa Saham Shanghai",
+      "description": "Bursa saham kedua terbesar di dunia mengikut had pasaran"
+    },
+    "szse": {
+      "name": "Bursa Saham Shenzhen",
+      "description": "Bursa saham ketiga terbesar mengikut had pasaran"
+    },
+    "tadawul": {
+      "name": "Saudi Exchange",
+      "description": "Bursa saham utama Arab Saudi"
+    },
+    "tse": {
+      "name": "Bursa Saham Tokyo",
+      "description": "Bursa saham terbesar di Jepun dan tertua di Asia"
+    },
+    "tsx": {
+      "name": "Bursa Saham Toronto",
+      "description": "Bursa saham terbesar di Kanada"
+    },
+    "twse": {
+      "name": "Bursa Saham Taiwan",
+      "description": "Bursa saham utama Taiwan"
+    },
+    "xetra": {
+      "name": "Deutsche Börse",
+      "description": "Bursa saham terbesar Jerman dan pusat perdagangan utama Eropah"
+    }
+  },
+  "feature": "Ciri",
+  "federalReserveMeta": "Federal Reserve / asas global",
+  "forexMiniCards": "Kad Mini Forex",
+  "founded": "Ditubuhkan",
+  "fxMeta": "FX rizab, perdagangan, dan pasaran membangun",
+  "fxPressure": "Tekanan FX: JPY, INR, ZAR dipantau",
+  "gainersAndLosers": "Penaik dan penurun",
+  "gdpGrowthShort": "Pertumbuhan KDNK",
+  "globalHeatmap": "Peta haba global",
+  "globalMarkets": "Pasaran pelbagai aset global",
+  "homeCopy": "Liputan bergaya Bloomberg merangkumi ekuiti, konteks bon, FX, komoditi, derivatif, dan pandangan pasaran sedia kripto.",
+  "homeTitle": "MarketsPivot",
+  "inflation": "Inflasi",
+  "intelligenceCopy": "Jejaki sesi bursa, tekanan FX, aset digital, konteks pasaran hasil, komoditi, dan derivatif dari satu pandangan operasi.",
+  "intelligenceTitle": "Satu platform untuk risikan pasaran global",
+  "keyIndices": "Indeks Kunci",
+  "listedCompanies": "Syarikat Tersenarai",
+  "liveBadge": "LANGSUNG",
+  "liveTape": "Pita Pasaran Langsung",
+  "loadingActive": "Memuatkan aktif...",
+  "loadingGainers": "Memuatkan penaik...",
+  "loadingLosers": "Memuatkan penurun...",
+  "loadingSectors": "Memuatkan sektor...",
+  "macroCalendar": "Kalendar makro",
+  "macroInputs": "Input makro dan futures",
+  "mainIndex": "Indeks Utama",
+  "majorExchanges": "Bursa Utama",
+  "majorIndices": "Indeks Utama",
+  "marketBrief": "Ringkasan Pasaran",
+  "marketCap": "Permodalan Pasaran",
+  "marketCapLeaders": "Pemimpin permodalan pasaran",
+  "marketMovers": "Pergerakan Pasaran",
+  "marketRegion": "Wilayah Pasaran",
+  "marketSentiment": "Sentimen Pasaran",
+  "marketsByGeography": "Pasaran mengikut geografi",
   "moduleFeatureReady": "Bersedia untuk API langsung, penapis, carta, dan aliran kerja pengguna tersimpan.",
+  "moduleWorkspaceCopy": "Ruang kerja ini adalah sebahagian daripada struktur risikan pasaran global MarketsPivot.",
+  "momentumLabel": "Momentum",
+  "mostActive": "Paling Aktif",
+  "newsThemes": "Tema Berita",
+  "noNewsAvailable": "Tiada berita untuk bursa ini.",
+  "noSectorData": "Tiada data sektor.",
+  "noTradingPairs": "Tiada pasangan dagangan tersedia.",
+  "openingBell": "Loceng pembukaan",
+  "oversold": "Terlalu Jual",
   "planned": "Dirancang",
-  "feature": "Ciri"
+  "primaryBase": "Asas penukaran utama",
+  "regionIntelligence": "Risikan Wilayah",
+  "regionPulse": "Nadi wilayah",
+  "regions": {
+    "americas": {
+      "name": "Amerika"
+    },
+    "asiaPacific": {
+      "name": "Asia-Pasifik"
+    },
+    "europe": {
+      "name": "Eropah"
+    },
+    "middleEastAfrica": {
+      "name": "Timur Tengah & Afrika"
+    }
+  },
+  "regionsHeading": "Wilayah Pasaran Global",
+  "regionsIntro": "Indeks wilayah, kalendar makro, FX, dan impak komoditi merentasi pasaran global.",
+  "regionsMeta": "Indeks wilayah, kalendar makro, FX, dan impak komoditi",
+  "relatedRegions": "Wilayah Berkaitan",
+  "reversalLabel": "Pembalikan",
+  "riskView": "Pandangan risiko",
+  "sectorIntelligence": "Risikan Sektor",
+  "sectorLeaders": "Pemimpin Sektor",
+  "sectorPulse": "Nadi sektor",
+  "sectors": {
+    "ai": {
+      "name": "AI"
+    },
+    "banking": {
+      "name": "Perbankan"
+    },
+    "defence": {
+      "name": "Pertahanan"
+    },
+    "electricVehicles": {
+      "name": "Kenderaan elektrik"
+    },
+    "energy": {
+      "name": "Tenaga"
+    },
+    "healthcare": {
+      "name": "Penjagaan kesihatan"
+    },
+    "mining": {
+      "name": "Perlombongan"
+    },
+    "realEstate": {
+      "name": "Hartanah"
+    },
+    "retail": {
+      "name": "Runcit"
+    },
+    "semiconductor": {
+      "name": "Semikonduktor"
+    },
+    "technology": {
+      "name": "Teknologi"
+    }
+  },
+  "sectorsHeading": "Kategori Saham & Risikan Sektor",
+  "sectorsIntro": "Liputan ekuiti teknologi, perbankan, AI, tenaga, kesihatan, perlombongan, hartanah, semikonduktor, dan tematik.",
+  "sectorsMeta": "Kategori saham, ETF, pemimpin, dan berita sektor",
+  "sectorsTitle": "Sektor",
+  "sp500Meta": "S&P 500 / USD / New York",
+  "spotAndFutures": "Spot dan futures",
+  "stockCount": "bursa saham",
+  "stockSector": "Sektor Saham",
+  "subtitle": "Gambaran bergaya langsung untuk indeks, mover, FX, kripto, komoditi, peristiwa makro, sentimen, berita, dan senarai pantau.",
+  "supplyRegions": "Wilayah Bekalan",
+  "terminalView": "Paparan Terminal",
+  "timezones": {
+    "africaJohannesburg": {
+      "name": "Afrika/Johannesburg"
+    },
+    "americaMexicoCity": {
+      "name": "Amerika/Mexico_City"
+    },
+    "americaNewYork": {
+      "name": "Amerika/New_York"
+    },
+    "americaSantiago": {
+      "name": "Amerika/Santiago"
+    },
+    "americaSaoPaulo": {
+      "name": "Amerika/Sao_Paulo"
+    },
+    "americaToronto": {
+      "name": "Amerika/Toronto"
+    },
+    "asiaBangkok": {
+      "name": "Asia/Bangkok"
+    },
+    "asiaDubai": {
+      "name": "Asia/Dubai"
+    },
+    "asiaHongKong": {
+      "name": "Asia/Hong_Kong"
+    },
+    "asiaJakarta": {
+      "name": "Asia/Jakarta"
+    },
+    "asiaKolkata": {
+      "name": "Asia/Kolkata"
+    },
+    "asiaKualaLumpur": {
+      "name": "Asia/Kuala_Lumpur"
+    },
+    "asiaRiyadh": {
+      "name": "Asia/Riyadh"
+    },
+    "asiaSeoul": {
+      "name": "Asia/Seoul"
+    },
+    "asiaShanghai": {
+      "name": "Asia/Shanghai"
+    },
+    "asiaSingapore": {
+      "name": "Asia/Singapura"
+    },
+    "asiaTaipei": {
+      "name": "Asia/Taipei"
+    },
+    "asiaTokyo": {
+      "name": "Asia/Tokyo"
+    },
+    "australiaSydney": {
+      "name": "Australia/Sydney"
+    },
+    "europeBerlin": {
+      "name": "Eropah/Berlin"
+    },
+    "europeLondon": {
+      "name": "Eropah/London"
+    },
+    "europeMadrid": {
+      "name": "Eropah/Madrid"
+    },
+    "europeParis": {
+      "name": "Eropah/Paris"
+    },
+    "europeRome": {
+      "name": "Eropah/Rom"
+    },
+    "europeStockholm": {
+      "name": "Eropah/Stockholm"
+    },
+    "europeZurich": {
+      "name": "Eropah/Zurich"
+    }
+  },
+  "title": "Papan Pemuka Risikan Pasaran Global",
+  "topCryptos": "20 Kripto Teratas",
+  "topCurrencies": "20 Mata Wang Global Teratas",
+  "topExchange": "Bursa teratas",
+  "topGainers": "Penaik Tertinggi",
+  "topGlobalExchanges": "Bursa Global Teratas",
+  "topLosers": "Penurun Tertinggi",
+  "topMovers": "Mover Teratas",
+  "tradingHours": "Waktu Dagangan",
+  "trendingStocks": "Saham Trendi",
+  "unusualActivity": "Aktiviti Luar Biasa",
+  "unusualVolLabel": "Vol. Luar Biasa",
+  "usdBase": "Strategi asas USD",
+  "volumeShort": "Vol:",
+  "watchlistCopy": "Akses pantas kepada simbol tersimpan, peringatan rentas aset, konteks portfolio, dan keutamaan akaun.",
+  "watchlistPreview": "Pratonton Senarai Pantau",
+  "website": "Laman web",
+  "whaleActivity": "Aktiviti Paus",
+  "worldSnapshot": "Snapshot pasaran dunia",
+  "exchangeNetwork": "Rangkaian Pertukaran",
+  "stockExchanges": "Bursa Saham",
+  "allExchanges": "Semua Pertukaran",
+  "advancedScreener": "Penyaring Lanjutan",
+  "regionExchangesTitle": "Pertukaran {{region}}",
+  "regionalExchangeDashboards": "Papan pemuka pertukaran serantau ? mata wang, zon waktu, waktu dagangan, syarikat tersenarai, indeks utama dan topi pasaran.",
+  "noExchangesForRegion": "Tiada pertukaran ditemui untuk wilayah ini.",
+  "exchangeRegions": {
+    "americas": "Amerika",
+    "northAmerica": "Amerika Utara",
+    "europe": "Eropah",
+    "asia": "Asia",
+    "asiaPacific": "Asia Pasifik",
+    "oceania": "Oceania",
+    "middleEast": "Timur Tengah",
+    "africa": "Afrika",
+    "middleEastAfrica": "Timur Tengah & Afrika",
+    "latinAmerica": "Amerika Latin"
+  },
+  "moduleFeatures": {
+    "majorIndicesWidgets": "Widget indeks utama",
+    "topGainersLosers": "Paling untung dan rugi",
+    "heatmaps": "Peta haba",
+    "marketSentiment": "Sentimen pasaran",
+    "preMarketMovers": "Penggerak pra-pasaran",
+    "indexFutures": "Indeks hadapan",
+    "volumeSpikes": "Lonjakan kelantangan",
+    "openingWatchlist": "Membuka senarai pantauan",
+    "afterHoursMovers": "Penggerak selepas waktu kerja",
+    "earningsReactions": "Reaksi pendapatan",
+    "extendedSessionVolume": "Kelantangan sesi lanjutan",
+    "newsCatalysts": "Pemangkin berita",
+    "equityHeatmaps": "Peta haba ekuiti",
+    "sectorPerformance": "Prestasi sektor",
+    "regionalBreadth": "Keluasan wilayah",
+    "assetClassComparison": "Perbandingan kelas aset",
+    "topGainers": "Pemenang tertinggi",
+    "topLosers": "Paling rugi",
+    "mostActive": "Paling aktif",
+    "unusualVolume": "Kelantangan luar biasa",
+    "vixOverview": "Gambaran keseluruhan VIX",
+    "fearGreedContext": "Konteks ketakutan dan ketamakan",
+    "volatilityTermStructure": "Struktur istilah turun naik",
+    "riskDashboard": "Papan pemuka risiko",
+    "countryFilters": "Penapis negara",
+    "exchangeStatistics": "Perangkaan pertukaran",
+    "listedCompanies": "Syarikat tersenarai",
+    "regionalNews": "Berita serantau",
+    "liveGainers": "Orang yang untung secara langsung",
+    "volumeFilters": "Penapis volum",
+    "marketCapFilters": "Penapis modal pasaran",
+    "sectorBreakdown": "Pecahan sektor",
+    "liveLosers": "Hidup rugi",
+    "riskAlerts": "Makluman risiko",
+    "indexImpact": "Kesan indeks",
+    "watchlistActions": "Tindakan senarai pantauan",
+    "trendingCoins": "Syiling sohor kini",
+    "marketCapRanking": "Kedudukan topi pasaran",
+    "exchangeListings": "Senarai pertukaran",
+    "historicalPerformance": "Persembahan sejarah",
+    "memeCoinRankings": "Kedudukan syiling meme",
+    "volumeBursts": "Kelantangan pecah",
+    "communityMomentum": "Momentum komuniti",
+    "riskFlags": "Bendera risiko",
+    "defiEcosystem": "Ekosistem DeFi",
+    "tvlMetrics": "metrik TVL",
+    "protocolCategories": "Kategori protokol",
+    "tokenPerformance": "Prestasi token",
+    "layer1Chains": "Lapisan 1 rantai",
+    "consensusDetails": "Butiran konsensus",
+    "tokenomics": "Tokenomik",
+    "developerEcosystem": "Ekosistem pemaju",
+    "stablecoinSupply": "Bekalan stablecoin",
+    "pegMonitoring": "Pemantauan pasak",
+    "exchangeLiquidity": "Kecairan pertukaran",
+    "reserveContext": "Konteks simpanan",
+    "spotPrices": "Harga spot",
+    "futuresPrices": "Harga hadapan",
+    "supplyDemandAnalysis": "Analisis bekalan-permintaan",
+    "correlationAnalysis": "Analisis korelasi",
+    "preciousMetals": "Logam berharga",
+    "industrialMetals": "Logam industri",
+    "futuresContracts": "Kontrak niaga hadapan",
+    "currencySensitivity": "Kepekaan mata wang",
+    "cropMarkets": "Pasaran tanaman",
+    "weatherImpact": "Kesan cuaca",
+    "supplyRegions": "Kawasan bekalan",
+    "seasonality": "Kemusim",
+    "industrialInputs": "Input industri",
+    "demandTrends": "Trend permintaan",
+    "manufacturingSignals": "Isyarat pembuatan",
+    "regionalSupply": "Bekalan serantau",
+    "regionWiseNews": "Berita serantau",
+    "macroSummaries": "Ringkasan makro",
+    "marketAlerts": "Makluman pasaran",
+    "sectorWiseNews": "Berita dari segi sektor",
+    "themeTracking": "Penjejakan tema",
+    "aiSummaries": "Ringkasan AI",
+    "etfImpact": "Kesan ETF",
+    "cryptoNews": "Berita kripto",
+    "onChainContext": "Konteks dalam rantaian",
+    "regulationUpdates": "Kemas kini peraturan",
+    "exchangeDevelopments": "Perkembangan pertukaran",
+    "breakingCatalysts": "Pemangkin pecah",
+    "importanceFilters": "Penapis kepentingan",
+    "liveMarketSummary": "Ringkasan pasaran langsung",
+    "filters": "Penapis",
+    "analyticsWidgets": "Widget analitis",
+    "relatedNews": "Berita berkaitan"
+  },
+  "sentiment": {
+    "Equities": {
+      "label": "Ekuiti",
+      "detail": "Keluasan risiko"
+    },
+    "FX": {
+      "label": "FX",
+      "detail": "USD bercampur"
+    },
+    "Crypto": {
+      "label": "Kripto",
+      "detail": "Bidaan momentum"
+    },
+    "Commodities": {
+      "label": "Komoditi",
+      "detail": "Tenaga lebih lembut"
+    }
+  },
+  "ytdShort": "YTD",
+  "dashboardCards": {
+    "nyseMeta": "S&P 500 / USD / New York",
+    "usdMeta": "Federal Reserve / asas global",
+    "bitcoinMeta": "BTC berbanding USD, FX dan risiko ekuiti",
+    "regionMeta": "Pertumbuhan China / hasil Jepun / pendapatan India / sumber Australia",
+    "sectorMeta": "Capex awan / pengewangan AI / bekalan semikonduktor / penilaian",
+    "commodityMeta": "Mendorong inflasi pengangkutan, pendapatan tenaga, hasil fiskal dan sentimen risiko global."
+  }
 }

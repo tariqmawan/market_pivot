@@ -223,7 +223,7 @@ export default function EconomicCalendarAdminPage() {
 
   return (
     <AdminCrudPage<AdminEconomicEvent>
-      title={t("src_client_admin_pages_economiccalendaradminpage__l223__h0")}
+      title={t("admin/economiccalendaradminpage.h0")}
       subtitle="Macro releases, central bank decisions, impact tagging, consensus/actual tracking"
       useStore={useEconomicEventAdminStore}
       columns={columns}
@@ -283,10 +283,10 @@ export default function EconomicCalendarAdminPage() {
       exportName="economic-events"
       validate={(entry) => {
         const errs: Partial<Record<keyof AdminEconomicEvent, string>> = {};
-        if (!entry.title.trim()) errs.title = t("src_client_admin_pages_economiccalendaradminpage__l283__h1");
+        if (!entry.title.trim()) errs.title = t("admin/economiccalendaradminpage.h1");
         if (!entry.scheduledFor) errs.scheduledFor = "Schedule required";
         if (items.some((e) => e.title === entry.title && e.scheduledFor === entry.scheduledFor && e.id !== entry.id))
-          errs.title = t("src_client_admin_pages_economiccalendaradminpage__l286__h2");
+          errs.title = t("admin/economiccalendaradminpage.h2");
         return errs;
       }}
     />

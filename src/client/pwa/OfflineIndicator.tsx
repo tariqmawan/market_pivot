@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { onNetworkChange } from "./pwaManager";
+import { useI18n } from "../i18n";
 
 /**
  * Subtle status pill shown in the corner of the layout whenever the
@@ -7,6 +8,7 @@ import { onNetworkChange } from "./pwaManager";
  * events and animates in/out smoothly.
  */
 export const OfflineIndicator: React.FC = () => {
+  const { t } = useI18n();
   const [online, setOnline] = useState(
     typeof navigator !== "undefined" ? navigator.onLine : true
   );
@@ -17,7 +19,7 @@ export const OfflineIndicator: React.FC = () => {
 
   return (
     <div className="mp-offline-indicator" role="status" aria-live="polite">
-      <span aria-hidden="true">●</span> Offline — showing cached data
+      <span aria-hidden="true">●</span> {t("pwa.offline")}
     </div>
   );
 };

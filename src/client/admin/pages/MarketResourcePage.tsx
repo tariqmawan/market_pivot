@@ -76,8 +76,8 @@ export default function MarketResourcePage({
     <div className="mp-admin-content">
       <PageHeader title={title} subtitle={subtitle} />
       <div className="mp-admin-toolbar">
-        <input className="mp-admin-search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={t("src_client_admin_pages_marketresourcepage__l75__h0")} />
-        <button type="button" className="mp-admin-action-btn" onClick={() => void load()}>{t("src_client_admin_pages_marketresourcepage__l76__h1")}</button>
+        <input className="mp-admin-search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={t("admin/marketresourcepage.h0")} />
+        <button type="button" className="mp-admin-action-btn" onClick={() => void load()}>{t("admin/marketresourcepage.h1")}</button>
       </div>
       {error ? <p className="mp-admin-error-text">{error}</p> : null}
       <DataTable columns={cols} rows={rows} loading={loading} keyField={idField} />
@@ -85,11 +85,11 @@ export default function MarketResourcePage({
       {editing ? (
         <div className="mp-admin-modal-overlay" onClick={() => setEditing(null)}>
           <div className="mp-admin-modal" onClick={(e) => e.stopPropagation()}>
-            <h3>{t("src_client_admin_pages_marketresourcepage__l84__h2")}</h3>
-            <label>{t("src_client_admin_pages_marketresourcepage__l85__h3")}<input value={String(editing.name ?? "")} onChange={(e) => setEditing({ ...editing, name: e.target.value })} /></label>
+            <h3>{t("admin/marketresourcepage.h2")}</h3>
+            <label>{t("admin/marketresourcepage.h3")}<input value={String(editing.name ?? "")} onChange={(e) => setEditing({ ...editing, name: e.target.value })} /></label>
             <div className="mp-admin-modal-actions">
-              <button type="button" className="mp-admin-action-btn" onClick={() => void saveEdit()}>{t("src_client_admin_pages_marketresourcepage__l87__h4")}</button>
-              <button type="button" className="mp-admin-link-btn" onClick={() => setEditing(null)}>{t("src_client_admin_pages_marketresourcepage__l88__h5")}</button>
+              <button type="button" className="mp-admin-action-btn" onClick={() => void saveEdit()}>{t("admin/marketresourcepage.h4")}</button>
+              <button type="button" className="mp-admin-link-btn" onClick={() => setEditing(null)}>{t("admin/marketresourcepage.h5")}</button>
             </div>
           </div>
         </div>

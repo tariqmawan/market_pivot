@@ -12,7 +12,10 @@
       "circulatingSupply": 21000000,
       "consensusMechanism": "Proof of Work",
       "blockTime": 10,
-      "logo": "/logos/crypto/btc.svg"
+      "logo": "/logos/crypto/btc.svg",
+      "nameKey": "crypto.cryptocurrencies.bitcoin.name",
+      "categoryKey": "crypto.categories.layer1",
+      "descriptionKey": "crypto.cryptocurrencies.bitcoin.description"
     },
     {
       "id": "ethereum",
@@ -26,7 +29,10 @@
       "circulatingSupply": 120000000,
       "consensusMechanism": "Proof of Stake",
       "blockTime": 12,
-      "logo": "/logos/crypto/eth.svg"
+      "logo": "/logos/crypto/eth.svg",
+      "nameKey": "crypto.cryptocurrencies.ethereum.name",
+      "categoryKey": "crypto.categories.layer1",
+      "descriptionKey": "crypto.cryptocurrencies.ethereum.description"
     },
     {
       "id": "binancecoin",
@@ -40,7 +46,10 @@
       "circulatingSupply": 610000000,
       "consensusMechanism": "Proof of Authority",
       "blockTime": 3,
-      "logo": "/logos/crypto/bnb.svg"
+      "logo": "/logos/crypto/bnb.svg",
+      "nameKey": "crypto.cryptocurrencies.binancecoin.name",
+      "categoryKey": "crypto.categories.layer1",
+      "descriptionKey": "crypto.cryptocurrencies.binancecoin.description"
     },
     {
       "id": "solana",
@@ -54,7 +63,10 @@
       "circulatingSupply": 425000000,
       "consensusMechanism": "Proof of History",
       "blockTime": 0.4,
-      "logo": "/logos/crypto/sol.svg"
+      "logo": "/logos/crypto/sol.svg",
+      "nameKey": "crypto.cryptocurrencies.solana.name",
+      "categoryKey": "crypto.categories.layer1",
+      "descriptionKey": "crypto.cryptocurrencies.solana.description"
     },
     {
       "id": "cardano",
@@ -68,7 +80,10 @@
       "circulatingSupply": 33000000000,
       "consensusMechanism": "Proof of Stake",
       "blockTime": 20,
-      "logo": "/logos/crypto/ada.svg"
+      "logo": "/logos/crypto/ada.svg",
+      "nameKey": "crypto.cryptocurrencies.cardano.name",
+      "categoryKey": "crypto.categories.layer1",
+      "descriptionKey": "crypto.cryptocurrencies.cardano.description"
     },
     {
       "id": "avalanche-2",
@@ -82,7 +97,10 @@
       "circulatingSupply": 406000000,
       "consensusMechanism": "Proof of Stake",
       "blockTime": 2,
-      "logo": "/logos/crypto/avax.svg"
+      "logo": "/logos/crypto/avax.svg",
+      "nameKey": "crypto.cryptocurrencies.avalanche2.name",
+      "categoryKey": "crypto.categories.layer1",
+      "descriptionKey": "crypto.cryptocurrencies.avalanche2.description"
     },
     {
       "id": "polkadot",
@@ -96,7 +114,10 @@
       "circulatingSupply": 1160000000,
       "consensusMechanism": "Proof of Stake",
       "blockTime": 6,
-      "logo": "/logos/crypto/dot.svg"
+      "logo": "/logos/crypto/dot.svg",
+      "nameKey": "crypto.cryptocurrencies.polkadot.name",
+      "categoryKey": "crypto.categories.layer1",
+      "descriptionKey": "crypto.cryptocurrencies.polkadot.description"
     },
     {
       "id": "tron",
@@ -110,7 +131,10 @@
       "circulatingSupply": 1000000000000,
       "consensusMechanism": "Delegated Proof of Stake",
       "blockTime": 3,
-      "logo": "/logos/crypto/trx.svg"
+      "logo": "/logos/crypto/trx.svg",
+      "nameKey": "crypto.cryptocurrencies.tron.name",
+      "categoryKey": "crypto.categories.layer1",
+      "descriptionKey": "crypto.cryptocurrencies.tron.description"
     },
     {
       "id": "tether",
@@ -124,7 +148,10 @@
       "circulatingSupply": 95000000000,
       "consensusMechanism": "Centralized",
       "blockTime": null,
-      "logo": "/logos/crypto/usdt.svg"
+      "logo": "/logos/crypto/usdt.svg",
+      "nameKey": "crypto.cryptocurrencies.tether.name",
+      "categoryKey": "crypto.categories.stablecoin",
+      "descriptionKey": "crypto.cryptocurrencies.tether.description"
     },
     {
       "id": "usd-coin",
@@ -138,7 +165,10 @@
       "circulatingSupply": 33000000000,
       "consensusMechanism": "Centralized",
       "blockTime": null,
-      "logo": "/logos/crypto/usdc.svg"
+      "logo": "/logos/crypto/usdc.svg",
+      "nameKey": "crypto.cryptocurrencies.usdCoin.name",
+      "categoryKey": "crypto.categories.stablecoin",
+      "descriptionKey": "crypto.cryptocurrencies.usdCoin.description"
     },
     {
       "id": "dai",
@@ -152,7 +182,10 @@
       "circulatingSupply": 5500000000,
       "consensusMechanism": "Smart Contracts",
       "blockTime": 12,
-      "logo": "/logos/crypto/dai.svg"
+      "logo": "/logos/crypto/dai.svg",
+      "nameKey": "crypto.cryptocurrencies.dai.name",
+      "categoryKey": "crypto.categories.stablecoin",
+      "descriptionKey": "crypto.cryptocurrencies.dai.description"
     },
     {
       "id": "chainlink",
@@ -166,7 +199,10 @@
       "circulatingSupply": 600000000,
       "consensusMechanism": "Proof of Stake",
       "blockTime": null,
-      "logo": "/logos/crypto/link.svg"
+      "logo": "/logos/crypto/link.svg",
+      "nameKey": "crypto.cryptocurrencies.chainlink.name",
+      "categoryKey": "crypto.categories.infrastructure",
+      "descriptionKey": "crypto.cryptocurrencies.chainlink.description"
     },
     {
       "id": "matic-network",
@@ -180,7 +216,10 @@
       "circulatingSupply": 9300000000,
       "consensusMechanism": "Proof of Stake",
       "blockTime": 2,
-      "logo": "/logos/crypto/matic.svg"
+      "logo": "/logos/crypto/matic.svg",
+      "nameKey": "crypto.cryptocurrencies.maticNetwork.name",
+      "categoryKey": "crypto.categories.layer2",
+      "descriptionKey": "crypto.cryptocurrencies.maticNetwork.description"
     },
     {
       "id": "uniswap",
@@ -194,7 +233,10 @@
       "circulatingSupply": 679000000,
       "consensusMechanism": "Governance",
       "blockTime": 12,
-      "logo": "/logos/crypto/uni.svg"
+      "logo": "/logos/crypto/uni.svg",
+      "nameKey": "crypto.cryptocurrencies.uniswap.name",
+      "categoryKey": "crypto.categories.defi",
+      "descriptionKey": "crypto.cryptocurrencies.uniswap.description"
     },
     {
       "id": "aave",
@@ -208,7 +250,10 @@
       "circulatingSupply": 14848484,
       "consensusMechanism": "Governance",
       "blockTime": 12,
-      "logo": "/logos/crypto/aave.svg"
+      "logo": "/logos/crypto/aave.svg",
+      "nameKey": "crypto.cryptocurrencies.aave.name",
+      "categoryKey": "crypto.categories.defi",
+      "descriptionKey": "crypto.cryptocurrencies.aave.description"
     },
     {
       "id": "compound-governance-token",
@@ -222,7 +267,10 @@
       "circulatingSupply": 8800000,
       "consensusMechanism": "Governance",
       "blockTime": 12,
-      "logo": "/logos/crypto/comp.svg"
+      "logo": "/logos/crypto/comp.svg",
+      "nameKey": "crypto.cryptocurrencies.compoundGovernanceToken.name",
+      "categoryKey": "crypto.categories.defi",
+      "descriptionKey": "crypto.cryptocurrencies.compoundGovernanceToken.description"
     },
     {
       "id": "maker",
@@ -236,7 +284,10 @@
       "circulatingSupply": 896213,
       "consensusMechanism": "Governance",
       "blockTime": 12,
-      "logo": "/logos/crypto/mkr.svg"
+      "logo": "/logos/crypto/mkr.svg",
+      "nameKey": "crypto.cryptocurrencies.maker.name",
+      "categoryKey": "crypto.categories.defi",
+      "descriptionKey": "crypto.cryptocurrencies.maker.description"
     },
     {
       "id": "curve-dao-token",
@@ -250,7 +301,10 @@
       "circulatingSupply": 1369544882,
       "consensusMechanism": "Governance",
       "blockTime": 12,
-      "logo": "/logos/crypto/crv.svg"
+      "logo": "/logos/crypto/crv.svg",
+      "nameKey": "crypto.cryptocurrencies.curveDaoToken.name",
+      "categoryKey": "crypto.categories.defi",
+      "descriptionKey": "crypto.cryptocurrencies.curveDaoToken.description"
     },
     {
       "id": "cosmos",
@@ -264,7 +318,10 @@
       "circulatingSupply": 380000000,
       "consensusMechanism": "Proof of Stake",
       "blockTime": 6,
-      "logo": "/logos/crypto/atom.svg"
+      "logo": "/logos/crypto/atom.svg",
+      "nameKey": "crypto.cryptocurrencies.cosmos.name",
+      "categoryKey": "crypto.categories.layer1",
+      "descriptionKey": "crypto.cryptocurrencies.cosmos.description"
     },
     {
       "id": "ripple",
@@ -278,7 +335,10 @@
       "circulatingSupply": 53000000000,
       "consensusMechanism": "Federated Byzantine Agreement",
       "blockTime": 3.5,
-      "logo": "/logos/crypto/xrp.svg"
+      "logo": "/logos/crypto/xrp.svg",
+      "nameKey": "crypto.cryptocurrencies.ripple.name",
+      "categoryKey": "crypto.categories.payments",
+      "descriptionKey": "crypto.cryptocurrencies.ripple.description"
     },
     {
       "id": "litecoin",
@@ -292,7 +352,10 @@
       "circulatingSupply": 73000000,
       "consensusMechanism": "Proof of Work",
       "blockTime": 2.5,
-      "logo": "/logos/crypto/ltc.svg"
+      "logo": "/logos/crypto/ltc.svg",
+      "nameKey": "crypto.cryptocurrencies.litecoin.name",
+      "categoryKey": "crypto.categories.payments",
+      "descriptionKey": "crypto.cryptocurrencies.litecoin.description"
     },
     {
       "id": "stellar",
@@ -306,7 +369,10 @@
       "circulatingSupply": 50000000000,
       "consensusMechanism": "Stellar Consensus Protocol",
       "blockTime": 3,
-      "logo": "/logos/crypto/xlm.svg"
+      "logo": "/logos/crypto/xlm.svg",
+      "nameKey": "crypto.cryptocurrencies.stellar.name",
+      "categoryKey": "crypto.categories.payments",
+      "descriptionKey": "crypto.cryptocurrencies.stellar.description"
     },
     {
       "id": "the-open-network",
@@ -320,7 +386,10 @@
       "circulatingSupply": 5000000000,
       "consensusMechanism": "Proof of Stake",
       "blockTime": 5,
-      "logo": "/logos/crypto/ton.svg"
+      "logo": "/logos/crypto/ton.svg",
+      "nameKey": "crypto.cryptocurrencies.theOpenNetwork.name",
+      "categoryKey": "crypto.categories.layer1",
+      "descriptionKey": "crypto.cryptocurrencies.theOpenNetwork.description"
     },
     {
       "id": "arbitrum",
@@ -334,7 +403,10 @@
       "circulatingSupply": 9300000000,
       "consensusMechanism": "Governance",
       "blockTime": 0.25,
-      "logo": "/logos/crypto/arb.svg"
+      "logo": "/logos/crypto/arb.svg",
+      "nameKey": "crypto.cryptocurrencies.arbitrum.name",
+      "categoryKey": "crypto.categories.layer2",
+      "descriptionKey": "crypto.cryptocurrencies.arbitrum.description"
     },
     {
       "id": "dogecoin",
@@ -348,7 +420,10 @@
       "circulatingSupply": 143000000000,
       "consensusMechanism": "Proof of Work",
       "blockTime": 1,
-      "logo": "/logos/crypto/doge.svg"
+      "logo": "/logos/crypto/doge.svg",
+      "nameKey": "crypto.cryptocurrencies.dogecoin.name",
+      "categoryKey": "crypto.categories.meme",
+      "descriptionKey": "crypto.cryptocurrencies.dogecoin.description"
     },
     {
       "id": "shiba-inu",
@@ -362,7 +437,10 @@
       "circulatingSupply": 589349955937246,
       "consensusMechanism": "ERC-20 Token",
       "blockTime": 12,
-      "logo": "/logos/crypto/shib.svg"
+      "logo": "/logos/crypto/shib.svg",
+      "nameKey": "crypto.cryptocurrencies.shibaInu.name",
+      "categoryKey": "crypto.categories.meme",
+      "descriptionKey": "crypto.cryptocurrencies.shibaInu.description"
     },
     {
       "id": "pepe",
@@ -376,7 +454,10 @@
       "circulatingSupply": 420690000000000,
       "consensusMechanism": "ERC-20 Token",
       "blockTime": 12,
-      "logo": "/logos/crypto/pepe.svg"
+      "logo": "/logos/crypto/pepe.svg",
+      "nameKey": "crypto.cryptocurrencies.pepe.name",
+      "categoryKey": "crypto.categories.meme",
+      "descriptionKey": "crypto.cryptocurrencies.pepe.description"
     },
     {
       "id": "bonk",
@@ -390,7 +471,10 @@
       "circulatingSupply": 66981492849000,
       "consensusMechanism": "SPL Token",
       "blockTime": 0.4,
-      "logo": "/logos/crypto/bonk.svg"
+      "logo": "/logos/crypto/bonk.svg",
+      "nameKey": "crypto.cryptocurrencies.bonk.name",
+      "categoryKey": "crypto.categories.meme",
+      "descriptionKey": "crypto.cryptocurrencies.bonk.description"
     },
     {
       "id": "floki",
@@ -404,7 +488,10 @@
       "circulatingSupply": 9647354973748,
       "consensusMechanism": "ERC-20 / BEP-20 Token",
       "blockTime": 12,
-      "logo": "/logos/crypto/floki.svg"
+      "logo": "/logos/crypto/floki.svg",
+      "nameKey": "crypto.cryptocurrencies.floki.name",
+      "categoryKey": "crypto.categories.meme",
+      "descriptionKey": "crypto.cryptocurrencies.floki.description"
     }
   ]
 }

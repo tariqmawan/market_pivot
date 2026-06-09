@@ -9,8 +9,8 @@
   "regions": "المناطق",
   "sectors": "القطاعات",
   "news": "الأخبار",
-  "calendar": "التقويم",
-  "userPanel": "لوحة المستخدم",
+  
+  
   "pricing": "الأسعار",
   "tools": "الأدوات",
   "coverage": "التغطية",
@@ -29,30 +29,30 @@
   "watchlists": "قوائم المراقبة",
   "portfolioTracker": "متتبع المحفظة",
   "alerts": "التنبيهات",
-  "trendingCoins": "العملات الرائجة",
-  "memeCoins": "عملات الميم",
-  "defi": "التمويل اللامركزي",
-  "layer1": "الطبقة الأولى",
-  "stablecoins": "العملات المستقرة",
-  "energy": "الطاقة",
-  "metals": "المعادن",
-  "agriculture": "الزراعة",
-  "industrial": "الصناعة",
-  "americas": "الأمريكتان",
-  "europe": "أوروبا",
-  "asiaPacific": "آسيا والمحيط الهادئ",
-  "middleEastAfrica": "الشرق الأوسط وأفريقيا",
-  "technology": "التكنولوجيا",
-  "banking": "البنوك",
-  "ai": "الذكاء الاصطناعي",
-  "ev": "المركبات الكهربائية",
-  "semiconductor": "أشباه الموصلات",
-  "defence": "الدفاع",
-  "globalNews": "الأخبار العالمية",
-  "regionNews": "أخبار المناطق",
-  "sectorNews": "أخبار القطاعات",
-  "cryptoNews": "أخبار العملات الرقمية",
-  "marketAlerts": "تنبيهات السوق",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "byRegion": "حسب المنطقة",
   "nyse": "بورصة نيويورك",
   "nasdaq": "ناسداك",
@@ -60,5 +60,33 @@
   "navMain": "التنقل الرئيسي",
   "homeAria": "الصفحة الرئيسية لـ MarketsPivot",
   "openMenu": "فتح القائمة",
-  "adminTopNav": "تنقل الإدارة"
+  "adminTopNav": "تنقل الإدارة",
+  "fx": "الفوركس",
+  "Calendar": "التقويم",
+  "UserPanel": "لوحة المستخدم",
+  "adminPanel": "لوحة الإدارة",
+  "TrendingCoins": "عملات رائجة",
+  "MemeCoins": "عملات ميمي",
+  "Defi": "التمويل اللامركزي",
+  "Layer1": "الطبقة الأولى",
+  "Stablecoins": "العملات المستقرة",
+  "Energy": "الطاقة",
+  "Metals": "المعادن",
+  "Agriculture": "الزراعة",
+  "Industrial": "الصناعة",
+  "Americas": "الأمريكتان",
+  "Europe": "أوروبا",
+  "AsiaPacific": "آسيا والمحيط الهادئ",
+  "MiddleEastAfrica": "الشرق الأوسط وأفريقيا",
+  "Technology": "التكنولوجيا",
+  "Banking": "البنوك",
+  "Ai": "الذكاء الاصطناعي",
+  "Ev": "المركبات الكهربائية",
+  "Semiconductor": "أشباه الموصلات",
+  "Defence": "الدفاع",
+  "GlobalNews": "أخبار عالمية",
+  "RegionNews": "أخبار إقليمية",
+  "SectorNews": "أخبار القطاعات",
+  "CryptoNews": "أخبار العملات المشفرة",
+  "MarketAlerts": "تنبيهات السوق"
 }

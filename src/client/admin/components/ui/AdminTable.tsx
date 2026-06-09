@@ -125,7 +125,7 @@ export default function AdminTable<T extends { id: string }>({
                   type="checkbox"
                   checked={allSelected}
                   onChange={() => onToggleAll?.(pageRows)}
-                  aria-label={t("src_client_admin_components_ui_admintable__l124__h0")}
+                  aria-label={t("admin/uiAdmintable.h0")}
                 />
               </th>
             )}

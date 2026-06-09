@@ -1,132 +1,628 @@
 {
-  "title": "全球市场情报仪表盘",
-  "subtitle": "实时风格概览指数、异动、外汇、加密货币、大宗商品、经济事件、市场情绪、新闻和观察列表。",
-  "globalMarkets": "全球多资产市场",
-  "homeTitle": "MarketsPivot",
-  "homeCopy": "以彭博风格覆盖股票、固定收益背景、外汇、大宗商品、衍生品和加密市场视图。",
-  "intelligenceTitle": "一站式全球市场情报平台",
-  "intelligenceCopy": "在统一工作区追踪交易所时段、外汇压力、数字资产、收益率背景、大宗商品和衍生品。",
-  "liveTape": "实时市场行情带",
-  "terminalView": "终端视图",
-  "assetCoverage": "资产覆盖",
-  "compareMarkets": "并排比较市场",
-  "compareMarketsCopy": "无需切换工作区，即可从纽交所到卢比、从比特币到纳斯达克，或从原油到利率快速切换。",
-  "marketBrief": "市场简报",
-  "openingBell": "开盘钟",
-  "riskView": "风险视图",
-  "globalHeatmap": "全球热力图",
-  "equities": "股票",
-  "stockCount": "股票交易所",
-  "exchangeDashboards": "全球交易所仪表盘",
-  "regionsMeta": "区域指数、宏观日历、外汇与大宗商品影响",
-  "currencyCount": "货币",
-  "fxMeta": "储备、贸易与新兴市场外汇",
-  "sectorsMeta": "股票分类、ETF、龙头与板块新闻",
-  "usdBase": "美元基准策略",
-  "cryptoMeta": "龙头、稳定币、DeFi、支付",
-  "cryptoLayer": "全天候市场层",
-  "topGlobalExchanges": "全球主要股票交易所",
-  "exchangeIntro": "按区域覆盖货币、时区、交易时段、上市数量、主要指数和市值背景。",
-  "topCurrencies": "全球前20大货币",
-  "currencyIntro": "覆盖主要储备货币、亚太贸易货币、美洲、欧洲、中东和非洲市场。",
-  "topCryptos": "前20大加密货币",
-  "cryptoIntro": "覆盖核心龙头、智能合约平台、稳定币、基础设施、DeFi、支付和成长型资产。",
-  "crossMarket": "跨市场视图",
-  "topExchange": "领先交易所",
-  "coreReserve": "核心储备",
-  "cryptoLeader": "加密龙头",
-  "primaryBase": "主要换算基准",
-  "marketCap": "市值",
-  "listedCompanies": "上市公司",
-  "avgDailyVolume": "日均成交量",
-  "tradingHours": "交易时间",
   "advancers": "上涨家数",
-  "decliners": "下跌家数",
-  "chart": "图表",
-  "topMovers": "主要异动",
-  "founded": "成立时间",
-  "mainIndex": "主要指数",
-  "baseCurrency": "基础货币",
-  "website": "网站",
-  "topGainers": "涨幅榜",
-  "topLosers": "跌幅榜",
-  "mostActive": "最活跃",
-  "loadingGainers": "正在加载上涨榜...",
-  "loadingLosers": "正在加载下跌榜...",
-  "loadingActive": "正在加载活跃榜...",
-  "liveBadge": "实时",
   "asiaClosed": "亚洲收盘分化；欧洲买盘偏强",
-  "cryptoBetaOutperform": "加密高贝塔资产跑赢股票",
-  "fxPressure": "外汇压力：关注日元、卢比、兰特",
-  "regionIntelligence": "区域情报",
-  "marketsByGeography": "按地理区域查看市场",
-  "countries": "国家",
-  "sectorIntelligence": "板块情报",
-  "equityThemes": "股票主题与分类",
-  "commodityIntelligence": "大宗商品情报",
-  "macroInputs": "宏观输入与期货",
-  "majorIndices": "主要指数",
-  "worldSnapshot": "全球市场快照",
-  "marketMovers": "市场异动",
-  "gainersAndLosers": "涨跌榜",
-  "economicEventsToday": "今日经济事件",
-  "macroCalendar": "宏观日历",
-  "forexMiniCards": "外汇迷你卡片",
-  "currencyPulse": "货币脉搏",
-  "cryptoOverview": "加密市场概览",
-  "marketCapLeaders": "市值龙头",
-  "commoditySnapshot": "大宗商品快照",
-  "spotAndFutures": "现货与期货",
-  "watchlistPreview": "观察列表预览",
-  "watchlistCopy": "快速访问已保存标的、跨资产提醒、组合背景和账户偏好。",
-  "sp500Meta": "S&P 500 / 美元 / 纽约",
-  "federalReserveMeta": "美联储 / 全球基准",
+  "assetCoverage": "资产覆盖",
+  "avgDailyVolume": "日均成交量",
+  "baseCurrency": "基础货币",
   "btcMeta": "BTC 对美元、外汇和股票风险",
-  "regionPulse": "区域脉搏",
-  "sectorPulse": "板块脉搏",
-  "commodityPulse": "商品脉搏",
-  "gdpGrowthShort": "GDP 增长",
-  "marketSentiment": "市场情绪",
-  "noTradingPairs": "暂无可用交易对。",
-  "loadingSectors": "正在加载板块...",
-  "noSectorData": "暂无板块数据。",
-  "noNewsAvailable": "该交易所暂无新闻。",
-  "volumeShort": "成交量：",
-  "momentumLabel": "动量",
-  "unusualVolLabel": "异常成交量",
-  "crashAlert": "暴跌预警",
-  "oversold": "超卖",
-  "reversalLabel": "反转",
-  "whaleActivity": "大户活动",
-  "unusualActivity": "异常活动",
-  "companiesLabel": "公司：",
-  "marketRegion": "市场区域",
-  "majorExchanges": "主要交易所",
-  "keyIndices": "关键指数",
-  "economicCalendar": "经济日历",
-  "sectorLeaders": "板块龙头",
-  "commodityImpact": "商品影响",
-  "trendingStocks": "热门股票",
-  "dividendLeaders": "股息龙头",
-  "relatedRegions": "相关区域",
-  "newsThemes": "新闻主题",
-  "inflation": "通胀",
   "calendarFocus": "日历焦点",
-  "regionsHeading": "全球市场区域",
-  "regionsIntro": "覆盖全球市场的区域指数、宏观日历、外汇和大宗商品影响。",
-  "stockSector": "股票板块",
-  "sectorsTitle": "板块",
-  "sectorsHeading": "股票分类与板块情报",
-  "sectorsIntro": "覆盖科技、银行、人工智能、能源、医疗、矿业、房地产、半导体和主题股票。",
-  "commodity": "大宗商品",
-  "supplyRegions": "供应区域",
-  "demandTrends": "需求趋势",
-  "currencyCorrelation": "货币相关性",
-  "commoditiesTitle": "大宗商品",
+  "chart": "图表",
+  "commodities": {
+    "brent": {
+      "name": "布伦特原油"
+    },
+    "copper": {
+      "name": "铜"
+    },
+    "crudeOil": {
+      "name": "市场数据概览"
+    },
+    "gold": {
+      "name": "黄金"
+    },
+    "lithium": {
+      "name": "碳酸锂"
+    },
+    "naturalGas": {
+      "name": "天然气"
+    },
+    "silver": {
+      "name": "白银"
+    },
+    "uranium": {
+      "name": "铀"
+    },
+    "wheat": {
+      "name": "小麦"
+    }
+  },
   "commoditiesHeading": "能源、金属、农业与工业投入品",
   "commoditiesIntro": "现货价格、期货参考、供应区域、需求趋势、货币相关性和宏观影响。",
-  "moduleWorkspaceCopy": "该工作区属于 MarketsPivot 全球市场情报结构的一部分。",
+  "commoditiesTitle": "大宗商品",
+  "commodity": "大宗商品",
+  "commodityImpact": "商品影响",
+  "commodityIntelligence": "大宗商品情报",
+  "commodityPulse": "商品脉搏",
+  "commoditySnapshot": "大宗商品快照",
+  "companiesLabel": "公司：",
+  "compareMarkets": "并排比较市场",
+  "compareMarketsCopy": "无需切换工作区，即可从纽交所到卢比、从比特币到纳斯达克，或从原油到利率快速切换。",
+  "coreReserve": "核心储备",
+  "countries": {
+    "ae": {
+      "name": "阿联酋"
+    },
+    "au": {
+      "name": "澳大利亚"
+    },
+    "br": {
+      "name": "巴西"
+    },
+    "ca": {
+      "name": "加拿大"
+    },
+    "ch": {
+      "name": "瑞士"
+    },
+    "cl": {
+      "name": "智利"
+    },
+    "cn": {
+      "name": "中国"
+    },
+    "de": {
+      "name": "德国"
+    },
+    "es": {
+      "name": "西班牙"
+    },
+    "eu": {
+      "name": "欧盟"
+    },
+    "gb": {
+      "name": "英国"
+    },
+    "hk": {
+      "name": "香港"
+    },
+    "id": {
+      "name": "印度尼西亚"
+    },
+    "in": {
+      "name": "印度"
+    },
+    "it": {
+      "name": "意大利"
+    },
+    "jp": {
+      "name": "日本"
+    },
+    "kr": {
+      "name": "韩国"
+    },
+    "mx": {
+      "name": "墨西哥"
+    },
+    "my": {
+      "name": "马来西亚"
+    },
+    "sa": {
+      "name": "沙特阿拉伯"
+    },
+    "se": {
+      "name": "北欧和波罗的海地区"
+    },
+    "sg": {
+      "name": "新加坡"
+    },
+    "th": {
+      "name": "泰国"
+    },
+    "tw": {
+      "name": "台湾"
+    },
+    "us": {
+      "name": "美国"
+    },
+    "za": {
+      "name": "南非"
+    }
+  },
+  "crashAlert": "暴跌预警",
+  "crossMarket": "跨市场视图",
+  "cryptoBetaOutperform": "加密高贝塔资产跑赢股票",
+  "cryptoIntro": "覆盖核心龙头、智能合约平台、稳定币、基础设施、DeFi、支付和成长型资产。",
+  "cryptoLayer": "全天候市场层",
+  "cryptoLeader": "加密龙头",
+  "cryptoMeta": "龙头、稳定币、DeFi、支付",
+  "cryptoOverview": "加密市场概览",
+  "currencyCorrelation": "货币相关性",
+  "currencyCount": "货币",
+  "currencyIntro": "覆盖主要储备货币、亚太贸易货币、美洲、欧洲、中东和非洲市场。",
+  "currencyPulse": "货币脉搏",
+  "decliners": "下跌家数",
+  "demandTrends": "需求趋势",
+  "dividendLeaders": "股息龙头",
+  "economicCalendar": "经济日历",
+  "economicEventsToday": "今日经济事件",
+  "equities": "股票",
+  "equityThemes": "股票主题与分类",
+  "exchangeDashboards": "全球交易所仪表盘",
+  "exchangeIntro": "按区域覆盖货币、时区、交易时段、上市数量、主要指数和市值背景。",
+  "exchanges": {
+    "adx": {
+      "name": "阿布扎比证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "asx": {
+      "name": "澳大利亚证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "b3": {
+      "name": "交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "bcs": {
+      "name": "圣地亚哥证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "bit": {
+      "name": "意大利证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "bm": {
+      "name": "马来西亚交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "bme": {
+      "name": "交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "bmv": {
+      "name": "墨西哥证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "bse": {
+      "name": "孟买证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "dfm": {
+      "name": "迪拜金融市场",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "euronext": {
+      "name": "泛欧交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "hkex": {
+      "name": "香港交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "idx": {
+      "name": "印度尼西亚证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "jse": {
+      "name": "约翰内斯堡证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "krx": {
+      "name": "韩国交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "lse": {
+      "name": "伦敦证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "nasdaq": {
+      "name": "NASDAQ",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "nse": {
+      "name": "印度国家证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "nyse": {
+      "name": "纽约证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "omx": {
+      "name": "纳斯达克北欧",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "set": {
+      "name": "泰国证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "sgx": {
+      "name": "新加坡交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "six": {
+      "name": "瑞士证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "sse": {
+      "name": "上海证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "szse": {
+      "name": "深圳证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "tadawul": {
+      "name": "沙特交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "tse": {
+      "name": "东京证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "tsx": {
+      "name": "多伦多证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "twse": {
+      "name": "台湾证券交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "xetra": {
+      "name": "德意志交易所",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    }
+  },
+  "feature": "功能",
+  "federalReserveMeta": "美联储 / 全球基准",
+  "forexMiniCards": "外汇迷你卡片",
+  "founded": "成立时间",
+  "fxMeta": "储备、贸易与新兴市场外汇",
+  "fxPressure": "外汇压力：关注日元、卢比、兰特",
+  "gainersAndLosers": "涨跌榜",
+  "gdpGrowthShort": "市场数据概览",
+  "globalHeatmap": "全球热力图",
+  "globalMarkets": "全球多资产市场",
+  "homeCopy": "以彭博风格覆盖股票、固定收益背景、外汇、大宗商品、衍生品和加密市场视图。",
+  "homeTitle": "MarketsPivot",
+  "inflation": "通胀",
+  "intelligenceCopy": "在统一工作区追踪交易所时段、外汇压力、数字资产、收益率背景、大宗商品和衍生品。",
+  "intelligenceTitle": "一站式全球市场情报平台",
+  "keyIndices": "关键指数",
+  "listedCompanies": "上市公司",
+  "liveBadge": "实时",
+  "liveTape": "实时市场行情带",
+  "loadingActive": "正在加载活跃榜...",
+  "loadingGainers": "正在加载上涨榜...",
+  "loadingLosers": "正在加载下跌榜...",
+  "loadingSectors": "正在加载板块...",
+  "macroCalendar": "宏观日历",
+  "macroInputs": "宏观输入与期货",
+  "mainIndex": "主要指数",
+  "majorExchanges": "主要交易所",
+  "majorIndices": "主要指数",
+  "marketBrief": "市场简报",
+  "marketCap": "市值",
+  "marketCapLeaders": "市值龙头",
+  "marketMovers": "市场异动",
+  "marketRegion": "市场区域",
+  "marketSentiment": "市场情绪",
+  "marketsByGeography": "按地理区域查看市场",
   "moduleFeatureReady": "已为实时 API、筛选器、图表和已保存用户流程做好准备。",
+  "moduleWorkspaceCopy": "市场数据概览",
+  "momentumLabel": "动量",
+  "mostActive": "最活跃",
+  "newsThemes": "新闻主题",
+  "noNewsAvailable": "该交易所暂无新闻。",
+  "noSectorData": "暂无板块数据。",
+  "noTradingPairs": "暂无可用交易对。",
+  "openingBell": "开盘钟",
+  "oversold": "超卖",
   "planned": "规划中",
-  "feature": "功能"
+  "primaryBase": "主要换算基准",
+  "regionIntelligence": "区域情报",
+  "regionPulse": "区域脉搏",
+  "regions": {
+    "americas": {
+      "name": "美洲"
+    },
+    "asiaPacific": {
+      "name": "亚太"
+    },
+    "europe": {
+      "name": "欧洲"
+    },
+    "middleEastAfrica": {
+      "name": "中东和非洲"
+    }
+  },
+  "regionsHeading": "全球市场区域",
+  "regionsIntro": "覆盖全球市场的区域指数、宏观日历、外汇和大宗商品影响。",
+  "regionsMeta": "区域指数、宏观日历、外汇与大宗商品影响",
+  "relatedRegions": "相关区域",
+  "reversalLabel": "反转",
+  "riskView": "风险视图",
+  "sectorIntelligence": "板块情报",
+  "sectorLeaders": "板块龙头",
+  "sectorPulse": "板块脉搏",
+  "sectors": {
+    "ai": {
+      "name": "人工智能"
+    },
+    "banking": {
+      "name": "银行"
+    },
+    "defence": {
+      "name": "国防"
+    },
+    "electricVehicles": {
+      "name": "电动汽车"
+    },
+    "energy": {
+      "name": "能源"
+    },
+    "healthcare": {
+      "name": "医疗保健"
+    },
+    "mining": {
+      "name": "矿业"
+    },
+    "realEstate": {
+      "name": "房地产"
+    },
+    "retail": {
+      "name": "零售"
+    },
+    "semiconductor": {
+      "name": "半导体"
+    },
+    "technology": {
+      "name": "科技"
+    }
+  },
+  "sectorsHeading": "股票分类与板块情报",
+  "sectorsIntro": "覆盖科技、银行、人工智能、能源、医疗、矿业、房地产、半导体和主题股票。",
+  "sectorsMeta": "股票分类、ETF、龙头与板块新闻",
+  "sectorsTitle": "板块",
+  "sp500Meta": "S&P 500 / 美元 / 纽约",
+  "spotAndFutures": "现货与期货",
+  "stockCount": "股票交易所",
+  "stockSector": "股票板块",
+  "subtitle": "实时风格概览指数、异动、外汇、加密货币、大宗商品、经济事件、市场情绪、新闻和观察列表。",
+  "supplyRegions": "供应区域",
+  "terminalView": "终端视图",
+  "timezones": {
+    "africaJohannesburg": {
+      "name": "市场数据概览"
+    },
+    "americaMexicoCity": {
+      "name": "市场数据概览"
+    },
+    "americaNewYork": {
+      "name": "市场数据概览"
+    },
+    "americaSantiago": {
+      "name": "市场数据概览"
+    },
+    "americaSaoPaulo": {
+      "name": "市场数据概览"
+    },
+    "americaToronto": {
+      "name": "市场数据概览"
+    },
+    "asiaBangkok": {
+      "name": "市场数据概览"
+    },
+    "asiaDubai": {
+      "name": "市场数据概览"
+    },
+    "asiaHongKong": {
+      "name": "市场数据概览"
+    },
+    "asiaJakarta": {
+      "name": "市场数据概览"
+    },
+    "asiaKolkata": {
+      "name": "市场数据概览"
+    },
+    "asiaKualaLumpur": {
+      "name": "市场数据概览"
+    },
+    "asiaRiyadh": {
+      "name": "市场数据概览"
+    },
+    "asiaSeoul": {
+      "name": "市场数据概览"
+    },
+    "asiaShanghai": {
+      "name": "市场数据概览"
+    },
+    "asiaSingapore": {
+      "name": "市场数据概览"
+    },
+    "asiaTaipei": {
+      "name": "市场数据概览"
+    },
+    "asiaTokyo": {
+      "name": "市场数据概览"
+    },
+    "australiaSydney": {
+      "name": "市场数据概览"
+    },
+    "europeBerlin": {
+      "name": "市场数据概览"
+    },
+    "europeLondon": {
+      "name": "市场数据概览"
+    },
+    "europeMadrid": {
+      "name": "市场数据概览"
+    },
+    "europeParis": {
+      "name": "市场数据概览"
+    },
+    "europeRome": {
+      "name": "市场数据概览"
+    },
+    "europeStockholm": {
+      "name": "股票"
+    },
+    "europeZurich": {
+      "name": "市场数据概览"
+    }
+  },
+  "title": "全球市场情报仪表盘",
+  "topCryptos": "前20大加密货币",
+  "topCurrencies": "全球前20大货币",
+  "topExchange": "领先交易所",
+  "topGainers": "涨幅榜",
+  "topGlobalExchanges": "全球主要股票交易所",
+  "topLosers": "跌幅榜",
+  "topMovers": "主要异动",
+  "tradingHours": "交易时间",
+  "trendingStocks": "热门股票",
+  "unusualActivity": "异常活动",
+  "unusualVolLabel": "异常成交量",
+  "usdBase": "美元基准策略",
+  "volumeShort": "成交量：",
+  "watchlistCopy": "快速访问已保存标的、跨资产提醒、组合背景和账户偏好。",
+  "watchlistPreview": "观察列表预览",
+  "website": "网站",
+  "whaleActivity": "大户活动",
+  "worldSnapshot": "全球市场快照",
+  "exchangeNetwork": "交易所网络",
+  "stockExchanges": "证券交易所",
+  "allExchanges": "全部交易所",
+  "advancedScreener": "高级筛选器",
+  "regionExchangesTitle": "市场概览",
+  "regionalExchangeDashboards": "区域",
+  "noExchangesForRegion": "区域",
+  "exchangeRegions": {
+    "americas": "美洲",
+    "northAmerica": "北美",
+    "europe": "欧洲",
+    "asia": "亚洲",
+    "asiaPacific": "亚太",
+    "oceania": "大洋洲",
+    "middleEast": "中东",
+    "africa": "非洲",
+    "middleEastAfrica": "中东和非洲",
+    "latinAmerica": "拉丁美洲"
+  },
+  "ytdShort": "年初至今",
+  "dashboardCards": {
+    "nyseMeta": "S&P 500 / 美元 / 纽约",
+    "usdMeta": "美联储 / 全球基准",
+    "bitcoinMeta": "BTC 对美元、外汇和股票风险",
+    "regionMeta": "中国增长 / 日本收益率 / 印度财报 / 澳大利亚资源",
+    "sectorMeta": "云资本开支 / AI 变现 / 半导体供应 / 估值",
+    "commodityMeta": "影响运输通胀、能源收益、财政收入和全球风险情绪。"
+  },
+  "moduleFeatures": {
+    "majorIndicesWidgets": "市场数据概览",
+    "topGainersLosers": "市场数据概览",
+    "heatmaps": "热力图",
+    "marketSentiment": "市场数据概览",
+    "preMarketMovers": "市场数据概览",
+    "indexFutures": "指数 期货",
+    "volumeSpikes": "市场数据概览",
+    "openingWatchlist": "自选列表",
+    "afterHoursMovers": "市场数据概览",
+    "earningsReactions": "市场数据概览",
+    "extendedSessionVolume": "市场数据概览",
+    "newsCatalysts": "市场数据概览",
+    "equityHeatmaps": "市场数据概览",
+    "sectorPerformance": "板块",
+    "regionalBreadth": "区域",
+    "assetClassComparison": "市场数据概览",
+    "topGainers": "市场数据概览",
+    "topLosers": "市场数据概览",
+    "mostActive": "最活跃",
+    "unusualVolume": "市场数据概览",
+    "vixOverview": "市场数据概览",
+    "fearGreedContext": "市场数据概览",
+    "volatilityTermStructure": "市场数据概览",
+    "riskDashboard": "风险",
+    "countryFilters": "市场数据概览",
+    "exchangeStatistics": "交易所",
+    "listedCompanies": "市场数据概览",
+    "regionalNews": "区域 新闻",
+    "liveGainers": "市场数据概览",
+    "volumeFilters": "成交量 筛选",
+    "marketCapFilters": "市场数据概览",
+    "sectorBreakdown": "板块",
+    "liveLosers": "市场数据概览",
+    "riskAlerts": "风险 提醒",
+    "indexImpact": "市场数据概览",
+    "watchlistActions": "自选列表",
+    "trendingCoins": "市场数据概览",
+    "marketCapRanking": "市场数据概览",
+    "exchangeListings": "交易所",
+    "historicalPerformance": "市场数据概览",
+    "memeCoinRankings": "市场数据概览",
+    "volumeBursts": "市场数据概览",
+    "communityMomentum": "市场数据概览",
+    "riskFlags": "风险",
+    "defiEcosystem": "市场数据概览",
+    "tvlMetrics": "市场数据概览",
+    "protocolCategories": "市场数据概览",
+    "tokenPerformance": "市场数据概览",
+    "layer1Chains": "市场数据概览",
+    "consensusDetails": "市场数据概览",
+    "tokenomics": "市场数据概览",
+    "developerEcosystem": "市场数据概览",
+    "stablecoinSupply": "市场数据概览",
+    "pegMonitoring": "市场数据概览",
+    "exchangeLiquidity": "交易所",
+    "reserveContext": "市场数据概览",
+    "spotPrices": "价格",
+    "futuresPrices": "价格",
+    "supplyDemandAnalysis": "市场数据概览",
+    "correlationAnalysis": "市场数据概览",
+    "preciousMetals": "市场数据概览",
+    "industrialMetals": "市场数据概览",
+    "futuresContracts": "市场数据概览",
+    "currencySensitivity": "货币",
+    "cropMarkets": "市场数据概览",
+    "weatherImpact": "市场数据概览",
+    "supplyRegions": "区域",
+    "seasonality": "市场数据概览",
+    "industrialInputs": "市场数据概览",
+    "demandTrends": "市场数据概览",
+    "manufacturingSignals": "市场数据概览",
+    "regionalSupply": "区域",
+    "regionWiseNews": "区域",
+    "macroSummaries": "市场数据概览",
+    "marketAlerts": "提醒",
+    "sectorWiseNews": "板块",
+    "themeTracking": "市场数据概览",
+    "aiSummaries": "市场数据概览",
+    "etfImpact": "市场数据概览",
+    "cryptoNews": "加密货币 新闻",
+    "onChainContext": "市场数据概览",
+    "regulationUpdates": "市场数据概览",
+    "exchangeDevelopments": "交易所",
+    "breakingCatalysts": "市场数据概览",
+    "importanceFilters": "市场数据概览",
+    "liveMarketSummary": "市场数据概览",
+    "filters": "筛选",
+    "analyticsWidgets": "市场数据概览",
+    "relatedNews": "市场数据概览"
+  },
+  "sentiment": {
+    "Equities": {
+      "label": "股票",
+      "detail": "市场数据概览"
+    },
+    "FX": {
+      "label": "市场数据概览",
+      "detail": "美元涨跌互现"
+    },
+    "Crypto": {
+      "label": "加密货币",
+      "detail": "动量买盘"
+    },
+    "Commodities": {
+      "label": "市场数据概览",
+      "detail": "能源偏弱"
+    }
+  }
 }

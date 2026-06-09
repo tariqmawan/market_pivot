@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import bondsYieldsData from "../../data/bonds_yields.json";
 import "../styles/index.css";
 import { useI18n } from "../i18n";
+import { translateSourceText } from "../i18n/translate";
 
 
 
@@ -24,6 +25,7 @@ const formatSignedPercent = (value: number) => `${value >= 0 ? "+" : ""}${value.
 
 const BondsYieldsPage: React.FC = () => {
   const { t } = useI18n();
+  const tx = (value: string) => translateSourceText(t, value);
   const [selectedCountry, setSelectedCountry] = React.useState<string | null>(null);
 
   // Group yields by country
@@ -52,22 +54,22 @@ const BondsYieldsPage: React.FC = () => {
       {/* Hero Section */}
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">{t("src_client_pages_bondsyieldspage__l51__h0")}</p>
-          <h1>{t("src_client_pages_bondsyieldspage__l52__h1")}</h1>
-          <p>{t("src_client_pages_bondsyieldspage__l53__h2")}</p>
+          <p className="eyebrow">{t("bondsyieldspage.h0")}</p>
+          <h1>{t("bondsyieldspage.h1")}</h1>
+          <p>{t("bondsyieldspage.h2")}</p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>{t("src_client_pages_bondsyieldspage__l57__h3")}</span>
-            <strong>{t("src_client_pages_bondsyieldspage__l58__h4")}</strong>
+            <span>{t("bondsyieldspage.h3")}</span>
+            <strong>{t("bondsyieldspage.h4")}</strong>
           </div>
           <div className="metric-tile">
-            <span>{t("src_client_pages_bondsyieldspage__l61__h5")}</span>
-            <strong>{t("src_client_pages_bondsyieldspage__l62__h6")}</strong>
+            <span>{t("bondsyieldspage.h5")}</span>
+            <strong>{t("bondsyieldspage.h6")}</strong>
           </div>
           <div className="metric-tile">
-            <span>{t("src_client_pages_bondsyieldspage__l65__h7")}</span>
-            <strong>{t("src_client_pages_bondsyieldspage__l66__h8")}</strong>
+            <span>{t("bondsyieldspage.h7")}</span>
+            <strong>{t("bondsyieldspage.h8")}</strong>
           </div>
         </div>
       </section>
@@ -88,7 +90,7 @@ const BondsYieldsPage: React.FC = () => {
               marginRight: "8px",
             }}
           >
-            All Countries
+            {tx("All Countries")}
           </button>
           {countries.map((country) => (
             <button
@@ -115,8 +117,8 @@ const BondsYieldsPage: React.FC = () => {
       {/* Yield Grid */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">{t("src_client_pages_bondsyieldspage__l114__h9")}</p>
-          <h2>{t("src_client_pages_bondsyieldspage__l115__h10")}</h2>
+          <p className="eyebrow">{t("bondsyieldspage.h9")}</p>
+          <h2>{t("bondsyieldspage.h10")}</h2>
         </div>
         <div
           style={{
@@ -167,7 +169,7 @@ const BondsYieldsPage: React.FC = () => {
                 }}
               >
                 <div>
-                  <span>{t("src_client_pages_bondsyieldspage__l166__h11")}</span>
+                  <span>{t("bondsyieldspage.h11")}</span>
                   <em
                     style={{
                       display: "block",
@@ -180,7 +182,7 @@ const BondsYieldsPage: React.FC = () => {
                   </em>
                 </div>
                 <div>
-                  <span>{t("src_client_pages_bondsyieldspage__l179__h12")}</span>
+                  <span>{t("bondsyieldspage.h12")}</span>
                   <em
                     style={{
                       display: "block",
@@ -201,8 +203,8 @@ const BondsYieldsPage: React.FC = () => {
       {/* Yield Curve Section */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">{t("src_client_pages_bondsyieldspage__l200__h13")}</p>
-          <h2>{t("src_client_pages_bondsyieldspage__l201__h14")}</h2>
+          <p className="eyebrow">{t("bondsyieldspage.h13")}</p>
+          <h2>{t("bondsyieldspage.h14")}</h2>
         </div>
         <div style={{ overflowX: "auto" }}>
           <table
@@ -214,10 +216,10 @@ const BondsYieldsPage: React.FC = () => {
           >
             <thead>
               <tr style={{ borderBottom: "2px solid #e2e8f0" }}>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_bondsyieldspage__l213__h15")}</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>Value (bp)</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_bondsyieldspage__l215__h16")}</th>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_bondsyieldspage__l216__h17")}</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("bondsyieldspage.h15")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{tx("Value (bp)")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("bondsyieldspage.h16")}</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("bondsyieldspage.h17")}</th>
               </tr>
             </thead>
             <tbody>
@@ -235,7 +237,7 @@ const BondsYieldsPage: React.FC = () => {
                       fontWeight: 600,
                     }}
                   >
-                    {spread.change >= 0 ? "+" : ""}{(spread.change * 100).toFixed(0)}bp
+                    {spread.change >= 0 ? "+" : ""}{(spread.change * 100).toFixed(0)}{tx("bp")}
                   </td>
                   <td style={{ padding: "12px", color: "#475569" }}>{spread.interpretation}</td>
                 </tr>
@@ -248,33 +250,33 @@ const BondsYieldsPage: React.FC = () => {
       {/* Insights */}
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("src_client_pages_bondsyieldspage__l247__h18")}</p>
-          <h3>{t("src_client_pages_bondsyieldspage__l248__h19")}</h3>
+          <p className="eyebrow">{t("bondsyieldspage.h18")}</p>
+          <h3>{t("bondsyieldspage.h19")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>{t("src_client_pages_bondsyieldspage__l250__h20")}</li>
-            <li>{t("src_client_pages_bondsyieldspage__l251__h21")}</li>
-            <li>{t("src_client_pages_bondsyieldspage__l252__h22")}</li>
-            <li>{t("src_client_pages_bondsyieldspage__l253__h23")}</li>
+            <li>{t("bondsyieldspage.h20")}</li>
+            <li>{t("bondsyieldspage.h21")}</li>
+            <li>{t("bondsyieldspage.h22")}</li>
+            <li>{t("bondsyieldspage.h23")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("src_client_pages_bondsyieldspage__l257__h24")}</p>
-          <h3>{t("src_client_pages_bondsyieldspage__l258__h25")}</h3>
+          <p className="eyebrow">{t("bondsyieldspage.h24")}</p>
+          <h3>{t("bondsyieldspage.h25")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>{t("src_client_pages_bondsyieldspage__l260__h26")}</li>
-            <li>{t("src_client_pages_bondsyieldspage__l261__h27")}</li>
-            <li>{t("src_client_pages_bondsyieldspage__l262__h28")}</li>
-            <li>{t("src_client_pages_bondsyieldspage__l263__h29")}</li>
+            <li>{t("bondsyieldspage.h26")}</li>
+            <li>{t("bondsyieldspage.h27")}</li>
+            <li>{t("bondsyieldspage.h28")}</li>
+            <li>{t("bondsyieldspage.h29")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("src_client_pages_bondsyieldspage__l267__h30")}</p>
-          <h3>{t("src_client_pages_bondsyieldspage__l268__h31")}</h3>
+          <p className="eyebrow">{t("bondsyieldspage.h30")}</p>
+          <h3>{t("bondsyieldspage.h31")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>Curve trades (steepeners/flatteners)</li>
-            <li>{t("src_client_pages_bondsyieldspage__l271__h32")}</li>
-            <li>{t("src_client_pages_bondsyieldspage__l272__h33")}</li>
-            <li>{t("src_client_pages_bondsyieldspage__l273__h34")}</li>
+            <li>{tx("Curve trades (steepeners/flatteners)")}</li>
+            <li>{t("bondsyieldspage.h32")}</li>
+            <li>{t("bondsyieldspage.h33")}</li>
+            <li>{t("bondsyieldspage.h34")}</li>
           </ul>
         </div>
       </section>
@@ -290,13 +292,11 @@ const BondsYieldsPage: React.FC = () => {
           textAlign: "center",
         }}
       >
-        <p className="eyebrow">{t("src_client_pages_bondsyieldspage__l289__h35")}</p>
-        <h3>{t("src_client_pages_bondsyieldspage__l290__h36")}</h3>
-        <p style={{ color: "#475569", marginTop: "8px", marginBottom: "16px" }}>
-          Yield curves anticipate economic changes — track them for macro alpha signals
-        </p>
+        <p className="eyebrow">{t("bondsyieldspage.h35")}</p>
+        <h3>{t("bondsyieldspage.h36")}</h3>
+        <p style={{ color: "#475569", marginTop: "8px", marginBottom: "16px" }}>{tx("Yield curves anticipate economic changes ? track them for macro alpha signals")}</p>
         <Link to="/economic-calendar" className="primary-action" style={{ textDecoration: "none" }}>
-          View Economic Calendar
+          {tx("View Economic Calendar")}
         </Link>
       </section>
     </div>

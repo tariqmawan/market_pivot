@@ -17,7 +17,7 @@ const formatMoney = (value: number) => {
 
 const formatSignedPercent = (value: number) => `${value >= 0 ? "+" : ""}${value.toFixed(2)}%`;
 
-const MoverCard: React.FC<{ mover: MarketMover }> = ({ mover }) => (
+const MoverCard: React.FC<{ mover: MarketMover; t: (key: string) => string }> = ({ mover, t }) => (
   <div
     style={{
       padding: "16px",
@@ -57,8 +57,8 @@ const MoverCard: React.FC<{ mover: MarketMover }> = ({ mover }) => (
       </div>
     </div>
     <div style={{ marginTop: "12px", fontSize: "12px", color: "#475569" }}>
-      <span>Volume: {((mover.volume ?? 0) / 1e6).toFixed(0)}M | </span>
-      <span>Cap: {formatMoney(mover.marketCap ?? 0)}</span>
+      <span>{t("markets:volumeShort")} {((mover.volume ?? 0) / 1e6).toFixed(0)}M | </span>
+      <span>{t("markets:marketCap")}: {formatMoney(mover.marketCap ?? 0)}</span>
     </div>
   </div>
 );
@@ -94,22 +94,22 @@ const PreMarketPage: React.FC = () => {
       {/* Hero Section */}
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">{t("src_client_pages_premarketpage__l93__h0")}</p>
-          <h1>{t("src_client_pages_premarketpage__l94__h1")}</h1>
-          <p>{t("src_client_pages_premarketpage__l95__h2")}</p>
+          <p className="eyebrow">{t("premarketpage.h0")}</p>
+          <h1>{t("premarketpage.h1")}</h1>
+          <p>{t("premarketpage.h2")}</p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>{t("src_client_pages_premarketpage__l99__h3")}</span>
-            <strong>{t("src_client_pages_premarketpage__l100__h4")}</strong>
+            <span>{t("premarketpage.h3")}</span>
+            <strong>{t("premarketpage.h4")}</strong>
           </div>
           <div className="metric-tile">
-            <span>{t("src_client_pages_premarketpage__l103__h5")}</span>
-            <strong>{t("src_client_pages_premarketpage__l104__h6")}</strong>
+            <span>{t("premarketpage.h5")}</span>
+            <strong>{t("premarketpage.h6")}</strong>
           </div>
           <div className="metric-tile">
-            <span>{t("src_client_pages_premarketpage__l107__h7")}</span>
-            <strong>{t("src_client_pages_premarketpage__l108__h8")}</strong>
+            <span>{t("premarketpage.h7")}</span>
+            <strong>{t("premarketpage.h8")}</strong>
           </div>
         </div>
       </section>
@@ -117,8 +117,8 @@ const PreMarketPage: React.FC = () => {
       {/* Index Futures Section */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">{t("src_client_pages_premarketpage__l116__h9")}</p>
-          <h2>{t("src_client_pages_premarketpage__l117__h10")}</h2>
+          <p className="eyebrow">{t("premarketpage.h9")}</p>
+          <h2>{t("premarketpage.h10")}</h2>
         </div>
         <div
           style={{
@@ -161,8 +161,8 @@ const PreMarketPage: React.FC = () => {
       {/* Pre-Market Movers */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">{t("src_client_pages_premarketpage__l160__h11")}</p>
-          <h2>{t("src_client_pages_premarketpage__l161__h12")}</h2>
+          <p className="eyebrow">{t("premarketpage.h11")}</p>
+          <h2>{t("premarketpage.h12")}</h2>
         </div>
         <div
           style={{
@@ -172,7 +172,7 @@ const PreMarketPage: React.FC = () => {
           }}
         >
           {preMarketMovers.map((mover) => (
-            <MoverCard key={mover.symbol} mover={mover as any} />
+            <MoverCard key={mover.symbol} mover={mover as any} t={t} />
           ))}
         </div>
       </section>
@@ -180,8 +180,8 @@ const PreMarketPage: React.FC = () => {
       {/* Volume Alerts */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">{t("src_client_pages_premarketpage__l179__h13")}</p>
-          <h2>{t("src_client_pages_premarketpage__l180__h14")}</h2>
+          <p className="eyebrow">{t("premarketpage.h13")}</p>
+          <h2>{t("premarketpage.h14")}</h2>
         </div>
         <div
           style={{
@@ -191,10 +191,10 @@ const PreMarketPage: React.FC = () => {
           }}
         >
           {[
-            { label: "NYSE", volume: "324M", note: "Above 20-day avg" },
-            { label: "NASDAQ", volume: "158M", note: "Mixed sentiment" },
-            { label: "AMEX", volume: "42M", note: "Below average" },
-            { label: "Futures", volume: "2.3B", note: "Heavy buying" },
+            { label: "NYSE", volume: "324M", noteKey: "common:marketRoutes.above20DayAvg" },
+            { label: "NASDAQ", volume: "158M", noteKey: "common:marketRoutes.mixedSentiment" },
+            { label: "AMEX", volume: "42M", noteKey: "common:marketRoutes.belowAverage" },
+            { label: "Futures", volume: "2.3B", noteKey: "common:marketRoutes.heavyBuying" },
           ].map((item) => (
             <div
               key={item.label}
@@ -206,7 +206,7 @@ const PreMarketPage: React.FC = () => {
             >
               <p style={{ fontSize: "12px", fontWeight: 600, color: "#A27841" }}>{item.label}</p>
               <strong style={{ fontSize: "16px", display: "block", marginTop: "8px" }}>{item.volume}</strong>
-              <p style={{ fontSize: "12px", color: "#475569", marginTop: "4px" }}>{item.note}</p>
+              <p style={{ fontSize: "12px", color: "#475569", marginTop: "4px" }}>{t(item.noteKey)}</p>
             </div>
           ))}
         </div>
@@ -222,14 +222,14 @@ const PreMarketPage: React.FC = () => {
           border: "1px solid rgba(162, 120, 65, 0.2)",
         }}
       >
-        <p className="eyebrow">{t("src_client_pages_premarketpage__l221__h15")}</p>
-        <h3>{t("src_client_pages_premarketpage__l222__h16")}</h3>
+        <p className="eyebrow">{t("premarketpage.h15")}</p>
+        <h3>{t("premarketpage.h16")}</h3>
         <p style={{ color: "#475569", marginTop: "12px" }}>
-          NYSE and NASDAQ open at 9:30 AM ET | Pre-market session continues until open
+          {t("common:marketRoutes.usMarketOpenNote")}
         </p>
         <div style={{ marginTop: "16px" }}>
           <Link to="/dashboard" className="primary-action" style={{ textDecoration: "none" }}>
-            View Market Dashboard
+            {t("common:marketRoutes.viewMarketDashboard")}
           </Link>
         </div>
       </section>

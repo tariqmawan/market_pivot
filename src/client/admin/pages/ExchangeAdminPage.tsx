@@ -159,7 +159,7 @@ export default function ExchangeAdminPage() {
 
   return (
     <AdminCrudPage<AdminExchange>
-      title={t("src_client_admin_pages_exchangeadminpage__l158__h0")}
+      title={t("admin/exchangeadminpage.h0")}
       subtitle="Trading venues, sessions, regions, status, holidays, and metadata"
       useStore={useExchangeAdminStore}
       columns={columns}

@@ -168,14 +168,14 @@ const RegionsPage: React.FC = () => {
       <div className="page regions-list">
         <section className="coverage-hero">
           <div>
-            <p className="eyebrow">{t("src_client_pages_regionspagenew__l167__h0")}</p>
-            <h1>{t("src_client_pages_regionspagenew__l168__h1")}</h1>
-            <p>{t("src_client_pages_regionspagenew__l173_h0")}</p>
+            <p className="eyebrow">{t("regionspagenew.h0_l167")}</p>
+            <h1>{t("regionspagenew.h1")}</h1>
+            <p>{t("regionspagenew.h0_l173")}</p>
           </div>
           <div className="metric-strip">
-            <div className="metric-tile"><span>{t("src_client_pages_regionspagenew__l172__h3")}</span><strong>{regions.length}</strong></div>
-            <div className="metric-tile"><span>{t("src_client_pages_regionspagenew__l173__h4")}</span><strong>{regions.reduce((s, r) => s + r.countries.length, 0)}</strong></div>
-            <div className="metric-tile"><span>{t("src_client_pages_regionspagenew__l174__h5")}</span><strong>{exchanges.length}</strong></div>
+            <div className="metric-tile"><span>{t("regionspagenew.h3")}</span><strong>{regions.length}</strong></div>
+            <div className="metric-tile"><span>{t("regionspagenew.h4")}</span><strong>{regions.reduce((s, r) => s + r.countries.length, 0)}</strong></div>
+            <div className="metric-tile"><span>{t("regionspagenew.h5")}</span><strong>{exchanges.length}</strong></div>
           </div>
         </section>
 
@@ -190,9 +190,9 @@ const RegionsPage: React.FC = () => {
                 </div>
                 <p className="region-summary">{r.summary}</p>
                 <div className="region-card-stats">
-                  <div><span>{t("src_client_pages_regionspagenew__l189__h6")}</span><strong>{r.gdpGrowth.toFixed(1)}%</strong></div>
-                  <div><span>{t("src_client_pages_regionspagenew__l190__h7")}</span><strong>{r.inflation.toFixed(1)}%</strong></div>
-                  <div><span>{t("src_client_pages_regionspagenew__l191__h8")}</span><strong>{r.countries.length}</strong></div>
+                  <div><span>{t("regionspagenew.h6")}</span><strong>{r.gdpGrowth.toFixed(1)}%</strong></div>
+                  <div><span>{t("regionspagenew.h7")}</span><strong>{r.inflation.toFixed(1)}%</strong></div>
+                  <div><span>{t("regionspagenew.h8")}</span><strong>{r.countries.length}</strong></div>
                 </div>
                 <div className="region-card-footer">
                   {r.currencies.slice(0, 4).map((c) => <span key={c} className="mini-pill">{c}</span>)}
@@ -239,7 +239,7 @@ const RegionsPage: React.FC = () => {
       </section>
 
       <section className="region-tabs-section">
-        <h2>{t("src_client_pages_regionspagenew__l225__h14")}</h2>
+        <h2>{t("regionspagenew.h14")}</h2>
         <div className="indices-grid">
           {detail.majorIndices.map((idx) => (
             <div key={idx.name} className="index-card">
@@ -274,19 +274,19 @@ const RegionsPage: React.FC = () => {
 
       <section className="region-macro-grid">
         <div className="macro-card">
-          <h3>{t("src_client_pages_regionspagenew__l260__h15")}</h3>
+          <h3>{t("regionspagenew.h15")}</h3>
           <div className="macro-stats">
-            <div><span>{t("src_client_pages_regionspagenew__l262__h16")}</span><strong>{formatMoney(detail.gdp)}</strong></div>
-            <div><span>{t("src_client_pages_regionspagenew__l263__h17")}</span><strong className={detail.gdpGrowth >= 0 ? "positive" : "negative"}>{detail.gdpGrowth.toFixed(1)}%</strong></div>
-            <div><span>{t("src_client_pages_regionspagenew__l264__h18")}</span><strong className={detail.inflation > 3 ? "negative" : "neutral"}>{detail.inflation.toFixed(1)}%</strong></div>
-            <div><span>{t("src_client_pages_regionspagenew__l265__h19")}</span><strong>{detail.unemployment.toFixed(1)}%</strong></div>
-            <div><span>{t("src_client_pages_regionspagenew__l266__h20")}</span><strong>{detail.interestRate.toFixed(2)}%</strong></div>
-            <div><span>{t("src_client_pages_regionspagenew__l267__h21")}</span><strong>{formatMoney(detail.marketCap)}</strong></div>
+            <div><span>{t("regionspagenew.h16")}</span><strong>{formatMoney(detail.gdp)}</strong></div>
+            <div><span>{t("regionspagenew.h17")}</span><strong className={detail.gdpGrowth >= 0 ? "positive" : "negative"}>{detail.gdpGrowth.toFixed(1)}%</strong></div>
+            <div><span>{t("regionspagenew.h18")}</span><strong className={detail.inflation > 3 ? "negative" : "neutral"}>{detail.inflation.toFixed(1)}%</strong></div>
+            <div><span>{t("regionspagenew.h19")}</span><strong>{detail.unemployment.toFixed(1)}%</strong></div>
+            <div><span>{t("regionspagenew.h20")}</span><strong>{detail.interestRate.toFixed(2)}%</strong></div>
+            <div><span>{t("regionspagenew.h21")}</span><strong>{formatMoney(detail.marketCap)}</strong></div>
           </div>
           <p className="macro-outlook">{detail.macroOutlook}</p>
         </div>
         <div className="macro-card">
-          <h3>{t("src_client_pages_regionspagenew__l272__h22")}</h3>
+          <h3>{t("regionspagenew.h22")}</h3>
           <div className="performance-grid">
             {["1D", "1W", "1M", "3M", "YTD", "1Y"].map((p, i) => {
               const value = ((i * 17 + 11) % 200) / 10 - 5;
@@ -303,7 +303,7 @@ const RegionsPage: React.FC = () => {
 
       <section className="region-row-grid">
         <div className="region-card-block">
-          <h3>{t("src_client_pages_regionspagenew__l289__h23")}</h3>
+          <h3>{t("regionspagenew.h23")}</h3>
           <div className="exchanges-list">
             {regionExchanges.length > 0 ? regionExchanges.map((ex) => (
               <Link key={ex.id} to={`/stocks/${ex.id}`} className="exchange-row">
@@ -315,13 +315,13 @@ const RegionsPage: React.FC = () => {
               </Link>
             )) : region.majorExchanges.map((ex) => (
               <Link key={ex} to={`/stocks/${ex}`} className="exchange-row">
-                <div><strong>{ex}</strong><span>{t("src_client_pages_regionspagenew__l301__h24")}</span></div>
+                <div><strong>{ex}</strong><span>{t("regionspagenew.h24")}</span></div>
               </Link>
             ))}
           </div>
         </div>
         <div className="region-card-block">
-          <h3>{t("src_client_pages_regionspagenew__l307__h25")}</h3>
+          <h3>{t("regionspagenew.h25")}</h3>
           <div className="exchanges-list">
             {regionCurrencies.length > 0 ? regionCurrencies.map((c) => (
               <Link key={c.code} to={`/currencies/${c.code}`} className="exchange-row">
@@ -333,13 +333,13 @@ const RegionsPage: React.FC = () => {
               </Link>
             )) : region.currencies.map((c) => (
               <Link key={c} to={`/currencies/${c}`} className="exchange-row">
-                <div><strong>{c}</strong><span>{t("src_client_pages_regionspagenew__l319__h26")}</span></div>
+                <div><strong>{c}</strong><span>{t("regionspagenew.h26")}</span></div>
               </Link>
             ))}
           </div>
         </div>
         <div className="region-card-block">
-          <h3>{t("src_client_pages_regionspagenew__l325__h27")}</h3>
+          <h3>{t("regionspagenew.h27")}</h3>
           <div className="country-list">
             {region.countries.map((country, i) => {
               const gdpShare = 30 + (i * 7 + 13) % 50;
@@ -376,7 +376,7 @@ const RegionsPage: React.FC = () => {
           </div>
         </div>
         <div className="region-card-block">
-          <h3>{t("src_client_pages_regionspagenew__l362__h28")}</h3>
+          <h3>{t("regionspagenew.h28")}</h3>
           <div className="exchanges-list">
             {region.sectorLeaders.map((s) => (
               <div key={s} className="sector-row">
@@ -388,7 +388,7 @@ const RegionsPage: React.FC = () => {
           </div>
         </div>
         <div className="region-card-block">
-          <h3>{t("src_client_pages_regionspagenew__l374__h29")}</h3>
+          <h3>{t("regionspagenew.h29")}</h3>
           <div className="region-heatmap">
             {region.currencies.slice(0, 8).map((c, i) => {
               const value = ((i * 13 + 7) % 200) / 10 - 5;
@@ -408,7 +408,7 @@ const RegionsPage: React.FC = () => {
       </section>
 
       <section className="region-card-block">
-        <h3>{t("src_client_pages_regionspagenew__l394__h30")}</h3>
+        <h3>{t("regionspagenew.h30")}</h3>
         <div className="forex-news-grid">
           {[
             { title: `${detail.name} central bank signals data-dependent path`, tag: "Policy", source: "Reuters" },
@@ -421,7 +421,7 @@ const RegionsPage: React.FC = () => {
             <article key={i} className="forex-news-card">
               <span className="news-tag">{n.tag}</span>
               <h4>{n.title}</h4>
-              <div className="news-meta"><span>{n.source}</span><span>{i + 1}h ago</span></div>
+              <div className="news-meta"><span>{n.source}</span><span>{t("forex:hoursAgo", "", { count: i + 1 })}</span></div>
             </article>
           ))}
         </div>

@@ -69,8 +69,8 @@ const UserProfilePage: React.FC = () => {
     return (
       <div className="page user-profile-page">
         <section className="user-auth-card">
-          <h1>{t("src_client_pages_userprofilepage__l69__h0")}</h1>
-          <p>{t("src_client_pages_userprofilepage__l70__h1")}</p>
+          <h1>{t("userProfile.signInTitle")}</h1>
+          <p>{t("userProfile.signInSubtitle")}</p>
         </section>
       </div>
     );
@@ -180,15 +180,15 @@ const UserProfilePage: React.FC = () => {
         <div className="profile-identity">
           <div className="profile-avatar">{user.name.charAt(0).toUpperCase()}</div>
           <div>
-            <p className="eyebrow">{t("src_client_pages_userprofilepage__l180__h2")}</p>
+            <p className="eyebrow">{t("userProfile.eyebrowAccount")}</p>
             <h1>{user.name}</h1>
             <p>{user.email} • {user.role}</p>
           </div>
         </div>
         <div className="metric-strip">
-          <div className="metric-tile"><span>{t("src_client_pages_userprofilepage__l186__h3")}</span><strong>{user.isAdmin ? "Admin" : "Pro"}</strong></div>
-          <div className="metric-tile"><span>{t("src_client_pages_userprofilepage__l187__h4")}</span><strong>{watchlists.length}</strong></div>
-          <div className="metric-tile"><span>{t("src_client_pages_userprofilepage__l188__h5")}</span><strong>{portfolios.length}</strong></div>
+          <div className="metric-tile"><span>{t("userProfile.metricPlan")}</span><strong>{user.isAdmin ? "Admin" : "Pro"}</strong></div>
+          <div className="metric-tile"><span>{t("userProfile.metricWatchlists")}</span><strong>{watchlists.length}</strong></div>
+          <div className="metric-tile"><span>{t("userProfile.metricPortfolios")}</span><strong>{portfolios.length}</strong></div>
         </div>
       </section>
 
@@ -212,41 +212,41 @@ const UserProfilePage: React.FC = () => {
               {section.label}
             </button>
           ))}
-          <button type="button" onClick={logout} className="logout-btn">{t("src_client_pages_userprofilepage__l212__h6")}</button>
+          <button type="button" onClick={logout} className="logout-btn">{t("userProfile.signOut")}</button>
         </aside>
 
         <main className="profile-main">
           {activeSection === "profile" && (
             <div className="profile-section">
-              <h2>{t("src_client_pages_userprofilepage__l218__h7")}</h2>
-              <p className="section-subtitle">{t("src_client_pages_userprofilepage__l219__h8")}</p>
+              <h2>{t("userProfile.profileInfoTitle")}</h2>
+              <p className="section-subtitle">{t("userProfile.profileInfoSubtitle")}</p>
 
               <div className="form-card">
                 <div className="form-row">
-                  <label>{t("src_client_pages_userprofilepage__l223__h9")}</label>
+                  <label>{t("userProfile.labelFullName")}</label>
                   <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
                 </div>
                 <div className="form-row">
-                  <label>{t("src_client_pages_userprofilepage__l227__h10")}</label>
+                  <label>{t("userProfile.labelEmail")}</label>
                   <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div className="form-row">
-                  <label>{t("src_client_pages_userprofilepage__l231__h11")}</label>
+                  <label>{t("userProfile.labelRole")}</label>
                   <input type="text" value={user.role} readOnly />
                 </div>
                 <div className="form-actions">
-                  <button onClick={handleSaveProfile} type="button" className="primary-action-sm">{t("src_client_pages_userprofilepage__l235__h12")}</button>
-                  <button onClick={() => { setName(user.name); setEmail(user.email); }} type="button" className="secondary-action-sm">{t("src_client_pages_userprofilepage__l236__h13")}</button>
+                  <button onClick={handleSaveProfile} type="button" className="primary-action-sm">{t("userProfile.btnSaveChanges")}</button>
+                  <button onClick={() => { setName(user.name); setEmail(user.email); }} type="button" className="secondary-action-sm">{t("userProfile.btnCancel")}</button>
                 </div>
               </div>
 
               <div className="form-card">
-                <h3>{t("src_client_pages_userprofilepage__l241__h14")}</h3>
-                <p className="section-subtitle">{t("src_client_pages_userprofilepage__l242__h15")}</p>
+                <h3>{t("userProfile.publicProfileTitle")}</h3>
+                <p className="section-subtitle">{t("userProfile.publicProfileSubtitle")}</p>
                 <div className="toggle-row">
                   <div>
-                    <strong>{t("src_client_pages_userprofilepage__l245__h16")}</strong>
-                    <span>{t("src_client_pages_userprofilepage__l246__h17")}</span>
+                    <strong>{t("userProfile.publicProfileToggle")}</strong>
+                    <span>{t("userProfile.publicProfileDesc")}</span>
                   </div>
                   <label className="toggle">
                     <input type="checkbox" checked={prefs.privacy.publicProfile} onChange={(e) => prefs.updatePrivacy("publicProfile", e.target.checked)} />
@@ -255,8 +255,8 @@ const UserProfilePage: React.FC = () => {
                 </div>
                 <div className="toggle-row">
                   <div>
-                    <strong>{t("src_client_pages_userprofilepage__l255__h18")}</strong>
-                    <span>{t("src_client_pages_userprofilepage__l256__h19")}</span>
+                    <strong>{t("userProfile.showPortfolioToggle")}</strong>
+                    <span>{t("userProfile.showPortfolioDesc")}</span>
                   </div>
                   <label className="toggle">
                     <input type="checkbox" checked={prefs.privacy.showPortfolio} onChange={(e) => prefs.updatePrivacy("showPortfolio", e.target.checked)} />
@@ -265,8 +265,8 @@ const UserProfilePage: React.FC = () => {
                 </div>
                 <div className="toggle-row">
                   <div>
-                    <strong>{t("src_client_pages_userprofilepage__l265__h20")}</strong>
-                    <span>{t("src_client_pages_userprofilepage__l266__h21")}</span>
+                    <strong>{t("userProfile.showWatchlistsToggle")}</strong>
+                    <span>{t("userProfile.showWatchlistsDesc")}</span>
                   </div>
                   <label className="toggle">
                     <input type="checkbox" checked={prefs.privacy.showWatchlists} onChange={(e) => prefs.updatePrivacy("showWatchlists", e.target.checked)} />
@@ -279,13 +279,13 @@ const UserProfilePage: React.FC = () => {
 
           {activeSection === "preferences" && (
             <div className="profile-section">
-              <h2>{t("src_client_pages_userprofilepage__l279__h22")}</h2>
-              <p className="section-subtitle">{t("src_client_pages_userprofilepage__l280__h23")}</p>
+              <h2>{t("userProfile.preferencesTitle")}</h2>
+              <p className="section-subtitle">{t("userProfile.preferencesSubtitle")}</p>
 
               <div className="form-card">
-                <h3>{t("src_client_pages_userprofilepage__l283__h24")}</h3>
+                <h3>{t("userProfile.appearanceTitle")}</h3>
                 <div className="form-row">
-                  <label>{t("src_client_pages_userprofilepage__l285__h25")}</label>
+                  <label>{t("userProfile.labelTheme")}</label>
                   <div className="theme-picker">
                     {(["light", "dark", "system"] as Theme[]).map((theme) => (
                       <button
@@ -300,7 +300,7 @@ const UserProfilePage: React.FC = () => {
                   </div>
                 </div>
                 <div className="form-row">
-                  <label>{t("src_client_pages_userprofilepage__l300__h26")}</label>
+                  <label>{t("userProfile.labelLayoutDensity")}</label>
                   <div className="theme-picker">
                     {(["comfortable", "compact"] as const).map((density) => (
                       <button
@@ -317,16 +317,16 @@ const UserProfilePage: React.FC = () => {
               </div>
 
               <div className="form-card">
-                <h3>{t("src_client_pages_userprofilepage__l317__h27")}</h3>
+                <h3>{t("userProfile.localizationTitle")}</h3>
                 <div className="form-row">
-                  <label>{t("src_client_pages_userprofilepage__l319__h28")}</label>
+                  <label>{t("userProfile.labelLanguage")}</label>
                   <div className="language-row">
                     <LanguageSwitcher />
                     <span className="muted">Current: {language}</span>
                   </div>
                 </div>
                 <div className="form-row">
-                  <label>{t("src_client_pages_userprofilepage__l326__h29")}</label>
+                  <label>{t("userProfile.labelBaseCurrency")}</label>
                   <select value={prefs.baseCurrency} onChange={(e) => prefs.setBaseCurrency(e.target.value as typeof prefs.baseCurrency)}>
                     {["USD", "EUR", "GBP", "JPY", "INR", "CNY", "AUD", "CAD"].map((c) => (
                       <option key={c} value={c}>{c}</option>
@@ -334,7 +334,7 @@ const UserProfilePage: React.FC = () => {
                   </select>
                 </div>
                 <div className="form-row">
-                  <label>{t("src_client_pages_userprofilepage__l334__h30")}</label>
+                  <label>{t("userProfile.labelDefaultMarket")}</label>
                   <select value={prefs.defaultMarket} onChange={(e) => prefs.setDefaultMarket(e.target.value as typeof prefs.defaultMarket)}>
                     {["Global", "Americas", "Europe", "Asia", "Africa", "Middle East"].map((m) => (
                       <option key={m} value={m}>{m}</option>
@@ -342,7 +342,7 @@ const UserProfilePage: React.FC = () => {
                   </select>
                 </div>
                 <div className="form-row">
-                  <label>{t("src_client_pages_userprofilepage__l342__h31")}</label>
+                  <label>{t("userProfile.labelDefaultLanding")}</label>
                   <select value={prefs.defaultLanding} onChange={(e) => prefs.setDefaultLanding(e.target.value as typeof prefs.defaultLanding)}>
                     {[
                       { value: "dashboard", label: "Dashboard" },
@@ -359,8 +359,8 @@ const UserProfilePage: React.FC = () => {
               </div>
 
               <div className="form-card">
-                <h3>{t("src_client_pages_userprofilepage__l359__h32")}</h3>
-                <p className="section-subtitle">{t("src_client_pages_userprofilepage__l360__h33")}</p>
+                <h3>{t("userProfile.riskProfileTitle")}</h3>
+                <p className="section-subtitle">{t("userProfile.riskProfileSubtitle")}</p>
                 <div className="risk-picker">
                   {(["conservative", "moderate", "aggressive", "speculative"] as RiskProfile[]).map((profile) => (
                     <button
@@ -391,11 +391,11 @@ const UserProfilePage: React.FC = () => {
 
           {activeSection === "notifications" && (
             <div className="profile-section">
-              <h2>{t("src_client_pages_userprofilepage__l391__h34")}</h2>
-              <p className="section-subtitle">{t("src_client_pages_userprofilepage__l392__h35")}</p>
+              <h2>{t("userProfile.notificationsTitle")}</h2>
+              <p className="section-subtitle">{t("userProfile.notificationsSubtitle")}</p>
 
               <div className="form-card">
-                <h3>{t("src_client_pages_userprofilepage__l395__h36")}</h3>
+                <h3>{t("userProfile.notificationTypesTitle")}</h3>
                 {[
                   { key: "priceAlerts" as const, label: "Price Alerts", desc: "When watchlist symbols hit target prices" },
                   { key: "earningsAlerts" as const, label: "Earnings Alerts", desc: "Upcoming and reported earnings" },
@@ -422,7 +422,7 @@ const UserProfilePage: React.FC = () => {
               </div>
 
               <div className="form-card">
-                <h3>{t("src_client_pages_userprofilepage__l422__h37")}</h3>
+                <h3>{t("userProfile.notificationChannelsTitle")}</h3>
                 <div className="channels-grid">
                   {(["email", "push", "sms", "inApp"] as NotificationChannel[]).map((channel) => (
                     <button
@@ -442,10 +442,10 @@ const UserProfilePage: React.FC = () => {
               </div>
 
               <div className="form-card">
-                <h3>{t("src_client_pages_userprofilepage__l442__h38")}</h3>
-                <p className="section-subtitle">{t("src_client_pages_userprofilepage__l443__h39")}</p>
+                <h3>{t("userProfile.quietHoursTitle")}</h3>
+                <p className="section-subtitle">{t("userProfile.quietHoursSubtitle")}</p>
                 <div className="form-row">
-                  <label>{t("src_client_pages_userprofilepage__l445__h40")}</label>
+                  <label>{t("userProfile.labelFrom")}</label>
                   <input
                     type="time"
                     value={prefs.notifications.quietHoursStart}
@@ -453,7 +453,7 @@ const UserProfilePage: React.FC = () => {
                   />
                 </div>
                 <div className="form-row">
-                  <label>{t("src_client_pages_userprofilepage__l453__h41")}</label>
+                  <label>{t("userProfile.labelTo")}</label>
                   <input
                     type="time"
                     value={prefs.notifications.quietHoursEnd}
@@ -466,8 +466,8 @@ const UserProfilePage: React.FC = () => {
 
           {activeSection === "privacy" && (
             <div className="profile-section">
-              <h2>{t("src_client_pages_userprofilepage__l466__h42")}</h2>
-              <p className="section-subtitle">{t("src_client_pages_userprofilepage__l467__h43")}</p>
+              <h2>{t("userProfile.privacyTitle")}</h2>
+              <p className="section-subtitle">{t("userProfile.privacySubtitle")}</p>
 
               <div className="form-card">
                 {[
@@ -494,10 +494,10 @@ const UserProfilePage: React.FC = () => {
               </div>
 
               <div className="form-card">
-                <h3>{t("src_client_pages_userprofilepage__l494__h44")}</h3>
+                <h3>{t("userProfile.dataManagementTitle")}</h3>
                 <div className="data-actions">
-                  <button type="button" className="secondary-action-sm" onClick={handleDownloadData}>{t("src_client_pages_userprofilepage__l496__h45")}</button>
-                  <button type="button" className="secondary-action-sm danger" onClick={handleDeleteAccount}>{t("src_client_pages_userprofilepage__l497__h46")}</button>
+                  <button type="button" className="secondary-action-sm" onClick={handleDownloadData}>{t("userProfile.btnDownloadData")}</button>
+                  <button type="button" className="secondary-action-sm danger" onClick={handleDeleteAccount}>{t("userProfile.btnDeleteAccount")}</button>
                 </div>
               </div>
             </div>
@@ -505,39 +505,39 @@ const UserProfilePage: React.FC = () => {
 
           {activeSection === "security" && (
             <div className="profile-section">
-              <h2>{t("src_client_pages_userprofilepage__l505__h47")}</h2>
-              <p className="section-subtitle">{t("src_client_pages_userprofilepage__l506__h48")}</p>
+              <h2>{t("userProfile.securityTitle")}</h2>
+              <p className="section-subtitle">{t("userProfile.securitySubtitle")}</p>
 
               <div className="form-card">
-                <h3>{t("src_client_pages_userprofilepage__l509__h49")}</h3>
+                <h3>{t("userProfile.changePasswordTitle")}</h3>
                 <form onSubmit={handlePasswordChange}>
                   <div className="form-row">
-                    <label>{t("src_client_pages_userprofilepage__l512__h50")}</label>
+                    <label>{t("userProfile.labelCurrentPassword")}</label>
                     <input type="password" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} />
                   </div>
                   <div className="form-row">
-                    <label>{t("src_client_pages_userprofilepage__l516__h51")}</label>
+                    <label>{t("userProfile.labelNewPassword")}</label>
                     <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} minLength={8} />
                   </div>
                   <div className="form-row">
-                    <label>{t("src_client_pages_userprofilepage__l520__h52")}</label>
+                    <label>{t("userProfile.labelConfirmPassword")}</label>
                     <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                   </div>
                   {passwordMsg && (
                     <div className={`form-message ${passwordMsg.type}`}>{passwordMsg.text}</div>
                   )}
                   <div className="form-actions">
-                    <button type="submit" className="primary-action-sm">{t("src_client_pages_userprofilepage__l527__h53")}</button>
+                    <button type="submit" className="primary-action-sm">{t("userProfile.btnUpdatePassword")}</button>
                   </div>
                 </form>
               </div>
 
               <div className="form-card">
-                <h3>{t("src_client_pages_userprofilepage__l533__h54")}</h3>
+                <h3>{t("userProfile.twoFactorTitle")}</h3>
                 <div className="toggle-row">
                   <div>
-                    <strong>{t("src_client_pages_userprofilepage__l536__h55")}</strong>
-                    <span>{t("src_client_pages_userprofilepage__l537__h56")}</span>
+                    <strong>{t("userProfile.twoFactorToggle")}</strong>
+                    <span>{t("userProfile.twoFactorDesc")}</span>
                   </div>
                   <label className="toggle">
                     <input type="checkbox" checked={prefs.security.twoFactorEnabled} onChange={handleToggle2FA} />
@@ -547,7 +547,7 @@ const UserProfilePage: React.FC = () => {
               </div>
 
               <div className="form-card">
-                <h3>{t("src_client_pages_userprofilepage__l547__h57")}</h3>
+                <h3>{t("userProfile.sessionSettingsTitle")}</h3>
                 <div className="form-row">
                   <label>Session Timeout (minutes)</label>
                   <input
@@ -560,8 +560,8 @@ const UserProfilePage: React.FC = () => {
                 </div>
                 <div className="toggle-row">
                   <div>
-                    <strong>{t("src_client_pages_userprofilepage__l560__h58")}</strong>
-                    <span>{t("src_client_pages_userprofilepage__l561__h59")}</span>
+                    <strong>{t("userProfile.loginAlertsToggle")}</strong>
+                    <span>{t("userProfile.loginAlertsDesc")}</span>
                   </div>
                   <label className="toggle">
                     <input type="checkbox" checked={prefs.security.loginAlerts} onChange={(e) => prefs.updateSecurity("loginAlerts", e.target.checked)} />
@@ -574,8 +574,8 @@ const UserProfilePage: React.FC = () => {
 
           {activeSection === "sessions" && (
             <div className="profile-section">
-              <h2>{t("src_client_pages_userprofilepage__l574__h60")}</h2>
-              <p className="section-subtitle">{t("src_client_pages_userprofilepage__l575__h61")}</p>
+              <h2>{t("userProfile.activeSessionsTitle")}</h2>
+              <p className="section-subtitle">{t("userProfile.activeSessionsSubtitle")}</p>
 
               <div className="form-card">
                 {[
@@ -590,14 +590,14 @@ const UserProfilePage: React.FC = () => {
                       <div className="session-info">
                         <strong>
                           {s.device}{" "}
-                          {s.current && <span className="current-pill">{t("src_client_pages_userprofilepage__l590__h62")}</span>}
-                          {isRevoked && <span className="current-pill" style={{ background: "#ef4444" }}>{t("src_client_pages_userprofilepage__l591__h63")}</span>}
+                          {s.current && <span className="current-pill">{t("userProfile.sessionCurrent")}</span>}
+                          {isRevoked && <span className="current-pill" style={{ background: "#ef4444" }}>{t("userProfile.sessionRevoked")}</span>}
                         </strong>
                         <span>{s.browser} • {s.location} • {s.ip}</span>
                         <em>{s.when}</em>
                       </div>
                       {!s.current && !isRevoked && (
-                        <button type="button" className="secondary-action-sm" onClick={() => handleRevokeSession(s.device)}>{t("src_client_pages_userprofilepage__l597__h64")}</button>
+                        <button type="button" className="secondary-action-sm" onClick={() => handleRevokeSession(s.device)}>{t("userProfile.btnRevoke")}</button>
                       )}
                     </div>
                   );
@@ -605,25 +605,25 @@ const UserProfilePage: React.FC = () => {
               </div>
 
               <div className="form-card">
-                <button type="button" className="secondary-action-sm danger" onClick={handleSignOutAllSessions}>{t("src_client_pages_userprofilepage__l605__h65")}</button>
+                <button type="button" className="secondary-action-sm danger" onClick={handleSignOutAllSessions}>{t("userProfile.btnSignOutAll")}</button>
               </div>
             </div>
           )}
 
           {activeSection === "activity" && (
             <div className="profile-section">
-              <h2>{t("src_client_pages_userprofilepage__l612__h66")}</h2>
-              <p className="section-subtitle">{t("src_client_pages_userprofilepage__l613__h67")}</p>
+              <h2>{t("userProfile.activityLogTitle")}</h2>
+              <p className="section-subtitle">{t("userProfile.activityLogSubtitle")}</p>
 
               <div className="form-card">
                 <div className="activity-stats">
-                  <div><span>{t("src_client_pages_userprofilepage__l617__h68")}</span><strong>{activities.length}</strong></div>
-                  <div><span>{t("src_client_pages_userprofilepage__l618__h69")}</span><strong>{activities.filter((a) => Date.now() - a.timestamp < 86400000).length}</strong></div>
-                  <div><span>{t("src_client_pages_userprofilepage__l619__h70")}</span><strong>{activities.filter((a) => Date.now() - a.timestamp < 7 * 86400000).length}</strong></div>
+                  <div><span>{t("userProfile.activityTotal")}</span><strong>{activities.length}</strong></div>
+                  <div><span>{t("userProfile.activityToday")}</span><strong>{activities.filter((a) => Date.now() - a.timestamp < 86400000).length}</strong></div>
+                  <div><span>{t("userProfile.activityThisWeek")}</span><strong>{activities.filter((a) => Date.now() - a.timestamp < 7 * 86400000).length}</strong></div>
                 </div>
                 <div className="activity-list">
                   {activities.length === 0 ? (
-                    <p className="empty">{t("src_client_pages_userprofilepage__l623__h71")}</p>
+                    <p className="empty">{t("userProfile.activityEmpty")}</p>
                   ) : (
                     activities.map((a) => (
                       <div key={a.id} className="activity-row">
@@ -638,7 +638,7 @@ const UserProfilePage: React.FC = () => {
                 </div>
                 {activities.length > 0 && (
                   <div className="form-actions">
-                    <button type="button" onClick={() => clearActivity()} className="secondary-action-sm">{t("src_client_pages_userprofilepage__l638__h72")}</button>
+                    <button type="button" onClick={() => clearActivity()} className="secondary-action-sm">{t("userProfile.btnClearActivity")}</button>
                   </div>
                 )}
               </div>

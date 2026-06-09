@@ -1,34 +1,260 @@
 {
-  "currencyType": "मुद्रा प्रकार",
-  "centralBank": "केंद्रीय बैंक",
-  "exchangeRates": "विनिमय दरें",
-  "converter": "कन्वर्टर",
-  "popularPairs": "लोकप्रिय जोड़े",
-  "economicData": "आर्थिक डेटा",
-  "code": "कोड",
-  "symbol": "प्रतीक",
-  "country": "देश",
-  "region": "क्षेत्र",
-  "type": "प्रकार",
-  "rate": "दर",
-  "bid": "बिड",
-  "ask": "आस्क",
-  "spread": "स्प्रेड",
-  "loadingRates": "विनिमय दरें लोड हो रही हैं...",
   "amountPlaceholder": "राशि दर्ज करें",
-  "economicIndicators": "आर्थिक संकेतक",
-  "interestRate": "ब्याज दर",
-  "inflationRate": "मुद्रास्फीति दर",
-  "gdpGrowth": "जीडीपी वृद्धि",
-  "employment": "रोजगार",
-  "dataLoading": "डेटा लोड हो रहा है...",
-  "economicNews": "आर्थिक समाचार और अपडेट",
+  "annualRate": "वार्षिक दर",
+  "ask": "आस्क",
+  "bid": "बिड",
+  "centralBank": "केंद्रीय बैंक",
+  "change24h": "24 घंटे बदलाव",
+  "code": "कोड",
+  "converter": "कन्वर्टर",
+  "countries": {
+    "ae": {
+      "name": "संयुक्त अरब अमीरात"
+    },
+    "au": {
+      "name": "ऑस्ट्रेलिया"
+    },
+    "br": {
+      "name": "ब्राज़िल"
+    },
+    "ca": {
+      "name": "कनाडा"
+    },
+    "ch": {
+      "name": "स्विट्ज़रलैंड"
+    },
+    "cl": {
+      "name": "चिली"
+    },
+    "cn": {
+      "name": "चीन"
+    },
+    "eu": {
+      "name": "यूरोपीय संघ"
+    },
+    "gb": {
+      "name": "यूनाइटेड किंगडम"
+    },
+    "hk": {
+      "name": "हांगकांग"
+    },
+    "in": {
+      "name": "भारत"
+    },
+    "jp": {
+      "name": "जापान"
+    },
+    "kr": {
+      "name": "दक्षिण कोरिया"
+    },
+    "mx": {
+      "name": "मेक्सिको"
+    },
+    "no": {
+      "name": "नॉर्वे"
+    },
+    "sa": {
+      "name": "सऊदी अरब"
+    },
+    "se": {
+      "name": "स्वीडन"
+    },
+    "sg": {
+      "name": "सिंगापुर"
+    },
+    "us": {
+      "name": "संयुक्त राज्य अमेरिका"
+    },
+    "za": {
+      "name": "दक्षिण अफ़्रीका"
+    }
+  },
+  "country": "देश",
+  "currencies": {
+    "aed": {
+      "name": "संयुक्त अरब अमीरात दिरहम",
+      "description": "खाड़ी वित्तीय केंद्र की मुद्रा USD से आंकी गई"
+    },
+    "aud": {
+      "name": "ऑस्ट्रेलियाई डॉलर",
+      "description": "कमोडिटी से जुड़ी मुद्रा, प्रमुख एशिया-प्रशांत केंद्र"
+    },
+    "brl": {
+      "name": "ब्राजीली रियल",
+      "description": "लैटिन अमेरिका की सबसे बड़ी अर्थव्यवस्था की मुद्रा"
+    },
+    "cad": {
+      "name": "कैनेडियन डॉलर",
+      "description": "G7 राष्ट्र की कमोडिटी-लिंक्ड मुद्रा"
+    },
+    "chf": {
+      "name": "स्विस फ़्रैंक",
+      "description": "सुरक्षित-हेवन मुद्रा स्थिरता और मजबूत क्रय शक्ति के लिए जानी जाती है"
+    },
+    "clp": {
+      "name": "चिली पेसो",
+      "description": "आर्थिक रूप से स्थिर लैटिन अमेरिकी राष्ट्र की मुद्रा"
+    },
+    "cny": {
+      "name": "चीनी युवान",
+      "description": "दुनिया की दूसरी सबसे बड़ी अर्थव्यवस्था की मुद्रा"
+    },
+    "eur": {
+      "name": "यूरो",
+      "description": "यूरोज़ोन की मुद्रा, दूसरी सबसे बड़ी आरक्षित मुद्रा"
+    },
+    "gbp": {
+      "name": "ब्रिटिश पाउंड स्टर्लिंग",
+      "description": "यूके की मुद्रा, सबसे पुरानी मुद्राओं में से एक"
+    },
+    "hkd": {
+      "name": "हांगकांग का डॉलर",
+      "description": "प्रमुख एशियाई वित्तीय केंद्र मुद्रा अमेरिकी डॉलर से जुड़ी"
+    },
+    "inr": {
+      "name": "भारतीय रुपया",
+      "description": "दुनिया की सबसे अधिक आबादी वाले देश और सबसे तेजी से बढ़ती प्रमुख अर्थव्यवस्था की मुद्रा"
+    },
+    "jpy": {
+      "name": "जापानी येन",
+      "description": "तीसरी सबसे बड़ी आरक्षित मुद्रा, सुरक्षित-संपत्ति"
+    },
+    "krw": {
+      "name": "दक्षिण कोरियाई वोन",
+      "description": "प्रमुख तकनीकी और विनिर्माण केंद्र की मुद्रा"
+    },
+    "mxn": {
+      "name": "मैक्सिकन पेसो",
+      "description": "प्रमुख उत्तरी अमेरिकी व्यापार भागीदार की मुद्रा"
+    },
+    "nok": {
+      "name": "नॉर्वेजियन क्रोन",
+      "description": "प्रमुख ऊर्जा निर्यातक की मुद्रा, मजबूत कमोडिटी लिंक"
+    },
+    "sar": {
+      "name": "सऊदी अरब रियाल",
+      "description": "दुनिया के सबसे बड़े तेल निर्यातक की मुद्रा USD से आंकी गई"
+    },
+    "sek": {
+      "name": "स्वीडिश क्रोना",
+      "description": "औद्योगिक आधार वाली उत्तरी यूरोपीय मुद्रा"
+    },
+    "sgd": {
+      "name": "सिंगापुर डॉलर",
+      "description": "दक्षिण पूर्व एशिया में मजबूत क्षेत्रीय मुद्रा"
+    },
+    "usd": {
+      "name": "अमेरिकी डॉलर",
+      "description": "दुनिया की सबसे व्यापक रूप से उपयोग की जाने वाली आरक्षित मुद्रा और वैश्विक मानक।"
+    },
+    "zar": {
+      "name": "दक्षिण अफ़्रीकी रैंड",
+      "description": "सबसे बड़ी अफ़्रीकी अर्थव्यवस्था और वस्तु उत्पादक की मुद्रा"
+    }
+  },
   "currencyNewsComing": "नवीनतम आर्थिक समाचार यहाँ दिखेंगे",
   "currencyNewsSubtitle": "ब्याज दर के निर्णय, मुद्रास्फीति रिपोर्ट और बहुत कुछ",
-  "vsUsd": "बनाम USD",
+  "currencyType": "मुद्रा प्रकार",
+  "dataLoading": "डेटा लोड हो रहा है...",
+  "economicData": "आर्थिक डेटा",
+  "economicIndicators": "आर्थिक संकेतक",
+  "economicNews": "आर्थिक समाचार और अपडेट",
+  "employment": "रोजगार",
+  "exchangeRates": "विनिमय दरें",
+  "gdpGrowth": "जीडीपी वृद्धि",
   "high52w": "52 सप्ताह उच्च",
+  "inflationRate": "मुद्रास्फीति दर",
+  "interestRate": "ब्याज दर",
+  "loadingRates": "विनिमय दरें लोड हो रही हैं...",
   "low52w": "52 सप्ताह निम्न",
-  "annualRate": "वार्षिक दर",
+  "popularPairs": "लोकप्रिय जोड़े",
   "quarterlyRate": "त्रैमासिक दर",
-  "change24h": "24 घंटे बदलाव"
+  "rate": "दर",
+  "region": "क्षेत्र",
+  "spread": "स्प्रेड",
+  "symbol": "प्रतीक",
+  "type": "प्रकार",
+  "vsUsd": "बनाम USD",
+  "currencyTypes": {
+    "fiat": "फिएट मुद्रा",
+    "commodity": "कमोडिटी मुद्रा",
+    "crypto": "क्रिप्टो मुद्रा"
+  },
+  "centralBanks": {
+    "federalreserve": "फेडरल रिजर्व (अमेरिका)",
+    "europeancentralbank": "यूरोपीय केंद्रीय बैंक",
+    "bankofjapan": "बैंक ऑफ जापान",
+    "bankofengland": "बैंक ऑफ इंग्लैंड",
+    "swissnationalbank": "स्विस नेशनल बैंक",
+    "peoplesbankofchina": "पीपल्स बैंक ऑफ चाइना",
+    "hongkongmonetaryauthority": "हांगकांग मौद्रिक प्राधिकरण",
+    "reservebankofindia": "भारतीय रिज़र्व बैंक",
+    "reservebankofaustralia": "रिज़र्व बैंक ऑफ ऑस्ट्रेलिया",
+    "monetaryauthorityofsingapore": "मौद्रिक प्राधिकरण सिंगापुर",
+    "bankofkorea": "बैंक ऑफ कोरिया",
+    "bankofcanada": "बैंक ऑफ कनाडा",
+    "centralbankofbrazil": "केंद्रीय बैंक ब्राज़ील",
+    "bancodemxico": "बैंको डे मैक्सिको",
+    "centralbankofchile": "केंद्रीय बैंक चिली",
+    "riksbank": "रिक्सबैंक",
+    "norgesbank": "नॉर्जेस बैंक",
+    "saudicentralbank": "सऊदी केंद्रीय बैंक",
+    "centralbankoftheuae": "केंद्रीय बैंक संयुक्त अरब अमीरात",
+    "southafricanreservebank": "दक्षिण अफ़्रीकी रिज़र्व बैंक"
+  },
+  "regions": {
+    "northamerica": "उत्तरी अमेरिका",
+    "europe": "यूरोप",
+    "asia": "एशिया",
+    "americas": "अमेरिका",
+    "middleeast": "मध्य पूर्व",
+    "africa": "अफ़्रीका"
+  },
+  "ratesVsMajorSubtitle": "1 {{code}} अन्य प्रमुख मुद्राओं में व्यक्त",
+  "keyDataReleasesFor": "{{code}} के लिए प्रमुख डेटा रिलीज़",
+  "hoursAgo": "{{count}} घंटे पहले",
+  "impacts": {
+    "High": "उच्च",
+    "Medium": "मध्यम",
+    "Low": "निम्न"
+  },
+  "events": {
+    "nonFarmPayrolls": "गैर-कृषि पेरोल",
+    "ecbPressConference": "ईसीबी प्रेस कॉन्फ्रेंस",
+    "boeGovernorSpeech": "बीओई गवर्नर भाषण",
+    "fomcMinutes": "एफओएमसी मिनट्स",
+    "bojSummaryOpinions": "बीओजे राय सारांश",
+    "rbaStatement": "आरबीए बयान",
+    "currencyCpiRelease": "{{code}} सीपीआई रिलीज़",
+    "centralBankPolicyUpdate": "{{centralBank}} नीति अपडेट",
+    "currencyRetailSales": "{{code}} खुदरा बिक्री",
+    "currencyTradeBalance": "{{code}} व्यापार संतुलन"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "{{code}} नीति अपेक्षाओं से मजबूत होता है",
+    "currencyWeakensPolicy": "{{code}} नीति अपेक्षाओं से कमज़ोर होता है",
+    "centralBankDataDependent": "{{centralBank}} डेटा-निर्भर मार्ग का संकेत देता है",
+    "currencyLiquidityRobust": "{{code}} की तरलता सीमा-पार प्रवाह में मजबूत बनी हुई है",
+    "currencyFairValueUpdated": "विश्लेषण नोट: {{code}} उचित मूल्य अपडेट किया गया",
+    "usdRallyPauses": "एफओएमसी मिनट्स से पहले यूएसडी रैली रुकती है",
+    "ecbDataDependent": "ईसीबी डेटा-निर्भर मार्ग का संकेत देता है, यूरो भारी कारोबार करता है",
+    "jpyInterventionWatch": "यूएसडी/जेपीवाई 156 का परीक्षण करते समय जेपीवाई हस्तक्षेप निगरानी फिर शुरू",
+    "gbpStickyInflation": "बीजीपी को स्टिकी सेवाएं मुद्रास्फीति का समर्थन",
+    "cnyWeakerMidpoint": "पीबीओसी के कमज़ोर मिडपॉइंट तय करने से सीएनवाई पर दबाव",
+    "audCommodityStrength": "ऑडी को कमोडिटी मजबूती और जोखिम-सहिष्णुता पर बोली"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "प्राथमिक आरक्षित मुद्रा",
+    "secondreservecurrency": "द्वितीय आरक्षित मुद्रा",
+    "thirdreservecurrency": "तृतीय आरक्षित मुद्रा",
+    "regionalreservecurrency": "क्षेत्रीय आरक्षित मुद्रा",
+    "regional": "क्षेत्रीय"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "सेफ-हेवन प्रवाह",
+    "mixedinflows": "मिश्रित प्रवाह",
+    "exportdrivenflows": "निर्यात-संचालित प्रवाह",
+    "commoditylinkedflows": "कमोडिटी-लिंक्ड प्रवाह",
+    "open": "खुला"
+  }
 }

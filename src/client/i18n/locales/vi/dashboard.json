@@ -1,18 +1,40 @@
 {
-  "title": "Global Dashboard",
-  "intro": "Stocks, FX, and crypto in one workspace, ready for future live data, news, charts, and comparison modules.",
-  "userPanelTitle": "Không gian thị trường của bạn",
-  "userPanelIntro": "Track your favorite exchanges, currencies, crypto assets, alerts, and portfolio view in one clean dashboard.",
+  "title": "Bảng điều khiển thị trường toàn cầu",
+  "intro": "Theo dõi cổ phiếu, FX, tiền mã hóa, khu vực, ngành, hàng hóa, sự kiện, tâm lý và watchlist trong một không gian thị trường rõ ràng.",
+  "liveTapeLabel": "Băng giá thị trường trực tiếp",
+  "crossMarket": "Góc nhìn liên thị trường",
+  "topExchange": "Sàn hàng đầu",
+  "coreReserve": "Dự trữ cốt lõi",
+  "cryptoLeader": "Tiền mã hóa dẫn đầu",
+  "regionPulse": "Nhịp khu vực",
+  "sectorPulse": "Xung ngành",
+  "commodityPulse": "Xung hàng hóa",
+  "primaryBase": "Cơ sở quy đổi chính",
+  "majorIndices": "Các chỉ số chính",
+  "worldSnapshot": "Ảnh chụp thị trường thế giới",
+  "marketMovers": "Biến động thị trường",
+  "gainersAndLosers": "Tăng và giảm",
+  "economicEventsToday": "Sự kiện kinh tế hôm nay",
+  "macroCalendar": "Lịch vĩ mô",
+  "marketSentiment": "Tâm lý thị trường",
+  "forexMiniCards": "Thẻ FX nhỏ",
+  "currencyPulse": "Nhịp tiền tệ",
+  "cryptoOverview": "Tổng quan tiền mã hóa",
+  "marketCapLeaders": "Dẫn đầu vốn hóa",
+  "commoditySnapshot": "Ảnh chụp nhanh hàng hóa",
+  "spotAndFutures": "Giao ngay và tương lai",
+  "watchlistPreview": "Xem trước watchlist",
+  "watchlistCopy": "Truy cập nhanh vào biểu tượng đã lưu, cảnh báo đa tài sản, bối cảnh danh mục và tùy chọn tài khoản.",
   "portfolioValue": "Giá trị danh mục",
   "watchlist": "Danh sách theo dõi",
   "savedMarkets": "Thị trường đã lưu",
-  "activeAlerts": "Cảnh báo đang hoạt động",
+  "activeAlerts": "Cảnh báo hoạt động",
   "todayPnl": "Lãi/Lỗ hôm nay",
-  "quickActions": "Quick Actions",
-  "addWatchlist": "Thêm danh sách theo dõi",
+  "quickActions": "Thao tác nhanh",
+  "addWatchlist": "Thêm watchlist",
   "createAlert": "Tạo cảnh báo",
   "exportReport": "Xuất báo cáo",
-  "accountSettings": "Account Settings",
+  "accountSettings": "Cài đặt tài khoản",
   "portfolioAllocation": "Phân bổ danh mục",
   "recentActivity": "Hoạt động gần đây",
   "alertCenter": "Trung tâm cảnh báo",
@@ -25,5 +47,37 @@
   "marketOpenAlerts": "Cảnh báo mở cửa",
   "riskProfile": "Hồ sơ rủi ro",
   "moderate": "Trung bình",
-  "marketsFollowed": "Thị trường đang theo dõi"
+  "marketsFollowed": "Thị trường theo dõi",
+  "userPanelTitle": "Không gian thị trường của bạn",
+  "userPanelIntro": "Theo dõi sàn giao dịch, tiền tệ, tài sản mã hóa, cảnh báo và bối cảnh danh mục trong một bảng rõ ràng.",
+  "importance": {
+    "high": "Cao",
+    "medium": "Trung bình",
+    "low": "Thấp"
+  },
+  "economicEvents": {
+    "usCpi": "CPI Mỹ",
+    "ecbRemarks": "Phát biểu chính sách ECB",
+    "us10yAuction": "Đấu giá US 10Y",
+    "fomcMinutes": "Biên bản FOMC"
+  },
+  "sentiment": {
+    "equities": {
+      "label": "Cổ phiếu",
+      "detail": "Độ rộng risk-on"
+    },
+    "fx": {
+      "label": "FX",
+      "detail": "USD pha trộn"
+    },
+    "crypto": {
+      "label": "Tiền mã hóa",
+      "detail": "Lực mua theo momentum"
+    },
+    "commodities": {
+      "label": "Hàng hóa",
+      "detail": "Năng lượng yếu hơn"
+    }
+  },
+  "currencyRate": "1 {{base}} = {{rate}} {{quote}}"
 }

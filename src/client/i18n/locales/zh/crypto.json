@@ -1,37 +1,332 @@
 {
-  "currentPrice": "当前价格",
-  "rank": "排名",
-  "priceMetrics": "价格与指标",
-  "tradingPairs": "交易对",
-  "exchanges": "交易所",
-  "charts": "图表",
-  "onChain": "链上",
-  "category": "类别",
-  "launched": "上线时间",
-  "founder": "创始人",
-  "consensus": "共识机制",
-  "blockTime": "出块时间",
-  "supplyInfo": "供应信息",
-  "circulatingSupply": "流通供应量",
-  "maxSupply": "最大供应量",
-  "volume24h": "24小时成交量",
+  "activeAddresses": "活跃地址",
   "ath": "历史最高价",
   "atl": "历史最低价",
-  "marketRank": "市场排名",
-  "loadingPrice": "正在加载价格数据...",
-  "loadingPairs": "正在加载交易对...",
-  "price": "价格",
-  "exchange": "交易所",
-  "listedCryptoExchanges": "该资产可交易的交易所",
-  "exchangeExamples": "Binance、Coinbase、Kraken 等",
-  "priceChart": "交互式价格图表",
-  "volumeOverlay": "含成交量叠加",
-  "onChainMetrics": "链上指标",
-  "transactionsPerDay": "每日交易数",
-  "activeAddresses": "活跃地址",
-  "networkFees": "网络费用",
-  "transactionVolume": "交易量",
-  "onChainComing": "链上数据即将上线",
+  "blockTime": "出块时间",
+  "categories": {
+    "defi": {
+      "name": "DeFi"
+    },
+    "infrastructure": {
+      "name": "市场数据概览"
+    },
+    "layer1": {
+      "name": "Layer 1"
+    },
+    "layer2": {
+      "name": "市场数据概览"
+    },
+    "meme": {
+      "name": "市场数据概览"
+    },
+    "payments": {
+      "name": "市场数据概览"
+    },
+    "stablecoin": {
+      "name": "市场数据概览"
+    }
+  },
+  "category": "类别",
+  "charts": "图表",
+  "circulatingSupply": "流通供应量",
+  "consensus": "共识机制",
   "cryptoNewsComing": "最新新闻和更新将在此显示",
-  "cryptoNewsSubtitle": "项目更新、合作伙伴关系和市场新闻"
+  "cryptoNewsSubtitle": "项目更新、合作伙伴关系和市场新闻",
+  "cryptocurrencies": {
+    "aave": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "arbitrum": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "avalanche2": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "binancecoin": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "bitcoin": {
+      "name": "比特币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "bonk": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "cardano": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "chainlink": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "compoundGovernanceToken": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "cosmos": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "curveDaoToken": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "dai": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "dogecoin": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "ethereum": {
+      "name": "Ethereum",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "floki": {
+      "name": "FLOKI",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "litecoin": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "maker": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "maticNetwork": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "pepe": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "polkadot": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "ripple": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "shibaInu": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "solana": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "stellar": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "tether": {
+      "name": "Tether",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "theOpenNetwork": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "tron": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "uniswap": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    },
+    "usdCoin": {
+      "name": "加密货币",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    }
+  },
+  "currentPrice": "当前价格",
+  "exchange": "交易所",
+  "exchangeExamples": "交易所",
+  "exchanges": "交易所",
+  "founder": "创始人",
+  "launched": "上线时间",
+  "listedCryptoExchanges": "该资产可交易的交易所",
+  "loadingPairs": "正在加载交易对...",
+  "loadingPrice": "正在加载价格数据...",
+  "marketRank": "市场排名",
+  "maxSupply": "最大供应量",
+  "networkFees": "网络费用",
+  "onChain": "链上",
+  "onChainComing": "链上数据即将上线",
+  "onChainMetrics": "链上指标",
+  "price": "价格",
+  "priceChart": "交互式价格图表",
+  "priceMetrics": "价格与指标",
+  "rank": "排名",
+  "rankNumber": "市场数据概览",
+  "supplyInfo": "供应信息",
+  "tradingPairs": "交易对",
+  "transactionVolume": "交易量",
+  "transactionsPerDay": "每日交易数",
+  "volume24h": "24小时成交量",
+  "volumeOverlay": "含成交量叠加",
+  "cryptocurrency": "加密货币货币",
+  "cryptocurrencyCategories": "货币",
+  "allCryptocurrencies": "加密货币",
+  "trending": "热门",
+  "categoryNotFound": "市场数据概览",
+  "categoryNotFoundDescription": "面向中文用户的市场数据、风险信号与交易情报。",
+  "viewAllCryptocurrencies": "加密货币",
+  "trendingCoins": {
+    "eyebrow": "实时市场数据 - 加密货币",
+    "titleAccent": "热门",
+    "titleRest": "币种",
+    "subtitle": "按交易活跃度、社交动能和市值增长排序的实时热门加密货币，持续更新。",
+    "categories": {
+      "all": "全部",
+      "layer1": "第 1 层",
+      "layer2": "第 2 层",
+      "defi": "DeFi",
+      "meme": "模因",
+      "stablecoin": "稳定币",
+      "payments": "支付",
+      "infrastructure": "基础设施"
+    },
+    "metrics": {
+      "tracked": "跟踪数量",
+      "gainers": "上涨币种",
+      "topGain24h": "24小时最高涨幅",
+      "volumeShort": "24小时量",
+      "supply": "供应量"
+    },
+    "sentiment": {
+      "hot": "热门",
+      "rising": "上升",
+      "active": "活跃",
+      "strong": "强势"
+    },
+    "moreTitle": "更多热门币种",
+    "emptyCategory": "此类别中未找到币种。",
+    "insights": {
+      "trending": {
+        "eyebrow": "市场数据概览",
+        "title": "市场概览",
+        "items": {
+          "socialMentions": "市场数据概览",
+          "exchangeFlows": "交易所",
+          "developerActivity": "市场数据概览",
+          "onChainVolume": "市场数据概览",
+          "volumeBreakouts": "市场数据概览"
+        }
+      },
+      "risk": {
+        "eyebrow": "风险",
+        "title": "市场概览",
+        "items": {
+          "volatility": "风险",
+          "liquidity": "风险",
+          "manipulation": "风险",
+          "regulation": "风险",
+          "techRisk": "风险"
+        }
+      },
+      "tips": {
+        "eyebrow": "市场数据概览",
+        "title": "市场概览",
+        "items": {
+          "onChainValidation": "市场数据概览",
+          "githubActivity": "市场数据概览",
+          "divergence": "市场数据概览",
+          "positionSizing": "市场数据概览",
+          "stopLosses": "市场数据概览"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "市场数据概览",
+      "title": "市场概览",
+      "description": "面向中文用户的市场数据、风险信号与交易情报。"
+    }
+  },
+  "categoryPages": {
+    "common": {
+      "marketOverview": "市场概览",
+      "combinedMarketCap": "合计市值",
+      "topGainer24h": "24小时最大涨幅",
+      "name": "名称",
+      "price": "价格",
+      "change24h": "24小时变化",
+      "marketCap": "市值",
+      "volume24h": "24小时成交量",
+      "riskProfile": "风险概况",
+      "fullCryptoMarket": "完整加密市场",
+      "exploreAllCryptocurrencies": "浏览所有加密货币"
+    },
+    "meme": {
+      "eyebrow": "社区代币",
+      "title": "模因币",
+      "body": "由病毒式文化、社交动能和社区追随推动的加密货币。高风险、高回报，市场情绪往往主导价格。",
+      "metrics": {
+        "coinsListed": "已列出币种"
+      },
+      "rankingsTitle": "模因币排名",
+      "table": {
+        "community": "社区"
+      },
+      "communities": {
+        "DOGE": "市场数据概览",
+        "SHIB": "市场数据概览",
+        "PEPE": "市场数据概览",
+        "BONK": "市场数据概览",
+        "FLOKI": "市场数据概览"
+      },
+      "insights": {
+        "origins": {
+          "eyebrow": "市场数据概览",
+          "title": "市场概览",
+          "items": {
+            "dogecoin": "市场数据概览",
+            "elon": "市场数据概览",
+            "pumps": "市场数据概览",
+            "shiba": "市场数据概览",
+            "pepe": "市场数据概览",
+            "bonk": "市场数据概览"
+          }
+        },
+        "risk": {
+          "title": "市场概览",
+          "items": {
+            "sentiment": "风险",
+            "pumpDump": "风险",
+            "utility": "风险",
+            "volatility": "风险",
+            "rugPull": "风险",
+            "viralCycles": "风险"
+          }
+        },
+        "signals": {
+          "eyebrow": "市场数据概览",
+          "title": "市场概览",
+          "items": {
+            "twitter": "市场数据概览",
+            "reddit": "市场数据概览",
+            "whales": "市场数据概览",
+            "listings": "市场数据概览",
+            "google": "市场数据概览",
+            "influencers": "市场数据概览"
+          }
+        }
+      },
+      "cta": {
+        "description": "面向中文用户的市场数据、风险信号与交易情报。"
+      }
+    }
+  },
+  "blockTimeSeconds": "{{time}}秒"
 }

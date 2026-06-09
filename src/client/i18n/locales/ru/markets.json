@@ -1,132 +1,628 @@
 {
-  "title": "Глобальная панель рынка",
-  "subtitle": "Онлайн-обзор индексов, movers, FX, крипто, сырья, экономических событий, настроений, новостей и watchlist.",
-  "globalMarkets": "Многорынок глобально",
-  "homeTitle": "MarketsPivot",
-  "homeCopy": "Обзор в стиле Bloomberg по акциям, облигациям, FX, сырью, деривативам и криптовалютам.",
-  "intelligenceTitle": "Платформа для глобальной рыночной аналитики",
-  "intelligenceCopy": "Отслеживайте сессии, курсовое давление, цифровые активы, процентные рынки, сырьё и деривативы в одной рабочей зоне.",
-  "liveTape": "Живая лента рынка",
-  "terminalView": "Терминал",
-  "assetCoverage": "Покрытие активов",
-  "compareMarkets": "Сравнить рынки рядом",
-  "compareMarketsCopy": "Переключайтесь между NYSE и INR, BTC и NASDAQ или нефтью и ставками без смены рабочего пространства.",
-  "marketBrief": "Рыночный обзор",
-  "openingBell": "Звонок к открытию",
-  "riskView": "Риск-панель",
-  "globalHeatmap": "Глобальный heatmap",
-  "equities": "Акции",
-  "stockCount": "бирж",
-  "exchangeDashboards": "Панели бирж по всему миру",
-  "regionsMeta": "Региональные индексы, макрокалендари, FX и влияние сырья",
-  "currencyCount": "валют",
-  "fxMeta": "Резервы, валютные операции и развивающиеся рынки",
-  "sectorsMeta": "Секторы акций, ETFs, лидеры и отраслевые новости",
-  "usdBase": "Стратегия с базой в USD",
-  "cryptoMeta": "Лидеры, стейблкоины, DeFi, платежи",
-  "cryptoLayer": "Уровень рынка 24/7",
-  "topGlobalExchanges": "Лучшие мировые биржи",
-  "exchangeIntro": "Региональная информация о валюте, часовом поясе, торговом времени, листинге, основном индексе и капитализации.",
-  "topCurrencies": "Топ-20 мировых валют",
-  "currencyIntro": "Основные резервные валюты, Азия-Тихоокеанский регион, Америка, Европа, Ближний Восток и Африка.",
-  "topCryptos": "Топ-20 криптовалют",
-  "cryptoIntro": "Лидеры, умные контракты, стейблкоины, инфраструктура, DeFi, платежи и ростовые активы.",
-  "crossMarket": "Кросс-рыночный обзор",
-  "topExchange": "Главная биржа",
-  "coreReserve": "Ключевой резерв",
-  "cryptoLeader": "Крипто лидер",
-  "primaryBase": "Основная база конверсии",
-  "marketCap": "Рыночная капитализация",
-  "listedCompanies": "Листинговые компании",
-  "avgDailyVolume": "Ср. дневной объём",
-  "tradingHours": "Часы торговли",
   "advancers": "Рост",
-  "decliners": "Падение",
-  "chart": "График",
-  "topMovers": "Лидеры движения",
-  "founded": "Основана",
-  "mainIndex": "Основной индекс",
-  "baseCurrency": "Базовая валюта",
-  "website": "Сайт",
-  "topGainers": "Лидеры роста",
-  "topLosers": "Лидеры падения",
-  "mostActive": "Самые активные",
-  "loadingGainers": "Загрузка лидеров роста...",
-  "loadingLosers": "Загрузка лидеров падения...",
-  "loadingActive": "Загрузка самых активных...",
-  "liveBadge": "В ЭФИРЕ",
   "asiaClosed": "Азия закрылась разнонаправленно, Европа в плюсе",
-  "cryptoBetaOutperform": "Крипто опережает акции по бете",
-  "fxPressure": "Давление FX: JPY, INR, ZAR в фокусе",
-  "regionIntelligence": "Региональная аналитика",
-  "marketsByGeography": "Рынки по регионам",
-  "countries": "стран",
-  "sectorIntelligence": "Отраслевая аналитика",
-  "equityThemes": "Тематические тренды акций",
-  "commodityIntelligence": "Аналитика сырья",
-  "macroInputs": "Макроданные и фьючерсы",
-  "majorIndices": "Основные индексы",
-  "worldSnapshot": "Снимок мирового рынка",
-  "marketMovers": "Рыночные лидеры",
-  "gainersAndLosers": "Рост и падение",
-  "economicEventsToday": "Экономические события сегодня",
-  "macroCalendar": "Макрокалендарь",
-  "forexMiniCards": "Мини-карты Forex",
-  "currencyPulse": "Пульс валют",
-  "cryptoOverview": "Обзор криптовалют",
-  "marketCapLeaders": "Лидеры капитализации",
-  "commoditySnapshot": "Снимок сырьевого рынка",
-  "spotAndFutures": "Спот и фьючерсы",
-  "watchlistPreview": "Превью watchlist",
-  "watchlistCopy": "Быстрый доступ к сохранённым символам, сигналам, контексту портфеля и настройкам.",
-  "sp500Meta": "S&P 500 / USD / Нью-Йорк",
-  "federalReserveMeta": "Федеральная резервная система / глобальная база",
+  "assetCoverage": "Покрытие активов",
+  "avgDailyVolume": "Ср. дневной объём",
+  "baseCurrency": "Базовая валюта",
   "btcMeta": "BTC vs USD, FX и риск акций",
-  "regionPulse": "Региональный пульс",
-  "sectorPulse": "Пульс сектора",
-  "commodityPulse": "Пульс сырья",
-  "gdpGrowthShort": "Рост ВВП",
-  "marketSentiment": "Настроение рынка",
-  "noTradingPairs": "Нет доступных торговых пар.",
-  "loadingSectors": "Загрузка секторов...",
-  "noSectorData": "Нет данных по секторам.",
-  "noNewsAvailable": "Нет новостей для этой биржи.",
-  "volumeShort": "Объём:",
-  "momentumLabel": "Импульс",
-  "unusualVolLabel": "Необычная волатильность",
-  "crashAlert": "Аварийное предупреждение",
-  "oversold": "Перепродано",
-  "reversalLabel": "Разворот",
-  "whaleActivity": "Активность крупных игроков",
-  "unusualActivity": "Необычная активность",
-  "companiesLabel": "Компания:",
-  "marketRegion": "Регион рынка",
-  "majorExchanges": "Ключевые биржи",
-  "keyIndices": "Ключевые индексы",
-  "economicCalendar": "Экономический календарь",
-  "sectorLeaders": "Лидеры сектора",
-  "commodityImpact": "Влияние сырья",
-  "trendingStocks": "Трендовые акции",
-  "dividendLeaders": "Лидеры дивидендов",
-  "relatedRegions": "Связанные регионы",
-  "newsThemes": "Темы новостей",
-  "inflation": "Инфляция",
   "calendarFocus": "Фокус календаря",
-  "regionsHeading": "Глобальные регионы рынка",
-  "regionsIntro": "Региональные индексы, макрокалендари, FX и влияние сырья на мировые рынки.",
-  "stockSector": "Сектор акций",
-  "sectorsTitle": "Секторы",
-  "sectorsHeading": "Категории акций и отраслевой анализ",
-  "sectorsIntro": "Технологии, банки, ИИ, энергетика, здравоохранение, добыча, недвижимость, полупроводники и тематические акции.",
-  "commodity": "Сырьё",
-  "supplyRegions": "Регионы поставок",
-  "demandTrends": "Тренды спроса",
-  "currencyCorrelation": "Валютная корреляция",
-  "commoditiesTitle": "Сырьевые товары",
+  "chart": "График",
+  "commodities": {
+    "brent": {
+      "name": "Brent"
+    },
+    "copper": {
+      "name": "Медь"
+    },
+    "crudeOil": {
+      "name": "Crude Oil WTI"
+    },
+    "gold": {
+      "name": "Золото"
+    },
+    "lithium": {
+      "name": "Литий"
+    },
+    "naturalGas": {
+      "name": "Природный газ"
+    },
+    "silver": {
+      "name": "Серебро"
+    },
+    "uranium": {
+      "name": "Уран"
+    },
+    "wheat": {
+      "name": "Пшеница"
+    }
+  },
   "commoditiesHeading": "Энергетика, металлы, сельское хозяйство и промышленное сырьё",
   "commoditiesIntro": "Спотовые цены, фьючерсные ориентиры, регионы поставок, тренды спроса, валютные корреляции и макроэффекты.",
-  "moduleWorkspaceCopy": "Это рабочее пространство является частью глобальной структуры MarketsPivot.",
+  "commoditiesTitle": "Сырьевые товары",
+  "commodity": "Сырьё",
+  "commodityImpact": "Влияние сырья",
+  "commodityIntelligence": "Аналитика сырья",
+  "commodityPulse": "Пульс сырья",
+  "commoditySnapshot": "Снимок сырьевого рынка",
+  "companiesLabel": "Компания:",
+  "compareMarkets": "Сравнить рынки рядом",
+  "compareMarketsCopy": "Переключайтесь между NYSE и INR, BTC и NASDAQ или нефтью и ставками без смены рабочего пространства.",
+  "coreReserve": "Ключевой резерв",
+  "countries": {
+    "ae": {
+      "name": "ОАЭ"
+    },
+    "au": {
+      "name": "Австралия"
+    },
+    "br": {
+      "name": "Бразилия"
+    },
+    "ca": {
+      "name": "Канада"
+    },
+    "ch": {
+      "name": "Швейцария"
+    },
+    "cl": {
+      "name": "Чили"
+    },
+    "cn": {
+      "name": "Китай"
+    },
+    "de": {
+      "name": "Германия"
+    },
+    "es": {
+      "name": "Испания"
+    },
+    "eu": {
+      "name": "Европейский союз"
+    },
+    "gb": {
+      "name": "Великобритания"
+    },
+    "hk": {
+      "name": "Гонконг"
+    },
+    "id": {
+      "name": "Индонезия"
+    },
+    "in": {
+      "name": "Индия"
+    },
+    "it": {
+      "name": "Италия"
+    },
+    "jp": {
+      "name": "Япония"
+    },
+    "kr": {
+      "name": "Южная Корея"
+    },
+    "mx": {
+      "name": "Мексика"
+    },
+    "my": {
+      "name": "Малайзия"
+    },
+    "sa": {
+      "name": "Саудовская Аравия"
+    },
+    "se": {
+      "name": "Швеция"
+    },
+    "sg": {
+      "name": "Сингапур"
+    },
+    "th": {
+      "name": "Таиланд"
+    },
+    "tw": {
+      "name": "Тайвань"
+    },
+    "us": {
+      "name": "США"
+    },
+    "za": {
+      "name": "ЮАР"
+    }
+  },
+  "crashAlert": "Аварийное предупреждение",
+  "crossMarket": "Кросс-рыночный обзор",
+  "cryptoBetaOutperform": "Крипто опережает акции по бете",
+  "cryptoIntro": "Лидеры, умные контракты, стейблкоины, инфраструктура, DeFi, платежи и ростовые активы.",
+  "cryptoLayer": "Уровень рынка 24/7",
+  "cryptoLeader": "Крипто лидер",
+  "cryptoMeta": "Лидеры, стейблкоины, DeFi, платежи",
+  "cryptoOverview": "Обзор криптовалют",
+  "currencyCorrelation": "Валютная корреляция",
+  "currencyCount": "валют",
+  "currencyIntro": "Основные резервные валюты, Азия-Тихоокеанский регион, Америка, Европа, Ближний Восток и Африка.",
+  "currencyPulse": "Пульс валют",
+  "decliners": "Падение",
+  "demandTrends": "Тренды спроса",
+  "dividendLeaders": "Лидеры дивидендов",
+  "economicCalendar": "Экономический календарь",
+  "economicEventsToday": "Экономические события сегодня",
+  "equities": "Акции",
+  "equityThemes": "Тематические тренды акций",
+  "exchangeDashboards": "Панели бирж по всему миру",
+  "exchangeIntro": "Региональная информация о валюте, часовом поясе, торговом времени, листинге, основном индексе и капитализации.",
+  "exchanges": {
+    "adx": {
+      "name": "name",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "asx": {
+      "name": "name",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "b3": {
+      "name": "B3 Бразилия",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "bcs": {
+      "name": "Фондовая биржа Сантьяго",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "bit": {
+      "name": "name",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "bm": {
+      "name": "name",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "bme": {
+      "name": "Bolsas y Mercados Españoles",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "bmv": {
+      "name": "Мексиканская фондовая биржа",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "bse": {
+      "name": "Бомбейская фондовая биржа",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "dfm": {
+      "name": "name",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "euronext": {
+      "name": "name",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "hkex": {
+      "name": "Гонконгская биржа",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "idx": {
+      "name": "name",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "jse": {
+      "name": "Йоханнесбургская фондовая биржа",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "krx": {
+      "name": "name",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "lse": {
+      "name": "Лондонская фондовая биржа",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "nasdaq": {
+      "name": "NASDAQ",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "nse": {
+      "name": "name",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "nyse": {
+      "name": "New York Stock Exchange",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "omx": {
+      "name": "Nasdaq OMX Nordic",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "set": {
+      "name": "name",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "sgx": {
+      "name": "name",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "six": {
+      "name": "name",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "sse": {
+      "name": "Шанхайская фондовая биржа",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "szse": {
+      "name": "Шэньчжэньская фондовая биржа",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "tadawul": {
+      "name": "Tadawul",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "tse": {
+      "name": "Токийская фондовая биржа",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "tsx": {
+      "name": "Фондовая биржа Торонто",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "twse": {
+      "name": "Тайваньская фондовая биржа",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    },
+    "xetra": {
+      "name": "Xetra",
+      "description": "Региональная панель с сессией, часовым поясом, основным индексом и котировочными данными."
+    }
+  },
+  "feature": "Функция",
+  "federalReserveMeta": "Федеральная резервная система / глобальная база",
+  "forexMiniCards": "Мини-карты Forex",
+  "founded": "Основана",
+  "fxMeta": "Резервы, валютные операции и развивающиеся рынки",
+  "fxPressure": "Давление FX: JPY, INR, ZAR в фокусе",
+  "gainersAndLosers": "Рост и падение",
+  "gdpGrowthShort": "Рост ВВП",
+  "globalHeatmap": "Глобальный heatmap",
+  "globalMarkets": "Многорынок глобально",
+  "homeCopy": "Обзор в стиле Bloomberg по акциям, облигациям, FX, сырью, деривативам и криптовалютам.",
+  "homeTitle": "home Заголовок",
+  "inflation": "Инфляция",
+  "intelligenceCopy": "Отслеживайте сессии, курсовое давление, цифровые активы, процентные рынки, сырьё и деривативы в одной рабочей зоне.",
+  "intelligenceTitle": "Платформа для глобальной рыночной аналитики",
+  "keyIndices": "Ключевые индексы",
+  "listedCompanies": "Листинговые компании",
+  "liveBadge": "В ЭФИРЕ",
+  "liveTape": "Живая лента рынка",
+  "loadingActive": "Загрузка самых активных...",
+  "loadingGainers": "Загрузка лидеров роста...",
+  "loadingLosers": "Загрузка лидеров падения...",
+  "loadingSectors": "Загрузка секторов...",
+  "macroCalendar": "Макрокалендарь",
+  "macroInputs": "Макроданные и фьючерсы",
+  "mainIndex": "Основной индекс",
+  "majorExchanges": "Ключевые биржи",
+  "majorIndices": "Основные индексы",
+  "marketBrief": "Рыночный обзор",
+  "marketCap": "Рыночная капитализация",
+  "marketCapLeaders": "Лидеры капитализации",
+  "marketMovers": "Рыночные лидеры",
+  "marketRegion": "Регион рынка",
+  "marketSentiment": "Настроение рынка",
+  "marketsByGeography": "Рынки по регионам",
   "moduleFeatureReady": "Готово для живых API, фильтров, графиков и сохранённых рабочих процессов.",
+  "moduleWorkspaceCopy": "Это рабочее пространство является частью глобальной структуры MarketsPivot.",
+  "momentumLabel": "Импульс",
+  "mostActive": "Самые активные",
+  "newsThemes": "Темы новостей",
+  "noNewsAvailable": "Нет новостей для этой биржи.",
+  "noSectorData": "Нет данных по секторам.",
+  "noTradingPairs": "Нет доступных торговых пар.",
+  "openingBell": "Звонок к открытию",
+  "oversold": "Перепродано",
   "planned": "Запланировано",
-  "feature": "Функция"
+  "primaryBase": "Основная база конверсии",
+  "regionIntelligence": "Региональная аналитика",
+  "regionPulse": "Региональный пульс",
+  "regions": {
+    "americas": {
+      "name": "Америки"
+    },
+    "asiaPacific": {
+      "name": "Asia-Pacific"
+    },
+    "europe": {
+      "name": "Европа"
+    },
+    "middleEastAfrica": {
+      "name": "Ближний Восток и Африка"
+    }
+  },
+  "regionsHeading": "Глобальные регионы рынка",
+  "regionsIntro": "Региональные индексы, макрокалендари, FX и влияние сырья на мировые рынки.",
+  "regionsMeta": "Региональные индексы, макрокалендари, FX и влияние сырья",
+  "relatedRegions": "Связанные регионы",
+  "reversalLabel": "Разворот",
+  "riskView": "Риск-панель",
+  "sectorIntelligence": "Отраслевая аналитика",
+  "sectorLeaders": "Лидеры сектора",
+  "sectorPulse": "Пульс сектора",
+  "sectors": {
+    "ai": {
+      "name": "ИИ"
+    },
+    "banking": {
+      "name": "Банки"
+    },
+    "defence": {
+      "name": "Оборона"
+    },
+    "electricVehicles": {
+      "name": "Электромобили"
+    },
+    "energy": {
+      "name": "Энергетика"
+    },
+    "healthcare": {
+      "name": "Здравоохранение"
+    },
+    "mining": {
+      "name": "Добыча"
+    },
+    "realEstate": {
+      "name": "Недвижимость"
+    },
+    "retail": {
+      "name": "Ритейл"
+    },
+    "semiconductor": {
+      "name": "Полупроводники"
+    },
+    "technology": {
+      "name": "Технологии"
+    }
+  },
+  "sectorsHeading": "Категории акций и отраслевой анализ",
+  "sectorsIntro": "Технологии, банки, ИИ, энергетика, здравоохранение, добыча, недвижимость, полупроводники и тематические акции.",
+  "sectorsMeta": "Секторы акций, ETFs, лидеры и отраслевые новости",
+  "sectorsTitle": "Секторы",
+  "sp500Meta": "S&P 500 / USD / Нью-Йорк",
+  "spotAndFutures": "Спот и фьючерсы",
+  "stockCount": "бирж",
+  "stockSector": "Сектор акций",
+  "subtitle": "Обзор индексов, движений рынка, FX, крипто, сырья, экономических событий, настроений, новостей и списков наблюдения в реальном времени.",
+  "supplyRegions": "Регионы поставок",
+  "terminalView": "Терминал",
+  "timezones": {
+    "africaJohannesburg": {
+      "name": "africa Johannesburg"
+    },
+    "americaMexicoCity": {
+      "name": "america Мексика City"
+    },
+    "americaNewYork": {
+      "name": "america Новый York"
+    },
+    "americaSantiago": {
+      "name": "america Santiago"
+    },
+    "americaSaoPaulo": {
+      "name": "america Sao Paulo"
+    },
+    "americaToronto": {
+      "name": "america Toronto"
+    },
+    "asiaBangkok": {
+      "name": "asia Bangkok"
+    },
+    "asiaDubai": {
+      "name": "asia Dubai"
+    },
+    "asiaHongKong": {
+      "name": "asia Гонконг"
+    },
+    "asiaJakarta": {
+      "name": "asia Jakarta"
+    },
+    "asiaKolkata": {
+      "name": "asia Kolkata"
+    },
+    "asiaKualaLumpur": {
+      "name": "asia Kuala Lumpur"
+    },
+    "asiaRiyadh": {
+      "name": "asia Riyadh"
+    },
+    "asiaSeoul": {
+      "name": "asia Seoul"
+    },
+    "asiaShanghai": {
+      "name": "asia Shanghai"
+    },
+    "asiaSingapore": {
+      "name": "asia Сингапур"
+    },
+    "asiaTaipei": {
+      "name": "asia Taipei"
+    },
+    "asiaTokyo": {
+      "name": "asia Tokyo"
+    },
+    "australiaSydney": {
+      "name": "australia Sydney"
+    },
+    "europeBerlin": {
+      "name": "europe Berlin"
+    },
+    "europeLondon": {
+      "name": "europe London"
+    },
+    "europeMadrid": {
+      "name": "europe Madrid"
+    },
+    "europeParis": {
+      "name": "europe Paris"
+    },
+    "europeRome": {
+      "name": "europe Rome"
+    },
+    "europeStockholm": {
+      "name": "europe Акцияholm"
+    },
+    "europeZurich": {
+      "name": "europe Zurich"
+    }
+  },
+  "title": "Глобальная панель рынка",
+  "topCryptos": "Топ-20 криптовалют",
+  "topCurrencies": "Топ-20 мировых валют",
+  "topExchange": "Главная биржа",
+  "topGainers": "Лидеры роста",
+  "topGlobalExchanges": "Лучшие мировые биржи",
+  "topLosers": "Лидеры падения",
+  "topMovers": "Лидеры движения",
+  "tradingHours": "Часы торговли",
+  "trendingStocks": "Трендовые акции",
+  "unusualActivity": "Необычная активность",
+  "unusualVolLabel": "Необычная волатильность",
+  "usdBase": "Стратегия с базой в USD",
+  "volumeShort": "Объём:",
+  "watchlistCopy": "Быстрый доступ к сохранённым символам, сигналам, контексту портфеля и настройкам.",
+  "watchlistPreview": "Предпросмотр списка наблюдения",
+  "website": "Сайт",
+  "whaleActivity": "Активность крупных игроков",
+  "worldSnapshot": "Снимок мирового рынка",
+  "exchangeNetwork": "Биржа Network",
+  "stockExchanges": "Акция Биржи",
+  "allExchanges": "Все Биржи",
+  "advancedScreener": "Расширенный скринер",
+  "regionExchangesTitle": "{{region}} Биржи",
+  "regionalExchangeDashboards": "Панели региональных бирж: валюта, часовой пояс, торговые часы, листинговые компании, основной индекс и капитализация.",
+  "noExchangesForRegion": "Для этого региона биржи не найдены.",
+  "exchangeRegions": {
+    "americas": "Америки",
+    "northAmerica": "Северная Америка",
+    "europe": "Европа",
+    "asia": "Азия",
+    "asiaPacific": "Азиатско-Тихоокеанский регион",
+    "oceania": "oceania",
+    "middleEast": "Ближний Восток",
+    "africa": "Африка",
+    "middleEastAfrica": "Ближний Восток & Африка",
+    "latinAmerica": "latin America"
+  },
+  "ytdShort": "YTD",
+  "dashboardCards": {
+    "nyseMeta": "S&P 500 / USD / New York",
+    "usdMeta": "Federal Reserve / global base",
+    "bitcoinMeta": "BTC vs USD, FX, and equity risk",
+    "regionMeta": "China growth / Japan yields / India earnings / Australia resources",
+    "sectorMeta": "Cloud capex / AI monetization / Semiconductor supply / Valuations",
+    "commodityMeta": "Feeds transport inflation, energy earnings, fiscal revenue, and global risk sentiment."
+  },
+  "moduleFeatures": {
+    "majorIndicesWidgets": "Major indices widgets",
+    "topGainersLosers": "Top gainers and losers",
+    "heatmaps": "Heatmaps",
+    "marketSentiment": "Market sentiment",
+    "preMarketMovers": "Pre-market movers",
+    "indexFutures": "Index futures",
+    "volumeSpikes": "Volume spikes",
+    "openingWatchlist": "Opening watchlist",
+    "afterHoursMovers": "After-hours movers",
+    "earningsReactions": "Earnings reactions",
+    "extendedSessionVolume": "Extended-session volume",
+    "newsCatalysts": "News catalysts",
+    "equityHeatmaps": "Equity heatmaps",
+    "sectorPerformance": "Sector performance",
+    "regionalBreadth": "Regional breadth",
+    "assetClassComparison": "Asset-class comparison",
+    "topGainers": "Top gainers",
+    "topLosers": "Top losers",
+    "mostActive": "Most active",
+    "unusualVolume": "Unusual volume",
+    "vixOverview": "VIX overview",
+    "fearGreedContext": "Fear and greed context",
+    "volatilityTermStructure": "Volatility term structure",
+    "riskDashboard": "Risk dashboard",
+    "countryFilters": "Country filters",
+    "exchangeStatistics": "Exchange statistics",
+    "listedCompanies": "Listed companies",
+    "regionalNews": "Regional news",
+    "liveGainers": "Live gainers",
+    "volumeFilters": "Volume filters",
+    "marketCapFilters": "Market cap filters",
+    "sectorBreakdown": "Sector breakdown",
+    "liveLosers": "Live losers",
+    "riskAlerts": "Risk alerts",
+    "indexImpact": "Index impact",
+    "watchlistActions": "Watchlist actions",
+    "trendingCoins": "Trending coins",
+    "marketCapRanking": "Market cap ranking",
+    "exchangeListings": "Exchange listings",
+    "historicalPerformance": "Historical performance",
+    "memeCoinRankings": "Meme coin rankings",
+    "volumeBursts": "Volume bursts",
+    "communityMomentum": "Community momentum",
+    "riskFlags": "Risk flags",
+    "defiEcosystem": "DeFi ecosystem",
+    "tvlMetrics": "TVL metrics",
+    "protocolCategories": "Protocol categories",
+    "tokenPerformance": "Token performance",
+    "layer1Chains": "Layer 1 chains",
+    "consensusDetails": "Consensus details",
+    "tokenomics": "Tokenomics",
+    "developerEcosystem": "Developer ecosystem",
+    "stablecoinSupply": "Stablecoin supply",
+    "pegMonitoring": "Peg monitoring",
+    "exchangeLiquidity": "Exchange liquidity",
+    "reserveContext": "Reserve context",
+    "spotPrices": "Spot prices",
+    "futuresPrices": "Futures prices",
+    "supplyDemandAnalysis": "Supply-demand analysis",
+    "correlationAnalysis": "Correlation analysis",
+    "preciousMetals": "Precious metals",
+    "industrialMetals": "Industrial metals",
+    "futuresContracts": "Futures contracts",
+    "currencySensitivity": "Currency sensitivity",
+    "cropMarkets": "Crop markets",
+    "weatherImpact": "Weather impact",
+    "supplyRegions": "Supply regions",
+    "seasonality": "Seasonality",
+    "industrialInputs": "Industrial inputs",
+    "demandTrends": "Demand trends",
+    "manufacturingSignals": "Manufacturing signals",
+    "regionalSupply": "Regional supply",
+    "regionWiseNews": "Region-wise news",
+    "macroSummaries": "Macro summaries",
+    "marketAlerts": "Market alerts",
+    "sectorWiseNews": "Sector-wise news",
+    "themeTracking": "Theme tracking",
+    "aiSummaries": "AI summaries",
+    "etfImpact": "ETF impact",
+    "cryptoNews": "Crypto news",
+    "onChainContext": "On-chain context",
+    "regulationUpdates": "Regulation updates",
+    "exchangeDevelopments": "Exchange developments",
+    "breakingCatalysts": "Breaking catalysts",
+    "importanceFilters": "Importance filters",
+    "liveMarketSummary": "Live market summary",
+    "filters": "Filters",
+    "analyticsWidgets": "Analytics widgets",
+    "relatedNews": "Related news"
+  },
+  "sentiment": {
+    "Equities": {
+      "label": "Equities",
+      "detail": "Risk-on breadth"
+    },
+    "FX": {
+      "label": "FX",
+      "detail": "USD mixed"
+    },
+    "Crypto": {
+      "label": "Crypto",
+      "detail": "Momentum bid"
+    },
+    "Commodities": {
+      "label": "Commodities",
+      "detail": "Energy softer"
+    }
+  }
 }

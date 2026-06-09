@@ -1,34 +1,260 @@
 {
-  "currencyType": "Type de devise",
-  "centralBank": "Banque centrale",
-  "exchangeRates": "Taux de change",
-  "converter": "Convertisseur",
-  "popularPairs": "Paires populaires",
-  "economicData": "Données économiques",
-  "code": "Code",
-  "symbol": "Symbole",
-  "country": "Pays",
-  "region": "Région",
-  "type": "Type",
-  "rate": "Taux",
-  "bid": "Achat",
-  "ask": "Vente",
-  "spread": "Spread",
-  "loadingRates": "Chargement des taux...",
   "amountPlaceholder": "Entrez un montant",
-  "economicIndicators": "Indicateurs économiques",
-  "interestRate": "Taux d'intérêt",
-  "inflationRate": "Taux d'inflation",
-  "gdpGrowth": "Croissance du PIB",
-  "employment": "Emploi",
-  "dataLoading": "Chargement des données...",
-  "economicNews": "Actualités économiques",
+  "annualRate": "Taux annuel",
+  "ask": "Vente",
+  "bid": "Achat",
+  "centralBank": "Banque centrale",
+  "change24h": "Variation 24h",
+  "code": "Code",
+  "converter": "Convertisseur",
+  "countries": {
+    "ae": {
+      "name": "Émirats arabes unis"
+    },
+    "au": {
+      "name": "Australie"
+    },
+    "br": {
+      "name": "Brésil"
+    },
+    "ca": {
+      "name": "Canada"
+    },
+    "ch": {
+      "name": "Suisse"
+    },
+    "cl": {
+      "name": "Chili"
+    },
+    "cn": {
+      "name": "Chine"
+    },
+    "eu": {
+      "name": "Union européenne"
+    },
+    "gb": {
+      "name": "Royaume-Uni"
+    },
+    "hk": {
+      "name": "Hong Kong"
+    },
+    "in": {
+      "name": "Inde"
+    },
+    "jp": {
+      "name": "Japon"
+    },
+    "kr": {
+      "name": "Corée du Sud"
+    },
+    "mx": {
+      "name": "Mexique"
+    },
+    "no": {
+      "name": "Norvège"
+    },
+    "sa": {
+      "name": "Arabie saoudite"
+    },
+    "se": {
+      "name": "Suède"
+    },
+    "sg": {
+      "name": "Singapour"
+    },
+    "us": {
+      "name": "États-Unis"
+    },
+    "za": {
+      "name": "Afrique du Sud"
+    }
+  },
+  "country": "Pays",
+  "currencies": {
+    "aed": {
+      "name": "Dirham des Émirats",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "aud": {
+      "name": "Dollar australien",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "brl": {
+      "name": "Réal brésilien",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "cad": {
+      "name": "Dollar canadien",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "chf": {
+      "name": "Franc suisse",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "clp": {
+      "name": "Peso chilien",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "cny": {
+      "name": "Yuan chinois",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "eur": {
+      "name": "Euro",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "gbp": {
+      "name": "Livre sterling",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "hkd": {
+      "name": "Dollar de Hong Kong",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "inr": {
+      "name": "Roupie indienne",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "jpy": {
+      "name": "Yen japonais",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "krw": {
+      "name": "Won sud-coréen",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "mxn": {
+      "name": "Peso mexicain",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "nok": {
+      "name": "Couronne norvégienne",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "sar": {
+      "name": "Riyal saoudien",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "sek": {
+      "name": "Couronne suédoise",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "sgd": {
+      "name": "Dollar de Singapour",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    },
+    "usd": {
+      "name": "Dollar américain",
+      "description": "La monnaie de réserve la plus utilisée au monde et une référence mondiale."
+    },
+    "zar": {
+      "name": "Rand sud-africain",
+      "description": "Devise suivie pour les flux FX, les réserves et les signaux macro."
+    }
+  },
   "currencyNewsComing": "Les dernières actualités économiques s’afficheront ici",
   "currencyNewsSubtitle": "Décisions de taux, rapports d’inflation et plus",
-  "vsUsd": "contre USD",
+  "currencyType": "Type de devise",
+  "dataLoading": "Chargement des données...",
+  "economicData": "Données économiques",
+  "economicIndicators": "Indicateurs économiques",
+  "economicNews": "Actualités économiques",
+  "employment": "Emploi",
+  "exchangeRates": "Taux de change",
+  "gdpGrowth": "Croissance du PIB",
   "high52w": "Plus haut 52 sem.",
+  "inflationRate": "Taux d'inflation",
+  "interestRate": "Taux d'intérêt",
+  "loadingRates": "Chargement des taux...",
   "low52w": "Plus bas 52 sem.",
-  "annualRate": "Taux annuel",
+  "popularPairs": "Paires populaires",
   "quarterlyRate": "Taux trimestriel",
-  "change24h": "Variation 24h"
+  "rate": "Taux",
+  "region": "Région",
+  "spread": "Spread",
+  "symbol": "Symbole",
+  "type": "Type",
+  "vsUsd": "contre USD",
+  "currencyTypes": {
+    "fiat": "Devise fiduciaire",
+    "commodity": "Devise liée aux matières premières",
+    "crypto": "Devise crypto"
+  },
+  "centralBanks": {
+    "federalreserve": "Réserve fédérale",
+    "europeancentralbank": "Banque centrale européenne",
+    "bankofjapan": "Banque du Japon",
+    "bankofengland": "Banque d’Angleterre",
+    "swissnationalbank": "Banque nationale suisse",
+    "peoplesbankofchina": "Banque populaire de Chine",
+    "hongkongmonetaryauthority": "Autorité monétaire de Hong Kong",
+    "reservebankofindia": "Banque de réserve de l’Inde",
+    "reservebankofaustralia": "Banque de réserve d’Australie",
+    "monetaryauthorityofsingapore": "Autorité monétaire de Singapour",
+    "bankofkorea": "Banque de Corée",
+    "bankofcanada": "Banque du Canada",
+    "centralbankofbrazil": "Banque centrale du Brésil",
+    "bancodemxico": "Banque du Mexique",
+    "centralbankofchile": "Banque centrale du Chili",
+    "riksbank": "Riksbank",
+    "norgesbank": "Banque de Norvège",
+    "saudicentralbank": "Banque centrale saoudienne",
+    "centralbankoftheuae": "Banque centrale des ÉAU",
+    "southafricanreservebank": "Banque de réserve sud-africaine"
+  },
+  "regions": {
+    "northamerica": "Amérique du Nord",
+    "europe": "Europe",
+    "asia": "Asie",
+    "americas": "Amériques",
+    "middleeast": "Moyen-Orient",
+    "africa": "Afrique"
+  },
+  "ratesVsMajorSubtitle": "1 {{code}} exprimé dans les autres devises majeures",
+  "keyDataReleasesFor": "Publications clés pour {{code}}",
+  "hoursAgo": "Il y a {{count}} h",
+  "impacts": {
+    "High": "Élevé",
+    "Medium": "Moyen",
+    "Low": "Faible"
+  },
+  "events": {
+    "nonFarmPayrolls": "Emploi non agricole",
+    "ecbPressConference": "Conférence de presse de la BCE",
+    "boeGovernorSpeech": "Discours du gouverneur de la BoE",
+    "fomcMinutes": "Compte rendu du FOMC",
+    "bojSummaryOpinions": "Synthèse des avis de la BoJ",
+    "rbaStatement": "Déclaration de la RBA",
+    "currencyCpiRelease": "Publication de l’IPC {{code}}",
+    "centralBankPolicyUpdate": "Mise à jour de politique de {{centralBank}}",
+    "currencyRetailSales": "Ventes au détail {{code}}",
+    "currencyTradeBalance": "Balance commerciale {{code}}"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "{{code}} se renforce avec les attentes de politique monétaire",
+    "currencyWeakensPolicy": "{{code}} faiblit avec les attentes de politique monétaire",
+    "centralBankDataDependent": "{{centralBank}} signale une trajectoire dépendante des données",
+    "currencyLiquidityRobust": "La liquidité de {{code}} reste robuste dans les flux transfrontaliers",
+    "currencyFairValueUpdated": "Note d’analyste : juste valeur de {{code}} mise à jour",
+    "usdRallyPauses": "La hausse de l’USD marque une pause avant le compte rendu du FOMC",
+    "ecbDataDependent": "La BCE signale une trajectoire dépendante des données, l’EUR reste lourd",
+    "jpyInterventionWatch": "La surveillance d’intervention sur le JPY reprend alors que l’USD/JPY teste 156",
+    "gbpStickyInflation": "La GBP soutenue par une inflation des services persistante",
+    "cnyWeakerMidpoint": "Le CNY sous pression après un fixing plus faible de la PBOC",
+    "audCommodityStrength": "L’AUD porté par la vigueur des matières premières et l’appétit pour le risque"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "Devise de réserve principale",
+    "secondreservecurrency": "Deuxième devise de réserve",
+    "thirdreservecurrency": "Troisième devise de réserve",
+    "regionalreservecurrency": "Devise de réserve régionale",
+    "regional": "Régionale"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "Entrées vers valeurs refuges",
+    "mixedinflows": "Entrées mixtes",
+    "exportdrivenflows": "Flux tirés par les exportations",
+    "commoditylinkedflows": "Flux liés aux matières premières",
+    "open": "Ouvert"
+  }
 }

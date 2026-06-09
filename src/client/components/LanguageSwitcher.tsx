@@ -6,6 +6,49 @@ interface LanguageSwitcherProps {
   className?: string;
 }
 
+const nativeLanguageLabels: Partial<Record<SupportedLang, string>> = {
+  en: "English",
+  ar: "العربية",
+  zh: "中文",
+  fr: "Français",
+  pt: "Português",
+  ru: "Русский",
+  ja: "日本語",
+  ko: "한국어",
+  es: "Español",
+  hi: "हिन्दी",
+  th: "ไทย",
+  vi: "Tiếng Việt",
+  de: "Deutsch",
+  pl: "Polski",
+  tr: "Türkçe",
+  id: "Bahasa Indonesia",
+  ms: "Bahasa Melayu",
+};
+
+const regionLabels: Partial<Record<SupportedLang, string>> = {
+  en: "US",
+  ar: "SA",
+  zh: "CN",
+  fr: "FR",
+  pt: "PT",
+  ru: "RU",
+  ja: "JP",
+  ko: "KR",
+  es: "ES",
+  hi: "IN",
+  th: "TH",
+  vi: "VN",
+  de: "DE",
+  pl: "PL",
+  tr: "TR",
+  id: "ID",
+  ms: "MY",
+};
+
+const getNativeLabel = (code: SupportedLang, fallback: string) => nativeLanguageLabels[code] ?? fallback;
+const getRegionLabel = (code: SupportedLang, fallback: string) => regionLabels[code] ?? fallback;
+
 const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   variant = "horizontal-scroll",
   className = "",
@@ -77,7 +120,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
         >
           {SUPPORTED_LANGUAGES.map((lang) => (
             <option key={lang.code} value={lang.code}>
-              {lang.nativeLabel}
+              {getNativeLabel(lang.code, lang.nativeLabel)}
             </option>
           ))}
         </select>
@@ -95,11 +138,11 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
             className={`lang-strip-btn ${language === lang.code ? "active" : ""}`}
             onClick={() => handleSelect(lang.code)}
             aria-pressed={language === lang.code}
-            title={lang.nativeLabel}
+            title={getNativeLabel(lang.code, lang.nativeLabel)}
           >
-            <span className="lang-flag" aria-hidden="true">{lang.flag}</span>
+            <span className="lang-flag" aria-hidden="true">{getRegionLabel(lang.code, lang.flag)}</span>
             <span className="lang-copy">
-              <span className="lang-native">{lang.nativeLabel}</span>
+              <span className="lang-native">{getNativeLabel(lang.code, lang.nativeLabel)}</span>
             </span>
           </button>
         ))}
@@ -117,11 +160,11 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
             className={`lang-scroll-btn ${language === lang.code ? "active" : ""}`}
             onClick={() => handleSelect(lang.code)}
             aria-pressed={language === lang.code}
-            title={lang.nativeLabel}
+            title={getNativeLabel(lang.code, lang.nativeLabel)}
           >
-            <span className="lang-flag" aria-hidden="true">{lang.flag}</span>
+            <span className="lang-flag" aria-hidden="true">{getRegionLabel(lang.code, lang.flag)}</span>
             <span className="lang-scroll-label">
-              <span className="lang-native">{lang.nativeLabel}</span>
+              <span className="lang-native">{getNativeLabel(lang.code, lang.nativeLabel)}</span>
             </span>
           </button>
         ))}

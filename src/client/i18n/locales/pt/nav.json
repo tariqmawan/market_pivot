@@ -1,58 +1,58 @@
 {
-  "dashboard": "Dashboard",
+  "dashboard": "Painel",
   "markets": "Mercados",
   "exchanges": "Bolsas",
   "stocks": "Ações",
-  "forex": "FX",
+  "forex": "Câmbio",
   "crypto": "Cripto",
-  "commodities": "Commodities",
+  "commodities": "commodities",
   "regions": "Regiões",
   "sectors": "Setores",
   "news": "Notícias",
-  "calendar": "Calendário",
-  "userPanel": "Painel do usuário",
+  
+  
   "pricing": "Preços",
   "tools": "Ferramentas",
   "coverage": "Cobertura",
   "indices": "Índices",
-  "etfs": "ETFs",
+  "etfs": "etfs",
   "bonds": "Renda fixa",
-  "screener": "Screener",
+  "screener": "Rastreador",
   "overview": "Visão geral",
   "preMarket": "Pré-mercado",
   "afterHours": "Após o expediente",
-  "heatmaps": "Heatmaps",
+  "heatmaps": "Mapas de calor",
   "marketMovers": "Movimentações",
   "volatilityIndex": "Índice de volatilidade",
   "topGainers": "Maiores altas",
   "topLosers": "Maiores baixas",
-  "watchlists": "Watchlists",
+  "watchlists": "Listas de acompanhamento",
   "portfolioTracker": "Rastreador de portfólio",
   "alerts": "Alertas",
-  "trendingCoins": "Criptos em alta",
-  "memeCoins": "Meme coins",
-  "defi": "DeFi",
-  "layer1": "Layer 1",
-  "stablecoins": "Stablecoins",
-  "energy": "Energia",
-  "metals": "Metais",
-  "agriculture": "Agricultura",
-  "industrial": "Industrial",
-  "americas": "Américas",
-  "europe": "Europa",
-  "asiaPacific": "Ásia-Pacífico",
-  "middleEastAfrica": "Oriente Médio & África",
-  "technology": "Tecnologia",
-  "banking": "Bancário",
-  "ai": "IA",
-  "ev": "Veículos elétricos",
-  "semiconductor": "Semicondutores",
-  "defence": "Defesa",
-  "globalNews": "Notícias globais",
-  "regionNews": "Notícias regionais",
-  "sectorNews": "Notícias setoriais",
-  "cryptoNews": "Notícias cripto",
-  "marketAlerts": "Alertas de mercado",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "byRegion": "Por região",
   "nyse": "NYSE",
   "nasdaq": "NASDAQ",
@@ -60,5 +60,33 @@
   "navMain": "Navegação principal",
   "homeAria": "Página inicial da MarketsPivot",
   "openMenu": "Abrir menu",
-  "adminTopNav": "Navegação administrativa"
+  "adminTopNav": "Navegação administrativa",
+  "fx": "Câmbio",
+  "Calendar": "Calendário",
+  "UserPanel": "Painel do Usuário",
+  "adminPanel": "Painel Admin",
+  "TrendingCoins": "Moedas em alta",
+  "MemeCoins": "Meme Coins",
+  "Defi": "DeFi",
+  "Layer1": "Camada 1",
+  "Stablecoins": "Stablecoins",
+  "Energy": "Energia",
+  "Metals": "Metais",
+  "Agriculture": "Agricultura",
+  "Industrial": "Industrial",
+  "Americas": "Américas",
+  "Europe": "Europa",
+  "AsiaPacific": "Ásia-Pacífico",
+  "MiddleEastAfrica": "Oriente Médio e África",
+  "Technology": "Tecnologia",
+  "Banking": "Bancos",
+  "Ai": "Inteligência Artificial",
+  "Ev": "Veículos elétricos",
+  "Semiconductor": "Semicondutores",
+  "Defence": "Defesa",
+  "GlobalNews": "Notícias globais",
+  "RegionNews": "Notícias regionais",
+  "SectorNews": "Notícias setoriais",
+  "CryptoNews": "Notícias cripto",
+  "MarketAlerts": "Alertas de mercado"
 }

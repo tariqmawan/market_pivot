@@ -1,37 +1,332 @@
 {
-  "currentPrice": "ราคาปัจจุบัน",
-  "rank": "อันดับ",
-  "priceMetrics": "ราคาและเมตริก",
-  "tradingPairs": "คู่ซื้อขาย",
-  "exchanges": "ตลาดซื้อขาย",
-  "charts": "แผนภูมิ",
-  "onChain": "ออนเชน",
-  "category": "หมวดหมู่",
-  "launched": "เปิดตัว",
-  "founder": "ผู้ก่อตั้ง",
-  "consensus": "กลไกฉันทามติ",
-  "blockTime": "เวลาบล็อก",
-  "supplyInfo": "ข้อมูลอุปทาน",
-  "circulatingSupply": "อุปทานหมุนเวียน",
-  "maxSupply": "อุปทานสูงสุด",
-  "volume24h": "ปริมาณ 24 ชม.",
-  "ath": "All-Time High",
-  "atl": "All-Time Low",
-  "marketRank": "อันดับตลาด",
-  "loadingPrice": "กำลังโหลดข้อมูลราคา...",
-  "loadingPairs": "กำลังโหลดคู่ซื้อขาย...",
-  "price": "ราคา",
-  "exchange": "ตลาดซื้อขาย",
-  "listedCryptoExchanges": "ตลาดที่ซื้อขายสินทรัพย์นี้",
-  "exchangeExamples": "Binance, Coinbase, Kraken และอื่นๆ",
-  "priceChart": "แผนภูมิราคาแบบโต้ตอบ",
-  "volumeOverlay": "พร้อมการซ้อนทับปริมาณ",
-  "onChainMetrics": "เมตริกออนเชน",
-  "transactionsPerDay": "ธุรกรรมต่อวัน",
   "activeAddresses": "ที่อยู่ที่ใช้งาน",
-  "networkFees": "ค่าธรรมเนียมเครือข่าย",
-  "transactionVolume": "ปริมาณธุรกรรม",
-  "onChainComing": "ข้อมูลออนเชนจะมาเร็วๆ นี้",
+  "ath": "สูงสุดตลอดกาล",
+  "atl": "ต่ำสุดตลอดกาล",
+  "blockTime": "เวลาบล็อก",
+  "categories": {
+    "defi": {
+      "name": "ดีไฟ"
+    },
+    "infrastructure": {
+      "name": "โครงสร้างพื้นฐาน"
+    },
+    "layer1": {
+      "name": "เลเยอร์ 1"
+    },
+    "layer2": {
+      "name": "เลเยอร์ 2"
+    },
+    "meme": {
+      "name": "มีม"
+    },
+    "payments": {
+      "name": "การชำระเงิน"
+    },
+    "stablecoin": {
+      "name": "สเตเบิลคอยน์"
+    }
+  },
+  "category": "หมวดหมู่",
+  "charts": "แผนภูมิ",
+  "circulatingSupply": "อุปทานหมุนเวียน",
+  "consensus": "กลไกฉันทามติ",
   "cryptoNewsComing": "ข่าวและอัปเดตล่าสุดจะแสดงที่นี่",
-  "cryptoNewsSubtitle": "อัปเดตโครงการ พันธมิตร และข่าวตลาด"
+  "cryptoNewsSubtitle": "อัปเดตโครงการ พันธมิตร และข่าวตลาด",
+  "cryptocurrencies": {
+    "aave": {
+      "name": "Aave",
+      "description": "โปรโตคอลสภาพคล่องแบบไม่ต้องฝากทรัพย์สินสำหรับการให้กู้ยืมและการยืม"
+    },
+    "arbitrum": {
+      "name": "Arbitrum",
+      "description": "โซลูชันการปรับขนาดเลเยอร์ 2 ของ Ethereum และโทเคนการกำกับดูแล"
+    },
+    "avalanche2": {
+      "name": "Avalanche",
+      "description": "โซลูชัน Subnet และการปรับขนาดสำหรับแอปพลิเคชันบล็อกเชน"
+    },
+    "binancecoin": {
+      "name": "BNB",
+      "description": "โทเคนเนทีฟของระบบนิเวศ Binance Smart Chain"
+    },
+    "bitcoin": {
+      "name": "Bitcoin",
+      "description": "คริปโตเคอร์เรนซีแรกและใหญ่ที่สุดในโลกตามมูลค่าตลาด"
+    },
+    "bonk": {
+      "name": "Bonk",
+      "description": "เหรียญมีมสำคัญแรกของ Solana — airdrop สู่ชุมชน สู่แกนหลัก DeFi"
+    },
+    "cardano": {
+      "name": "Cardano",
+      "description": "แพลตฟอร์มบล็อกเชนที่ผ่านการตรวจสอบโดยผู้เชี่ยวชาญ เน้นความยั่งยืน"
+    },
+    "chainlink": {
+      "name": "Chainlink",
+      "description": "เครือข่าย Oracle แบบกระจายศูนย์เชื่อมต่อบล็อกเชนกับข้อมูลโลกจริง"
+    },
+    "compoundGovernanceToken": {
+      "name": "Compound",
+      "description": "โปรโตคอลอัตราดอกเบี้ยอัตโนมัติแบบอัลกอริทึมสำหรับการให้กู้ยืม DeFi"
+    },
+    "cosmos": {
+      "name": "Cosmos",
+      "description": "ระบบนิเวศบล็อกเชนที่ทำงานร่วมกันได้และอินเทอร์เน็ตของบล็อกเชน"
+    },
+    "curveDaoToken": {
+      "name": "Curve Finance",
+      "description": "การแลกเปลี่ยนแบบกระจายศูนย์ที่ปรับปรุงสำหรับการสลับสเตเบิลคอยน์และสินทรัพย์ผูกพัน"
+    },
+    "dai": {
+      "name": "Dai",
+      "description": "สเตเบิลคอยน์ backed โดย USD แบบกระจายศูนย์บน Ethereum"
+    },
+    "dogecoin": {
+      "name": "Dogecoin",
+      "description": "เหรียญมีมดั้งเดิม — เริ่มจากเรื่องตลก สู่ไอคอนวัฒนธรรมคริปโต"
+    },
+    "ethereum": {
+      "name": "Ethereum",
+      "description": "แพลตฟอร์มสัญญาอัจฉริยะชั้นนำและศูนย์กลาง DeFi"
+    },
+    "floki": {
+      "name": "FLOKI",
+      "description": "คริปโตของประชาชน — ได้แรงบันดาลใจจาก Elon Musk ชุมชนสร้างระบบนิเวศมีม"
+    },
+    "litecoin": {
+      "name": "Litecoin",
+      "description": "Silver สู่ Gold ของ Bitcoin การชำระเงินแบบ peer-to-peer ที่รวดเร็ว"
+    },
+    "maker": {
+      "name": "Maker",
+      "description": "โทเคนการกำกับดูแลของ MakerDAO โปรโตคอลเบื้องหลังสเตเบิลคอยน์ DAI"
+    },
+    "maticNetwork": {
+      "name": "Polygon",
+      "description": "โซลูชันการปรับขนาด Ethereum ที่ช่วยให้ธุรกรรมเร็วขึ้นและถูกลง"
+    },
+    "pepe": {
+      "name": "Pepe",
+      "description": "วัฒนธรรมอินเทอร์เน็ตพบคริปโต — มีมนกกระเรียนกลายเป็นโทเคนมูลค่าพันล้าน"
+    },
+    "polkadot": {
+      "name": "Polkadot",
+      "description": "บล็อกเชนหลายสายที่เปิดใช้งานการทำงานร่วมกันข้ามเชน"
+    },
+    "ripple": {
+      "name": "XRP",
+      "description": "เครือข่ายการชำระเงินที่เน้นการโอนเงินระหว่างประเทศที่รวดเร็วและต้นทุนต่ำ"
+    },
+    "shibaInu": {
+      "name": "Shiba Inu",
+      "description": "Dogecoin killer — เหรียญมีมบน Ethereum พร้อมชุมชนขนาดใหญ่"
+    },
+    "solana": {
+      "name": "Solana",
+      "description": "แพลตฟอร์มบล็อกเชนความเร็วสูงสำหรับแอปพลิเคชันแบบกระจายศูนย์"
+    },
+    "stellar": {
+      "name": "Stellar",
+      "description": "เครือข่ายบล็อกเชนสำหรับการเข้าถึงทางการเงินและการโอนเงิน"
+    },
+    "tether": {
+      "name": "Tether",
+      "description": "สเตเบิลคอยน์ผูกกับ USD ที่ใช้กันอย่างแพร่หลายที่สุด"
+    },
+    "theOpenNetwork": {
+      "name": "Toncoin",
+      "description": "บล็อกเชนความเร็วสูงพิเศษที่เน้นการส่งข้อความและการชำระเงิน"
+    },
+    "tron": {
+      "name": "TRON",
+      "description": "แพลตฟอร์มบล็อกเชนสำหรับความบันเทิงแบบกระจายศูนย์"
+    },
+    "uniswap": {
+      "name": "Uniswap",
+      "description": "การแลกเปลี่ยนแบบกระจายศูนย์ชั้นนำและโปรโตคอล DeFi"
+    },
+    "usdCoin": {
+      "name": "USD Coin",
+      "description": "สเตเบิลคอยน์ผูกกับ USD ที่ได้รับการควบคุม"
+    }
+  },
+  "currentPrice": "ราคาปัจจุบัน",
+  "exchange": "ตลาดซื้อขาย",
+  "exchangeExamples": "Binance, Coinbase, Kraken และอื่นๆ",
+  "exchanges": "ตลาดซื้อขาย",
+  "founder": "ผู้ก่อตั้ง",
+  "launched": "เปิดตัว",
+  "listedCryptoExchanges": "ตลาดที่ซื้อขายสินทรัพย์นี้",
+  "loadingPairs": "กำลังโหลดคู่ซื้อขาย...",
+  "loadingPrice": "กำลังโหลดข้อมูลราคา...",
+  "marketRank": "อันดับตลาด",
+  "maxSupply": "อุปทานสูงสุด",
+  "networkFees": "ค่าธรรมเนียมเครือข่าย",
+  "onChain": "ออนเชน",
+  "onChainComing": "ข้อมูลออนเชนจะมาเร็วๆ นี้",
+  "onChainMetrics": "เมตริกออนเชน",
+  "price": "ราคา",
+  "priceChart": "แผนภูมิราคาแบบโต้ตอบ",
+  "priceMetrics": "ราคาและเมตริก",
+  "rank": "อันดับ",
+  "rankNumber": "อันดับ #{{rank}}",
+  "supplyInfo": "ข้อมูลอุปทาน",
+  "tradingPairs": "คู่ซื้อขาย",
+  "transactionVolume": "ปริมาณธุรกรรม",
+  "transactionsPerDay": "ธุรกรรมต่อวัน",
+  "volume24h": "ปริมาณ 24 ชม.",
+  "volumeOverlay": "พร้อมการซ้อนทับปริมาณ",
+  "cryptocurrency": "คริปโตเคอร์เรนซี",
+  "cryptocurrencyCategories": "หมวดหมู่คริปโตเคอร์เรนซี",
+  "allCryptocurrencies": "คริปโตเคอร์เรนซีทั้งหมด",
+  "trending": "กำลังนิยม",
+  "categoryNotFound": "ไม่พบหมวดหมู่",
+  "categoryNotFoundDescription": "หมวดหมู่นี้ไม่มีอยู่ เรียกดูคริปโตเคอร์เรนซีทั้งหมดด้านล่าง",
+  "viewAllCryptocurrencies": "ดูคริปโตทั้งหมด",
+  "trendingCoins": {
+    "eyebrow": "ข้อมูลตลาดสด - คริปโตเคอร์เรนซี",
+    "titleAccent": "เหรียญ",
+    "titleRest": "กำลังนิยม",
+    "subtitle": "คริปโตที่กำลังนิยมแบบเรียลไทม์ จัดอันดับตามกิจกรรมการซื้อขาย โมเมนตัมสังคม และการเติบโตของมูลค่าตลาด อัปเดตต่อเนื่อง",
+    "categories": {
+      "all": "ทั้งหมด",
+      "layer1": "เลเยอร์ 1",
+      "layer2": "เลเยอร์ 2",
+      "defi": "DeFi",
+      "meme": "มีม",
+      "stablecoin": "สเตเบิลคอยน์",
+      "payments": "การชำระเงิน",
+      "infrastructure": "โครงสร้างพื้นฐาน"
+    },
+    "metrics": {
+      "tracked": "ติดตาม",
+      "gainers": "เหรียญบวก",
+      "topGain24h": "บวกสูงสุด 24ชม.",
+      "volumeShort": "ปริมาณ 24ชม.",
+      "supply": "อุปทาน"
+    },
+    "sentiment": {
+      "hot": "ร้อนแรง",
+      "rising": "กำลังขึ้น",
+      "active": "คึกคัก",
+      "strong": "แข็งแกร่ง"
+    },
+    "moreTitle": "เหรียญกำลังนิยมเพิ่มเติม",
+    "emptyCategory": "ไม่พบเหรียญในหมวดหมู่นี้",
+    "insights": {
+      "trending": {
+        "eyebrow": "อะไรที่กำลังนิยม",
+        "title": "พลวัตตลาด",
+        "items": {
+          "socialMentions": "การกล่าวถึงบนโซเชียลพุ่งขึ้น",
+          "exchangeFlows": "กระแสเข้า/ออกจากกระดานเปลี่ยน",
+          "developerActivity": "กิจกรรมนักพัฒนาบน GitHub",
+          "onChainVolume": "ปริมาณธุรกรรมบนเชน",
+          "volumeBreakouts": "ปริมาณซื้อขายทะลุกรอบ"
+        }
+      },
+      "risk": {
+        "eyebrow": "ปัจจัยเสี่ยง",
+        "title": "ระมัดระวัง",
+        "items": {
+          "volatility": "ความผันผวนสูง - ราคาแกว่งได้ 30%+",
+          "liquidity": "สภาพคล่องต่ำในเหรียญขนาดเล็ก",
+          "manipulation": "อาจมีการปั่นตลาด",
+          "regulation": "กฎระเบียบเปลี่ยนแปลงต่อเนื่อง",
+          "techRisk": "ความเสี่ยงสมาร์ตคอนแทรกต์/เทคโนโลยี"
+        }
+      },
+      "tips": {
+        "eyebrow": "เคล็ดลับเทรด",
+        "title": "กลยุทธ์อัจฉริยะ",
+        "items": {
+          "onChainValidation": "ตรวจสอบเมตริก on-chain ก่อน",
+          "githubActivity": "ดู activity นักพัฒนาบน GitHub",
+          "divergence": "ติดตาม divergence ระหว่างปริมาณและราคา",
+          "positionSizing": "ใช้ขนาดสถานะที่เหมาะสม",
+          "stopLosses": "ตั้ง stop-loss เข้มงวดก่อนเข้า"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "วิจัยคริปโต",
+      "title": "เจาะลึกเหรียญใดก็ได้",
+      "description": "คลิกเหรียญเพื่อดูกราฟละเอียด เมตริก on-chain รายชื่อกระดาน และข่าวด่วนในที่เดียว"
+    }
+  },
+  "categoryPages": {
+    "common": {
+      "marketOverview": "ภาพรวมตลาด",
+      "combinedMarketCap": "มูลค่าตลาดรวม",
+      "topGainer24h": "เพิ่มขึ้นสูงสุด (24 ชม.)",
+      "name": "ชื่อ",
+      "price": "ราคา",
+      "change24h": "เปลี่ยนแปลง 24 ชม.",
+      "marketCap": "มูลค่าตลาด",
+      "volume24h": "ปริมาณ 24 ชม.",
+      "riskProfile": "โปรไฟล์ความเสี่ยง",
+      "fullCryptoMarket": "ตลาดคริปโตเต็มรูปแบบ",
+      "exploreAllCryptocurrencies": "สำรวจคริปโตเคอร์เรนซีทั้งหมด"
+    },
+    "meme": {
+      "eyebrow": "โทเคนชุมชน",
+      "title": "เหรียญมีม",
+      "body": "คริปโตเคอร์เรนซีที่ขับเคลื่อนโดยชุมชน เกิดจากวัฒนธรรมไวรัล โมเมนตัมทางสังคม และกลุ่มผู้ติดตาม สินทรัพย์ความเสี่ยงสูง-ผลตอบแทนสูงที่ความเชื่อมั่นครองตลาด",
+      "metrics": {
+        "coinsListed": "เหรียญที่จดทะเบียน"
+      },
+      "rankingsTitle": "อันดับเหรียญมีม",
+      "table": {
+        "community": "ชุมชน"
+      },
+      "communities": {
+        "DOGE": "OG ดั้งเดิม",
+        "SHIB": "กองทัพ Shib",
+        "PEPE": "ชาติ Pepe",
+        "BONK": "มีม Solana",
+        "FLOKI": "กองทัพไวกิ้ง"
+      },
+      "insights": {
+        "origins": {
+          "eyebrow": "จุดกำเนิด",
+          "title": "เรื่องราวของเหรียญมีม",
+          "items": {
+            "dogecoin": "Dogecoin (2013) - เหรียญมีมอินเทอร์เน็ตดั้งเดิม",
+            "elon": "ทวีตของ Elon Musk เป็นตัวเร่งราคา",
+            "pumps": "การปั๊มแบบ WallStreetBets ที่ประสานงานกัน",
+            "shiba": "Shiba Inu เปิดตัวในฐานะ \"DOGE killer\"",
+            "pepe": "บูม PEPE ปี 2023 ฟื้นวัฏจักรมีม",
+            "bonk": "BONK ถูก airdrop สู่ชีวิต DeFi ของ Solana"
+          }
+        },
+        "risk": {
+          "title": "สิ่งที่นักลงทุนควรรู้",
+          "items": {
+            "sentiment": "ราคาขับเคลื่อนโดยความเชื่อมั่นเกือบทั้งหมด",
+            "pumpDump": "เสี่ยงต่อแผนการปั๊มแล้วทิ้ง",
+            "utility": "ประโยชน์ใช้สอยน้อยหรือไม่มีเลย",
+            "volatility": "ความผันผวนรุนแรง - 50%+ เป็นเรื่องปกติ",
+            "rugPull": "ความเสี่ยง Rug-pull ในเหรียญใหม่ที่ยังไม่ตรวจสอบ",
+            "viralCycles": "ความสัมพันธ์สูงกับวัฏจักรสื่อไวรัล"
+          }
+        },
+        "signals": {
+          "eyebrow": "สัญญาณชุมชน",
+          "title": "วิธีติดตามโมเมนตัม",
+          "items": {
+            "twitter": "การกล่าวถึง Twitter/X และ hashtags ที่กำลังมาแรง",
+            "reddit": "กิจกรรม Reddit บน r/CryptoCurrency",
+            "whales": "การแจ้งเตือนกระเป๋าวาฬและการโอนจำนวนมาก",
+            "listings": "ประกาศการจดทะเบียนในตลาดซื้อขาย",
+            "google": "ปริมาณการค้นหา Google Trends พุ่งสูง",
+            "influencers": "กิจกรรมโซเชียลมีเดียของอินฟลูเอนเซอร์"
+          }
+        }
+      },
+      "cta": {
+        "description": "เปรียบเทียบเหรียญมีมกับสินทรัพย์ blue-chip โปรโตคอล DeFi และบล็อกเชนเลเยอร์ 1"
+      }
+    }
+  },
+  "blockTimeSeconds": "{{time}} วินาที"
 }

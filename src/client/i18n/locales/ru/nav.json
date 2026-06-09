@@ -3,25 +3,25 @@
   "markets": "Рынки",
   "exchanges": "Биржи",
   "stocks": "Акции",
-  "forex": "FX",
+  "forex": "Форекс",
   "crypto": "Криптовалюты",
   "commodities": "Сырьё",
   "regions": "Регионы",
   "sectors": "Секторы",
   "news": "Новости",
-  "calendar": "Календарь",
-  "userPanel": "Панель пользователя",
+  
+  
   "pricing": "Цены",
   "tools": "Инструменты",
   "coverage": "Покрытие",
   "indices": "Индексы",
-  "etfs": "ETFs",
+  "etfs": "ETF",
   "bonds": "Облигации",
   "screener": "Скринер",
   "overview": "Обзор",
   "preMarket": "До открытия",
   "afterHours": "После торгов",
-  "heatmaps": "Heatmaps",
+  "heatmaps": "Тепловые карты",
   "marketMovers": "Лидеры рынка",
   "volatilityIndex": "Индекс волатильности",
   "topGainers": "Лидеры роста",
@@ -29,30 +29,30 @@
   "watchlists": "Вочлисты",
   "portfolioTracker": "Трекер портфеля",
   "alerts": "Оповещения",
-  "trendingCoins": "Трендовые монеты",
-  "memeCoins": "Meme coins",
-  "defi": "DeFi",
-  "layer1": "Layer 1",
-  "stablecoins": "Стейблкоины",
-  "energy": "Энергетика",
-  "metals": "Металлы",
-  "agriculture": "Сельское хозяйство",
-  "industrial": "Промышленность",
-  "americas": "Америка",
-  "europe": "Европа",
-  "asiaPacific": "Азиатско-Тихоокеанский регион",
-  "middleEastAfrica": "Ближний Восток и Африка",
-  "technology": "Технологии",
-  "banking": "Банковская сфера",
-  "ai": "ИИ",
-  "ev": "Электромобили",
-  "semiconductor": "Полупроводники",
-  "defence": "Оборона",
-  "globalNews": "Мировые новости",
-  "regionNews": "Региональные новости",
-  "sectorNews": "Новости отрасли",
-  "cryptoNews": "Крипто новости",
-  "marketAlerts": "Рыночные оповещения",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "byRegion": "По региону",
   "nyse": "NYSE",
   "nasdaq": "NASDAQ",
@@ -60,5 +60,33 @@
   "navMain": "Основная навигация",
   "homeAria": "Домашняя страница MarketsPivot",
   "openMenu": "Открыть меню",
-  "adminTopNav": "Административная навигация"
+  "adminTopNav": "Административная навигация",
+  "fx": "Форекс",
+  "Calendar": "Календарь",
+  "UserPanel": "Панель пользователя",
+  "adminPanel": "Админ панель",
+  "TrendingCoins": "Трендовые монеты",
+  "MemeCoins": "Meme монеты",
+  "Defi": "DeFi",
+  "Layer1": "Первый слой",
+  "Stablecoins": "Стейблкоины",
+  "Energy": "Энергетика",
+  "Metals": "Металлы",
+  "Agriculture": "Сельское хозяйство",
+  "Industrial": "Промышленность",
+  "Americas": "Америка",
+  "Europe": "Европа",
+  "AsiaPacific": "Азиатско-Тихоокеанский регион",
+  "MiddleEastAfrica": "Ближний Восток и Африка",
+  "Technology": "Технологии",
+  "Banking": "Банки",
+  "Ai": "Искусственный интеллект",
+  "Ev": "Электромобили",
+  "Semiconductor": "Полупроводники",
+  "Defence": "Оборона",
+  "GlobalNews": "Глобальные новости",
+  "RegionNews": "Региональные новости",
+  "SectorNews": "Отраслевые новости",
+  "CryptoNews": "Крипто новости",
+  "MarketAlerts": "Рыночные оповещения"
 }

@@ -1,29 +1,83 @@
 {
-  "title": "全球仪表盘",
-  "intro": "股票、外汇和加密货币集中在一个工作区，面向未来实时数据、新闻、图表和比较模块。",
-  "userPanelTitle": "您的市场工作区",
-  "userPanelIntro": "在一个清晰的仪表盘中跟踪您关注的交易所、货币、加密资产、提醒和投资组合视图。",
-  "portfolioValue": "投资组合价值",
-  "watchlist": "观察列表",
+  "title": "全球市场仪表盘",
+  "intro": "在一个清晰的市场工作区中监控股票、外汇、加密资产、地区、板块、大宗商品、事件、情绪和自选列表。",
+  "liveTapeLabel": "实时市场行情带",
+  "crossMarket": "跨市场视图",
+  "topExchange": "领先交易所",
+  "coreReserve": "核心储备",
+  "cryptoLeader": "加密龙头",
+  "regionPulse": "区域脉搏",
+  "sectorPulse": "板块脉搏",
+  "commodityPulse": "商品脉搏",
+  "primaryBase": "主要换算基准",
+  "majorIndices": "主要指数",
+  "worldSnapshot": "全球市场快照",
+  "marketMovers": "市场异动",
+  "gainersAndLosers": "涨跌榜",
+  "economicEventsToday": "今日经济事件",
+  "macroCalendar": "宏观日历",
+  "marketSentiment": "市场情绪",
+  "forexMiniCards": "外汇迷你卡片",
+  "currencyPulse": "货币脉搏",
+  "cryptoOverview": "加密市场概览",
+  "marketCapLeaders": "市值龙头",
+  "commoditySnapshot": "大宗商品快照",
+  "spotAndFutures": "现货与期货",
+  "watchlistPreview": "自选列表预览",
+  "watchlistCopy": "快速访问已保存标的、跨资产提醒、组合背景和账户偏好。",
+  "portfolioValue": "组合价值",
+  "watchlist": "自选列表",
   "savedMarkets": "已保存市场",
   "activeAlerts": "活跃提醒",
   "todayPnl": "今日盈亏",
   "quickActions": "快捷操作",
-  "addWatchlist": "添加观察列表",
+  "addWatchlist": "添加自选列表",
   "createAlert": "创建提醒",
   "exportReport": "导出报告",
   "accountSettings": "账户设置",
-  "portfolioAllocation": "投资组合配置",
+  "portfolioAllocation": "组合配置",
   "recentActivity": "近期活动",
   "alertCenter": "提醒中心",
   "preferences": "偏好设置",
   "baseCurrencyPreference": "基础货币",
   "defaultMarket": "默认市场",
-  "notificationMode": "通知方式",
+  "notificationMode": "通知模式",
   "compactMode": "紧凑模式",
   "emailDigest": "邮件摘要",
   "marketOpenAlerts": "开盘提醒",
   "riskProfile": "风险偏好",
   "moderate": "中等",
-  "marketsFollowed": "关注市场"
+  "marketsFollowed": "关注市场",
+  "userPanelTitle": "你的市场工作区",
+  "userPanelIntro": "在一个清晰仪表盘中跟踪交易所、货币、加密资产、提醒和组合背景。",
+  "importance": {
+    "high": "高",
+    "medium": "中",
+    "low": "低"
+  },
+  "economicEvents": {
+    "usCpi": "市场数据概览",
+    "ecbRemarks": "欧洲央行政策讲话",
+    "us10yAuction": "美国 10 年期国债拍卖",
+    "fomcMinutes": "市场数据概览"
+  },
+  "sentiment": {
+    "equities": {
+      "label": "股票",
+      "detail": "风险偏好扩散"
+    },
+    "fx": {
+      "label": "外汇",
+      "detail": "美元走势分化"
+    },
+    "crypto": {
+      "label": "加密资产",
+      "detail": "动量买盘"
+    },
+    "commodities": {
+      "label": "大宗商品",
+      "detail": "能源偏弱"
+    }
+  },
+  "currencyRate": "货币"
 }

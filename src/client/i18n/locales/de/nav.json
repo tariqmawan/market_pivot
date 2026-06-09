@@ -3,14 +3,14 @@
   "markets": "Märkte",
   "exchanges": "Börsen",
   "stocks": "Aktien",
-  "forex": "FX",
+  "forex": "Devisen",
   "crypto": "Krypto",
   "commodities": "Rohstoffe",
   "regions": "Regionen",
   "sectors": "Sektoren",
   "news": "Nachrichten",
-  "calendar": "Kalender",
-  "userPanel": "Benutzerbereich",
+  
+  
   "pricing": "Preise",
   "tools": "Werkzeuge",
   "coverage": "Abdeckung",
@@ -21,38 +21,38 @@
   "overview": "Übersicht",
   "preMarket": "Vor Marktstart",
   "afterHours": "Nachbörslich",
-  "heatmaps": "Heatmaps",
+  "heatmaps": "Wärmekarten",
   "marketMovers": "Marktbeweger",
   "volatilityIndex": "Volatilitätsindex",
   "topGainers": "Top-Gewinner",
   "topLosers": "Top-Verlierer",
-  "watchlists": "Watchlists",
+  "watchlists": "Beobachtungslisten",
   "portfolioTracker": "Portfolio-Tracker",
   "alerts": "Alarme",
-  "trendingCoins": "Trend-Coins",
-  "memeCoins": "Meme-Coins",
-  "defi": "DeFi",
-  "layer1": "Layer 1",
-  "stablecoins": "Stablecoins",
-  "energy": "Energie",
-  "metals": "Metalle",
-  "agriculture": "Landwirtschaft",
-  "industrial": "Industrie",
-  "americas": "Amerika",
-  "europe": "Europa",
-  "asiaPacific": "Asien-Pazifik",
-  "middleEastAfrica": "Naher Osten & Afrika",
-  "technology": "Technologie",
-  "banking": "Banken",
-  "ai": "KI",
-  "ev": "Elektrofahrzeuge",
-  "semiconductor": "Halbleiter",
-  "defence": "Verteidigung",
-  "globalNews": "Globale Nachrichten",
-  "regionNews": "Regionalnachrichten",
-  "sectorNews": "Sektornachrichten",
-  "cryptoNews": "Krypto-Nachrichten",
-  "marketAlerts": "Markt-Alarme",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "byRegion": "Nach Region",
   "nyse": "NYSE",
   "nasdaq": "NASDAQ",
@@ -60,5 +60,33 @@
   "navMain": "Hauptnavigation",
   "homeAria": "MarketsPivot-Startseite",
   "openMenu": "Menü öffnen",
-  "adminTopNav": "Admin-Navigation"
+  "adminTopNav": "Admin-Navigation",
+  "fx": "Devisen",
+  "Calendar": "Kalender",
+  "UserPanel": "Benutzerpanel",
+  "adminPanel": "Admin-Panel",
+  "TrendingCoins": "Trending Coins",
+  "MemeCoins": "Meme Coins",
+  "Defi": "DeFi",
+  "Layer1": "Layer 1",
+  "Stablecoins": "Stablecoins",
+  "Energy": "Energie",
+  "Metals": "Metalle",
+  "Agriculture": "Landwirtschaft",
+  "Industrial": "Industrie",
+  "Americas": "Amerika",
+  "Europe": "Europa",
+  "AsiaPacific": "Asien-Pazifik",
+  "MiddleEastAfrica": "Naher Osten und Afrika",
+  "Technology": "Technologie",
+  "Banking": "Banken",
+  "Ai": "Künstliche Intelligenz",
+  "Ev": "Elektrofahrzeuge",
+  "Semiconductor": "Halbleiter",
+  "Defence": "Verteidigung",
+  "GlobalNews": "Globale Nachrichten",
+  "RegionNews": "Regionale Nachrichten",
+  "SectorNews": "Sektor-Nachrichten",
+  "CryptoNews": "Krypto-Nachrichten",
+  "MarketAlerts": "Marktwarnungen"
 }

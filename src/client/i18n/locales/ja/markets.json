@@ -1,132 +1,628 @@
 {
-  "title": "グローバルマーケットインテリジェンスダッシュボード",
-  "subtitle": "インデックス、ムーバー、FX、暗号資産、コモディティ、経済イベント、センチメント、ニュース、ウォッチリストをリアルタイムで俯瞰します。",
-  "globalMarkets": "グローバル多資産市場",
-  "homeTitle": "MarketsPivot",
-  "homeCopy": "株式、債券、FX、商品、デリバティブ、暗号資産を一つのブルームバーグライクなビューで。",
-  "intelligenceTitle": "グローバルマーケットインテリジェンスを1つに",
-  "intelligenceCopy": "取引所セッション、FX圧力、デジタル資産、利回り背景、商品、市場リスクを統合ワークスペースで確認します。",
-  "liveTape": "ライブマーケットテープ",
-  "terminalView": "ターミナルビュー",
-  "assetCoverage": "資産カバレッジ",
-  "compareMarkets": "市場を並列比較",
-  "compareMarketsCopy": "NYSEからINR、BTCからNASDAQ、原油から金利までワークスペースを変えずに移動できます。",
-  "marketBrief": "マーケットブリーフ",
-  "openingBell": "オープニングベル",
-  "riskView": "リスクビュー",
-  "globalHeatmap": "グローバルヒートマップ",
-  "equities": "株式",
-  "stockCount": "株式取引所",
-  "exchangeDashboards": "グローバル取引所ダッシュボード",
-  "regionsMeta": "地域指数、マクロカレンダー、FX、商品影響",
-  "currencyCount": "通貨",
-  "fxMeta": "準備高、トレード、新興市場FX",
-  "sectorsMeta": "株式区分、ETF、リーダー、セクターニュース",
-  "usdBase": "USD基準戦略",
-  "cryptoMeta": "リーダー、ステーブルコイン、DeFi、決済",
-  "cryptoLayer": "24時間市場レイヤー",
-  "topGlobalExchanges": "主要グローバル取引所",
-  "exchangeIntro": "通貨、タイムゾーン、取引時間、上場数、主要指数、市場規模を地域別に。",
-  "topCurrencies": "主要20通貨",
-  "currencyIntro": "主要準備通貨、アジア太平洋取引通貨、米州、欧州、中東、アフリカをカバー。",
-  "topCryptos": "主要20暗号資産",
-  "cryptoIntro": "主要リーダー、スマートコントラクト、ステーブルコイン、インフラ、DeFi、決済、成長資産。",
-  "crossMarket": "クロスマーケットビュー",
-  "topExchange": "主要取引所",
-  "coreReserve": "コア準備",
-  "cryptoLeader": "暗号資産リーダー",
-  "primaryBase": "主要換算基準",
-  "marketCap": "時価総額",
-  "listedCompanies": "上場企業",
-  "avgDailyVolume": "平均取引量",
-  "tradingHours": "取引時間",
   "advancers": "上昇銘柄",
-  "decliners": "下落銘柄",
-  "chart": "チャート",
-  "topMovers": "注目銘柄",
-  "founded": "設立",
-  "mainIndex": "主要指数",
-  "baseCurrency": "基軸通貨",
-  "website": "ウェブサイト",
-  "topGainers": "上昇銘柄",
-  "topLosers": "下落銘柄",
-  "mostActive": "最も活発",
-  "loadingGainers": "上昇銘柄を読み込み中...",
-  "loadingLosers": "下落銘柄を読み込み中...",
-  "loadingActive": "活発銘柄を読み込み中...",
-  "liveBadge": "ライブ",
   "asiaClosed": "アジアは引け後も混在、欧州は買い優勢",
-  "cryptoBetaOutperform": "暗号資産のベータが株式を上回る",
-  "fxPressure": "為替圧力：JPY、INR、ZARに注目",
-  "regionIntelligence": "地域インテリジェンス",
-  "marketsByGeography": "地理別マーケット",
-  "countries": "国",
-  "sectorIntelligence": "セクターインテリジェンス",
-  "equityThemes": "株式テーマ",
-  "commodityIntelligence": "商品インテリジェンス",
-  "macroInputs": "マクロ指標",
-  "majorIndices": "主要指数",
-  "worldSnapshot": "世界市場スナップ",
-  "marketMovers": "マーケットムーバー",
-  "gainersAndLosers": "上昇・下落",
-  "economicEventsToday": "本日の経済イベント",
-  "macroCalendar": "マクロカレンダー",
-  "forexMiniCards": "FXミニカード",
-  "currencyPulse": "通貨パルス",
-  "cryptoOverview": "暗号資産概況",
-  "marketCapLeaders": "時価総額リーダー",
-  "commoditySnapshot": "コモディティスナップ",
-  "spotAndFutures": "現物と先物",
-  "watchlistPreview": "ウォッチリストプレビュー",
-  "watchlistCopy": "保存した銘柄、アラート、ポートフォリオ設定にすばやくアクセス。",
-  "sp500Meta": "S&P 500 / USD / ニューヨーク",
-  "federalReserveMeta": "連邦準備制度 / グローバル基準",
+  "assetCoverage": "資産カバレッジ",
+  "avgDailyVolume": "平均取引量",
+  "baseCurrency": "基軸通貨",
   "btcMeta": "BTC 対 USD、FX、株式リスク",
-  "regionPulse": "地域パルス",
-  "sectorPulse": "セクターパルス",
-  "commodityPulse": "商品パルス",
-  "gdpGrowthShort": "GDP成長",
-  "marketSentiment": "市場センチメント",
-  "noTradingPairs": "取引ペアがありません。",
-  "loadingSectors": "セクターを読み込み中...",
-  "noSectorData": "セクターデータがありません。",
-  "noNewsAvailable": "この取引所のニュースはありません。",
-  "volumeShort": "出来高：",
-  "momentumLabel": "モメンタム",
-  "unusualVolLabel": "異常出来高",
-  "crashAlert": "急落警報",
-  "oversold": "売られ過ぎ",
-  "reversalLabel": "反転",
-  "whaleActivity": "大口取引動向",
-  "unusualActivity": "異常活動",
-  "companiesLabel": "企業：",
-  "marketRegion": "マーケット地域",
-  "majorExchanges": "主要取引所",
-  "keyIndices": "重要指数",
-  "economicCalendar": "経済カレンダー",
-  "sectorLeaders": "セクターリーダー",
-  "commodityImpact": "商品影響",
-  "trendingStocks": "注目株",
-  "dividendLeaders": "配当リーダー",
-  "relatedRegions": "関連地域",
-  "newsThemes": "ニューステーマ",
-  "inflation": "インフレ",
   "calendarFocus": "カレンダーフォーカス",
-  "regionsHeading": "世界のマーケット地域",
-  "regionsIntro": "地域指数、マクロカレンダー、FX、商品影響をグローバルにカバー。",
-  "stockSector": "株式セクター",
-  "sectorsTitle": "セクター",
-  "sectorsHeading": "株式分類とセクターインテリジェンス",
-  "sectorsIntro": "テクノロジー、銀行、AI、エネルギー、ヘルスケア、鉱業、不動産、半導体、テーマ株をカバー。",
-  "commodity": "商品",
-  "supplyRegions": "供給地域",
-  "demandTrends": "需要トレンド",
-  "currencyCorrelation": "通貨相関",
-  "commoditiesTitle": "コモディティ",
+  "chart": "チャート",
+  "commodities": {
+    "brent": {
+      "name": "ブレント原油"
+    },
+    "copper": {
+      "name": "銅"
+    },
+    "crudeOil": {
+      "name": "Crude Oil WTI"
+    },
+    "gold": {
+      "name": "金"
+    },
+    "lithium": {
+      "name": "リチウム"
+    },
+    "naturalGas": {
+      "name": "天然ガス"
+    },
+    "silver": {
+      "name": "銀"
+    },
+    "uranium": {
+      "name": "ウラン"
+    },
+    "wheat": {
+      "name": "小麦"
+    }
+  },
   "commoditiesHeading": "エネルギー、金属、農産物、工業品",
   "commoditiesIntro": "現物価格、先物指標、供給地域、需要トレンド、通貨相関、マクロ影響。",
-  "moduleWorkspaceCopy": "このワークスペースは MarketsPivot グローバル市場インテリジェンス構造の一部です。",
+  "commoditiesTitle": "コモディティ",
+  "commodity": "商品",
+  "commodityImpact": "商品影響",
+  "commodityIntelligence": "商品インテリジェンス",
+  "commodityPulse": "商品パルス",
+  "commoditySnapshot": "コモディティスナップ",
+  "companiesLabel": "企業：",
+  "compareMarkets": "市場を並列比較",
+  "compareMarketsCopy": "NYSEからINR、BTCからNASDAQ、原油から金利までワークスペースを変えずに移動できます。",
+  "coreReserve": "コア準備",
+  "countries": {
+    "ae": {
+      "name": "アラブ首長国連邦"
+    },
+    "au": {
+      "name": "オーストラリア"
+    },
+    "br": {
+      "name": "ブラジル"
+    },
+    "ca": {
+      "name": "カナダ"
+    },
+    "ch": {
+      "name": "スイス"
+    },
+    "cl": {
+      "name": "チリ"
+    },
+    "cn": {
+      "name": "中国"
+    },
+    "de": {
+      "name": "ドイツ"
+    },
+    "es": {
+      "name": "スペイン"
+    },
+    "eu": {
+      "name": "欧州連合"
+    },
+    "gb": {
+      "name": "英国"
+    },
+    "hk": {
+      "name": "香港"
+    },
+    "id": {
+      "name": "インドネシア"
+    },
+    "in": {
+      "name": "インド"
+    },
+    "it": {
+      "name": "イタリア"
+    },
+    "jp": {
+      "name": "日本"
+    },
+    "kr": {
+      "name": "韓国"
+    },
+    "mx": {
+      "name": "メキシコ"
+    },
+    "my": {
+      "name": "マレーシア"
+    },
+    "sa": {
+      "name": "サウジアラビア"
+    },
+    "se": {
+      "name": "スウェーデン"
+    },
+    "sg": {
+      "name": "シンガポール"
+    },
+    "th": {
+      "name": "タイ"
+    },
+    "tw": {
+      "name": "台湾"
+    },
+    "us": {
+      "name": "米国"
+    },
+    "za": {
+      "name": "南アフリカ"
+    }
+  },
+  "crashAlert": "急落警報",
+  "crossMarket": "クロスマーケットビュー",
+  "cryptoBetaOutperform": "暗号資産のベータが株式を上回る",
+  "cryptoIntro": "主要リーダー、スマートコントラクト、ステーブルコイン、インフラ、DeFi、決済、成長資産。",
+  "cryptoLayer": "24時間市場レイヤー",
+  "cryptoLeader": "暗号資産リーダー",
+  "cryptoMeta": "リーダー、ステーブルコイン、DeFi、決済",
+  "cryptoOverview": "暗号資産概況",
+  "currencyCorrelation": "通貨相関",
+  "currencyCount": "通貨",
+  "currencyIntro": "主要準備通貨、アジア太平洋取引通貨、米州、欧州、中東、アフリカをカバー。",
+  "currencyPulse": "通貨パルス",
+  "decliners": "下落銘柄",
+  "demandTrends": "需要トレンド",
+  "dividendLeaders": "配当リーダー",
+  "economicCalendar": "経済カレンダー",
+  "economicEventsToday": "本日の経済イベント",
+  "equities": "株式",
+  "equityThemes": "株式テーマ",
+  "exchangeDashboards": "グローバル取引所ダッシュボード",
+  "exchangeIntro": "通貨、タイムゾーン、取引時間、上場数、主要指数、市場規模を地域別に。",
+  "exchanges": {
+    "adx": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "asx": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "b3": {
+      "name": "B3ブラジル",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "bcs": {
+      "name": "サンティアゴ証券取引所",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "bit": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "bm": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "bme": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "bmv": {
+      "name": "メキシコ証券取引所",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "bse": {
+      "name": "ボンベイ証券取引所",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "dfm": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "euronext": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "hkex": {
+      "name": "香港取引所",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "idx": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "jse": {
+      "name": "ヨハネスブルグ証券取引所",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "krx": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "lse": {
+      "name": "ロンドン証券取引所",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "nasdaq": {
+      "name": "NASDAQ",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "nse": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "nyse": {
+      "name": "New York Stock Exchange",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "omx": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "set": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "sgx": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "six": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "sse": {
+      "name": "上海証券取引所",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "szse": {
+      "name": "深圳証券取引所",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "tadawul": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "tse": {
+      "name": "東京証券取引所",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "tsx": {
+      "name": "トロント証券取引所",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "twse": {
+      "name": "台湾証券取引所",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    },
+    "xetra": {
+      "name": "name",
+      "description": "地域セッション、タイムゾーン、主要指数、気配値データのダッシュボード。"
+    }
+  },
+  "feature": "機能",
+  "federalReserveMeta": "連邦準備制度 / グローバル基準",
+  "forexMiniCards": "FXミニカード",
+  "founded": "設立",
+  "fxMeta": "準備高、トレード、新興市場FX",
+  "fxPressure": "為替圧力：JPY、INR、ZARに注目",
+  "gainersAndLosers": "上昇・下落",
+  "gdpGrowthShort": "GDP成長",
+  "globalHeatmap": "グローバルヒートマップ",
+  "globalMarkets": "グローバル多資産市場",
+  "homeCopy": "株式、債券、FX、商品、デリバティブ、暗号資産を一つのブルームバーグライクなビューで。",
+  "homeTitle": "市場タイトル",
+  "inflation": "インフレ",
+  "intelligenceCopy": "取引所セッション、FX圧力、デジタル資産、利回り背景、商品、市場リスクを統合ワークスペースで確認します。",
+  "intelligenceTitle": "グローバルマーケットインテリジェンスを1つに",
+  "keyIndices": "重要指数",
+  "listedCompanies": "上場企業",
+  "liveBadge": "ライブ",
+  "liveTape": "ライブマーケットテープ",
+  "loadingActive": "活発銘柄を読み込み中...",
+  "loadingGainers": "上昇銘柄を読み込み中...",
+  "loadingLosers": "下落銘柄を読み込み中...",
+  "loadingSectors": "セクターを読み込み中...",
+  "macroCalendar": "マクロカレンダー",
+  "macroInputs": "マクロ指標",
+  "mainIndex": "主要指数",
+  "majorExchanges": "主要取引所",
+  "majorIndices": "主要指数",
+  "marketBrief": "マーケットブリーフ",
+  "marketCap": "時価総額",
+  "marketCapLeaders": "時価総額リーダー",
+  "marketMovers": "マーケットムーバー",
+  "marketRegion": "マーケット地域",
+  "marketSentiment": "市場センチメント",
+  "marketsByGeography": "地理別マーケット",
   "moduleFeatureReady": "リアルAPI、フィルター、チャート、保存ワークフローに対応済みです。",
+  "moduleWorkspaceCopy": "このワークスペースは MarketsPivot グローバル市場インテリジェンス構造の一部です。",
+  "momentumLabel": "モメンタム",
+  "mostActive": "最も活発",
+  "newsThemes": "ニューステーマ",
+  "noNewsAvailable": "この取引所のニュースはありません。",
+  "noSectorData": "セクターデータがありません。",
+  "noTradingPairs": "取引ペアがありません。",
+  "openingBell": "オープニングベル",
+  "oversold": "売られ過ぎ",
   "planned": "計画中",
-  "feature": "機能"
+  "primaryBase": "主要換算基準",
+  "regionIntelligence": "地域インテリジェンス",
+  "regionPulse": "地域パルス",
+  "regions": {
+    "americas": {
+      "name": "米州"
+    },
+    "asiaPacific": {
+      "name": "アジア太平洋"
+    },
+    "europe": {
+      "name": "欧州"
+    },
+    "middleEastAfrica": {
+      "name": "中東・アフリカ"
+    }
+  },
+  "regionsHeading": "世界のマーケット地域",
+  "regionsIntro": "地域指数、マクロカレンダー、FX、商品影響をグローバルにカバー。",
+  "regionsMeta": "地域指数、マクロカレンダー、FX、商品影響",
+  "relatedRegions": "関連地域",
+  "reversalLabel": "反転",
+  "riskView": "リスクビュー",
+  "sectorIntelligence": "セクターインテリジェンス",
+  "sectorLeaders": "セクターリーダー",
+  "sectorPulse": "セクターパルス",
+  "sectors": {
+    "ai": {
+      "name": "AI"
+    },
+    "banking": {
+      "name": "銀行"
+    },
+    "defence": {
+      "name": "防衛"
+    },
+    "electricVehicles": {
+      "name": "電気自動車"
+    },
+    "energy": {
+      "name": "エネルギー"
+    },
+    "healthcare": {
+      "name": "ヘルスケア"
+    },
+    "mining": {
+      "name": "鉱業"
+    },
+    "realEstate": {
+      "name": "不動産"
+    },
+    "retail": {
+      "name": "小売"
+    },
+    "semiconductor": {
+      "name": "半導体"
+    },
+    "technology": {
+      "name": "テクノロジー"
+    }
+  },
+  "sectorsHeading": "株式分類とセクターインテリジェンス",
+  "sectorsIntro": "テクノロジー、銀行、AI、エネルギー、ヘルスケア、鉱業、不動産、半導体、テーマ株をカバー。",
+  "sectorsMeta": "株式区分、ETF、リーダー、セクターニュース",
+  "sectorsTitle": "セクター",
+  "sp500Meta": "S&P 500 / USD / ニューヨーク",
+  "spotAndFutures": "現物と先物",
+  "stockCount": "株式取引所",
+  "stockSector": "株式セクター",
+  "subtitle": "インデックス、ムーバー、FX、暗号資産、コモディティ、経済イベント、センチメント、ニュース、ウォッチリストをリアルタイムで俯瞰します。",
+  "supplyRegions": "供給地域",
+  "terminalView": "ターミナルビュー",
+  "timezones": {
+    "africaJohannesburg": {
+      "name": "name"
+    },
+    "americaMexicoCity": {
+      "name": "name"
+    },
+    "americaNewYork": {
+      "name": "name"
+    },
+    "americaSantiago": {
+      "name": "name"
+    },
+    "americaSaoPaulo": {
+      "name": "name"
+    },
+    "americaToronto": {
+      "name": "name"
+    },
+    "asiaBangkok": {
+      "name": "name"
+    },
+    "asiaDubai": {
+      "name": "name"
+    },
+    "asiaHongKong": {
+      "name": "name"
+    },
+    "asiaJakarta": {
+      "name": "name"
+    },
+    "asiaKolkata": {
+      "name": "name"
+    },
+    "asiaKualaLumpur": {
+      "name": "name"
+    },
+    "asiaRiyadh": {
+      "name": "name"
+    },
+    "asiaSeoul": {
+      "name": "name"
+    },
+    "asiaShanghai": {
+      "name": "name"
+    },
+    "asiaSingapore": {
+      "name": "name"
+    },
+    "asiaTaipei": {
+      "name": "name"
+    },
+    "asiaTokyo": {
+      "name": "name"
+    },
+    "australiaSydney": {
+      "name": "name"
+    },
+    "europeBerlin": {
+      "name": "name"
+    },
+    "europeLondon": {
+      "name": "name"
+    },
+    "europeMadrid": {
+      "name": "name"
+    },
+    "europeParis": {
+      "name": "name"
+    },
+    "europeRome": {
+      "name": "name"
+    },
+    "europeStockholm": {
+      "name": "name"
+    },
+    "europeZurich": {
+      "name": "name"
+    }
+  },
+  "title": "グローバルマーケットインテリジェンスダッシュボード",
+  "topCryptos": "主要20暗号資産",
+  "topCurrencies": "主要20通貨",
+  "topExchange": "主要取引所",
+  "topGainers": "上昇銘柄",
+  "topGlobalExchanges": "主要グローバル取引所",
+  "topLosers": "下落銘柄",
+  "topMovers": "注目銘柄",
+  "tradingHours": "取引時間",
+  "trendingStocks": "注目株",
+  "unusualActivity": "異常活動",
+  "unusualVolLabel": "異常出来高",
+  "usdBase": "USD基準戦略",
+  "volumeShort": "出来高：",
+  "watchlistCopy": "保存した銘柄、アラート、ポートフォリオ設定にすばやくアクセス。",
+  "watchlistPreview": "ウォッチリストプレビュー",
+  "website": "ウェブサイト",
+  "whaleActivity": "大口取引動向",
+  "worldSnapshot": "世界市場スナップ",
+  "exchangeNetwork": "exchange Network",
+  "stockExchanges": "株式 取引所",
+  "allExchanges": "すべて 取引所",
+  "advancedScreener": "高度なスクリーナー",
+  "regionExchangesTitle": "市場タイトル {{region}}",
+  "regionalExchangeDashboards": "regional 取引所 ダッシュボードs",
+  "noExchangesForRegion": "no 取引所 For 地域",
+  "exchangeRegions": {
+    "americas": "米州",
+    "northAmerica": "北米",
+    "europe": "欧州",
+    "asia": "アジア",
+    "asiaPacific": "アジア太平洋",
+    "oceania": "oceania",
+    "middleEast": "中東",
+    "africa": "アフリカ",
+    "middleEastAfrica": "中東 & アフリカ",
+    "latinAmerica": "latin America"
+  },
+  "ytdShort": "YTD",
+  "dashboardCards": {
+    "nyseMeta": "S&P 500 / USD / New York",
+    "usdMeta": "Federal Reserve / global base",
+    "bitcoinMeta": "BTC対USD・FX・株式リスク",
+    "regionMeta": "中国の成長／日本の金利／インドの決算／豪州の資源",
+    "sectorMeta": "クラウド設備投資／AIマネタイズ／半導体供給／バリュエーション",
+    "commodityMeta": "輸送インフレ、エネルギー企業の決算、財政収入、世界のリスク・センチメントに影響。"
+  },
+  "moduleFeatures": {
+    "majorIndicesWidgets": "主要指数ウィジェット",
+    "topGainersLosers": "上昇・下落ランキング",
+    "heatmaps": "ヒートマップ",
+    "marketSentiment": "市場センチメント",
+    "preMarketMovers": "プレマーケットの値動き",
+    "indexFutures": "株価指数先物",
+    "volumeSpikes": "出来高急増",
+    "openingWatchlist": "寄り付きウォッチリスト",
+    "afterHoursMovers": "アフターアワーズの値動き",
+    "earningsReactions": "決算反応",
+    "extendedSessionVolume": "時間外取引の出来高",
+    "newsCatalysts": "ニュース材料",
+    "equityHeatmaps": "株式ヒートマップ",
+    "sectorPerformance": "セクター・パフォーマンス",
+    "regionalBreadth": "地域別の市場の広がり",
+    "assetClassComparison": "資産クラス比較",
+    "topGainers": "上昇率上位",
+    "topLosers": "下落率上位",
+    "mostActive": "売買代金上位",
+    "unusualVolume": "異常な出来高",
+    "vixOverview": "VIX指数の概要",
+    "fearGreedContext": "恐怖と強欲指数の文脈",
+    "volatilityTermStructure": "ボラティリティのターム構造",
+    "riskDashboard": "リスク・ダッシュボード",
+    "countryFilters": "国別フィルター",
+    "exchangeStatistics": "取引所統計",
+    "listedCompanies": "上場企業",
+    "regionalNews": "地域別ニュース",
+    "liveGainers": "ライブの上昇銘柄",
+    "volumeFilters": "出来高フィルター",
+    "marketCapFilters": "時価総額フィルター",
+    "sectorBreakdown": "セクター別内訳",
+    "liveLosers": "ライブの下落銘柄",
+    "riskAlerts": "リスク・アラート",
+    "indexImpact": "指数への影響",
+    "watchlistActions": "ウォッチリスト操作",
+    "trendingCoins": "トレンドの暗号資産",
+    "marketCapRanking": "時価総額ランキング",
+    "exchangeListings": "取引所の上場銘柄",
+    "historicalPerformance": "ヒストリカル・パフォーマンス",
+    "memeCoinRankings": "ミームコイン・ランキング",
+    "volumeBursts": "出来高の急増",
+    "communityMomentum": "コミュニティ・モメンタム",
+    "riskFlags": "リスク・フラグ",
+    "defiEcosystem": "DeFiエコシステム",
+    "tvlMetrics": "TVL指標",
+    "protocolCategories": "プロトコル・カテゴリ",
+    "tokenPerformance": "トークン・パフォーマンス",
+    "layer1Chains": "レイヤー1チェーン",
+    "consensusDetails": "コンセンサスの詳細",
+    "tokenomics": "トークノミクス",
+    "developerEcosystem": "開発者エコシステム",
+    "stablecoinSupply": "ステーブルコインの供給量",
+    "pegMonitoring": "ペッグ・モニタリング",
+    "exchangeLiquidity": "取引所流動性",
+    "reserveContext": "準備資産の文脈",
+    "spotPrices": "スポット価格",
+    "futuresPrices": "先物価格",
+    "supplyDemandAnalysis": "需給分析",
+    "correlationAnalysis": "相関分析",
+    "preciousMetals": "貴金属",
+    "industrialMetals": "産業用金属",
+    "futuresContracts": "先物契約",
+    "currencySensitivity": "為替感応度",
+    "cropMarkets": "穀物市場",
+    "weatherImpact": "天候要因",
+    "supplyRegions": "供給地域",
+    "seasonality": "季節性",
+    "industrialInputs": "産業向け素材",
+    "demandTrends": "需要動向",
+    "manufacturingSignals": "製造業シグナル",
+    "regionalSupply": "地域別供給",
+    "regionWiseNews": "地域別ニュース",
+    "macroSummaries": "マクロのサマリー",
+    "marketAlerts": "市場アラート",
+    "sectorWiseNews": "セクター別ニュース",
+    "themeTracking": "テーマ追跡",
+    "aiSummaries": "AIサマリー",
+    "etfImpact": "ETFの影響",
+    "cryptoNews": "暗号資産ニュース",
+    "onChainContext": "オンチェーンの文脈",
+    "regulationUpdates": "規制アップデート",
+    "exchangeDevelopments": "取引所関連の動向",
+    "breakingCatalysts": "速報材料",
+    "importanceFilters": "重要度フィルター",
+    "liveMarketSummary": "ライブの市場サマリー",
+    "filters": "Filters",
+    "analyticsWidgets": "アナリティクス・ウィジェット",
+    "relatedNews": "関連ニュース"
+  },
+  "sentiment": {
+    "Equities": {
+      "label": "株式",
+      "detail": "リスクオンの広がり"
+    },
+    "FX": {
+      "label": "FX",
+      "detail": "ドルはまちまち"
+    },
+    "Crypto": {
+      "label": "Crypto",
+      "detail": "モメンタム買い"
+    },
+    "Commodities": {
+      "label": "コモディティ",
+      "detail": "エネルギーは軟調"
+    }
+  }
 }

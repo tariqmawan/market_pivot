@@ -1,37 +1,332 @@
 {
-  "currentPrice": "現在価格",
-  "rank": "ランキング",
-  "priceMetrics": "価格と指標",
-  "tradingPairs": "取引ペア",
-  "exchanges": "取引所",
-  "charts": "チャート",
-  "onChain": "オンチェーン",
-  "category": "カテゴリ",
-  "launched": "ローンチ",
-  "founder": "創業者",
-  "consensus": "コンセンサスメカニズム",
-  "blockTime": "ブロックタイム",
-  "supplyInfo": "供給情報",
-  "circulatingSupply": "流通供給量",
-  "maxSupply": "最大供給量",
-  "volume24h": "24時間取引量",
+  "activeAddresses": "アクティブアドレス",
   "ath": "史上最高値",
   "atl": "史上最安値",
-  "marketRank": "市場順位",
-  "loadingPrice": "価格データを読み込み中...",
-  "loadingPairs": "取引ペアを読み込み中...",
-  "price": "価格",
-  "exchange": "取引所",
-  "listedCryptoExchanges": "取引可能な取引所",
-  "exchangeExamples": "Binance、Coinbase、Kraken など",
-  "priceChart": "インタラクティブチャート",
-  "volumeOverlay": "出来高オーバーレイ付き",
-  "onChainMetrics": "オンチェーン指標",
-  "transactionsPerDay": "1日あたりのトランザクション",
-  "activeAddresses": "アクティブアドレス",
-  "networkFees": "ネットワーク手数料",
-  "transactionVolume": "トランザクション量",
-  "onChainComing": "オンチェーンデータはまもなく公開予定",
+  "blockTime": "ブロックタイム",
+  "categories": {
+    "defi": {
+      "name": "name"
+    },
+    "infrastructure": {
+      "name": "インフラ"
+    },
+    "layer1": {
+      "name": "name"
+    },
+    "layer2": {
+      "name": "name"
+    },
+    "meme": {
+      "name": "ミーム"
+    },
+    "payments": {
+      "name": "決済"
+    },
+    "stablecoin": {
+      "name": "ステーブルコイン"
+    }
+  },
+  "category": "カテゴリー",
+  "charts": "チャート",
+  "circulatingSupply": "流通供給量",
+  "consensus": "コンセンサスメカニズム",
   "cryptoNewsComing": "最新ニュースと更新を表示します",
-  "cryptoNewsSubtitle": "プロジェクト更新、提携、市場ニュース"
+  "cryptoNewsSubtitle": "プロジェクト更新、提携、市場ニュース",
+  "cryptocurrencies": {
+    "aave": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "arbitrum": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "avalanche2": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "binancecoin": {
+      "name": "BNB",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "bitcoin": {
+      "name": "Bitcoin",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "bonk": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "cardano": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "chainlink": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "compoundGovernanceToken": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "cosmos": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "curveDaoToken": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "dai": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "dogecoin": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "ethereum": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "floki": {
+      "name": "FLOKI",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "litecoin": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "maker": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "maticNetwork": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "pepe": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "polkadot": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "ripple": {
+      "name": "XRP",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "shibaInu": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "solana": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "stellar": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "tether": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "theOpenNetwork": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "tron": {
+      "name": "TRON",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "uniswap": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    },
+    "usdCoin": {
+      "name": "name",
+      "description": "価格、出来高、トレンド、オンチェーン文脈を追跡する暗号資産。"
+    }
+  },
+  "currentPrice": "現在価格",
+  "exchange": "取引所",
+  "exchangeExamples": "Binance、Coinbase、Kraken など",
+  "exchanges": "取引所",
+  "founder": "創業者",
+  "launched": "ローンチ",
+  "listedCryptoExchanges": "取引可能な取引所",
+  "loadingPairs": "取引ペアを読み込み中...",
+  "loadingPrice": "価格データを読み込み中...",
+  "marketRank": "市場順位",
+  "maxSupply": "最大供給量",
+  "networkFees": "ネットワーク手数料",
+  "onChain": "オンチェーン",
+  "onChainComing": "オンチェーンデータはまもなく公開予定",
+  "onChainMetrics": "オンチェーン指標",
+  "price": "価格",
+  "priceChart": "インタラクティブチャート",
+  "priceMetrics": "価格と指標",
+  "rank": "ランキング",
+  "rankNumber": "rank Number {{rank}}",
+  "supplyInfo": "供給情報",
+  "tradingPairs": "取引ペア",
+  "transactionVolume": "トランザクション量",
+  "transactionsPerDay": "1日あたりのトランザクション",
+  "volume24h": "24時間出来高",
+  "volumeOverlay": "出来高オーバーレイ付き",
+  "cryptocurrency": "暗号資産",
+  "cryptocurrencyCategories": "cryptocurrency カテゴリ",
+  "allCryptocurrencies": "all 暗号資産currencies",
+  "trending": "トレンド",
+  "categoryNotFound": "category Not Found",
+  "categoryNotFoundDescription": "市場の説明",
+  "viewAllCryptocurrencies": "すべての暗号資産を見る",
+  "trendingCoins": {
+    "eyebrow": "ライブ市場データ - 暗号資産",
+    "titleAccent": "トレンド",
+    "titleRest": "コイン",
+    "subtitle": "取引活動、ソーシャルモメンタム、時価総額成長で順位付けしたリアルタイムのトレンド暗号資産。継続的に更新されます。",
+    "categories": {
+      "all": "すべて",
+      "layer1": "レイヤー1",
+      "layer2": "レイヤー2",
+      "defi": "DeFi",
+      "meme": "ミーム",
+      "stablecoin": "ステーブルコイン",
+      "payments": "決済",
+      "infrastructure": "インフラ"
+    },
+    "metrics": {
+      "tracked": "追跡中",
+      "gainers": "上昇銘柄",
+      "topGain24h": "24時間最大上昇",
+      "volumeShort": "24h出来高",
+      "supply": "供給量"
+    },
+    "sentiment": {
+      "hot": "注目",
+      "rising": "上昇中",
+      "active": "活発",
+      "strong": "強い"
+    },
+    "moreTitle": "その他のトレンドコイン",
+    "emptyCategory": "このカテゴリーにコインはありません。",
+    "insights": {
+      "trending": {
+        "eyebrow": "今のトレンド",
+        "title": "市場ダイナミクス",
+        "items": {
+          "socialMentions": "SNSでの言及が急増",
+          "exchangeFlows": "取引所の流入/流出が変化",
+          "developerActivity": "GitHubでの開発活動",
+          "onChainVolume": "オンチェーン取引量",
+          "volumeBreakouts": "取引量のブレイクアウト"
+        }
+      },
+      "risk": {
+        "eyebrow": "リスク要因",
+        "title": "慎重に対応",
+        "items": {
+          "volatility": "高いボラティリティ - 価格が30%以上動く可能性",
+          "liquidity": "小型コインは流動性が低い",
+          "manipulation": "市場操作の可能性",
+          "regulation": "変化する規制環境",
+          "techRisk": "スマートコントラクト/技術リスク"
+        }
+      },
+      "tips": {
+        "eyebrow": "取引のヒント",
+        "title": "スマート戦略",
+        "items": {
+          "onChainValidation": "まずオンチェーン指標を確認",
+          "githubActivity": "GitHubの開発活動を確認",
+          "divergence": "出来高と価格の乖離を監視",
+          "positionSizing": "適切なポジションサイズを使用",
+          "stopLosses": "エントリー前に厳格な損切りを設定"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "暗号資産リサーチ",
+      "title": "任意のコインを深掘り",
+      "description": "任意のコインをクリックして、詳細チャート、オンチェーン指標、取引所上場、速報ニュースを一か所で確認できます。"
+    }
+  },
+  "categoryPages": {
+    "common": {
+      "marketOverview": "市場概要",
+      "combinedMarketCap": "合計時価総額",
+      "topGainer24h": "上昇率トップ (24時間)",
+      "name": "名前",
+      "price": "価格",
+      "change24h": "24時間変化",
+      "marketCap": "時価総額",
+      "volume24h": "24時間出来高",
+      "riskProfile": "リスクプロファイル",
+      "fullCryptoMarket": "暗号資産市場全体",
+      "exploreAllCryptocurrencies": "すべての暗号資産を見る"
+    },
+    "meme": {
+      "eyebrow": "コミュニティトークン",
+      "title": "ミームコイン",
+      "body": "バイラル文化、ソーシャルモメンタム、熱心なコミュニティに支えられる暗号資産。市場心理が主導する高リスク・高リターンの資産です。",
+      "metrics": {
+        "coinsListed": "掲載コイン"
+      },
+      "rankingsTitle": "ミームコインランキング",
+      "table": {
+        "community": "コミュニティ"
+      },
+      "communities": {
+        "DOGE": "Original OG",
+        "SHIB": "ShibArmy",
+        "PEPE": "Pepe Nation",
+        "BONK": "Solana Memes",
+        "FLOKI": "Viking Army"
+      },
+      "insights": {
+        "origins": {
+          "eyebrow": "Origins",
+          "title": "ミームコインの歴史",
+          "items": {
+            "dogecoin": "ドージコイン（2013年）— 最初のインターネット・ジョーク・コイン",
+            "elon": "イーロン・マスクのツイートが価格を動かす",
+            "pumps": "WallStreetBets型の協調的なポンプ",
+            "shiba": "「ドージコイン・キラー」として登場したシバイヌ",
+            "pepe": "2023年のPEPE急騰でミーム相場が再点火",
+            "bonk": "BONKのエアドロップがSolana DeFiを活性化"
+          }
+        },
+        "risk": {
+          "title": "投資家が知っておくべきリスク",
+          "items": {
+            "sentiment": "価格はほぼセンチメントに依存",
+            "pumpDump": "ポンプ・アンド・ダンプの対象になりやすい",
+            "utility": "実用性がほとんどない",
+            "volatility": "極端なボラティリティ — 50％超の値動きが日常",
+            "rugPull": "未監査の新規銘柄ではラグプル・リスクあり",
+            "viralCycles": "バイラル・メディア・サイクルとの高い相関"
+          }
+        },
+        "signals": {
+          "eyebrow": "コミュニティ・シグナル",
+          "title": "モメンタムの追い方",
+          "items": {
+            "twitter": "X（旧Twitter）の言及とトレンド・ハッシュタグ",
+            "reddit": "Redditの r/CryptoCurrency の活発度",
+            "whales": "クジラ・ウォレットの動きと大口送金",
+            "listings": "取引所の上場アナウンス",
+            "google": "Googleトレンドの検索急増",
+            "influencers": "インフルエンサーのSNS活動"
+          }
+        }
+      },
+      "cta": {
+        "description": "ミームコインを主要暗号資産、DeFiプロトコル、レイヤー1ブロックチェーンと比較します。"
+      }
+    }
+  },
+  "blockTimeSeconds": "{{time}}秒"
 }

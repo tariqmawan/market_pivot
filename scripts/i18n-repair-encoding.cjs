@@ -6,6 +6,8 @@ const locales = fs.readdirSync(root).filter((name) => fs.statSync(path.join(root
 const namespaces = ["common", "auth", "nav", "markets", "forex", "crypto", "dashboard", "footer", "admin", "pages"];
 
 const badPattern = /Ã|Â|Ø|Ù|à¤|à¥|ðŸ|�|\uFFFD|[\u0000-\u001F]|Tr�duction|अनुवाद:/;
+const questionDamagePattern = /\?{2,}/;
+const inlineQuestionDamagePattern = /[\p{L}]\?[\p{L}]/gu;
 
 const readJson = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
 
@@ -36,7 +38,19 @@ let decoded = 0;
 let fellBack = 0;
 
 const repairValue = (value, englishValue) => {
-  if (typeof value !== "string" || !badPattern.test(value)) return value;
+  if (typeof value !== "string") return value;
+
+  const hasQuestionDamage =
+    questionDamagePattern.test(value) ||
+    [...value.matchAll(inlineQuestionDamagePattern)].length >= 2;
+
+  if (!badPattern.test(value) && !hasQuestionDamage) return value;
+
+  if (hasQuestionDamage && typeof englishValue === "string") {
+    fellBack += 1;
+    repaired += 1;
+    return englishValue;
+  }
 
   const candidate = decodeMojibake(value);
   if (candidate && !badPattern.test(candidate)) {

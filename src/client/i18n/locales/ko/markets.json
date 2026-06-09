@@ -1,132 +1,628 @@
 {
-  "title": "글로벌 마켓 인텔리전스 대시보드",
-  "subtitle": "지수, 모머, FX, 암호화폐, 원자재, 경제 이벤트, 시장 심리, 뉴스 및 워치리스트를 실시간으로 제공합니다.",
-  "globalMarkets": "글로벌 멀티에셋 마켓",
-  "homeTitle": "MarketsPivot",
-  "homeCopy": "주식, 채권, FX, 원자재, 파생상품 및 암호화폐 중심 시장을 Bloomberg 스타일로 제공합니다.",
-  "intelligenceTitle": "글로벌 시장 인텔리전스를 위한 하나의 플랫폼",
-  "intelligenceCopy": "NYSE부터 INR, BTC부터 NASDAQ, 원유부터 금리까지 워크스페이스를 바꾸지 않고 분석하세요.",
-  "liveTape": "실시간 마켓 테이프",
-  "terminalView": "터미널 보기",
-  "assetCoverage": "자산 커버리지",
-  "compareMarkets": "시장 비교",
-  "compareMarketsCopy": "하나의 운영 뷰에서 거래소, 통화, 암호화폐, 원자재, 파생상품을 비교하세요.",
-  "marketBrief": "시장 브리프",
-  "openingBell": "장 시작",
-  "riskView": "리스크 보기",
-  "globalHeatmap": "글로벌 히트맵",
-  "equities": "주식",
-  "stockCount": "거래소",
-  "exchangeDashboards": "글로벌 거래소 대시보드",
-  "regionsMeta": "지역 지수, 매크로 캘린더, FX 및 원자재 영향",
-  "currencyCount": "통화",
-  "fxMeta": "준비금, 거래 및 신흥 FX",
-  "sectorsMeta": "섹터, ETF, 리더, 업종 뉴스",
-  "usdBase": "USD 기준 전략",
-  "cryptoMeta": "리더, 스테이블코인, DeFi, 결제",
-  "cryptoLayer": "24/7 시장 레이어",
-  "topGlobalExchanges": "글로벌 주요 거래소",
-  "exchangeIntro": "통화, 시간대, 거래 시간, 리스트, 주요 지수 및 시가총액 맥락을 제공합니다.",
-  "topCurrencies": "상위 20개 글로벌 통화",
-  "currencyIntro": "주요 준비 통화, 아시아 태평양, 미주, 유럽, 중동 및 아프리카를 아우릅니다.",
-  "topCryptos": "상위 20개 암호화폐",
-  "cryptoIntro": "리더, 스마트 컨트랙트 플랫폼, 스테이블코인, 인프라, DeFi, 결제 및 성장 자산.",
-  "crossMarket": "크로스 마켓 보기",
-  "topExchange": "주요 거래소",
-  "coreReserve": "핵심 준비금",
-  "cryptoLeader": "암호화폐 리더",
-  "primaryBase": "기본 환산 기준",
-  "marketCap": "시가총액",
-  "listedCompanies": "상장 기업",
-  "avgDailyVolume": "평균 일 거래량",
-  "tradingHours": "거래 시간",
   "advancers": "상승",
-  "decliners": "하락",
-  "chart": "차트",
-  "topMovers": "주요 움직임",
-  "founded": "설립",
-  "mainIndex": "주요 지수",
-  "baseCurrency": "기준 통화",
-  "website": "웹사이트",
-  "topGainers": "상승 종목",
-  "topLosers": "하락 종목",
-  "mostActive": "거래량 상위",
-  "loadingGainers": "상승 종목 로딩 중...",
-  "loadingLosers": "하락 종목 로딩 중...",
-  "loadingActive": "활성 종목 로딩 중...",
-  "liveBadge": "실시간",
   "asiaClosed": "아시아는 혼조세, 유럽은 강세",
-  "cryptoBetaOutperform": "암호화폐 베타가 주식 대비 우수",
-  "fxPressure": "FX 압력: JPY, INR, ZAR 주시",
-  "regionIntelligence": "지역 인텔리전스",
-  "marketsByGeography": "지역별 시장",
-  "countries": "국가",
-  "sectorIntelligence": "섹터 인텔리전스",
-  "equityThemes": "주식 테마",
-  "commodityIntelligence": "원자재 인텔리전스",
-  "macroInputs": "거시 지표 및 선물",
-  "majorIndices": "주요 지수",
-  "worldSnapshot": "세계 시장 스냅샷",
-  "marketMovers": "시장 변동성",
-  "gainersAndLosers": "상승 및 하락",
-  "economicEventsToday": "오늘의 경제 이벤트",
-  "macroCalendar": "매크로 캘린더",
-  "forexMiniCards": "FX 미니 카드",
-  "currencyPulse": "통화 흐름",
-  "cryptoOverview": "암호화폐 개요",
-  "marketCapLeaders": "시가총액 선도기업",
-  "commoditySnapshot": "원자재 스냅샷",
-  "spotAndFutures": "현물 및 선물",
-  "watchlistPreview": "워치리스트 미리보기",
-  "watchlistCopy": "저장된 심볼, 크로스 자산 알림, 포트폴리오 컨텍스트 및 계정 설정에 빠르게 접근하세요.",
-  "sp500Meta": "S&P 500 / USD / 뉴욕",
-  "federalReserveMeta": "연준 / 글로벌 기준",
+  "assetCoverage": "자산 커버리지",
+  "avgDailyVolume": "평균 일 거래량",
+  "baseCurrency": "기준 통화",
   "btcMeta": "BTC vs USD, FX 및 주식 리스크",
-  "regionPulse": "지역 동향",
-  "sectorPulse": "섹터 동향",
-  "commodityPulse": "원자재 동향",
-  "gdpGrowthShort": "GDP 성장",
-  "marketSentiment": "시장 심리",
-  "noTradingPairs": "사용 가능한 거래 쌍이 없습니다.",
-  "loadingSectors": "섹터 로딩 중...",
-  "noSectorData": "섹터 데이터가 없습니다.",
-  "noNewsAvailable": "이 거래소에 대한 뉴스가 없습니다.",
-  "volumeShort": "거래량:",
-  "momentumLabel": "모멘텀",
-  "unusualVolLabel": "비정상적 변동성",
-  "crashAlert": "급락 경보",
-  "oversold": "과매도",
-  "reversalLabel": "반전",
-  "whaleActivity": "큰 손 활동",
-  "unusualActivity": "비정상적 활동",
-  "companiesLabel": "기업:",
-  "marketRegion": "시장 지역",
-  "majorExchanges": "주요 거래소",
-  "keyIndices": "핵심 지표",
-  "economicCalendar": "경제 캘린더",
-  "sectorLeaders": "섹터 리더",
-  "commodityImpact": "원자재 영향",
-  "trendingStocks": "트렌드 주식",
-  "dividendLeaders": "배당 선도기업",
-  "relatedRegions": "관련 지역",
-  "newsThemes": "뉴스 테마",
-  "inflation": "인플레이션",
   "calendarFocus": "캘린더 포커스",
-  "regionsHeading": "글로벌 시장 지역",
-  "regionsIntro": "지역 지수, 매크로 캘린더, FX 및 원자재 영향이 글로벌 시장에 미치는 영향.",
-  "stockSector": "주식 섹터",
-  "sectorsTitle": "섹터",
-  "sectorsHeading": "주식 카테고리 및 섹터 인텔리전스",
-  "sectorsIntro": "기술, 금융, AI, 에너지, 헬스케어, 채굴, 부동산, 반도체 및 테마 주식 커버리지.",
-  "commodity": "원자재",
-  "supplyRegions": "공급 지역",
-  "demandTrends": "수요 트렌드",
-  "currencyCorrelation": "통화 상관관계",
-  "commoditiesTitle": "원자재",
+  "chart": "차트",
+  "commodities": {
+    "brent": {
+      "name": "브렌트 원유"
+    },
+    "copper": {
+      "name": "구리"
+    },
+    "crudeOil": {
+      "name": "Crude Oil WTI"
+    },
+    "gold": {
+      "name": "금"
+    },
+    "lithium": {
+      "name": "탄산리튬"
+    },
+    "naturalGas": {
+      "name": "천연가스"
+    },
+    "silver": {
+      "name": "은"
+    },
+    "uranium": {
+      "name": "우라늄"
+    },
+    "wheat": {
+      "name": "밀"
+    }
+  },
   "commoditiesHeading": "에너지, 금속, 농업 및 산업 자재",
   "commoditiesIntro": "현물 가격, 선물 참조, 공급 지역, 수요 트렌드, 통화 상관관계 및 매크로 영향.",
-  "moduleWorkspaceCopy": "이 워크스페이스는 MarketsPivot 글로벌 시장 인텔리전스 구조의 일부입니다.",
+  "commoditiesTitle": "원자재",
+  "commodity": "원자재",
+  "commodityImpact": "원자재 영향",
+  "commodityIntelligence": "원자재 인텔리전스",
+  "commodityPulse": "원자재 동향",
+  "commoditySnapshot": "원자재 스냅샷",
+  "companiesLabel": "기업:",
+  "compareMarkets": "시장 비교",
+  "compareMarketsCopy": "하나의 운영 뷰에서 거래소, 통화, 암호화폐, 원자재, 파생상품을 비교하세요.",
+  "coreReserve": "핵심 준비금",
+  "countries": {
+    "ae": {
+      "name": "아랍에미리트"
+    },
+    "au": {
+      "name": "호주"
+    },
+    "br": {
+      "name": "브라질"
+    },
+    "ca": {
+      "name": "캐나다"
+    },
+    "ch": {
+      "name": "스위스"
+    },
+    "cl": {
+      "name": "칠레"
+    },
+    "cn": {
+      "name": "중국"
+    },
+    "de": {
+      "name": "독일"
+    },
+    "es": {
+      "name": "스페인"
+    },
+    "eu": {
+      "name": "유럽연합"
+    },
+    "gb": {
+      "name": "영국"
+    },
+    "hk": {
+      "name": "홍콩"
+    },
+    "id": {
+      "name": "인도네시아 공화국"
+    },
+    "in": {
+      "name": "인도"
+    },
+    "it": {
+      "name": "이탈리아"
+    },
+    "jp": {
+      "name": "일본"
+    },
+    "kr": {
+      "name": "대한민국"
+    },
+    "mx": {
+      "name": "멕시코"
+    },
+    "my": {
+      "name": "말레이시아"
+    },
+    "sa": {
+      "name": "사우디아라비아"
+    },
+    "se": {
+      "name": "북유럽 및 발트해 지역"
+    },
+    "sg": {
+      "name": "싱가포르"
+    },
+    "th": {
+      "name": "태국"
+    },
+    "tw": {
+      "name": "대만"
+    },
+    "us": {
+      "name": "미국"
+    },
+    "za": {
+      "name": "남아프리카"
+    }
+  },
+  "crashAlert": "급락 경보",
+  "crossMarket": "크로스 마켓 보기",
+  "cryptoBetaOutperform": "암호화폐 베타가 주식 대비 우수",
+  "cryptoIntro": "리더, 스마트 컨트랙트 플랫폼, 스테이블코인, 인프라, DeFi, 결제 및 성장 자산.",
+  "cryptoLayer": "24/7 시장 레이어",
+  "cryptoLeader": "암호화폐 리더",
+  "cryptoMeta": "리더, 스테이블코인, DeFi, 결제",
+  "cryptoOverview": "암호화폐 개요",
+  "currencyCorrelation": "통화 상관관계",
+  "currencyCount": "통화",
+  "currencyIntro": "주요 준비 통화, 아시아 태평양, 미주, 유럽, 중동 및 아프리카를 아우릅니다.",
+  "currencyPulse": "통화 흐름",
+  "decliners": "하락",
+  "demandTrends": "수요 트렌드",
+  "dividendLeaders": "배당 선도기업",
+  "economicCalendar": "경제 캘린더",
+  "economicEventsToday": "오늘의 경제 이벤트",
+  "equities": "주식",
+  "equityThemes": "주식 테마",
+  "exchangeDashboards": "글로벌 거래소 대시보드",
+  "exchangeIntro": "통화, 시간대, 거래 시간, 리스트, 주요 지수 및 시가총액 맥락을 제공합니다.",
+  "exchanges": {
+    "adx": {
+      "name": "아부다비 증권거래소",
+      "description": "아부다비의 주요 증권 거래소"
+    },
+    "asx": {
+      "name": "호주 증권 거래소",
+      "description": "호주의 주요 증권 거래소"
+    },
+    "b3": {
+      "name": "B3 (브라질 볼사 발카오)",
+      "description": "라틴 아메리카 최대의 증권 거래소"
+    },
+    "bcs": {
+      "name": "볼사 데 코메르시오 데 산티아고",
+      "description": "칠레의 주요 증권 거래소"
+    },
+    "bit": {
+      "name": "보르사 이탈리아나",
+      "description": "이탈리아의 주요 증권 거래소"
+    },
+    "bm": {
+      "name": "부르사 말레이시아",
+      "description": "말레이시아의 주요 증권 거래소"
+    },
+    "bme": {
+      "name": "BME 스페인어 교환",
+      "description": "스페인의 주요 증권 거래소"
+    },
+    "bmv": {
+      "name": "멕시코 증권 거래소",
+      "description": "멕시코의 주요 증권 거래소"
+    },
+    "bse": {
+      "name": "봄베이 증권 거래소",
+      "description": "아시아에서 가장 오래된 증권 거래소"
+    },
+    "dfm": {
+      "name": "두바이 금융 시장",
+      "description": "두바이의 주요 증권 거래소"
+    },
+    "euronext": {
+      "name": "유로넥스트",
+      "description": "여러 국가에서 운영되는 범유럽 거래소"
+    },
+    "hkex": {
+      "name": "홍콩 증권 거래소",
+      "description": "아시아 주요 금융허브이자 중국 본토 시장으로의 관문"
+    },
+    "idx": {
+      "name": "인도네시아 증권거래소",
+      "description": "인도네시아의 주요 증권 거래소"
+    },
+    "jse": {
+      "name": "요하네스버그 증권거래소",
+      "description": "남아프리카의 주요 증권 거래소"
+    },
+    "krx": {
+      "name": "한국거래소",
+      "description": "한국의 주요 증권거래소"
+    },
+    "lse": {
+      "name": "런던 증권 거래소",
+      "description": "세계에서 가장 오래된 거래소 중 하나이자 선도적인 글로벌 금융 허브"
+    },
+    "nasdaq": {
+      "name": "NASDAQ",
+      "description": "기술 기업으로 유명한 전자 주식 시장"
+    },
+    "nse": {
+      "name": "인도국립증권거래소",
+      "description": "인도 최대의 증권 거래소이자 남아시아의 선두 시장"
+    },
+    "nyse": {
+      "name": "New York Stock Exchange",
+      "description": "세계에서 가장 크고 가장 유명한 증권 거래소"
+    },
+    "omx": {
+      "name": "나스닥 노르딕",
+      "description": "주식 및 관련 상장 상품을 다루는 나스닥이 운영하는 북유럽 및 발틱 시장"
+    },
+    "set": {
+      "name": "태국 증권거래소",
+      "description": "태국의 주요 증권 거래소"
+    },
+    "sgx": {
+      "name": "싱가포르 거래소",
+      "description": "동남아시아 최고의 금융 중심지이자 거래소"
+    },
+    "six": {
+      "name": "SIX 스위스 거래소",
+      "description": "스위스의 주요 증권 거래소"
+    },
+    "sse": {
+      "name": "상하이 증권 거래소",
+      "description": "시가총액 기준으로 세계에서 두 번째로 큰 증권 거래소"
+    },
+    "szse": {
+      "name": "심천 증권 거래소",
+      "description": "시가총액 기준 세 번째로 큰 증권 거래소"
+    },
+    "tadawul": {
+      "name": "사우디 거래소",
+      "description": "사우디아라비아의 주요 증권거래소"
+    },
+    "tse": {
+      "name": "도쿄증권거래소",
+      "description": "일본 최대 규모이자 아시아에서 가장 오래된 증권 거래소"
+    },
+    "tsx": {
+      "name": "토론토 증권 거래소",
+      "description": "캐나다 최대의 증권 거래소"
+    },
+    "twse": {
+      "name": "대만 증권 거래소",
+      "description": "대만의 주요 증권 거래소"
+    },
+    "xetra": {
+      "name": "도이체 뵈르세",
+      "description": "독일 최대의 증권 거래소이자 유럽의 주요 무역 센터"
+    }
+  },
+  "feature": "기능",
+  "federalReserveMeta": "연준 / 글로벌 기준",
+  "forexMiniCards": "FX 미니 카드",
+  "founded": "설립",
+  "fxMeta": "준비금, 거래 및 신흥 FX",
+  "fxPressure": "FX 압력: JPY, INR, ZAR 주시",
+  "gainersAndLosers": "상승 및 하락",
+  "gdpGrowthShort": "GDP 성장",
+  "globalHeatmap": "글로벌 히트맵",
+  "globalMarkets": "글로벌 멀티에셋 마켓",
+  "homeCopy": "주식, 채권, FX, 원자재, 파생상품 및 암호화폐 중심 시장을 Bloomberg 스타일로 제공합니다.",
+  "homeTitle": "시장피벗",
+  "inflation": "인플레이션",
+  "intelligenceCopy": "NYSE부터 INR, BTC부터 NASDAQ, 원유부터 금리까지 워크스페이스를 바꾸지 않고 분석하세요.",
+  "intelligenceTitle": "글로벌 시장 인텔리전스를 위한 하나의 플랫폼",
+  "keyIndices": "핵심 지표",
+  "listedCompanies": "상장 기업",
+  "liveBadge": "실시간",
+  "liveTape": "실시간 마켓 테이프",
+  "loadingActive": "활성 종목 로딩 중...",
+  "loadingGainers": "상승 종목 로딩 중...",
+  "loadingLosers": "하락 종목 로딩 중...",
+  "loadingSectors": "섹터 로딩 중...",
+  "macroCalendar": "매크로 캘린더",
+  "macroInputs": "거시 지표 및 선물",
+  "mainIndex": "주요 지수",
+  "majorExchanges": "주요 거래소",
+  "majorIndices": "주요 지수",
+  "marketBrief": "시장 브리프",
+  "marketCap": "시가총액",
+  "marketCapLeaders": "시가총액 선도기업",
+  "marketMovers": "시장 변동성",
+  "marketRegion": "시장 지역",
+  "marketSentiment": "시장 심리",
+  "marketsByGeography": "지역별 시장",
   "moduleFeatureReady": "실시간 API, 필터, 차트 및 저장된 워크플로우에 준비되었습니다.",
+  "moduleWorkspaceCopy": "이 워크스페이스는 MarketsPivot 글로벌 시장 인텔리전스 구조의 일부입니다.",
+  "momentumLabel": "모멘텀",
+  "mostActive": "거래량 상위",
+  "newsThemes": "뉴스 테마",
+  "noNewsAvailable": "이 거래소에 대한 뉴스가 없습니다.",
+  "noSectorData": "섹터 데이터가 없습니다.",
+  "noTradingPairs": "사용 가능한 거래 쌍이 없습니다.",
+  "openingBell": "장 시작",
+  "oversold": "과매도",
   "planned": "예정",
-  "feature": "기능"
+  "primaryBase": "기본 환산 기준",
+  "regionIntelligence": "지역 인텔리전스",
+  "regionPulse": "지역 동향",
+  "regions": {
+    "americas": {
+      "name": "아메리카"
+    },
+    "asiaPacific": {
+      "name": "Asia-Pacific"
+    },
+    "europe": {
+      "name": "유럽"
+    },
+    "middleEastAfrica": {
+      "name": "중동 및 아프리카"
+    }
+  },
+  "regionsHeading": "글로벌 시장 지역",
+  "regionsIntro": "지역 지수, 매크로 캘린더, FX 및 원자재 영향이 글로벌 시장에 미치는 영향.",
+  "regionsMeta": "지역 지수, 매크로 캘린더, FX 및 원자재 영향",
+  "relatedRegions": "관련 지역",
+  "reversalLabel": "반전",
+  "riskView": "리스크 보기",
+  "sectorIntelligence": "섹터 인텔리전스",
+  "sectorLeaders": "섹터 리더",
+  "sectorPulse": "섹터 동향",
+  "sectors": {
+    "ai": {
+      "name": "AI"
+    },
+    "banking": {
+      "name": "은행"
+    },
+    "defence": {
+      "name": "방위"
+    },
+    "electricVehicles": {
+      "name": "전기차"
+    },
+    "energy": {
+      "name": "에너지"
+    },
+    "healthcare": {
+      "name": "헬스케어"
+    },
+    "mining": {
+      "name": "광업"
+    },
+    "realEstate": {
+      "name": "부동산"
+    },
+    "retail": {
+      "name": "소매"
+    },
+    "semiconductor": {
+      "name": "반도체"
+    },
+    "technology": {
+      "name": "기술"
+    }
+  },
+  "sectorsHeading": "주식 카테고리 및 섹터 인텔리전스",
+  "sectorsIntro": "기술, 금융, AI, 에너지, 헬스케어, 채굴, 부동산, 반도체 및 테마 주식 커버리지.",
+  "sectorsMeta": "섹터, ETF, 리더, 업종 뉴스",
+  "sectorsTitle": "섹터",
+  "sp500Meta": "S&P 500 / USD / 뉴욕",
+  "spotAndFutures": "현물 및 선물",
+  "stockCount": "거래소",
+  "stockSector": "주식 섹터",
+  "subtitle": "지수, 모머, FX, 암호화폐, 원자재, 경제 이벤트, 시장 심리, 뉴스 및 워치리스트를 실시간으로 제공합니다.",
+  "supplyRegions": "공급 지역",
+  "terminalView": "터미널 보기",
+  "timezones": {
+    "africaJohannesburg": {
+      "name": "아프리카/요하네스버그"
+    },
+    "americaMexicoCity": {
+      "name": "아메리카/멕시코_시티"
+    },
+    "americaNewYork": {
+      "name": "미국/New_York"
+    },
+    "americaSantiago": {
+      "name": "아메리카/산티아고"
+    },
+    "americaSaoPaulo": {
+      "name": "아메리카/상파울루"
+    },
+    "americaToronto": {
+      "name": "아메리카/토론토"
+    },
+    "asiaBangkok": {
+      "name": "아시아/방콕"
+    },
+    "asiaDubai": {
+      "name": "아시아/두바이"
+    },
+    "asiaHongKong": {
+      "name": "아시아/홍콩"
+    },
+    "asiaJakarta": {
+      "name": "아시아/자카르타"
+    },
+    "asiaKolkata": {
+      "name": "아시아/콜카타"
+    },
+    "asiaKualaLumpur": {
+      "name": "아시아/쿠알라_룸푸르"
+    },
+    "asiaRiyadh": {
+      "name": "아시아/리야드"
+    },
+    "asiaSeoul": {
+      "name": "아시아/서울"
+    },
+    "asiaShanghai": {
+      "name": "아시아/상하이"
+    },
+    "asiaSingapore": {
+      "name": "아시아/싱가포르"
+    },
+    "asiaTaipei": {
+      "name": "아시아/타이베이"
+    },
+    "asiaTokyo": {
+      "name": "아시아/도쿄"
+    },
+    "australiaSydney": {
+      "name": "호주/시드니"
+    },
+    "europeBerlin": {
+      "name": "유럽/베를린"
+    },
+    "europeLondon": {
+      "name": "유럽/런던"
+    },
+    "europeMadrid": {
+      "name": "유럽/마드리드"
+    },
+    "europeParis": {
+      "name": "유럽/파리"
+    },
+    "europeRome": {
+      "name": "유럽/로마"
+    },
+    "europeStockholm": {
+      "name": "유럽/스톡홀름"
+    },
+    "europeZurich": {
+      "name": "유럽/취리히"
+    }
+  },
+  "title": "글로벌 마켓 인텔리전스 대시보드",
+  "topCryptos": "상위 20개 암호화폐",
+  "topCurrencies": "상위 20개 글로벌 통화",
+  "topExchange": "주요 거래소",
+  "topGainers": "상승 종목",
+  "topGlobalExchanges": "글로벌 주요 거래소",
+  "topLosers": "하락 종목",
+  "topMovers": "주요 움직임",
+  "tradingHours": "거래 시간",
+  "trendingStocks": "트렌드 주식",
+  "unusualActivity": "비정상적 활동",
+  "unusualVolLabel": "비정상적 변동성",
+  "usdBase": "USD 기준 전략",
+  "volumeShort": "거래량:",
+  "watchlistCopy": "저장된 심볼, 크로스 자산 알림, 포트폴리오 컨텍스트 및 계정 설정에 빠르게 접근하세요.",
+  "watchlistPreview": "워치리스트 미리보기",
+  "website": "웹사이트",
+  "whaleActivity": "큰 손 활동",
+  "worldSnapshot": "세계 시장 스냅샷",
+  "exchangeNetwork": "거래소 네트워크",
+  "stockExchanges": "증권 거래소",
+  "allExchanges": "모든 거래소",
+  "advancedScreener": "고급 스크리너",
+  "regionExchangesTitle": "{{region}} 교환",
+  "regionalExchangeDashboards": "지역교류 대시보드 ? 통화, 시간대, 거래 시간, 상장 기업, 주요 지수 및 시가 총액.",
+  "noExchangesForRegion": "이 지역에는 교환이 없습니다.",
+  "exchangeRegions": {
+    "americas": "아메리카",
+    "northAmerica": "북아메리카",
+    "europe": "유럽",
+    "asia": "아시아",
+    "asiaPacific": "아시아 태평양",
+    "oceania": "오세아니아",
+    "middleEast": "중동",
+    "africa": "아프리카",
+    "middleEastAfrica": "중동 및 아프리카",
+    "latinAmerica": "라틴 아메리카"
+  },
+  "ytdShort": "YTD",
+  "dashboardCards": {
+    "nyseMeta": "S&P 500 / USD / 뉴욕",
+    "usdMeta": "연준 / 글로벌 기준",
+    "bitcoinMeta": "BTC vs USD, FX 및 주식 리스크",
+    "regionMeta": "중국 성장 / 일본 금리 / 인도 실적 / 호주 자원",
+    "sectorMeta": "클라우드 설비투자 / AI 수익화 / 반도체 공급 / 밸류에이션",
+    "commodityMeta": "운송 인플레이션, 에너지 실적, 재정 수익 및 글로벌 리스크 센티먼트에 영향"
+  },
+  "moduleFeatures": {
+    "majorIndicesWidgets": "주요 지수 위젯",
+    "topGainersLosers": "상승 및 하락 종목",
+    "heatmaps": "히트맵",
+    "marketSentiment": "시장 심리",
+    "preMarketMovers": "개장 전 움직임",
+    "indexFutures": "지수 선물",
+    "volumeSpikes": "거래량 급증",
+    "openingWatchlist": "장 시작 워치리스트",
+    "afterHoursMovers": "장 마감 후 움직임",
+    "earningsReactions": "실적 발표 반응",
+    "extendedSessionVolume": "연장 거래 시간 거래량",
+    "newsCatalysts": "뉴스 촉매",
+    "equityHeatmaps": "주식 히트맵",
+    "sectorPerformance": "섹터 성과",
+    "regionalBreadth": "지역별广度",
+    "assetClassComparison": "자산 클래스 비교",
+    "topGainers": "상승 종목",
+    "topLosers": "하락 종목",
+    "mostActive": "거래량 상위",
+    "unusualVolume": "비정상적 거래량",
+    "vixOverview": "VIX 개요",
+    "fearGreedContext": "공포/탐욕 맥락",
+    "volatilityTermStructure": "변용성 터미널 구조",
+    "riskDashboard": "리스크 대시보드",
+    "countryFilters": "국가 필터",
+    "exchangeStatistics": "거래소 통계",
+    "listedCompanies": "상장 기업",
+    "regionalNews": "지역 뉴스",
+    "liveGainers": "실시간 상승",
+    "volumeFilters": "거래량 필터",
+    "marketCapFilters": "시가총액 필터",
+    "sectorBreakdown": "섹터 분류",
+    "liveLosers": "실시간 하락",
+    "riskAlerts": "리스크 알림",
+    "indexImpact": "지수 영향",
+    "watchlistActions": "워치리스트 작업",
+    "trendingCoins": "인기 코인",
+    "marketCapRanking": "시가총액 순위",
+    "exchangeListings": "거래소 상장",
+    "historicalPerformance": "역사적 성과",
+    "memeCoinRankings": "밈 코인 순위",
+    "volumeBursts": "거래량 폭증",
+    "communityMomentum": "커뮤니티 모멘텀",
+    "riskFlags": "리스크 플래그",
+    "defiEcosystem": "DeFi 생태계",
+    "tvlMetrics": "TVL 지표",
+    "protocolCategories": "프로토콜 카테고리",
+    "tokenPerformance": "토큰 성과",
+    "layer1Chains": "레이어 1 체인",
+    "consensusDetails": "합의 상세",
+    "tokenomics": "토큰경제",
+    "developerEcosystem": "개발자 생태계",
+    "stablecoinSupply": "스테이블코인 공급",
+    "pegMonitoring": "가격 고정 모니터링",
+    "exchangeLiquidity": "거래소 유동성",
+    "reserveContext": "준비금 맥락",
+    "spotPrices": "현물 가격",
+    "futuresPrices": "선물 가격",
+    "supplyDemandAnalysis": "수급 분석",
+    "correlationAnalysis": "상관관계 분석",
+    "preciousMetals": "귀금속",
+    "industrialMetals": "산업용 금속",
+    "futuresContracts": "선물 계약",
+    "currencySensitivity": "통화 민감도",
+    "cropMarkets": "농산물 시장",
+    "weatherImpact": "기후 영향",
+    "supplyRegions": "공급 지역",
+    "seasonality": "계절성",
+    "industrialInputs": "산업 원자재",
+    "demandTrends": "수요 트렌드",
+    "manufacturingSignals": "제조업 신호",
+    "regionalSupply": "지역 공급",
+    "regionWiseNews": "지역별 뉴스",
+    "macroSummaries": "매크로 요약",
+    "marketAlerts": "시장 알림",
+    "sectorWiseNews": "섹터별 뉴스",
+    "themeTracking": "테마 추적",
+    "aiSummaries": "AI 요약",
+    "etfImpact": "ETF 영향",
+    "cryptoNews": "암호화폐 뉴스",
+    "onChainContext": "온체인 맥락",
+    "regulationUpdates": "규제 업데이트",
+    "exchangeDevelopments": "거래소 동향",
+    "breakingCatalysts": "속보 촉매",
+    "importanceFilters": "중요도 필터",
+    "liveMarketSummary": "실시간 시장 요약",
+    "filters": "필터",
+    "analyticsWidgets": "분석 위젯",
+    "relatedNews": "관련 뉴스"
+  },
+  "sentiment": {
+    "Equities": {
+      "label": "주식",
+      "detail": "위험 선호 확산"
+    },
+    "FX": {
+      "label": "FX",
+      "detail": "달러 혼조"
+    },
+    "Crypto": {
+      "label": "암호화폐",
+      "detail": "모멘텀 매수"
+    },
+    "Commodities": {
+      "label": "원자재",
+      "detail": "에너지 약세"
+    }
+  }
 }

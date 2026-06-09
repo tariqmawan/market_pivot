@@ -23,9 +23,9 @@ const ArticlePage: React.FC = () => {
     return (
       <div className="page">
         <div className="section-heading">
-          <h1>{t("src_client_pages_article__l22__h0")}</h1>
-          <p>{t("src_client_pages_article__l23__h1")}</p>
-          <Link to="/news">{t("src_client_pages_article__l24__h2")}</Link>
+          <h1>{t("article.h0_l22")}</h1>
+          <p>{t("article.h1")}</p>
+          <Link to="/news">{t("article.h2")}</Link>
         </div>
       </div>
     );
@@ -38,7 +38,7 @@ const ArticlePage: React.FC = () => {
         <h1 style={{ marginTop: 12 }}>{article.title}</h1>
         <p style={{ color: '#777' }}>{article.source} • {new Date(article.publishedAt).toLocaleString()}</p>
         <p style={{ lineHeight: 1.8 }}>{article.summary}</p>
-        <p>{t("src_client_pages_article__l41_h0")} <a href={article.url} target="_blank" rel="noreferrer">{t("src_client_pages_article__l37__h4")}</a></p>
+        <p>{t("article.h0_l41")} <a href={article.url} target="_blank" rel="noreferrer">{t("article.h4")}</a></p>
       </article>
     </div>
   );

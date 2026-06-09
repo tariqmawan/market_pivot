@@ -4,6 +4,7 @@ import exchangesData from "../../data/exchanges.json";
 import type { StockExchange } from "../../types";
 import "../styles/index.css";
 import { useI18n } from "../i18n";
+import { translateSourceText } from "../i18n/translate";
 
 
 
@@ -13,6 +14,7 @@ const formatSignedPercent = (value: number) => `${value >= 0 ? "+" : ""}${value.
 
 const AfterHoursPage: React.FC = () => {
   const { t } = useI18n();
+  const tx = (value: string) => translateSourceText(t, value);
   const afterHoursData = React.useMemo(() => {
     return [
       { symbol: "AAPL", name: "Apple Inc.", afterHours: 194.25, regular: 193.80, change: 0.45, changePercent: 0.23 },
@@ -35,22 +37,22 @@ const AfterHoursPage: React.FC = () => {
       {/* Hero Section */}
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">{t("src_client_pages_afterhourspage__l34__h0")}</p>
-          <h1>{t("src_client_pages_afterhourspage__l35__h1")}</h1>
-          <p>{t("src_client_pages_afterhourspage__l36__h2")}</p>
+          <p className="eyebrow">{t("afterhourspage.h0")}</p>
+          <h1>{t("afterhourspage.h1")}</h1>
+          <p>{t("afterhourspage.h2")}</p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>{t("src_client_pages_afterhourspage__l40__h3")}</span>
-            <strong>{t("src_client_pages_afterhourspage__l41__h4")}</strong>
+            <span>{t("afterhourspage.h3")}</span>
+            <strong>{t("afterhourspage.h4")}</strong>
           </div>
           <div className="metric-tile">
-            <span>{t("src_client_pages_afterhourspage__l44__h5")}</span>
-            <strong>{t("src_client_pages_afterhourspage__l45__h6")}</strong>
+            <span>{t("afterhourspage.h5")}</span>
+            <strong>{t("afterhourspage.h6")}</strong>
           </div>
           <div className="metric-tile">
-            <span>{t("src_client_pages_afterhourspage__l48__h7")}</span>
-            <strong>{t("src_client_pages_afterhourspage__l49__h8")}</strong>
+            <span>{t("afterhourspage.h7")}</span>
+            <strong>{t("afterhourspage.h8")}</strong>
           </div>
         </div>
       </section>
@@ -58,10 +60,10 @@ const AfterHoursPage: React.FC = () => {
       {/* After-Hours Movers */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">{t("src_client_pages_afterhourspage__l57__h9")}</p>
-          <h2>{t("src_client_pages_afterhourspage__l58__h10")}</h2>
+          <p className="eyebrow">{t("afterhourspage.h9")}</p>
+          <h2>{t("afterhourspage.h10")}</h2>
           <p style={{ color: "#475569", marginTop: "4px" }}>
-            Stocks with significant price action during extended trading (4:00 PM - 8:00 PM ET)
+            {tx("Stocks with significant price action during extended trading (4:00 PM - 8:00 PM ET)")}
           </p>
         </div>
         <div style={{ overflowX: "auto" }}>
@@ -76,11 +78,11 @@ const AfterHoursPage: React.FC = () => {
           >
             <thead>
               <tr style={{ borderBottom: "2px solid #e2e8f0" }}>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_afterhourspage__l75__h11")}</th>
-                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("src_client_pages_afterhourspage__l76__h12")}</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_afterhourspage__l77__h13")}</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_afterhourspage__l78__h14")}</th>
-                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("src_client_pages_afterhourspage__l79__h15")}</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("afterhourspage.h11")}</th>
+                <th style={{ padding: "12px", textAlign: "left", fontWeight: 600 }}>{t("afterhourspage.h12")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("afterhourspage.h13")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("afterhourspage.h14")}</th>
+                <th style={{ padding: "12px", textAlign: "right", fontWeight: 600 }}>{t("afterhourspage.h15")}</th>
               </tr>
             </thead>
             <tbody>
@@ -110,8 +112,8 @@ const AfterHoursPage: React.FC = () => {
       {/* Earnings Reactions */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">{t("src_client_pages_afterhourspage__l109__h16")}</p>
-          <h2>{t("src_client_pages_afterhourspage__l110__h17")}</h2>
+          <p className="eyebrow">{t("afterhourspage.h16")}</p>
+          <h2>{t("afterhourspage.h17")}</h2>
         </div>
         <div
           style={{
@@ -149,7 +151,7 @@ const AfterHoursPage: React.FC = () => {
                 </span>
               </div>
               <p style={{ fontSize: "12px", color: "#475569", marginTop: "8px" }}>
-                Expected: {report.time}
+                {tx("Expected:")} {report.time}
               </p>
             </div>
           ))}
@@ -165,8 +167,8 @@ const AfterHoursPage: React.FC = () => {
           border: "1px solid rgba(162, 120, 65, 0.2)",
         }}
       >
-        <p className="eyebrow">{t("src_client_pages_afterhourspage__l164__h18")}</p>
-        <h3>{t("src_client_pages_afterhourspage__l165__h19")}</h3>
+        <p className="eyebrow">{t("afterhourspage.h18")}</p>
+        <h3>{t("afterhourspage.h19")}</h3>
         <div
           style={{
             display: "grid",
@@ -176,25 +178,25 @@ const AfterHoursPage: React.FC = () => {
           }}
         >
           <div>
-            <strong>{t("src_client_pages_afterhourspage__l175__h20")}</strong>
-            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>{t("src_client_pages_afterhourspage__l176__h21")}</p>
+            <strong>{t("afterhourspage.h20")}</strong>
+            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>{t("afterhourspage.h21")}</p>
           </div>
           <div>
-            <strong>{t("src_client_pages_afterhourspage__l179__h22")}</strong>
-            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>{t("src_client_pages_afterhourspage__l180__h23")}</p>
+            <strong>{t("afterhourspage.h22")}</strong>
+            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>{t("afterhourspage.h23")}</p>
           </div>
           <div>
-            <strong>{t("src_client_pages_afterhourspage__l183__h24")}</strong>
-            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>{t("src_client_pages_afterhourspage__l184__h25")}</p>
+            <strong>{t("afterhourspage.h24")}</strong>
+            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>{t("afterhourspage.h25")}</p>
           </div>
           <div>
-            <strong>{t("src_client_pages_afterhourspage__l187__h26")}</strong>
-            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>{t("src_client_pages_afterhourspage__l188__h27")}</p>
+            <strong>{t("afterhourspage.h26")}</strong>
+            <p style={{ color: "#475569", fontSize: "14px", marginTop: "4px" }}>{t("afterhourspage.h27")}</p>
           </div>
         </div>
         <div style={{ marginTop: "20px" }}>
           <Link to="/news" className="primary-action" style={{ textDecoration: "none" }}>
-            View Latest Earnings News
+            {tx("View Latest Earnings News")}
           </Link>
         </div>
       </section>

@@ -1,132 +1,628 @@
 {
-  "title": "لوحة معلومات الأسواق العالمية",
-  "subtitle": "نظرة مباشرة على المؤشرات ومحركات السوق والفوركس والعملات الرقمية والسلع والأحداث الاقتصادية والمعنويات والأخبار وقوائم المراقبة.",
-  "globalMarkets": "أسواق عالمية متعددة الأصول",
-  "homeTitle": "MarketsPivot",
-  "homeCopy": "تغطية بأسلوب بلومبرغ للأسهم والدخل الثابت والفوركس والسلع والمشتقات والعملات الرقمية.",
-  "intelligenceTitle": "منصة واحدة لذكاء الأسواق العالمية",
-  "intelligenceCopy": "تابع جلسات البورصات وضغط العملات والأصول الرقمية وسياق العوائد والسلع والمشتقات من مساحة تشغيل واحدة.",
-  "liveTape": "شريط السوق المباشر",
-  "terminalView": "عرض الطرفية",
-  "assetCoverage": "تغطية الأصول",
-  "compareMarkets": "قارن الأسواق جنباً إلى جنب",
-  "compareMarketsCopy": "انتقل من بورصة نيويورك إلى الروبية، ومن البيتكوين إلى ناسداك، ومن النفط إلى العوائد دون تغيير مساحة العمل.",
-  "marketBrief": "ملخص السوق",
-  "openingBell": "جرس الافتتاح",
-  "riskView": "رؤية المخاطر",
-  "globalHeatmap": "خريطة الحرارة العالمية",
-  "equities": "الأسهم",
-  "stockCount": "بورصات أسهم",
-  "exchangeDashboards": "لوحات البورصات العالمية",
-  "regionsMeta": "مؤشرات إقليمية وتقاويم كلية وفوركس وتأثير السلع",
-  "currencyCount": "عملة",
-  "fxMeta": "عملات احتياطية وتجارية وأسواق ناشئة",
-  "sectorsMeta": "قطاعات الأسهم وصناديق المؤشرات والقادة وأخبار القطاعات",
-  "usdBase": "استراتيجية أساس الدولار",
-  "cryptoMeta": "الرواد والعملات المستقرة والتمويل اللامركزي والمدفوعات",
-  "cryptoLayer": "طبقة سوق تعمل 24/7",
-  "topGlobalExchanges": "أبرز بورصات الأسهم العالمية",
-  "exchangeIntro": "تغطية إقليمية تشمل العملة والمنطقة الزمنية وساعات التداول والإدراجات والمؤشر الرئيسي والقيمة السوقية.",
-  "topCurrencies": "أبرز 20 عملة عالمية",
-  "currencyIntro": "تغطية العملات الاحتياطية الرئيسية وعملات تجارة آسيا والمحيط الهادئ والأمريكتين وأوروبا والشرق الأوسط وأفريقيا.",
-  "topCryptos": "أبرز 20 عملة رقمية",
-  "cryptoIntro": "العملات القيادية ومنصات العقود الذكية والعملات المستقرة والبنية التحتية والتمويل اللامركزي والمدفوعات وأصول النمو.",
-  "crossMarket": "رؤية متعددة الأسواق",
-  "topExchange": "أبرز بورصة",
-  "coreReserve": "احتياطي رئيسي",
-  "cryptoLeader": "قائد العملات الرقمية",
-  "primaryBase": "قاعدة التحويل الأساسية",
-  "marketCap": "القيمة السوقية",
-  "listedCompanies": "الشركات المدرجة",
-  "avgDailyVolume": "متوسط حجم التداول اليومي",
-  "tradingHours": "ساعات التداول",
   "advancers": "الصاعدون",
-  "decliners": "الهابطون",
-  "chart": "الرسم البياني",
-  "topMovers": "أبرز المحركات",
-  "founded": "تأسست",
-  "mainIndex": "المؤشر الرئيسي",
-  "baseCurrency": "العملة الأساسية",
-  "website": "الموقع الإلكتروني",
-  "topGainers": "أكبر الرابحين",
-  "topLosers": "أكبر الخاسرين",
-  "mostActive": "الأكثر نشاطاً",
-  "loadingGainers": "جارٍ تحميل الرابحين...",
-  "loadingLosers": "جارٍ تحميل الخاسرين...",
-  "loadingActive": "جارٍ تحميل الأكثر نشاطاً...",
-  "liveBadge": "مباشر",
   "asiaClosed": "إغلاق آسيوي متباين وطلب أوروبي إيجابي",
-  "cryptoBetaOutperform": "بيتا العملات الرقمية تتفوق على الأسهم",
-  "fxPressure": "ضغط العملات: الين والروبية والراند تحت المراقبة",
-  "regionIntelligence": "ذكاء المناطق",
-  "marketsByGeography": "الأسواق حسب الجغرافيا",
-  "countries": "دول",
-  "sectorIntelligence": "ذكاء القطاعات",
-  "equityThemes": "ثيمات الأسهم وفئاتها",
-  "commodityIntelligence": "ذكاء السلع",
-  "macroInputs": "مدخلات كلية وعقود آجلة",
-  "majorIndices": "المؤشرات الرئيسية",
-  "worldSnapshot": "لقطة الأسواق العالمية",
-  "marketMovers": "محركات السوق",
-  "gainersAndLosers": "الرابحون والخاسرون",
-  "economicEventsToday": "الأحداث الاقتصادية اليوم",
-  "macroCalendar": "التقويم الكلي",
-  "forexMiniCards": "بطاقات فوركس مختصرة",
-  "currencyPulse": "نبض العملات",
-  "cryptoOverview": "نظرة عامة على العملات الرقمية",
-  "marketCapLeaders": "قادة القيمة السوقية",
-  "commoditySnapshot": "لقطة السلع",
-  "spotAndFutures": "الفوري والعقود الآجلة",
-  "watchlistPreview": "معاينة قائمة المراقبة",
-  "watchlistCopy": "وصول سريع إلى الرموز المحفوظة والتنبيهات متعددة الأصول وسياق المحفظة وتفضيلات الحساب.",
-  "sp500Meta": "S&P 500 / دولار أمريكي / نيويورك",
-  "federalReserveMeta": "الاحتياطي الفيدرالي / الأساس العالمي",
+  "assetCoverage": "تغطية الأصول",
+  "avgDailyVolume": "متوسط حجم التداول اليومي",
+  "baseCurrency": "العملة الأساسية",
   "btcMeta": "بيتكوين مقابل الدولار والفوركس ومخاطر الأسهم",
-  "regionPulse": "نبض المناطق",
-  "sectorPulse": "نبض القطاعات",
-  "commodityPulse": "نبض السلع",
-  "gdpGrowthShort": "نمو الناتج المحلي",
-  "marketSentiment": "معنويات السوق",
-  "noTradingPairs": "لا توجد أزواج تداول متاحة.",
-  "loadingSectors": "جارٍ تحميل القطاعات...",
-  "noSectorData": "لا توجد بيانات قطاعات متاحة.",
-  "noNewsAvailable": "لا توجد أخبار متاحة لهذه البورصة.",
-  "volumeShort": "الحجم:",
-  "momentumLabel": "الزخم",
-  "unusualVolLabel": "حجم غير معتاد",
-  "crashAlert": "تنبيه هبوط حاد",
-  "oversold": "تشبع بيعي",
-  "reversalLabel": "انعكاس",
-  "whaleActivity": "نشاط كبار المتداولين",
-  "unusualActivity": "نشاط غير معتاد",
-  "companiesLabel": "الشركات:",
-  "marketRegion": "منطقة السوق",
-  "majorExchanges": "البورصات الرئيسية",
-  "keyIndices": "المؤشرات الأساسية",
-  "economicCalendar": "التقويم الاقتصادي",
-  "sectorLeaders": "قادة القطاعات",
-  "commodityImpact": "تأثير السلع",
-  "trendingStocks": "الأسهم الرائجة",
-  "dividendLeaders": "قادة التوزيعات",
-  "relatedRegions": "مناطق مرتبطة",
-  "newsThemes": "محاور الأخبار",
-  "inflation": "التضخم",
   "calendarFocus": "تركيز التقويم",
-  "regionsHeading": "مناطق الأسواق العالمية",
-  "regionsIntro": "مؤشرات إقليمية وتقاويم كلية وفوركس وتأثير السلع عبر الأسواق العالمية.",
-  "stockSector": "قطاع الأسهم",
-  "sectorsTitle": "القطاعات",
-  "sectorsHeading": "فئات الأسهم وذكاء القطاعات",
-  "sectorsIntro": "تغطية التكنولوجيا والبنوك والذكاء الاصطناعي والطاقة والرعاية الصحية والتعدين والعقارات وأشباه الموصلات والموضوعات الاستثمارية.",
-  "commodity": "سلعة",
-  "supplyRegions": "مناطق الإمداد",
-  "demandTrends": "اتجاهات الطلب",
-  "currencyCorrelation": "ارتباط العملة",
-  "commoditiesTitle": "السلع",
+  "chart": "الرسم البياني",
+  "commodities": {
+    "brent": {
+      "name": "خام برنت"
+    },
+    "copper": {
+      "name": "Copper"
+    },
+    "crudeOil": {
+      "name": "Crude Oil WTI"
+    },
+    "gold": {
+      "name": "Gold"
+    },
+    "lithium": {
+      "name": "كربونات الليثيوم"
+    },
+    "naturalGas": {
+      "name": "الغاز الطبيعي"
+    },
+    "silver": {
+      "name": "Silver"
+    },
+    "uranium": {
+      "name": "Uranium"
+    },
+    "wheat": {
+      "name": "Wheat"
+    }
+  },
   "commoditiesHeading": "الطاقة والمعادن والزراعة والمدخلات الصناعية",
   "commoditiesIntro": "أسعار فورية ومراجع عقود آجلة ومناطق إمداد واتجاهات طلب وارتباطات العملات والتأثير الكلي.",
-  "moduleWorkspaceCopy": "مساحة العمل هذه جزء من بنية MarketsPivot لذكاء الأسواق العالمية.",
+  "commoditiesTitle": "السلع",
+  "commodity": "سلعة",
+  "commodityImpact": "تأثير السلع",
+  "commodityIntelligence": "ذكاء السلع",
+  "commodityPulse": "نبض السلع",
+  "commoditySnapshot": "لقطة السلع",
+  "companiesLabel": "الشركات:",
+  "compareMarkets": "قارن الأسواق جنباً إلى جنب",
+  "compareMarketsCopy": "انتقل من بورصة نيويورك إلى الروبية، ومن البيتكوين إلى ناسداك، ومن النفط إلى العوائد دون تغيير مساحة العمل.",
+  "coreReserve": "احتياطي رئيسي",
+  "countries": {
+    "ae": {
+      "name": "الإمارات العربية المتّحدة"
+    },
+    "au": {
+      "name": "أستراليا"
+    },
+    "br": {
+      "name": "Brazil"
+    },
+    "ca": {
+      "name": "Canada"
+    },
+    "ch": {
+      "name": "سويسرا"
+    },
+    "cl": {
+      "name": "Chile"
+    },
+    "cn": {
+      "name": "China"
+    },
+    "de": {
+      "name": "Germany"
+    },
+    "es": {
+      "name": "Spain"
+    },
+    "eu": {
+      "name": "الاتّحاد الأوروبي"
+    },
+    "gb": {
+      "name": "المملكة المتّحدة"
+    },
+    "hk": {
+      "name": "Hong Kong"
+    },
+    "id": {
+      "name": "إندونيسيا"
+    },
+    "in": {
+      "name": "India"
+    },
+    "it": {
+      "name": "Italy"
+    },
+    "jp": {
+      "name": "Japan"
+    },
+    "kr": {
+      "name": "كوريا الجنوبية"
+    },
+    "mx": {
+      "name": "Mexico"
+    },
+    "my": {
+      "name": "ماليزيا"
+    },
+    "sa": {
+      "name": "Saudi Arabia"
+    },
+    "se": {
+      "name": "منطقة الشمال ودول البلطيق"
+    },
+    "sg": {
+      "name": "سنغافورة"
+    },
+    "th": {
+      "name": "تايلاند"
+    },
+    "tw": {
+      "name": "Taiwan"
+    },
+    "us": {
+      "name": "الولايات المتّحدة"
+    },
+    "za": {
+      "name": "جنوب أفريقيا"
+    }
+  },
+  "crashAlert": "تنبيه هبوط حاد",
+  "crossMarket": "رؤية متعددة الأسواق",
+  "cryptoBetaOutperform": "بيتا العملات الرقمية تتفوق على الأسهم",
+  "cryptoIntro": "العملات القيادية ومنصات العقود الذكية والعملات المستقرة والبنية التحتية والتمويل اللامركزي والمدفوعات وأصول النمو.",
+  "cryptoLayer": "طبقة سوق تعمل 24/7",
+  "cryptoLeader": "قائد العملات الرقمية",
+  "cryptoMeta": "الرواد والعملات المستقرة والتمويل اللامركزي والمدفوعات",
+  "cryptoOverview": "نظرة عامة على العملات الرقمية",
+  "currencyCorrelation": "ارتباط العملة",
+  "currencyCount": "عملة",
+  "currencyIntro": "تغطية العملات الاحتياطية الرئيسية وعملات تجارة آسيا والمحيط الهادئ والأمريكتين وأوروبا والشرق الأوسط وأفريقيا.",
+  "currencyPulse": "نبض العملات",
+  "decliners": "الهابطون",
+  "demandTrends": "اتجاهات الطلب",
+  "dividendLeaders": "قادة التوزيعات",
+  "economicCalendar": "التقويم الاقتصادي",
+  "economicEventsToday": "الأحداث الاقتصادية اليوم",
+  "equities": "الأسهم",
+  "equityThemes": "ثيمات الأسهم وفئاتها",
+  "exchangeDashboards": "لوحات البورصات العالمية",
+  "exchangeIntro": "تغطية إقليمية تشمل العملة والمنطقة الزمنية وساعات التداول والإدراجات والمؤشر الرئيسي والقيمة السوقية.",
+  "exchanges": {
+    "adx": {
+      "name": "Abu Dhabi Securities Exchange",
+      "description": "البورصة الرئيسية لإمارة أبوظبي"
+    },
+    "asx": {
+      "name": "Australian Securities Exchange",
+      "description": "البورصة الرئيسية لأستراليا"
+    },
+    "b3": {
+      "name": "B3 (بورصة البرازيل)",
+      "description": "أكبر بورصة في أمريكا اللاتينية"
+    },
+    "bcs": {
+      "name": "بورصة سانتياغو التجارية",
+      "description": "البورصة الرئيسية لتشيلي"
+    },
+    "bit": {
+      "name": "بورصة إيطاليا",
+      "description": "البورصة الرئيسية لإيطاليا"
+    },
+    "bm": {
+      "name": "Bursa Malaysia",
+      "description": "البورصة الرئيسية لماليزيا"
+    },
+    "bme": {
+      "name": "البورصات الإسبانية BME",
+      "description": "البورصة الرئيسية لإسبانيا"
+    },
+    "bmv": {
+      "name": "Mexican Stock Exchange",
+      "description": "البورصة الرئيسية للمكسيك"
+    },
+    "bse": {
+      "name": "Bombay Stock Exchange",
+      "description": "أقدم بورصة في آسيا"
+    },
+    "dfm": {
+      "name": "سوق دبي المالي",
+      "description": "البورصة الرئيسية لدبي"
+    },
+    "euronext": {
+      "name": "Euronext",
+      "description": "بورصة أوروبية تعمل في عدّة دول"
+    },
+    "hkex": {
+      "name": "Hong Kong Stock Exchange",
+      "description": "مركز مالي رئيسي في آسيا وبوّابة نحو أسواق الصين"
+    },
+    "idx": {
+      "name": "Indonesia Stock Exchange",
+      "description": "البورصة الرئيسية لإندونيسيا"
+    },
+    "jse": {
+      "name": "Johannesburg Stock Exchange",
+      "description": "البورصة الرئيسية لجنوب أفريقيا"
+    },
+    "krx": {
+      "name": "بورصة كوريا",
+      "description": "البورصة الرئيسية لكوريا الجنوبية"
+    },
+    "lse": {
+      "name": "London Stock Exchange",
+      "description": "مركز مالي عالمي رائد ومن أقدم بورصات العالم"
+    },
+    "nasdaq": {
+      "name": "NASDAQ",
+      "description": "سوق أوراق مالية إلكتروني معروف بشركات التكنولوجيا"
+    },
+    "nse": {
+      "name": "National Stock Exchange of India",
+      "description": "أكبر بورصة في الهند والسوق الرائد في جنوب آسيا"
+    },
+    "nyse": {
+      "name": "New York Stock Exchange",
+      "description": "أكبر وأشهر بورصة أوراق مالية في العالم"
+    },
+    "omx": {
+      "name": "Nasdaq Nordic",
+      "description": "سوق يديره ناسداك يغطّي منطقتي الشمال والبلطيق للأسهم والمنتجات المدرجة ذات الصلة"
+    },
+    "set": {
+      "name": "Stock Exchange of Thailand",
+      "description": "البورصة الرئيسية لتايلاند"
+    },
+    "sgx": {
+      "name": "Singapore Exchange",
+      "description": "أبرز مركز مالي وبورصة في جنوب شرق آسيا"
+    },
+    "six": {
+      "name": "SIX Swiss Exchange",
+      "description": "البورصة الرئيسية لسويسرا"
+    },
+    "sse": {
+      "name": "Shanghai Stock Exchange",
+      "description": "ثاني أكبر بورصة في العالم من حيث القيمة السوقية"
+    },
+    "szse": {
+      "name": "Shenzhen Stock Exchange",
+      "description": "ثالث أكبر بورصة من حيث القيمة السوقية"
+    },
+    "tadawul": {
+      "name": "Saudi Exchange",
+      "description": "Saudi Arabia's primary stock exchange"
+    },
+    "tse": {
+      "name": "Tokyo Stock Exchange",
+      "description": "أكبر بورصة في اليابان وأقدمها في آسيا"
+    },
+    "tsx": {
+      "name": "Toronto Stock Exchange",
+      "description": "أكبر بورصة في كندا"
+    },
+    "twse": {
+      "name": "Taiwan Stock Exchange",
+      "description": "البورصة الرئيسية لتايوان"
+    },
+    "xetra": {
+      "name": "Deutsche Börse",
+      "description": "أكبر بورصة في ألمانيا ومركز تداول أوروبي رئيسي"
+    }
+  },
+  "feature": "ميزة",
+  "federalReserveMeta": "الاحتياطي الفيدرالي / الأساس العالمي",
+  "forexMiniCards": "بطاقات فوركس مختصرة",
+  "founded": "تأسست",
+  "fxMeta": "عملات احتياطية وتجارية وأسواق ناشئة",
+  "fxPressure": "ضغط العملات: الين والروبية والراند تحت المراقبة",
+  "gainersAndLosers": "الرابحون والخاسرون",
+  "gdpGrowthShort": "نمو الناتج المحلي",
+  "globalHeatmap": "خريطة الحرارة العالمية",
+  "globalMarkets": "أسواق عالمية متعددة الأصول",
+  "homeCopy": "تغطية بأسلوب بلومبرغ للأسهم والدخل الثابت والفوركس والسلع والمشتقات والعملات الرقمية.",
+  "homeTitle": "ماركتس بيفوت",
+  "inflation": "التضخم",
+  "intelligenceCopy": "تابع جلسات البورصات وضغط العملات والأصول الرقمية وسياق العوائد والسلع والمشتقات من مساحة تشغيل واحدة.",
+  "intelligenceTitle": "منصة واحدة لذكاء الأسواق العالمية",
+  "keyIndices": "المؤشرات الأساسية",
+  "listedCompanies": "الشركات المدرجة",
+  "liveBadge": "مباشر",
+  "liveTape": "شريط السوق المباشر",
+  "loadingActive": "جارٍ تحميل الأكثر نشاطاً...",
+  "loadingGainers": "جارٍ تحميل الرابحين...",
+  "loadingLosers": "جارٍ تحميل الخاسرين...",
+  "loadingSectors": "جارٍ تحميل القطاعات...",
+  "macroCalendar": "التقويم الكلي",
+  "macroInputs": "مدخلات كلية وعقود آجلة",
+  "mainIndex": "المؤشر الرئيسي",
+  "majorExchanges": "البورصات الرئيسية",
+  "majorIndices": "المؤشرات الرئيسية",
+  "marketBrief": "ملخص السوق",
+  "marketCap": "القيمة السوقية",
+  "marketCapLeaders": "قادة القيمة السوقية",
+  "marketMovers": "محركات السوق",
+  "marketRegion": "منطقة السوق",
+  "marketSentiment": "معنويات السوق",
+  "marketsByGeography": "الأسواق حسب الجغرافيا",
   "moduleFeatureReady": "جاهزة لواجهات البيانات الحية والفلاتر والرسوم البيانية وسير عمل المستخدم المحفوظة.",
+  "moduleWorkspaceCopy": "مساحة العمل هذه جزء من بنية MarketsPivot لذكاء الأسواق العالمية.",
+  "momentumLabel": "الزخم",
+  "mostActive": "الأكثر نشاطاً",
+  "newsThemes": "محاور الأخبار",
+  "noNewsAvailable": "لا توجد أخبار متاحة لهذه البورصة.",
+  "noSectorData": "لا توجد بيانات قطاعات متاحة.",
+  "noTradingPairs": "لا توجد أزواج تداول متاحة.",
+  "openingBell": "جرس الافتتاح",
+  "oversold": "تشبع بيعي",
   "planned": "مخطط",
-  "feature": "ميزة"
+  "primaryBase": "قاعدة التحويل الأساسية",
+  "regionIntelligence": "ذكاء المناطق",
+  "regionPulse": "نبض المناطق",
+  "regions": {
+    "americas": {
+      "name": "الأمريكتان"
+    },
+    "asiaPacific": {
+      "name": "آسيا والمحيط الهادئ"
+    },
+    "europe": {
+      "name": "Europe"
+    },
+    "middleEastAfrica": {
+      "name": "الشرق الأوسط وأفريقيا"
+    }
+  },
+  "regionsHeading": "مناطق الأسواق العالمية",
+  "regionsIntro": "مؤشرات إقليمية وتقاويم كلية وفوركس وتأثير السلع عبر الأسواق العالمية.",
+  "regionsMeta": "مؤشرات إقليمية وتقاويم كلية وفوركس وتأثير السلع",
+  "relatedRegions": "مناطق مرتبطة",
+  "reversalLabel": "انعكاس",
+  "riskView": "رؤية المخاطر",
+  "sectorIntelligence": "ذكاء القطاعات",
+  "sectorLeaders": "قادة القطاعات",
+  "sectorPulse": "نبض القطاعات",
+  "sectors": {
+    "ai": {
+      "name": "الذكاء الاصطناعي"
+    },
+    "banking": {
+      "name": "البنوك"
+    },
+    "defence": {
+      "name": "الدفاع"
+    },
+    "electricVehicles": {
+      "name": "المركبات الكهربائية"
+    },
+    "energy": {
+      "name": "الطاقة"
+    },
+    "healthcare": {
+      "name": "الرعاية الصحية"
+    },
+    "mining": {
+      "name": "التعدين"
+    },
+    "realEstate": {
+      "name": "العقارات"
+    },
+    "retail": {
+      "name": "التجزئة"
+    },
+    "semiconductor": {
+      "name": "أشباه الموصلات"
+    },
+    "technology": {
+      "name": "التكنولوجيا"
+    }
+  },
+  "sectorsHeading": "فئات الأسهم وذكاء القطاعات",
+  "sectorsIntro": "تغطية التكنولوجيا والبنوك والذكاء الاصطناعي والطاقة والرعاية الصحية والتعدين والعقارات وأشباه الموصلات والموضوعات الاستثمارية.",
+  "sectorsMeta": "قطاعات الأسهم وصناديق المؤشرات والقادة وأخبار القطاعات",
+  "sectorsTitle": "القطاعات",
+  "sp500Meta": "S&P 500 / دولار أمريكي / نيويورك",
+  "spotAndFutures": "الفوري والعقود الآجلة",
+  "stockCount": "بورصات أسهم",
+  "stockSector": "قطاع الأسهم",
+  "subtitle": "نظرة مباشرة على المؤشرات ومحركات السوق والفوركس والعملات الرقمية والسلع والأحداث الاقتصادية والمعنويات والأخبار وقوائم المراقبة.",
+  "supplyRegions": "مناطق الإمداد",
+  "terminalView": "عرض الطرفية",
+  "timezones": {
+    "africaJohannesburg": {
+      "name": "أفريقيا/جوهانسبرغ"
+    },
+    "americaMexicoCity": {
+      "name": "أمريكا/مكسيكو سيتي"
+    },
+    "americaNewYork": {
+      "name": "أمريكا/نيويورك"
+    },
+    "americaSantiago": {
+      "name": "أمريكا/سانتياغو"
+    },
+    "americaSaoPaulo": {
+      "name": "أمريكا/ساو باولو"
+    },
+    "americaToronto": {
+      "name": "أمريكا/تورنتو"
+    },
+    "asiaBangkok": {
+      "name": "آسيا/بانكوك"
+    },
+    "asiaDubai": {
+      "name": "آسيا/دبي"
+    },
+    "asiaHongKong": {
+      "name": "آسيا/هونغ كونغ"
+    },
+    "asiaJakarta": {
+      "name": "آسيا/جاكرتا"
+    },
+    "asiaKolkata": {
+      "name": "آسيا/كولكاتا"
+    },
+    "asiaKualaLumpur": {
+      "name": "آسيا/كوالالمبور"
+    },
+    "asiaRiyadh": {
+      "name": "آسيا/الرياض"
+    },
+    "asiaSeoul": {
+      "name": "آسيا/سيول"
+    },
+    "asiaShanghai": {
+      "name": "آسيا/شنغهاي"
+    },
+    "asiaSingapore": {
+      "name": "آسيا/سنغافورة"
+    },
+    "asiaTaipei": {
+      "name": "آسيا/تايبيه"
+    },
+    "asiaTokyo": {
+      "name": "آسيا/طوكيو"
+    },
+    "australiaSydney": {
+      "name": "أستراليا/سيدني"
+    },
+    "europeBerlin": {
+      "name": "أوروبا/برلين"
+    },
+    "europeLondon": {
+      "name": "أوروبا/لندن"
+    },
+    "europeMadrid": {
+      "name": "أوروبا/مدريد"
+    },
+    "europeParis": {
+      "name": "أوروبا/باريس"
+    },
+    "europeRome": {
+      "name": "أوروبا/روما"
+    },
+    "europeStockholm": {
+      "name": "أوروبا/ستوكهولم"
+    },
+    "europeZurich": {
+      "name": "أوروبا/زيورخ"
+    }
+  },
+  "title": "لوحة معلومات الأسواق العالمية",
+  "topCryptos": "أبرز 20 عملة رقمية",
+  "topCurrencies": "أبرز 20 عملة عالمية",
+  "topExchange": "أبرز بورصة",
+  "topGainers": "أكبر الرابحين",
+  "topGlobalExchanges": "أبرز بورصات الأسهم العالمية",
+  "topLosers": "أكبر الخاسرين",
+  "topMovers": "أبرز المحركات",
+  "tradingHours": "ساعات التداول",
+  "trendingStocks": "الأسهم الرائجة",
+  "unusualActivity": "نشاط غير معتاد",
+  "unusualVolLabel": "حجم غير معتاد",
+  "usdBase": "استراتيجية أساس الدولار",
+  "volumeShort": "الحجم:",
+  "watchlistCopy": "وصول سريع إلى الرموز المحفوظة والتنبيهات متعددة الأصول وسياق المحفظة وتفضيلات الحساب.",
+  "watchlistPreview": "معاينة قائمة المراقبة",
+  "website": "الموقع الإلكتروني",
+  "whaleActivity": "نشاط كبار المتداولين",
+  "worldSnapshot": "لقطة الأسواق العالمية",
+  "exchangeNetwork": "شبكة البورصات",
+  "stockExchanges": "Stock Exchanges",
+  "allExchanges": "كل البورصات",
+  "advancedScreener": "أداة الفرز المتقدّمة",
+  "regionExchangesTitle": "بورصات {{region}}",
+  "regionalExchangeDashboards": "لوحات بورصات إقليمية — العملة، المنطقة الزمنية، ساعات التداول، الشركات المدرجة، المؤشّر الرئيسي، والقيمة السوقية.",
+  "noExchangesForRegion": "لم يتمّ العثور على بورصات لهذه المنطقة.",
+  "exchangeRegions": {
+    "americas": "الأمريكتان",
+    "northAmerica": "أمريكا الشمالية",
+    "europe": "Europe",
+    "asia": "Asia",
+    "asiaPacific": "آسيا والمحيط الهادئ",
+    "oceania": "Oceania",
+    "middleEast": "الشرق الأوسط",
+    "africa": "Africa",
+    "middleEastAfrica": "الشرق الأوسط وأفريقيا",
+    "latinAmerica": "أمريكا اللاتينية"
+  },
+  "ytdShort": "YTD",
+  "dashboardCards": {
+    "nyseMeta": "S&P 500 / الدولار / نيويورك",
+    "usdMeta": "Federal Reserve / global base",
+    "bitcoinMeta": "البتكوين مقابل الدولار، الفوركس، ومخاطر الأسهم",
+    "regionMeta": "نمو الصين / عوائد اليابان / أرباح الهند / موارد أستراليا",
+    "sectorMeta": "نفقات السحابة الرأسمالية / تسييل الذكاء الاصطناعي / إمدادات أشباه الموصلات / التقييمات",
+    "commodityMeta": "تغذّي تضخّم النقل وأرباح الطاقة والإيرادات المالية ومعنويات المخاطر العالمية."
+  },
+  "moduleFeatures": {
+    "majorIndicesWidgets": "أدوات المؤشّرات الرئيسية",
+    "topGainersLosers": "الرابحون والخاسرون الكبار",
+    "heatmaps": "خرائط حرارية",
+    "marketSentiment": "معنويات السوق",
+    "preMarketMovers": "متحرّكو ما قبل الافتتاح",
+    "indexFutures": "عقود مستقبل المؤشّرات",
+    "volumeSpikes": "ارتفاعات الحجم",
+    "openingWatchlist": "قائمة متابعة الافتتاح",
+    "afterHoursMovers": "متحرّكو ما بعد الإغلاق",
+    "earningsReactions": "ردود فعل الأرباح",
+    "extendedSessionVolume": "حجم الجلسة الممتدّة",
+    "newsCatalysts": "محفّزات الأخبار",
+    "equityHeatmaps": "خرائط حرارية للأسهم",
+    "sectorPerformance": "أداء القطاعات",
+    "regionalBreadth": "الاتّساع الإقليمي",
+    "assetClassComparison": "مقارنة فئات الأصول",
+    "topGainers": "أعلى الرابحين",
+    "topLosers": "أعلى الخاسرين",
+    "mostActive": "الأكثر نشاطاً",
+    "unusualVolume": "حجم غير اعتيادي",
+    "vixOverview": "نظرة على مؤشّر VIX",
+    "fearGreedContext": "سياق الخوف والطمع",
+    "volatilityTermStructure": "بنية آجال التقلّب",
+    "riskDashboard": "لوحة المخاطر",
+    "countryFilters": "فلاتر الدول",
+    "exchangeStatistics": "إحصاءات البورصات",
+    "listedCompanies": "الشركات المدرجة",
+    "regionalNews": "أخبار إقليمية",
+    "liveGainers": "رابحون آنيون",
+    "volumeFilters": "فلاتر الحجم",
+    "marketCapFilters": "فلاتر القيمة السوقية",
+    "sectorBreakdown": "تفصيل قطاعي",
+    "liveLosers": "خاسرون آنيون",
+    "riskAlerts": "تنبيهات المخاطر",
+    "indexImpact": "أثر المؤشّر",
+    "watchlistActions": "إجراءات قائمة المتابعة",
+    "trendingCoins": "العملات الرائجة",
+    "marketCapRanking": "ترتيب القيمة السوقية",
+    "exchangeListings": "إدراجات البورصات",
+    "historicalPerformance": "الأداء التاريخي",
+    "memeCoinRankings": "ترتيب عملات الميم",
+    "volumeBursts": "اندفاعات الحجم",
+    "communityMomentum": "زخم المجتمع",
+    "riskFlags": "إشارات المخاطر",
+    "defiEcosystem": "منظومة DeFi",
+    "tvlMetrics": "مقاييس TVL",
+    "protocolCategories": "فئات البروتوكولات",
+    "tokenPerformance": "أداء الرموز",
+    "layer1Chains": "سلاسل الطبقة الأولى",
+    "consensusDetails": "تفاصيل التوافق",
+    "tokenomics": "اقتصاديات الرموز",
+    "developerEcosystem": "منظومة المطوّرين",
+    "stablecoinSupply": "إمدادات العملات المستقرّة",
+    "pegMonitoring": "مراقبة الربط",
+    "exchangeLiquidity": "سيولة البورصات",
+    "reserveContext": "سياق الاحتياطيات",
+    "spotPrices": "أسعار آنية",
+    "futuresPrices": "أسعار العقود الآجلة",
+    "supplyDemandAnalysis": "تحليل العرض والطلب",
+    "correlationAnalysis": "تحليل الارتباط",
+    "preciousMetals": "المعادن النفيسة",
+    "industrialMetals": "المعادن الصناعية",
+    "futuresContracts": "العقود الآجلة",
+    "currencySensitivity": "الحسّاسية للعملات",
+    "cropMarkets": "أسواق المحاصيل",
+    "weatherImpact": "أثر الطقس",
+    "supplyRegions": "مناطق العرض",
+    "seasonality": "الموسمية",
+    "industrialInputs": "المدخلات الصناعية",
+    "demandTrends": "اتجاهات الطلب",
+    "manufacturingSignals": "إشارات التصنيع",
+    "regionalSupply": "العرض الإقليمي",
+    "regionWiseNews": "أخبار حسب المنطقة",
+    "macroSummaries": "ملخّصات اقتصاد كلّي",
+    "marketAlerts": "تنبيهات السوق",
+    "sectorWiseNews": "أخبار حسب القطاع",
+    "themeTracking": "تتبّع الموضوعات",
+    "aiSummaries": "ملخّصات الذكاء الاصطناعي",
+    "etfImpact": "أثر صناديق ETF",
+    "cryptoNews": "أخبار العملات الرقمية",
+    "onChainContext": "سياق على السلسلة",
+    "regulationUpdates": "تحديثات تنظيمية",
+    "exchangeDevelopments": "تطوّرات البورصات",
+    "breakingCatalysts": "محفّزات عاجلة",
+    "importanceFilters": "فلاتر الأهمّية",
+    "liveMarketSummary": "ملخّص آني للسوق",
+    "filters": "Filters",
+    "analyticsWidgets": "أدوات التحليل",
+    "relatedNews": "أخبار ذات صلة"
+  },
+  "sentiment": {
+    "Equities": {
+      "label": "الأسهم",
+      "detail": "اتّساع المخاطرة"
+    },
+    "FX": {
+      "label": "FX",
+      "detail": "الدولار متفاوت"
+    },
+    "Crypto": {
+      "label": "Crypto",
+      "detail": "زخم شرائي"
+    },
+    "Commodities": {
+      "label": "السلع",
+      "detail": "تراجع في الطاقة"
+    }
+  }
 }

@@ -63,7 +63,7 @@ export default function AdminFilters({
               value={value[f.key] ?? ""}
               onChange={(e) => onChange(f.key, e.target.value)}
             >
-              <option value="">{t("src_client_admin_components_ui_adminfilters__l58__h0")}</option>
+              <option value="">{t("admin/uiAdminfilters.h0")}</option>
               {f.options?.map((o) => (
                 <option key={o.value} value={o.value}>
                   {o.label}

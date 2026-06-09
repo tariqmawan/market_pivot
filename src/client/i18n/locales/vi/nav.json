@@ -1,21 +1,21 @@
 {
   "dashboard": "Bảng điều khiển",
   "markets": "Thị trường",
-  "exchanges": "Exchanges",
+  "exchanges": "Trao đổi",
   "stocks": "Cổ phiếu",
-  "forex": "FX",
+  "forex": "Ngoại hối",
   "crypto": "Tiền mã hóa",
-  "commodities": "Commodities",
+  "commodities": "Hàng hóa",
   "regions": "Khu vực",
-  "sectors": "Sectors",
+  "sectors": "Lĩnh vực",
   "news": "Tin tức",
-  "calendar": "Lịch",
-  "userPanel": "Bảng người dùng",
+  
+  
   "pricing": "Giá",
   "tools": "Công cụ",
   "coverage": "Phạm vi",
   "indices": "Chỉ số",
-  "etfs": "ETFs",
+  "etfs": "ETF",
   "bonds": "Trái phiếu & lợi suất",
   "screener": "Bộ lọc",
   "overview": "Tổng quan",
@@ -29,30 +29,30 @@
   "watchlists": "Danh sách theo dõi",
   "portfolioTracker": "Theo dõi danh mục",
   "alerts": "Cảnh báo",
-  "trendingCoins": "Trending Coins",
-  "memeCoins": "Meme Coins",
-  "defi": "DeFi",
-  "layer1": "Layer 1",
-  "stablecoins": "Stablecoins",
-  "energy": "Năng lượng",
-  "metals": "Kim loại",
-  "agriculture": "Nông nghiệp",
-  "industrial": "Công nghiệp",
-  "americas": "Châu Mỹ",
-  "europe": "Europe",
-  "asiaPacific": "Châu Á - Thái Bình Dương",
-  "middleEastAfrica": "Trung Đông & Châu Phi",
-  "technology": "Công nghệ",
-  "banking": "Banking",
-  "ai": "AI",
-  "ev": "Xe điện",
-  "semiconductor": "Bán dẫn",
-  "defence": "Quốc phòng",
-  "globalNews": "Global News",
-  "regionNews": "Tin khu vực",
-  "sectorNews": "Sector News",
-  "cryptoNews": "Tin tiền mã hóa",
-  "marketAlerts": "Cảnh báo thị trường",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "byRegion": "Theo khu vực",
   "nyse": "NYSE",
   "nasdaq": "NASDAQ",
@@ -60,5 +60,33 @@
   "navMain": "Điều hướng chính",
   "homeAria": "Trang chủ MarketsPivot",
   "openMenu": "Mở menu",
-  "adminTopNav": "Điều hướng quản trị"
+  "adminTopNav": "Điều hướng quản trị",
+  "fx": "Ngoại hối",
+  "Calendar": "Lịch",
+  "UserPanel": "Bảng điều khiển",
+  "adminPanel": "Bảng quản trị",
+  "TrendingCoins": "Xu hướng coin",
+  "MemeCoins": "Meme Coin",
+  "Defi": "DeFi",
+  "Layer1": "Lớp 1",
+  "Stablecoins": "Stablecoin",
+  "Energy": "Năng lượng",
+  "Metals": "Kim loại",
+  "Agriculture": "Nông nghiệp",
+  "Industrial": "Công nghiệp",
+  "Americas": "Châu Mỹ",
+  "Europe": "Châu Âu",
+  "AsiaPacific": "Châu Á - Thái Bình Dương",
+  "MiddleEastAfrica": "Trung Đông và Châu Phi",
+  "Technology": "Công nghệ",
+  "Banking": "Ngân hàng",
+  "Ai": "Trí tuệ nhân tạo",
+  "Ev": "Xe điện",
+  "Semiconductor": "Bán dẫn",
+  "Defence": "Quốc phòng",
+  "GlobalNews": "Tin tức toàn cầu",
+  "RegionNews": "Tin tức khu vực",
+  "SectorNews": "Tin tức ngành",
+  "CryptoNews": "Tin tức crypto",
+  "MarketAlerts": "Cảnh báo thị trường"
 }

@@ -1,10 +1,32 @@
 {
-  "title": "Globale Übersicht",
-  "intro": "Aktien, Devisen und Krypto in einem Arbeitsbereich, bereit für zukünftige Live-Daten, Nachrichten, Diagramme und Vergleichsmodule.",
-  "userPanelTitle": "Ihr Marktarbeitsbereich",
-  "userPanelIntro": "Verfolgen Sie Ihre Lieblingsbörsen, Währungen, Krypto-Assets, Alarme und Portfolio-Ansicht in einem übersichtlichen Dashboard.",
+  "title": "Globales Markt-Dashboard",
+  "intro": "Beobachten Sie Aktien, FX, Krypto, Regionen, Sektoren, Rohstoffe, Ereignisse, Stimmung und Watchlist in einem klaren Markt-Workspace.",
+  "liveTapeLabel": "Live-Marktticker",
+  "crossMarket": "Marktübergreifende Sicht",
+  "topExchange": "Top-Börse",
+  "coreReserve": "Kernreserve",
+  "cryptoLeader": "Krypto-Marktführer",
+  "regionPulse": "Regionalpuls",
+  "sectorPulse": "Sektorpuls",
+  "commodityPulse": "Rohstoffpuls",
+  "primaryBase": "Primäre Umrechnungsbasis",
+  "majorIndices": "Wichtige Indizes",
+  "worldSnapshot": "Weltmarkt-Snapshot",
+  "marketMovers": "Marktbeweger",
+  "gainersAndLosers": "Gewinner und Verlierer",
+  "economicEventsToday": "Wirtschaftsereignisse heute",
+  "macroCalendar": "Makro-Kalender",
+  "marketSentiment": "Marktstimmung",
+  "forexMiniCards": "FX-Mini-Karten",
+  "currencyPulse": "Währungs-Puls",
+  "cryptoOverview": "Krypto-Übersicht",
+  "marketCapLeaders": "Marktkapitalisierungsführer",
+  "commoditySnapshot": "Rohstoff-Snapshot",
+  "spotAndFutures": "Spot und Futures",
+  "watchlistPreview": "Watchlist-Vorschau",
+  "watchlistCopy": "Schneller Zugriff auf gespeicherte Symbole, Cross-Asset-Alarme, Portfolio-Kontext und Kontoeinstellungen.",
   "portfolioValue": "Portfoliowert",
-  "watchlist": "Watchlist",
+  "watchlist": "Beobachtungsliste",
   "savedMarkets": "Gespeicherte Märkte",
   "activeAlerts": "Aktive Alarme",
   "todayPnl": "Heutiger G/V",
@@ -25,5 +47,37 @@
   "marketOpenAlerts": "Markteröffnungs-Alarme",
   "riskProfile": "Risikoprofil",
   "moderate": "Moderat",
-  "marketsFollowed": "Verfolgte Märkte"
+  "marketsFollowed": "Verfolgte Märkte",
+  "userPanelTitle": "Ihr Markt-Workspace",
+  "userPanelIntro": "Verfolgen Sie Börsen, Währungen, Krypto-Assets, Alarme und Portfolio-Kontext in einem klaren Dashboard.",
+  "importance": {
+    "high": "Hoch",
+    "medium": "Mittel",
+    "low": "Niedrig"
+  },
+  "economicEvents": {
+    "usCpi": "US-VPI",
+    "ecbRemarks": "EZB-Kommentare zur Geldpolitik",
+    "us10yAuction": "US-10J-Auktion",
+    "fomcMinutes": "FOMC-Protokoll"
+  },
+  "sentiment": {
+    "equities": {
+      "label": "Aktien",
+      "detail": "Risk-on-Breite"
+    },
+    "fx": {
+      "label": "FX",
+      "detail": "USD uneinheitlich"
+    },
+    "crypto": {
+      "label": "Krypto",
+      "detail": "Momentum-Käufe"
+    },
+    "commodities": {
+      "label": "Rohstoffe",
+      "detail": "Energie schwächer"
+    }
+  },
+  "currencyRate": "1 {{base}} = {{rate}} {{quote}}"
 }

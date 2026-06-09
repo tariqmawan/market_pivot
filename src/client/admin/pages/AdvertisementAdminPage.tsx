@@ -172,7 +172,7 @@ export default function AdvertisementAdminPage() {
 
   return (
     <AdminCrudPage<AdminAdCampaign>
-      title={t("src_client_admin_pages_advertisementadminpage__l172__h0")}
+      title={t("admin/advertisementadminpage.h0")}
       subtitle="Campaigns, banners, placements, scheduling, impression / click analytics, revenue"
       useStore={useAdCampaignAdminStore}
       columns={columns}

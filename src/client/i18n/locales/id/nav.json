@@ -3,56 +3,56 @@
   "markets": "Pasar",
   "exchanges": "Bursa",
   "stocks": "Saham",
-  "forex": "FX",
+  "forex": "Valuta Asing",
   "crypto": "Kripto",
   "commodities": "Komoditas",
   "regions": "Wilayah",
   "sectors": "Sektor",
   "news": "Berita",
-  "calendar": "Kalender",
-  "userPanel": "Panel Pengguna",
+  
+  
   "pricing": "Harga",
   "tools": "Alat",
   "coverage": "Cakupan",
   "indices": "Indeks",
-  "etfs": "ETFs",
+  "etfs": "ETF",
   "bonds": "Obligasi & Yield",
-  "screener": "Screener",
+  "screener": "Penyaring",
   "overview": "Ikhtisar",
   "preMarket": "Pra-Pasar",
   "afterHours": "Pasca-Jam",
   "heatmaps": "Peta Panas",
   "marketMovers": "Pergerakan Pasar",
   "volatilityIndex": "Indeks Volatilitas",
-  "topGainers": "Top Gainers",
-  "topLosers": "Top Losers",
+  "topGainers": "Peraih Teratas",
+  "topLosers": "Pecundang Teratas",
   "watchlists": "Watchlist",
   "portfolioTracker": "Pelacak Portofolio",
   "alerts": "Peringatan",
-  "trendingCoins": "Koin Tren",
-  "memeCoins": "Meme Coins",
-  "defi": "DeFi",
-  "layer1": "Layer 1",
-  "stablecoins": "Stablecoin",
-  "energy": "Energi",
-  "metals": "Logam",
-  "agriculture": "Pertanian",
-  "industrial": "Industri",
-  "americas": "Amerika",
-  "europe": "Eropa",
-  "asiaPacific": "Asia Pasifik",
-  "middleEastAfrica": "Timur Tengah & Afrika",
-  "technology": "Teknologi",
-  "banking": "Perbankan",
-  "ai": "AI",
-  "ev": "Kendaraan Listrik",
-  "semiconductor": "Semikonduktor",
-  "defence": "Pertahanan",
-  "globalNews": "Berita Global",
-  "regionNews": "Berita Wilayah",
-  "sectorNews": "Berita Sektor",
-  "cryptoNews": "Berita Kripto",
-  "marketAlerts": "Peringatan Pasar",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "byRegion": "Berdasarkan Wilayah",
   "nyse": "NYSE",
   "nasdaq": "NASDAQ",
@@ -60,5 +60,33 @@
   "navMain": "Navigasi utama",
   "homeAria": "Beranda MarketsPivot",
   "openMenu": "Buka menu",
-  "adminTopNav": "Navigasi admin"
+  "adminTopNav": "Navigasi admin",
+  "fx": "Valuta Asing",
+  "Calendar": "Kalender",
+  "UserPanel": "Panel Pengguna",
+  "adminPanel": "Panel Admin",
+  "TrendingCoins": "Koin trending",
+  "MemeCoins": "Koin meme",
+  "Defi": "DeFi",
+  "Layer1": "Layer 1",
+  "Stablecoins": "Stablecoin",
+  "Energy": "Energi",
+  "Metals": "Logam",
+  "Agriculture": "Pertanian",
+  "Industrial": "Industri",
+  "Americas": "Amerika",
+  "Europe": "Eropa",
+  "AsiaPacific": "Asia Pasifik",
+  "MiddleEastAfrica": "Timur Tengah dan Afrika",
+  "Technology": "Teknologi",
+  "Banking": "Perbankan",
+  "Ai": "Kecerdasan Buatan",
+  "Ev": "Kendaraan Listrik",
+  "Semiconductor": "Semikonduktor",
+  "Defence": "Pertahanan",
+  "GlobalNews": "Berita global",
+  "RegionNews": "Berita regional",
+  "SectorNews": "Berita sektoral",
+  "CryptoNews": "Berita kripto",
+  "MarketAlerts": "Peringatan pasar"
 }

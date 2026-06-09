@@ -1,34 +1,260 @@
 {
-  "currencyType": "Tipo de moneda",
-  "centralBank": "Banco central",
-  "exchangeRates": "Tasas de cambio",
-  "converter": "Convertidor",
-  "popularPairs": "Pares populares",
-  "economicData": "Datos económicos",
-  "code": "Código",
-  "symbol": "Símbolo",
-  "country": "País",
-  "region": "Región",
-  "type": "Tipo",
-  "rate": "Tasa",
-  "bid": "Bid",
-  "ask": "Ask",
-  "spread": "Spread",
-  "loadingRates": "Cargando tasas de cambio...",
   "amountPlaceholder": "Ingresa el monto",
-  "economicIndicators": "Indicadores económicos",
-  "interestRate": "Tasa de interés",
-  "inflationRate": "Tasa de inflación",
-  "gdpGrowth": "Crecimiento del PIB",
-  "employment": "Empleo",
-  "dataLoading": "Cargando datos...",
-  "economicNews": "Noticias y actualizaciones económicas",
+  "annualRate": "Tasa anual",
+  "ask": "Preguntar",
+  "bid": "Licitación",
+  "centralBank": "Banco central",
+  "change24h": "Cambio 24h",
+  "code": "Código",
+  "converter": "Convertidor",
+  "countries": {
+    "ae": {
+      "name": "Emiratos Árabes Unidos"
+    },
+    "au": {
+      "name": "Australia"
+    },
+    "br": {
+      "name": "Brasil"
+    },
+    "ca": {
+      "name": "Canadá"
+    },
+    "ch": {
+      "name": "Suiza"
+    },
+    "cl": {
+      "name": "Chile"
+    },
+    "cn": {
+      "name": "Porcelana"
+    },
+    "eu": {
+      "name": "Unión Europea"
+    },
+    "gb": {
+      "name": "Reino Unido"
+    },
+    "hk": {
+      "name": "Hong Kong"
+    },
+    "in": {
+      "name": "India"
+    },
+    "jp": {
+      "name": "Japón"
+    },
+    "kr": {
+      "name": "Corea del Sur"
+    },
+    "mx": {
+      "name": "México"
+    },
+    "no": {
+      "name": "Noruega"
+    },
+    "sa": {
+      "name": "Arabia Saudita"
+    },
+    "se": {
+      "name": "Suecia"
+    },
+    "sg": {
+      "name": "Singapur"
+    },
+    "us": {
+      "name": "Estados Unidos"
+    },
+    "za": {
+      "name": "Sudáfrica"
+    }
+  },
+  "country": "País",
+  "currencies": {
+    "aed": {
+      "name": "Dírham de los Emiratos Árabes Unidos",
+      "description": "Moneda vinculada al USD del centro financiero del Golfo"
+    },
+    "aud": {
+      "name": "dólar australiano",
+      "description": "Moneda vinculada a las materias primas, importante centro de Asia y el Pacífico"
+    },
+    "brl": {
+      "name": "Real brasileño",
+      "description": "Moneda de la economía más grande de América Latina"
+    },
+    "cad": {
+      "name": "Dólar canadiense",
+      "description": "Moneda vinculada a las materias primas de la nación del G7"
+    },
+    "chf": {
+      "name": "franco suizo",
+      "description": "Moneda de refugio conocida por su estabilidad y fuerte poder adquisitivo"
+    },
+    "clp": {
+      "name": "peso chileno",
+      "description": "Moneda de nación latinoamericana económicamente estable"
+    },
+    "cny": {
+      "name": "yuan chino",
+      "description": "Moneda de la segunda economía más grande del mundo."
+    },
+    "eur": {
+      "name": "Euro",
+      "description": "Moneda de la eurozona, segunda moneda de reserva"
+    },
+    "gbp": {
+      "name": "Libra esterlina británica",
+      "description": "Moneda del Reino Unido, una de las monedas más antiguas"
+    },
+    "hkd": {
+      "name": "dólar de hong kong",
+      "description": "Vinculado al dólar estadounidense, la principal moneda del centro financiero asiático"
+    },
+    "inr": {
+      "name": "rupia india",
+      "description": "Moneda del país más poblado del mundo y de la principal economía de más rápido crecimiento"
+    },
+    "jpy": {
+      "name": "yen japonés",
+      "description": "Tercera moneda de reserva más grande, activo de refugio seguro"
+    },
+    "krw": {
+      "name": "Won surcoreano",
+      "description": "Moneda del principal centro tecnológico y de fabricación"
+    },
+    "mxn": {
+      "name": "peso mexicano",
+      "description": "Moneda del principal socio comercial de América del Norte"
+    },
+    "nok": {
+      "name": "corona noruega",
+      "description": "Moneda del principal exportador de energía, fuertes vínculos con las materias primas"
+    },
+    "sar": {
+      "name": "Riyal de Arabia Saudita",
+      "description": "Moneda vinculada al USD del mayor exportador de petróleo del mundo"
+    },
+    "sek": {
+      "name": "corona sueca",
+      "description": "Moneda del norte de Europa con base industrial"
+    },
+    "sgd": {
+      "name": "dólar de singapur",
+      "description": "Moneda regional fuerte en el Sudeste Asiático"
+    },
+    "usd": {
+      "name": "Dólar estadounidense",
+      "description": "La moneda de reserva más utilizada del mundo y un estándar global."
+    },
+    "zar": {
+      "name": "rand sudafricano",
+      "description": "Moneda de la mayor economía africana y productora de materias primas."
+    }
+  },
   "currencyNewsComing": "Las últimas noticias económicas se mostrarán aquí",
   "currencyNewsSubtitle": "Decisiones de tasas de interés, reportes de inflación y más",
-  "vsUsd": "vs USD",
+  "currencyType": "Tipo de moneda",
+  "dataLoading": "Cargando datos...",
+  "economicData": "Datos económicos",
+  "economicIndicators": "Indicadores económicos",
+  "economicNews": "Noticias y actualizaciones económicas",
+  "employment": "Empleo",
+  "exchangeRates": "Tasas de cambio",
+  "gdpGrowth": "Crecimiento del PIB",
   "high52w": "Máx. 52S",
+  "inflationRate": "Tasa de inflación",
+  "interestRate": "Tasa de interés",
+  "loadingRates": "Cargando tasas de cambio...",
   "low52w": "Mín. 52S",
-  "annualRate": "Tasa anual",
+  "popularPairs": "Pares populares",
   "quarterlyRate": "Tasa trimestral",
-  "change24h": "Cambio 24h"
+  "rate": "Tasa",
+  "region": "Región",
+  "spread": "Spread",
+  "symbol": "Símbolo",
+  "type": "Tipo",
+  "vsUsd": "frente al USD",
+  "currencyTypes": {
+    "fiat": "Moneda fiduciaria",
+    "commodity": "Moneda de materias primas",
+    "crypto": "Moneda cripto"
+  },
+  "centralBanks": {
+    "federalreserve": "Reserva Federal",
+    "ecb": "Banco Central Europeo",
+    "boj": "Banco de Japón",
+    "boe": "Banco de Inglaterra",
+    "pboc": "Banco Popular de China",
+    "rba": "Reserva de Australia",
+    "boc": "Banco de Canadá",
+    "snb": "Banco Nacional Suizo",
+    "rbi": "Banco de la Reserva de la India",
+    "bcb": "Banco Central de Brasil",
+    "banguyt": "Banco Central del Uruguay",
+    "banxico": "Banco de México",
+    "banrep": "Banco de la República de Colombia",
+    "bcentral": "Banco Central de Chile",
+    "riksbank": "Riksbank",
+    "norgesbank": "Norges Bank",
+    "ecb2": "Banco Central Europeo",
+    "fed": "Reserva Federal",
+    "boe2": "Banco de Inglaterra",
+    "rba2": "Reserva de Australia"
+  },
+  "regions": {
+    "northamerica": "Norteamérica",
+    "europe": "Europa",
+    "asia": "Asia",
+    "asiapacific": "Asia-Pacífico",
+    "middleeast": "Medio Oriente",
+    "africa": "África"
+  },
+  "impacts": {
+    "high": "Alto",
+    "medium": "Medio",
+    "low": "Bajo"
+  },
+  "events": {
+    "nonFarmPayrolls": "Nóminas no agrícolas",
+    "interestRateDecision": "Decisión de tasa de interés",
+    "inflationReport": "Informe de inflación",
+    "gdpGrowth": "Crecimiento del PIB",
+    "retailSales": "Ventas minoristas",
+    "industrialProduction": "Producción industrial",
+    "consumerConfidence": "Confianza del consumidor",
+    "unemploymentRate": "Tasa de desempleo",
+    "tradeBalance": "Balanza comercial",
+    "currencyTradeBalance": "Balanza comercial de divisas"
+  },
+  "newsTitles": {
+    "centralBankPolicy": "Política del banco central",
+    "interestRateOutlook": "Perspectiva de tasas de interés",
+    "inflationData": "Datos de inflación",
+    "currencyMovements": "Movimientos de divisas",
+    "tradeRelations": "Relaciones comerciales",
+    "economicGrowth": "Crecimiento económico",
+    "geopoliticalEvents": "Eventos geopolíticos",
+    "commodityPrices": "Precios de materias primas",
+    "bondMarket": "Mercado de bonos",
+    "equityFlows": "Flujos de renta variable",
+    "emergingMarkets": "Mercados emergentes"
+  },
+  "reserveStatuses": {
+    "reserveCurrency": "Moneda de reserva",
+    "majorReserve": "Reserva principal",
+    "regionalReserve": "Reserva regional",
+    "emergingReserve": "Reserva emergente",
+    "limitedReserve": "Reserva limitada"
+  },
+  "capitalFlowTypes": {
+    "portfolio": "Flujos de cartera",
+    "direct": "Inversión extranjera directa",
+    "reserves": "Cambios en reservas",
+    "carry": "Operaciones de carry trade",
+    "speculative": "Flujos especulativos"
+  },
+  "ratesVsMajorSubtitle": "1 {{code}} expresado en otras principales divisas",
+  "keyDataReleasesFor": "Principales publicaciones de datos para {{code}}",
+  "hoursAgo": "hace {{count}}h"
 }

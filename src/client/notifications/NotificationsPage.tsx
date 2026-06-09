@@ -13,25 +13,25 @@ import {
 } from "react-icons/hi2";
 import { SeoHead } from "../seo";
 import { useNotifications } from "./useNotifications";
+import { useI18n } from "../i18n";
 import type { NotificationCategory, NotificationSeverity } from "./notificationTypes";
 import "./NotificationsPage.css";
 
-/* ── helpers ── */
-const formatRelative = (iso: string): string => {
+const formatRelative = (iso: string, t: (key: string, params?: Record<string, string | number>) => string): string => {
   const ms = Date.now() - new Date(iso).getTime();
   const mins = Math.round(ms / 60000);
-  if (mins < 1) return "just now";
-  if (mins < 60) return `${mins}m ago`;
+  if (mins < 1) return t("notifications.justNow");
+  if (mins < 60) return t("notifications.minutesAgo", { count: mins });
   const hours = Math.round(mins / 60);
-  if (hours < 24) return `${hours}h ago`;
-  return `${Math.round(hours / 24)}d ago`;
+  if (hours < 24) return t("notifications.hoursAgo", { count: hours });
+  return t("notifications.daysAgo", { count: Math.round(hours / 24) });
 };
 
 const CATEGORY_LABEL: Record<NotificationCategory, string> = {
-  watchlist: "Watchlist",
-  portfolio: "Portfolio",
-  market: "Market",
-  system: "System",
+  watchlist: "notifications.watchlist",
+  portfolio: "notifications.portfolio",
+  market: "notifications.market",
+  system: "notifications.system",
 };
 
 const CategoryIcon: React.FC<{ category: NotificationCategory }> = ({ category }) => {
@@ -50,13 +50,13 @@ const CategoryIcon: React.FC<{ category: NotificationCategory }> = ({ category }
 
 type FilterKey = NotificationCategory | "all" | "archived";
 
-const FILTERS: { key: FilterKey; label: string }[] = [
-  { key: "all",       label: "All" },
-  { key: "market",    label: "Market" },
-  { key: "watchlist", label: "Watchlist" },
-  { key: "portfolio", label: "Portfolio" },
-  { key: "system",    label: "System" },
-  { key: "archived",  label: "Archived" },
+const FILTERS: { key: FilterKey; labelKey: string }[] = [
+  { key: "all",       labelKey: "notifications.all" },
+  { key: "market",    labelKey: "notifications.market" },
+  { key: "watchlist", labelKey: "notifications.watchlist" },
+  { key: "portfolio", labelKey: "notifications.portfolio" },
+  { key: "system",    labelKey: "notifications.system" },
+  { key: "archived",  labelKey: "notifications.archived" },
 ];
 
 /* ══════════════════════════════════
@@ -74,6 +74,7 @@ const NotificationsPage: React.FC = () => {
     push,
   } = useNotifications();
 
+  const { t } = useI18n();
   const [filter, setFilter] = useState<FilterKey>("all");
 
   /* simulator state */
@@ -110,8 +111,8 @@ const NotificationsPage: React.FC = () => {
   return (
     <>
       <SeoHead
-        title="Notifications — MarketsPivot"
-        description="Manage watchlist, portfolio, and market alerts in one central notification feed."
+        title={t("notifications.seoTitle")}
+        description={t("notifications.seoDesc")}
         canonical="/notifications"
       />
 
@@ -120,25 +121,25 @@ const NotificationsPage: React.FC = () => {
         {/* ── Hero ── */}
         <section className="notifications-hero">
           <div className="notifications-hero-copy">
-            <p className="eyebrow">Notification Center</p>
-            <h1>Stay in the loop</h1>
+            <p className="eyebrow">{t("notifications.pageTitle")}</p>
+            <h1>{t("notifications.pageHeading")}</h1>
             <p>
               {unreadCount > 0
-                ? `You have ${unreadCount} unread ${unreadCount === 1 ? "alert" : "alerts"}. Archive, mark as read, or filter by category.`
-                : "You're all caught up. No unread alerts right now."}
+                ? t("notifications.unreadSummary", { count: unreadCount })
+                : t("notifications.allCaughtUp")}
             </p>
           </div>
           <div className="notifications-metric-strip">
             <div className="notifications-metric-tile is-unread">
-              <span>Unread</span>
+              <span>{t("notifications.unreadLabel")}</span>
               <strong>{unreadCount}</strong>
             </div>
             <div className="notifications-metric-tile">
-              <span>Active</span>
+              <span>{t("notifications.activeLabel")}</span>
               <strong>{activeCount}</strong>
             </div>
             <div className="notifications-metric-tile">
-              <span>Archived</span>
+              <span>{t("notifications.archivedLabel")}</span>
               <strong>{archivedCount}</strong>
             </div>
           </div>
@@ -146,7 +147,7 @@ const NotificationsPage: React.FC = () => {
 
         {/* ── Toolbar ── */}
         <div className="notifications-toolbar">
-          {FILTERS.map(({ key, label }) => {
+          {FILTERS.map(({ key, labelKey }) => {
             const count = countFor(key);
             return (
               <button
@@ -155,7 +156,7 @@ const NotificationsPage: React.FC = () => {
                 className={`notifications-filter-btn${filter === key ? " active" : ""}`}
                 onClick={() => setFilter(key)}
               >
-                {label}
+                {t(labelKey)}
                 {count > 0 && (
                   <span className="notifications-filter-badge">{count}</span>
                 )}
@@ -173,7 +174,7 @@ const NotificationsPage: React.FC = () => {
               disabled={unreadCount === 0}
             >
               <HiCheckCircle style={{ width: 15, height: 15 }} />
-              Mark all read
+              {t("notifications.markAllRead")}
             </button>
             <button
               type="button"
@@ -182,7 +183,7 @@ const NotificationsPage: React.FC = () => {
               disabled={activeCount === 0}
             >
               <HiArchiveBox style={{ width: 15, height: 15 }} />
-              Archive all
+              {t("notifications.archiveAll")}
             </button>
           </div>
         </div>
@@ -194,11 +195,11 @@ const NotificationsPage: React.FC = () => {
               <div className="notif-empty-icon">
                 <HiBell />
               </div>
-              <h3>Nothing here yet</h3>
+              <h3>{t("notifications.emptyTitle")}</h3>
               <p>
                 {filter === "archived"
-                  ? "You have no archived notifications."
-                  : "No notifications in this category right now."}
+                  ? t("notifications.emptyArchived")
+                  : t("notifications.emptyCategory")}
               </p>
             </div>
           ) : (
@@ -219,9 +220,9 @@ const NotificationsPage: React.FC = () => {
                 <div className="notif-content">
                   <div className="notif-meta">
                     <span className={`notif-category-label cat-${note.category}`}>
-                      {CATEGORY_LABEL[note.category]}
+                      {t(CATEGORY_LABEL[note.category])}
                     </span>
-                    <span className="notif-time">{formatRelative(note.createdAt)}</span>
+                    <span className="notif-time">{formatRelative(note.createdAt, t)}</span>
                     {!note.read && <span className="notif-unread-dot" />}
                     <span className={`notif-severity-badge severity-${note.severity}`}>
                       {note.severity}
@@ -244,7 +245,7 @@ const NotificationsPage: React.FC = () => {
                     <button
                       type="button"
                       className="notif-icon-btn"
-                      title="Mark as read"
+                      title={t("notifications.markAsRead")}
                       onClick={() => markRead(note.id)}
                     >
                       <HiCheckCircle />
@@ -253,7 +254,7 @@ const NotificationsPage: React.FC = () => {
                   <button
                     type="button"
                     className="notif-icon-btn"
-                    title={note.archived ? "Restore" : "Archive"}
+                    title={note.archived ? t("notifications.restore") : t("notifications.archive")}
                     onClick={() => archive(note.id)}
                   >
                     {note.archived ? <HiInboxArrowDown /> : <HiBookmark />}
@@ -261,7 +262,7 @@ const NotificationsPage: React.FC = () => {
                   <button
                     type="button"
                     className="notif-icon-btn delete"
-                    title="Delete"
+                    title={t("delete")}
                     onClick={() => remove(note.id)}
                   >
                     <HiTrash />
@@ -274,54 +275,54 @@ const NotificationsPage: React.FC = () => {
 
         {/* ── Simulator ── */}
         <section className="notifications-simulator">
-          <h2>Simulate an alert</h2>
-          <p>Test how the notification feed surfaces new events. (Frontend-only demo.)</p>
+          <h2>{t("notifications.simTitle")}</h2>
+          <p>{t("notifications.simDesc")}</p>
           <form onSubmit={handleSimulate} className="notif-sim-grid">
             <div className="notif-sim-field">
-              <label htmlFor="sim-category">Category</label>
+              <label htmlFor="sim-category">{t("notifications.simCategory")}</label>
               <select
                 id="sim-category"
                 value={simCategory}
                 onChange={(e) => setSimCategory(e.target.value as NotificationCategory)}
               >
-                <option value="market">Market</option>
-                <option value="watchlist">Watchlist</option>
-                <option value="portfolio">Portfolio</option>
-                <option value="system">System</option>
+                <option value="market">{t("notifications.market")}</option>
+                <option value="watchlist">{t("notifications.watchlist")}</option>
+                <option value="portfolio">{t("notifications.portfolio")}</option>
+                <option value="system">{t("notifications.system")}</option>
               </select>
             </div>
 
             <div className="notif-sim-field">
-              <label htmlFor="sim-severity">Severity</label>
+              <label htmlFor="sim-severity">{t("notifications.simSeverity")}</label>
               <select
                 id="sim-severity"
                 value={simSeverity}
                 onChange={(e) => setSimSeverity(e.target.value as NotificationSeverity)}
               >
-                <option value="info">Info</option>
-                <option value="success">Success</option>
-                <option value="warning">Warning</option>
-                <option value="critical">Critical</option>
+                <option value="info">{t("notifications.simInfo")}</option>
+                <option value="success">{t("notifications.simSuccess")}</option>
+                <option value="warning">{t("notifications.simWarning")}</option>
+                <option value="critical">{t("notifications.simCritical")}</option>
               </select>
             </div>
 
             <div className="notif-sim-field full">
-              <label htmlFor="sim-title">Title</label>
+              <label htmlFor="sim-title">{t("notifications.simTitleLabel")}</label>
               <input
                 id="sim-title"
                 type="text"
-                placeholder="e.g. AAPL crossed $200"
+                placeholder={t("notifications.simTitlePlaceholder")}
                 value={simTitle}
                 onChange={(e) => setSimTitle(e.target.value)}
               />
             </div>
 
             <div className="notif-sim-field full">
-              <label htmlFor="sim-body">Body</label>
+              <label htmlFor="sim-body">{t("notifications.simBodyLabel")}</label>
               <input
                 id="sim-body"
                 type="text"
-                placeholder="Notification detail message..."
+                placeholder={t("notifications.simBodyPlaceholder")}
                 value={simBody}
                 onChange={(e) => setSimBody(e.target.value)}
               />
@@ -332,7 +333,7 @@ const NotificationsPage: React.FC = () => {
               className="notif-sim-submit"
               disabled={!simTitle.trim() || !simBody.trim()}
             >
-              Send test notification
+              {t("notifications.simSubmit")}
             </button>
           </form>
         </section>

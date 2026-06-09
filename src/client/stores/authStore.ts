@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import { toAuthUser, type UserRole } from "../lib/roles";
+import { i18n } from "../i18n";
 
 const API = import.meta.env.VITE_API_BASE ?? "/api";
 
@@ -61,7 +62,7 @@ export const useAuthStore = create<AuthState>()(
           const data = await res.json();
 
           if (!res.ok || !data.success) {
-            set({ error: data.error ?? "Login failed", isLoading: false });
+            set({ error: data.error ?? i18n.t("auth:serverError"), isLoading: false });
             return false;
           }
 
@@ -78,7 +79,7 @@ export const useAuthStore = create<AuthState>()(
           });
           return true;
         } catch {
-          set({ error: "Server se connect nahi ho paya", isLoading: false });
+          set({ error: i18n.t("auth:serverError"), isLoading: false });
           return false;
         }
       },
@@ -104,7 +105,7 @@ export const useAuthStore = create<AuthState>()(
           const data = await res.json();
 
           if (!res.ok || !data.success) {
-            set({ error: data.error ?? data.message ?? "Signup failed", isLoading: false });
+            set({ error: data.error ?? data.message ?? i18n.t("auth:serverError"), isLoading: false });
             return false;
           }
 
@@ -121,7 +122,7 @@ export const useAuthStore = create<AuthState>()(
           });
           return true;
         } catch {
-          set({ error: "Server se connect nahi ho paya", isLoading: false });
+          set({ error: i18n.t("auth:serverError"), isLoading: false });
           return false;
         }
       },

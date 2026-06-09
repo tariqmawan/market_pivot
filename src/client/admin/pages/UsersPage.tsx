@@ -29,7 +29,7 @@ export default function UsersPage() {
       setUsers(res.data);
       setTotal(res.pagination?.total ?? res.data.length);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Load failed");
+      setError(e instanceof Error ? e.message : t("adminUsersLoadFailed"));
     } finally {
       setLoading(false);
     }
@@ -42,46 +42,46 @@ export default function UsersPage() {
   const toggleActive = async (u: AdminUser) => {
     try {
       await adminPut(`/users/${u.id}/toggle`);
-      setMessage(`${u.email} ${u.isActive ? "suspended" : "activated"}`);
+      setMessage(`${u.email} ${u.isActive ? t("adminUsersSuspended") : t("adminUsersActivated")}`);
       void load();
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Update failed");
+      setError(e instanceof Error ? e.message : t("adminUsersUpdateFailed"));
     }
   };
 
   const changeRole = async (u: AdminUser, role: string) => {
     try {
       await adminPut(`/users/${u.id}/role`, { role });
-      setMessage(`Role updated to ${role}`);
+      setMessage(t("adminUsersRoleUpdated", { role }));
       void load();
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Role update failed");
+      setError(e instanceof Error ? e.message : t("adminUsersRoleUpdateFailed"));
     }
   };
 
   const revokeSessions = async (u: AdminUser) => {
-    if (!confirm(`Revoke all sessions for ${u.email}?`)) return;
+    if (!confirm(t("adminUsersRevokeSessionsConfirm", { email: u.email }))) return;
     try {
       await adminDelete(`/users/${u.id}/sessions`);
-      setMessage("Sessions revoked");
+      setMessage(t("adminUsersSessionsRevoked"));
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Revoke failed");
+      setError(e instanceof Error ? e.message : t("adminUsersRevokeFailed"));
     }
   };
 
   return (
     <div className="mp-admin-content">
-      <PageHeader title={t("src_client_admin_pages_userspage__l70__h0")} subtitle="CRUD, roles, suspend, session control" />
+      <PageHeader title={t("admin/userspage.h0")} subtitle={t("adminUsersSubtitle")} />
 
       <div className="mp-admin-toolbar">
         <input
           className="mp-admin-search"
-          placeholder={t("src_client_admin_pages_userspage__l75__h1")}
+          placeholder={t("admin/userspage.h1")}
           value={search}
           onChange={(e) => { setSearch(e.target.value); setPage(1); }}
         />
         <button type="button" className="mp-admin-action-btn" onClick={() => void load()}>
-          Search
+          {t("adminUsersSearch")}
         </button>
       </div>
 
@@ -92,11 +92,11 @@ export default function UsersPage() {
         loading={loading}
         rows={users}
         columns={[
-          { key: "name", label: "Name" },
-          { key: "email", label: "Email" },
+          { key: "name", label: t("adminUsersColName") },
+          { key: "email", label: t("adminUsersColEmail") },
           {
             key: "role",
-            label: "Role",
+            label: t("adminUsersColRole"),
             render: (u) =>
               actor?.role === "super_admin" || actor?.role === "admin" ? (
                 <select
@@ -115,23 +115,23 @@ export default function UsersPage() {
           },
           {
             key: "isActive",
-            label: "Status",
+            label: t("adminUsersColStatus"),
             render: (u) => (
               <span className={`mp-admin-status ${u.isActive ? "ok" : "warn"}`}>
-                {u.isActive ? "Active" : "Suspended"}
+                {t(u.isActive ? "adminUsersActive" : "adminUsersSuspendedStatus")}
               </span>
             ),
           },
           {
             key: "actions",
-            label: "Actions",
+            label: t("adminUsersColActions"),
             render: (u) => (
               <div className="mp-admin-row-actions">
                 <button type="button" className="mp-admin-link-btn" onClick={() => void toggleActive(u)}>
-                  {u.isActive ? "Suspend" : "Activate"}
+                  {t(u.isActive ? "adminUsersSuspend" : "adminUsersActivate")}
                 </button>
                 <button type="button" className="mp-admin-link-btn" onClick={() => void revokeSessions(u)}>
-                  Revoke sessions
+                  {t("adminUsersRevokeSessions")}
                 </button>
               </div>
             ),
@@ -140,9 +140,9 @@ export default function UsersPage() {
       />
 
       <div className="mp-admin-pagination">
-        <button type="button" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>{t("src_client_admin_pages_userspage__l139__h2")}</button>
-        <span>Page {page} · {total} users</span>
-        <button type="button" disabled={users.length < 20} onClick={() => setPage((p) => p + 1)}>{t("src_client_admin_pages_userspage__l141__h3")}</button>
+        <button type="button" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>{t("admin/userspage.h2")}</button>
+        <span>{t("adminUsersPageInfo", { page, total })}</span>
+        <button type="button" disabled={users.length < 20} onClick={() => setPage((p) => p + 1)}>{t("admin/userspage.h3")}</button>
       </div>
     </div>
   );

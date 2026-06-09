@@ -1,37 +1,332 @@
 {
-  "currentPrice": "السعر الحالي",
-  "rank": "الترتيب",
-  "priceMetrics": "السعر والمقاييس",
-  "tradingPairs": "أزواج التداول",
-  "exchanges": "البورصات",
-  "charts": "الرسوم البيانية",
-  "onChain": "على السلسلة",
-  "category": "الفئة",
-  "launched": "تاريخ الإطلاق",
-  "founder": "المؤسس",
-  "consensus": "آلية الإجماع",
-  "blockTime": "وقت الكتلة",
-  "supplyInfo": "معلومات العرض",
-  "circulatingSupply": "العرض المتداول",
-  "maxSupply": "الحد الأقصى للعرض",
-  "volume24h": "حجم 24 ساعة",
+  "activeAddresses": "العناوين النشطة",
   "ath": "أعلى مستوى على الإطلاق",
   "atl": "أدنى مستوى على الإطلاق",
-  "marketRank": "ترتيب السوق",
-  "loadingPrice": "جارٍ تحميل بيانات السعر...",
-  "loadingPairs": "جارٍ تحميل أزواج التداول...",
-  "price": "السعر",
-  "exchange": "البورصة",
-  "listedCryptoExchanges": "البورصات التي يتم تداول هذا الأصل عليها",
-  "exchangeExamples": "بينانس وكوينباس وكراكن وغيرها",
-  "priceChart": "رسم بياني تفاعلي للسعر",
-  "volumeOverlay": "مع طبقة حجم التداول",
-  "onChainMetrics": "مقاييس السلسلة",
-  "transactionsPerDay": "المعاملات يومياً",
-  "activeAddresses": "العناوين النشطة",
-  "networkFees": "رسوم الشبكة",
-  "transactionVolume": "حجم المعاملات",
-  "onChainComing": "بيانات السلسلة قادمة قريباً",
+  "blockTime": "وقت الكتلة",
+  "categories": {
+    "defi": {
+      "name": "DeFi"
+    },
+    "infrastructure": {
+      "name": "البنية التحتية"
+    },
+    "layer1": {
+      "name": "الطبقة الأولى"
+    },
+    "layer2": {
+      "name": "الطبقة الثانية"
+    },
+    "meme": {
+      "name": "Meme"
+    },
+    "payments": {
+      "name": "المدفوعات"
+    },
+    "stablecoin": {
+      "name": "العملات المستقرّة"
+    }
+  },
+  "category": "الفئة",
+  "charts": "الرسوم البيانية",
+  "circulatingSupply": "العرض المتداول",
+  "consensus": "آلية الإجماع",
   "cryptoNewsComing": "ستظهر أحدث الأخبار والتحديثات هنا",
-  "cryptoNewsSubtitle": "تحديثات المشاريع والشراكات وأخبار السوق"
+  "cryptoNewsSubtitle": "تحديثات المشاريع والشراكات وأخبار السوق",
+  "cryptocurrencies": {
+    "aave": {
+      "name": "Aave",
+      "description": "بروتوكول لامركزي غير حافظ للسيولة، للإقراض والاقتراض"
+    },
+    "arbitrum": {
+      "name": "Arbitrum",
+      "description": "حلّ توسعة من الطبقة الثانية لإيثريوم ورمز حوكمة"
+    },
+    "avalanche2": {
+      "name": "Avalanche",
+      "description": "حلول السلاسل الفرعية والتوسعة لتطبيقات البلوكتشين"
+    },
+    "binancecoin": {
+      "name": "BNB",
+      "description": "الرمز الأصلي لمنظومة بينانس سمارت تشين"
+    },
+    "bitcoin": {
+      "name": "Bitcoin",
+      "description": "أول وأكبر عملة رقمية في العالم من حيث القيمة السوقية"
+    },
+    "bonk": {
+      "name": "Bonk",
+      "description": "أوّل عملة ميم رئيسية على سولانا — وُزِّعت مجاناً للمجتمع، وأصبحت أحد أركان منظومة DeFi"
+    },
+    "cardano": {
+      "name": "Cardano",
+      "description": "منصّة بلوكتشين قائمة على المراجعة العلمية مع تركيز على الاستدامة"
+    },
+    "chainlink": {
+      "name": "Chainlink",
+      "description": "شبكة أوراكل لامركزية تربط البلوكتشين ببيانات العالم الحقيقي"
+    },
+    "compoundGovernanceToken": {
+      "name": "Compound",
+      "description": "بروتوكول خوارزمي مستقلّ لأسعار الفائدة في إقراض DeFi"
+    },
+    "cosmos": {
+      "name": "Cosmos",
+      "description": "منظومة بلوكتشين قابلة للتشغيل البيني تُعرف بـ«إنترنت السلاسل»"
+    },
+    "curveDaoToken": {
+      "name": "Curve Finance",
+      "description": "بورصة لامركزية محسَّنة لمبادلة العملات المستقرّة والأصول المرتبطة"
+    },
+    "dai": {
+      "name": "Dai",
+      "description": "عملة مستقرّة لامركزية مدعومة بالدولار على إيثريوم"
+    },
+    "dogecoin": {
+      "name": "Dogecoin",
+      "description": "أوّل عملة ميم — بدأت كمزحة وأصبحت رمزاً ثقافياً في عالم العملات الرقمية"
+    },
+    "ethereum": {
+      "name": "Ethereum",
+      "description": "أبرز منصّة للعقود الذكية وقطب رئيسي لـ DeFi"
+    },
+    "floki": {
+      "name": "FLOKI",
+      "description": "عملة شعبية مستوحاة من إيلون ماسك ومبنية على المجتمع"
+    },
+    "litecoin": {
+      "name": "Litecoin",
+      "description": "الفضّة لذهب البتكوين، للمدفوعات السريعة بين الأنداد"
+    },
+    "maker": {
+      "name": "Maker",
+      "description": "رمز الحوكمة لـ MakerDAO، البروتوكول وراء العملة المستقرّة DAI"
+    },
+    "maticNetwork": {
+      "name": "Polygon",
+      "description": "حلّ توسعة لإيثريوم يتيح معاملات أسرع وأرخص"
+    },
+    "pepe": {
+      "name": "Pepe",
+      "description": "ثقافة الإنترنت تلتقي بالعملات الرقمية — ميم الضفدع تحوّل إلى رمز بمليارات الدولارات"
+    },
+    "polkadot": {
+      "name": "Polkadot",
+      "description": "بلوكتشين متعدّد السلاسل يتيح التشغيل البيني"
+    },
+    "ripple": {
+      "name": "XRP",
+      "description": "شبكة مدفوعات تركّز على التحويلات الدولية السريعة منخفضة الكلفة"
+    },
+    "shibaInu": {
+      "name": "Shiba Inu",
+      "description": "منافس دوجكوين — عملة ميم على إيثريوم بمجتمع ضخم"
+    },
+    "solana": {
+      "name": "Solana",
+      "description": "منصّة بلوكتشين فائقة السرعة للتطبيقات اللامركزية"
+    },
+    "stellar": {
+      "name": "Stellar",
+      "description": "شبكة بلوكتشين للشمول المالي والتحويلات"
+    },
+    "tether": {
+      "name": "Tether",
+      "description": "أكثر العملات المستقرّة استخداماً، مرتبطة بالدولار"
+    },
+    "theOpenNetwork": {
+      "name": "Toncoin",
+      "description": "بلوكتشين فائقة السرعة تركّز على المراسلة والمدفوعات"
+    },
+    "tron": {
+      "name": "TRON",
+      "description": "منصّة بلوكتشين للترفيه اللامركزي"
+    },
+    "uniswap": {
+      "name": "Uniswap",
+      "description": "أبرز بورصة لامركزية وبروتوكول DeFi"
+    },
+    "usdCoin": {
+      "name": "USD Coin",
+      "description": "عملة مستقرّة منظَّمة مدعومة بالدولار"
+    }
+  },
+  "currentPrice": "السعر الحالي",
+  "exchange": "البورصة",
+  "exchangeExamples": "بينانس وكوينباس وكراكن وغيرها",
+  "exchanges": "البورصات",
+  "founder": "المؤسس",
+  "launched": "تاريخ الإطلاق",
+  "listedCryptoExchanges": "البورصات التي يتم تداول هذا الأصل عليها",
+  "loadingPairs": "جارٍ تحميل أزواج التداول...",
+  "loadingPrice": "جارٍ تحميل بيانات السعر...",
+  "marketRank": "ترتيب السوق",
+  "maxSupply": "الحد الأقصى للعرض",
+  "networkFees": "رسوم الشبكة",
+  "onChain": "على السلسلة",
+  "onChainComing": "بيانات السلسلة قادمة قريباً",
+  "onChainMetrics": "مقاييس السلسلة",
+  "price": "السعر",
+  "priceChart": "رسم بياني تفاعلي للسعر",
+  "priceMetrics": "السعر والمقاييس",
+  "rank": "الترتيب",
+  "rankNumber": "المرتبة #{{rank}}",
+  "supplyInfo": "معلومات العرض",
+  "tradingPairs": "أزواج التداول",
+  "transactionVolume": "حجم المعاملات",
+  "transactionsPerDay": "المعاملات يومياً",
+  "volume24h": "حجم 24 ساعة",
+  "volumeOverlay": "مع طبقة حجم التداول",
+  "cryptocurrency": "العملة الرقمية",
+  "cryptocurrencyCategories": "فئات العملات الرقمية",
+  "allCryptocurrencies": "كل العملات الرقمية",
+  "trending": "الرائج",
+  "categoryNotFound": "الفئة غير موجودة",
+  "categoryNotFoundDescription": "هذه الفئة غير موجودة. تصفّح كل العملات الرقمية أدناه.",
+  "viewAllCryptocurrencies": "عرض كل العملات الرقمية",
+  "trendingCoins": {
+    "eyebrow": "بيانات سوق مباشرة - العملات الرقمية",
+    "titleAccent": "عملات",
+    "titleRest": "رائجة",
+    "subtitle": "عملات رقمية رائجة في الوقت الحقيقي مرتبة حسب نشاط التداول والزخم الاجتماعي ونمو القيمة السوقية. يتم تحديثها باستمرار.",
+    "categories": {
+      "all": "الكل",
+      "layer1": "الطبقة 1",
+      "layer2": "الطبقة 2",
+      "defi": "DeFi",
+      "meme": "ميم",
+      "stablecoin": "عملة مستقرة",
+      "payments": "مدفوعات",
+      "infrastructure": "بنية تحتية"
+    },
+    "metrics": {
+      "tracked": "متابعة",
+      "gainers": "الرابحون",
+      "topGain24h": "أعلى مكسب 24س",
+      "volumeShort": "حجم 24س",
+      "supply": "المعروض"
+    },
+    "sentiment": {
+      "hot": "ساخن",
+      "rising": "صاعد",
+      "active": "نشط",
+      "strong": "قوي"
+    },
+    "moreTitle": "المزيد من العملات الرائجة",
+    "emptyCategory": "لا توجد عملات في هذه الفئة.",
+    "insights": {
+      "trending": {
+        "eyebrow": "ما الرائج",
+        "title": "ديناميكيات السوق",
+        "items": {
+          "socialMentions": "ارتفاع إشارات وسائل التواصل",
+          "exchangeFlows": "تحولات تدفقات البورصات",
+          "developerActivity": "نشاط المطورين على GitHub",
+          "onChainVolume": "حجم المعاملات على السلسلة",
+          "volumeBreakouts": "اختراقات حجم التداول"
+        }
+      },
+      "risk": {
+        "eyebrow": "عوامل الخطر",
+        "title": "توخ الحذر",
+        "items": {
+          "volatility": "تقلبات عالية - قد يتحرك السعر 30%+",
+          "liquidity": "سيولة منخفضة في العملات الصغيرة",
+          "manipulation": "احتمال تلاعب بالسوق",
+          "regulation": "مشهد تنظيمي متغير",
+          "techRisk": "مخاطر العقود الذكية والتقنية"
+        }
+      },
+      "tips": {
+        "eyebrow": "نصائح التداول",
+        "title": "استراتيجيات ذكية",
+        "items": {
+          "onChainValidation": "تحقق أولا من مقاييس السلسلة",
+          "githubActivity": "افحص نشاط المطورين على GitHub",
+          "divergence": "راقب تباعد الحجم والسعر",
+          "positionSizing": "استخدم حجما مناسبا للمركز",
+          "stopLosses": "حدد وقف خسارة صارما قبل الدخول"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "بحث العملات الرقمية",
+      "title": "تعمق في أي عملة",
+      "description": "انقر على أي عملة لاستكشاف الرسوم التفصيلية ومقاييس السلسلة وإدراجات البورصات والأخبار العاجلة في مكان واحد."
+    }
+  },
+  "categoryPages": {
+    "common": {
+      "marketOverview": "نظرة عامة على السوق",
+      "combinedMarketCap": "إجمالي القيمة السوقية",
+      "topGainer24h": "الأعلى ربحاً (24 ساعة)",
+      "name": "Name",
+      "price": "Price",
+      "change24h": "التغيّر خلال 24 ساعة",
+      "marketCap": "القيمة السوقية",
+      "volume24h": "الحجم خلال 24 ساعة",
+      "riskProfile": "ملف المخاطر",
+      "fullCryptoMarket": "سوق العملات الرقمية الكامل",
+      "exploreAllCryptocurrencies": "استكشف كل العملات الرقمية"
+    },
+    "meme": {
+      "eyebrow": "رموز المجتمع",
+      "title": "عملات الميم",
+      "body": "عملات رقمية مدفوعة بالمجتمع وثقافة فيروسية وزخم اجتماعي. أصول عالية المخاطر والمكافأة تهيمن عليها المعنويات.",
+      "metrics": {
+        "coinsListed": "العملات المدرجة"
+      },
+      "rankingsTitle": "ترتيب عملات الميم",
+      "table": {
+        "community": "المجتمع"
+      },
+      "communities": {
+        "DOGE": "Original OG",
+        "SHIB": "ShibArmy",
+        "PEPE": "Pepe Nation",
+        "BONK": "Solana Memes",
+        "FLOKI": "Viking Army"
+      },
+      "insights": {
+        "origins": {
+          "eyebrow": "Origins",
+          "title": "قصّة عملات الميم",
+          "items": {
+            "dogecoin": "دوجكوين (2013) — أوّل عملة مزحة على الإنترنت",
+            "elon": "تغريدات إيلون ماسك كمحرّكات للسعر",
+            "pumps": "موجات شراء منسَّقة على غرار WallStreetBets",
+            "shiba": "إطلاق شيبا إينو بوصفها \"قاتل دوجكوين\"",
+            "pepe": "طفرة PEPE في 2023 أحيت دورة الميم",
+            "bonk": "توزيع BONK المجاني أنعش منظومة DeFi على سولانا"
+          }
+        },
+        "risk": {
+          "title": "ما يجب أن يعرفه المستثمرون",
+          "items": {
+            "sentiment": "الأسعار مدفوعة بالكامل تقريباً بالمعنويات",
+            "pumpDump": "عُرضة لمخطّطات الضخّ والتفريغ",
+            "utility": "فائدة عملية ضئيلة أو معدومة",
+            "volatility": "تقلّب شديد — تحرّكات تتجاوز 50% شائعة",
+            "rugPull": "خطر «سحب البساط» في العملات الجديدة غير المُدقَّقة",
+            "viralCycles": "ارتباط عالٍ بدورات الإعلام الفيروسي"
+          }
+        },
+        "signals": {
+          "eyebrow": "إشارات المجتمع",
+          "title": "كيفية تتبّع الزخم",
+          "items": {
+            "twitter": "ذِكرٌ في X (تويتر سابقاً) ووسوم رائجة",
+            "reddit": "نشاط Reddit على r/CryptoCurrency",
+            "whales": "تنبيهات محافظ الحيتان وتحويلات كبيرة",
+            "listings": "إعلانات إدراج في البورصات",
+            "google": "قفزات في حجم البحث على Google Trends",
+            "influencers": "نشاط المؤثّرين في وسائل التواصل"
+          }
+        }
+      },
+      "cta": {
+        "description": "قارن عملات الميم بأصول من الطراز الأوّل وبروتوكولات DeFi وسلاسل الطبقة الأولى."
+      }
+    }
+  },
+  "blockTimeSeconds": "{{time}} ثانية"
 }

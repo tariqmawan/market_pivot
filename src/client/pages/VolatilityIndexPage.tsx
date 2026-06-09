@@ -13,46 +13,50 @@ const VolatilityIndexPage: React.FC = () => {
     {
       index: "VIX",
       name: "S&P 500 Volatility Index",
+      nameKey: "common:marketRoutes.sp500VolatilityIndex",
       current: 13.8,
       change: -1.1,
       low52w: 10.2,
       high52w: 28.5,
-      description: "Fear gauge for equity market volatility",
+      descriptionKey: "common:marketRoutes.fearGaugeDescription",
     },
     {
       index: "VXN",
       name: "Nasdaq-100 Volatility Index",
+      nameKey: "common:marketRoutes.nasdaq100VolatilityIndex",
       current: 16.2,
       change: -0.85,
       low52w: 12.1,
       high52w: 32.4,
-      description: "Tech sector volatility measure",
+      descriptionKey: "common:marketRoutes.techVolatilityMeasure",
     },
     {
       index: "RVX",
       name: "Russell 2000 Volatility Index",
+      nameKey: "common:marketRoutes.russell2000VolatilityIndex",
       current: 18.5,
       change: -0.65,
       low52w: 14.8,
       high52w: 35.2,
-      description: "Small-cap stock volatility",
+      descriptionKey: "common:marketRoutes.smallCapVolatility",
     },
     {
       index: "MOVE",
       name: "Bond Market Volatility",
+      nameKey: "common:marketRoutes.bondMarketVolatility",
       current: 108.3,
       change: -2.15,
       low52w: 88.4,
       high52w: 156.7,
-      description: "Treasury market volatility",
+      descriptionKey: "common:marketRoutes.treasuryMarketVolatility",
     },
   ];
 
   const volatilityRegimes = [
-    { regime: "Low (<15)", description: "Market complacency", color: "#10b981" },
-    { regime: "Normal (15-25)", description: "Healthy market conditions", color: "#fbbf24" },
-    { regime: "Elevated (25-35)", description: "Increased uncertainty", color: "#f97316" },
-    { regime: "High (>35)", description: "Extreme fear conditions", color: "#dc2626" },
+    { regimeKey: "common:marketRoutes.lowRegime", descriptionKey: "common:marketRoutes.marketComplacency", color: "#10b981" },
+    { regimeKey: "common:marketRoutes.normalRegime", descriptionKey: "common:marketRoutes.healthyMarketConditions", color: "#fbbf24" },
+    { regimeKey: "common:marketRoutes.elevatedRegime", descriptionKey: "common:marketRoutes.increasedUncertainty", color: "#f97316" },
+    { regimeKey: "common:marketRoutes.highRegime", descriptionKey: "common:marketRoutes.extremeFearConditions", color: "#dc2626" },
   ];
 
   return (
@@ -60,22 +64,22 @@ const VolatilityIndexPage: React.FC = () => {
       {/* Hero Section */}
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">{t("src_client_pages_volatilityindexpage__l59__h0")}</p>
-          <h1>{t("src_client_pages_volatilityindexpage__l60__h1")}</h1>
-          <p>{t("src_client_pages_volatilityindexpage__l65_h0")}</p>
+          <p className="eyebrow">{t("volatilityindexpage.h0_l59")}</p>
+          <h1>{t("volatilityindexpage.h1")}</h1>
+          <p>{t("volatilityindexpage.h0_l65")}</p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>{t("src_client_pages_volatilityindexpage__l65__h3")}</span>
+            <span>{t("volatilityindexpage.h3")}</span>
             <strong>13.8</strong>
           </div>
           <div className="metric-tile">
-            <span>{t("src_client_pages_volatilityindexpage__l69__h4")}</span>
-            <strong>{t("src_client_pages_volatilityindexpage__l70__h5")}</strong>
+            <span>{t("volatilityindexpage.h4")}</span>
+            <strong>{t("volatilityindexpage.h5")}</strong>
           </div>
           <div className="metric-tile">
-            <span>{t("src_client_pages_volatilityindexpage__l73__h6")}</span>
-            <strong>{t("src_client_pages_volatilityindexpage__l74__h7")}</strong>
+            <span>{t("volatilityindexpage.h6")}</span>
+            <strong>{t("volatilityindexpage.h7")}</strong>
           </div>
         </div>
       </section>
@@ -83,8 +87,8 @@ const VolatilityIndexPage: React.FC = () => {
       {/* Key Volatility Indices */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">{t("src_client_pages_volatilityindexpage__l82__h8")}</p>
-          <h2>{t("src_client_pages_volatilityindexpage__l83__h9")}</h2>
+          <p className="eyebrow">{t("volatilityindexpage.h8")}</p>
+          <h2>{t("volatilityindexpage.h9")}</h2>
         </div>
         <div
           style={{
@@ -109,7 +113,7 @@ const VolatilityIndexPage: React.FC = () => {
                     {metric.index}
                   </p>
                   <p style={{ fontSize: "13px", color: "#475569", fontWeight: 500 }}>
-                    {metric.name}
+                    {t(metric.nameKey)}
                   </p>
                 </div>
                 <div style={{ textAlign: "right" }}>
@@ -130,7 +134,7 @@ const VolatilityIndexPage: React.FC = () => {
               </div>
 
               <p style={{ fontSize: "12px", color: "#475569", marginTop: "12px", marginBottom: "8px" }}>
-                {metric.description}
+                {t(metric.descriptionKey)}
               </p>
 
               <div
@@ -145,11 +149,11 @@ const VolatilityIndexPage: React.FC = () => {
                 }}
               >
                 <div>
-                  <span style={{ color: "#475569" }}>{t("src_client_pages_volatilityindexpage__l144__h10")}</span>
+                  <span style={{ color: "#475569" }}>{t("volatilityindexpage.h10")}</span>
                   <strong style={{ display: "block" }}>{metric.low52w.toFixed(1)}</strong>
                 </div>
                 <div>
-                  <span style={{ color: "#475569" }}>{t("src_client_pages_volatilityindexpage__l148__h11")}</span>
+                  <span style={{ color: "#475569" }}>{t("volatilityindexpage.h11")}</span>
                   <strong style={{ display: "block" }}>{metric.high52w.toFixed(1)}</strong>
                 </div>
               </div>
@@ -161,8 +165,8 @@ const VolatilityIndexPage: React.FC = () => {
       {/* Volatility Regimes */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">{t("src_client_pages_volatilityindexpage__l160__h12")}</p>
-          <h2>{t("src_client_pages_volatilityindexpage__l161__h13")}</h2>
+          <p className="eyebrow">{t("volatilityindexpage.h12")}</p>
+          <h2>{t("volatilityindexpage.h13")}</h2>
         </div>
         <div
           style={{
@@ -173,7 +177,7 @@ const VolatilityIndexPage: React.FC = () => {
         >
           {volatilityRegimes.map((regime) => (
             <div
-              key={regime.regime}
+              key={regime.regimeKey}
               style={{
                 padding: "16px",
                 border: `2px solid ${regime.color}`,
@@ -182,9 +186,9 @@ const VolatilityIndexPage: React.FC = () => {
               }}
             >
               <strong style={{ display: "block", color: regime.color, marginBottom: "8px" }}>
-                {regime.regime}
+                {t(regime.regimeKey)}
               </strong>
-              <p style={{ color: "#475569", fontSize: "14px" }}>{regime.description}</p>
+              <p style={{ color: "#475569", fontSize: "14px" }}>{t(regime.descriptionKey)}</p>
             </div>
           ))}
         </div>
@@ -193,8 +197,8 @@ const VolatilityIndexPage: React.FC = () => {
       {/* Fear & Greed Gauge */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">{t("src_client_pages_volatilityindexpage__l192__h14")}</p>
-          <h2>{t("src_client_pages_volatilityindexpage__l193__h15")}</h2>
+          <p className="eyebrow">{t("volatilityindexpage.h14")}</p>
+          <h2>{t("volatilityindexpage.h15")}</h2>
         </div>
         <div
           style={{
@@ -207,10 +211,10 @@ const VolatilityIndexPage: React.FC = () => {
           <div style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "32px" }}>
             <div>
               <p style={{ fontSize: "12px", fontWeight: 600, color: "#475569", marginBottom: "8px" }}>
-                Current Sentiment
+                {t("common:marketRoutes.currentSentiment")}
               </p>
               <strong style={{ fontSize: "48px", color: "#059669" }}>67/100</strong>
-              <p style={{ fontSize: "12px", color: "#475569", marginTop: "8px" }}>{t("src_client_pages_volatilityindexpage__l209__h16")}</p>
+              <p style={{ fontSize: "12px", color: "#475569", marginTop: "8px" }}>{t("volatilityindexpage.h16")}</p>
             </div>
             <div
               style={{
@@ -243,23 +247,23 @@ const VolatilityIndexPage: React.FC = () => {
           >
             <div style={{ textAlign: "center" }}>
               <div style={{ fontWeight: 600, marginBottom: "4px" }}>0-20</div>
-              <div>{t("src_client_pages_volatilityindexpage__l242__h17")}</div>
+              <div>{t("volatilityindexpage.h17")}</div>
             </div>
             <div style={{ textAlign: "center" }}>
               <div style={{ fontWeight: 600, marginBottom: "4px" }}>20-40</div>
-              <div>{t("src_client_pages_volatilityindexpage__l246__h18")}</div>
+              <div>{t("volatilityindexpage.h18")}</div>
             </div>
             <div style={{ textAlign: "center" }}>
               <div style={{ fontWeight: 600, marginBottom: "4px" }}>40-60</div>
-              <div>{t("src_client_pages_volatilityindexpage__l250__h19")}</div>
+              <div>{t("volatilityindexpage.h19")}</div>
             </div>
             <div style={{ textAlign: "center" }}>
               <div style={{ fontWeight: 600, marginBottom: "4px" }}>60-80</div>
-              <div>{t("src_client_pages_volatilityindexpage__l254__h20")}</div>
+              <div>{t("volatilityindexpage.h20")}</div>
             </div>
             <div style={{ textAlign: "center" }}>
               <div style={{ fontWeight: 600, marginBottom: "4px" }}>80-100</div>
-              <div>{t("src_client_pages_volatilityindexpage__l258__h21")}</div>
+              <div>{t("volatilityindexpage.h21")}</div>
             </div>
           </div>
         </div>
@@ -268,8 +272,8 @@ const VolatilityIndexPage: React.FC = () => {
       {/* Volatility Term Structure */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">{t("src_client_pages_volatilityindexpage__l267__h22")}</p>
-          <h2>{t("src_client_pages_volatilityindexpage__l268__h23")}</h2>
+          <p className="eyebrow">{t("volatilityindexpage.h22")}</p>
+          <h2>{t("volatilityindexpage.h23")}</h2>
         </div>
         <div
           style={{
@@ -280,7 +284,7 @@ const VolatilityIndexPage: React.FC = () => {
           }}
         >
           <p style={{ color: "#475569", fontSize: "14px", marginBottom: "24px" }}>
-            Implied volatility across different option expiration dates shows market expectations for future price swings.
+            {t("common:marketRoutes.termStructureDescription")}
           </p>
           <div
             style={{
@@ -290,11 +294,11 @@ const VolatilityIndexPage: React.FC = () => {
             }}
           >
             {[
-              { label: "1-Week IV", value: "11.2%" },
-              { label: "1-Month IV", value: "13.8%" },
-              { label: "3-Month IV", value: "15.4%" },
-              { label: "6-Month IV", value: "16.8%" },
-              { label: "1-Year IV", value: "17.2%" },
+              { label: t("common:marketRoutes.oneWeekIv"), value: "11.2%" },
+              { label: t("common:marketRoutes.oneMonthIv"), value: "13.8%" },
+              { label: t("common:marketRoutes.threeMonthIv"), value: "15.4%" },
+              { label: t("common:marketRoutes.sixMonthIv"), value: "16.8%" },
+              { label: t("common:marketRoutes.oneYearIv"), value: "17.2%" },
             ].map((item) => (
               <div
                 key={item.label}
@@ -317,33 +321,33 @@ const VolatilityIndexPage: React.FC = () => {
       {/* Insights & Actions */}
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("src_client_pages_volatilityindexpage__l316__h24")}</p>
-          <h3>{t("src_client_pages_volatilityindexpage__l317__h25")}</h3>
+          <p className="eyebrow">{t("volatilityindexpage.h24")}</p>
+          <h3>{t("volatilityindexpage.h25")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>{t("src_client_pages_volatilityindexpage__l319__h26")}</li>
-            <li>{t("src_client_pages_volatilityindexpage__l320__h27")}</li>
-            <li>{t("src_client_pages_volatilityindexpage__l321__h28")}</li>
-            <li>{t("src_client_pages_volatilityindexpage__l322__h29")}</li>
+            <li>{t("volatilityindexpage.h26")}</li>
+            <li>{t("volatilityindexpage.h27")}</li>
+            <li>{t("volatilityindexpage.h28")}</li>
+            <li>{t("volatilityindexpage.h29")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("src_client_pages_volatilityindexpage__l326__h30")}</p>
-          <h3>{t("src_client_pages_volatilityindexpage__l327__h31")}</h3>
+          <p className="eyebrow">{t("volatilityindexpage.h30")}</p>
+          <h3>{t("volatilityindexpage.h31")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>{t("src_client_pages_volatilityindexpage__l329__h32")}</li>
-            <li>{t("src_client_pages_volatilityindexpage__l330__h33")}</li>
-            <li>{t("src_client_pages_volatilityindexpage__l331__h34")}</li>
-            <li>{t("src_client_pages_volatilityindexpage__l332__h35")}</li>
+            <li>{t("volatilityindexpage.h32")}</li>
+            <li>{t("volatilityindexpage.h33")}</li>
+            <li>{t("volatilityindexpage.h34")}</li>
+            <li>{t("volatilityindexpage.h35")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("src_client_pages_volatilityindexpage__l336__h36")}</p>
-          <h3>{t("src_client_pages_volatilityindexpage__l337__h37")}</h3>
+          <p className="eyebrow">{t("volatilityindexpage.h36")}</p>
+          <h3>{t("volatilityindexpage.h37")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>{t("src_client_pages_volatilityindexpage__l339__h38")}</li>
-            <li>{t("src_client_pages_volatilityindexpage__l340__h39")}</li>
-            <li>{t("src_client_pages_volatilityindexpage__l341__h40")}</li>
-            <li>{t("src_client_pages_volatilityindexpage__l342__h41")}</li>
+            <li>{t("volatilityindexpage.h38")}</li>
+            <li>{t("volatilityindexpage.h39")}</li>
+            <li>{t("volatilityindexpage.h40")}</li>
+            <li>{t("volatilityindexpage.h41")}</li>
           </ul>
         </div>
       </section>
@@ -359,13 +363,13 @@ const VolatilityIndexPage: React.FC = () => {
           textAlign: "center",
         }}
       >
-        <p className="eyebrow">{t("src_client_pages_volatilityindexpage__l358__h42")}</p>
-        <h3>{t("src_client_pages_volatilityindexpage__l359__h43")}</h3>
+        <p className="eyebrow">{t("volatilityindexpage.h42")}</p>
+        <h3>{t("volatilityindexpage.h43")}</h3>
         <p style={{ color: "#475569", marginTop: "8px", marginBottom: "16px" }}>
-          Use volatility metrics to adjust position sizing and hedge strategies
+          {t("common:marketRoutes.volatilityCtaCopy")}
         </p>
         <Link to="/dashboard" className="primary-action" style={{ textDecoration: "none" }}>
-          View Risk Dashboard
+          {t("common:marketRoutes.viewRiskDashboard")}
         </Link>
       </section>
     </div>

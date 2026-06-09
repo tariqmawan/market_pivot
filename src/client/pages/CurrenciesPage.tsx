@@ -38,7 +38,7 @@ const AssetCard: React.FC<{
   <Link to={to} className="asset-card forex-card">
     <div className="asset-card-head">
       <span className="eyebrow">{eyebrow}</span>
-      <span className="asset-card-badge">{t("src_client_pages_currenciespage__l38__h0")}</span>
+      <span className="asset-card-badge">{t("currenciespage.h0")}</span>
     </div>
 
     <h3>{title}</h3>
@@ -92,7 +92,7 @@ export default function CurrenciesPage() {
   }, [code]);
 
   if (code) {
-    if (detailLoading) return <div className="page"><p>{t("src_client_pages_currenciespage__l91__h1")}</p></div>;
+    if (detailLoading) return <div className="page"><p>{t("currenciespage.h1")}</p></div>;
     if (detailError || !currency) return <div className="page"><p>{detailError ?? "Currency not found"}</p></div>;
     return <CurrencyDetail currency={currency as any} isLoading={false} />;
   }
@@ -106,7 +106,7 @@ export default function CurrenciesPage() {
       </div>
 
       {listError ? <p className="error">{listError}</p> : null}
-      {listLoading ? <p>{t("src_client_pages_currenciespage__l105__h2")}</p> : null}
+      {listLoading ? <p>{t("currenciespage.h2")}</p> : null}
 
       <div className="asset-grid compact">
         {list.map((item) => (

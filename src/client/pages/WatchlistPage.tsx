@@ -219,8 +219,8 @@ const WatchlistPage: React.FC = () => {
         {/* Sidebar */}
         <aside className="watchlist-sidebar">
           <div className="watchlist-sidebar-header">
-            <h3>My Lists</h3>
-            <button type="button" onClick={() => setShowCreate(true)} className="add-list-btn"><HiPlus size={13} /> New</button>
+            <h3>{t("watchlist.myLists")}</h3>
+            <button type="button" onClick={() => setShowCreate(true)} className="add-list-btn"><HiPlus size={13} /> {t("watchlist.newList")}</button>
           </div>
 
           {showCreate && (
@@ -279,7 +279,7 @@ const WatchlistPage: React.FC = () => {
                   ) : (
                     <strong>{wl.name}</strong>
                   )}
-                  <span>{wl.symbols.length} symbols</span>
+                  <span>{t("watchlist.symbolsLabel")}: {wl.symbols.length}</span>
                 </div>
                 <div className="wl-actions" onClick={(e) => e.stopPropagation()}>
                   <button
@@ -288,15 +288,15 @@ const WatchlistPage: React.FC = () => {
                       setRenamingId(wl.id);
                       setRenameValue(wl.name);
                     }}
-                    aria-label="Rename"
-                    title="Rename"
+                    aria-label={t("watchlist.rename")}
+                    title={t("watchlist.rename")}
                   ><HiPencil size={13} /></button>
                   {watchlists.length > 1 && (
                     <button
                       type="button"
                       onClick={() => handleDelete(wl.id, wl.name)}
-                      aria-label="Delete"
-                      title="Delete"
+                      aria-label={t("watchlist.delete")}
+                      title={t("watchlist.delete")}
                     ><HiTrash size={13} /></button>
                   )}
                 </div>
@@ -312,12 +312,12 @@ const WatchlistPage: React.FC = () => {
               <div className="watchlist-header">
                 <div className="watchlist-header-left">
                   <h2>{activeWatchlist.icon} {activeWatchlist.name}</h2>
-                  <p>{activeWatchlist.description || "No description"}</p>
+                  <p>{activeWatchlist.description || t("watchlist.noDescription")}</p>
                 </div>
                 <div className="watchlist-summary">
-                  <div className="wl-stat"><span>Symbols</span><strong>{activeWatchlist.symbols.length}</strong></div>
-                  <div className="wl-stat"><span>Gainers</span><strong className="positive">{activeWatchlist.symbols.filter((s) => s.changePercent >= 0).length}</strong></div>
-                  <div className="wl-stat"><span>Losers</span><strong className="negative">{activeWatchlist.symbols.filter((s) => s.changePercent < 0).length}</strong></div>
+                  <div className="wl-stat"><span>{t("watchlist.symbolsLabel")}</span><strong>{activeWatchlist.symbols.length}</strong></div>
+                  <div className="wl-stat"><span>{t("watchlist.gainersLabel")}</span><strong className="positive">{activeWatchlist.symbols.filter((s) => s.changePercent >= 0).length}</strong></div>
+                  <div className="wl-stat"><span>{t("watchlist.losersLabel")}</span><strong className="negative">{activeWatchlist.symbols.filter((s) => s.changePercent < 0).length}</strong></div>
                 </div>
               </div>
 
@@ -340,8 +340,8 @@ const WatchlistPage: React.FC = () => {
                     <option value="crypto">{t("screener.crypto")}</option>
                     <option value="currency">{t("screener.forex")}</option>
                     <option value="etf">{t("screener.etfs")}</option>
-                    <option value="commodity">{t("src_client_pages_watchlistpage__l341__h12")}</option>
-                    <option value="index">{t("src_client_pages_watchlistpage__l342__h13")}</option>
+                    <option value="commodity">{t("watchlistpage.h12")}</option>
+                    <option value="index">{t("watchlistpage.h13")}</option>
                   </select>
                 </div>
                 <div className="control-group">
@@ -358,13 +358,13 @@ const WatchlistPage: React.FC = () => {
                 <table className="watchlist-table">
                   <thead>
                     <tr>
-                      <th>Symbol</th>
-                      <th>Type</th>
-                      <th className="text-right">Price</th>
-                      <th className="text-right">Change</th>
-                      <th className="text-right">Chg %</th>
-                      <th>Alert</th>
-                      <th>Actions</th>
+                      <th>{t("watchlist.colSymbol")}</th>
+                      <th>{t("watchlist.colType")}</th>
+                      <th className="text-right">{t("watchlist.colPrice")}</th>
+                      <th className="text-right">{t("watchlist.colChange")}</th>
+                      <th className="text-right">{t("watchlist.colChangePct")}</th>
+                      <th>{t("watchlist.colAlert")}</th>
+                      <th>{t("watchlist.colActions")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -388,7 +388,7 @@ const WatchlistPage: React.FC = () => {
                           </div>
                         </td>
                         <td>
-                          <span className={`type-pill type-${sym.type}`}>{sym.type}</span>
+                            <span className={`type-pill type-${sym.type}`}>{sym.type}</span>
                         </td>
                         <td className="text-right price-cell">
                           ${sym.price.toFixed(sym.type === "currency" ? 4 : 2)}
@@ -405,7 +405,7 @@ const WatchlistPage: React.FC = () => {
                               type="button"
                               onClick={() => handleToggleAlert(sym.symbol, !sym.alertEnabled, sym.alertPrice)}
                               className={sym.alertEnabled ? "active" : ""}
-                              aria-label={t("src_client_pages_watchlistpage__l405__h22")}
+                              aria-label={t("watchlistpage.h22")}
                             >
                               {sym.alertEnabled ? <HiBell size={15} /> : <HiBellSlash size={15} />}
                             </button>
@@ -416,8 +416,8 @@ const WatchlistPage: React.FC = () => {
                         </td>
                         <td>
                           <div className="row-actions">
-                            <Link to={sym.type === "currency" ? `/currencies/${sym.symbol.split("/")[0]}` : `/${sym.type === "crypto" ? "crypto" : "stocks"}/${sym.symbol.split("/")[0]}`} className="view-btn" title="View"><HiArrowTrendingUp size={14} /></Link>
-                            <button type="button" onClick={() => handleRemove(sym.symbol)} className="remove-btn" title="Remove"><HiXMark size={14} /></button>
+                            <Link to={sym.type === "currency" ? `/currencies/${sym.symbol.split("/")[0]}` : `/${sym.type === "crypto" ? "crypto" : "stocks"}/${sym.symbol.split("/")[0]}`} className="view-btn" title={t("viewDetails")}><HiArrowTrendingUp size={14} /></Link>
+                            <button type="button" onClick={() => handleRemove(sym.symbol)} className="remove-btn" title={t("watchlist.delete")}><HiXMark size={14} /></button>
                           </div>
                         </td>
                       </tr>
@@ -436,14 +436,14 @@ const WatchlistPage: React.FC = () => {
         {/* Search panel */}
         <aside className="search-panel">
           <div className="search-panel-header">
-            <h3><HiMagnifyingGlass size={13} /> Add Symbol</h3>
+            <h3><HiMagnifyingGlass size={13} /> {t("watchlist.addSymbol")}</h3>
           </div>
           <div className="search-panel-body">
             <div className="search-input-wrap">
               <span className="search-input-icon"><HiMagnifyingGlass size={14} /></span>
               <input
                 type="text"
-                placeholder="Search symbol or name…"
+                placeholder={t("watchlist.searchPlaceholder")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="search-input"
@@ -463,10 +463,10 @@ const WatchlistPage: React.FC = () => {
             </div>
             <div className="search-results">
               {searchTerm && searchResults.length === 0 && (
-                <p className="empty">No matches found</p>
+                <p className="empty">{t("watchlist.noMatches")}</p>
               )}
               {!searchTerm && (
-                <p className="empty">Search stocks, crypto &amp; currencies to add to this list</p>
+                <p className="empty">{t("watchlist.typeToSearch")}</p>
               )}
               {searchResults.map((sym) => {
                 const isAdded = isInWatchlist(sym.symbol);
@@ -485,7 +485,7 @@ const WatchlistPage: React.FC = () => {
                       disabled={isAdded}
                       className="add-btn"
                     >
-                      {isAdded ? "✓ Added" : "+ Add"}
+                      {isAdded ? t("watchlist.added") : t("watchlist.addBtn")}
                     </button>
                   </div>
                 );

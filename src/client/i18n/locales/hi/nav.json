@@ -9,13 +9,13 @@
   "regions": "क्षेत्र",
   "sectors": "सेक्टर",
   "news": "समाचार",
-  "calendar": "कैलेंडर",
-  "userPanel": "उपयोगकर्ता पैनल",
+  
+  
   "pricing": "मूल्य निर्धारण",
   "tools": "उपकरण",
   "coverage": "कवरेज",
   "indices": "इंडेक्स",
-  "etfs": "ETFs",
+  "etfs": "ईटीएफ",
   "bonds": "बॉन्ड और यील्ड",
   "screener": "स्क्रीनर",
   "overview": "अवलोकन",
@@ -29,30 +29,30 @@
   "watchlists": "वॉचलिस्ट",
   "portfolioTracker": "पोर्टफोलियो ट्रैकर",
   "alerts": "अलर्ट",
-  "trendingCoins": "ट्रेंडिंग कॉइन्स",
-  "memeCoins": "मीम कॉइन्स",
-  "defi": "DeFi",
-  "layer1": "लेयर 1",
-  "stablecoins": "स्टेबलकॉइन्स",
-  "energy": "ऊर्जा",
-  "metals": "धातु",
-  "agriculture": "कृषि",
-  "industrial": "औद्योगिक",
-  "americas": "अमेरिका",
-  "europe": "यूरोप",
-  "asiaPacific": "एशिया-पैसिफिक",
-  "middleEastAfrica": "मध्य पूर्व और अफ्रीका",
-  "technology": "तकनीक",
-  "banking": "बैंकिंग",
-  "ai": "AI",
-  "ev": "इलेक्ट्रिक वाहन",
-  "semiconductor": "सेमीकंडक्टर",
-  "defence": "रक्षा",
-  "globalNews": "वैश्विक समाचार",
-  "regionNews": "क्षेत्रीय समाचार",
-  "sectorNews": "सेक्टर समाचार",
-  "cryptoNews": "क्रिप्टो समाचार",
-  "marketAlerts": "मार्केट अलर्ट",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "byRegion": "क्षेत्र के अनुसार",
   "nyse": "NYSE",
   "nasdaq": "NASDAQ",
@@ -60,5 +60,33 @@
   "navMain": "मुख्य नेविगेशन",
   "homeAria": "MarketsPivot होम",
   "openMenu": "मेनू खोलें",
-  "adminTopNav": "एडमिन नेविगेशन"
+  "adminTopNav": "एडमिन नेविगेशन",
+  "fx": "विदेशी मुद्रा",
+  "Calendar": "कैलेंडर",
+  "UserPanel": "उपयोगकर्ता पैनल",
+  "adminPanel": "एडमिन पैनल",
+  "TrendingCoins": "ट्रेंडिंग कॉइन",
+  "MemeCoins": "मीम कॉइन",
+  "Defi": "डीफाई",
+  "Layer1": "लेयर 1",
+  "Stablecoins": "स्टेबलकॉइन",
+  "Energy": "ऊर्जा",
+  "Metals": "धातु",
+  "Agriculture": "कृषि",
+  "Industrial": "औद्योगिक",
+  "Americas": "अमेरिका",
+  "Europe": "यूरोप",
+  "AsiaPacific": "एशिया-प्रशांत",
+  "MiddleEastAfrica": "मध्य पूर्व और अफ्रीका",
+  "Technology": "प्रौद्योगिकी",
+  "Banking": "बैंकिंग",
+  "Ai": "कृत्रिम बुद्धिमत्ता",
+  "Ev": "इलेक्ट्रिक वाहन",
+  "Semiconductor": "सेमीकंडक्टर",
+  "Defence": "रक्षा",
+  "GlobalNews": "वैश्विक समाचार",
+  "RegionNews": "क्षेत्रीय समाचार",
+  "SectorNews": "सेक्टर समाचार",
+  "CryptoNews": "क्रिप्टो समाचार",
+  "MarketAlerts": "बाजार अलर्ट"
 }

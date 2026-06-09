@@ -1,34 +1,260 @@
 {
-  "currencyType": "ประเภทสกุลเงิน",
-  "centralBank": "ธนาคารกลาง",
-  "exchangeRates": "อัตราแลกเปลี่ยน",
-  "converter": "ตัวแปลง",
-  "popularPairs": "คู่สกุลเงินยอดนิยม",
-  "economicData": "ข้อมูลเศรษฐกิจ",
-  "code": "รหัส",
-  "symbol": "สัญลักษณ์",
-  "country": "ประเทศ",
-  "region": "ภูมิภาค",
-  "type": "ประเภท",
-  "rate": "อัตรา",
-  "bid": "ราคาซื้อ",
-  "ask": "ราคาขาย",
-  "spread": "ส่วนต่าง",
-  "loadingRates": "กำลังโหลดอัตราแลกเปลี่ยน...",
   "amountPlaceholder": "ป้อนจำนวน",
-  "economicIndicators": "ตัวชี้วัดเศรษฐกิจ",
-  "interestRate": "อัตราดอกเบี้ย",
-  "inflationRate": "อัตราเงินเฟ้อ",
-  "gdpGrowth": "การเติบโตของ GDP",
-  "employment": "การจ้างงาน",
-  "dataLoading": "กำลังโหลดข้อมูล...",
-  "economicNews": "ข่าวและอัปเดตเศรษฐกิจ",
+  "annualRate": "อัตรารายปี",
+  "ask": "ราคาขาย",
+  "bid": "ราคาซื้อ",
+  "centralBank": "ธนาคารกลาง",
+  "change24h": "เปลี่ยนแปลง 24 ชม.",
+  "code": "รหัส",
+  "converter": "ตัวแปลง",
+  "countries": {
+    "ae": {
+      "name": "สหรัฐอาหรับเอมิเรตส์"
+    },
+    "au": {
+      "name": "ออสเตรเลีย"
+    },
+    "br": {
+      "name": "บราซิล"
+    },
+    "ca": {
+      "name": "แคนาดา"
+    },
+    "ch": {
+      "name": "สวิตเซอร์แลนด์"
+    },
+    "cl": {
+      "name": "ชิลี"
+    },
+    "cn": {
+      "name": "จีน"
+    },
+    "eu": {
+      "name": "สหภาพยุโรป"
+    },
+    "gb": {
+      "name": "สหราชอาณาจักร"
+    },
+    "hk": {
+      "name": "ฮ่องกง"
+    },
+    "in": {
+      "name": "อินเดีย"
+    },
+    "jp": {
+      "name": "ญี่ปุ่น"
+    },
+    "kr": {
+      "name": "เกาหลีใต้"
+    },
+    "mx": {
+      "name": "เม็กซิโก"
+    },
+    "no": {
+      "name": "นอร์เวย์"
+    },
+    "sa": {
+      "name": "ซาอุดีอาระเบีย"
+    },
+    "se": {
+      "name": "สวีเดน"
+    },
+    "sg": {
+      "name": "สิงคโปร์"
+    },
+    "us": {
+      "name": "สหรัฐอเมริกา"
+    },
+    "za": {
+      "name": "แอฟริกาใต้"
+    }
+  },
+  "country": "ประเทศ",
+  "currencies": {
+    "aed": {
+      "name": "ดีแรห์มสหรัฐอาหรับเอมิเรตส์",
+      "description": "สกุลเงินที่ผูกกับ USD ของศูนย์กลางการเงินอ่าวเปอร์เซีย"
+    },
+    "aud": {
+      "name": "ดอลลาร์ออสเตรเลีย",
+      "description": "สกุลเงินที่เชื่อมโยงกับสินค้าโภคภัณฑ์ ศูนย์กลางเอเชียแปซิฟิก"
+    },
+    "brl": {
+      "name": "เรอัลบราซิล",
+      "description": "สกุลเงินของเศรษฐกิจใหญ่ที่สุดในละตินอเมริกา"
+    },
+    "cad": {
+      "name": "ดอลลาร์แคนาดา",
+      "description": "สกุลเงินที่เชื่อมโยงกับสินค้าโภคภัณฑ์ของประเทศ G7"
+    },
+    "chf": {
+      "name": "ฟรังก์สวิส",
+      "description": "สกุลเงินปลอดภัยที่รู้จักด้านเสถียรภาพและอำนาจซื้อที่แข็งแกร่ง"
+    },
+    "clp": {
+      "name": "เปโซชิลี",
+      "description": "สกุลเงินของประเทศละตินอเมริกาที่มีเสถียรภาพทางเศรษฐกิจ"
+    },
+    "cny": {
+      "name": "หยวนจีน",
+      "description": "สกุลเงินของเศรษฐกิจใหญ่อันดับสองของโลก"
+    },
+    "eur": {
+      "name": "ยูโร",
+      "description": "สกุลเงินของยูโรโซน สกุลเงินสำรองใหญ่อันดับสอง"
+    },
+    "gbp": {
+      "name": "ปอนด์สเตอร์ลิงอังกฤษ",
+      "description": "สกุลเงินของสหราชอาณาจักร หนึ่งในสกุลเงินที่เก่าแก่ที่สุด"
+    },
+    "hkd": {
+      "name": "ดอลลาร์ฮ่องกง",
+      "description": "ผูกกับดอลลาร์สหรัฐ ศูนย์กลางการเงินเอเชียที่สำคัญ"
+    },
+    "inr": {
+      "name": "รูปีอินเดีย",
+      "description": "สกุลเงินของประเทศที่มีประชากรมากที่สุดในโลก"
+    },
+    "jpy": {
+      "name": "เยนญี่ปุ่น",
+      "description": "สกุลเงินสำรองใหญ่อันดับสาม สินทรัพย์ปลอดภัย"
+    },
+    "krw": {
+      "name": "วอนเกาหลีใต้",
+      "description": "สกุลเงินของศูนย์กลางเทคโนโลยีและการผลิตที่สำคัญ"
+    },
+    "mxn": {
+      "name": "เปโซเม็กซิโก",
+      "description": "สกุลเงินของคู่ค้าหลักในอเมริกาเหนือ"
+    },
+    "nok": {
+      "name": "โครนนอร์เวย์",
+      "description": "สกุลเงินของผู้ส่งออกพลังงานรายใหญ่ เชื่อมโยงกับสินค้าโภคภัณฑ์"
+    },
+    "sar": {
+      "name": "ริยาลซาอุดีอาระเบีย",
+      "description": "สกุลเงินที่ผูกกับ USD ของผู้ส่งออกน้ำมันรายใหญ่ที่สุดของโลก"
+    },
+    "sek": {
+      "name": "โครนาสวีเดน",
+      "description": "สกุลเงินนอร์ดิกที่มีฐานอุตสาหกรรม"
+    },
+    "sgd": {
+      "name": "ดอลลาร์สิงคโปร์",
+      "description": "สกุลเงินภูมิภาคที่แข็งแกร่งในเอเชียตะวันออกเฉียงใต้"
+    },
+    "usd": {
+      "name": "ดอลลาร์สหรัฐ",
+      "description": "สกุลเงินสำรองที่ใช้กันอย่างแพร่หลายที่สุดในโลกและเป็นมาตรฐานสากล"
+    },
+    "zar": {
+      "name": "แรนด์แอฟริกาใต้",
+      "description": "สกุลเงินของเศรษฐกิจใหญ่ที่สุดในแอฟริกาและผู้ผลิตสินค้าโภคภัณฑ์"
+    }
+  },
   "currencyNewsComing": "ข่าวเศรษฐกิจล่าสุดจะแสดงที่นี่",
   "currencyNewsSubtitle": "การตัดสินใจเรื่องอัตราดอกเบี้ย รายงานเงินเฟ้อ และอื่นๆ",
-  "vsUsd": "เทียบ USD",
+  "currencyType": "ประเภทสกุลเงิน",
+  "dataLoading": "กำลังโหลดข้อมูล...",
+  "economicData": "ข้อมูลเศรษฐกิจ",
+  "economicIndicators": "ตัวชี้วัดเศรษฐกิจ",
+  "economicNews": "ข่าวและอัปเดตเศรษฐกิจ",
+  "employment": "การจ้างงาน",
+  "exchangeRates": "อัตราแลกเปลี่ยน",
+  "gdpGrowth": "การเติบโตของ GDP",
   "high52w": "สูงสุด 52W",
+  "inflationRate": "อัตราเงินเฟ้อ",
+  "interestRate": "อัตราดอกเบี้ย",
+  "loadingRates": "กำลังโหลดอัตราแลกเปลี่ยน...",
   "low52w": "ต่ำสุด 52W",
-  "annualRate": "อัตรารายปี",
+  "popularPairs": "คู่สกุลเงินยอดนิยม",
   "quarterlyRate": "อัตรารายไตรมาส",
-  "change24h": "เปลี่ยนแปลง 24 ชม."
+  "rate": "อัตรา",
+  "region": "ภูมิภาค",
+  "spread": "ส่วนต่าง",
+  "symbol": "สัญลักษณ์",
+  "type": "ประเภท",
+  "vsUsd": "เทียบ USD",
+  "currencyTypes": {
+    "fiat": "สกุลเงิน Fiat",
+    "commodity": "สกุลเงินสินค้าโภคภัณฑ์",
+    "crypto": "สกุลเงินคริปโต"
+  },
+  "centralBanks": {
+    "federalreserve": "ธนาคารกลางสหรัฐ",
+    "europeancentralbank": "ธนาคารกลางยุโรป",
+    "bankofjapan": "ธนาคารกลางญี่ปุ่น",
+    "bankofengland": "ธนาคารกลางอังกฤษ",
+    "swissnationalbank": "ธนาคารกลางสวิส",
+    "peoplesbankofchina": "ธนาคารกลางจีน",
+    "hongkongmonetaryauthority": "องค์การเงินตราฮ่องกง",
+    "reservebankofindia": "ธนาคารกลางอินเดีย",
+    "reservebankofaustralia": "ธนาคารกลางออสเตรเลีย",
+    "monetaryauthorityofsingapore": "องค์การเงินตราสิงคโปร์",
+    "bankofkorea": "ธนาคารกลางเกาหลี",
+    "bankofcanada": "ธนาคารกลางแคนาดา",
+    "centralbankofbrazil": "ธนาคารกลางบราซิล",
+    "bancodemxico": "ธนาคารกลางเม็กซิโก",
+    "centralbankofchile": "ธนาคารกลางชิลี",
+    "riksbank": "ธนาคารกลางสวีเดน",
+    "norgesbank": "ธนาคารกลางนอร์เวย์",
+    "saudicentralbank": "ธนาคารกลางซาอุดีอาระเบีย",
+    "centralbankoftheuae": "ธนาคารกลางสหรัฐอาหรับเอมิเรตส์",
+    "southafricanreservebank": "ธนาคารกลางแอฟริกาใต้"
+  },
+  "regions": {
+    "northamerica": "อเมริกาเหนือ",
+    "europe": "ยุโรป",
+    "asia": "เอเชีย",
+    "americas": "อเมริกา",
+    "middleeast": "ตะวันออกกลาง",
+    "africa": "แอฟริกา"
+  },
+  "ratesVsMajorSubtitle": "{{code}} 1 หน่วยเทียบเท่ากับสกุลเงินหลักอื่นๆ",
+  "keyDataReleasesFor": "ข้อมูลสำคัญสำหรับ {{code}}",
+  "hoursAgo": "{{count}} ชม. ที่แล้ว",
+  "impacts": {
+    "High": "สูง",
+    "Medium": "ปานกลาง",
+    "Low": "ต่ำ"
+  },
+  "events": {
+    "nonFarmPayrolls": "การจ้างงานนอกภาคเกษตร",
+    "ecbPressConference": "การแถลงข่าว ECB",
+    "boeGovernorSpeech": "สุนทรพจน์ผู้ว่าการ BoE",
+    "fomcMinutes": "บันทึก FOMC",
+    "bojSummaryOpinions": "สรุปความคิดเห็น BoJ",
+    "rbaStatement": "แถลงการณ์ RBA",
+    "currencyCpiRelease": "ข้อมูล CPI ของ {{code}}",
+    "centralBankPolicyUpdate": "อัปเดตนโยบาย {{centralBank}}",
+    "currencyRetailSales": "ยอดขายปลีก {{code}}",
+    "currencyTradeBalance": "ดุลการค้า {{code}}"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "{{code}} แข็งค่าจากความคาดหวังนโยบาย",
+    "currencyWeakensPolicy": "{{code}} อ่อนค่าจากความคาดหวังนโยบาย",
+    "centralBankDataDependent": "{{centralBank}} ส่งสัญญาณนโยบายตามข้อมูล",
+    "currencyLiquidityRobust": "สภาพคล่อง {{code}} ยังคงแข็งแกร่งในกระแสเงินข้ามพรมแดน",
+    "currencyFairValueUpdated": "บันทึกนักวิเคราะห์: มูลค่าเหมาะสมของ {{code}} อัปเดตแล้ว",
+    "usdRallyPauses": "USD หยุดพักการปรับตัวขึ้นก่อนบันทึก FOMC",
+    "ecbDataDependent": "ECB ส่งสัญญาณนโยบายตามข้อมูล EUR เทรดอ่อน",
+    "jpyInterventionWatch": "จับตาการแทรกแซง JPY ขณะ USD/JPY ทดสอบ 156",
+    "gbpStickyInflation": "GBP ได้รับแรงหนุนจากเงินเฟ้อภาคบริการที่ยืดเยื้อ",
+    "cnyWeakerMidpoint": "CNY อยู่ภายใต้แรงกดดัน หลัง PBOC กำหนดจุดกึ่งกลางอ่อนลง",
+    "audCommodityStrength": "AUD ได้แรงหนุนจากสินค้าโภคภัณฑ์ที่แข็งแกร่งและท่าทีเสี่ยงรับ"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "สกุลเงินสำรองหลัก",
+    "secondreservecurrency": "สกุลเงินสำรองอันดับสอง",
+    "thirdreservecurrency": "สกุลเงินสำรองอันดับสาม",
+    "regionalreservecurrency": "สกุลเงินสำรองระดับภูมิภาค",
+    "regional": "ระดับภูมิภาค"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "กระแสเงินเข้าสินทรัพย์ปลอดภัย",
+    "mixedinflows": "กระแสเงินเข้าผสม",
+    "exportdrivenflows": "กระแสเงินจากการส่งออก",
+    "commoditylinkedflows": "กระแสเงินเชื่อมโยงสินค้าโภคภัณฑ์",
+    "open": "เปิด"
+  }
 }

@@ -1,34 +1,260 @@
 {
-  "currencyType": "통화 유형",
-  "centralBank": "중앙 은행",
-  "exchangeRates": "환율",
-  "converter": "환전기",
-  "popularPairs": "인기 통화 쌍",
-  "economicData": "경제 데이터",
-  "code": "코드",
-  "symbol": "심볼",
-  "country": "국가",
-  "region": "지역",
-  "type": "유형",
-  "rate": "환율",
-  "bid": "매수",
-  "ask": "매도",
-  "spread": "스프레드",
-  "loadingRates": "환율 로딩 중...",
   "amountPlaceholder": "금액 입력",
-  "economicIndicators": "경제 지표",
-  "interestRate": "금리",
-  "inflationRate": "인플레이션",
-  "gdpGrowth": "GDP 성장",
-  "employment": "고용",
-  "dataLoading": "데이터 로딩 중...",
-  "economicNews": "경제 뉴스 및 업데이트",
+  "annualRate": "연간 금리",
+  "ask": "매도",
+  "bid": "매수",
+  "centralBank": "중앙 은행",
+  "change24h": "24시간 변동",
+  "code": "코드",
+  "converter": "환전기",
+  "countries": {
+    "ae": {
+      "name": "아랍에미리트"
+    },
+    "au": {
+      "name": "호주"
+    },
+    "br": {
+      "name": "브라질"
+    },
+    "ca": {
+      "name": "캐나다"
+    },
+    "ch": {
+      "name": "스위스"
+    },
+    "cl": {
+      "name": "칠레"
+    },
+    "cn": {
+      "name": "중국"
+    },
+    "eu": {
+      "name": "유럽연합"
+    },
+    "gb": {
+      "name": "영국"
+    },
+    "hk": {
+      "name": "홍콩"
+    },
+    "in": {
+      "name": "인도"
+    },
+    "jp": {
+      "name": "일본"
+    },
+    "kr": {
+      "name": "대한민국"
+    },
+    "mx": {
+      "name": "멕시코"
+    },
+    "no": {
+      "name": "노르웨이"
+    },
+    "sa": {
+      "name": "사우디아라비아"
+    },
+    "se": {
+      "name": "스웨덴"
+    },
+    "sg": {
+      "name": "싱가포르"
+    },
+    "us": {
+      "name": "미국"
+    },
+    "za": {
+      "name": "남아프리카"
+    }
+  },
+  "country": "국가",
+  "currencies": {
+    "aed": {
+      "name": "UAE 디르함",
+      "description": "걸프 금융 허브의 USD에 고정된 통화"
+    },
+    "aud": {
+      "name": "호주 달러",
+      "description": "상품 연계 통화, 주요 아시아 태평양 허브"
+    },
+    "brl": {
+      "name": "브라질 레알",
+      "description": "라틴 아메리카 최대 경제의 통화"
+    },
+    "cad": {
+      "name": "캐나다 달러",
+      "description": "G7 국가의 상품연계통화"
+    },
+    "chf": {
+      "name": "스위스 프랑",
+      "description": "안정성과 강력한 구매력으로 알려진 안전자산 통화"
+    },
+    "clp": {
+      "name": "칠레 페소",
+      "description": "경제적으로 안정된 라틴 아메리카 국가의 통화"
+    },
+    "cny": {
+      "name": "중국 위안",
+      "description": "세계 2위 경제 규모의 통화"
+    },
+    "eur": {
+      "name": "유로",
+      "description": "두 번째로 큰 기축 통화인 유로존 통화"
+    },
+    "gbp": {
+      "name": "영국 파운드 스털링",
+      "description": "가장 오래된 통화 중 하나인 영국 통화"
+    },
+    "hkd": {
+      "name": "홍콩 달러",
+      "description": "주요 아시아 금융 허브 통화인 미국 달러에 고정되어 있습니다."
+    },
+    "inr": {
+      "name": "인도 루피",
+      "description": "세계에서 가장 인구가 많고 가장 빠르게 성장하는 주요 경제 국가의 통화"
+    },
+    "jpy": {
+      "name": "일본 엔",
+      "description": "세 번째로 큰 기축통화, 안전자산"
+    },
+    "krw": {
+      "name": "한국 원",
+      "description": "주요 기술 및 제조 허브의 통화"
+    },
+    "mxn": {
+      "name": "멕시코 페소",
+      "description": "북미 주요 무역 상대국의 통화"
+    },
+    "nok": {
+      "name": "노르웨이 크로네",
+      "description": "주요 에너지 수출국의 통화, 강력한 상품 연계"
+    },
+    "sar": {
+      "name": "사우디아라비아 리얄",
+      "description": "세계 최대 석유 수출국의 USD에 고정된 통화"
+    },
+    "sek": {
+      "name": "스웨덴 크로나",
+      "description": "산업 기반을 갖춘 북유럽 통화"
+    },
+    "sgd": {
+      "name": "싱가포르 달러",
+      "description": "동남아시아의 강력한 지역 통화"
+    },
+    "usd": {
+      "name": "미국 달러",
+      "description": "세계에서 가장 널리 사용되는 준비 통화이자 글로벌 표준입니다."
+    },
+    "zar": {
+      "name": "남아프리카 랜드",
+      "description": "아프리카 최대 경제 및 상품 생산국의 통화"
+    }
+  },
   "currencyNewsComing": "최신 경제 뉴스가 여기에 표시됩니다",
   "currencyNewsSubtitle": "금리 결정, 인플레이션 보고서 등",
-  "vsUsd": "USD 대비",
+  "currencyType": "통화 유형",
+  "dataLoading": "데이터 로딩 중...",
+  "economicData": "경제 데이터",
+  "economicIndicators": "경제 지표",
+  "economicNews": "경제 뉴스 및 업데이트",
+  "employment": "고용",
+  "exchangeRates": "환율",
+  "gdpGrowth": "GDP 성장",
   "high52w": "52주 최고",
+  "inflationRate": "인플레이션",
+  "interestRate": "금리",
+  "loadingRates": "환율 로딩 중...",
   "low52w": "52주 최저",
-  "annualRate": "연간 금리",
+  "popularPairs": "인기 통화 쌍",
   "quarterlyRate": "분기별 금리",
-  "change24h": "24시간 변동"
+  "rate": "환율",
+  "region": "지역",
+  "spread": "스프레드",
+  "symbol": "심볼",
+  "type": "유형",
+  "vsUsd": "USD 대비",
+  "currencyTypes": {
+    "fiat": "법정화폐",
+    "commodity": "상품 통화",
+    "crypto": "암호화폐"
+  },
+  "centralBanks": {
+    "federalreserve": "연방준비제도 (Fed)",
+    "europeancentralbank": "유럽중앙은행 (ECB)",
+    "bankofjapan": "일본은행 (BOJ)",
+    "bankofengland": "영란은행 (BOE)",
+    "swissnationalbank": "스위스국립은행 (SNB)",
+    "peoplesbankofchina": "중국인민은행 (PBOC)",
+    "hongkongmonetaryauthority": "홍콩금융관리국 (HKMA)",
+    "reservebankofindia": "인도중앙은행 (RBI)",
+    "reservebankofaustralia": "호주중앙은행 (RBA)",
+    "monetaryauthorityofsingapore": "싱가포르통화청 (MAS)",
+    "bankofkorea": "한국은행 (BOK)",
+    "bankofcanada": "캐나다은행 (BOC)",
+    "centralbankofbrazil": "브라질중앙은행",
+    "bancodemxico": "멕시코은행 (Banxico)",
+    "centralbankofchile": "칠레중앙은행",
+    "riksbank": "스웨덴중앙은행 (릭스뱅크)",
+    "norgesbank": "노르웨이중앙은행",
+    "saudicentralbank": "사우디중앙은행 (SAMA)",
+    "centralbankoftheuae": "UAE중앙은행",
+    "southafricanreservebank": "남아프리카중앙은행 (SARB)"
+  },
+  "regions": {
+    "northamerica": "북미",
+    "europe": "유럽",
+    "asia": "아시아",
+    "americas": "미주",
+    "middleeast": "중동",
+    "africa": "아프리카"
+  },
+  "ratesVsMajorSubtitle": "1 {{code}}의 다른 주요 통화 대비 환율",
+  "keyDataReleasesFor": "{{code}} 주요 경제지표 발표",
+  "hoursAgo": "{{count}}시간 전",
+  "impacts": {
+    "High": "높음",
+    "Medium": "보통",
+    "Low": "낮음"
+  },
+  "events": {
+    "nonFarmPayrolls": "고용보고서 (NFP)",
+    "ecbPressConference": "ECB 기자회견",
+    "boeGovernorSpeech": "BOE 총재 연설",
+    "fomcMinutes": "FOMC 의사록",
+    "bojSummaryOpinions": "BOJ 의견 요약",
+    "rbaStatement": "RBA 성명서",
+    "currencyCpiRelease": "{{code}} CPI 발표",
+    "centralBankPolicyUpdate": "{{centralBank}} 정책 업데이트",
+    "currencyRetailSales": "{{code}} 소매판매",
+    "currencyTradeBalance": "{{code}} 무역수지"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "{{code}} 정책 기대에 강세",
+    "currencyWeakensPolicy": "{{code}} 정책 기대에 약세",
+    "centralBankDataDependent": "{{centralBank}} 데이터 의존적 경로 시사",
+    "currencyLiquidityRobust": "{{code}} 유동성, 국경간 흐름에서 강세 유지",
+    "currencyFairValueUpdated": "애널리스트 노트: {{code}} 공정가치 업데이트",
+    "usdRallyPauses": "USD 랠리, FOMC 의사록 앞두고 숨고르기",
+    "ecbDataDependent": "ECB 데이터 의존적 경로 시사, EUR 약세 거래",
+    "jpyInterventionWatch": "USD/JPY 156 테스트 속 JPY 개입 경계 재개",
+    "gbpStickyInflation": "GBP, 고착화된 서비스 인플레이션에 지지",
+    "cnyWeakerMidpoint": "CNY, PBOC 약한 기준가 고정에 압박",
+    "audCommodityStrength": "AUD, 원자재 강세와 위험선호 분위기에 매수"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "기본 기축통화",
+    "secondreservecurrency": "제2 기축통화",
+    "thirdreservecurrency": "제3 기축통화",
+    "regionalreservecurrency": "지역 기축통화",
+    "regional": "지역"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "안전자산 유입",
+    "mixedinflows": "혼합 유입",
+    "exportdrivenflows": "수출 주도 흐름",
+    "commoditylinkedflows": "원자재 연동 흐름",
+    "open": "개방"
+  }
 }

@@ -4,6 +4,7 @@ import cryptoData from "../../data/cryptocurrencies.json";
 import type { Cryptocurrency } from "../../types";
 import "../styles/index.css";
 import { useI18n } from "../i18n";
+import { translateSourceText, translateStatic } from "../i18n/translate";
 
 
 
@@ -58,10 +59,17 @@ const fmt = (v: number) => {
 const fmtPrice = (p: number) =>
   p < 0.001 ? `$${p.toFixed(8)}` : p < 1 ? `$${p.toFixed(4)}` : `$${p.toFixed(4)}`;
 
+const translatedCoinName = (t: ReturnType<typeof useI18n>["t"], coin: Cryptocurrency) => {
+  const translated = translateStatic(t, coin.nameKey, coin.name);
+  return translated.trim().toLowerCase() === "name" ? coin.name : translated;
+};
+
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 const CryptoCategoryPage: React.FC = () => {
   const location = useLocation();
+  const { t } = useI18n();
+  const tx = (value: string) => translateSourceText(t, value);
   const category = location.pathname.split("/").filter(Boolean).pop();
 
   if (category === "meme-coins") return <MemeCoinsPage />;
@@ -73,14 +81,14 @@ const CryptoCategoryPage: React.FC = () => {
     <div className="page intelligence-page">
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">Cryptocurrency</p>
-          <h1>Category Not Found</h1>
-          <p>This category doesn't exist. Browse all cryptocurrencies below.</p>
+          <p className="eyebrow">{t("crypto:cryptocurrency")}</p>
+          <h1>{t("crypto:categoryNotFound")}</h1>
+          <p>{t("crypto:categoryNotFoundDescription")}</p>
         </div>
       </section>
       <div style={{ textAlign: "center", padding: "48px 0" }}>
         <Link to="/crypto" className="primary-action" style={{ textDecoration: "none" }}>
-          View All Cryptocurrencies
+          {t("crypto:viewAllCryptocurrencies")}
         </Link>
       </div>
     </div>
@@ -90,32 +98,34 @@ const CryptoCategoryPage: React.FC = () => {
 // ── Meme Coins ────────────────────────────────────────────────────────────────
 
 const MemeCoinsPage: React.FC = () => {
+  const { t } = useI18n();
   const coins = cryptocurrencies.filter(c => c.category === "Meme");
   const totalMCap = Object.values(MEME_PRICES).reduce((s, d) => s + d.marketCap, 0);
   const topGainer = Object.entries(MEME_PRICES).reduce((a, b) => b[1].change > a[1].change ? b : a);
+  const mt = (key: string) => t(`crypto:categoryPages.meme.${key}`);
+  const ct = (key: string) => t(`crypto:categoryPages.common.${key}`);
 
   return (
     <div className="page intelligence-page">
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">Community Tokens</p>
-          <h1>Meme Coins</h1>
+          <p className="eyebrow">{mt("eyebrow")}</p>
+          <h1>{mt("title")}</h1>
           <p>
-            Community-driven cryptocurrencies fuelled by viral culture, social momentum, and cult followings.
-            High-risk, high-reward assets where sentiment rules the market.
+            {mt("body")}
           </p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>Coins Listed</span>
+            <span>{mt("metrics.coinsListed")}</span>
             <strong>{coins.length}</strong>
           </div>
           <div className="metric-tile">
-            <span>Combined Market Cap</span>
+            <span>{ct("combinedMarketCap")}</span>
             <strong>{fmt(totalMCap)}</strong>
           </div>
           <div className="metric-tile">
-            <span>Top Gainer (24h)</span>
+            <span>{ct("topGainer24h")}</span>
             <strong style={{ color: "#059669" }}>
               {topGainer[0]} +{topGainer[1].change.toFixed(2)}%
             </strong>
@@ -126,16 +136,24 @@ const MemeCoinsPage: React.FC = () => {
       {/* Coin Table */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "20px" }}>
-          <p className="eyebrow">Market Overview</p>
-          <h2>Meme Coin Rankings</h2>
+          <p className="eyebrow">{ct("marketOverview")}</p>
+          <h2>{mt("rankingsTitle")}</h2>
         </div>
         <div style={{ overflowX: "auto" }}>
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>
               <tr style={{ borderBottom: "2px solid #e2e8f0", background: "rgba(162,120,65,0.05)" }}>
-                {["#", "Name", "Price", "24h Change", "Market Cap", "24h Volume", "Community"].map(h => (
-                  <th key={h} style={{ padding: "12px 16px", textAlign: h === "#" || h === "Name" ? "left" : "right", fontWeight: 700, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.5px", color: "#64748b", whiteSpace: "nowrap" }}>
-                    {h}
+                {[
+                  { id: "rank", label: "#", align: "left" },
+                  { id: "name", label: ct("name"), align: "left" },
+                  { id: "price", label: ct("price"), align: "right" },
+                  { id: "change24h", label: ct("change24h"), align: "right" },
+                  { id: "marketCap", label: ct("marketCap"), align: "right" },
+                  { id: "volume24h", label: ct("volume24h"), align: "right" },
+                  { id: "community", label: mt("table.community"), align: "right" },
+                ].map(h => (
+                  <th key={h.id} style={{ padding: "12px 16px", textAlign: h.align as "left" | "right", fontWeight: 700, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.5px", color: "#64748b", whiteSpace: "nowrap" }}>
+                    {h.label}
                   </th>
                 ))}
               </tr>
@@ -159,7 +177,7 @@ const MemeCoinsPage: React.FC = () => {
                             {coin.symbol.slice(0, 2)}
                           </div>
                           <div>
-                            <strong style={{ display: "block", fontSize: "14px" }}>{coin.name}</strong>
+                            <strong style={{ display: "block", fontSize: "14px" }}>{translatedCoinName(t, coin)}</strong>
                             <span style={{ fontSize: "12px", color: "#94a3b8" }}>{coin.symbol}</span>
                           </div>
                         </div>
@@ -175,7 +193,7 @@ const MemeCoinsPage: React.FC = () => {
                     <td style={{ padding: "14px 16px", textAlign: "right", color: "#475569" }}>{fmt(d.volume)}</td>
                     <td style={{ padding: "14px 16px", textAlign: "right" }}>
                       <span style={{ fontSize: "11px", fontWeight: 600, padding: "3px 8px", background: "rgba(162,120,65,0.1)", color: "#A27841", borderRadius: "12px", whiteSpace: "nowrap" }}>
-                        {d.community}
+                        {mt(`communities.${coin.symbol}`)}
                       </span>
                     </td>
                   </tr>
@@ -189,52 +207,50 @@ const MemeCoinsPage: React.FC = () => {
       {/* Insight Panels */}
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">Origins</p>
-          <h3>The Meme Coin Story</h3>
+          <p className="eyebrow">{mt("insights.origins.eyebrow")}</p>
+          <h3>{mt("insights.origins.title")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.8", color: "#475569", paddingLeft: "20px", marginTop: "12px" }}>
-            <li>Dogecoin (2013) — the original internet joke coin</li>
-            <li>Elon Musk tweets as price catalysts</li>
-            <li>WallStreetBets-style coordinated pumps</li>
-            <li>Shiba Inu launched as a "DOGE killer"</li>
-            <li>2023 PEPE boom revived the meme cycle</li>
-            <li>BONK airdropped life into Solana DeFi</li>
+            <li>{mt("insights.origins.items.dogecoin")}</li>
+            <li>{mt("insights.origins.items.elon")}</li>
+            <li>{mt("insights.origins.items.pumps")}</li>
+            <li>{mt("insights.origins.items.shiba")}</li>
+            <li>{mt("insights.origins.items.pepe")}</li>
+            <li>{mt("insights.origins.items.bonk")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Risk Profile</p>
-          <h3>What Investors Should Know</h3>
+          <p className="eyebrow">{ct("riskProfile")}</p>
+          <h3>{mt("insights.risk.title")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.8", color: "#475569", paddingLeft: "20px", marginTop: "12px" }}>
-            <li>Prices driven almost entirely by sentiment</li>
-            <li>Susceptible to pump-and-dump schemes</li>
-            <li>Minimal or no underlying utility</li>
-            <li>Extreme volatility — 50%+ swings common</li>
-            <li>Rug-pull risk in newer, unaudited coins</li>
-            <li>High correlation with viral media cycles</li>
+            <li>{mt("insights.risk.items.sentiment")}</li>
+            <li>{mt("insights.risk.items.pumpDump")}</li>
+            <li>{mt("insights.risk.items.utility")}</li>
+            <li>{mt("insights.risk.items.volatility")}</li>
+            <li>{mt("insights.risk.items.rugPull")}</li>
+            <li>{mt("insights.risk.items.viralCycles")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Community Signals</p>
-          <h3>How to Track Momentum</h3>
+          <p className="eyebrow">{mt("insights.signals.eyebrow")}</p>
+          <h3>{mt("insights.signals.title")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.8", color: "#475569", paddingLeft: "20px", marginTop: "12px" }}>
-            <li>Twitter/X mentions & trending hashtags</li>
-            <li>Reddit activity on r/CryptoCurrency</li>
-            <li>Whale wallet alerts & large transfers</li>
-            <li>Exchange listing announcements</li>
-            <li>Google Trends search volume spikes</li>
-            <li>Influencer social media activity</li>
+            <li>{mt("insights.signals.items.twitter")}</li>
+            <li>{mt("insights.signals.items.reddit")}</li>
+            <li>{mt("insights.signals.items.whales")}</li>
+            <li>{mt("insights.signals.items.listings")}</li>
+            <li>{mt("insights.signals.items.google")}</li>
+            <li>{mt("insights.signals.items.influencers")}</li>
           </ul>
         </div>
       </section>
 
       {/* CTA */}
       <section style={{ marginTop: "48px", padding: "32px", backgroundColor: "rgba(162,120,65,0.08)", borderRadius: "8px", border: "1px solid rgba(162,120,65,0.2)", textAlign: "center" }}>
-        <p className="eyebrow">Full Crypto Market</p>
-        <h3>Explore All Cryptocurrencies</h3>
-        <p style={{ color: "#475569", marginTop: "8px", marginBottom: "20px", maxWidth: "480px", margin: "8px auto 20px" }}>
-          Compare meme coins against blue-chip assets, DeFi protocols, and layer-1 blockchains.
-        </p>
+        <p className="eyebrow">{ct("fullCryptoMarket")}</p>
+        <h3>{ct("exploreAllCryptocurrencies")}</h3>
+        <p style={{ color: "#475569", marginTop: "8px", marginBottom: "20px", maxWidth: "480px", margin: "8px auto 20px" }}>{mt("cta.description")}</p>
         <Link to="/crypto" className="primary-action" style={{ textDecoration: "none" }}>
-          View All Coins
+          {t("crypto:viewAllCryptocurrencies")}
         </Link>
       </section>
     </div>
@@ -244,6 +260,8 @@ const MemeCoinsPage: React.FC = () => {
 // ── Stablecoins ───────────────────────────────────────────────────────────────
 
 const StablecoinsPage: React.FC = () => {
+  const { t } = useI18n();
+  const tx = (value: string) => translateSourceText(t, value);
   const coins = cryptocurrencies.filter(c => c.category === "Stablecoin");
   const totalSupply = coins.reduce((s, c) => s + (c.circulatingSupply ?? 0), 0);
   const avgDev = 0.012;
@@ -252,24 +270,23 @@ const StablecoinsPage: React.FC = () => {
     <div className="page intelligence-page">
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">Price Stability</p>
-          <h1>Stablecoins</h1>
+          <p className="eyebrow">{translateStatic(t, "pages.cryptoCategory.stableEyebrow", "Price Stability")}</p>
+          <h1>{translateStatic(t, "pages.cryptoCategory.stableTitle", "Stablecoins")}</h1>
           <p>
-            Cryptocurrencies pegged to fiat currencies or real-world assets, providing stability for trading,
-            DeFi liquidity, cross-border payments, and hedging against market volatility.
+            {translateStatic(t, "pages.cryptoCategory.stableBody", "Cryptocurrencies pegged to fiat currencies or real-world assets, providing stability for trading, DeFi liquidity, cross-border payments, and hedging against market volatility.")}
           </p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>Stablecoins Listed</span>
+            <span>{tx("Stablecoins Listed")}</span>
             <strong>{coins.length}</strong>
           </div>
           <div className="metric-tile">
-            <span>Total Supply</span>
+            <span>{tx("Total Supply")}</span>
             <strong>{fmt(totalSupply)}</strong>
           </div>
           <div className="metric-tile">
-            <span>Avg Peg Deviation</span>
+            <span>{tx("Avg Peg Deviation")}</span>
             <strong style={{ color: "#059669" }}>±{avgDev}%</strong>
           </div>
         </div>
@@ -278,8 +295,8 @@ const StablecoinsPage: React.FC = () => {
       {/* Coin Table */}
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "20px" }}>
-          <p className="eyebrow">Market Overview</p>
-          <h2>Stablecoin Rankings</h2>
+          <p className="eyebrow">{tx("Market Overview")}</p>
+          <h2>{tx("Stablecoin Rankings")}</h2>
         </div>
         <div style={{ overflowX: "auto" }}>
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -287,7 +304,7 @@ const StablecoinsPage: React.FC = () => {
               <tr style={{ borderBottom: "2px solid #e2e8f0", background: "rgba(162,120,65,0.05)" }}>
                 {["#", "Name", "Price", "24h Change", "Peg Type", "Backing", "Market Cap", "24h Volume"].map(h => (
                   <th key={h} style={{ padding: "12px 16px", textAlign: h === "#" || h === "Name" ? "left" : "right", fontWeight: 700, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.5px", color: "#64748b", whiteSpace: "nowrap" }}>
-                    {h}
+                    {h === "#" ? h : tx(h)}
                   </th>
                 ))}
               </tr>
@@ -313,7 +330,7 @@ const StablecoinsPage: React.FC = () => {
                             {coin.symbol.slice(0, 2)}
                           </div>
                           <div>
-                            <strong style={{ display: "block", fontSize: "14px" }}>{coin.name}</strong>
+                            <strong style={{ display: "block", fontSize: "14px" }}>{translateStatic(t, coin.nameKey, coin.name)}</strong>
                             <span style={{ fontSize: "12px", color: "#94a3b8" }}>{coin.symbol}</span>
                           </div>
                         </div>
@@ -335,7 +352,7 @@ const StablecoinsPage: React.FC = () => {
                     <td style={{ padding: "14px 16px", textAlign: "right" }}>
                       <span style={{ color: "#475569" }}>{fmt(d.volume)}</span>
                       {isPegged && (
-                        <span style={{ display: "block", fontSize: "10px", color: "#059669", fontWeight: 600 }}>Peg ✓</span>
+                        <span style={{ display: "block", fontSize: "10px", color: "#059669", fontWeight: 600 }}>{tx("Peg ?")}</span>
                       )}
                     </td>
                   </tr>
@@ -349,52 +366,50 @@ const StablecoinsPage: React.FC = () => {
       {/* Insight Panels */}
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">How They Work</p>
-          <h3>Peg Mechanisms</h3>
+          <p className="eyebrow">{tx("How They Work")}</p>
+          <h3>{tx("Peg Mechanisms")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.8", color: "#475569", paddingLeft: "20px", marginTop: "12px" }}>
-            <li><strong>Fiat-backed</strong> — 1:1 reserves in USD (USDT, USDC)</li>
-            <li><strong>Crypto-collateralised</strong> — Over-collateralised with ETH/RWA (DAI)</li>
-            <li><strong>Algorithmic</strong> — Smart contract supply management</li>
-            <li>Audits & attestations maintain trust</li>
-            <li>Reserve transparency varies by issuer</li>
-            <li>Redemption mechanisms protect the peg</li>
+            <li><strong>{tx("Fiat-backed")}</strong>{tx(" — 1:1 reserves in USD (USDT, USDC)")}</li>
+            <li><strong>{tx("Crypto-collateralised")}</strong>{tx(" — Over-collateralised with ETH/RWA (DAI)")}</li>
+            <li><strong>{tx("Algorithmic")}</strong>{tx(" — Smart contract supply management")}</li>
+            <li>{tx("Audits & attestations maintain trust")}</li>
+            <li>{tx("Reserve transparency varies by issuer")}</li>
+            <li>{tx("Redemption mechanisms protect the peg")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Regulation</p>
-          <h3>Global Regulatory Landscape</h3>
+          <p className="eyebrow">{tx("Regulation")}</p>
+          <h3>{tx("Global Regulatory Landscape")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.8", color: "#475569", paddingLeft: "20px", marginTop: "12px" }}>
-            <li>EU MiCA framework — live since 2024</li>
-            <li>US GENIUS Act — stablecoin reserve rules</li>
-            <li>UK FCA stablecoin licensing regime</li>
-            <li>Hong Kong HKMA licensing pilot</li>
-            <li>Singapore MAS Payment Services Act</li>
-            <li>FATF travel rule applies globally</li>
+            <li>{tx("EU MiCA framework — live since 2024")}</li>
+            <li>{tx("US GENIUS Act — stablecoin reserve rules")}</li>
+            <li>{tx("UK FCA stablecoin licensing regime")}</li>
+            <li>{tx("Hong Kong HKMA licensing pilot")}</li>
+            <li>{tx("Singapore MAS Payment Services Act")}</li>
+            <li>{tx("FATF travel rule applies globally")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Use Cases</p>
-          <h3>Why Stablecoins Matter</h3>
+          <p className="eyebrow">{tx("Use Cases")}</p>
+          <h3>{tx("Why Stablecoins Matter")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.8", color: "#475569", paddingLeft: "20px", marginTop: "12px" }}>
-            <li>DeFi liquidity pools & yield farming</li>
-            <li>Cross-border remittances at low cost</li>
-            <li>Crypto trading pairs on all exchanges</li>
-            <li>Hedging against volatile crypto assets</li>
-            <li>On-chain payroll & business payments</li>
-            <li>Collateral in lending protocols</li>
+            <li>{tx("DeFi liquidity pools & yield farming")}</li>
+            <li>{tx("Cross-border remittances at low cost")}</li>
+            <li>{tx("Crypto trading pairs on all exchanges")}</li>
+            <li>{tx("Hedging against volatile crypto assets")}</li>
+            <li>{tx("On-chain payroll & business payments")}</li>
+            <li>{tx("Collateral in lending protocols")}</li>
           </ul>
         </div>
       </section>
 
       {/* CTA */}
       <section style={{ marginTop: "48px", padding: "32px", backgroundColor: "rgba(162,120,65,0.08)", borderRadius: "8px", border: "1px solid rgba(162,120,65,0.2)", textAlign: "center" }}>
-        <p className="eyebrow">Full Crypto Market</p>
-        <h3>Explore All Cryptocurrencies</h3>
-        <p style={{ color: "#475569", marginTop: "8px", marginBottom: "20px", maxWidth: "480px", margin: "8px auto 20px" }}>
-          Compare stablecoins against volatile assets, DeFi protocols, and layer-1 blockchains.
-        </p>
+        <p className="eyebrow">{tx("Full Crypto Market")}</p>
+        <h3>{tx("Explore All Cryptocurrencies")}</h3>
+        <p style={{ color: "#475569", marginTop: "8px", marginBottom: "20px", maxWidth: "480px", margin: "8px auto 20px" }}>{tx("Compare stablecoins against volatile assets, DeFi protocols, and layer-1 blockchains.")}</p>
         <Link to="/crypto" className="primary-action" style={{ textDecoration: "none" }}>
-          View All Coins
+          {t("crypto:viewAllCryptocurrencies")}
         </Link>
       </section>
     </div>
@@ -404,6 +419,8 @@ const StablecoinsPage: React.FC = () => {
 // ── DeFi ─────────────────────────────────────────────────────────────────────
 
 const DeFiPage: React.FC = () => {
+  const { t } = useI18n();
+  const tx = (value: string) => translateSourceText(t, value);
   const coins = cryptocurrencies.filter(c => c.category === "DeFi");
   const totalTVL = 29.4e9;
   const totalMCap = Object.values(DEFI_PRICES).reduce((s, d) => s + d.marketCap, 0);
@@ -413,24 +430,23 @@ const DeFiPage: React.FC = () => {
     <div className="page intelligence-page">
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">Decentralised Finance</p>
-          <h1>DeFi Ecosystem</h1>
+          <p className="eyebrow">{translateStatic(t, "pages.cryptoCategory.defiEyebrow", "Decentralised Finance")}</p>
+          <h1>{translateStatic(t, "pages.cryptoCategory.defiTitle", "DeFi Ecosystem")}</h1>
           <p>
-            Open financial protocols built on blockchain — enabling permissionless lending, borrowing,
-            trading, and yield generation without intermediaries.
+            {t("pages.cryptoCategory.defiBody", "Open financial protocols built on blockchain — enabling permissionless lending, borrowing, trading, and yield generation without intermediaries.")}
           </p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>Protocols Listed</span>
+            <span>{tx("Protocols Listed")}</span>
             <strong>{coins.length}</strong>
           </div>
           <div className="metric-tile">
-            <span>Total Value Locked</span>
+            <span>{tx("Total Value Locked")}</span>
             <strong>{fmt(totalTVL)}</strong>
           </div>
           <div className="metric-tile">
-            <span>Top Gainer (24h)</span>
+            <span>{tx("Top Gainer (24h)")}</span>
             <strong style={{ color: "#059669" }}>{topGainer[0]} +{topGainer[1].change.toFixed(2)}%</strong>
           </div>
         </div>
@@ -438,8 +454,8 @@ const DeFiPage: React.FC = () => {
 
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "20px" }}>
-          <p className="eyebrow">Market Overview</p>
-          <h2>DeFi Protocol Rankings</h2>
+          <p className="eyebrow">{tx("Market Overview")}</p>
+          <h2>{tx("DeFi Protocol Rankings")}</h2>
         </div>
         <div style={{ overflowX: "auto" }}>
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -447,7 +463,7 @@ const DeFiPage: React.FC = () => {
               <tr style={{ borderBottom: "2px solid #e2e8f0", background: "rgba(162,120,65,0.05)" }}>
                 {["#", "Protocol", "Price", "24h Change", "Type", "TVL", "Market Cap", "24h Volume"].map(h => (
                   <th key={h} style={{ padding: "12px 16px", textAlign: h === "#" || h === "Protocol" ? "left" : "right", fontWeight: 700, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.5px", color: "#64748b", whiteSpace: "nowrap" }}>
-                    {h}
+                    {h === "#" ? h : tx(h)}
                   </th>
                 ))}
               </tr>
@@ -468,7 +484,7 @@ const DeFiPage: React.FC = () => {
                             {coin.symbol.slice(0, 2)}
                           </div>
                           <div>
-                            <strong style={{ display: "block", fontSize: "14px" }}>{coin.name}</strong>
+                            <strong style={{ display: "block", fontSize: "14px" }}>{translateStatic(t, coin.nameKey, coin.name)}</strong>
                             <span style={{ fontSize: "12px", color: "#94a3b8" }}>{coin.symbol}</span>
                           </div>
                         </div>
@@ -496,50 +512,48 @@ const DeFiPage: React.FC = () => {
 
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">Core Primitives</p>
-          <h3>How DeFi Works</h3>
+          <p className="eyebrow">{tx("Core Primitives")}</p>
+          <h3>{tx("How DeFi Works")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.8", color: "#475569", paddingLeft: "20px", marginTop: "12px" }}>
-            <li><strong>AMMs</strong> — Automated market makers replace order books</li>
-            <li><strong>Lending</strong> — Overcollateralised loans via smart contracts</li>
-            <li><strong>Yield farming</strong> — Earn rewards by providing liquidity</li>
-            <li><strong>Governance</strong> — Token holders vote on protocol changes</li>
-            <li><strong>Flash loans</strong> — Uncollateralised single-transaction loans</li>
-            <li><strong>Derivatives</strong> — Synthetic assets and perpetual futures</li>
+            <li><strong>{tx("AMMs")}</strong>{tx(" — Automated market makers replace order books")}</li>
+            <li><strong>{tx("Lending")}</strong>{tx(" — Overcollateralised loans via smart contracts")}</li>
+            <li><strong>{tx("Yield farming")}</strong>{tx(" — Earn rewards by providing liquidity")}</li>
+            <li><strong>{tx("Governance")}</strong>{tx(" — Token holders vote on protocol changes")}</li>
+            <li><strong>{tx("Flash loans")}</strong>{tx(" — Uncollateralised single-transaction loans")}</li>
+            <li><strong>{tx("Derivatives")}</strong>{tx(" — Synthetic assets and perpetual futures")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Risk Profile</p>
-          <h3>DeFi-Specific Risks</h3>
+          <p className="eyebrow">{tx("Risk Profile")}</p>
+          <h3>{tx("DeFi-Specific Risks")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.8", color: "#475569", paddingLeft: "20px", marginTop: "12px" }}>
-            <li>Smart contract exploits & audit failures</li>
-            <li>Oracle manipulation attacks</li>
-            <li>Impermanent loss for liquidity providers</li>
-            <li>Liquidation cascades in bear markets</li>
-            <li>Governance token centralisation</li>
-            <li>Regulatory scrutiny on unlicensed lending</li>
+            <li>{tx("Smart contract exploits & audit failures")}</li>
+            <li>{tx("Oracle manipulation attacks")}</li>
+            <li>{tx("Impermanent loss for liquidity providers")}</li>
+            <li>{tx("Liquidation cascades in bear markets")}</li>
+            <li>{tx("Governance token centralisation")}</li>
+            <li>{tx("Regulatory scrutiny on unlicensed lending")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Key Metrics</p>
-          <h3>What to Track</h3>
+          <p className="eyebrow">{tx("Key Metrics")}</p>
+          <h3>{tx("What to Track")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.8", color: "#475569", paddingLeft: "20px", marginTop: "12px" }}>
-            <li>Total Value Locked (TVL) per protocol</li>
-            <li>Protocol revenue & fee generation</li>
-            <li>Active wallet addresses</li>
-            <li>Liquidation volumes & health factors</li>
-            <li>Token distribution & whale concentration</li>
-            <li>Audit status & bug bounty coverage</li>
+            <li>{tx("Total Value Locked (TVL) per protocol")}</li>
+            <li>{tx("Protocol revenue & fee generation")}</li>
+            <li>{tx("Active wallet addresses")}</li>
+            <li>{tx("Liquidation volumes & health factors")}</li>
+            <li>{tx("Token distribution & whale concentration")}</li>
+            <li>{tx("Audit status & bug bounty coverage")}</li>
           </ul>
         </div>
       </section>
 
       <section style={{ marginTop: "48px", padding: "32px", backgroundColor: "rgba(162,120,65,0.08)", borderRadius: "8px", border: "1px solid rgba(162,120,65,0.2)", textAlign: "center" }}>
-        <p className="eyebrow">Full Crypto Market</p>
-        <h3>Explore All Cryptocurrencies</h3>
-        <p style={{ color: "#475569", marginTop: "8px", marginBottom: "20px", maxWidth: "480px", margin: "8px auto 20px" }}>
-          Compare DeFi protocols against layer-1 blockchains, stablecoins, and meme coins.
-        </p>
-        <Link to="/crypto" className="primary-action" style={{ textDecoration: "none" }}>View All Coins</Link>
+        <p className="eyebrow">{tx("Full Crypto Market")}</p>
+        <h3>{tx("Explore All Cryptocurrencies")}</h3>
+        <p style={{ color: "#475569", marginTop: "8px", marginBottom: "20px", maxWidth: "480px", margin: "8px auto 20px" }}>{tx("Compare DeFi protocols against layer-1 blockchains, stablecoins, and meme coins.")}</p>
+        <Link to="/crypto" className="primary-action" style={{ textDecoration: "none" }}>{tx("View All Coins")}</Link>
       </section>
     </div>
   );
@@ -548,6 +562,8 @@ const DeFiPage: React.FC = () => {
 // ── Layer 1 ───────────────────────────────────────────────────────────────────
 
 const Layer1Page: React.FC = () => {
+  const { t } = useI18n();
+  const tx = (value: string) => translateSourceText(t, value);
   const coins = cryptocurrencies.filter(c => c.category === "Layer 1");
   const totalMCap = Object.values(LAYER1_PRICES).reduce((s, d) => s + d.marketCap, 0);
   const topGainer = Object.entries(LAYER1_PRICES).reduce((a, b) => b[1].change > a[1].change ? b : a);
@@ -556,24 +572,23 @@ const Layer1Page: React.FC = () => {
     <div className="page intelligence-page">
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">Blockchain Infrastructure</p>
-          <h1>Layer 1 Blockchains</h1>
+          <p className="eyebrow">{translateStatic(t, "pages.cryptoCategory.layer1Eyebrow", "Blockchain Infrastructure")}</p>
+          <h1>{translateStatic(t, "pages.cryptoCategory.layer1Title", "Layer 1 Blockchains")}</h1>
           <p>
-            The foundational settlement layers of the crypto ecosystem — independent blockchain networks
-            competing on speed, security, decentralisation, and developer adoption.
+            {t("pages.cryptoCategory.layer1Body", "The foundational settlement layers of the crypto ecosystem — independent blockchain networks competing on speed, security, decentralisation, and developer adoption.")}
           </p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>Chains Listed</span>
+            <span>{tx("Chains Listed")}</span>
             <strong>{coins.length}</strong>
           </div>
           <div className="metric-tile">
-            <span>Combined Market Cap</span>
+            <span>{tx("Combined Market Cap")}</span>
             <strong>{fmt(totalMCap)}</strong>
           </div>
           <div className="metric-tile">
-            <span>Top Gainer (24h)</span>
+            <span>{tx("Top Gainer (24h)")}</span>
             <strong style={{ color: "#059669" }}>{topGainer[0]} +{topGainer[1].change.toFixed(2)}%</strong>
           </div>
         </div>
@@ -581,8 +596,8 @@ const Layer1Page: React.FC = () => {
 
       <section style={{ marginBottom: "48px" }}>
         <div style={{ marginBottom: "20px" }}>
-          <p className="eyebrow">Market Overview</p>
-          <h2>Layer 1 Rankings</h2>
+          <p className="eyebrow">{tx("Market Overview")}</p>
+          <h2>{tx("Layer 1 Rankings")}</h2>
         </div>
         <div style={{ overflowX: "auto" }}>
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -590,7 +605,7 @@ const Layer1Page: React.FC = () => {
               <tr style={{ borderBottom: "2px solid #e2e8f0", background: "rgba(162,120,65,0.05)" }}>
                 {["#", "Chain", "Price", "24h Change", "Consensus", "Max TPS", "Market Cap", "24h Volume"].map(h => (
                   <th key={h} style={{ padding: "12px 16px", textAlign: h === "#" || h === "Chain" ? "left" : "right", fontWeight: 700, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.5px", color: "#64748b", whiteSpace: "nowrap" }}>
-                    {h}
+                    {h === "#" ? h : tx(h)}
                   </th>
                 ))}
               </tr>
@@ -611,7 +626,7 @@ const Layer1Page: React.FC = () => {
                             {coin.symbol.slice(0, 2)}
                           </div>
                           <div>
-                            <strong style={{ display: "block", fontSize: "14px" }}>{coin.name}</strong>
+                            <strong style={{ display: "block", fontSize: "14px" }}>{translateStatic(t, coin.nameKey, coin.name)}</strong>
                             <span style={{ fontSize: "12px", color: "#94a3b8" }}>{coin.symbol}</span>
                           </div>
                         </div>
@@ -635,50 +650,48 @@ const Layer1Page: React.FC = () => {
 
       <section className="intelligence-grid">
         <div className="intelligence-panel">
-          <p className="eyebrow">The Trilemma</p>
-          <h3>Security · Scalability · Decentralisation</h3>
+          <p className="eyebrow">{tx("The Trilemma")}</p>
+          <h3>{tx("Security · Scalability · Decentralisation")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.8", color: "#475569", paddingLeft: "20px", marginTop: "12px" }}>
-            <li>Bitcoin prioritises security & decentralisation</li>
-            <li>Solana prioritises speed & scalability</li>
-            <li>Ethereum balances all three post-Merge</li>
-            <li>PoW vs PoS energy trade-offs</li>
-            <li>Validator count drives decentralisation</li>
-            <li>Sharding & rollups extend base-layer capacity</li>
+            <li>{tx("Bitcoin prioritises security & decentralisation")}</li>
+            <li>{tx("Solana prioritises speed & scalability")}</li>
+            <li>{tx("Ethereum balances all three post-Merge")}</li>
+            <li>{tx("PoW vs PoS energy trade-offs")}</li>
+            <li>{tx("Validator count drives decentralisation")}</li>
+            <li>{tx("Sharding & rollups extend base-layer capacity")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Developer Ecosystem</p>
-          <h3>Where Builders Are Going</h3>
+          <p className="eyebrow">{tx("Developer Ecosystem")}</p>
+          <h3>{tx("Where Builders Are Going")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.8", color: "#475569", paddingLeft: "20px", marginTop: "12px" }}>
-            <li>Ethereum — largest dApp & DeFi ecosystem</li>
-            <li>Solana — high-frequency trading & gaming</li>
-            <li>BNB Chain — retail DeFi & low-fee swaps</li>
-            <li>Cosmos — IBC cross-chain interoperability</li>
-            <li>Polkadot — parachain specialisation model</li>
-            <li>TON — Telegram's 900M user base integration</li>
+            <li>{tx("Ethereum — largest dApp & DeFi ecosystem")}</li>
+            <li>{tx("Solana — high-frequency trading & gaming")}</li>
+            <li>{tx("BNB Chain — retail DeFi & low-fee swaps")}</li>
+            <li>{tx("Cosmos — IBC cross-chain interoperability")}</li>
+            <li>{tx("Polkadot — parachain specialisation model")}</li>
+            <li>{tx("TON — Telegram's 900M user base integration")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">Investment Lens</p>
-          <h3>What to Evaluate</h3>
+          <p className="eyebrow">{tx("Investment Lens")}</p>
+          <h3>{tx("What to Evaluate")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.8", color: "#475569", paddingLeft: "20px", marginTop: "12px" }}>
-            <li>Active developer count & GitHub commits</li>
-            <li>Daily active addresses & transaction volume</li>
-            <li>Staking yield & validator economics</li>
-            <li>Tokenomics — inflation rate & supply schedule</li>
-            <li>Ecosystem TVL & dApp diversity</li>
-            <li>Institutional custody & ETF availability</li>
+            <li>{tx("Active developer count & GitHub commits")}</li>
+            <li>{tx("Daily active addresses & transaction volume")}</li>
+            <li>{tx("Staking yield & validator economics")}</li>
+            <li>{tx("Tokenomics — inflation rate & supply schedule")}</li>
+            <li>{tx("Ecosystem TVL & dApp diversity")}</li>
+            <li>{tx("Institutional custody & ETF availability")}</li>
           </ul>
         </div>
       </section>
 
       <section style={{ marginTop: "48px", padding: "32px", backgroundColor: "rgba(162,120,65,0.08)", borderRadius: "8px", border: "1px solid rgba(162,120,65,0.2)", textAlign: "center" }}>
-        <p className="eyebrow">Full Crypto Market</p>
-        <h3>Explore All Cryptocurrencies</h3>
-        <p style={{ color: "#475569", marginTop: "8px", marginBottom: "20px", maxWidth: "480px", margin: "8px auto 20px" }}>
-          Compare layer-1 blockchains against DeFi protocols, stablecoins, and meme coins.
-        </p>
-        <Link to="/crypto" className="primary-action" style={{ textDecoration: "none" }}>View All Coins</Link>
+        <p className="eyebrow">{tx("Full Crypto Market")}</p>
+        <h3>{tx("Explore All Cryptocurrencies")}</h3>
+        <p style={{ color: "#475569", marginTop: "8px", marginBottom: "20px", maxWidth: "480px", margin: "8px auto 20px" }}>{tx("Compare layer-1 blockchains against DeFi protocols, stablecoins, and meme coins.")}</p>
+        <Link to="/crypto" className="primary-action" style={{ textDecoration: "none" }}>{tx("View All Coins")}</Link>
       </section>
     </div>
   );

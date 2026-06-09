@@ -1,34 +1,260 @@
 {
-  "currencyType": "Jenis Mata Wang",
-  "centralBank": "Bank Pusat",
-  "exchangeRates": "Kadar Pertukaran",
-  "converter": "Penukar",
-  "popularPairs": "Pasangan Popular",
-  "economicData": "Data Ekonomi",
-  "code": "Kod",
-  "symbol": "Simbol",
-  "country": "Negara",
-  "region": "Wilayah",
-  "type": "Jenis",
-  "rate": "Kadar",
-  "bid": "Bid",
-  "ask": "Ask",
-  "spread": "Spread",
-  "loadingRates": "Memuatkan kadar pertukaran...",
   "amountPlaceholder": "Masukkan jumlah",
-  "economicIndicators": "Petunjuk Ekonomi",
-  "interestRate": "Kadar Faedah",
-  "inflationRate": "Kadar Inflasi",
-  "gdpGrowth": "Pertumbuhan KDNK",
-  "employment": "Pekerjaan",
-  "dataLoading": "Memuatkan data...",
-  "economicNews": "Berita & Kemaskini Ekonomi",
+  "annualRate": "Kadar tahunan",
+  "ask": "Tanya",
+  "bid": "Bida",
+  "centralBank": "Bank Pusat",
+  "change24h": "Perubahan 24j",
+  "code": "Kod",
+  "converter": "Penukar",
+  "countries": {
+    "ae": {
+      "name": "Emiriah Arab Bersatu"
+    },
+    "au": {
+      "name": "Australia"
+    },
+    "br": {
+      "name": "Brazil"
+    },
+    "ca": {
+      "name": "Kanada"
+    },
+    "ch": {
+      "name": "Switzerland"
+    },
+    "cl": {
+      "name": "Chile"
+    },
+    "cn": {
+      "name": "China"
+    },
+    "eu": {
+      "name": "Kesatuan Eropah"
+    },
+    "gb": {
+      "name": "United Kingdom"
+    },
+    "hk": {
+      "name": "Hong Kong"
+    },
+    "in": {
+      "name": "India"
+    },
+    "jp": {
+      "name": "Jepun"
+    },
+    "kr": {
+      "name": "Korea Selatan"
+    },
+    "mx": {
+      "name": "Mexico"
+    },
+    "no": {
+      "name": "Norway"
+    },
+    "sa": {
+      "name": "Arab Saudi"
+    },
+    "se": {
+      "name": "Sweden"
+    },
+    "sg": {
+      "name": "Singapura"
+    },
+    "us": {
+      "name": "Amerika Syarikat"
+    },
+    "za": {
+      "name": "Afrika Selatan"
+    }
+  },
+  "country": "Negara",
+  "currencies": {
+    "aed": {
+      "name": "Dirham UAE",
+      "description": "Mata wang disandarkan kepada USD hab kewangan Teluk"
+    },
+    "aud": {
+      "name": "Dolar Australia",
+      "description": "Mata wang berkaitan komoditi, hab utama Asia-Pasifik"
+    },
+    "brl": {
+      "name": "Real Brazil",
+      "description": "Mata wang ekonomi terbesar Amerika Latin"
+    },
+    "cad": {
+      "name": "Dolar Kanada",
+      "description": "Mata wang berkaitan komoditi negara G7"
+    },
+    "chf": {
+      "name": "Franc Swiss",
+      "description": "Mata wang selamat yang terkenal dengan kestabilan dan kuasa beli yang kukuh"
+    },
+    "clp": {
+      "name": "Peso Chile",
+      "description": "Mata wang negara Amerika Latin yang stabil dari segi ekonomi"
+    },
+    "cny": {
+      "name": "Yuan Cina",
+      "description": "Mata wang ekonomi kedua terbesar di dunia"
+    },
+    "eur": {
+      "name": "Euro",
+      "description": "Mata wang zon Euro, mata wang rizab kedua terbesar"
+    },
+    "gbp": {
+      "name": "Paun Sterling British",
+      "description": "Mata wang UK, salah satu mata wang tertua"
+    },
+    "hkd": {
+      "name": "Dolar Hong Kong",
+      "description": "Ditambat kepada Dolar AS, mata wang hab kewangan utama Asia"
+    },
+    "inr": {
+      "name": "Rupee India",
+      "description": "Mata wang negara paling ramai penduduk dunia dan ekonomi utama yang paling pesat berkembang"
+    },
+    "jpy": {
+      "name": "Yen Jepun",
+      "description": "Mata wang rizab ketiga terbesar, aset selamat"
+    },
+    "krw": {
+      "name": "Won Korea Selatan",
+      "description": "Mata wang hab teknologi dan pembuatan utama"
+    },
+    "mxn": {
+      "name": "Peso Mexico",
+      "description": "Mata wang rakan perdagangan utama Amerika Utara"
+    },
+    "nok": {
+      "name": "Krone Norway",
+      "description": "Mata wang pengeksport tenaga utama, rangkaian komoditi yang kukuh"
+    },
+    "sar": {
+      "name": "Riyal Arab Saudi",
+      "description": "Mata wang ditambat kepada USD pengeksport minyak terbesar dunia"
+    },
+    "sek": {
+      "name": "Krona Sweden",
+      "description": "Mata wang Eropah Utara dengan asas perindustrian"
+    },
+    "sgd": {
+      "name": "Dolar Singapura",
+      "description": "Mata wang serantau yang kukuh di Asia Tenggara"
+    },
+    "usd": {
+      "name": "Dolar Amerika Syarikat",
+      "description": "Mata wang rizab yang paling banyak digunakan di dunia dan standard global."
+    },
+    "zar": {
+      "name": "Rand Afrika Selatan",
+      "description": "Mata wang pengeluar komoditi dan ekonomi terbesar Afrika"
+    }
+  },
   "currencyNewsComing": "Berita ekonomi terkini akan dipaparkan di sini",
   "currencyNewsSubtitle": "Keputusan kadar faedah, laporan inflasi, dan banyak lagi",
-  "vsUsd": "lwn USD",
+  "currencyType": "Jenis Mata Wang",
+  "dataLoading": "Memuatkan data...",
+  "economicData": "Data Ekonomi",
+  "economicIndicators": "Petunjuk Ekonomi",
+  "economicNews": "Berita & Kemaskini Ekonomi",
+  "employment": "Pekerjaan",
+  "exchangeRates": "Kadar Pertukaran",
+  "gdpGrowth": "Pertumbuhan KDNK",
   "high52w": "Tertinggi 52M",
+  "inflationRate": "Kadar Inflasi",
+  "interestRate": "Kadar Faedah",
+  "loadingRates": "Memuatkan kadar pertukaran...",
   "low52w": "Terendah 52M",
-  "annualRate": "Kadar tahunan",
+  "popularPairs": "Pasangan Popular",
   "quarterlyRate": "Kadar suku tahun",
-  "change24h": "Perubahan 24j"
+  "rate": "Kadar",
+  "region": "Wilayah",
+  "spread": "Sebar",
+  "symbol": "Simbol",
+  "type": "Jenis",
+  "vsUsd": "lwn USD",
+  "ratesVsMajorSubtitle": "1 {{code}} dinyatakan dalam mata wang utama lain",
+  "keyDataReleasesFor": "Pelepasan data utama untuk {{code}}",
+  "hoursAgo": "{{count}}j lalu",
+  "currencyTypes": {
+    "fiat": "Mata wang fiat",
+    "commodity": "Mata wang komoditi",
+    "crypto": "Mata wang kripto"
+  },
+  "centralBanks": {
+    "federalreserve": "Rizab Persekutuan",
+    "europeancentralbank": "Bank Pusat Eropah",
+    "bankofjapan": "Bank Jepun",
+    "bankofengland": "Bank England",
+    "swissnationalbank": "Bank Negara Swiss",
+    "peoplesbankofchina": "Bank Rakyat China",
+    "hongkongmonetaryauthority": "Pihak Berkuasa Monetari Hong Kong",
+    "reservebankofindia": "Rizab Bank India",
+    "reservebankofaustralia": "Rizab Bank Australia",
+    "monetaryauthorityofsingapore": "Pihak Berkuasa Monetari Singapura",
+    "bankofkorea": "Bank Korea",
+    "bankofcanada": "Bank Kanada",
+    "centralbankofbrazil": "Bank Pusat Brazil",
+    "bancodemxico": "Banco de México",
+    "centralbankofchile": "Bank Pusat Chile",
+    "riksbank": "Riksbank",
+    "norgesbank": "Bank Norway",
+    "saudicentralbank": "Bank Pusat Arab Saudi",
+    "centralbankoftheuae": "Bank Pusat UAE",
+    "southafricanreservebank": "Rizab Bank Afrika Selatan"
+  },
+  "regions": {
+    "northamerica": "Amerika Utara",
+    "europe": "Eropah",
+    "asia": "Asia",
+    "americas": "Amerika",
+    "middleeast": "Timur Tengah",
+    "africa": "Afrika"
+  },
+  "impacts": {
+    "High": "Tinggi",
+    "Medium": "Sederhana",
+    "Low": "Rendah"
+  },
+  "events": {
+    "nonFarmPayrolls": "Gaji Bukan Pertanian",
+    "ecbPressConference": "Sidang Media ECB",
+    "boeGovernorSpeech": "Ucapan Gabenor BoE",
+    "fomcMinutes": "Minit FOMC",
+    "bojSummaryOpinions": "Ringkasan Pendapat BoJ",
+    "rbaStatement": "Pernyataan RBA",
+    "currencyCpiRelease": "Pelepasan CPI {{code}}",
+    "centralBankPolicyUpdate": "Kemas kini dasar {{centralBank}}",
+    "currencyRetailSales": "Jualan runcit {{code}}",
+    "currencyTradeBalance": "Imbangan dagangan {{code}}"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "{{code}} mengukuhkan jangkaan dasar",
+    "currencyWeakensPolicy": "{{code}} melemahkan jangkaan dasar",
+    "centralBankDataDependent": "{{centralBank}} menandakan laluan bergantung data",
+    "currencyLiquidityRobust": "Kecairan {{code}} kekal kukuh dalam aliran rentas sempadan",
+    "currencyFairValueUpdated": "Nota penganalisis: Nilai adil {{code}} dikemas kini",
+    "usdRallyPauses": "Rali USD berhenti menjelang minit FOMC",
+    "ecbDataDependent": "ECB menandakan laluan bergantung data, EUR diniagakan berat",
+    "jpyInterventionWatch": "Pemantauan campur tangan JPY disambung semula apabila USD/JPY menguji 156",
+    "gbpStickyInflation": "GBP disokong oleh inflasi perkhidmatan yang berterusan",
+    "cnyWeakerMidpoint": "CNY di bawah tekanan apabila PBOC menetapkan titik tengah yang lebih lemah",
+    "audCommodityStrength": "AUD dibida berdasarkan kekuatan komoditi dan nada berisiko"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "Mata wang rizab utama",
+    "secondreservecurrency": "Mata wang rizab kedua",
+    "thirdreservecurrency": "Mata wang rizab ketiga",
+    "regionalreservecurrency": "Mata wang rizab serantau",
+    "regional": "Serantau"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "Aliran masuk tempat selamat",
+    "mixedinflows": "Aliran masuk bercampur",
+    "exportdrivenflows": "Aliran berasaskan eksport",
+    "commoditylinkedflows": "Aliran berkaitan komoditi",
+    "open": "Buka"
+  }
 }

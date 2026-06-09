@@ -1,34 +1,260 @@
 {
-  "currencyType": "Loại tiền tệ",
-  "centralBank": "Central Bank",
-  "exchangeRates": "Tỷ giá hối đoái",
-  "converter": "Bộ chuyển đổi",
-  "popularPairs": "Cặp phổ biến",
-  "economicData": "Dữ liệu kinh tế",
-  "code": "Mã",
-  "symbol": "Ký hiệu",
-  "country": "Quốc gia",
-  "region": "Khu vực",
-  "type": "Loại",
-  "rate": "Tỷ giá",
-  "bid": "Giá mua",
-  "ask": "Giá bán",
-  "spread": "Chênh lệch",
-  "loadingRates": "Đang tải tỷ giá...",
   "amountPlaceholder": "Nhập số lượng",
-  "economicIndicators": "Chỉ số kinh tế",
-  "interestRate": "Lãi suất",
-  "inflationRate": "Tỷ lệ lạm phát",
-  "gdpGrowth": "Tăng trưởng GDP",
-  "employment": "Employment",
-  "dataLoading": "Đang tải dữ liệu...",
-  "economicNews": "Tin tức & cập nhật kinh tế",
+  "annualRate": "Lãi suất hàng năm",
+  "ask": "Giá bán",
+  "bid": "Giá mua",
+  "centralBank": "Ngân hàng Trung ương",
+  "change24h": "Thay đổi 24h",
+  "code": "Mã",
+  "converter": "Bộ chuyển đổi",
+  "countries": {
+    "ae": {
+      "name": "Các tiểu vương quốc Ả Rập thống nhất"
+    },
+    "au": {
+      "name": "Úc"
+    },
+    "br": {
+      "name": "Brasil"
+    },
+    "ca": {
+      "name": "Ca-na-đa"
+    },
+    "ch": {
+      "name": "Thụy Sĩ"
+    },
+    "cl": {
+      "name": "Chilê"
+    },
+    "cn": {
+      "name": "Trung Quốc"
+    },
+    "eu": {
+      "name": "Liên minh Châu Âu"
+    },
+    "gb": {
+      "name": "Vương quốc Anh"
+    },
+    "hk": {
+      "name": "Hồng Kông"
+    },
+    "in": {
+      "name": "Ấn Độ"
+    },
+    "jp": {
+      "name": "Nhật Bản"
+    },
+    "kr": {
+      "name": "Hàn Quốc"
+    },
+    "mx": {
+      "name": "México"
+    },
+    "no": {
+      "name": "Na Uy"
+    },
+    "sa": {
+      "name": "Ả Rập Saudi"
+    },
+    "se": {
+      "name": "Thụy Điển"
+    },
+    "sg": {
+      "name": "Xin-ga-po"
+    },
+    "us": {
+      "name": "Hoa Kỳ"
+    },
+    "za": {
+      "name": "Nam Phi"
+    }
+  },
+  "country": "Quốc gia",
+  "currencies": {
+    "aed": {
+      "name": "Dirham UAE",
+      "description": "Tiền tệ được neo vào USD của trung tâm tài chính vùng Vịnh"
+    },
+    "aud": {
+      "name": "Đô la Úc",
+      "description": "Tiền tệ liên kết hàng hóa, trung tâm lớn của châu Á-Thái Bình Dương"
+    },
+    "brl": {
+      "name": "Real Brazil",
+      "description": "Tiền tệ của nền kinh tế lớn nhất Mỹ Latinh"
+    },
+    "cad": {
+      "name": "Đô la Canada",
+      "description": "Đồng tiền liên kết hàng hóa của nước G7"
+    },
+    "chf": {
+      "name": "Franc Thụy Sĩ",
+      "description": "Đồng tiền trú ẩn an toàn được biết đến với sự ổn định và sức mua mạnh mẽ"
+    },
+    "clp": {
+      "name": "Peso Chilê",
+      "description": "Tiền tệ của quốc gia Mỹ Latinh có nền kinh tế ổn định"
+    },
+    "cny": {
+      "name": "Nhân dân tệ Trung Quốc",
+      "description": "Tiền tệ của nền kinh tế lớn thứ hai thế giới"
+    },
+    "eur": {
+      "name": "Đồng euro",
+      "description": "Tiền tệ của Eurozone, tiền dự trữ lớn thứ hai"
+    },
+    "gbp": {
+      "name": "Đồng Bảng Anh",
+      "description": "Tiền tệ của Anh, một trong những loại tiền tệ lâu đời nhất"
+    },
+    "hkd": {
+      "name": "Đô la Hồng Kông",
+      "description": "Được gắn với đồng đô la Mỹ, đồng tiền trung tâm tài chính lớn của châu Á"
+    },
+    "inr": {
+      "name": "Rupee Ấn Độ",
+      "description": "Tiền tệ của quốc gia đông dân nhất thế giới và nền kinh tế lớn tăng trưởng nhanh nhất thế giới"
+    },
+    "jpy": {
+      "name": "Yên Nhật",
+      "description": "Đồng tiền dự trữ lớn thứ ba, tài sản trú ẩn an toàn"
+    },
+    "krw": {
+      "name": "Won Hàn Quốc",
+      "description": "Tiền tệ của trung tâm công nghệ và sản xuất lớn"
+    },
+    "mxn": {
+      "name": "Peso Mexico",
+      "description": "Tiền tệ của đối tác thương mại lớn Bắc Mỹ"
+    },
+    "nok": {
+      "name": "Krone Na Uy",
+      "description": "Đồng tiền của nước xuất khẩu năng lượng lớn, liên kết hàng hóa mạnh mẽ"
+    },
+    "sar": {
+      "name": "Riyal Ả Rập Saudi",
+      "description": "Đồng tiền được neo vào USD của nước xuất khẩu dầu lớn nhất thế giới"
+    },
+    "sek": {
+      "name": "Krona Thụy Điển",
+      "description": "Đồng tiền Bắc Âu với nền tảng công nghiệp"
+    },
+    "sgd": {
+      "name": "Đô la Singapore",
+      "description": "Đồng tiền khu vực mạnh ở Đông Nam Á"
+    },
+    "usd": {
+      "name": "Đô la Mỹ",
+      "description": "Đồng tiền dự trữ được sử dụng rộng rãi nhất thế giới và là tiêu chuẩn toàn cầu."
+    },
+    "zar": {
+      "name": "Rand Nam Phi",
+      "description": "Tiền tệ của nền kinh tế và sản xuất hàng hóa lớn nhất châu Phi"
+    }
+  },
   "currencyNewsComing": "Tin kinh tế mới nhất sẽ hiển thị tại đây",
-  "currencyNewsSubtitle": "Interest rate decisions, inflation reports, and more",
-  "vsUsd": "so với USD",
+  "currencyNewsSubtitle": "Quyết định lãi suất, báo cáo lạm phát, v.v.",
+  "currencyType": "Loại tiền tệ",
+  "dataLoading": "Đang tải dữ liệu...",
+  "economicData": "Dữ liệu kinh tế",
+  "economicIndicators": "Chỉ số kinh tế",
+  "economicNews": "Tin tức & cập nhật kinh tế",
+  "employment": "Thuê người làm",
+  "exchangeRates": "Tỷ giá hối đoái",
+  "gdpGrowth": "Tăng trưởng GDP",
   "high52w": "Cao 52 tuần",
+  "inflationRate": "Tỷ lệ lạm phát",
+  "interestRate": "Lãi suất",
+  "loadingRates": "Đang tải tỷ giá...",
   "low52w": "Thấp 52 tuần",
-  "annualRate": "Annual rate",
-  "quarterlyRate": "Quarterly rate",
-  "change24h": "Thay đổi 24h"
+  "popularPairs": "Cặp phổ biến",
+  "quarterlyRate": "Lãi suất hàng quý",
+  "rate": "Tỷ giá",
+  "region": "Khu vực",
+  "spread": "Chênh lệch",
+  "symbol": "Ký hiệu",
+  "type": "Loại",
+  "vsUsd": "so với USD",
+  "currencyTypes": {
+    "fiat": "Tiền pháp định",
+    "commodity": "Tiền tệ hàng hóa",
+    "crypto": "Tiền mã hóa"
+  },
+  "centralBanks": {
+    "federalreserve": "Cục Dự trữ Liên bang Mỹ",
+    "europeancentralbank": "Ngân hàng Trung ương Châu Âu",
+    "bankofjapan": "Ngân hàng Trung ương Nhật Bản",
+    "bankofengland": "Ngân hàng Trung ương Anh",
+    "swissnationalbank": "Ngân hàng Quốc gia Thụy Sĩ",
+    "peoplesbankofchina": "Ngân hàng Nhân dân Trung Quốc",
+    "hongkongmonetaryauthority": "Cơ quan Tiền tệ Hồng Kông",
+    "reservebankofindia": "Ngân hàng Dự trữ Ấn Độ",
+    "reservebankofaustralia": "Ngân hàng Dự trữ Úc",
+    "monetaryauthorityofsingapore": "Cơ quan Tiền tệ Singapore",
+    "bankofkorea": "Ngân hàng Trung ương Hàn Quốc",
+    "bankofcanada": "Ngân hàng Trung ương Canada",
+    "centralbankofbrazil": "Ngân hàng Trung ương Brazil",
+    "bancodemxico": "Banco de México",
+    "centralbankofchile": "Ngân hàng Trung ương Chile",
+    "riksbank": "Riksbank",
+    "norgesbank": "Ngân hàng Norges",
+    "saudicentralbank": "Ngân hàng Trung ương Saudi Arabia",
+    "centralbankoftheuae": "Ngân hàng Trung ương UAE",
+    "southafricanreservebank": "Ngân hàng Dự trữ Nam Phi"
+  },
+  "regions": {
+    "northamerica": "Bắc Mỹ",
+    "europe": "Châu Âu",
+    "asia": "Châu Á",
+    "americas": "Châu Mỹ",
+    "middleeast": "Trung Đông",
+    "africa": "Châu Phi"
+  },
+  "ratesVsMajorSubtitle": "1 {{code}} quy đổi sang các đồng tiền chủ chốt khác",
+  "keyDataReleasesFor": "Các dữ liệu quan trọng của {{code}}",
+  "hoursAgo": "{{count}} giờ trước",
+  "impacts": {
+    "High": "Cao",
+    "Medium": "Trung bình",
+    "Low": "Thấp"
+  },
+  "events": {
+    "nonFarmPayrolls": "Bảng lương phi nông nghiệp",
+    "ecbPressConference": "Họp báo ECB",
+    "boeGovernorSpeech": "Phát biểu của Thống đốc BoE",
+    "fomcMinutes": "Biên bản FOMC",
+    "bojSummaryOpinions": "Tóm tắt ý kiến của BoJ",
+    "rbaStatement": "Tuyên bố RBA",
+    "currencyCpiRelease": "Công bố CPI của {{code}}",
+    "centralBankPolicyUpdate": "Cập nhật chính sách của {{centralBank}}",
+    "currencyRetailSales": "Doanh số bán lẻ của {{code}}",
+    "currencyTradeBalance": "Cán cân thương mại của {{code}}"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "{{code}} mạnh lên nhờ kỳ vọng chính sách",
+    "currencyWeakensPolicy": "{{code}} suy yếu vì kỳ vọng chính sách",
+    "centralBankDataDependent": "{{centralBank}} phát tín hiệu phụ thuộc dữ liệu",
+    "currencyLiquidityRobust": "Thanh khoản {{code}} vẫn vững trong dòng vốn xuyên biên giới",
+    "currencyFairValueUpdated": "Ghi chú phân tích: cập nhật giá trị hợp lý của {{code}}",
+    "usdRallyPauses": "Đà tăng USD tạm dừng trước biên bản FOMC",
+    "ecbDataDependent": "ECB phát tín hiệu phụ thuộc dữ liệu, EUR giao dịch nặng nề",
+    "jpyInterventionWatch": "Theo dõi can thiệp JPY trở lại khi USD/JPY thử mốc 156",
+    "gbpStickyInflation": "GBP được hỗ trợ bởi lạm phát dịch vụ dai dẳng",
+    "cnyWeakerMidpoint": "CNY chịu áp lực khi PBOC ấn định tỷ giá tham chiếu yếu hơn",
+    "audCommodityStrength": "AUD được mua nhờ hàng hóa mạnh và tâm lý ưa rủi ro"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "Đồng tiền dự trữ chính",
+    "secondreservecurrency": "Đồng tiền dự trữ thứ hai",
+    "thirdreservecurrency": "Đồng tiền dự trữ thứ ba",
+    "regionalreservecurrency": "Đồng tiền dự trữ khu vực",
+    "regional": "Khu vực"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "Dòng tiền trú ẩn",
+    "mixedinflows": "Dòng vốn hỗn hợp",
+    "exportdrivenflows": "Dòng vốn theo xuất khẩu",
+    "commoditylinkedflows": "Dòng vốn gắn với hàng hóa",
+    "open": "Mở"
+  }
 }

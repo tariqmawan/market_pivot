@@ -3,19 +3,19 @@
   "markets": "Pasaran",
   "exchanges": "Bursa",
   "stocks": "Saham",
-  "forex": "FX",
+  "forex": "Tukaran Asing",
   "crypto": "Kripto",
   "commodities": "Komoditi",
   "regions": "Wilayah",
   "sectors": "Sektor",
   "news": "Berita",
-  "calendar": "Kalendar",
-  "userPanel": "Panel Pengguna",
+  
+  
   "pricing": "Harga",
   "tools": "Alatan",
   "coverage": "Liputan",
   "indices": "Indeks",
-  "etfs": "ETFs",
+  "etfs": "ETF",
   "bonds": "Bon & Hasil",
   "screener": "Penapis",
   "overview": "Gambaran",
@@ -29,30 +29,30 @@
   "watchlists": "Senarai Pantau",
   "portfolioTracker": "Penjejak Portfolio",
   "alerts": "Peringatan",
-  "trendingCoins": "Koin Trendi",
-  "memeCoins": "Meme Coins",
-  "defi": "DeFi",
-  "layer1": "Lapisan 1",
-  "stablecoins": "Stablecoin",
-  "energy": "Tenaga",
-  "metals": "Logam",
-  "agriculture": "Pertanian",
-  "industrial": "Industri",
-  "americas": "Amerika",
-  "europe": "Eropah",
-  "asiaPacific": "Asia Pasifik",
-  "middleEastAfrica": "Timur Tengah & Afrika",
-  "technology": "Teknologi",
-  "banking": "Perbankan",
-  "ai": "AI",
-  "ev": "Kenderaan Elektrik",
-  "semiconductor": "Semikonduktor",
-  "defence": "Pertahanan",
-  "globalNews": "Berita Global",
-  "regionNews": "Berita Wilayah",
-  "sectorNews": "Berita Sektor",
-  "cryptoNews": "Berita Kripto",
-  "marketAlerts": "Peringatan Pasaran",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "byRegion": "Mengikut Wilayah",
   "nyse": "NYSE",
   "nasdaq": "NASDAQ",
@@ -60,5 +60,33 @@
   "navMain": "Navigasi utama",
   "homeAria": "Laman utama MarketsPivot",
   "openMenu": "Buka menu",
-  "adminTopNav": "Navigasi admin"
+  "adminTopNav": "Navigasi admin",
+  "fx": "Tukaran Asing",
+  "Calendar": "Kalendar",
+  "UserPanel": "Panel Pengguna",
+  "adminPanel": "Panel Admin",
+  "TrendingCoins": "Syiling trending",
+  "MemeCoins": "Syiling meme",
+  "Defi": "DeFi",
+  "Layer1": "Layer 1",
+  "Stablecoins": "Stablecoin",
+  "Energy": "Tenaga",
+  "Metals": "Logam",
+  "Agriculture": "Pertanian",
+  "Industrial": "Industri",
+  "Americas": "Amerika",
+  "Europe": "Eropa",
+  "AsiaPacific": "Asia Pasifik",
+  "MiddleEastAfrica": "Timur Tengah dan Afrika",
+  "Technology": "Teknologi",
+  "Banking": "Perbankan",
+  "Ai": "Kecerdasan Buatan",
+  "Ev": "Kenderaan Elektrik",
+  "Semiconductor": "Semikonduktor",
+  "Defence": "Pertahanan",
+  "GlobalNews": "Berita global",
+  "RegionNews": "Berita serantau",
+  "SectorNews": "Berita sektor",
+  "CryptoNews": "Berita kripto",
+  "MarketAlerts": "Amaran pasaran"
 }

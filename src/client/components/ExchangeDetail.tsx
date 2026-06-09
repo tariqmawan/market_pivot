@@ -5,6 +5,7 @@ import LineChart from "./LineChart";
 import ChartJSLine from "./ChartJSLine";
 import "./ExchangeDetail.css";
 import { useI18n } from "../i18n";
+import { translateStatic } from "../i18n/translate";
 
 
 interface ExchangeDetailProps {
@@ -75,6 +76,10 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
     return `${num >= 0 ? "+" : ""}${num.toFixed(2)}%`;
   };
 
+  const exchangeName = translateStatic(t, exchange.nameKey, exchange.name);
+  const exchangeCountry = translateStatic(t, exchange.countryKey, exchange.country);
+  const exchangeTimezone = translateStatic(t, exchange.timezoneKey, exchange.timezone);
+
   useEffect(() => {
     if (activeTab === "sectors" && sectors.length === 0) {
       setIsTabLoading(true);
@@ -117,8 +122,12 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
               onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }} />
           </div>
           <div>
-            <h1>{exchange.name}</h1>
-            <p className="exchange-meta">{exchange.country} • {exchange.timezone}</p>
+            <h1>{exchangeName}</h1>
+            <p className="exchange-meta">
+              {exchangeCountry}
+              {" • "}
+              {exchangeTimezone}
+            </p>
           </div>
         </div>
 
@@ -268,7 +277,7 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                     <p className={`sector-performance ${sector.performance >= 0 ? "positive" : "negative"}`}>
                       {formatSignedPercent(sector.performance)}
                     </p>
-                    <span className="sector-companies">{sector.companies} companies</span>
+                    <span className="sector-companies">{sector.companies} {t("markets:companiesLabel")}</span>
                   </div>
                 ))}
               </div>

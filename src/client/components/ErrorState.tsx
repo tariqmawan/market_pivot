@@ -18,15 +18,16 @@ export interface ErrorStateProps {
 
 export default function ErrorState({
   title,
-  message = "We couldn't load this view. Please try again.",
+  message,
   onRetry,
-  retryLabel = "Try again",
+  retryLabel,
   inline,
   secondaryAction,
 }: ErrorStateProps) {
   const { t } = useI18n();
-  const resolvedTitle = title ?? t("common.error");
-  const resolvedRetryLabel = retryLabel === "Try again" ? t("common.tryAgain") : retryLabel;
+  const resolvedTitle = title ?? t("error");
+  const resolvedMessage = message ?? t("errorDefaultMessage");
+  const resolvedRetryLabel = retryLabel ?? t("tryAgain");
   return (
     <div
       role="alert"
@@ -62,7 +63,7 @@ export default function ErrorState({
       </div>
       <strong style={{ fontSize: 16, color: "#ff9090" }}>{resolvedTitle}</strong>
       <span style={{ fontSize: 13, color: "rgba(248,250,252,0.7)", maxWidth: 420 }}>
-        {message}
+        {resolvedMessage}
       </span>
       {(onRetry || secondaryAction) && (
         <div style={{ display: "flex", gap: 10, marginTop: 4 }}>

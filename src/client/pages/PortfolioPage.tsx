@@ -1,22 +1,37 @@
 import React from "react";
-import { HiPencil, HiTrash, HiCheckCircle, HiArrowDownTray, HiPlus } from "react-icons/hi2";
+import { HiPencil, HiTrash, HiCheckCircle, HiArrowDownTray, HiPlus, HiBriefcase } from "react-icons/hi2";
 import { usePortfolioStore, type Position } from "../stores/portfolioStore";
 import { useActivityStore } from "../stores/activityStore";
 import LineChart from "../components/LineChart";
 import ChartJSLine from "../components/ChartJSLine";
 import EmptyState from "../components/EmptyState";
 import { generateSeriesForSymbol, formatSignedPercent, formatMoney } from "../lib/chartSeries";
-import "./PortfolioPage.css";
 import { useI18n } from "../i18n";
+import "./PortfolioPage.css";
 
+const TYPE_LABEL_KEYS: Record<Position["type"], string> = {
+  stock: "pages:portfolio.assetTypes.stock",
+  etf: "pages:portfolio.assetTypes.etf",
+  crypto: "pages:portfolio.assetTypes.crypto",
+  forex: "pages:portfolio.assetTypes.forex",
+  commodity: "pages:portfolio.assetTypes.commodity",
+  bond: "pages:portfolio.assetTypes.bond",
+};
 
-const TYPE_LABELS: Record<Position["type"], string> = {
-  stock: "Stock",
-  etf: "ETF",
-  crypto: "Crypto",
-  forex: "Forex",
-  commodity: "Commodity",
-  bond: "Bond",
+const SORT_LABEL_KEYS = {
+  symbol: "pages:portfolio.symbol",
+  value: "pages:portfolio.value",
+  pl: "pages:portfolio.pl",
+  plPercent: "pages:portfolio.plPercent",
+  yield: "pages:portfolio.yield",
+} as const;
+
+const sortIndicator = (active: boolean, dir: "asc" | "desc") => (active ? (dir === "asc" ? " ^" : " v") : "");
+
+const txTypeKey = (type: string) => `pages:portfolio.transactionTypes.${type}`;
+
+const timeframeLabel = (timeframe: "1W" | "1M" | "3M" | "YTD" | "1Y" | "5Y", allTime: string) => {
+  return timeframe === "5Y" ? allTime : timeframe;
 };
 
 const PortfolioPage: React.FC = () => {
@@ -60,7 +75,6 @@ const PortfolioPage: React.FC = () => {
     activePortfolio.positions.forEach((p) => {
       marketValue += p.quantity * p.currentPrice;
       costBasis += p.quantity * p.averageCost;
-      // Daily change estimated as 1% of market value as positions don't track daily change directly
       dailyChange += p.quantity * p.currentPrice * 0.01;
       if (p.dividendYield) dividend += (p.quantity * p.currentPrice * p.dividendYield) / 100;
     });
@@ -127,32 +141,37 @@ const PortfolioPage: React.FC = () => {
 
   const performanceSeries = React.useMemo(() => {
     if (!activePortfolio) return [];
-    // Map UI label "ALL" → "5Y" engine timeframe; YTD reuses 1Y series.
     const tf = perfTimeframe === "YTD" ? "1Y" : perfTimeframe;
     return generateSeriesForSymbol(`portfolio-${activePortfolio.id}-${perfTimeframe}`, 100, tf);
   }, [activePortfolio, perfTimeframe]);
 
   const handleCreate = () => {
     if (!newName.trim()) return;
-    const id = createPortfolio(newName.trim());
-    log("portfolio_add", `Created portfolio: ${newName.trim()}`);
+    const trimmedName = newName.trim();
+    const id = createPortfolio(trimmedName);
+    log("portfolio_add", t("pages:portfolio.createdPortfolioLog", { name: trimmedName }));
     setNewName("");
     setShowCreate(false);
     setActivePortfolio(id);
   };
 
-  const handleRename = (id: string) => {
-    if (!renameValue.trim()) return;
-    renamePortfolio(id, renameValue.trim());
+  const handleRename = (id: string, nextName: string) => {
+    if (!nextName.trim()) return;
+    renamePortfolio(id, nextName.trim());
     setRenamingId(null);
     setRenameValue("");
   };
 
   const handleDelete = (id: string, name: string) => {
-    if (window.confirm(`Delete portfolio "${name}"?`)) {
+    if (window.confirm(t("pages:portfolio.deletePortfolioConfirm", { name }))) {
       deletePortfolio(id);
-      log("portfolio_delete", `Deleted portfolio: ${name}`);
+      log("portfolio_delete", t("pages:portfolio.deletedPortfolioLog", { name }));
     }
+  };
+
+  const toggleSort = (field: "symbol" | "value" | "pl" | "plPercent" | "yield") => {
+    setSortBy(field);
+    setSortDir(sortBy === field && sortDir === "asc" ? "desc" : "asc");
   };
 
   const handleExport = (format: "csv" | "json") => {
@@ -175,18 +194,17 @@ const PortfolioPage: React.FC = () => {
     <div className="page portfolio-page">
       <section className="coverage-hero portfolio-hero">
         <div className="portfolio-hero-copy">
-          <p className="eyebrow">Holdings</p>
-          <h1>Portfolio Tracker</h1>
-          <p>Track positions, allocation, performance, P/L, dividends, sector mix, and export across multiple portfolios.</p>
+          <p className="eyebrow">{t("pages:portfolio.holdings")}</p>
+          <h1>{t("pages:portfolio.title")}</h1>
+          <p>{t("pages:portfolio.subtitle")}</p>
         </div>
         <div className="metric-strip">
-          <div className="metric-tile"><span>{t("src_client_pages_portfoliopage__l181__h3")}</span><strong>{formatMoney(totals.marketValue)}</strong></div>
-          <div className="metric-tile"><span>{t("src_client_pages_portfoliopage__l182__h4")}</span><strong className={totals.pl >= 0 ? "positive" : "negative"}>{formatSignedPercent(totals.plPercent)}</strong></div>
-          <div className="metric-tile"><span>{t("src_client_pages_portfoliopage__l183__h5")}</span><strong>{totals.positionCount}</strong></div>
+          <div className="metric-tile"><span>{t("pages:portfolio.marketValue")}</span><strong>{formatMoney(totals.marketValue)}</strong></div>
+          <div className="metric-tile"><span>{t("pages:portfolio.totalPl")}</span><strong className={totals.pl >= 0 ? "positive" : "negative"}>{formatSignedPercent(totals.plPercent)}</strong></div>
+          <div className="metric-tile"><span>{t("pages:portfolio.positions")}</span><strong>{totals.positionCount}</strong></div>
         </div>
       </section>
 
-      {/* Portfolio selector */}
       <div className="portfolio-selector">
         <div className="portfolio-tabs">
           {portfolios.map((pf) => (
@@ -201,11 +219,12 @@ const PortfolioPage: React.FC = () => {
               {renamingId === pf.id ? (
                 <input
                   type="text"
-                  defaultValue={pf.name}
+                  value={renameValue}
                   onClick={(e) => e.stopPropagation()}
+                  onChange={(e) => setRenameValue(e.target.value)}
                   onBlur={(e) => {
                     if (e.target.value.trim() && e.target.value !== pf.name) {
-                      handleRename(pf.id);
+                      handleRename(pf.id, e.target.value);
                     } else {
                       setRenamingId(null);
                     }
@@ -219,11 +238,11 @@ const PortfolioPage: React.FC = () => {
               ) : (
                 <strong>{pf.name}</strong>
               )}
-              <span>{pf.positions.length} positions • {pf.baseCurrency}</span>
+              <span>{t("pages:portfolio.positionsWithCurrency", { count: pf.positions.length, currency: pf.baseCurrency })}</span>
               <div className="portfolio-tab-actions" onClick={(e) => e.stopPropagation()}>
-                <button type="button" onClick={() => { setRenamingId(pf.id); setRenameValue(pf.name); }} title="Rename"><HiPencil size={12} /></button>
+                <button type="button" onClick={() => { setRenamingId(pf.id); setRenameValue(pf.name); }} title={t("pages:portfolio.rename")}><HiPencil size={12} /></button>
                 {portfolios.length > 1 && (
-                  <button type="button" onClick={() => handleDelete(pf.id, pf.name)} title="Delete"><HiTrash size={12} /></button>
+                  <button type="button" onClick={() => handleDelete(pf.id, pf.name)} title={t("pages:portfolio.delete")}><HiTrash size={12} /></button>
                 )}
               </div>
             </div>
@@ -232,54 +251,55 @@ const PortfolioPage: React.FC = () => {
             <div className="portfolio-tab create-tab">
               <input
                 type="text"
-                placeholder={t("src_client_pages_portfoliopage__l233__h9")}
+                placeholder={t("pages:portfolio.portfolioName")}
                 value={newName}
                 onChange={(e) => setNewName(e.target.value)}
                 autoFocus
               />
               <div className="form-actions">
-                <button onClick={handleCreate} className="primary-action-sm" type="button">{t("src_client_pages_portfoliopage__l239__h10")}</button>
-                <button onClick={() => { setShowCreate(false); setNewName(""); }} className="secondary-action-sm" type="button">{t("src_client_pages_portfoliopage__l240__h11")}</button>
+                <button onClick={handleCreate} className="primary-action-sm" type="button">{t("pages:portfolio.create")}</button>
+                <button onClick={() => { setShowCreate(false); setNewName(""); }} className="secondary-action-sm" type="button">{t("pages:portfolio.cancel")}</button>
               </div>
             </div>
           ) : (
             <button className="portfolio-tab add-portfolio" onClick={() => setShowCreate(true)} type="button">
-              + New Portfolio
+              {t("pages:portfolio.newPortfolio")}
             </button>
           )}
         </div>
       </div>
 
-      {/* Summary cards */}
       <section className="portfolio-summary">
         <div className="summary-card highlight">
-          <span>{t("src_client_pages_portfoliopage__l254__h12")}</span>
+          <span>{t("pages:portfolio.marketValue")}</span>
           <strong>{formatMoney(totals.marketValue)}</strong>
           <em className={totals.dailyChange >= 0 ? "positive" : "negative"}>
-            {totals.dailyChange >= 0 ? "+" : ""}{formatMoney(totals.dailyChange)} ({formatSignedPercent(totals.dailyChangePct)}) today
+            {t("pages:portfolio.dailyChangeLine", {
+              amount: `${totals.dailyChange >= 0 ? "+" : ""}${formatMoney(totals.dailyChange)}`,
+              percent: formatSignedPercent(totals.dailyChangePct),
+            })}
           </em>
         </div>
         <div className="summary-card">
-          <span>{t("src_client_pages_portfoliopage__l261__h13")}</span>
+          <span>{t("pages:portfolio.costBasis")}</span>
           <strong>{formatMoney(totals.costBasis)}</strong>
-          <em>Across {totals.positionCount} positions</em>
+          <em>{t("pages:portfolio.acrossPositions", { count: totals.positionCount })}</em>
         </div>
         <div className="summary-card">
-          <span>{t("src_client_pages_portfoliopage__l266__h14")}</span>
+          <span>{t("pages:portfolio.unrealizedPl")}</span>
           <strong className={totals.pl >= 0 ? "positive" : "negative"}>{formatMoney(totals.pl)}</strong>
           <em className={totals.pl >= 0 ? "positive" : "negative"}>{formatSignedPercent(totals.plPercent)}</em>
         </div>
         <div className="summary-card">
-          <span>{t("src_client_pages_portfoliopage__l271__h15")}</span>
+          <span>{t("pages:portfolio.annualDividend")}</span>
           <strong>{formatMoney(totals.dividend)}</strong>
-          <em>Yield {(totals.marketValue > 0 ? (totals.dividend / totals.marketValue) * 100 : 0).toFixed(2)}%</em>
+          <em>{t("pages:portfolio.yieldValue", { value: (totals.marketValue > 0 ? (totals.dividend / totals.marketValue) * 100 : 0).toFixed(2) })}</em>
         </div>
       </section>
 
-      {/* Performance chart */}
       <section className="portfolio-performance">
         <div className="performance-header">
-          <h2>{t("src_client_pages_portfoliopage__l280__h16")}</h2>
+          <h2>{t("pages:portfolio.performance")}</h2>
           <div className="performance-tabs">
             {(["1W", "1M", "3M", "YTD", "1Y", "5Y"] as const).map((p) => (
               <button
@@ -288,7 +308,7 @@ const PortfolioPage: React.FC = () => {
                 className={p === perfTimeframe ? "active" : ""}
                 onClick={() => setPerfTimeframe(p)}
               >
-                {p === "5Y" ? "ALL" : p}
+                {timeframeLabel(p, t("pages:portfolio.allTime"))}
               </button>
             ))}
           </div>
@@ -315,11 +335,11 @@ const PortfolioPage: React.FC = () => {
       <div className="portfolio-content">
         <main className="portfolio-main">
           <div className="section-header-row">
-            <h2>{t("src_client_pages_portfoliopage__l316__h17")}</h2>
+            <h2>{t("pages:portfolio.positions")}</h2>
             <div className="header-actions">
-              <button onClick={() => handleExport("csv")} className="secondary-action-sm icon-btn" type="button"><HiArrowDownTray size={14} /> CSV</button>
-              <button onClick={() => handleExport("json")} className="secondary-action-sm icon-btn" type="button"><HiArrowDownTray size={14} /> JSON</button>
-              <button onClick={() => setShowAdd(true)} className="primary-action-sm icon-btn" type="button"><HiPlus size={14} /> Add Position</button>
+              <button onClick={() => handleExport("csv")} className="secondary-action-sm icon-btn" type="button"><HiArrowDownTray size={14} /> {t("pages:portfolio.exportCsv")}</button>
+              <button onClick={() => handleExport("json")} className="secondary-action-sm icon-btn" type="button"><HiArrowDownTray size={14} /> {t("pages:portfolio.exportJson")}</button>
+              <button onClick={() => setShowAdd(true)} className="primary-action-sm icon-btn" type="button"><HiPlus size={14} /> {t("pages:portfolio.addPosition")}</button>
             </div>
           </div>
 
@@ -327,26 +347,26 @@ const PortfolioPage: React.FC = () => {
             <table className="positions-table">
               <thead>
                 <tr>
-                  <th onClick={() => { setSortBy("symbol"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }} scope="col">
-                    Symbol{sortBy === "symbol" ? (sortDir === "asc" ? " ▲" : " ▼") : ""}
+                  <th onClick={() => toggleSort("symbol")} scope="col">
+                    {t(SORT_LABEL_KEYS.symbol)}{sortIndicator(sortBy === "symbol", sortDir)}
                   </th>
-                  <th scope="col">{t("src_client_pages_portfoliopage__l331__h21")}</th>
-                  <th className="text-right" scope="col">{t("src_client_pages_portfoliopage__l332__h22")}</th>
-                  <th className="text-right" scope="col">{t("src_client_pages_portfoliopage__l333__h23")}</th>
-                  <th className="text-right" scope="col">{t("src_client_pages_portfoliopage__l334__h24")}</th>
-                  <th className="text-right" onClick={() => { setSortBy("value"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }} scope="col">
-                    Value{sortBy === "value" ? (sortDir === "asc" ? " ▲" : " ▼") : ""}
+                  <th scope="col">{t("pages:portfolio.type")}</th>
+                  <th className="text-right" scope="col">{t("pages:portfolio.quantity")}</th>
+                  <th className="text-right" scope="col">{t("pages:portfolio.avgCost")}</th>
+                  <th className="text-right" scope="col">{t("pages:portfolio.price")}</th>
+                  <th className="text-right" onClick={() => toggleSort("value")} scope="col">
+                    {t(SORT_LABEL_KEYS.value)}{sortIndicator(sortBy === "value", sortDir)}
                   </th>
-                  <th className="text-right" onClick={() => { setSortBy("pl"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }} scope="col">
-                    P/L{sortBy === "pl" ? (sortDir === "asc" ? " ▲" : " ▼") : ""}
+                  <th className="text-right" onClick={() => toggleSort("pl")} scope="col">
+                    {t(SORT_LABEL_KEYS.pl)}{sortIndicator(sortBy === "pl", sortDir)}
                   </th>
-                  <th className="text-right" onClick={() => { setSortBy("plPercent"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }} scope="col">
-                    P/L %{sortBy === "plPercent" ? (sortDir === "asc" ? " ▲" : " ▼") : ""}
+                  <th className="text-right" onClick={() => toggleSort("plPercent")} scope="col">
+                    {t(SORT_LABEL_KEYS.plPercent)}{sortIndicator(sortBy === "plPercent", sortDir)}
                   </th>
-                  <th className="text-right" onClick={() => { setSortBy("yield"); setSortDir(sortDir === "asc" ? "desc" : "asc"); }} scope="col">
-                    Yield{sortBy === "yield" ? (sortDir === "asc" ? " ▲" : " ▼") : ""}
+                  <th className="text-right" onClick={() => toggleSort("yield")} scope="col">
+                    {t(SORT_LABEL_KEYS.yield)}{sortIndicator(sortBy === "yield", sortDir)}
                   </th>
-                  <th scope="col">{t("src_client_pages_portfoliopage__l347__h25")}</th>
+                  <th scope="col">{t("pages:portfolio.actions")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -354,9 +374,9 @@ const PortfolioPage: React.FC = () => {
                   <tr><td colSpan={10}>
                     <EmptyState
                       compact
-                      icon="💼"
-                      title={t("portfolio.emptyPositions")}
-                      actionLabel={t("portfolio.addPosition")}
+                      icon={<HiBriefcase />}
+                      title={t("pages:portfolio.emptyPositions")}
+                      actionLabel={t("pages:portfolio.addPosition")}
                       onAction={() => setShowAdd(true)}
                     />
                   </td></tr>
@@ -364,7 +384,7 @@ const PortfolioPage: React.FC = () => {
                   const marketValue = pos.quantity * pos.currentPrice;
                   const cost = pos.quantity * pos.averageCost;
                   const pl = marketValue - cost;
-                  const plPct = (pl / cost) * 100;
+                  const plPct = cost > 0 ? (pl / cost) * 100 : 0;
                   const isEditing = editingId === pos.id;
                   return (
                     <tr key={pos.id}>
@@ -373,7 +393,7 @@ const PortfolioPage: React.FC = () => {
                         <span className="position-name">{pos.name}</span>
                       </td>
                       <td>
-                        <span className={`type-pill type-${pos.type}`}>{TYPE_LABELS[pos.type]}</span>
+                        <span className={`type-pill type-${pos.type}`}>{t(TYPE_LABEL_KEYS[pos.type])}</span>
                       </td>
                       <td className="text-right">
                         {isEditing ? (
@@ -407,11 +427,11 @@ const PortfolioPage: React.FC = () => {
                       <td className={`text-right ${pl >= 0 ? "positive" : "negative"}`}>
                         {formatSignedPercent(plPct)}
                       </td>
-                      <td className="text-right">{pos.dividendYield?.toFixed(2) ?? "—"}%</td>
+                      <td className="text-right">{pos.dividendYield?.toFixed(2) ?? "-"}%</td>
                       <td>
                         <div className="row-actions">
-                          <button type="button" onClick={() => setEditingId(isEditing ? null : pos.id)} className="row-btn" title="Edit">{isEditing ? <HiCheckCircle size={14} /> : <HiPencil size={13} />}</button>
-                          <button type="button" onClick={() => deletePosition(activePortfolio.id, pos.id)} className="row-btn delete" title="Delete"><HiTrash size={13} /></button>
+                          <button type="button" onClick={() => setEditingId(isEditing ? null : pos.id)} className="row-btn" title={t("pages:portfolio.edit")}>{isEditing ? <HiCheckCircle size={14} /> : <HiPencil size={13} />}</button>
+                          <button type="button" onClick={() => deletePosition(activePortfolio.id, pos.id)} className="row-btn delete" title={t("pages:portfolio.delete")}><HiTrash size={13} /></button>
                         </div>
                       </td>
                     </tr>
@@ -433,23 +453,22 @@ const PortfolioPage: React.FC = () => {
                   price: data.averageCost,
                   date: data.purchaseDate,
                 });
-                log("portfolio_add", `Added ${data.symbol} to ${activePortfolio.name}`);
+                log("portfolio_add", t("pages:portfolio.addedPositionLog", { symbol: data.symbol, portfolio: activePortfolio.name }));
                 setShowAdd(false);
               }}
             />
           )}
 
-          {/* Transactions */}
           <div className="transactions-section">
-            <h3>{t("src_client_pages_portfoliopage__l442__h29")}</h3>
+            <h3>{t("pages:portfolio.recentTransactions")}</h3>
             <div className="transactions-list">
               {activePortfolio.transactions.slice(0, 10).map((tx) => {
                 const pos = activePortfolio.positions.find((p) => p.id === tx.positionId);
                 return (
                   <div key={tx.id} className={`transaction-row ${tx.type}`}>
                     <span className="tx-date">{tx.date}</span>
-                    <span className={`tx-type ${tx.type}`}>{tx.type}</span>
-                    <span className="tx-symbol">{pos?.symbol ?? "—"}</span>
+                    <span className={`tx-type ${tx.type}`}>{t(txTypeKey(tx.type), tx.type)}</span>
+                    <span className="tx-symbol">{pos?.symbol ?? "-"}</span>
                     {tx.quantity > 0 && <span className="tx-qty">{tx.quantity}</span>}
                     {tx.quantity > 0 && <span className="tx-price">@ {formatMoney(tx.price)}</span>}
                     {tx.type === "dividend" && <span className="tx-amount">{formatMoney(tx.price)}</span>}
@@ -462,7 +481,7 @@ const PortfolioPage: React.FC = () => {
 
         <aside className="portfolio-aside">
           <div className="aside-card">
-            <h3>Sector Allocation</h3>
+            <h3>{t("pages:portfolio.sectorAllocation")}</h3>
             <div className="aside-card-body">
               <div className="allocation-list">
                 {sectorAllocation.map((s) => (
@@ -479,7 +498,7 @@ const PortfolioPage: React.FC = () => {
           </div>
 
           <div className="aside-card">
-            <h3>Asset Allocation</h3>
+            <h3>{t("pages:portfolio.assetAllocation")}</h3>
             <div className="aside-card-body">
               <div className="allocation-list">
                 {assetAllocation.map((a) => {
@@ -488,7 +507,7 @@ const PortfolioPage: React.FC = () => {
                     <div key={a.type} className="allocation-row">
                       <span className="allocation-label">
                         <span className="allocation-dot" style={{ backgroundColor: color }} />
-                        {TYPE_LABELS[a.type]}
+                        {t(TYPE_LABEL_KEYS[a.type])}
                       </span>
                       <div className="allocation-track">
                         <div style={{ width: `${a.percent}%`, backgroundColor: color }} />
@@ -502,11 +521,11 @@ const PortfolioPage: React.FC = () => {
           </div>
 
           <div className="aside-card">
-            <h3>Portfolio Settings</h3>
+            <h3>{t("pages:portfolio.portfolioSettings")}</h3>
             <div className="aside-card-body">
               <div className="settings-list">
                 <div>
-                  <span>Base Currency</span>
+                  <span>{t("pages:portfolio.baseCurrency")}</span>
                   <select
                     value={activePortfolio.baseCurrency}
                     onChange={(e) => setBaseCurrency(activePortfolio.id, e.target.value as Position["type"] & string as never)}
@@ -515,15 +534,15 @@ const PortfolioPage: React.FC = () => {
                   </select>
                 </div>
                 <div>
-                  <span>Total Positions</span>
+                  <span>{t("pages:portfolio.totalPositions")}</span>
                   <strong>{totals.positionCount}</strong>
                 </div>
                 <div>
-                  <span>Dividend Yield</span>
+                  <span>{t("pages:portfolio.dividendYield")}</span>
                   <strong>{(totals.marketValue > 0 ? (totals.dividend / totals.marketValue) * 100 : 0).toFixed(2)}%</strong>
                 </div>
                 <div>
-                  <span>Last Updated</span>
+                  <span>{t("pages:portfolio.lastUpdated")}</span>
                   <strong>{new Date(activePortfolio.updatedAt).toLocaleDateString()}</strong>
                 </div>
               </div>
@@ -557,7 +576,7 @@ const AddPositionForm: React.FC<{
       symbol: symbol.toUpperCase(),
       name,
       type,
-      sector,
+      sector, 
       quantity,
       averageCost,
       currentPrice: currentPrice || averageCost,
@@ -568,55 +587,55 @@ const AddPositionForm: React.FC<{
 
   return (
     <form className="add-form" onSubmit={handleSubmit}>
-      <h3>{t("src_client_pages_portfoliopage__l562__h37")}</h3>
+      <h3>{t("pages:portfolio.addPosition")}</h3>
       <div className="form-grid">
         <div>
-          <label>{t("src_client_pages_portfoliopage__l565__h38")}</label>
-          <input value={symbol} onChange={(e) => setSymbol(e.target.value)} placeholder={t("src_client_pages_portfoliopage__l566__h39")} required />
+          <label>{t("pages:portfolio.symbol")}</label>
+          <input value={symbol} onChange={(e) => setSymbol(e.target.value)} placeholder={t("pages:portfolio.symbolPlaceholder")} required />
         </div>
         <div>
-          <label>{t("src_client_pages_portfoliopage__l569__h40")}</label>
-          <input value={name} onChange={(e) => setName(e.target.value)} placeholder={t("src_client_pages_portfoliopage__l570__h41")} required />
+          <label>{t("pages:portfolio.name")}</label>
+          <input value={name} onChange={(e) => setName(e.target.value)} placeholder={t("pages:portfolio.namePlaceholder")} required />
         </div>
         <div>
-          <label>{t("src_client_pages_portfoliopage__l573__h42")}</label>
+          <label>{t("pages:portfolio.type")}</label>
           <select value={type} onChange={(e) => setType(e.target.value as Position["type"])}>
-            <option value="stock">{t("src_client_pages_portfoliopage__l575__h43")}</option>
-            <option value="etf">{t("src_client_pages_portfoliopage__l576__h44")}</option>
-            <option value="crypto">{t("src_client_pages_portfoliopage__l577__h45")}</option>
-            <option value="forex">{t("src_client_pages_portfoliopage__l578__h46")}</option>
-            <option value="commodity">{t("src_client_pages_portfoliopage__l579__h47")}</option>
-            <option value="bond">{t("src_client_pages_portfoliopage__l580__h48")}</option>
+            <option value="stock">{t("pages:portfolio.assetTypes.stock")}</option>
+            <option value="etf">{t("pages:portfolio.assetTypes.etf")}</option>
+            <option value="crypto">{t("pages:portfolio.assetTypes.crypto")}</option>
+            <option value="forex">{t("pages:portfolio.assetTypes.forex")}</option>
+            <option value="commodity">{t("pages:portfolio.assetTypes.commodity")}</option>
+            <option value="bond">{t("pages:portfolio.assetTypes.bond")}</option>
           </select>
         </div>
         <div>
-          <label>{t("src_client_pages_portfoliopage__l584__h49")}</label>
-          <input value={sector} onChange={(e) => setSector(e.target.value)} placeholder={t("src_client_pages_portfoliopage__l585__h50")} />
+          <label>{t("pages:portfolio.sector")}</label>
+          <input value={sector} onChange={(e) => setSector(e.target.value)} placeholder={t("pages:portfolio.sectorPlaceholder")} />
         </div>
         <div>
-          <label>{t("src_client_pages_portfoliopage__l588__h51")}</label>
+          <label>{t("pages:portfolio.quantity")}</label>
           <input type="number" step="any" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} min={0} required />
         </div>
         <div>
-          <label>{t("src_client_pages_portfoliopage__l592__h52")}</label>
+          <label>{t("pages:portfolio.avgCost")}</label>
           <input type="number" step="any" value={averageCost} onChange={(e) => setAverageCost(Number(e.target.value))} min={0} required />
         </div>
         <div>
-          <label>{t("src_client_pages_portfoliopage__l596__h53")}</label>
+          <label>{t("pages:portfolio.currentPrice")}</label>
           <input type="number" step="any" value={currentPrice} onChange={(e) => setCurrentPrice(Number(e.target.value))} min={0} />
         </div>
         <div>
-          <label>{t("src_client_pages_portfoliopage__l600__h54")}</label>
+          <label>{t("pages:portfolio.dividendYieldPercent")}</label>
           <input type="number" step="any" value={dividendYield} onChange={(e) => setDividendYield(Number(e.target.value))} min={0} />
         </div>
         <div>
-          <label>{t("src_client_pages_portfoliopage__l604__h55")}</label>
+          <label>{t("pages:portfolio.purchaseDate")}</label>
           <input type="date" value={purchaseDate} onChange={(e) => setPurchaseDate(e.target.value)} />
         </div>
       </div>
       <div className="form-actions">
-        <button type="submit" className="primary-action-sm">{t("src_client_pages_portfoliopage__l609__h56")}</button>
-        <button type="button" onClick={onCancel} className="secondary-action-sm">{t("src_client_pages_portfoliopage__l610__h57")}</button>
+        <button type="submit" className="primary-action-sm">{t("pages:portfolio.add")}</button>
+        <button type="button" onClick={onCancel} className="secondary-action-sm">{t("pages:portfolio.cancel")}</button>
       </div>
     </form>
   );

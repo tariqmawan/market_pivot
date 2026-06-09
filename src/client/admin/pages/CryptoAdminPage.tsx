@@ -147,7 +147,7 @@ export default function CryptoAdminPage() {
 
   return (
     <AdminCrudPage<AdminCoin>
-      title={t("src_client_admin_pages_cryptoadminpage__l146__h0")}
+      title={t("admin/cryptoadminpage.h0")}
       subtitle="Coin metadata, supply, consensus, ecosystem, and exchange listings"
       useStore={useCoinAdminStore}
       columns={columns}

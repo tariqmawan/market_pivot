@@ -120,7 +120,7 @@ export default function CommodityAdminPage() {
   return (
     <>
       <AdminCrudPage<AdminCommodity>
-        title={t("src_client_admin_pages_commodityadminpage__l120__h0")}
+        title={t("admin/commodityadminpage.h0")}
         subtitle="Spot pricing, futures specs, production and supply regions, demand drivers"
         useStore={useCommodityAdminStore}
         columns={columns}
@@ -163,7 +163,7 @@ export default function CommodityAdminPage() {
             type="button"
             className="mp-admin-link-btn"
             onClick={() => setShowSpecModal(row)}
-            title={t("src_client_admin_pages_commodityadminpage__l163__h1")}
+            title={t("admin/commodityadminpage.h1")}
           >
             Spec
           </button>

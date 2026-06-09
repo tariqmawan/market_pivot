@@ -125,12 +125,12 @@ const HeatmapsPage: React.FC = () => {
   }, []);
 
   const assetClassData = [
-    { label: "Equities", value: "S&P +0.82%", change: 0.82 },
-    { label: "Bonds", value: "US 10Y 4.31%", change: -0.15 },
-    { label: "Commodities", value: "Crude $82.40", change: -0.42 },
-    { label: "Crypto", value: "BTC $65,000", change: 2.2 },
-    { label: "FX", value: "DXY 104.2", change: 0.35 },
-    { label: "Volatility", value: "VIX 13.8", change: -1.1 },
+    { label: t("markets:equities"), value: "S&P +0.82%", change: 0.82 },
+    { label: t("nav:bonds"), value: "US 10Y 4.31%", change: -0.15 },
+    { label: t("common:src_client_pages_watchlistpage__l341__h12"), value: "Crude $82.40", change: -0.42 },
+    { label: t("markets:crypto"), value: "BTC $65,000", change: 2.2 },
+    { label: t("markets:fx"), value: "DXY 104.2", change: 0.35 },
+    { label: t("common:marketRoutes.volatility"), value: "VIX 13.8", change: -1.1 },
   ];
 
   const getHeatmapData = () => {
@@ -160,21 +160,21 @@ const HeatmapsPage: React.FC = () => {
       {/* Hero Section */}
       <section className="coverage-hero">
         <div>
-          <p className="eyebrow">{t("src_client_pages_heatmapspage__l159__h0")}</p>
-          <h1>{t("src_client_pages_heatmapspage__l160__h1")}</h1>
-          <p>{t("src_client_pages_heatmapspage__l165_h0")}</p>
+          <p className="eyebrow">{t("heatmapspage.h0_l159")}</p>
+          <h1>{t("heatmapspage.h1")}</h1>
+          <p>{t("heatmapspage.h0_l165")}</p>
         </div>
         <div className="metric-strip">
           <div className="metric-tile">
-            <span>{t("src_client_pages_heatmapspage__l165__h3")}</span>
+            <span>{t("heatmapspage.h3")}</span>
             <strong>{exchanges.length}</strong>
           </div>
           <div className="metric-tile">
-            <span>{t("src_client_pages_heatmapspage__l169__h4")}</span>
+            <span>{t("heatmapspage.h4")}</span>
             <strong>{sectors.length}</strong>
           </div>
           <div className="metric-tile">
-            <span>{t("src_client_pages_heatmapspage__l173__h5")}</span>
+            <span>{t("heatmapspage.h5")}</span>
             <strong>{regions.length}</strong>
           </div>
         </div>
@@ -197,7 +197,7 @@ const HeatmapsPage: React.FC = () => {
               transition: "all 0.2s",
             }}
           >
-            Global Exchanges
+            {t("common:marketRoutes.globalExchanges")}
           </button>
           <button
             className={`tab-button ${activeTab === "sectors" ? "active" : ""}`}
@@ -213,7 +213,7 @@ const HeatmapsPage: React.FC = () => {
               transition: "all 0.2s",
             }}
           >
-            Sector Performance
+            {t("common:marketRoutes.sectorPerformance")}
           </button>
           <button
             className={`tab-button ${activeTab === "regions" ? "active" : ""}`}
@@ -229,7 +229,7 @@ const HeatmapsPage: React.FC = () => {
               transition: "all 0.2s",
             }}
           >
-            Regional Markets
+            {t("common:marketRoutes.regionalMarkets")}
           </button>
           <button
             className={`tab-button ${activeTab === "assets" ? "active" : ""}`}
@@ -245,7 +245,7 @@ const HeatmapsPage: React.FC = () => {
               transition: "all 0.2s",
             }}
           >
-            Asset Classes
+            {t("common:marketRoutes.assetClasses")}
           </button>
         </div>
       </section>
@@ -276,8 +276,8 @@ const HeatmapsPage: React.FC = () => {
       {/* Legend */}
       <section className="heatmap-legend" style={{ marginTop: "48px" }}>
         <div style={{ marginBottom: "24px" }}>
-          <p className="eyebrow">{t("src_client_pages_heatmapspage__l275__h6")}</p>
-          <h3>{t("src_client_pages_heatmapspage__l276__h7")}</h3>
+          <p className="eyebrow">{t("heatmapspage.h6")}</p>
+          <h3>{t("heatmapspage.h7")}</h3>
         </div>
         <div
           style={{
@@ -296,8 +296,8 @@ const HeatmapsPage: React.FC = () => {
               }}
             />
             <div>
-              <strong>{t("src_client_pages_heatmapspage__l295__h8")}</strong>
-              <p style={{ fontSize: "12px", color: "#475569" }}>{t("src_client_pages_heatmapspage__l296__h9")}</p>
+              <strong>{t("heatmapspage.h8")}</strong>
+              <p style={{ fontSize: "12px", color: "#475569" }}>{t("heatmapspage.h9")}</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -310,8 +310,8 @@ const HeatmapsPage: React.FC = () => {
               }}
             />
             <div>
-              <strong>{t("src_client_pages_heatmapspage__l309__h10")}</strong>
-              <p style={{ fontSize: "12px", color: "#475569" }}>{t("src_client_pages_heatmapspage__l310__h11")}</p>
+              <strong>{t("heatmapspage.h10")}</strong>
+              <p style={{ fontSize: "12px", color: "#475569" }}>{t("heatmapspage.h11")}</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -324,8 +324,8 @@ const HeatmapsPage: React.FC = () => {
               }}
             />
             <div>
-              <strong>{t("src_client_pages_heatmapspage__l323__h12")}</strong>
-              <p style={{ fontSize: "12px", color: "#475569" }}>{t("src_client_pages_heatmapspage__l324__h13")}</p>
+              <strong>{t("heatmapspage.h12")}</strong>
+              <p style={{ fontSize: "12px", color: "#475569" }}>{t("heatmapspage.h13")}</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -338,8 +338,8 @@ const HeatmapsPage: React.FC = () => {
               }}
             />
             <div>
-              <strong>{t("src_client_pages_heatmapspage__l337__h14")}</strong>
-              <p style={{ fontSize: "12px", color: "#475569" }}>{t("src_client_pages_heatmapspage__l338__h15")}</p>
+              <strong>{t("heatmapspage.h14")}</strong>
+              <p style={{ fontSize: "12px", color: "#475569" }}>{t("heatmapspage.h15")}</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -352,8 +352,8 @@ const HeatmapsPage: React.FC = () => {
               }}
             />
             <div>
-              <strong>{t("src_client_pages_heatmapspage__l351__h16")}</strong>
-              <p style={{ fontSize: "12px", color: "#475569" }}>{t("src_client_pages_heatmapspage__l352__h17")}</p>
+              <strong>{t("heatmapspage.h16")}</strong>
+              <p style={{ fontSize: "12px", color: "#475569" }}>{t("heatmapspage.h17")}</p>
             </div>
           </div>
         </div>
@@ -362,36 +362,36 @@ const HeatmapsPage: React.FC = () => {
       {/* Info Panel */}
       <section className="intelligence-grid" style={{ marginTop: "48px" }}>
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("src_client_pages_heatmapspage__l361__h18")}</p>
-          <h3>{t("src_client_pages_heatmapspage__l362__h19")}</h3>
+          <p className="eyebrow">{t("heatmapspage.h18")}</p>
+          <h3>{t("heatmapspage.h19")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>{t("src_client_pages_heatmapspage__l364__h20")}</li>
-            <li>{t("src_client_pages_heatmapspage__l365__h21")}</li>
-            <li>{t("src_client_pages_heatmapspage__l366__h22")}</li>
-            <li>{t("src_client_pages_heatmapspage__l367__h23")}</li>
-            <li>{t("src_client_pages_heatmapspage__l368__h24")}</li>
+            <li>{t("heatmapspage.h20")}</li>
+            <li>{t("heatmapspage.h21")}</li>
+            <li>{t("heatmapspage.h22")}</li>
+            <li>{t("heatmapspage.h23")}</li>
+            <li>{t("heatmapspage.h24")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("src_client_pages_heatmapspage__l372__h25")}</p>
-          <h3>{t("src_client_pages_heatmapspage__l373__h26")}</h3>
+          <p className="eyebrow">{t("heatmapspage.h25")}</p>
+          <h3>{t("heatmapspage.h26")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>{t("src_client_pages_heatmapspage__l375__h27")}</li>
-            <li>{t("src_client_pages_heatmapspage__l376__h28")}</li>
-            <li>{t("src_client_pages_heatmapspage__l377__h29")}</li>
-            <li>{t("src_client_pages_heatmapspage__l378__h30")}</li>
-            <li>{t("src_client_pages_heatmapspage__l379__h31")}</li>
+            <li>{t("heatmapspage.h27")}</li>
+            <li>{t("heatmapspage.h28")}</li>
+            <li>{t("heatmapspage.h29")}</li>
+            <li>{t("heatmapspage.h30")}</li>
+            <li>{t("heatmapspage.h31")}</li>
           </ul>
         </div>
         <div className="intelligence-panel">
-          <p className="eyebrow">{t("src_client_pages_heatmapspage__l383__h32")}</p>
-          <h3>{t("src_client_pages_heatmapspage__l384__h33")}</h3>
+          <p className="eyebrow">{t("heatmapspage.h32")}</p>
+          <h3>{t("heatmapspage.h33")}</h3>
           <ul style={{ fontSize: "14px", lineHeight: "1.6", color: "#475569", paddingLeft: "20px" }}>
-            <li>Time period selection (1D, 1W, 1M, YTD, 1Y)</li>
-            <li>{t("src_client_pages_heatmapspage__l387__h34")}</li>
-            <li>{t("src_client_pages_heatmapspage__l388__h35")}</li>
-            <li>{t("src_client_pages_heatmapspage__l389__h36")}</li>
-            <li>{t("src_client_pages_heatmapspage__l390__h37")}</li>
+            <li>{t("common:marketRoutes.timePeriodSelection")}</li>
+            <li>{t("heatmapspage.h34")}</li>
+            <li>{t("heatmapspage.h35")}</li>
+            <li>{t("heatmapspage.h36")}</li>
+            <li>{t("heatmapspage.h37")}</li>
           </ul>
         </div>
       </section>
@@ -407,20 +407,20 @@ const HeatmapsPage: React.FC = () => {
           border: "1px solid rgba(162, 120, 65, 0.2)",
         }}
       >
-        <p className="eyebrow">{t("src_client_pages_heatmapspage__l406__h38")}</p>
-        <h3>{t("src_client_pages_heatmapspage__l407__h39")}</h3>
+        <p className="eyebrow">{t("heatmapspage.h38")}</p>
+        <h3>{t("heatmapspage.h39")}</h3>
         <p style={{ color: "#475569", marginBottom: "16px", maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
-          Use our heatmaps as a starting point to explore detailed breakdowns of any market, sector, or region. Click any cell to view comprehensive analysis.
+          {t("common:marketRoutes.heatmapCtaCopy")}
         </p>
         <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
           <Link to="/dashboard" className="primary-action" style={{ textDecoration: "none" }}>
-            View Dashboard
+            {t("common:marketRoutes.viewDashboard")}
           </Link>
           <Link to="/screener" className="secondary-action" style={{ textDecoration: "none" }}>
-            Launch Screener
+            {t("common:marketRoutes.launchScreener")}
           </Link>
           <Link to="/economic-calendar" className="secondary-action" style={{ textDecoration: "none" }}>
-            Economic Calendar
+            {t("markets:economicCalendar")}
           </Link>
         </div>
       </section>
