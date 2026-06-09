@@ -30,7 +30,7 @@
       "name": "Porcelana"
     },
     "eu": {
-      "name": "unión Europea"
+      "name": "Unión Europea"
     },
     "gb": {
       "name": "Reino Unido"
@@ -171,20 +171,90 @@
   "quarterlyRate": "Tasa trimestral",
   "rate": "Tasa",
   "region": "Región",
-  "spread": "Desparramar",
+  "spread": "Spread",
   "symbol": "Símbolo",
   "type": "Tipo",
   "vsUsd": "frente al USD",
   "currencyTypes": {
-    "fiat": "Moneda fiduciaria"
+    "fiat": "Moneda fiduciaria",
+    "commodity": "Moneda de materias primas",
+    "crypto": "Moneda cripto"
   },
   "centralBanks": {
-    "federalreserve": "Reserva Federal"
+    "federalreserve": "Reserva Federal",
+    "ecb": "Banco Central Europeo",
+    "boj": "Banco de Japón",
+    "boe": "Banco de Inglaterra",
+    "pboc": "Banco Popular de China",
+    "rba": "Reserva de Australia",
+    "boc": "Banco de Canadá",
+    "snb": "Banco Nacional Suizo",
+    "rbi": "Banco de la Reserva de la India",
+    "bcb": "Banco Central de Brasil",
+    "banguyt": "Banco Central del Uruguay",
+    "banxico": "Banco de México",
+    "banrep": "Banco de la República de Colombia",
+    "bcentral": "Banco Central de Chile",
+    "riksbank": "Riksbank",
+    "norgesbank": "Norges Bank",
+    "ecb2": "Banco Central Europeo",
+    "fed": "Reserva Federal",
+    "boe2": "Banco de Inglaterra",
+    "rba2": "Reserva de Australia"
   },
   "regions": {
-    "northamerica": "Norteamérica"
+    "northamerica": "Norteamérica",
+    "europe": "Europa",
+    "asia": "Asia",
+    "asiapacific": "Asia-Pacífico",
+    "middleeast": "Medio Oriente",
+    "africa": "África"
   },
-  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
-  "keyDataReleasesFor": "Key data releases for {{code}}",
-  "hoursAgo": "{{count}}h ago"
+  "impacts": {
+    "high": "Alto",
+    "medium": "Medio",
+    "low": "Bajo"
+  },
+  "events": {
+    "nonFarmPayrolls": "Nóminas no agrícolas",
+    "interestRateDecision": "Decisión de tasa de interés",
+    "inflationReport": "Informe de inflación",
+    "gdpGrowth": "Crecimiento del PIB",
+    "retailSales": "Ventas minoristas",
+    "industrialProduction": "Producción industrial",
+    "consumerConfidence": "Confianza del consumidor",
+    "unemploymentRate": "Tasa de desempleo",
+    "tradeBalance": "Balanza comercial",
+    "currencyTradeBalance": "Balanza comercial de divisas"
+  },
+  "newsTitles": {
+    "centralBankPolicy": "Política del banco central",
+    "interestRateOutlook": "Perspectiva de tasas de interés",
+    "inflationData": "Datos de inflación",
+    "currencyMovements": "Movimientos de divisas",
+    "tradeRelations": "Relaciones comerciales",
+    "economicGrowth": "Crecimiento económico",
+    "geopoliticalEvents": "Eventos geopolíticos",
+    "commodityPrices": "Precios de materias primas",
+    "bondMarket": "Mercado de bonos",
+    "equityFlows": "Flujos de renta variable",
+    "emergingMarkets": "Mercados emergentes"
+  },
+  "reserveStatuses": {
+    "reserveCurrency": "Moneda de reserva",
+    "majorReserve": "Reserva principal",
+    "regionalReserve": "Reserva regional",
+    "emergingReserve": "Reserva emergente",
+    "limitedReserve": "Reserva limitada"
+  },
+  "capitalFlowTypes": {
+    "portfolio": "Flujos de cartera",
+    "direct": "Inversión extranjera directa",
+    "reserves": "Cambios en reservas",
+    "carry": "Operaciones de carry trade",
+    "speculative": "Flujos especulativos"
+  },
+  "ratesVsMajorSubtitle": "1 {{code}} expresado en otras principales divisas",
+  "keyDataReleasesFor": "Principales publicaciones de datos para {{code}}",
+  "hoursAgo": "hace {{count}}h"
 }

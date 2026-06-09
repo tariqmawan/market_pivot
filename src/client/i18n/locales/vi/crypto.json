@@ -327,5 +327,6 @@
         "description": "So sánh meme coin với tài sản blue-chip, giao thức DeFi và blockchain layer-1."
       }
     }
-  }
+  },
+  "blockTimeSeconds": "{{time}} giây"
 }

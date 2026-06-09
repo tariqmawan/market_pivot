@@ -34,7 +34,7 @@
   "cryptoNewsSubtitle": "Aktualizacje projektów, partnerstwa i wiadomości rynkowe",
   "cryptocurrencies": {
     "aave": {
-      "name": "Aaa",
+      "name": "Aave",
       "description": "Zdecentralizowany, niepowierniczy protokół płynności dla udzielania i zaciągania pożyczek"
     },
     "arbitrum": {
@@ -42,7 +42,7 @@
       "description": "Rozwiązanie skalujące i token zarządzania warstwy 2 Ethereum"
     },
     "avalanche2": {
-      "name": "Lawina",
+      "name": "Avalanche",
       "description": "Rozwiązania podsieciowe i skalowalne dla aplikacji typu blockchain"
     },
     "binancecoin": {
@@ -54,7 +54,7 @@
       "description": "Pierwsza i największa na świecie kryptowaluta pod względem kapitalizacji rynkowej"
     },
     "bonk": {
-      "name": "Walić",
+      "name": "Bonk",
       "description": "Pierwsza duża moneta memowa Solany — wysłana drogą lotniczą do społeczności, obecnie podstawa DeFi"
     },
     "cardano": {
@@ -62,19 +62,19 @@
       "description": "Recenzowana platforma blockchain skupiająca się na zrównoważonym rozwoju"
     },
     "chainlink": {
-      "name": "Ogniwo",
+      "name": "Chainlink",
       "description": "Zdecentralizowana sieć Oracle łącząca łańcuchy bloków z danymi ze świata rzeczywistego"
     },
     "compoundGovernanceToken": {
-      "name": "Mieszanina",
+      "name": "Compound",
       "description": "Algorytmiczny autonomiczny protokół stóp procentowych dla pożyczek DeFi"
     },
     "cosmos": {
-      "name": "Kosmos",
+      "name": "Cosmos",
       "description": "Interoperacyjny ekosystem blockchain i Internet Blockchains"
     },
     "curveDaoToken": {
-      "name": "Krzywa finansów",
+      "name": "Curve Finance",
       "description": "Zdecentralizowana giełda zoptymalizowana pod kątem stabilnych monet i swapów na aktywa stałe"
     },
     "dai": {
@@ -86,7 +86,7 @@
       "description": "Oryginalna moneta memowa – zaczęła się jako żart, stała się kulturową ikoną kryptowalut"
     },
     "ethereum": {
-      "name": "Eter",
+      "name": "Ethereum",
       "description": "Wiodąca platforma inteligentnych kontraktów i koncentrator DeFi"
     },
     "floki": {
@@ -98,11 +98,11 @@
       "description": "Srebro na złoto Bitcoina, szybkie płatności peer-to-peer"
     },
     "maker": {
-      "name": "Producent",
+      "name": "Maker",
       "description": "Token zarządzania MakerDAO, protokołu stojącego za stablecoinem DAI"
     },
     "maticNetwork": {
-      "name": "Wielokąt",
+      "name": "Polygon",
       "description": "Rozwiązanie skalujące Ethereum umożliwiające szybsze i tańsze transakcje"
     },
     "pepe": {
@@ -126,11 +126,11 @@
       "description": "Szybka platforma blockchain dla zdecentralizowanych aplikacji"
     },
     "stellar": {
-      "name": "Gwiezdny",
+      "name": "Stellar",
       "description": "Sieć Blockchain do integracji finansowej i przekazów pieniężnych"
     },
     "tether": {
-      "name": "Pęta",
+      "name": "Tether",
       "description": "Najpowszechniej używana moneta typu stablecoin powiązana z USD"
     },
     "theOpenNetwork": {
@@ -146,7 +146,7 @@
       "description": "Wiodący zdecentralizowany protokół wymiany i DeFi"
     },
     "usdCoin": {
-      "name": "Moneta USD",
+      "name": "USD Coin",
       "description": "Regulowana moneta typu stablecoin oparta na USD"
     }
   },
@@ -256,31 +256,31 @@
   },
   "categoryPages": {
     "common": {
-      "marketOverview": "Market Overview",
-      "combinedMarketCap": "Combined Market Cap",
-      "topGainer24h": "Top Gainer (24h)",
-      "name": "Name",
-      "price": "Price",
-      "change24h": "24h Change",
-      "marketCap": "Market Cap",
-      "volume24h": "24h Volume",
-      "riskProfile": "Risk Profile",
-      "fullCryptoMarket": "Full Crypto Market",
-      "exploreAllCryptocurrencies": "Explore All Cryptocurrencies"
+      "marketOverview": "Przegląd rynku",
+      "combinedMarketCap": "Łączna kapitalizacja rynkowa",
+      "topGainer24h": "Największy wzrost (24h)",
+      "name": "Nazwa",
+      "price": "Cena",
+      "change24h": "Zmiana 24h",
+      "marketCap": "Kapitalizacja rynkowa",
+      "volume24h": "Wolumen 24h",
+      "riskProfile": "Profil ryzyka",
+      "fullCryptoMarket": "Cały rynek kryptowalut",
+      "exploreAllCryptocurrencies": "Przeglądaj wszystkie kryptowaluty"
     },
     "meme": {
-      "eyebrow": "Community Tokens",
-      "title": "Meme coins",
-      "body": "Community-driven cryptocurrencies fuelled by viral culture, social momentum, and cult followings. High-risk, high-reward assets where sentiment rules the market.",
+      "eyebrow": "Tokeny społecznościowe",
+      "title": "Meme coiny",
+      "body": "Kryptowaluty napędzane przez kulturę viralową, momentum społeczne i kultowe społeczności. Wysokie ryzyko, wysoka nagroda — tutaj sentyment rządzi rynkiem.",
       "metrics": {
-        "coinsListed": "Coins Listed"
+        "coinsListed": "Wylistowane coiny"
       },
-      "rankingsTitle": "Meme Coin Rankings",
+      "rankingsTitle": "Ranking meme coinów",
       "table": {
-        "community": "Community"
+        "community": "Społeczność"
       },
       "communities": {
-        "DOGE": "Original OG",
+        "DOGE": "Oryginalny OG",
         "SHIB": "ShibArmy",
         "PEPE": "Pepe Nation",
         "BONK": "Solana Memes",
@@ -288,44 +288,45 @@
       },
       "insights": {
         "origins": {
-          "eyebrow": "Origins",
-          "title": "The Meme Coin Story",
+          "eyebrow": "Początki",
+          "title": "Historia meme coinów",
           "items": {
-            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
-            "elon": "Elon Musk tweets as price catalysts",
-            "pumps": "WallStreetBets-style coordinated pumps",
-            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
-            "pepe": "2023 PEPE boom revived the meme cycle",
-            "bonk": "BONK airdropped life into Solana DeFi"
+            "dogecoin": "Dogecoin (2013) — oryginalny internetowy żart",
+            "elon": "Tweety Elona Muska jako katalizator cen",
+            "pumps": "Skoordynowane pompy w stylu WallStreetBets",
+            "shiba": "Shiba Inu uruchomiony jako \"zabójca DOGE\"",
+            "pepe": "Boom PEPE w 2023 roku odżywił cykl meme",
+            "bonk": "BONK tchnął życie w Solana DeFi"
           }
         },
         "risk": {
-          "title": "What Investors Should Know",
+          "title": "Co inwestorzy powinni wiedzieć",
           "items": {
-            "sentiment": "Prices driven almost entirely by sentiment",
-            "pumpDump": "Susceptible to pump-and-dump schemes",
-            "utility": "Minimal or no underlying utility",
-            "volatility": "Extreme volatility - 50%+ swings common",
-            "rugPull": "Rug-pull risk in newer, unaudited coins",
-            "viralCycles": "High correlation with viral media cycles"
+            "sentiment": "Ceny napędzane prawie wyłącznie sentymentem",
+            "pumpDump": "Podatne na schematy pump-and-dump",
+            "utility": "Minimalny lub zerowy użyteczny fundament",
+            "volatility": "Ekstremalna zmienność — skoki 50%+ są częste",
+            "rugPull": "Ryzyko rug-pull w nowszych, nieaudytowanych coinach",
+            "viralCycles": "Wysoka korelacja z cyklami viralowymi"
           }
         },
         "signals": {
-          "eyebrow": "Community Signals",
-          "title": "How to Track Momentum",
+          "eyebrow": "Sygnały społecznościowe",
+          "title": "Jak śledzić momentum",
           "items": {
-            "twitter": "Twitter/X mentions and trending hashtags",
-            "reddit": "Reddit activity on r/CryptoCurrency",
-            "whales": "Whale wallet alerts and large transfers",
-            "listings": "Exchange listing announcements",
-            "google": "Google Trends search volume spikes",
-            "influencers": "Influencer social media activity"
+            "twitter": "Wzmianki na Twitter/X i trendingowe hashtagi",
+            "reddit": "Aktywność na Reddit r/CryptoCurrency",
+            "whales": "Alerty portfeli wielorybów i duże transfery",
+            "listings": "Ogłoszenia o listingach na giełdach",
+            "google": "Skoki wyszukiwań w Google Trends",
+            "influencers": "Aktywność influencerów w mediach społecznościowych"
           }
         }
       },
       "cta": {
-        "description": "Compare meme coins against blue-chip assets, DeFi protocols, and layer-1 blockchains."
+        "description": "Porównaj meme coiny z aktywami blue-chip, protokołami DeFi i blockchainami warstwy 1."
       }
     }
-  }
+  },
+  "blockTimeSeconds": "{{time}} sekund"
 }

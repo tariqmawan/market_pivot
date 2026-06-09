@@ -256,31 +256,31 @@
   },
   "categoryPages": {
     "common": {
-      "marketOverview": "Market Overview",
-      "combinedMarketCap": "Combined Market Cap",
-      "topGainer24h": "Top Gainer (24h)",
-      "name": "Name",
-      "price": "Price",
-      "change24h": "24h Change",
-      "marketCap": "Market Cap",
-      "volume24h": "24h Volume",
-      "riskProfile": "Risk Profile",
-      "fullCryptoMarket": "Full Crypto Market",
-      "exploreAllCryptocurrencies": "Explore All Cryptocurrencies"
+      "marketOverview": "Gambaran Pasaran",
+      "combinedMarketCap": "Gabungan Modal Pasaran",
+      "topGainer24h": "Penaik Tertinggi (24j)",
+      "name": "Nama",
+      "price": "Harga",
+      "change24h": "Perubahan 24j",
+      "marketCap": "Modal Pasaran",
+      "volume24h": "Volum 24j",
+      "riskProfile": "Profil Risiko",
+      "fullCryptoMarket": "Pasaran Kripto Penuh",
+      "exploreAllCryptocurrencies": "Terokai Semua Mata Wang Kripto"
     },
     "meme": {
-      "eyebrow": "Community Tokens",
-      "title": "Meme coins",
-      "body": "Community-driven cryptocurrencies fuelled by viral culture, social momentum, and cult followings. High-risk, high-reward assets where sentiment rules the market.",
+      "eyebrow": "Token Komuniti",
+      "title": "Syiling meme",
+      "body": "Mata wang kripto yang dipacu komuniti didorong oleh budaya virus, momentum sosial dan pengikut kultus. Aset berisiko tinggi, ganjaran tinggi yang sentimen menguasai pasaran.",
       "metrics": {
-        "coinsListed": "Coins Listed"
+        "coinsListed": "Syiling Disenaraikan"
       },
-      "rankingsTitle": "Meme Coin Rankings",
+      "rankingsTitle": "Kedudukan Syiling Meme",
       "table": {
-        "community": "Community"
+        "community": "Komuniti"
       },
       "communities": {
-        "DOGE": "Original OG",
+        "DOGE": "OG Asal",
         "SHIB": "ShibArmy",
         "PEPE": "Pepe Nation",
         "BONK": "Solana Memes",
@@ -288,44 +288,45 @@
       },
       "insights": {
         "origins": {
-          "eyebrow": "Origins",
-          "title": "The Meme Coin Story",
+          "eyebrow": "Asal Usul",
+          "title": "Kisah Syiling Meme",
           "items": {
-            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
-            "elon": "Elon Musk tweets as price catalysts",
-            "pumps": "WallStreetBets-style coordinated pumps",
-            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
-            "pepe": "2023 PEPE boom revived the meme cycle",
-            "bonk": "BONK airdropped life into Solana DeFi"
+            "dogecoin": "Dogecoin (2013) - syiling jenaka internet asal",
+            "elon": "Cuitan Elon Musk sebagai pemangkin harga",
+            "pumps": "Pam berkoordinasi gaya WallStreetBets",
+            "shiba": "Shiba Inu dilancarkan sebagai \"pembunuh DOGE\"",
+            "pepe": "Boom PEPE 2023 menghidupkan semula kitaran meme",
+            "bonk": "BONK airdrop menyuntik kehidupan ke DeFi Solana"
           }
         },
         "risk": {
-          "title": "What Investors Should Know",
+          "title": "Apa yang Pelabur Perlu Tahu",
           "items": {
-            "sentiment": "Prices driven almost entirely by sentiment",
-            "pumpDump": "Susceptible to pump-and-dump schemes",
-            "utility": "Minimal or no underlying utility",
-            "volatility": "Extreme volatility - 50%+ swings common",
-            "rugPull": "Rug-pull risk in newer, unaudited coins",
-            "viralCycles": "High correlation with viral media cycles"
+            "sentiment": "Harga hampir keseluruhannya didorong oleh sentimen",
+            "pumpDump": "Mudah terdedah kepada skim pam dan buang",
+            "utility": "Utiliti minimum atau tiada",
+            "volatility": "Turun naik melampau - turun naik 50%+ biasa",
+            "rugPull": "Risiko rug-pull dalam syiling baharu yang tidak diaudit",
+            "viralCycles": "Korelasi tinggi dengan kitaran media viral"
           }
         },
         "signals": {
-          "eyebrow": "Community Signals",
-          "title": "How to Track Momentum",
+          "eyebrow": "Isyarat Komuniti",
+          "title": "Cara Menjejaki Momentum",
           "items": {
-            "twitter": "Twitter/X mentions and trending hashtags",
-            "reddit": "Reddit activity on r/CryptoCurrency",
-            "whales": "Whale wallet alerts and large transfers",
-            "listings": "Exchange listing announcements",
-            "google": "Google Trends search volume spikes",
-            "influencers": "Influencer social media activity"
+            "twitter": "Sebutan Twitter/X dan hashtag trending",
+            "reddit": "Aktiviti Reddit di r/CryptoCurrency",
+            "whales": "Amaran dompet paus dan pemindahan besar",
+            "listings": "Pengumuman senarai pertukaran",
+            "google": "Lonjakan volum carian Google Trends",
+            "influencers": "Aktiviti media sosial influencer"
           }
         }
       },
       "cta": {
-        "description": "Compare meme coins against blue-chip assets, DeFi protocols, and layer-1 blockchains."
+        "description": "Bandingkan syiling meme dengan aset blue-chip, protokol DeFi, dan blockchain lapisan-1."
       }
     }
-  }
+  },
+  "blockTimeSeconds": "{{time}} saat"
 }

@@ -3,14 +3,14 @@
   "markets": "ตลาด",
   "exchanges": "ตลาดหลักทรัพย์",
   "stocks": "หุ้น",
-  "forex": "FX",
+  "forex": "อัตราแลกเปลี่ยน",
   "crypto": "คริปโต",
   "commodities": "สินค้าโภคภัณฑ์",
   "regions": "ภูมิภาค",
   "sectors": "กลุ่มอุตสาหกรรม",
   "news": "ข่าว",
-  "calendar": "ปฏิทิน",
-  "userPanel": "แผงผู้ใช้",
+  
+  
   "pricing": "ราคา",
   "tools": "เครื่องมือ",
   "coverage": "ความครอบคลุม",
@@ -29,30 +29,30 @@
   "watchlists": "รายการเฝ้าดู",
   "portfolioTracker": "ติดตามพอร์ตโฟลิโอ",
   "alerts": "การแจ้งเตือน",
-  "trendingCoins": "เหรียญที่กำลังมาแรง",
-  "memeCoins": "เหรียญ Meme",
-  "defi": "DeFi",
-  "layer1": "Layer 1",
-  "stablecoins": "Stablecoins",
-  "energy": "พลังงาน",
-  "metals": "โลหะ",
-  "agriculture": "เกษตรกรรม",
-  "industrial": "อุตสาหกรรม",
-  "americas": "อเมริกา",
-  "europe": "ยุโรป",
-  "asiaPacific": "เอเชียแปซิฟิก",
-  "middleEastAfrica": "ตะวันออกกลางและแอฟริกา",
-  "technology": "เทคโนโลยี",
-  "banking": "ธนาคาร",
-  "ai": "AI",
-  "ev": "ยานยนต์ไฟฟ้า",
-  "semiconductor": "เซมิคอนดักเตอร์",
-  "defence": "กลาโหม",
-  "globalNews": "ข่าวทั่วโลก",
-  "regionNews": "ข่าวภูมิภาค",
-  "sectorNews": "ข่าวกลุ่มอุตสาหกรรม",
-  "cryptoNews": "ข่าวคริปโต",
-  "marketAlerts": "การแจ้งเตือนตลาด",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "byRegion": "ตามภูมิภาค",
   "nyse": "NYSE",
   "nasdaq": "NASDAQ",
@@ -60,5 +60,33 @@
   "navMain": "การนำทางหลัก",
   "homeAria": "หน้าแรก MarketsPivot",
   "openMenu": "เปิดเมนู",
-  "adminTopNav": "การนำทางผู้ดูแล"
+  "adminTopNav": "การนำทางผู้ดูแล",
+  "fx": "อัตราแลกเปลี่ยน",
+  "Calendar": "ปฏิทิน",
+  "UserPanel": "แผงผู้ใช้",
+  "adminPanel": "แผงผู้ดูแล",
+  "TrendingCoins": "เหรียญยอดนิยม",
+  "MemeCoins": "เหรียญมีม",
+  "Defi": "DeFi",
+  "Layer1": "เลเยอร์ 1",
+  "Stablecoins": "เหรียญเสถียร",
+  "Energy": "พลังงาน",
+  "Metals": "โลหะ",
+  "Agriculture": "เกษตรกรรม",
+  "Industrial": "อุตสาหกรรม",
+  "Americas": "อเมริกา",
+  "Europe": "ยุโรป",
+  "AsiaPacific": "เอเชียแปซิฟิก",
+  "MiddleEastAfrica": "ตะวันออกกลางและแอฟริกา",
+  "Technology": "เทคโนโลยี",
+  "Banking": "ธนาคาร",
+  "Ai": "ปัญญาประดิษฐ์",
+  "Ev": "ยานยนต์ไฟฟ้า",
+  "Semiconductor": "เซมิคอนดักเตอร์",
+  "Defence": "การป้องกันประเทศ",
+  "GlobalNews": "ข่าวโลก",
+  "RegionNews": "ข่าวภูมิภาค",
+  "SectorNews": "ข่าวภาคส่วน",
+  "CryptoNews": "ข่าวคริปโต",
+  "MarketAlerts": "แจ้งเตือนตลาด"
 }

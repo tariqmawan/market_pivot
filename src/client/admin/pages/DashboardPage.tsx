@@ -94,10 +94,10 @@ export default function DashboardPage() {
   if (error) {
     return (
       <div className="mp-admin-content">
-        <PageHeader title={t("admin/dashboardpage.h0")} subtitle="Live platform metrics" />
+        <PageHeader title={t("admin/dashboardpage.h0")} subtitle={t("adminDashboardErrorSubtitle")} />
         <p className="mp-admin-muted">{error}</p>
         <button type="button" className="mp-admin-action-btn" onClick={() => void reload()}>
-          Retry
+          {t("adminDashboardRetry")}
         </button>
       </div>
     );
@@ -111,20 +111,20 @@ export default function DashboardPage() {
     <div className="mp-admin-content">
       <PageHeader
         title={t("admin/dashboardpage.h1")}
-        subtitle="Real-time data from PostgreSQL — updates every 15s via WebSocket"
+        subtitle={t("adminDashboardRealtimeSubtitle")}
         actions={
           <button type="button" className="mp-admin-action-btn" onClick={() => void reload()} disabled={loading}>
-            {loading ? "Loading…" : "Refresh"}
+            {loading ? t("loading") : t("refresh")}
           </button>
         }
       />
 
       {/* KPI Row */}
       <section className="mp-admin-grid-4">
-        <KpiCard label={t("admin/dashboardpage.h2")} value={loading ? "…" : String(stats?.users.total ?? 0)} sub="Registered accounts" color={C_GOLD_BRIGHT} />
-        <KpiCard label={t("admin/dashboardpage.h3")} value={loading ? "…" : String(stats?.users.active ?? 0)} sub="Last 30 days" color="#6ee7b7" />
-        <KpiCard label={t("admin/dashboardpage.h4")} value={loading ? "…" : String(stats?.subscriptions.active ?? 0)} sub="Paying customers" color={C_GOLD} />
-        <KpiCard label={t("admin/dashboardpage.h5")} value={loading ? "…" : `$${stats?.revenue.mrrEstimate ?? 0}`} sub="Monthly recurring" color="#f0c060" />
+        <KpiCard label={t("admin/dashboardpage.h2")} value={loading ? "…" : String(stats?.users.total ?? 0)} sub={t("adminDashboardRegisteredAccounts")} color={C_GOLD_BRIGHT} />
+        <KpiCard label={t("admin/dashboardpage.h3")} value={loading ? "…" : String(stats?.users.active ?? 0)} sub={t("adminDashboardLast30Days")} color="#6ee7b7" />
+        <KpiCard label={t("admin/dashboardpage.h4")} value={loading ? "…" : String(stats?.subscriptions.active ?? 0)} sub={t("adminDashboardPayingCustomers")} color={C_GOLD} />
+        <KpiCard label={t("admin/dashboardpage.h5")} value={loading ? "…" : `$${stats?.revenue.mrrEstimate ?? 0}`} sub={t("adminDashboardMonthlyRecurring")} color="#f0c060" />
       </section>
 
       {/* Charts Row 1 */}
@@ -244,14 +244,14 @@ export default function DashboardPage() {
                 border: `1px solid ${stats?.sync.running ? "rgba(239,68,68,0.25)" : "rgba(16,185,129,0.25)"}`,
               }}
             >
-              {stats?.sync.running ? `${stats.sync.running} running` : "All idle"}
+              {stats?.sync.running ? `${stats.sync.running} ${t("adminDashboardRunning")}` : t("adminDashboardAllIdle")}
             </span>
           </div>
           <div style={{ display: "grid", gap: 10, marginTop: 8 }}>
             {[
-              { label: "Regions", value: stats?.market.regions ?? 0, max: 10 },
-              { label: "Sectors", value: stats?.market.sectors ?? 0, max: 15 },
-              { label: "Commodities", value: stats?.market.commodities ?? 0, max: 20 },
+              { label: t("adminDashboardRegions"), value: stats?.market.regions ?? 0, max: 10 },
+              { label: t("adminDashboardSectors"), value: stats?.market.sectors ?? 0, max: 15 },
+              { label: t("adminDashboardCommodities"), value: stats?.market.commodities ?? 0, max: 20 },
             ].map((row) => (
               <div key={row.label}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
@@ -273,14 +273,14 @@ export default function DashboardPage() {
           <SectionTitle>{t("admin/dashboardpage.h17")}</SectionTitle>
           <div className="mp-admin-card-head">
             <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("admin/dashboardpage.h18")}</h3>
-            <span className="mp-admin-muted">Events: {stats?.content.events ?? 0}</span>
+            <span className="mp-admin-muted">{t("adminDashboardEvents")}: {stats?.content.events ?? 0}</span>
           </div>
           <div style={{ display: "grid", gap: 12, marginTop: 8 }}>
             {[
-              { label: "News Articles", value: stats?.content.news ?? 0, icon: "📰" },
-              { label: "Economic Events", value: stats?.content.events ?? 0, icon: "📅" },
-              { label: "API Requests Today", value: stats?.apiUsage.requestsToday ?? 0, icon: "⚡" },
-              { label: "Page Views (24h)", value: stats?.traffic?.pageviews24h ?? 0, icon: "👁" },
+              { label: t("adminDashboardNewsArticles"), value: stats?.content.news ?? 0, icon: "📰" },
+              { label: t("adminDashboardEconomicEvents"), value: stats?.content.events ?? 0, icon: "📅" },
+              { label: t("adminDashboardApiRequestsToday"), value: stats?.apiUsage.requestsToday ?? 0, icon: "⚡" },
+              { label: t("adminDashboardPageViews24h"), value: stats?.traffic?.pageviews24h ?? 0, icon: "👁" },
             ].map((row) => (
               <div
                 key={row.label}

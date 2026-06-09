@@ -3,14 +3,14 @@
   "markets": "Mercados",
   "exchanges": "Bolsas",
   "stocks": "Acciones",
-  "forex": "FX",
+  "forex": "Divisas",
   "crypto": "Criptomonedas",
   "commodities": "Materias primas",
   "regions": "Regiones",
   "sectors": "Sectores",
   "news": "Noticias",
-  "calendar": "Calendario",
-  "userPanel": "Panel de usuario",
+  
+  
   "pricing": "Precios",
   "tools": "Herramientas",
   "coverage": "Cobertura",
@@ -29,30 +29,30 @@
   "watchlists": "Listas de seguimiento",
   "portfolioTracker": "Seguimiento de cartera",
   "alerts": "Alertas",
-  "trendingCoins": "Monedas en tendencia",
-  "memeCoins": "Meme coins",
-  "defi": "DeFi",
-  "layer1": "Capa 1",
-  "stablecoins": "Monedas estables",
-  "energy": "Energía",
-  "metals": "Metales",
-  "agriculture": "Agricultura",
-  "industrial": "Industrial",
-  "americas": "Américas",
-  "europe": "Europa",
-  "asiaPacific": "Asia-Pacífico",
-  "middleEastAfrica": "Medio Oriente y África",
-  "technology": "Tecnología",
-  "banking": "Banca",
-  "ai": "IA",
-  "ev": "Vehículos eléctricos",
-  "semiconductor": "Semiconductores",
-  "defence": "Defensa",
-  "globalNews": "Noticias globales",
-  "regionNews": "Noticias regionales",
-  "sectorNews": "Noticias sectoriales",
-  "cryptoNews": "Noticias cripto",
-  "marketAlerts": "Alertas de mercado",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "byRegion": "Por región",
   "nyse": "NYSE",
   "nasdaq": "NASDAQ",
@@ -60,5 +60,33 @@
   "navMain": "Navegación principal",
   "homeAria": "Inicio de MarketsPivot",
   "openMenu": "Abrir menú",
-  "adminTopNav": "Navegación de administrador"
+  "adminTopNav": "Navegación de administrador",
+  "fx": "Divisas",
+  "Calendar": "Calendario",
+  "UserPanel": "Panel de Usuario",
+  "adminPanel": "Panel Admin",
+  "TrendingCoins": "Coins en tendencia",
+  "MemeCoins": "Meme Coins",
+  "Defi": "DeFi",
+  "Layer1": "Capa 1",
+  "Stablecoins": "Stablecoins",
+  "Energy": "Energía",
+  "Metals": "Metales",
+  "Agriculture": "Agricultura",
+  "Industrial": "Industrial",
+  "Americas": "Américas",
+  "Europe": "Europa",
+  "AsiaPacific": "Asia-Pacífico",
+  "MiddleEastAfrica": "Oriente Medio y África",
+  "Technology": "Tecnología",
+  "Banking": "Banca",
+  "Ai": "Inteligencia Artificial",
+  "Ev": "Vehículos eléctricos",
+  "Semiconductor": "Semiconductores",
+  "Defence": "Defensa",
+  "GlobalNews": "Noticias globales",
+  "RegionNews": "Noticias regionales",
+  "SectorNews": "Noticias sectoriales",
+  "CryptoNews": "Noticias cripto",
+  "MarketAlerts": "Alertas de mercado"
 }

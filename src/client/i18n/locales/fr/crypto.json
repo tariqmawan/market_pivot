@@ -329,5 +329,6 @@
       "stats": {},
       "related": {}
     }
-  }
+  },
+  "blockTimeSeconds": "{{time}} secondes"
 }

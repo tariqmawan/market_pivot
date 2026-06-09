@@ -1,29 +1,29 @@
 {
   "activeAddresses": "ที่อยู่ที่ใช้งาน",
-  "ath": "All-Time High",
-  "atl": "All-Time Low",
+  "ath": "สูงสุดตลอดกาล",
+  "atl": "ต่ำสุดตลอดกาล",
   "blockTime": "เวลาบล็อก",
   "categories": {
     "defi": {
-      "name": "DeFi"
+      "name": "ดีไฟ"
     },
     "infrastructure": {
-      "name": "Infrastructure"
+      "name": "โครงสร้างพื้นฐาน"
     },
     "layer1": {
-      "name": "Layer 1"
+      "name": "เลเยอร์ 1"
     },
     "layer2": {
-      "name": "Layer 2"
+      "name": "เลเยอร์ 2"
     },
     "meme": {
-      "name": "Meme"
+      "name": "มีม"
     },
     "payments": {
-      "name": "Payments"
+      "name": "การชำระเงิน"
     },
     "stablecoin": {
-      "name": "Stablecoin"
+      "name": "สเตเบิลคอยน์"
     }
   },
   "category": "หมวดหมู่",
@@ -35,119 +35,119 @@
   "cryptocurrencies": {
     "aave": {
       "name": "Aave",
-      "description": "Decentralised non-custodial liquidity protocol for lending and borrowing"
+      "description": "โปรโตคอลสภาพคล่องแบบไม่ต้องฝากทรัพย์สินสำหรับการให้กู้ยืมและการยืม"
     },
     "arbitrum": {
       "name": "Arbitrum",
-      "description": "Ethereum layer-2 scaling solution and governance token"
+      "description": "โซลูชันการปรับขนาดเลเยอร์ 2 ของ Ethereum และโทเคนการกำกับดูแล"
     },
     "avalanche2": {
       "name": "Avalanche",
-      "description": "Subnet and scaling solutions for blockchain applications"
+      "description": "โซลูชัน Subnet และการปรับขนาดสำหรับแอปพลิเคชันบล็อกเชน"
     },
     "binancecoin": {
       "name": "BNB",
-      "description": "Native token of Binance Smart Chain ecosystem"
+      "description": "โทเคนเนทีฟของระบบนิเวศ Binance Smart Chain"
     },
     "bitcoin": {
       "name": "Bitcoin",
-      "description": "The world's first and largest cryptocurrency by market cap"
+      "description": "คริปโตเคอร์เรนซีแรกและใหญ่ที่สุดในโลกตามมูลค่าตลาด"
     },
     "bonk": {
       "name": "Bonk",
-      "description": "Solana's first major meme coin — airdropped to the community, now a DeFi staple"
+      "description": "เหรียญมีมสำคัญแรกของ Solana — airdrop สู่ชุมชน สู่แกนหลัก DeFi"
     },
     "cardano": {
       "name": "Cardano",
-      "description": "Peer-reviewed blockchain platform with focus on sustainability"
+      "description": "แพลตฟอร์มบล็อกเชนที่ผ่านการตรวจสอบโดยผู้เชี่ยวชาญ เน้นความยั่งยืน"
     },
     "chainlink": {
       "name": "Chainlink",
-      "description": "Decentralized oracle network connecting blockchains to real-world data"
+      "description": "เครือข่าย Oracle แบบกระจายศูนย์เชื่อมต่อบล็อกเชนกับข้อมูลโลกจริง"
     },
     "compoundGovernanceToken": {
       "name": "Compound",
-      "description": "Algorithmic autonomous interest rate protocol for DeFi lending"
+      "description": "โปรโตคอลอัตราดอกเบี้ยอัตโนมัติแบบอัลกอริทึมสำหรับการให้กู้ยืม DeFi"
     },
     "cosmos": {
       "name": "Cosmos",
-      "description": "Interoperable blockchain ecosystem and Internet of Blockchains"
+      "description": "ระบบนิเวศบล็อกเชนที่ทำงานร่วมกันได้และอินเทอร์เน็ตของบล็อกเชน"
     },
     "curveDaoToken": {
       "name": "Curve Finance",
-      "description": "Decentralised exchange optimised for stablecoin and pegged-asset swaps"
+      "description": "การแลกเปลี่ยนแบบกระจายศูนย์ที่ปรับปรุงสำหรับการสลับสเตเบิลคอยน์และสินทรัพย์ผูกพัน"
     },
     "dai": {
       "name": "Dai",
-      "description": "Decentralized USD-backed stablecoin on Ethereum"
+      "description": "สเตเบิลคอยน์ backed โดย USD แบบกระจายศูนย์บน Ethereum"
     },
     "dogecoin": {
       "name": "Dogecoin",
-      "description": "The original meme coin — started as a joke, became a cultural crypto icon"
+      "description": "เหรียญมีมดั้งเดิม — เริ่มจากเรื่องตลก สู่ไอคอนวัฒนธรรมคริปโต"
     },
     "ethereum": {
       "name": "Ethereum",
-      "description": "Leading smart contract platform and DeFi hub"
+      "description": "แพลตฟอร์มสัญญาอัจฉริยะชั้นนำและศูนย์กลาง DeFi"
     },
     "floki": {
       "name": "FLOKI",
-      "description": "The people's crypto — Elon Musk inspired, community-built meme ecosystem"
+      "description": "คริปโตของประชาชน — ได้แรงบันดาลใจจาก Elon Musk ชุมชนสร้างระบบนิเวศมีม"
     },
     "litecoin": {
       "name": "Litecoin",
-      "description": "Silver to Bitcoin's gold, fast peer-to-peer payments"
+      "description": "Silver สู่ Gold ของ Bitcoin การชำระเงินแบบ peer-to-peer ที่รวดเร็ว"
     },
     "maker": {
       "name": "Maker",
-      "description": "Governance token of MakerDAO, the protocol behind the DAI stablecoin"
+      "description": "โทเคนการกำกับดูแลของ MakerDAO โปรโตคอลเบื้องหลังสเตเบิลคอยน์ DAI"
     },
     "maticNetwork": {
       "name": "Polygon",
-      "description": "Ethereum scaling solution enabling faster and cheaper transactions"
+      "description": "โซลูชันการปรับขนาด Ethereum ที่ช่วยให้ธุรกรรมเร็วขึ้นและถูกลง"
     },
     "pepe": {
       "name": "Pepe",
-      "description": "Internet culture meets crypto — the frog meme turned billion-dollar token"
+      "description": "วัฒนธรรมอินเทอร์เน็ตพบคริปโต — มีมนกกระเรียนกลายเป็นโทเคนมูลค่าพันล้าน"
     },
     "polkadot": {
       "name": "Polkadot",
-      "description": "Multi-chain blockchain enabling cross-chain interoperability"
+      "description": "บล็อกเชนหลายสายที่เปิดใช้งานการทำงานร่วมกันข้ามเชน"
     },
     "ripple": {
       "name": "XRP",
-      "description": "Payment network focused on fast, low-cost international transfers"
+      "description": "เครือข่ายการชำระเงินที่เน้นการโอนเงินระหว่างประเทศที่รวดเร็วและต้นทุนต่ำ"
     },
     "shibaInu": {
       "name": "Shiba Inu",
-      "description": "The Dogecoin killer — Ethereum-based meme coin with a massive community"
+      "description": "Dogecoin killer — เหรียญมีมบน Ethereum พร้อมชุมชนขนาดใหญ่"
     },
     "solana": {
       "name": "Solana",
-      "description": "High-speed blockchain platform for decentralized applications"
+      "description": "แพลตฟอร์มบล็อกเชนความเร็วสูงสำหรับแอปพลิเคชันแบบกระจายศูนย์"
     },
     "stellar": {
       "name": "Stellar",
-      "description": "Blockchain network for financial inclusion and remittances"
+      "description": "เครือข่ายบล็อกเชนสำหรับการเข้าถึงทางการเงินและการโอนเงิน"
     },
     "tether": {
       "name": "Tether",
-      "description": "Most widely used USD-pegged stablecoin"
+      "description": "สเตเบิลคอยน์ผูกกับ USD ที่ใช้กันอย่างแพร่หลายที่สุด"
     },
     "theOpenNetwork": {
       "name": "Toncoin",
-      "description": "Ultra-fast blockchain with focus on messaging and payments"
+      "description": "บล็อกเชนความเร็วสูงพิเศษที่เน้นการส่งข้อความและการชำระเงิน"
     },
     "tron": {
       "name": "TRON",
-      "description": "Blockchain platform for decentralized entertainment"
+      "description": "แพลตฟอร์มบล็อกเชนสำหรับความบันเทิงแบบกระจายศูนย์"
     },
     "uniswap": {
       "name": "Uniswap",
-      "description": "Leading decentralized exchange and DeFi protocol"
+      "description": "การแลกเปลี่ยนแบบกระจายศูนย์ชั้นนำและโปรโตคอล DeFi"
     },
     "usdCoin": {
       "name": "USD Coin",
-      "description": "Regulated USD-backed stablecoin"
+      "description": "สเตเบิลคอยน์ผูกกับ USD ที่ได้รับการควบคุม"
     }
   },
   "currentPrice": "ราคาปัจจุบัน",
@@ -169,19 +169,19 @@
   "priceChart": "แผนภูมิราคาแบบโต้ตอบ",
   "priceMetrics": "ราคาและเมตริก",
   "rank": "อันดับ",
-  "rankNumber": "Rank #{{rank}}",
+  "rankNumber": "อันดับ #{{rank}}",
   "supplyInfo": "ข้อมูลอุปทาน",
   "tradingPairs": "คู่ซื้อขาย",
   "transactionVolume": "ปริมาณธุรกรรม",
   "transactionsPerDay": "ธุรกรรมต่อวัน",
   "volume24h": "ปริมาณ 24 ชม.",
   "volumeOverlay": "พร้อมการซ้อนทับปริมาณ",
-  "cryptocurrency": "Cryptocurrency",
-  "cryptocurrencyCategories": "Cryptocurrency Categories",
-  "allCryptocurrencies": "All Cryptocurrencies",
+  "cryptocurrency": "คริปโตเคอร์เรนซี",
+  "cryptocurrencyCategories": "หมวดหมู่คริปโตเคอร์เรนซี",
+  "allCryptocurrencies": "คริปโตเคอร์เรนซีทั้งหมด",
   "trending": "กำลังนิยม",
-  "categoryNotFound": "Category Not Found",
-  "categoryNotFoundDescription": "This category doesn't exist. Browse all cryptocurrencies below.",
+  "categoryNotFound": "ไม่พบหมวดหมู่",
+  "categoryNotFoundDescription": "หมวดหมู่นี้ไม่มีอยู่ เรียกดูคริปโตเคอร์เรนซีทั้งหมดด้านล่าง",
   "viewAllCryptocurrencies": "ดูคริปโตทั้งหมด",
   "trendingCoins": {
     "eyebrow": "ข้อมูลตลาดสด - คริปโตเคอร์เรนซี",
@@ -190,11 +190,11 @@
     "subtitle": "คริปโตที่กำลังนิยมแบบเรียลไทม์ จัดอันดับตามกิจกรรมการซื้อขาย โมเมนตัมสังคม และการเติบโตของมูลค่าตลาด อัปเดตต่อเนื่อง",
     "categories": {
       "all": "ทั้งหมด",
-      "layer1": "Layer 1",
-      "layer2": "Layer 2",
+      "layer1": "เลเยอร์ 1",
+      "layer2": "เลเยอร์ 2",
       "defi": "DeFi",
       "meme": "มีม",
-      "stablecoin": "Stablecoin",
+      "stablecoin": "สเตเบิลคอยน์",
       "payments": "การชำระเงิน",
       "infrastructure": "โครงสร้างพื้นฐาน"
     },
@@ -256,76 +256,77 @@
   },
   "categoryPages": {
     "common": {
-      "marketOverview": "Market Overview",
-      "combinedMarketCap": "Combined Market Cap",
-      "topGainer24h": "Top Gainer (24h)",
-      "name": "Name",
-      "price": "Price",
-      "change24h": "24h Change",
-      "marketCap": "Market Cap",
-      "volume24h": "24h Volume",
-      "riskProfile": "Risk Profile",
-      "fullCryptoMarket": "Full Crypto Market",
-      "exploreAllCryptocurrencies": "Explore All Cryptocurrencies"
+      "marketOverview": "ภาพรวมตลาด",
+      "combinedMarketCap": "มูลค่าตลาดรวม",
+      "topGainer24h": "เพิ่มขึ้นสูงสุด (24 ชม.)",
+      "name": "ชื่อ",
+      "price": "ราคา",
+      "change24h": "เปลี่ยนแปลง 24 ชม.",
+      "marketCap": "มูลค่าตลาด",
+      "volume24h": "ปริมาณ 24 ชม.",
+      "riskProfile": "โปรไฟล์ความเสี่ยง",
+      "fullCryptoMarket": "ตลาดคริปโตเต็มรูปแบบ",
+      "exploreAllCryptocurrencies": "สำรวจคริปโตเคอร์เรนซีทั้งหมด"
     },
     "meme": {
-      "eyebrow": "Community Tokens",
-      "title": "Meme coins",
-      "body": "Community-driven cryptocurrencies fuelled by viral culture, social momentum, and cult followings. High-risk, high-reward assets where sentiment rules the market.",
+      "eyebrow": "โทเคนชุมชน",
+      "title": "เหรียญมีม",
+      "body": "คริปโตเคอร์เรนซีที่ขับเคลื่อนโดยชุมชน เกิดจากวัฒนธรรมไวรัล โมเมนตัมทางสังคม และกลุ่มผู้ติดตาม สินทรัพย์ความเสี่ยงสูง-ผลตอบแทนสูงที่ความเชื่อมั่นครองตลาด",
       "metrics": {
-        "coinsListed": "Coins Listed"
+        "coinsListed": "เหรียญที่จดทะเบียน"
       },
-      "rankingsTitle": "Meme Coin Rankings",
+      "rankingsTitle": "อันดับเหรียญมีม",
       "table": {
-        "community": "Community"
+        "community": "ชุมชน"
       },
       "communities": {
-        "DOGE": "Original OG",
-        "SHIB": "ShibArmy",
-        "PEPE": "Pepe Nation",
-        "BONK": "Solana Memes",
-        "FLOKI": "Viking Army"
+        "DOGE": "OG ดั้งเดิม",
+        "SHIB": "กองทัพ Shib",
+        "PEPE": "ชาติ Pepe",
+        "BONK": "มีม Solana",
+        "FLOKI": "กองทัพไวกิ้ง"
       },
       "insights": {
         "origins": {
-          "eyebrow": "Origins",
-          "title": "The Meme Coin Story",
+          "eyebrow": "จุดกำเนิด",
+          "title": "เรื่องราวของเหรียญมีม",
           "items": {
-            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
-            "elon": "Elon Musk tweets as price catalysts",
-            "pumps": "WallStreetBets-style coordinated pumps",
-            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
-            "pepe": "2023 PEPE boom revived the meme cycle",
-            "bonk": "BONK airdropped life into Solana DeFi"
+            "dogecoin": "Dogecoin (2013) - เหรียญมีมอินเทอร์เน็ตดั้งเดิม",
+            "elon": "ทวีตของ Elon Musk เป็นตัวเร่งราคา",
+            "pumps": "การปั๊มแบบ WallStreetBets ที่ประสานงานกัน",
+            "shiba": "Shiba Inu เปิดตัวในฐานะ \"DOGE killer\"",
+            "pepe": "บูม PEPE ปี 2023 ฟื้นวัฏจักรมีม",
+            "bonk": "BONK ถูก airdrop สู่ชีวิต DeFi ของ Solana"
           }
         },
         "risk": {
-          "title": "What Investors Should Know",
+          "title": "สิ่งที่นักลงทุนควรรู้",
           "items": {
-            "sentiment": "Prices driven almost entirely by sentiment",
-            "pumpDump": "Susceptible to pump-and-dump schemes",
-            "utility": "Minimal or no underlying utility",
-            "volatility": "Extreme volatility - 50%+ swings common",
-            "rugPull": "Rug-pull risk in newer, unaudited coins",
-            "viralCycles": "High correlation with viral media cycles"
+            "sentiment": "ราคาขับเคลื่อนโดยความเชื่อมั่นเกือบทั้งหมด",
+            "pumpDump": "เสี่ยงต่อแผนการปั๊มแล้วทิ้ง",
+            "utility": "ประโยชน์ใช้สอยน้อยหรือไม่มีเลย",
+            "volatility": "ความผันผวนรุนแรง - 50%+ เป็นเรื่องปกติ",
+            "rugPull": "ความเสี่ยง Rug-pull ในเหรียญใหม่ที่ยังไม่ตรวจสอบ",
+            "viralCycles": "ความสัมพันธ์สูงกับวัฏจักรสื่อไวรัล"
           }
         },
         "signals": {
-          "eyebrow": "Community Signals",
-          "title": "How to Track Momentum",
+          "eyebrow": "สัญญาณชุมชน",
+          "title": "วิธีติดตามโมเมนตัม",
           "items": {
-            "twitter": "Twitter/X mentions and trending hashtags",
-            "reddit": "Reddit activity on r/CryptoCurrency",
-            "whales": "Whale wallet alerts and large transfers",
-            "listings": "Exchange listing announcements",
-            "google": "Google Trends search volume spikes",
-            "influencers": "Influencer social media activity"
+            "twitter": "การกล่าวถึง Twitter/X และ hashtags ที่กำลังมาแรง",
+            "reddit": "กิจกรรม Reddit บน r/CryptoCurrency",
+            "whales": "การแจ้งเตือนกระเป๋าวาฬและการโอนจำนวนมาก",
+            "listings": "ประกาศการจดทะเบียนในตลาดซื้อขาย",
+            "google": "ปริมาณการค้นหา Google Trends พุ่งสูง",
+            "influencers": "กิจกรรมโซเชียลมีเดียของอินฟลูเอนเซอร์"
           }
         }
       },
       "cta": {
-        "description": "Compare meme coins against blue-chip assets, DeFi protocols, and layer-1 blockchains."
+        "description": "เปรียบเทียบเหรียญมีมกับสินทรัพย์ blue-chip โปรโตคอล DeFi และบล็อกเชนเลเยอร์ 1"
       }
     }
-  }
+  },
+  "blockTimeSeconds": "{{time}} วินาที"
 }

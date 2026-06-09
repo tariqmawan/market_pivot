@@ -498,5 +498,10 @@
       "neutral": "Neutral"
     },
     "empty": "No events in the current view."
+  },
+  "forbiddenpage": {
+    "h0": "Access Denied",
+    "description": "You don't have permission to view this page. Please contact your administrator if you believe this is a mistake.",
+    "backToHome": "Back to home"
   }
 }

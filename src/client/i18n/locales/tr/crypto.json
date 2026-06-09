@@ -17,13 +17,13 @@
       "name": "Katman 2"
     },
     "meme": {
-      "name": "meme"
+      "name": "Meme Coin"
     },
     "payments": {
       "name": "Ödemeler"
     },
     "stablecoin": {
-      "name": "Sabit coinler"
+      "name": "Stablecoin"
     }
   },
   "category": "Kategori",
@@ -35,55 +35,55 @@
   "cryptocurrencies": {
     "aave": {
       "name": "Aave",
-      "description": "Borç verme ve borç alma için merkezi olmayan gözetimsiz likidite protokolü"
+      "description": "Borç verme ve borç alma için merkezi olmayan, gözetimsiz likidite protokolü"
     },
     "arbitrum": {
-      "name": "Tahkim",
-      "description": "Ethereum katman-2 ölçeklendirme çözümü ve yönetişim belirteci"
+      "name": "Arbitrum",
+      "description": "Ethereum katman-2 ölçekleme çözümü ve yönetişim tokeni"
     },
     "avalanche2": {
-      "name": "Çığ",
-      "description": "Blockchain uygulamaları için alt ağ ve ölçeklendirme çözümleri"
+      "name": "Avalanche",
+      "description": "Blockchain uygulamaları için alt ağ ve ölçekleme çözümleri"
     },
     "binancecoin": {
       "name": "BNB",
-      "description": "Binance Smart Chain ekosisteminin yerel tokenı"
+      "description": "Binance Smart Chain ekosisteminin yerel tokeni"
     },
     "bitcoin": {
       "name": "Bitcoin",
       "description": "Piyasa değerine göre dünyanın ilk ve en büyük kripto para birimi"
     },
     "bonk": {
-      "name": "BONK",
-      "description": "Solana'nın ilk büyük meme coin'i — topluluğa havadan dağıtıldı, artık DeFi ekosisteminin vazgeçilmezlerinden biri."
+      "name": "Bonk",
+      "description": "Solana'nın ilk büyük meme coin'i — topluluğa airdrop edildi, artık DeFi ekosisteminin vazgeçilmezi"
     },
     "cardano": {
       "name": "Cardano",
       "description": "Sürdürülebilirliğe odaklanan hakemli blockchain platformu"
     },
     "chainlink": {
-      "name": "Zincir bağlantı",
-      "description": "Blok zincirlerini gerçek dünya verilerine bağlayan merkezi olmayan oracle ağı"
+      "name": "Chainlink",
+      "description": "Blockchain'leri gerçek dünya verilerine bağlayan merkezi olmayan oracle ağı"
     },
     "compoundGovernanceToken": {
-      "name": "Birleştirmek",
-      "description": "DeFi kredileri için algoritmik otonom faiz oranı protokolü"
+      "name": "Compound",
+      "description": "DeFi borç verme için algoritmik otonom faiz oranı protokolü"
     },
     "cosmos": {
-      "name": "Evren",
-      "description": "Birlikte çalışabilen blockchain ekosistemi ve Blockchainlerin İnterneti"
+      "name": "Cosmos",
+      "description": "Birlikte çalışabilir blockchain ekosistemi ve Blockchain'lerin İnterneti"
     },
     "curveDaoToken": {
-      "name": "Eğri Finansı",
+      "name": "Curve Finance",
       "description": "Stablecoin ve sabit varlık takasları için optimize edilmiş merkezi olmayan borsa"
     },
     "dai": {
       "name": "Dai",
-      "description": "Ethereum'da merkezi olmayan USD destekli stabilcoin"
+      "description": "Ethereum'da merkezi olmayan USD destekli stablecoin"
     },
     "dogecoin": {
       "name": "Dogecoin",
-      "description": "Orijinal meme parası — şaka olarak başladı, kültürel bir kripto ikonu haline geldi"
+      "description": "Orijinal meme coin — şaka olarak başladı, kültürel bir kripto ikonu haline geldi"
     },
     "ethereum": {
       "name": "Ethereum",
@@ -91,71 +91,71 @@
     },
     "floki": {
       "name": "FLOKI",
-      "description": "Halkın kriptosu - Elon Musk'tan ilham alan, topluluk tarafından oluşturulan meme ekosistemi"
+      "description": "Halkın kriptosu — Elon Musk'tan ilham alan, topluluk tarafından oluşturulmuş meme ekosistemi"
     },
     "litecoin": {
       "name": "Litecoin",
-      "description": "Gümüşten Bitcoin'in altına, hızlı eşler arası ödemeler"
+      "description": "Bitcoin'in altınına gümüş, hızlı eşler arası ödemeler"
     },
     "maker": {
-      "name": "Yapımcı",
-      "description": "DAI stablecoin'inin arkasındaki protokol olan MakerDAO'nun yönetim tokeni"
+      "name": "Maker",
+      "description": "DAI stablecoin'inin arkasındaki protokol olan MakerDAO'nun yönetişim tokeni"
     },
     "maticNetwork": {
-      "name": "Çokgen",
-      "description": "Daha hızlı ve daha ucuz işlemlere olanak tanıyan Ethereum ölçeklendirme çözümü"
+      "name": "Polygon",
+      "description": "Daha hızlı ve daha ucuz işlemlere olanak tanıyan Ethereum ölçekleme çözümü"
     },
     "pepe": {
-      "name": "pepe",
-      "description": "İnternet kültürü kriptoyla buluşuyor - kurbağa meme milyar dolarlık tokene dönüştü"
+      "name": "Pepe",
+      "description": "İnternet kültürü kriptoyla buluşuyor — kurbağa meme milyar dolarlık tokena dönüştü"
     },
     "polkadot": {
-      "name": "Puantiye",
+      "name": "Polkadot",
       "description": "Zincirler arası birlikte çalışabilirliği mümkün kılan çok zincirli blockchain"
     },
     "ripple": {
       "name": "XRP",
-      "description": "Ödeme ağı hızlı, düşük maliyetli uluslararası transferlere odaklandı"
+      "description": "Hızlı, düşük maliyetli uluslararası transferlere odaklanmış ödeme ağı"
     },
     "shibaInu": {
-      "name": "Şiba Inu",
-      "description": "Dogecoin katili — Devasa bir topluluğa sahip Ethereum tabanlı meme coin"
+      "name": "Shiba Inu",
+      "description": "Dogecoin katili — büyük bir topluluğa sahip Ethereum tabanlı meme coin"
     },
     "solana": {
       "name": "Solana",
       "description": "Merkezi olmayan uygulamalar için yüksek hızlı blockchain platformu"
     },
     "stellar": {
-      "name": "Yıldız",
-      "description": "Finansal katılım ve havaleler için Blockchain ağı"
+      "name": "Stellar",
+      "description": "Finansal katılım ve havaleler için blockchain ağı"
     },
     "tether": {
-      "name": "Bağ",
-      "description": "En yaygın kullanılan USD'ye sabitlenmiş stablecoin"
+      "name": "Tether",
+      "description": "En yaygın kullanılan USD sabitli stablecoin"
     },
     "theOpenNetwork": {
       "name": "Toncoin",
-      "description": "Mesajlaşma ve ödemelere odaklanan ultra hızlı blockchain."
+      "description": "Mesajlaşma ve ödemelere odaklanan ultra hızlı blockchain"
     },
     "tron": {
       "name": "TRON",
-      "description": "Merkezi olmayan eğlence için Blockchain platformu"
+      "description": "Merkezi olmayan eğlence için blockchain platformu"
     },
     "uniswap": {
       "name": "Uniswap",
       "description": "Lider merkezi olmayan borsa ve DeFi protokolü"
     },
     "usdCoin": {
-      "name": "ABD Doları Parası",
-      "description": "Düzenlemeye tabi USD destekli stabilcoin"
+      "name": "USD Coin",
+      "description": "Düzenlemeye tabi USD destekli stablecoin"
     }
   },
-  "currentPrice": "Mevcut Fiyat",
+  "currentPrice": "Güncel Fiyat",
   "exchange": "Borsa",
   "exchangeExamples": "Binance, Coinbase, Kraken ve daha fazlası",
   "exchanges": "Borsalar",
   "founder": "Kurucu",
-  "launched": "Lansman",
+  "launched": "Çıkış Tarihi",
   "listedCryptoExchanges": "Bu varlığın işlem gördüğü borsalar",
   "loadingPairs": "İşlem çiftleri yükleniyor...",
   "loadingPrice": "Fiyat verileri yükleniyor...",
@@ -166,28 +166,28 @@
   "onChainComing": "Zincir üstü veriler yakında",
   "onChainMetrics": "Zincir Üstü Metrikler",
   "price": "Fiyat",
-  "priceChart": "İnteraktif fiyat grafiği",
-  "priceMetrics": "Fiyat & Metrikler",
+  "priceChart": "Etkileşimli fiyat grafiği",
+  "priceMetrics": "Fiyat ve Metrikler",
   "rank": "Sıra",
   "rankNumber": "Sıra #{{rank}}",
   "supplyInfo": "Arz Bilgisi",
   "tradingPairs": "İşlem Çiftleri",
   "transactionVolume": "İşlem Hacmi",
-  "transactionsPerDay": "Günlük İşlemler",
+  "transactionsPerDay": "Günlük İşlem",
   "volume24h": "24s Hacim",
-  "volumeOverlay": "Hacim yerleşimi ile",
-  "cryptocurrency": "Kripto para birimi",
+  "volumeOverlay": "Hacim katmanı ile",
+  "cryptocurrency": "Kripto Para",
   "cryptocurrencyCategories": "Kripto Para Kategorileri",
   "allCryptocurrencies": "Tüm Kripto Paralar",
   "trending": "Trend",
   "categoryNotFound": "Kategori Bulunamadı",
-  "categoryNotFoundDescription": "Bu kategori mevcut değil. Aşağıdaki tüm kripto para birimlerine göz atın.",
-  "viewAllCryptocurrencies": "Tüm kripto paraları görüntüle",
+  "categoryNotFoundDescription": "Bu kategori mevcut değil. Aşağıdaki tüm kripto paralara göz atın.",
+  "viewAllCryptocurrencies": "Tüm Kripto Paraları Görüntüle",
   "trendingCoins": {
-    "eyebrow": "Canlı piyasa verisi - Kripto para",
+    "eyebrow": "Canlı piyasa verisi - Kripto",
     "titleAccent": "Trend",
-    "titleRest": "coinler",
-    "subtitle": "İşlem aktivitesi, sosyal momentum ve piyasa değeri büyümesine göre sıralanan gerçek zamanlı trend kripto paralar. Sürekli güncellenir.",
+    "titleRest": "Coin'ler",
+    "subtitle": "İşlem aktivitesi, sosyal ivme ve piyasa değeri büyümesine göre sıralanan gerçek zamanlı trend kripto paralar. Sürekli güncellenir.",
     "categories": {
       "all": "Tümü",
       "layer1": "Katman 1",
@@ -201,35 +201,35 @@
     "metrics": {
       "tracked": "İzlenen",
       "gainers": "Yükselenler",
-      "topGain24h": "24s en yüksek artış",
+      "topGain24h": "24s En Yüksek",
       "volumeShort": "24s Hacim",
       "supply": "Arz"
     },
     "sentiment": {
       "hot": "Sıcak",
-      "rising": "Yükseliyor",
+      "rising": "Yükselişte",
       "active": "Aktif",
       "strong": "Güçlü"
     },
-    "moreTitle": "Daha fazla trend coin",
+    "moreTitle": "Daha Fazla Trend Coin",
     "emptyCategory": "Bu kategoride coin bulunamadı.",
     "insights": {
       "trending": {
-        "eyebrow": "Trend olanlar",
-        "title": "Piyasa dinamikleri",
+        "eyebrow": "Trend Olanlar",
+        "title": "Piyasa Dinamikleri",
         "items": {
-          "socialMentions": "Sosyal medya bahsi artıyor",
+          "socialMentions": "Sosyal medya bahisleri artıyor",
           "exchangeFlows": "Borsa giriş/çıkışları değişiyor",
           "developerActivity": "GitHub geliştirici aktivitesi",
-          "onChainVolume": "On-chain işlem hacmi",
+          "onChainVolume": "Zincir içi işlem hacmi",
           "volumeBreakouts": "İşlem hacmi kırılımları"
         }
       },
       "risk": {
-        "eyebrow": "Risk faktörleri",
-        "title": "Temkinli kal",
+        "eyebrow": "Risk Faktörleri",
+        "title": "Temkinli Olun",
         "items": {
-          "volatility": "Yüksek oynaklık - fiyat %30+ oynayabilir",
+          "volatility": "Yüksek volatilite — fiyat %30+ oynayabilir",
           "liquidity": "Küçük coinlerde düşük likidite",
           "manipulation": "Potansiyel piyasa manipülasyonu",
           "regulation": "Değişen düzenleyici ortam",
@@ -237,21 +237,21 @@
         }
       },
       "tips": {
-        "eyebrow": "Trading ipuçları",
-        "title": "Akıllı stratejiler",
+        "eyebrow": "İşlem İpuçları",
+        "title": "Akıllı Stratejiler",
         "items": {
-          "onChainValidation": "Önce on-chain metriklerle doğrula",
-          "githubActivity": "GitHub geliştirici aktivitesini kontrol et",
-          "divergence": "Hacim-fiyat ayrışmasını izle",
-          "positionSizing": "Doğru pozisyon büyüklüğü kullan",
-          "stopLosses": "Girişten önce sıkı stop-loss belirle"
+          "onChainValidation": "Önce zincir üstü metriklerle doğrulayın",
+          "githubActivity": "GitHub geliştirici aktivitesini kontrol edin",
+          "divergence": "Hacim-fiyat ayrışmasını izleyin",
+          "positionSizing": "Doğru pozisyon büyüklüğü kullanın",
+          "stopLosses": "Girişten önce sıkı stop-loss belirleyin"
         }
       }
     },
     "cta": {
-      "eyebrow": "Kripto araştırması",
-      "title": "Herhangi bir coine derin dalış",
-      "description": "Ayrıntılı grafikler, on-chain metrikler, borsa listelemeleri ve son haberleri tek yerde görmek için herhangi bir coine tıkla."
+      "eyebrow": "Kripto Araştırması",
+      "title": "Herhangi Bir Coine Derinlemesine Dalış",
+      "description": "Detaylı grafikler, zincir üstü metrikler, borsa listeleri ve son haberleri tek bir yerde görmek için herhangi bir coine tıklayın."
     }
   },
   "categoryPages": {
@@ -270,8 +270,8 @@
     },
     "meme": {
       "eyebrow": "Topluluk Token'ları",
-      "title": "Meme coin'ler",
-      "body": "Viral kültür, sosyal ivme ve sadık topluluklar tarafından beslenen, topluluk odaklı kripto para birimleri. Yüksek riskli, yüksek getirili; piyasaya duygu hâkim olduğunda parlayan varlıklar.",
+      "title": "Meme Coin'ler",
+      "body": "Viral kültür, sosyal ivme ve sadık topluluklar tarafından beslenen topluluk odaklı kripto para birimleri. Duygunun piyasayı yönettiği yüksek riskli, yüksek getirili varlıklar.",
       "metrics": {
         "coinsListed": "Listelenen Coin'ler"
       },
@@ -289,13 +289,13 @@
       "insights": {
         "origins": {
           "eyebrow": "Kökenler",
-          "title": "Meme Coin Hikâyesi",
+          "title": "Meme Coin Hikayesi",
           "items": {
             "dogecoin": "Dogecoin (2013) — internetin ilk şaka coin'i",
-            "elon": "Elon Musk paylaşımları fiyat için tetikleyici oluyor",
-            "pumps": "WallStreetBets tarzı eşgüdümlü pump hareketleri",
-            "shiba": "Shiba Inu, “DOGE killer” iddiasıyla piyasaya çıktı",
-            "pepe": "2023 PEPE patlaması meme döngüsünü yeniden canlandırdı",
+            "elon": "Elon Musk tweet'leri fiyat katalizörü oluyor",
+            "pumps": "WallStreetBets tarzı koordineli pump hareketleri",
+            "shiba": "Shiba Inu, 'DOGE killer' olarak piyasaya sürüldü",
+            "pepe": "2023 PEPE patlaması meme döngüsünü canlandırdı",
             "bonk": "BONK, Solana DeFi'ye hayat verdi"
           }
         },
@@ -303,22 +303,22 @@
           "title": "Yatırımcıların Bilmesi Gerekenler",
           "items": {
             "sentiment": "Fiyatlar neredeyse tamamen duygu durumuna göre hareket eder",
-            "pumpDump": "Pump-and-dump şemalarına karşı hassas olabilir",
-            "utility": "Temel kullanım/işlev çoğu zaman sınırlıdır ya da yoktur",
-            "volatility": "Aşırı oynaklık — %50+ hareketler görülür",
-            "rugPull": "Yeni ve denetlenmemiş coin'lerde rug-pull riski",
+            "pumpDump": "Pump-and-dump şemalarına karşı hassastır",
+            "utility": "Temel kullanım veya işlev çoğu zaman sınırlıdır ya da yoktur",
+            "volatility": "Aşırı volatilite — %50+ hareketler yaygındır",
+            "rugPull": "Yeni ve denetlenmemiş coinlerde rug-pull riski",
             "viralCycles": "Viral medya döngüleriyle yüksek korelasyon"
           }
         },
         "signals": {
           "eyebrow": "Topluluk Sinyalleri",
-          "title": "Momentum Nasıl Takip Edilir?",
+          "title": "Momentum Nasıl Takip Edilir",
           "items": {
-            "twitter": "Twitter/X paylaşımları ve trend etiketleri",
-            "reddit": "r/CryptoCurrency üzerindeki Reddit aktivitesi",
+            "twitter": "Twitter/X bahisleri ve trend hashtag'ler",
+            "reddit": "r/CryptoCurrency üzerinde Reddit aktivitesi",
             "whales": "Balina cüzdan uyarıları ve büyük transferler",
             "listings": "Borsa liste duyuruları",
-            "google": "Google Trends aramalarında ani artışlar",
+            "google": "Google Trends arama hacmi sıçramaları",
             "influencers": "Influencer sosyal medya aktivitesi"
           }
         }
@@ -327,5 +327,6 @@
         "description": "Meme coin'leri blue-chip varlıklar, DeFi protokolleri ve katman-1 blockchain'lerle karşılaştırın."
       }
     }
-  }
+  },
+  "blockTimeSeconds": "{{time}} saniye"
 }

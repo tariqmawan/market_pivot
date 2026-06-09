@@ -9,8 +9,8 @@
   "regions": "地区",
   "sectors": "板块",
   "news": "新闻",
-  "calendar": "日历",
-  "userPanel": "用户中心",
+  
+  
   "pricing": "价格",
   "tools": "工具",
   "coverage": "覆盖范围",
@@ -29,30 +29,30 @@
   "watchlists": "观察列表",
   "portfolioTracker": "投资组合跟踪",
   "alerts": "提醒",
-  "trendingCoins": "热门币种",
-  "memeCoins": "市场数据概览",
-  "defi": "DeFi",
-  "layer1": "Layer 1",
-  "stablecoins": "稳定币",
-  "energy": "能源",
-  "metals": "金属",
-  "agriculture": "农业",
-  "industrial": "工业品",
-  "americas": "美洲",
-  "europe": "欧洲",
-  "asiaPacific": "亚太",
-  "middleEastAfrica": "中东与非洲",
-  "technology": "科技",
-  "banking": "银行",
-  "ai": "人工智能",
-  "ev": "电动汽车",
-  "semiconductor": "半导体",
-  "defence": "国防",
-  "globalNews": "全球新闻",
-  "regionNews": "地区新闻",
-  "sectorNews": "板块新闻",
-  "cryptoNews": "加密新闻",
-  "marketAlerts": "市场提醒",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "byRegion": "按地区",
   "nyse": "纽约证券交易所",
   "nasdaq": "纳斯达克",
@@ -60,5 +60,33 @@
   "navMain": "主导航",
   "homeAria": "市场数据概览",
   "openMenu": "打开菜单",
-  "adminTopNav": "管理导航"
+  "adminTopNav": "管理导航",
+  "fx": "外汇",
+  "Calendar": "日历",
+  "UserPanel": "用户面板",
+  "adminPanel": "管理面板",
+  "TrendingCoins": "热门币种",
+  "MemeCoins": "Meme币",
+  "Defi": "去中心化金融",
+  "Layer1": "第一层",
+  "Stablecoins": "稳定币",
+  "Energy": "能源",
+  "Metals": "金属",
+  "Agriculture": "农业",
+  "Industrial": "工业",
+  "Americas": "美洲",
+  "Europe": "欧洲",
+  "AsiaPacific": "亚太地区",
+  "MiddleEastAfrica": "中东和非洲",
+  "Technology": "科技",
+  "Banking": "银行",
+  "Ai": "人工智能",
+  "Ev": "电动汽车",
+  "Semiconductor": "半导体",
+  "Defence": "国防",
+  "GlobalNews": "全球新闻",
+  "RegionNews": "地区新闻",
+  "SectorNews": "行业新闻",
+  "CryptoNews": "加密货币新闻",
+  "MarketAlerts": "市场警报"
 }

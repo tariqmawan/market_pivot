@@ -5,16 +5,16 @@
   "blockTime": "Время блока",
   "categories": {
     "defi": {
-      "name": "name"
+      "name": "DeFi"
     },
     "infrastructure": {
       "name": "Инфраструктура"
     },
     "layer1": {
-      "name": "name"
+      "name": "Лейер 1"
     },
     "layer2": {
-      "name": "name"
+      "name": "Лейер 2"
     },
     "meme": {
       "name": "Мем"
@@ -280,46 +280,46 @@
         "community": "Сообщество"
       },
       "communities": {
-        "DOGE": "Original OG",
-        "SHIB": "ShibArmy",
-        "PEPE": "Pepe Nation",
-        "BONK": "Solana Memes",
-        "FLOKI": "Viking Army"
+        "DOGE": "Оригинальный OG",
+        "SHIB": "Армия Shib",
+        "PEPE": "Нация Pepe",
+        "BONK": "Мем Solana",
+        "FLOKI": "Армия викингов"
       },
       "insights": {
         "origins": {
-          "eyebrow": "Origins",
-          "title": "The Meme Coin Story",
+          "eyebrow": "Происхождение",
+          "title": "История мемкоинов",
           "items": {
-            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
-            "elon": "Elon Musk tweets as price catalysts",
-            "pumps": "WallStreetBets-style coordinated pumps",
-            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
-            "pepe": "2023 PEPE boom revived the meme cycle",
-            "bonk": "BONK airdropped life into Solana DeFi"
+            "dogecoin": "Dogecoin (2013) — оригинальный интернет-мемкоин",
+            "elon": "Твиты Илона Маска подстегнули цены",
+            "pumps": "Скоординированные пампы в стиле WallStreetBets",
+            "shiba": "Shiba Inu запущен как «DOGE killer»",
+            "pepe": "Бум PEPE 2023 возродил мем-циклы",
+            "bonk": "BONK airdrop'нуто в DeFi-экосистему Solana"
           }
         },
         "risk": {
-          "title": "What Investors Should Know",
+          "title": "Что должны знать инвесторы",
           "items": {
-            "sentiment": "Prices driven almost entirely by sentiment",
-            "pumpDump": "Susceptible to pump-and-dump schemes",
-            "utility": "Minimal or no underlying utility",
-            "volatility": "Extreme volatility - 50%+ swings common",
-            "rugPull": "Rug-pull risk in newer, unaudited coins",
-            "viralCycles": "High correlation with viral media cycles"
+            "sentiment": "Цены движутся почти исключительно настроениями",
+            "pumpDump": "Риск схем «накачать и сбросить»",
+            "utility": "Мало или нет практических применений",
+            "volatility": "Крайняя волатильность — 50%+ колебания нормальны",
+            "rugPull": "Риск rug-pull в новых непроверенных монетах",
+            "viralCycles": "Высокая корреляция с вирусными медиа-циклами"
           }
         },
         "signals": {
-          "eyebrow": "Community Signals",
-          "title": "How to Track Momentum",
+          "eyebrow": "Сигналы сообщества",
+          "title": "Как отслеживать моментум",
           "items": {
-            "twitter": "Twitter/X mentions and trending hashtags",
-            "reddit": "Reddit activity on r/CryptoCurrency",
-            "whales": "Whale wallet alerts and large transfers",
-            "listings": "Exchange listing announcements",
-            "google": "Google Trends search volume spikes",
-            "influencers": "Influencer social media activity"
+            "twitter": "Упоминания в Twitter/X и трендовые хэштеги",
+            "reddit": "Активность на Reddit r/CryptoCurrency",
+            "whales": "Оповещения о китовых кошельках и крупных транзакциях",
+            "listings": "Объявления о листинге на биржах",
+            "google": "Всплески поисковых запросов Google Trends",
+            "influencers": "Активность крипто-инфлюенсеров в соцсетях"
           }
         }
       },
@@ -327,5 +327,6 @@
         "description": "Сравните мем-коины с крупными активами, DeFi-протоколами и блокчейнами уровня 1."
       }
     }
-  }
+  },
+  "blockTimeSeconds": "{{time}} секунд"
 }

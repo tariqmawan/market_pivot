@@ -176,15 +176,85 @@
   "type": "Тип",
   "vsUsd": "к USD",
   "currencyTypes": {
-    "fiat": "Фиатная валюта"
+    "fiat": "Фиатная валюта",
+    "commodity": "Сырьевые",
+    "crypto": "Криптовалюты"
   },
   "centralBanks": {
-    "federalreserve": "Федеральная резервная система"
+    "federalreserve": "Федеральная резервная система",
+    "europeancentralbank": "Европейский центральный банк",
+    "bankofjapan": "Банк Японии",
+    "bankofengland": "Банк Англии",
+    "swissnationalbank": "Швейцарский национальный банк",
+    "peoplesbankofchina": "Народный банк Китая",
+    "hongkongmonetaryauthority": "Hong Kong Monetary Authority",
+    "reservebankofindia": "Reserve Bank of India",
+    "reservebankofaustralia": "Резервный банк Австралии",
+    "monetaryauthorityofsingapore": "Monetary Authority of Singapore",
+    "bankofkorea": "Bank of Korea",
+    "bankofcanada": "Банк Канады",
+    "centralbankofbrazil": "Central Bank of Brazil",
+    "bancodemxico": "Banco de México",
+    "centralbankofchile": "Central Bank of Chile",
+    "riksbank": "Riksbank",
+    "norgesbank": "Norges Bank",
+    "saudicentralbank": "Saudi Central Bank",
+    "centralbankoftheuae": "Central Bank of the UAE",
+    "southafricanreservebank": "South African Reserve Bank"
   },
   "regions": {
-    "northamerica": "Северная Америка"
+    "northamerica": "Северная Америка",
+    "europe": "Europe",
+    "asia": "Asia",
+    "americas": "Americas",
+    "middleeast": "Middle East",
+    "africa": "Africa"
   },
   "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
   "keyDataReleasesFor": "Key data releases for {{code}}",
-  "hoursAgo": "{{count}}h ago"
+  "hoursAgo": "{{count}}h ago",
+  "impacts": {
+    "High": "High",
+    "Medium": "Medium",
+    "Low": "Low"
+  },
+  "events": {
+    "nonFarmPayrolls": "Нефармерская занятость",
+    "ecbPressConference": "Пресс-конференция ЕЦБ",
+    "boeGovernorSpeech": "Выступление главы BoE",
+    "fomcMinutes": "Протокол FOMC",
+    "bojSummaryOpinions": "Сводка мнений BoJ",
+    "rbaStatement": "Заявление RBA",
+    "currencyCpiRelease": "Данные CPI {{code}}",
+    "centralBankPolicyUpdate": "Обновление политики {{centralBank}}",
+    "currencyRetailSales": "Розничные продажи {{code}}",
+    "currencyTradeBalance": "Торговый баланс {{code}}"
+  },
+  "newsTitles": {
+    "currencyStrengthensPolicy": "{{code}} укрепляется на ожиданиях политики",
+    "currencyWeakensPolicy": "{{code}} ослабевает на ожиданиях политики",
+    "centralBankDataDependent": "{{centralBank}} сигнализирует о данных-зависимом подходе",
+    "currencyLiquidityRobust": "Ликвидность {{code}} остаётся прочной в трансграничных потоках",
+    "currencyFairValueUpdated": "Аналитическая записка: справедливая стоимость {{code}} обновлена",
+    "usdRallyPauses": "Ралли USD приостанавливается перед протоколом FOMC",
+    "ecbDataDependent": "ЕЦБ сигнализирует о数据-зависимом подходе, EUR торгуется слабо",
+    "jpyInterventionWatch": "Наблюдение за интервенцией JPY при тестировании USD/JPY уровня 156",
+    "gbpStickyInflation": "GBP поддерживается упорной инфляцией в сфере услуг",
+    "cnyWeakerMidpoint": "CNY под давлением — Народный банк Китая снизил контрольный курс",
+    "audCommodityStrength": "AUD поддерживается силой сырьевых товаров и аппетитом к риску"
+  },
+  "reserveStatuses": {
+    "primaryreservecurrency": "Primary reserve currency",
+    "secondreservecurrency": "Second reserve currency",
+    "thirdreservecurrency": "Third reserve currency",
+    "regionalreservecurrency": "Regional reserve currency",
+    "regional": "Regional"
+  },
+  "capitalFlowTypes": {
+    "safehaveninflows": "Safe-haven inflows",
+    "mixedinflows": "Mixed inflows",
+    "exportdrivenflows": "Export-driven flows",
+    "commoditylinkedflows": "Commodity-linked flows",
+    "open": "Open"
+  }
 }

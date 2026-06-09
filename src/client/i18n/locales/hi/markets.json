@@ -15,7 +15,7 @@
       "name": "ताँबा"
     },
     "crudeOil": {
-      "name": "Crude Oil WTI"
+      "name": "कच्चा तेल WTI"
     },
     "gold": {
       "name": "सोना"
@@ -223,7 +223,7 @@
       "description": "भारत का सबसे बड़ा स्टॉक एक्सचेंज, दक्षिण एशिया के लिए अग्रणी बाज़ार"
     },
     "nyse": {
-      "name": "New York Stock Exchange",
+      "name": "न्यूयॉर्क स्टॉक एक्सचेंज",
       "description": "दुनिया में सबसे बड़ा और सबसे प्रसिद्ध स्टॉक एक्सचेंज"
     },
     "omx": {
@@ -325,7 +325,7 @@
       "name": "अमेरिका की"
     },
     "asiaPacific": {
-      "name": "Asia-Pacific"
+      "name": "एशिया-प्रशांत"
     },
     "europe": {
       "name": "यूरोप"
@@ -488,27 +488,27 @@
   "website": "वेबसाइट",
   "whaleActivity": "व्हेल गतिविधि",
   "worldSnapshot": "विश्व बाज़ार स्नैपशॉट",
-  "exchangeNetwork": "Exchange Network",
-  "stockExchanges": "Stock Exchanges",
-  "allExchanges": "All Exchanges",
-  "advancedScreener": "Advanced Screener",
-  "regionExchangesTitle": "{{region}} Exchanges",
-  "regionalExchangeDashboards": "Regional exchange dashboards ? currency, timezone, trading hours, listed companies, main index, and market cap.",
-  "noExchangesForRegion": "No exchanges found for this region.",
+  "exchangeNetwork": "एक्सचेंज नेटवर्क",
+  "stockExchanges": "स्टॉक एक्सचेंज",
+  "allExchanges": "सभी एक्सचेंज",
+  "advancedScreener": "उन्नत स्क्रीनर",
+  "regionExchangesTitle": "{{region}} एक्सचेंज",
+  "regionalExchangeDashboards": "क्षेत्रीय एक्सचेंज डैशबोर्ड — मुद्रा, समय क्षेत्र, व्यापार घंटे, सूचीबद्ध कंपनियाँ, मुख्य सूचकांक और मार्केट कैप।",
+  "noExchangesForRegion": "इस क्षेत्र के लिए कोई एक्सचेंज नहीं मिला।",
   "exchangeRegions": {
-    "americas": "Americas",
-    "northAmerica": "North America",
-    "europe": "Europe",
-    "asia": "Asia",
-    "asiaPacific": "Asia Pacific",
-    "oceania": "Oceania",
-    "middleEast": "Middle East",
-    "africa": "Africa",
-    "middleEastAfrica": "Middle East & Africa",
-    "latinAmerica": "Latin America"
+    "americas": "अमेरिका",
+    "northAmerica": "उत्तर अमेरिका",
+    "europe": "यूरोप",
+    "asia": "एशिया",
+    "asiaPacific": "एशिया-प्रशांत",
+    "oceania": "ओशिनिया",
+    "middleEast": "मध्य पूर्व",
+    "africa": "अफ्रीका",
+    "middleEastAfrica": "मध्य पूर्व और अफ्रीका",
+    "latinAmerica": "लैटिन अमेरिका"
   },
   
-  "ytdShort": "YTD",
+  "ytdShort": "वर्ष-अब-तक",
 
   "dashboardCards": {
     "nyseMeta": "S&P 500 / USD / न्यूयॉर्क",

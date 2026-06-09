@@ -15,7 +15,7 @@
       "name": "Kupfer"
     },
     "crudeOil": {
-      "name": "WTI-Roh?l"
+      "name": "WTI-Rohöl"
     },
     "gold": {
       "name": "Gold"
@@ -110,7 +110,7 @@
       "name": "Saudi-Arabien"
     },
     "se": {
-      "name": "Nordischer und baltischer Raum"
+      "name": "Schweden"
     },
     "sg": {
       "name": "Singapur"
@@ -207,7 +207,7 @@
       "description": "Südafrikas wichtigste Börse"
     },
     "krx": {
-      "name": "Korea-Austausch",
+      "name": "Korea Exchange",
       "description": "Südkoreas wichtigste Börse"
     },
     "lse": {
@@ -223,7 +223,7 @@
       "description": "Indiens größte Börse, führender Markt für Südasien"
     },
     "nyse": {
-      "name": "New Yorker B?rse",
+      "name": "New Yorker Börse",
       "description": "Die größte und bekannteste Börse der Welt"
     },
     "omx": {
@@ -251,7 +251,7 @@
       "description": "Drittgrößte Börse nach Marktkapitalisierung"
     },
     "tadawul": {
-      "name": "Saudischer Austausch",
+      "name": "Saudi Exchange",
       "description": "Saudi-Arabiens wichtigste Börse"
     },
     "tse": {
@@ -511,7 +511,7 @@
   "dashboardCards": {
     "nyseMeta": "S&P 500 / USD / New York",
     "usdMeta": "Federal Reserve / globale Basis",
-    "bitcoinMeta": "BTC gegen?ber USD, FX und Aktienrisiko",
+    "bitcoinMeta": "BTC gegenüber USD, FX und Aktienrisiko",
     "regionMeta": "China-Wachstum / Japan-Renditen / Indien-Gewinne / Australien-Rohstoffe",
     "sectorMeta": "Cloud-Capex / KI-Monetarisierung / Halbleiterangebot / Bewertungen",
     "commodityMeta": "Beeinflusst Transportinflation, Energiegewinne, Fiskaleinnahmen und globale Risikostimmung."

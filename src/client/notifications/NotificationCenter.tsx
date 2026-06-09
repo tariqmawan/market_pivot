@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNotifications } from "./useNotifications";
+import { useI18n } from "../i18n";
 import type { AppNotification, NotificationCategory, NotificationSeverity } from "./notificationTypes";
 
 const categoryLabel: Record<NotificationCategory, string> = {
-  watchlist: "Watchlist",
-  portfolio: "Portfolio",
-  market: "Market",
-  system: "System",
+  watchlist: "notifications.watchlist",
+  portfolio: "notifications.portfolio",
+  market: "notifications.market",
+  system: "notifications.system",
 };
 
 const severityIcon: Record<NotificationSeverity, string> = {
@@ -17,15 +18,15 @@ const severityIcon: Record<NotificationSeverity, string> = {
   critical: "✕",
 };
 
-const formatRelative = (iso: string): string => {
+const formatRelative = (iso: string, t: (key: string, params?: Record<string, string | number>) => string): string => {
   const ms = Date.now() - new Date(iso).getTime();
   const minutes = Math.round(ms / 60000);
-  if (minutes < 1) return "just now";
-  if (minutes < 60) return `${minutes}m ago`;
+  if (minutes < 1) return t("notifications.justNow");
+  if (minutes < 60) return t("notifications.minutesAgo", { count: minutes });
   const hours = Math.round(minutes / 60);
-  if (hours < 24) return `${hours}h ago`;
+  if (hours < 24) return t("notifications.hoursAgo", { count: hours });
   const days = Math.round(hours / 24);
-  return `${days}d ago`;
+  return t("notifications.daysAgo", { count: days });
 };
 
 const NotificationRow: React.FC<{
@@ -34,28 +35,29 @@ const NotificationRow: React.FC<{
   onArchive: (id: string) => void;
   onRemove: (id: string) => void;
 }> = ({ note, onMarkRead, onArchive, onRemove }) => {
+  const { t } = useI18n();
   const body = (
     <div className={`mp-notification-row mp-notification-row--${note.severity} ${note.read ? "is-read" : ""}`}>
       <span className="mp-notification-icon" aria-hidden="true">{severityIcon[note.severity]}</span>
       <div className="mp-notification-body">
         <div className="mp-notification-meta">
-          <span className="mp-notification-cat">{categoryLabel[note.category]}</span>
+          <span className="mp-notification-cat">{t(categoryLabel[note.category])}</span>
           {note.symbol && <span className="mp-notification-symbol">{note.symbol}</span>}
-          <time dateTime={note.createdAt}>{formatRelative(note.createdAt)}</time>
+          <time dateTime={note.createdAt}>{formatRelative(note.createdAt, t)}</time>
         </div>
         <strong>{note.title}</strong>
         <p>{note.body}</p>
       </div>
       <div className="mp-notification-actions">
         {!note.read && (
-          <button type="button" onClick={() => onMarkRead(note.id)} aria-label="Mark as read">
-            Mark read
+          <button type="button" onClick={() => onMarkRead(note.id)} aria-label={t("notifications.markAsRead")}>
+            {t("notifications.markRead")}
           </button>
         )}
-        <button type="button" onClick={() => onArchive(note.id)} aria-label="Archive">
-          Archive
+        <button type="button" onClick={() => onArchive(note.id)} aria-label={t("notifications.archive")}>
+          {t("notifications.archive")}
         </button>
-        <button type="button" onClick={() => onRemove(note.id)} aria-label="Delete" className="mp-notification-remove">
+        <button type="button" onClick={() => onRemove(note.id)} aria-label={t("delete")} className="mp-notification-remove">
           ✕
         </button>
       </div>
@@ -82,6 +84,7 @@ export interface NotificationCenterProps {
  */
 export const NotificationCenter: React.FC<NotificationCenterProps> = ({ variant = "bell" }) => {
   const { notifications, unreadCount, markRead, archive, archiveAll, markAllRead, remove } = useNotifications();
+  const { t } = useI18n();
   const [open, setOpen] = useState(false);
   const [filter, setFilter] = useState<NotificationCategory | "all">("all");
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -109,7 +112,7 @@ export const NotificationCenter: React.FC<NotificationCenterProps> = ({ variant 
       <button
         type="button"
         className="mp-notification-trigger"
-        aria-label={`Notifications, ${unreadCount} unread`}
+        aria-label={t("notifications.labelWithCount", { count: unreadCount })}
         aria-haspopup="dialog"
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
@@ -119,15 +122,15 @@ export const NotificationCenter: React.FC<NotificationCenterProps> = ({ variant 
       </button>
 
       {open && (
-        <div className="mp-notification-panel" role="dialog" aria-label="Notifications">
+        <div className="mp-notification-panel" role="dialog" aria-label={t("notifications.title")}>
           <header>
-            <h3>Notifications</h3>
+            <h3>{t("notifications.title")}</h3>
             <div className="mp-notification-toolbar">
               <button type="button" onClick={markAllRead} disabled={unreadCount === 0}>
-                Mark all read
+                {t("notifications.markAllRead")}
               </button>
               <button type="button" onClick={archiveAll} disabled={notifications.length === 0}>
-                Archive all
+                {t("notifications.archiveAll")}
               </button>
             </div>
           </header>
@@ -142,14 +145,14 @@ export const NotificationCenter: React.FC<NotificationCenterProps> = ({ variant 
                 onClick={() => setFilter(key)}
                 className={filter === key ? "is-active" : ""}
               >
-                {key === "all" ? "All" : categoryLabel[key]}
+                {key === "all" ? t("notifications.all") : t(categoryLabel[key])}
               </button>
             ))}
           </div>
 
           <div className="mp-notification-list">
             {visible.length === 0 ? (
-              <p className="mp-notification-empty">You’re all caught up.</p>
+              <p className="mp-notification-empty">{t("notifications.allCaughtUp")}</p>
             ) : (
               visible.map((note) => (
                 <NotificationRow

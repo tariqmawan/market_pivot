@@ -3,14 +3,14 @@
   "markets": "市場",
   "exchanges": "取引所",
   "stocks": "株式",
-  "forex": "FX",
+  "forex": "外国為替",
   "crypto": "暗号資産",
   "commodities": "コモディティ",
   "regions": "地域",
   "sectors": "セクター",
   "news": "ニュース",
-  "calendar": "カレンダー",
-  "userPanel": "ユーザーパネル",
+  
+  
   "pricing": "価格",
   "tools": "ツール",
   "coverage": "カバレッジ",
@@ -29,30 +29,30 @@
   "watchlists": "ウォッチリスト",
   "portfolioTracker": "ポートフォリオ",
   "alerts": "アラート",
-  "trendingCoins": "注目コイン",
-  "memeCoins": "ミームコイン",
-  "defi": "defi",
-  "layer1": "layer1",
-  "stablecoins": "ステーブルコイン",
-  "energy": "エネルギー",
-  "metals": "金属",
-  "agriculture": "農業",
-  "industrial": "工業品",
-  "americas": "アメリカ",
-  "europe": "ヨーロッパ",
-  "asiaPacific": "アジア太平洋",
-  "middleEastAfrica": "中東・アフリカ",
-  "technology": "テクノロジー",
-  "banking": "銀行",
-  "ai": "AI",
-  "ev": "EV",
-  "semiconductor": "半導体",
-  "defence": "防衛",
-  "globalNews": "グローバルニュース",
-  "regionNews": "地域ニュース",
-  "sectorNews": "セクターニュース",
-  "cryptoNews": "暗号資産ニュース",
-  "marketAlerts": "マーケットアラート",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "byRegion": "地域別",
   "nyse": "NYSE",
   "nasdaq": "NASDAQ",
@@ -60,5 +60,33 @@
   "navMain": "メインナビゲーション",
   "homeAria": "MarketsPivot ホーム",
   "openMenu": "メニューを開く",
-  "adminTopNav": "管理ナビゲーション"
+  "adminTopNav": "管理ナビゲーション",
+  "fx": "外国為替",
+  "Calendar": "カレンダー",
+  "UserPanel": "ユーザーパネル",
+  "adminPanel": "管理パネル",
+  "TrendingCoins": "トレンドコイン",
+  "MemeCoins": "ミームコイン",
+  "Defi": "DeFi",
+  "Layer1": "レイヤー1",
+  "Stablecoins": "ステーブルコイン",
+  "Energy": "エネルギー",
+  "Metals": "金属",
+  "Agriculture": "農業",
+  "Industrial": "工業",
+  "Americas": "アメリカ",
+  "Europe": "ヨーロッパ",
+  "AsiaPacific": "アジア太平洋",
+  "MiddleEastAfrica": "中東・アフリカ",
+  "Technology": "テクノロジー",
+  "Banking": "銀行",
+  "Ai": "人工知能",
+  "Ev": "電気自動車",
+  "Semiconductor": "半導体",
+  "Defence": "防衛",
+  "GlobalNews": "グローバルニュース",
+  "RegionNews": "地域ニュース",
+  "SectorNews": "セクターニュース",
+  "CryptoNews": "クリプトニュース",
+  "MarketAlerts": "市場アラート"
 }

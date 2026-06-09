@@ -327,5 +327,6 @@
         "description": "ミームコインを主要暗号資産、DeFiプロトコル、レイヤー1ブロックチェーンと比較します。"
       }
     }
-  }
+  },
+  "blockTimeSeconds": "{{time}}秒"
 }

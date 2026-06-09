@@ -123,7 +123,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
                 {cryptoName}
               </h1>
               <p style={{ fontSize: "13px", color: "#7a8c99", margin: "4px 0 0 0", fontWeight: 500 }}>
-                {crypto.symbol} • {cryptoCategory} • {t("crypto.rankNumber", { rank: priceData?.rank ?? "—" })}
+                {crypto.symbol} • {cryptoCategory} • {t("crypto:rankNumber", { rank: priceData?.rank ?? "—" })}
               </p>
             </div>
             <p style={{ fontSize: "14px", color: "#475569", lineHeight: "1.5", margin: "12px 0 0 0", maxWidth: "500px" }}>
@@ -173,10 +173,10 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
           {[
             { id: "price", label: t("crypto:priceMetrics") },
             { id: "charts", label: t("markets:chart") },
-            { id: "pairs", label: t("common:src_client_components_cryptodetail__l307__h1") },
+            { id: "pairs", label: t("crypto:tradingPairs") },
             { id: "exchanges", label: t("crypto:exchanges") },
             { id: "overview", label: t("nav:overview") },
-            { id: "on-chain", label: t("common:src_client_pages_cryptocategorypage__l142__h18") },
+            { id: "on-chain", label: t("crypto:onChain") },
             { id: "news", label: t("nav:news") },
           ].map((tab) => (
             <button
@@ -210,10 +210,10 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
               { label: t("forex:change24h"), value: formatPercent(changePct), color: changePct >= 0 ? "#059669" : "#dc2626" },
               { label: t("markets:marketCap"), value: formatCompactUsd(priceData?.marketCap || 0), color: "#0f172a" },
               { label: t("crypto:volume24h"), value: formatCompactUsd(priceData?.volume24h || 0), color: "#0f172a" },
-              { label: "All-Time High", value: formatUsd(priceData?.ath || 0), color: "#0f172a" },
-              { label: "All-Time Low", value: formatUsd(priceData?.atl || 0), color: "#0f172a" },
-              { label: "Circulating Supply", value: formatSupply(priceData?.circulatingSupply || 0), color: "#0f172a" },
-              { label: "Market Rank", value: `#${priceData?.rank || "—"}`, color: "#0f172a" },
+              { label: t("crypto:ath"), value: formatUsd(priceData?.ath || 0), color: "#0f172a" },
+              { label: t("crypto:atl"), value: formatUsd(priceData?.atl || 0), color: "#0f172a" },
+              { label: t("crypto:circulatingSupply"), value: formatSupply(priceData?.circulatingSupply || 0), color: "#0f172a" },
+              { label: t("crypto:marketRank"), value: `#${priceData?.rank || "—"}`, color: "#0f172a" },
             ].map((item) => (
               <div
                 key={item.label}
@@ -280,9 +280,9 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
               { label: t("forex:symbol"), value: crypto.symbol },
               { label: t("crypto:category"), value: cryptoCategory },
               { label: t("markets:founded"), value: crypto.launched },
-              { label: "Founder", value: crypto.founder },
-              { label: "Consensus Mechanism", value: crypto.consensusMechanism },
-              { label: "Block Time", value: crypto.blockTime ? `${crypto.blockTime} seconds` : "—" },
+              { label: t("crypto:founder"), value: crypto.founder },
+              { label: t("crypto:consensus"), value: crypto.consensusMechanism },
+              { label: t("crypto:blockTime"), value: crypto.blockTime ? t("crypto:blockTimeSeconds", { time: crypto.blockTime }) : "—" },
             ].map((item) => (
               <div
                 key={item.label}
@@ -359,7 +359,7 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
                     <strong style={{ fontSize: "15px", color: "#0f172a" }}>{ex.exchange}</strong>
                   </div>
                   <p style={{ fontSize: "12px", color: "#7a8c99", margin: "0" }}>
-                    {t("common:src_client_pages_cryptocategorypage__l59__h2")}: <strong style={{ color: "#0f172a" }}>{formatCompactUsd(ex.totalVolume)}</strong>
+                    {t("crypto:volume24h")}: <strong style={{ color: "#0f172a" }}>{formatCompactUsd(ex.totalVolume)}</strong>
                   </p>
                 </div>
               ))
@@ -370,10 +370,10 @@ const CryptoDetail: React.FC<CryptoDetailProps> = ({
         {activeTab === "on-chain" && (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "16px" }}>
             {[
-              { label: "Transactions Per Day", value: crypto.id === "bitcoin" ? "450K" : crypto.id === "ethereum" ? "1.1M" : "—" },
-              { label: "Active Addresses", value: crypto.id === "bitcoin" ? "1.2M" : crypto.id === "ethereum" ? "580K" : "—" },
-              { label: "Network Fees Avg", value: crypto.id === "bitcoin" ? "$2.1" : crypto.id === "ethereum" ? "$4.8" : "—" },
-              { label: "Circulating Supply", value: crypto.circulatingSupply ? `${formatSupply(crypto.circulatingSupply)} ${crypto.symbol}` : "—" },
+              { label: t("crypto:transactionsPerDay"), value: crypto.id === "bitcoin" ? "450K" : crypto.id === "ethereum" ? "1.1M" : "—" },
+              { label: t("crypto:activeAddresses"), value: crypto.id === "bitcoin" ? "1.2M" : crypto.id === "ethereum" ? "580K" : "—" },
+              { label: t("crypto:networkFees"), value: crypto.id === "bitcoin" ? "$2.1" : crypto.id === "ethereum" ? "$4.8" : "—" },
+              { label: t("crypto:circulatingSupply"), value: crypto.circulatingSupply ? `${formatSupply(crypto.circulatingSupply)} ${crypto.symbol}` : "—" },
             ].map((item) => (
               <div
                 key={item.label}

@@ -421,11 +421,11 @@
     "viewDetails": "विवरण देखें"
   },
   "news": {
-    "latest": "Latest",
-    "latestMarketNews": "Latest market news",
-    "latestNews": "Latest News",
-    "readMore": "Read more",
-    "topics": "Topics"
+    "latest": "नवीनतम",
+    "latestMarketNews": "नवीनतम बाज़ार समाचार",
+    "latestNews": "नवीनतम समाचार",
+    "readMore": "और पढ़ें",
+    "topics": "विषय"
   },
   "economiccalendar": {
     "hero": {
@@ -498,5 +498,10 @@
       "neutral": "तटस्थ"
     },
     "empty": "वर्तमान दृश्य में कोई इवेंट नहीं।"
+  },
+  "forbiddenpage": {
+    "h0": "पहुंच अस्वीकृत",
+    "description": "आपको इस पृष्ठ को देखने की अनुमति नहीं है। यदि आपको लगता है कि यह गलत है तो कृपया अपने प्रशासक से संपर्क करें।",
+    "backToHome": "होम पर वापस जाएं"
   }
 }

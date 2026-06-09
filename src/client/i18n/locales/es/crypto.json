@@ -17,7 +17,7 @@
       "name": "Capa 2"
     },
     "meme": {
-      "name": "meme"
+      "name": "Meme"
     },
     "payments": {
       "name": "Pagos"
@@ -38,7 +38,7 @@
       "description": "Protocolo de liquidez descentralizado sin custodia para préstamos y empréstitos"
     },
     "arbitrum": {
-      "name": "arbitraje",
+      "name": "Arbitrum",
       "description": "Solución de escalamiento de capa 2 de Ethereum y token de gobernanza"
     },
     "avalanche2": {
@@ -54,7 +54,7 @@
       "description": "La primera y más grande criptomoneda del mundo por capitalización de mercado"
     },
     "bonk": {
-      "name": "bonk",
+      "name": "BONK",
       "description": "La primera moneda meme importante de Solana: lanzada desde el aire a la comunidad, ahora un elemento básico de DeFi"
     },
     "cardano": {
@@ -62,7 +62,7 @@
       "description": "Plataforma blockchain revisada por pares y centrada en la sostenibilidad"
     },
     "chainlink": {
-      "name": "Eslabón de cadena",
+      "name": "Chainlink",
       "description": "Red Oracle descentralizada que conecta blockchains con datos del mundo real"
     },
     "compoundGovernanceToken": {
@@ -74,11 +74,11 @@
       "description": "Ecosistema blockchain interoperable e Internet de Blockchains"
     },
     "curveDaoToken": {
-      "name": "Finanzas curvas",
+      "name": "Curve",
       "description": "Intercambio descentralizado optimizado para intercambios de monedas estables y activos vinculados"
     },
     "dai": {
-      "name": "dai",
+      "name": "Dai",
       "description": "Moneda estable descentralizada respaldada por USD en Ethereum"
     },
     "dogecoin": {
@@ -86,7 +86,7 @@
       "description": "La moneda meme original: comenzó como una broma y se convirtió en un ícono criptográfico cultural"
     },
     "ethereum": {
-      "name": "Etereum",
+      "name": "Ethereum",
       "description": "Plataforma líder de contratos inteligentes y centro DeFi"
     },
     "floki": {
@@ -98,11 +98,11 @@
       "description": "Plata por oro de Bitcoin, pagos rápidos entre pares"
     },
     "maker": {
-      "name": "Fabricante",
+      "name": "Maker",
       "description": "Token de gobernanza de MakerDAO, el protocolo detrás de la moneda estable DAI"
     },
     "maticNetwork": {
-      "name": "Polígono",
+      "name": "Polygon",
       "description": "Solución de escalado de Ethereum que permite transacciones más rápidas y económicas"
     },
     "pepe": {
@@ -110,7 +110,7 @@
       "description": "La cultura de Internet se encuentra con las criptomonedas: el meme de la rana convertido en token de mil millones de dólares"
     },
     "polkadot": {
-      "name": "lunares",
+      "name": "Polkadot",
       "description": "Blockchain multicadena que permite la interoperabilidad entre cadenas"
     },
     "ripple": {
@@ -118,11 +118,11 @@
       "description": "Red de pagos enfocada en transferencias internacionales rápidas y de bajo costo."
     },
     "shibaInu": {
-      "name": "shiba-inu",
+      "name": "Shiba Inu",
       "description": "El asesino de Dogecoin: moneda meme basada en Ethereum con una comunidad masiva"
     },
     "solana": {
-      "name": "solana",
+      "name": "Solana",
       "description": "Plataforma blockchain de alta velocidad para aplicaciones descentralizadas"
     },
     "stellar": {
@@ -130,11 +130,11 @@
       "description": "Red blockchain para la inclusión financiera y las remesas"
     },
     "tether": {
-      "name": "Atar",
+      "name": "Tether",
       "description": "La moneda estable vinculada al USD más utilizada"
     },
     "theOpenNetwork": {
-      "name": "toncoin",
+      "name": "Toncoin",
       "description": "Blockchain ultrarrápida centrada en mensajería y pagos"
     },
     "tron": {
@@ -177,11 +177,11 @@
   "volume24h": "Volumen 24h",
   "volumeOverlay": "Con overlay de volumen",
   "cryptocurrency": "Criptomoneda",
-  "cryptocurrencyCategories": "Categor?as de criptomonedas",
+  "cryptocurrencyCategories": "Categorías de criptomonedas",
   "allCryptocurrencies": "Todas las criptomonedas",
   "trending": "Tendencias",
-  "categoryNotFound": "Categor?a no encontrada",
-  "categoryNotFoundDescription": "Esta categor?a no existe. Explora todas las criptomonedas abajo.",
+  "categoryNotFound": "Categoría no encontrada",
+  "categoryNotFoundDescription": "Esta categoría no existe. Explora todas las criptomonedas abajo.",
   "viewAllCryptocurrencies": "Ver todas las criptomonedas",
   "trendingCoins": {
     "eyebrow": "Datos de mercado en vivo - Criptomonedas",
@@ -288,38 +288,38 @@
       },
       "insights": {
         "origins": {
-          "eyebrow": "Origins",
-          "title": "The Meme Coin Story",
+          "eyebrow": "Orígenes",
+          "title": "La historia de las meme coins",
           "items": {
-            "dogecoin": "Dogecoin (2013) - the original internet joke coin",
-            "elon": "Elon Musk tweets as price catalysts",
-            "pumps": "WallStreetBets-style coordinated pumps",
-            "shiba": "Shiba Inu launched as a \"DOGE killer\"",
-            "pepe": "2023 PEPE boom revived the meme cycle",
-            "bonk": "BONK airdropped life into Solana DeFi"
+            "dogecoin": "Dogecoin (2013) - la moneda meme original de internet",
+            "elon": "Tuits de Elon Musk como catalizadores de precio",
+            "pumps": "Bombos coordinados al estilo WallStreetBets",
+            "shiba": "Shiba Inu se lanzó como un \"asesino de DOGE\"",
+            "pepe": "El boom de PEPE en 2023 revivió el ciclo de las memes",
+            "bonk": "BONK inyectó vida en DeFi de Solana con airdrops"
           }
         },
         "risk": {
-          "title": "What Investors Should Know",
+          "title": "Lo que los inversores deben saber",
           "items": {
-            "sentiment": "Prices driven almost entirely by sentiment",
-            "pumpDump": "Susceptible to pump-and-dump schemes",
-            "utility": "Minimal or no underlying utility",
-            "volatility": "Extreme volatility - 50%+ swings common",
-            "rugPull": "Rug-pull risk in newer, unaudited coins",
-            "viralCycles": "High correlation with viral media cycles"
+            "sentiment": "Precios impulsados casi exclusivamente por el sentimiento",
+            "pumpDump": "Susceptible a esquemas de bombeo y vaciado",
+            "utility": "Utilidad subyacente mínima o nula",
+            "volatility": "Volatilidad extrema - oscilaciones del 50%+ comunes",
+            "rugPull": "Riesgo de rug-pull en monedas nuevas sin auditoría",
+            "viralCycles": "Alta correlación con ciclos virales de medios"
           }
         },
         "signals": {
-          "eyebrow": "Community Signals",
-          "title": "How to Track Momentum",
+          "eyebrow": "Señales de la comunidad",
+          "title": "Cómo rastrear el impulso",
           "items": {
-            "twitter": "Twitter/X mentions and trending hashtags",
-            "reddit": "Reddit activity on r/CryptoCurrency",
-            "whales": "Whale wallet alerts and large transfers",
-            "listings": "Exchange listing announcements",
-            "google": "Google Trends search volume spikes",
-            "influencers": "Influencer social media activity"
+            "twitter": "Menciones en Twitter/X y hashtags en tendencia",
+            "reddit": "Actividad en Reddit en r/CryptoCurrency",
+            "whales": "Alertas de billeteras de ballenas y transferencias grandes",
+            "listings": "Anuncios de listados en exchanges",
+            "google": "Picos de volumen de búsqueda en Google Trends",
+            "influencers": "Actividad de influencers en redes sociales"
           }
         }
       },
@@ -327,5 +327,6 @@
         "description": "Compara meme coins con activos principales, protocolos DeFi y blockchains de capa 1."
       }
     }
-  }
+  },
+  "blockTimeSeconds": "{{time}} segundos"
 }

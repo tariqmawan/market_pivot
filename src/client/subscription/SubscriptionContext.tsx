@@ -1,4 +1,5 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { useI18n } from "../i18n";
 import { isPlanAtLeast, type BillingInterval, type PlanId, type SubscriptionStatus } from "./plans";
 import {
   mockBillingAdapter,
@@ -50,6 +51,7 @@ const computeDaysUntil = (iso: string): number => {
 };
 
 export const SubscriptionProvider: React.FC<ProviderProps> = ({ children, adapter = mockBillingAdapter }) => {
+  const { t } = useI18n();
   const [subscription, setSubscription] = useState<Subscription | null>(null);
   const [invoices, setInvoices] = useState<Invoice[]>([]);
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
@@ -72,11 +74,11 @@ export const SubscriptionProvider: React.FC<ProviderProps> = ({ children, adapte
       setPaymentMethods(pm);
       setUsage(u);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Failed to load subscription");
+      setError(e instanceof Error ? e.message : t("subscriptionLoadFailed"));
     } finally {
       setIsLoading(false);
     }
-  }, [adapter]);
+  }, [adapter, t]);
 
   useEffect(() => {
     void refresh();

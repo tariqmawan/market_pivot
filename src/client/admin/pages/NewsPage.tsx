@@ -28,7 +28,7 @@ export default function NewsPage() {
       const res = await adminGet<NewsRow[]>("/news", { page: 1, limit: 30 });
       setRows(res.data);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Load failed");
+      setError(e instanceof Error ? e.message : t("adminNewsLoadFailed"));
     } finally {
       setLoading(false);
     }
@@ -43,19 +43,19 @@ export default function NewsPage() {
       setForm({ title: "", source: "", url: "", category: "Markets" });
       void load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Publish failed");
+      setError(err instanceof Error ? err.message : t("adminNewsPublishFailed"));
     }
   };
 
   const remove = async (id: number) => {
-    if (!confirm("Delete article?")) return;
+    if (!confirm(t("adminNewsDeleteConfirm"))) return;
     await adminDelete(`/news/${id}`);
     void load();
   };
 
   return (
     <div className="mp-admin-content">
-      <PageHeader title={t("admin/newspage.h0")} subtitle="Publish, draft workflow, and article management" />
+      <PageHeader title={t("admin/newspage.h0")} subtitle={t("adminNewsSubtitle")} />
 
       <form className="mp-admin-form-card" onSubmit={publish}>
         <h3>{t("admin/newspage.h1")}</h3>
@@ -74,10 +74,10 @@ export default function NewsPage() {
         loading={loading}
         rows={rows}
         columns={[
-          { key: "title", label: "Title" },
-          { key: "source", label: "Source" },
-          { key: "category", label: "Category" },
-          { key: "publishedAt", label: "Published", render: (r) => new Date(r.publishedAt).toLocaleString() },
+          { key: "title", label: t("adminNewsColTitle") },
+          { key: "source", label: t("adminNewsColSource") },
+          { key: "category", label: t("adminNewsColCategory") },
+          { key: "publishedAt", label: t("adminNewsColPublished"), render: (r) => new Date(r.publishedAt).toLocaleString() },
           { key: "del", label: "", render: (r) => (
             <button type="button" className="mp-admin-link-btn" onClick={() => void remove(r.id)}>{t("admin/newspage.h7")}</button>
           )},

@@ -1,4 +1,5 @@
 import React from "react";
+import { useI18n } from "../i18n";
 import type { AISummary } from "./aiTypes";
 
 export interface AISummaryCardProps {
@@ -21,14 +22,15 @@ export const AISummaryCard: React.FC<AISummaryCardProps> = ({
   actionLabel,
   compact = false,
 }) => {
+  const { t } = useI18n();
   return (
     <article className={`mp-ai-summary mp-ai-summary--${summary.tone} ${compact ? "is-compact" : ""}`}>
       <header>
         <div>
-          <p className="eyebrow">AI Brief · {summary.kind}</p>
+          <p className="eyebrow">{t("ai.brief")} · {summary.kind}</p>
           <h3>{summary.subject}</h3>
         </div>
-        <span className={`mp-ai-tone mp-ai-tone--${summary.tone}`} aria-label={`Tone: ${summary.tone}`}>
+        <span className={`mp-ai-tone mp-ai-tone--${summary.tone}`} aria-label={t("ai.toneLabel", { tone: summary.tone })}>
           {summary.tone}
         </span>
       </header>
@@ -51,7 +53,7 @@ export const AISummaryCard: React.FC<AISummaryCardProps> = ({
         <div className="mp-ai-meta">
           {onAction && (
             <button type="button" className="primary-action-sm" onClick={onAction}>
-              {actionLabel ?? "Read more"}
+              {actionLabel ?? t("ai.readMore")}
             </button>
           )}
           <span className="mp-ai-provenance">

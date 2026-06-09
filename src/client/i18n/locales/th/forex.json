@@ -9,147 +9,147 @@
   "converter": "ตัวแปลง",
   "countries": {
     "ae": {
-      "name": "United Arab Emirates"
+      "name": "สหรัฐอาหรับเอมิเรตส์"
     },
     "au": {
-      "name": "Australia"
+      "name": "ออสเตรเลีย"
     },
     "br": {
-      "name": "Brazil"
+      "name": "บราซิล"
     },
     "ca": {
-      "name": "Canada"
+      "name": "แคนาดา"
     },
     "ch": {
-      "name": "Switzerland"
+      "name": "สวิตเซอร์แลนด์"
     },
     "cl": {
-      "name": "Chile"
+      "name": "ชิลี"
     },
     "cn": {
-      "name": "China"
+      "name": "จีน"
     },
     "eu": {
-      "name": "European Union"
+      "name": "สหภาพยุโรป"
     },
     "gb": {
-      "name": "United Kingdom"
+      "name": "สหราชอาณาจักร"
     },
     "hk": {
-      "name": "Hong Kong"
+      "name": "ฮ่องกง"
     },
     "in": {
-      "name": "India"
+      "name": "อินเดีย"
     },
     "jp": {
-      "name": "Japan"
+      "name": "ญี่ปุ่น"
     },
     "kr": {
-      "name": "South Korea"
+      "name": "เกาหลีใต้"
     },
     "mx": {
-      "name": "Mexico"
+      "name": "เม็กซิโก"
     },
     "no": {
-      "name": "Norway"
+      "name": "นอร์เวย์"
     },
     "sa": {
-      "name": "Saudi Arabia"
+      "name": "ซาอุดีอาระเบีย"
     },
     "se": {
-      "name": "Sweden"
+      "name": "สวีเดน"
     },
     "sg": {
-      "name": "Singapore"
+      "name": "สิงคโปร์"
     },
     "us": {
       "name": "สหรัฐอเมริกา"
     },
     "za": {
-      "name": "South Africa"
+      "name": "แอฟริกาใต้"
     }
   },
   "country": "ประเทศ",
   "currencies": {
     "aed": {
-      "name": "UAE Dirham",
-      "description": "Currency pegged to USD of Gulf financial hub"
+      "name": "ดีแรห์มสหรัฐอาหรับเอมิเรตส์",
+      "description": "สกุลเงินที่ผูกกับ USD ของศูนย์กลางการเงินอ่าวเปอร์เซีย"
     },
     "aud": {
-      "name": "Australian Dollar",
-      "description": "Commodity-linked currency, major Asia-Pacific hub"
+      "name": "ดอลลาร์ออสเตรเลีย",
+      "description": "สกุลเงินที่เชื่อมโยงกับสินค้าโภคภัณฑ์ ศูนย์กลางเอเชียแปซิฟิก"
     },
     "brl": {
-      "name": "Brazilian Real",
-      "description": "Currency of Latin America's largest economy"
+      "name": "เรอัลบราซิล",
+      "description": "สกุลเงินของเศรษฐกิจใหญ่ที่สุดในละตินอเมริกา"
     },
     "cad": {
-      "name": "Canadian Dollar",
-      "description": "Commodity-linked currency of G7 nation"
+      "name": "ดอลลาร์แคนาดา",
+      "description": "สกุลเงินที่เชื่อมโยงกับสินค้าโภคภัณฑ์ของประเทศ G7"
     },
     "chf": {
-      "name": "Swiss Franc",
-      "description": "Safe-haven currency known for stability and strong purchasing power"
+      "name": "ฟรังก์สวิส",
+      "description": "สกุลเงินปลอดภัยที่รู้จักด้านเสถียรภาพและอำนาจซื้อที่แข็งแกร่ง"
     },
     "clp": {
-      "name": "Chilean Peso",
-      "description": "Currency of economically stable Latin American nation"
+      "name": "เปโซชิลี",
+      "description": "สกุลเงินของประเทศละตินอเมริกาที่มีเสถียรภาพทางเศรษฐกิจ"
     },
     "cny": {
-      "name": "Chinese Yuan",
-      "description": "Currency of world's second-largest economy"
+      "name": "หยวนจีน",
+      "description": "สกุลเงินของเศรษฐกิจใหญ่อันดับสองของโลก"
     },
     "eur": {
-      "name": "Euro",
-      "description": "Currency of the Eurozone, second-largest reserve currency"
+      "name": "ยูโร",
+      "description": "สกุลเงินของยูโรโซน สกุลเงินสำรองใหญ่อันดับสอง"
     },
     "gbp": {
-      "name": "British Pound Sterling",
-      "description": "Currency of the UK, one of the oldest currencies"
+      "name": "ปอนด์สเตอร์ลิงอังกฤษ",
+      "description": "สกุลเงินของสหราชอาณาจักร หนึ่งในสกุลเงินที่เก่าแก่ที่สุด"
     },
     "hkd": {
-      "name": "Hong Kong Dollar",
-      "description": "Pegged to the US Dollar, major Asian financial hub currency"
+      "name": "ดอลลาร์ฮ่องกง",
+      "description": "ผูกกับดอลลาร์สหรัฐ ศูนย์กลางการเงินเอเชียที่สำคัญ"
     },
     "inr": {
-      "name": "Indian Rupee",
-      "description": "Currency of world's most populous country and fastest-growing major economy"
+      "name": "รูปีอินเดีย",
+      "description": "สกุลเงินของประเทศที่มีประชากรมากที่สุดในโลก"
     },
     "jpy": {
-      "name": "Japanese Yen",
-      "description": "Third-largest reserve currency, safe-haven asset"
+      "name": "เยนญี่ปุ่น",
+      "description": "สกุลเงินสำรองใหญ่อันดับสาม สินทรัพย์ปลอดภัย"
     },
     "krw": {
-      "name": "South Korean Won",
-      "description": "Currency of major tech and manufacturing hub"
+      "name": "วอนเกาหลีใต้",
+      "description": "สกุลเงินของศูนย์กลางเทคโนโลยีและการผลิตที่สำคัญ"
     },
     "mxn": {
-      "name": "Mexican Peso",
-      "description": "Currency of major North American trade partner"
+      "name": "เปโซเม็กซิโก",
+      "description": "สกุลเงินของคู่ค้าหลักในอเมริกาเหนือ"
     },
     "nok": {
-      "name": "Norwegian Krone",
-      "description": "Currency of major energy exporter, strong commodity links"
+      "name": "โครนนอร์เวย์",
+      "description": "สกุลเงินของผู้ส่งออกพลังงานรายใหญ่ เชื่อมโยงกับสินค้าโภคภัณฑ์"
     },
     "sar": {
-      "name": "Saudi Arabian Riyal",
-      "description": "Currency pegged to USD of world's largest oil exporter"
+      "name": "ริยาลซาอุดีอาระเบีย",
+      "description": "สกุลเงินที่ผูกกับ USD ของผู้ส่งออกน้ำมันรายใหญ่ที่สุดของโลก"
     },
     "sek": {
-      "name": "Swedish Krona",
-      "description": "Northern European currency with industrial base"
+      "name": "โครนาสวีเดน",
+      "description": "สกุลเงินนอร์ดิกที่มีฐานอุตสาหกรรม"
     },
     "sgd": {
-      "name": "Singapore Dollar",
-      "description": "Strong regional currency in Southeast Asia"
+      "name": "ดอลลาร์สิงคโปร์",
+      "description": "สกุลเงินภูมิภาคที่แข็งแกร่งในเอเชียตะวันออกเฉียงใต้"
     },
     "usd": {
       "name": "ดอลลาร์สหรัฐ",
-      "description": "สกุลเงินสำรองที่ใช้กันแพร่หลายที่สุดในโลกและเป็นมาตรฐานระดับโลก"
+      "description": "สกุลเงินสำรองที่ใช้กันอย่างแพร่หลายที่สุดในโลกและเป็นมาตรฐานสากล"
     },
     "zar": {
-      "name": "South African Rand",
-      "description": "Currency of largest African economy and commodities producer"
+      "name": "แรนด์แอฟริกาใต้",
+      "description": "สกุลเงินของเศรษฐกิจใหญ่ที่สุดในแอฟริกาและผู้ผลิตสินค้าโภคภัณฑ์"
     }
   },
   "currencyNewsComing": "ข่าวเศรษฐกิจล่าสุดจะแสดงที่นี่",
@@ -176,85 +176,85 @@
   "type": "ประเภท",
   "vsUsd": "เทียบ USD",
   "currencyTypes": {
-    "fiat": "Fiat currency",
-    "commodity": "Commodity currency",
-    "crypto": "Crypto currency"
+    "fiat": "สกุลเงิน Fiat",
+    "commodity": "สกุลเงินสินค้าโภคภัณฑ์",
+    "crypto": "สกุลเงินคริปโต"
   },
   "centralBanks": {
-    "federalreserve": "Federal Reserve",
-    "europeancentralbank": "European Central Bank",
-    "bankofjapan": "Bank of Japan",
-    "bankofengland": "Bank of England",
-    "swissnationalbank": "Swiss National Bank",
-    "peoplesbankofchina": "People's Bank of China",
-    "hongkongmonetaryauthority": "Hong Kong Monetary Authority",
-    "reservebankofindia": "Reserve Bank of India",
-    "reservebankofaustralia": "Reserve Bank of Australia",
-    "monetaryauthorityofsingapore": "Monetary Authority of Singapore",
-    "bankofkorea": "Bank of Korea",
-    "bankofcanada": "Bank of Canada",
-    "centralbankofbrazil": "Central Bank of Brazil",
-    "bancodemxico": "Banco de México",
-    "centralbankofchile": "Central Bank of Chile",
-    "riksbank": "Riksbank",
-    "norgesbank": "Norges Bank",
-    "saudicentralbank": "Saudi Central Bank",
-    "centralbankoftheuae": "Central Bank of the UAE",
-    "southafricanreservebank": "South African Reserve Bank"
+    "federalreserve": "ธนาคารกลางสหรัฐ",
+    "europeancentralbank": "ธนาคารกลางยุโรป",
+    "bankofjapan": "ธนาคารกลางญี่ปุ่น",
+    "bankofengland": "ธนาคารกลางอังกฤษ",
+    "swissnationalbank": "ธนาคารกลางสวิส",
+    "peoplesbankofchina": "ธนาคารกลางจีน",
+    "hongkongmonetaryauthority": "องค์การเงินตราฮ่องกง",
+    "reservebankofindia": "ธนาคารกลางอินเดีย",
+    "reservebankofaustralia": "ธนาคารกลางออสเตรเลีย",
+    "monetaryauthorityofsingapore": "องค์การเงินตราสิงคโปร์",
+    "bankofkorea": "ธนาคารกลางเกาหลี",
+    "bankofcanada": "ธนาคารกลางแคนาดา",
+    "centralbankofbrazil": "ธนาคารกลางบราซิล",
+    "bancodemxico": "ธนาคารกลางเม็กซิโก",
+    "centralbankofchile": "ธนาคารกลางชิลี",
+    "riksbank": "ธนาคารกลางสวีเดน",
+    "norgesbank": "ธนาคารกลางนอร์เวย์",
+    "saudicentralbank": "ธนาคารกลางซาอุดีอาระเบีย",
+    "centralbankoftheuae": "ธนาคารกลางสหรัฐอาหรับเอมิเรตส์",
+    "southafricanreservebank": "ธนาคารกลางแอฟริกาใต้"
   },
   "regions": {
-    "northamerica": "North America",
-    "europe": "Europe",
-    "asia": "Asia",
-    "americas": "Americas",
-    "middleeast": "Middle East",
-    "africa": "Africa"
+    "northamerica": "อเมริกาเหนือ",
+    "europe": "ยุโรป",
+    "asia": "เอเชีย",
+    "americas": "อเมริกา",
+    "middleeast": "ตะวันออกกลาง",
+    "africa": "แอฟริกา"
   },
-  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
-  "keyDataReleasesFor": "Key data releases for {{code}}",
-  "hoursAgo": "{{count}}h ago",
+  "ratesVsMajorSubtitle": "{{code}} 1 หน่วยเทียบเท่ากับสกุลเงินหลักอื่นๆ",
+  "keyDataReleasesFor": "ข้อมูลสำคัญสำหรับ {{code}}",
+  "hoursAgo": "{{count}} ชม. ที่แล้ว",
   "impacts": {
-    "High": "High",
-    "Medium": "Medium",
-    "Low": "Low"
+    "High": "สูง",
+    "Medium": "ปานกลาง",
+    "Low": "ต่ำ"
   },
   "events": {
-    "nonFarmPayrolls": "Non-Farm Payrolls",
-    "ecbPressConference": "ECB Press Conference",
-    "boeGovernorSpeech": "BoE Governor Speech",
-    "fomcMinutes": "FOMC Minutes",
-    "bojSummaryOpinions": "BoJ Summary of Opinions",
-    "rbaStatement": "RBA Statement",
-    "currencyCpiRelease": "{{code}} CPI release",
-    "centralBankPolicyUpdate": "{{centralBank}} policy update",
-    "currencyRetailSales": "{{code}} retail sales",
-    "currencyTradeBalance": "{{code}} trade balance"
+    "nonFarmPayrolls": "การจ้างงานนอกภาคเกษตร",
+    "ecbPressConference": "การแถลงข่าว ECB",
+    "boeGovernorSpeech": "สุนทรพจน์ผู้ว่าการ BoE",
+    "fomcMinutes": "บันทึก FOMC",
+    "bojSummaryOpinions": "สรุปความคิดเห็น BoJ",
+    "rbaStatement": "แถลงการณ์ RBA",
+    "currencyCpiRelease": "ข้อมูล CPI ของ {{code}}",
+    "centralBankPolicyUpdate": "อัปเดตนโยบาย {{centralBank}}",
+    "currencyRetailSales": "ยอดขายปลีก {{code}}",
+    "currencyTradeBalance": "ดุลการค้า {{code}}"
   },
   "newsTitles": {
-    "currencyStrengthensPolicy": "{{code}} strengthens on policy expectations",
-    "currencyWeakensPolicy": "{{code}} weakens on policy expectations",
-    "centralBankDataDependent": "{{centralBank}} signals data-dependent path",
-    "currencyLiquidityRobust": "{{code}} liquidity remains robust in cross-border flows",
-    "currencyFairValueUpdated": "Analyst note: {{code}} fair value updated",
-    "usdRallyPauses": "USD rally pauses ahead of FOMC minutes",
-    "ecbDataDependent": "ECB signals data-dependent path, EUR trades heavy",
-    "jpyInterventionWatch": "JPY intervention watch resumes as USD/JPY tests 156",
-    "gbpStickyInflation": "GBP supported by sticky services inflation",
-    "cnyWeakerMidpoint": "CNY under pressure as PBOC fixes weaker midpoint",
-    "audCommodityStrength": "AUD bid on commodity strength and risk-on tone"
+    "currencyStrengthensPolicy": "{{code}} แข็งค่าจากความคาดหวังนโยบาย",
+    "currencyWeakensPolicy": "{{code}} อ่อนค่าจากความคาดหวังนโยบาย",
+    "centralBankDataDependent": "{{centralBank}} ส่งสัญญาณนโยบายตามข้อมูล",
+    "currencyLiquidityRobust": "สภาพคล่อง {{code}} ยังคงแข็งแกร่งในกระแสเงินข้ามพรมแดน",
+    "currencyFairValueUpdated": "บันทึกนักวิเคราะห์: มูลค่าเหมาะสมของ {{code}} อัปเดตแล้ว",
+    "usdRallyPauses": "USD หยุดพักการปรับตัวขึ้นก่อนบันทึก FOMC",
+    "ecbDataDependent": "ECB ส่งสัญญาณนโยบายตามข้อมูล EUR เทรดอ่อน",
+    "jpyInterventionWatch": "จับตาการแทรกแซง JPY ขณะ USD/JPY ทดสอบ 156",
+    "gbpStickyInflation": "GBP ได้รับแรงหนุนจากเงินเฟ้อภาคบริการที่ยืดเยื้อ",
+    "cnyWeakerMidpoint": "CNY อยู่ภายใต้แรงกดดัน หลัง PBOC กำหนดจุดกึ่งกลางอ่อนลง",
+    "audCommodityStrength": "AUD ได้แรงหนุนจากสินค้าโภคภัณฑ์ที่แข็งแกร่งและท่าทีเสี่ยงรับ"
   },
   "reserveStatuses": {
-    "primaryreservecurrency": "Primary reserve currency",
-    "secondreservecurrency": "Second reserve currency",
-    "thirdreservecurrency": "Third reserve currency",
-    "regionalreservecurrency": "Regional reserve currency",
-    "regional": "Regional"
+    "primaryreservecurrency": "สกุลเงินสำรองหลัก",
+    "secondreservecurrency": "สกุลเงินสำรองอันดับสอง",
+    "thirdreservecurrency": "สกุลเงินสำรองอันดับสาม",
+    "regionalreservecurrency": "สกุลเงินสำรองระดับภูมิภาค",
+    "regional": "ระดับภูมิภาค"
   },
   "capitalFlowTypes": {
-    "safehaveninflows": "Safe-haven inflows",
-    "mixedinflows": "Mixed inflows",
-    "exportdrivenflows": "Export-driven flows",
-    "commoditylinkedflows": "Commodity-linked flows",
-    "open": "Open"
+    "safehaveninflows": "กระแสเงินเข้าสินทรัพย์ปลอดภัย",
+    "mixedinflows": "กระแสเงินเข้าผสม",
+    "exportdrivenflows": "กระแสเงินจากการส่งออก",
+    "commoditylinkedflows": "กระแสเงินเชื่อมโยงสินค้าโภคภัณฑ์",
+    "open": "เปิด"
   }
 }

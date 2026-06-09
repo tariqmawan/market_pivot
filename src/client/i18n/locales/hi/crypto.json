@@ -176,12 +176,12 @@
   "transactionsPerDay": "प्रति दिन लेनदेन",
   "volume24h": "24घं वॉल्यूम",
   "volumeOverlay": "वॉल्यूम ओवरले के साथ",
-  "cryptocurrency": "Cryptocurrency",
-  "cryptocurrencyCategories": "Cryptocurrency Categories",
-  "allCryptocurrencies": "All Cryptocurrencies",
+  "cryptocurrency": "क्रिप्टोकरेंसी",
+  "cryptocurrencyCategories": "क्रिप्टोकरेंसी श्रेणियाँ",
+  "allCryptocurrencies": "सभी क्रिप्टोकरेंसी",
   "trending": "ट्रेंडिंग",
-  "categoryNotFound": "Category Not Found",
-  "categoryNotFoundDescription": "This category doesn't exist. Browse all cryptocurrencies below.",
+  "categoryNotFound": "श्रेणी नहीं मिली",
+  "categoryNotFoundDescription": "यह श्रेणी मौजूद नहीं है। नीचे सभी क्रिप्टोकरेंसी देखें।",
   "viewAllCryptocurrencies": "सभी क्रिप्टोकरेंसी देखें",
   "trendingCoins": {
     "eyebrow": "लाइव बाजार डेटा - क्रिप्टोकरेंसी",
@@ -190,8 +190,8 @@
     "subtitle": "ट्रेडिंग गतिविधि, सोशल मोमेंटम और मार्केट कैप वृद्धि के आधार पर रियल-टाइम ट्रेंडिंग क्रिप्टोकरेंसी। लगातार अपडेट होती है।",
     "categories": {
       "all": "सभी",
-      "layer1": "Layer 1",
-      "layer2": "Layer 2",
+      "layer1": "लेयर 1",
+      "layer2": "लेयर 2",
       "defi": "DeFi",
       "meme": "मीम",
       "stablecoin": "स्टेबलकॉइन",
@@ -254,7 +254,6 @@
       "description": "विस्तृत चार्ट, ऑन-चेन मेट्रिक्स, एक्सचेंज लिस्टिंग और ब्रेकिंग न्यूज एक ही जगह देखने के लिए किसी भी कॉइन पर क्लिक करें।"
     }
   },
-
   "categoryPages": {
     "common": {
       "marketOverview": "मार्केट ओवरव्यू",
@@ -328,6 +327,6 @@
         "description": "मीम कॉइन्स की तुलना ब्लू-चिप एसेट्स, DeFi प्रोटोकॉल्स और लेयर-1 ब्लॉकचेन्स के साथ करें।"
       }
     }
-  }
+  },
+  "blockTimeSeconds": "{{time}} सेकंड"
 }
-

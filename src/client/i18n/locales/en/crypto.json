@@ -327,5 +327,6 @@
         "description": "Compare meme coins against blue-chip assets, DeFi protocols, and layer-1 blockchains."
       }
     }
-  }
+  },
+  "blockTimeSeconds": "{{time}} seconds"
 }

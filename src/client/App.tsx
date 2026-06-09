@@ -365,11 +365,11 @@ const HomePage = () => {
         <h2>{t("compareMarkets")}</h2>
         <p>{t("compareMarketsCopy")}</p>
         <div className="comparison-route">
-          <span>NASDAQ</span>
-          <span>BTC</span>
-          <span>USD/INR</span>
-          <span>US 10Y</span>
-          <span>Brent</span>
+          <span>{t("comparisonNasdaq")}</span>
+          <span>{t("comparisonBtc")}</span>
+          <span>{t("comparisonUsdInr")}</span>
+          <span>{t("comparisonUs10y")}</span>
+          <span>{t("comparisonBrent")}</span>
         </div>
       </section>
 

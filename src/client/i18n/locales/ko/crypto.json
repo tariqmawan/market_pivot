@@ -327,5 +327,6 @@
         "description": "Meme 코인을 블루칩 자산, DeFi 프로토콜, Layer 1 블록체인과 비교하세요."
       }
     }
-  }
+  },
+  "blockTimeSeconds": "{{time}}초"
 }

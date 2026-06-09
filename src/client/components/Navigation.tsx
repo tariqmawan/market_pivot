@@ -271,7 +271,7 @@ const Navigation: React.FC<NavigationProps> = ({
     "/coverage": "assetCoverage",
     "/exchanges": "exchanges",
     "/stocks": "stocks",
-    "/forex": "fx",
+    "/forex": "forex",
     "/crypto": "crypto",
     "/commodities": "commodities",
     "/regions": "regions",

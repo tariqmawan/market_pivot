@@ -498,5 +498,10 @@
       "neutral": "Neutral"
     },
     "empty": "Keine Ereignisse in der aktuellen Ansicht."
+  },
+  "forbiddenpage": {
+    "h0": "Zugriff verweigert",
+    "description": "Sie haben keine Berechtigung, diese Seite anzuzeigen. Bitte kontaktieren Sie Ihren Administrator, wenn Sie der Meinung sind, dass dies ein Fehler ist.",
+    "backToHome": "Zurück zur Startseite"
   }
 }

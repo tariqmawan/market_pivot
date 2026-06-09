@@ -17,12 +17,11 @@ const ForbiddenPage: React.FC<{ message?: string }> = ({ message }) => {
       icon="🛡"
       title={t("forbiddenpage.h0")}
       description={
-        message ??
-        "You don't have permission to view this page. Please contact your administrator if you believe this is a mistake."
+        message ?? t("forbiddenpage.description")
       }
       secondary={
         <Link to="/" className="primary-action" style={{ textDecoration: "none" }}>
-          ← Back to home
+          ← {t("forbiddenpage.backToHome")}
         </Link>
       }
     />

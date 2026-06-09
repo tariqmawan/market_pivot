@@ -34,7 +34,7 @@
     },
     "commoditiesIndustrial": {
       "description": "Industrial materials like lithium, rare earths, и construction commodities.",
-      "eyebrow": "eyebrow",
+      "eyebrow": "Сырьё",
       "title": "Industrial Сырьевые товары"
     },
     "commoditiesMetals": {
@@ -75,22 +75,22 @@
       "title": "Новости сектора"
     }
   },
-  "contactSales": "contact Sales",
+  "contactSales": "Связаться с отделом продаж",
   "cryptoCategory": {
     "defiBody": "Открыть financial protocols built на blockchain — enabling permissionless lending, borrowing, trading, и yield generation without intermediaries.",
-    "defiEyebrow": "defi Eyebrow",
+    "defiEyebrow": "Децентрализованные финансы",
     "defiTitle": "defi Заголовок",
     "layer1Body": "The foundational settlement layers из the crypto ecosystem — independent blockchain networks competing на speed, security, decentralisation, и developer adoption.",
-    "layer1Eyebrow": "layer1 Eyebrow",
+    "layer1Eyebrow": "Инфраструктура",
     "layer1Title": "layer1 Заголовок",
     "memeBody": "Community-driven cryptocurrencies fuelled по viral culture, social momentum, и cult followings. Высокий-risk, high-reward assets where sentiment rules the market.",
-    "memeEyebrow": "meme Eyebrow",
+    "memeEyebrow": "Культура",
     "memeTitle": "meme Заголовок",
     "stableBody": "Криптоcurrencies pegged до fiat currencies или real-world assets, providing stability для trading, DeFi liquidity, cross-border payments, и hedging against market volatility.",
     "stableEyebrow": "Цена Stability",
     "stableTitle": "stable Заголовок"
   },
-  "enterpriseCta": "enterprise Cta",
+  "enterpriseCta": "Связаться с отделом продаж",
   "enterpriseFeature1": "Все tools unlimited",
   "enterpriseFeature2": "enterprise Feature2",
   "enterpriseFeature3": "enterprise Feature3",
@@ -411,7 +411,14 @@
     "trackedCurrencies": "Tracked Currencies",
     "tradeBalance": "Trade Balance",
     "tradeProfile": "Trade Profile",
-    "trend": "Trend"
+    "trend": "Trend",
+    "backToAllCurrencies": "Back to all currencies",
+    "currencyIssuedBy": "{{country}} currency, issued by {{centralBank}}.",
+    "open": "Open",
+    "priceChartFor": "Price Chart - {{pair}}",
+    "regional": "Regional",
+    "centralBankMacroSubtitle": "Policy rates, inflation, growth, and trade context",
+    "viewDetails": "View details"
   },
   "news": {
     "latest": "Latest",
@@ -491,5 +498,10 @@
       "neutral": "Neytralno"
     },
     "empty": "Net sobytiy v tekuschem vide."
+  },
+  "forbiddenpage": {
+    "h0": "Access Denied",
+    "description": "You don't have permission to view this page. Please contact your administrator if you believe this is a mistake.",
+    "backToHome": "Back to home"
   }
 }

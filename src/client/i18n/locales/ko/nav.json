@@ -3,14 +3,14 @@
   "markets": "시장",
   "exchanges": "거래소",
   "stocks": "주식",
-  "forex": "FX",
+  "forex": "외환",
   "crypto": "암호화폐",
   "commodities": "원자재",
   "regions": "지역",
   "sectors": "섹터",
   "news": "뉴스",
-  "calendar": "캘린더",
-  "userPanel": "사용자 패널",
+  
+  
   "pricing": "요금",
   "tools": "도구",
   "coverage": "커버리지",
@@ -29,30 +29,30 @@
   "watchlists": "워치리스트",
   "portfolioTracker": "포트폴리오 추적",
   "alerts": "알림",
-  "trendingCoins": "인기 코인",
-  "memeCoins": "밈 코인",
-  "defi": "디파이",
-  "layer1": "레이어 1",
-  "stablecoins": "스테이블코인",
-  "energy": "에너지",
-  "metals": "금속",
-  "agriculture": "농업",
-  "industrial": "산업",
-  "americas": "아메리카",
-  "europe": "유럽",
-  "asiaPacific": "아시아 태평양",
-  "middleEastAfrica": "중동 및 아프리카",
-  "technology": "기술",
-  "banking": "금융",
-  "ai": "AI",
-  "ev": "전기차",
-  "semiconductor": "반도체",
-  "defence": "방위",
-  "globalNews": "글로벌 뉴스",
-  "regionNews": "지역 뉴스",
-  "sectorNews": "섹터 뉴스",
-  "cryptoNews": "암호화폐 뉴스",
-  "marketAlerts": "시장 알림",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "byRegion": "지역별",
   "nyse": "NYSE",
   "nasdaq": "NASDAQ",
@@ -60,5 +60,33 @@
   "navMain": "메인 내비게이션",
   "homeAria": "MarketsPivot 홈",
   "openMenu": "메뉴 열기",
-  "adminTopNav": "관리자 내비게이션"
+  "adminTopNav": "관리자 내비게이션",
+  "fx": "외환",
+  "Calendar": "캘린더",
+  "UserPanel": "사용자 패널",
+  "adminPanel": "관리자 패널",
+  "TrendingCoins": "트렌딩 코인",
+  "MemeCoins": "밈 코인",
+  "Defi": "DeFi",
+  "Layer1": "레이어 1",
+  "Stablecoins": "스테이블코인",
+  "Energy": "에너지",
+  "Metals": "금속",
+  "Agriculture": "농업",
+  "Industrial": "산업",
+  "Americas": "아메리카",
+  "Europe": "유럽",
+  "AsiaPacific": "아시아 태평양",
+  "MiddleEastAfrica": "중동 및 아프리카",
+  "Technology": "기술",
+  "Banking": "은행",
+  "Ai": "인공지능",
+  "Ev": "전기차",
+  "Semiconductor": "반도체",
+  "Defence": "국방",
+  "GlobalNews": "글로벌 뉴스",
+  "RegionNews": "지역 뉴스",
+  "SectorNews": "섹터 뉴스",
+  "CryptoNews": "크립토 뉴스",
+  "MarketAlerts": "시장 알림"
 }

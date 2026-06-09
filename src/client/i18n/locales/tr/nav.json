@@ -3,20 +3,20 @@
   "markets": "Piyasalar",
   "exchanges": "Borsalar",
   "stocks": "Hisse Senetleri",
-  "forex": "FX",
+  "forex": "Döviz",
   "crypto": "Kripto",
   "commodities": "Emtialar",
   "regions": "Bölgeler",
   "sectors": "Sektörler",
   "news": "Haberler",
-  "calendar": "Takvim",
-  "userPanel": "Kullanıcı Paneli",
+  
+  
   "pricing": "Fiyatlandırma",
   "tools": "Araçlar",
   "coverage": "Kapsam",
   "indices": "Endeksler",
   "etfs": "ETF'ler",
-  "bonds": "Tahviller & Getiriler",
+  "bonds": "Tahviller ve Getiriler",
   "screener": "Tarayıcı",
   "overview": "Genel Bakış",
   "preMarket": "Açılış Öncesi",
@@ -26,39 +26,67 @@
   "volatilityIndex": "Volatilite Endeksi",
   "topGainers": "En Çok Yükselenler",
   "topLosers": "En Çok Düşenler",
-  "watchlists": "Takip Listeleri",
+  "watchlists": "İzleme Listeleri",
   "portfolioTracker": "Portföy Takipçisi",
   "alerts": "Uyarılar",
-  "trendingCoins": "Trend Coinler",
-  "memeCoins": "Meme Coinler",
-  "defi": "DeFi",
-  "layer1": "Katman 1",
-  "stablecoins": "Stablecoinler",
-  "energy": "Enerji",
-  "metals": "Metaller",
-  "agriculture": "Tarım",
-  "industrial": "Endüstriyel",
-  "americas": "Amerika",
-  "europe": "Avrupa",
-  "asiaPacific": "Asya-Pasifik",
-  "middleEastAfrica": "Orta Doğu & Afrika",
-  "technology": "Teknoloji",
-  "banking": "Bankacılık",
-  "ai": "YZ",
-  "ev": "Elektrikli Araçlar",
-  "semiconductor": "Yarı İletken",
-  "defence": "Savunma",
-  "globalNews": "Küresel Haberler",
-  "regionNews": "Bölge Haberleri",
-  "sectorNews": "Sektör Haberleri",
-  "cryptoNews": "Kripto Haberleri",
-  "marketAlerts": "Piyasa Uyarıları",
-  "byRegion": "Bölgeye göre",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  "byRegion": "Bölgeye Göre",
   "nyse": "NYSE",
   "nasdaq": "NASDAQ",
   "lse": "LSE",
-  "navMain": "Ana navigasyon",
+  "navMain": "Ana Navigasyon",
   "homeAria": "MarketsPivot ana sayfası",
-  "openMenu": "Menüyü aç",
-  "adminTopNav": "Yönetici navigasyonu"
+  "openMenu": "Menüyü Aç",
+  "adminTopNav": "Yönetici Navigasyonu",
+  "fx": "Döviz",
+  "Calendar": "Takvim",
+  "UserPanel": "Kullanıcı Paneli",
+  "adminPanel": "Yönetici Paneli",
+  "TrendingCoins": "Trend Coinler",
+  "MemeCoins": "Meme Coinler",
+  "Defi": "DeFi",
+  "Layer1": "Katman 1",
+  "Stablecoins": "Stablecoinler",
+  "Energy": "Enerji",
+  "Metals": "Metaller",
+  "Agriculture": "Tarım",
+  "Industrial": "Sanayi",
+  "Americas": "Amerika",
+  "Europe": "Avrupa",
+  "AsiaPacific": "Asya-Pasifik",
+  "MiddleEastAfrica": "Orta Doğu ve Afrika",
+  "Technology": "Teknoloji",
+  "Banking": "Bankacılık",
+  "Ai": "Yapay Zeka",
+  "Ev": "Elektrikli Araçlar",
+  "Semiconductor": "Yarı İletkenler",
+  "Defence": "Savunma",
+  "GlobalNews": "Küresel Haberler",
+  "RegionNews": "Bölge Haberleri",
+  "SectorNews": "Sektör Haberleri",
+  "CryptoNews": "Kripto Haberleri",
+  "MarketAlerts": "Piyasa Uyarıları"
 }

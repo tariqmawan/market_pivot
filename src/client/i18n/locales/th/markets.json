@@ -9,31 +9,31 @@
   "chart": "แผนภูมิ",
   "commodities": {
     "brent": {
-      "name": "Brent Crude"
+      "name": "น้ำมันดิบเบรนท์"
     },
     "copper": {
-      "name": "Copper"
+      "name": "ทองแดง"
     },
     "crudeOil": {
-      "name": "Crude Oil WTI"
+      "name": "น้ำมันดิบ WTI"
     },
     "gold": {
-      "name": "Gold"
+      "name": "ทองคำ"
     },
     "lithium": {
-      "name": "Lithium Carbonate"
+      "name": "ลิเทียมคาร์บอเนต"
     },
     "naturalGas": {
-      "name": "Natural Gas"
+      "name": "ก๊าซธรรมชาติ"
     },
     "silver": {
-      "name": "Silver"
+      "name": "เงิน"
     },
     "uranium": {
-      "name": "Uranium"
+      "name": "ยูเรเนียม"
     },
     "wheat": {
-      "name": "Wheat"
+      "name": "ข้าวสาลี"
     }
   },
   "commoditiesHeading": "พลังงาน โลหะ เกษตรกรรม และวัตถุดิบอุตสาหกรรม",
@@ -50,82 +50,82 @@
   "coreReserve": "ทุนสำรองหลัก",
   "countries": {
     "ae": {
-      "name": "United Arab Emirates"
+      "name": "สหรัฐอาหรับเอมิเรตส์"
     },
     "au": {
-      "name": "Australia"
+      "name": "ออสเตรเลีย"
     },
     "br": {
-      "name": "Brazil"
+      "name": "บราซิล"
     },
     "ca": {
-      "name": "Canada"
+      "name": "แคนาดา"
     },
     "ch": {
-      "name": "Switzerland"
+      "name": "สวิตเซอร์แลนด์"
     },
     "cl": {
-      "name": "Chile"
+      "name": "ชิลี"
     },
     "cn": {
-      "name": "China"
+      "name": "จีน"
     },
     "de": {
-      "name": "Germany"
+      "name": "เยอรมนี"
     },
     "es": {
-      "name": "Spain"
+      "name": "สเปน"
     },
     "eu": {
-      "name": "European Union"
+      "name": "สหภาพยุโรป"
     },
     "gb": {
-      "name": "United Kingdom"
+      "name": "สหราชอาณาจักร"
     },
     "hk": {
-      "name": "Hong Kong"
+      "name": "ฮ่องกง"
     },
     "id": {
-      "name": "Indonesia"
+      "name": "อินโดนีเซีย"
     },
     "in": {
-      "name": "India"
+      "name": "อินเดีย"
     },
     "it": {
-      "name": "Italy"
+      "name": "อิตาลี"
     },
     "jp": {
-      "name": "Japan"
+      "name": "ญี่ปุ่น"
     },
     "kr": {
-      "name": "South Korea"
+      "name": "เกาหลีใต้"
     },
     "mx": {
-      "name": "Mexico"
+      "name": "เม็กซิโก"
     },
     "my": {
-      "name": "Malaysia"
+      "name": "มาเลเซีย"
     },
     "sa": {
-      "name": "Saudi Arabia"
+      "name": "ซาอุดีอาระเบีย"
     },
     "se": {
-      "name": "Nordic and Baltic region"
+      "name": "กลุ่มนอร์ดิกและบอลติก"
     },
     "sg": {
-      "name": "Singapore"
+      "name": "สิงคโปร์"
     },
     "th": {
-      "name": "Thailand"
+      "name": "ไทย"
     },
     "tw": {
-      "name": "Taiwan"
+      "name": "ไต้หวัน"
     },
     "us": {
-      "name": "United States"
+      "name": "สหรัฐอเมริกา"
     },
     "za": {
-      "name": "South Africa"
+      "name": "แอฟริกาใต้"
     }
   },
   "crashAlert": "แจ้งเตือนวิกฤต",
@@ -152,123 +152,123 @@
   "exchanges": {
     "adx": {
       "name": "Abu Dhabi Securities Exchange",
-      "description": "Abu Dhabi's primary stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของอาบูดาบี"
     },
     "asx": {
       "name": "Australian Securities Exchange",
-      "description": "Australia's primary stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของออสเตรเลีย"
     },
     "b3": {
       "name": "B3 (Brasil Bolsa Balcão)",
-      "description": "Latin America's largest stock exchange"
+      "description": "ตลาดหลักทรัพย์ใหญ่ที่สุดในละตินอเมริกา"
     },
     "bcs": {
       "name": "Bolsa de Comercio de Santiago",
-      "description": "Chile's primary stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของชิลี"
     },
     "bit": {
       "name": "Borsa Italiana",
-      "description": "Italy's main stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของอิตาลี"
     },
     "bm": {
       "name": "Bursa Malaysia",
-      "description": "Malaysia's primary stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของมาเลเซีย"
     },
     "bme": {
       "name": "BME Spanish Exchanges",
-      "description": "Spain's principal stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของสเปน"
     },
     "bmv": {
       "name": "Mexican Stock Exchange",
-      "description": "Mexico's primary stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของเม็กซิโก"
     },
     "bse": {
       "name": "Bombay Stock Exchange",
-      "description": "Oldest stock exchange in Asia"
+      "description": "ตลาดหลักทรัพย์ที่เก่าแก่ที่สุดในเอเชีย"
     },
     "dfm": {
       "name": "Dubai Financial Market",
-      "description": "Dubai's primary stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของดูไบ"
     },
     "euronext": {
       "name": "Euronext",
-      "description": "Pan-European exchange operating in multiple countries"
+      "description": "ตลาดหลักทรัพย์ข้ามชาติที่ดำเนินงานในหลายประเทศในยุโรป"
     },
     "hkex": {
       "name": "Hong Kong Stock Exchange",
-      "description": "Major financial hub in Asia, gateway to mainland China markets"
+      "description": "ศูนย์กลางการเงินสำคัญในเอเชีย ประตูสู่ตลาดจีนแผ่นดินใหญ่"
     },
     "idx": {
       "name": "Indonesia Stock Exchange",
-      "description": "Indonesia's primary stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของอินโดนีเซีย"
     },
     "jse": {
       "name": "Johannesburg Stock Exchange",
-      "description": "South Africa's primary stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของแอฟริกาใต้"
     },
     "krx": {
       "name": "Korea Exchange",
-      "description": "South Korea's primary stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของเกาหลีใต้"
     },
     "lse": {
       "name": "London Stock Exchange",
-      "description": "Leading global financial hub, one of the world's oldest exchanges"
+      "description": "ศูนย์กลางการเงินชั้นนำระดับโลก หนึ่งในตลาดหลักทรัพย์ที่เก่าแก่ที่สุดในโลก"
     },
     "nasdaq": {
       "name": "NASDAQ",
-      "description": "Electronic stock market known for tech companies"
+      "description": "ตลาดหุ้นอิเล็กทรอนิกส์ที่รู้จักในด้านบริษัทเทคโนโลยี"
     },
     "nse": {
       "name": "National Stock Exchange of India",
-      "description": "India's largest stock exchange, leading market for South Asia"
+      "description": "ตลาดหลักทรัพย์ใหญ่ที่สุดของอินเดีย ตลาดชั้นนำสำหรับเอเชียใต้"
     },
     "nyse": {
       "name": "New York Stock Exchange",
-      "description": "The largest and most well-known stock exchange in the world"
+      "description": "ตลาดหลักทรัพย์ที่ใหญ่ที่สุดและมีชื่อเสียงมากที่สุดในโลก"
     },
     "omx": {
       "name": "Nasdaq Nordic",
-      "description": "Nasdaq-operated Nordic and Baltic marketplace covering equities and related listed products"
+      "description": "ตลาดนอร์ดิกและบอลติกที่ดำเนินการโดย Nasdaq ครอบคลุมหุ้นและผลิตภัณฑ์จดทะเบียน"
     },
     "set": {
       "name": "Stock Exchange of Thailand",
-      "description": "Thailand's primary stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของประเทศไทย"
     },
     "sgx": {
       "name": "Singapore Exchange",
-      "description": "Southeast Asia's leading financial center and exchange"
+      "description": "ศูนย์กลางการเงินชั้นนำในเอเชียตะวันออกเฉียงใต้"
     },
     "six": {
       "name": "SIX Swiss Exchange",
-      "description": "Switzerland's primary stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของสวิตเซอร์แลนด์"
     },
     "sse": {
       "name": "Shanghai Stock Exchange",
-      "description": "Second-largest stock exchange in the world by market cap"
+      "description": "ตลาดหลักทรัพย์ใหญ่อันดับสองของโลกตามมูลค่าตลาด"
     },
     "szse": {
       "name": "Shenzhen Stock Exchange",
-      "description": "Third-largest stock exchange by market cap"
+      "description": "ตลาดหลักทรัพย์ใหญ่อันดับสามของโลกตามมูลค่าตลาด"
     },
     "tadawul": {
       "name": "Saudi Exchange",
-      "description": "Saudi Arabia's primary stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของซาอุดีอาระเบีย"
     },
     "tse": {
       "name": "Tokyo Stock Exchange",
-      "description": "Largest stock exchange in Japan and Asia's oldest"
+      "description": "ตลาดหลักทรัพย์ใหญ่ที่สุดของญี่ปุ่นและเก่าแก่ที่สุดในเอเชีย"
     },
     "tsx": {
       "name": "Toronto Stock Exchange",
-      "description": "Canada's largest stock exchange"
+      "description": "ตลาดหลักทรัพย์ใหญ่ที่สุดของแคนาดา"
     },
     "twse": {
       "name": "Taiwan Stock Exchange",
-      "description": "Taiwan's primary stock exchange"
+      "description": "ตลาดหลักทรัพย์หลักของไต้หวัน"
     },
     "xetra": {
       "name": "Deutsche Börse",
-      "description": "Germany's largest stock exchange and major European trading center"
+      "description": "ตลาดหลักทรัพย์ใหญ่ที่สุดของเยอรมนีและศูนย์กลางการค้าที่สำคัญของยุโรป"
     }
   },
   "feature": "ฟีเจอร์",
@@ -322,19 +322,19 @@
   "regionPulse": "ชีพจรภูมิภาค",
   "regions": {
     "americas": {
-      "name": "Americas"
+      "name": "อเมริกา"
     },
     "asiaPacific": {
-      "name": "Asia-Pacific"
+      "name": "เอเชียแปซิฟิก"
     },
     "europe": {
-      "name": "Europe"
+      "name": "ยุโรป"
     },
     "middleEastAfrica": {
-      "name": "Middle East & Africa"
+      "name": "ตะวันออกกลางและแอฟริกา"
     }
   },
-  "regionsHeading": "ภูมิภาคตลาดทั่วโลก",
+  "regionsHeading": "ภูมิภาคตลาดโลก",
   "regionsIntro": "ดัชนีระดับภูมิภาค ปฏิทินเศรษฐกิจมหภาค FX และผลกระทบของสินค้าโภคภัณฑ์ทั่วตลาดโลก",
   "regionsMeta": "ดัชนีระดับภูมิภาค ปฏิทินเศรษฐกิจมหภาค FX และผลกระทบของสินค้าโภคภัณฑ์",
   "relatedRegions": "ภูมิภาคที่เกี่ยวข้อง",
@@ -488,141 +488,141 @@
   "website": "เว็บไซต์",
   "whaleActivity": "กิจกรรมวาฬ",
   "worldSnapshot": "ภาพรวมตลาดโลก",
-  "exchangeNetwork": "Exchange Network",
-  "stockExchanges": "Stock Exchanges",
-  "allExchanges": "All Exchanges",
-  "advancedScreener": "Advanced Screener",
-  "regionExchangesTitle": "{{region}} Exchanges",
-  "regionalExchangeDashboards": "Regional exchange dashboards ? currency, timezone, trading hours, listed companies, main index, and market cap.",
-  "noExchangesForRegion": "No exchanges found for this region.",
+  "exchangeNetwork": "เครือข่ายตลาดหลักทรัพย์",
+  "stockExchanges": "ตลาดหลักทรัพย์",
+  "allExchanges": "ตลาดหลักทรัพย์ทั้งหมด",
+  "advancedScreener": "ตัวคัดกรองขั้นสูง",
+  "regionExchangesTitle": "ตลาดหลักทรัพย์ {{region}}",
+  "regionalExchangeDashboards": "แดชบอร์ดตลาดหลักทรัพย์ตามภูมิภาค พร้อมสกุลเงิน เขตเวลา ชั่วโมงซื้อขาย บริษัทจดทะเบียน ดัชนีหลัก และมูลค่าตลาด",
+  "noExchangesForRegion": "ไม่พบตลาดหลักทรัพย์สำหรับภูมิภาคนี้",
   "exchangeRegions": {
-    "americas": "Americas",
-    "northAmerica": "North America",
-    "europe": "Europe",
-    "asia": "Asia",
-    "asiaPacific": "Asia Pacific",
-    "oceania": "Oceania",
-    "middleEast": "Middle East",
-    "africa": "Africa",
-    "middleEastAfrica": "Middle East & Africa",
-    "latinAmerica": "Latin America"
+    "americas": "อเมริกา",
+    "northAmerica": "อเมริกาเหนือ",
+    "europe": "ยุโรป",
+    "asia": "เอเชีย",
+    "asiaPacific": "เอเชียแปซิฟิก",
+    "oceania": "โอเชียเนีย",
+    "middleEast": "ตะวันออกกลาง",
+    "africa": "แอฟริกา",
+    "middleEastAfrica": "ตะวันออกกลางและแอฟริกา",
+    "latinAmerica": "ละตินอเมริกา"
   },
   "ytdShort": "YTD",
   "dashboardCards": {
-    "nyseMeta": "S&P 500 / USD / New York",
-    "usdMeta": "Federal Reserve / global base",
-    "bitcoinMeta": "BTC vs USD, FX, and equity risk",
-    "regionMeta": "China growth / Japan yields / India earnings / Australia resources",
-    "sectorMeta": "Cloud capex / AI monetization / Semiconductor supply / Valuations",
-    "commodityMeta": "Feeds transport inflation, energy earnings, fiscal revenue, and global risk sentiment."
+    "nyseMeta": "S&P 500 / USD / นิวยอร์ก",
+    "usdMeta": "ธนาคารกลาง / ฐานทั่วโลก",
+    "bitcoinMeta": "BTC เทียบ USD FX และความเสี่ยงตราสารทุน",
+    "regionMeta": "การเติบโตของจีน / ผลตอบแทนญี่ปุ่น / ผลประกอบการอินเดีย / ทรัพยากรออสเตรเลีย",
+    "sectorMeta": "การลงทุนคลาวด์ / การสร้างรายได้จาก AI / อุปทานเซมิคอนดักเตอร์ / การประเมินมูลค่า",
+    "commodityMeta": "ส่งผลกระทบต่อเงินเฟ้อการขนส่ง ผลประกอบการพลังงาน รายได้ภาษี และความเชื่อมั่นความเสี่ยงทั่วโลก"
   },
   "moduleFeatures": {
-    "majorIndicesWidgets": "Major indices widgets",
-    "topGainersLosers": "Top gainers and losers",
-    "heatmaps": "Heatmaps",
-    "marketSentiment": "Market sentiment",
-    "preMarketMovers": "Pre-market movers",
-    "indexFutures": "Index futures",
-    "volumeSpikes": "Volume spikes",
-    "openingWatchlist": "Opening watchlist",
-    "afterHoursMovers": "After-hours movers",
-    "earningsReactions": "Earnings reactions",
-    "extendedSessionVolume": "Extended-session volume",
-    "newsCatalysts": "News catalysts",
-    "equityHeatmaps": "Equity heatmaps",
-    "sectorPerformance": "Sector performance",
-    "regionalBreadth": "Regional breadth",
-    "assetClassComparison": "Asset-class comparison",
-    "topGainers": "Top gainers",
-    "topLosers": "Top losers",
-    "mostActive": "Most active",
-    "unusualVolume": "Unusual volume",
-    "vixOverview": "VIX overview",
-    "fearGreedContext": "Fear and greed context",
-    "volatilityTermStructure": "Volatility term structure",
-    "riskDashboard": "Risk dashboard",
-    "countryFilters": "Country filters",
-    "exchangeStatistics": "Exchange statistics",
-    "listedCompanies": "Listed companies",
-    "regionalNews": "Regional news",
-    "liveGainers": "Live gainers",
-    "volumeFilters": "Volume filters",
-    "marketCapFilters": "Market cap filters",
-    "sectorBreakdown": "Sector breakdown",
-    "liveLosers": "Live losers",
-    "riskAlerts": "Risk alerts",
-    "indexImpact": "Index impact",
-    "watchlistActions": "Watchlist actions",
-    "trendingCoins": "Trending coins",
-    "marketCapRanking": "Market cap ranking",
-    "exchangeListings": "Exchange listings",
-    "historicalPerformance": "Historical performance",
-    "memeCoinRankings": "Meme coin rankings",
-    "volumeBursts": "Volume bursts",
-    "communityMomentum": "Community momentum",
-    "riskFlags": "Risk flags",
-    "defiEcosystem": "DeFi ecosystem",
-    "tvlMetrics": "TVL metrics",
-    "protocolCategories": "Protocol categories",
-    "tokenPerformance": "Token performance",
-    "layer1Chains": "Layer 1 chains",
-    "consensusDetails": "Consensus details",
-    "tokenomics": "Tokenomics",
-    "developerEcosystem": "Developer ecosystem",
-    "stablecoinSupply": "Stablecoin supply",
-    "pegMonitoring": "Peg monitoring",
-    "exchangeLiquidity": "Exchange liquidity",
-    "reserveContext": "Reserve context",
-    "spotPrices": "Spot prices",
-    "futuresPrices": "Futures prices",
-    "supplyDemandAnalysis": "Supply-demand analysis",
-    "correlationAnalysis": "Correlation analysis",
-    "preciousMetals": "Precious metals",
-    "industrialMetals": "Industrial metals",
-    "futuresContracts": "Futures contracts",
-    "currencySensitivity": "Currency sensitivity",
-    "cropMarkets": "Crop markets",
-    "weatherImpact": "Weather impact",
-    "supplyRegions": "Supply regions",
-    "seasonality": "Seasonality",
-    "industrialInputs": "Industrial inputs",
-    "demandTrends": "Demand trends",
-    "manufacturingSignals": "Manufacturing signals",
-    "regionalSupply": "Regional supply",
-    "regionWiseNews": "Region-wise news",
-    "macroSummaries": "Macro summaries",
-    "marketAlerts": "Market alerts",
-    "sectorWiseNews": "Sector-wise news",
-    "themeTracking": "Theme tracking",
-    "aiSummaries": "AI summaries",
-    "etfImpact": "ETF impact",
-    "cryptoNews": "Crypto news",
-    "onChainContext": "On-chain context",
-    "regulationUpdates": "Regulation updates",
-    "exchangeDevelopments": "Exchange developments",
-    "breakingCatalysts": "Breaking catalysts",
-    "importanceFilters": "Importance filters",
-    "liveMarketSummary": "Live market summary",
-    "filters": "Filters",
-    "analyticsWidgets": "Analytics widgets",
-    "relatedNews": "Related news"
+    "majorIndicesWidgets": "วิดเจ็ตดัชนีหลัก",
+    "topGainersLosers": "หุ้นขึ้นและหุ้นลงสูงสุด",
+    "heatmaps": "แผนที่ความร้อน",
+    "marketSentiment": "ความเชื่อมั่นตลาด",
+    "preMarketMovers": "หุ้นเคลื่อนไหวก่อนเปิดตลาด",
+    "indexFutures": "ฟิวเจอร์สดัชนี",
+    "volumeSpikes": "ปริมาณพุ่งสูง",
+    "openingWatchlist": "รายการเฝ้าดูเปิดตลาด",
+    "afterHoursMovers": "หุ้นเคลื่อนไหวหลังปิดตลาด",
+    "earningsReactions": "ปฏิกิริยาผลประกอบการ",
+    "extendedSessionVolume": "ปริมาณเซสชันขยายเวลา",
+    "newsCatalysts": "ตัวเร่งข่าว",
+    "equityHeatmaps": "แผนที่ความร้อนตราสารทุน",
+    "sectorPerformance": "ผลการดำเนินงานภาคส่วน",
+    "regionalBreadth": "ความกว้างระดับภูมิภาค",
+    "assetClassComparison": "การเปรียบเทียบประเภทสินทรัพย์",
+    "topGainers": "หุ้นขึ้นสูงสุด",
+    "topLosers": "หุ้นลงสูงสุด",
+    "mostActive": "ซื้อขายมากที่สุด",
+    "unusualVolume": "ปริมาณผิดปกติ",
+    "vixOverview": "ภาพรวม VIX",
+    "fearGreedContext": "บริบทความกลัวและความโลภ",
+    "volatilityTermStructure": "โครงสร้างระยะเวลาความผันผวน",
+    "riskDashboard": "แดชบอร์ดความเสี่ยง",
+    "countryFilters": "ตัวกรองประเทศ",
+    "exchangeStatistics": "สถิติตลาดซื้อขาย",
+    "listedCompanies": "บริษัทจดทะเบียน",
+    "regionalNews": "ข่าวตามภูมิภาค",
+    "liveGainers": "หุ้นขึ้นแบบสด",
+    "volumeFilters": "ตัวกรองปริมาณ",
+    "marketCapFilters": "ตัวกรองมูลค่าตลาด",
+    "sectorBreakdown": "การแยกย่อยภาคส่วน",
+    "liveLosers": "หุ้นลงแบบสด",
+    "riskAlerts": "การแจ้งเตือนความเสี่ยง",
+    "indexImpact": "ผลกระทบดัชนี",
+    "watchlistActions": "การดำเนินการรายการเฝ้าดู",
+    "trendingCoins": "เหรียญที่กำลังมาแรง",
+    "marketCapRanking": "การจัดอันดับมูลค่าตลาด",
+    "exchangeListings": "การจดทะเบียนในตลาดซื้อขาย",
+    "historicalPerformance": "ผลการดำเนินงานในอดีต",
+    "memeCoinRankings": "การจัดอันดับเหรียญ Meme",
+    "volumeBursts": "ปริมาณพุ่งสูง",
+    "communityMomentum": "โมเมนตัมชุมชน",
+    "riskFlags": "สัญญาณความเสี่ยง",
+    "defiEcosystem": "ระบบนิเวศ DeFi",
+    "tvlMetrics": "เมตริก TVL",
+    "protocolCategories": "หมวดหมู่โปรโตคอล",
+    "tokenPerformance": "ผลการดำเนินงานโทเคน",
+    "layer1Chains": "เชนเลเยอร์ 1",
+    "consensusDetails": "รายละเอียดฉันทามติ",
+    "tokenomics": "โทโนมิกส์",
+    "developerEcosystem": "ระบบนิเวศนักพัฒนา",
+    "stablecoinSupply": "อุปทานสเตเบิลคอยน์",
+    "pegMonitoring": "การตรวจสอบราคาผูก",
+    "exchangeLiquidity": "สภาพคล่องตลาดซื้อขาย",
+    "reserveContext": "บริบทเงินสำรอง",
+    "spotPrices": "ราคาสปอต",
+    "futuresPrices": "ราคาฟิวเจอร์ส",
+    "supplyDemandAnalysis": "การวิเคราะห์อุปสงค์และอุปทาน",
+    "correlationAnalysis": "การวิเคราะห์ความสัมพันธ์",
+    "preciousMetals": "โลหะมีค่า",
+    "industrialMetals": "โลหะอุตสาหกรรม",
+    "futuresContracts": "สัญญาฟิวเจอร์ส",
+    "currencySensitivity": "ความอ่อนไหวสกุลเงิน",
+    "cropMarkets": "ตลาดพืชผล",
+    "weatherImpact": "ผลกระทบสภาพอากาศ",
+    "supplyRegions": "ภูมิภาคอุปทาน",
+    "seasonality": "ตามฤดูกาล",
+    "industrialInputs": "วัตถุดิบอุตสาหกรรม",
+    "demandTrends": "แนวโน้มอุปสงค์",
+    "manufacturingSignals": "สัญญาณการผลิต",
+    "regionalSupply": "อุปทานระดับภูมิภาค",
+    "regionWiseNews": "ข่าวตามภูมิภาค",
+    "macroSummaries": "สรุปเศรษฐกิจมหภาค",
+    "marketAlerts": "การแจ้งเตือนตลาด",
+    "sectorWiseNews": "ข่าวตามภาคส่วน",
+    "themeTracking": "การติดตามธีม",
+    "aiSummaries": "สรุป AI",
+    "etfImpact": "ผลกระทบ ETF",
+    "cryptoNews": "ข่าวคริปโต",
+    "onChainContext": "บริบทออนเชน",
+    "regulationUpdates": "อัปเดตกฎระเบียบ",
+    "exchangeDevelopments": "การพัฒนาตลาดซื้อขาย",
+    "breakingCatalysts": "ตัวเร่งด่วน",
+    "importanceFilters": "ตัวกรองความสำคัญ",
+    "liveMarketSummary": "สรุปตลาดแบบสด",
+    "filters": "ตัวกรอง",
+    "analyticsWidgets": "วิดเจ็ตการวิเคราะห์",
+    "relatedNews": "ข่าวที่เกี่ยวข้อง"
   },
   "sentiment": {
     "Equities": {
-      "label": "Equities",
-      "detail": "Risk-on breadth"
+      "label": "หุ้น",
+      "detail": "ความเสี่ยงเปิดกว้าง"
     },
     "FX": {
       "label": "FX",
-      "detail": "USD mixed"
+      "detail": "USD ผสมผสาน"
     },
     "Crypto": {
-      "label": "Crypto",
-      "detail": "Momentum bid"
+      "label": "คริปโต",
+      "detail": "แรงซื้อจากโมเมนตัม"
     },
     "Commodities": {
-      "label": "Commodities",
-      "detail": "Energy softer"
+      "label": "สินค้าโภคภัณฑ์",
+      "detail": "พลังงานอ่อนตัว"
     }
   }
 }

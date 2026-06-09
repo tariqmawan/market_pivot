@@ -327,5 +327,6 @@
         "description": "面向中文用户的市场数据、风险信号与交易情报。"
       }
     }
-  }
+  },
+  "blockTimeSeconds": "{{time}}秒"
 }

@@ -42,15 +42,15 @@ export default function BillingPage() {
 
   return (
     <div className="mp-admin-content">
-      <PageHeader title={t("admin/billingpage.h0_l41")} subtitle="Plans, active subscriptions, revenue lifecycle" />
+      <PageHeader title={t("admin/billingpage.h0_l41")} subtitle={t("adminBillingSubtitle")} />
 
       {/* KPI strip */}
       <section className="mp-admin-grid-4">
         {[
-          { label: "Plans Available", value: loading ? "…" : String(plans.length) },
-          { label: "Active Subscriptions", value: loading ? "…" : String(activeSubs) },
-          { label: "Total Subscriptions", value: loading ? "…" : String(subs.length) },
-          { label: "MRR Estimate", value: loading ? "…" : `$${totalMRR.toFixed(2)}` },
+          { label: t("adminBillingKpiPlansAvailable"), value: loading ? "…" : String(plans.length) },
+          { label: t("adminBillingKpiActiveSubscriptions"), value: loading ? "…" : String(activeSubs) },
+          { label: t("adminBillingKpiTotalSubscriptions"), value: loading ? "…" : String(subs.length) },
+          { label: t("adminBillingKpiMrrEstimate"), value: loading ? "…" : `$${totalMRR.toFixed(2)}` },
         ].map((kpi) => (
           <GlassCard key={kpi.label}>
             <span className="mp-admin-kpi-label">{kpi.label}</span>
@@ -65,21 +65,21 @@ export default function BillingPage() {
       <GlassCard style={{ marginTop: 18 }}>
         <div className="mp-admin-card-head">
           <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("admin/billingpage.h1")}</h3>
-          <span className="mp-admin-muted">{plans.length} plans configured</span>
+          <span className="mp-admin-muted">{t("adminBillingPlansConfigured", { count: plans.length })}</span>
         </div>
 
         {loading ? (
           <p className="mp-admin-muted">{t("admin/billingpage.h2")}</p>
         ) : plans.length === 0 ? (
           <div style={{ padding: "24px 0", textAlign: "center" }}>
-            <p className="mp-admin-muted" style={{ marginBottom: 12 }}>{t("admin/billingpage.h0_l75")} <code style={{ background: "rgba(255,255,255,0.08)", padding: "2px 6px" }}>{t("admin/billingpage.h4")}</code> to seed subscription plans.</p>
+            <p className="mp-admin-muted" style={{ marginBottom: 12 }}>{t("admin/billingpage.h0_l75")} <code style={{ background: "rgba(255,255,255,0.08)", padding: "2px 6px" }}>{t("admin/billingpage.h4")}</code> {t("adminBillingToSeed")}</p>
           </div>
         ) : (
           <div className="mp-admin-table-wrap">
             <table className="mp-admin-table">
               <thead>
                 <tr>
-                  {["Plan", "Slug", "Monthly", "Annual", "Status"].map((h) => (
+                  {[t("adminBillingThPlan"), t("adminBillingThSlug"), t("adminBillingThMonthly"), t("adminBillingThAnnual"), t("adminBillingThStatus")].map((h) => (
                     <th key={h}>{h}</th>
                   ))}
                 </tr>
@@ -108,7 +108,7 @@ export default function BillingPage() {
       <GlassCard style={{ marginTop: 14 }}>
         <div className="mp-admin-card-head">
           <h3 style={{ color: "#f8fafc", fontSize: 15, fontWeight: 900 }}>{t("admin/billingpage.h8")}</h3>
-          <span className="mp-admin-muted">{subs.length} total</span>
+          <span className="mp-admin-muted">{t("adminBillingSubsTotal", { count: subs.length })}</span>
         </div>
 
         {loading ? (
@@ -122,7 +122,7 @@ export default function BillingPage() {
             <table className="mp-admin-table">
               <thead>
                 <tr>
-                  {["User", "Plan", "Status", "Started", "Renews"].map((h) => (
+                  {[t("adminBillingThUser"), t("adminBillingThPlan"), t("adminBillingThStatus"), t("adminBillingThStarted"), t("adminBillingThRenews")].map((h) => (
                     <th key={h}>{h}</th>
                   ))}
                 </tr>
@@ -139,7 +139,7 @@ export default function BillingPage() {
                           ? <Badge>{t("admin/billingpage.h11")}</Badge>
                           : status === "cancelled"
                             ? <Badge color="rgba(239,68,68,0.12)" text="#ff7070">{t("admin/billingpage.h12")}</Badge>
-                            : <Badge color="rgba(234,179,8,0.12)" text="#fbbf24">{status || "Unknown"}</Badge>}
+                            : <Badge color="rgba(234,179,8,0.12)" text="#fbbf24">{status || t("adminBillingUnknown")}</Badge>}
                       </td>
                       <td style={{ color: C_MUTED, fontSize: 12 }}>
                         {sub.startedAt ? new Date(String(sub.startedAt)).toLocaleDateString() : "—"}

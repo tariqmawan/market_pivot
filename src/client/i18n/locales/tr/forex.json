@@ -8,253 +8,153 @@
   "code": "Kod",
   "converter": "Dönüştürücü",
   "countries": {
-    "ae": {
-      "name": "Birleşik Arap Emirlikleri"
-    },
-    "au": {
-      "name": "Avustralya"
-    },
-    "br": {
-      "name": "Brezilya"
-    },
-    "ca": {
-      "name": "Kanada"
-    },
-    "ch": {
-      "name": "İsviçre"
-    },
-    "cl": {
-      "name": "Şili"
-    },
-    "cn": {
-      "name": "Çin"
-    },
-    "eu": {
-      "name": "Avrupa Birliği"
-    },
-    "gb": {
-      "name": "Birleşik Krallık"
-    },
-    "hk": {
-      "name": "Hong Kong"
-    },
-    "in": {
-      "name": "Hindistan"
-    },
-    "jp": {
-      "name": "Japonya"
-    },
-    "kr": {
-      "name": "Güney Kore"
-    },
-    "mx": {
-      "name": "Meksika"
-    },
-    "no": {
-      "name": "Norveç"
-    },
-    "sa": {
-      "name": "Suudi Arabistan"
-    },
-    "se": {
-      "name": "İsveç"
-    },
-    "sg": {
-      "name": "Singapur"
-    },
-    "us": {
-      "name": "Amerika Birleşik Devletleri"
-    },
-    "za": {
-      "name": "Güney Afrika"
-    }
+    "ae": { "name": "Birleşik Arap Emirlikleri" },
+    "au": { "name": "Avustralya" },
+    "br": { "name": "Brezilya" },
+    "ca": { "name": "Kanada" },
+    "ch": { "name": "İsviçre" },
+    "cl": { "name": "Şili" },
+    "cn": { "name": "Çin" },
+    "eu": { "name": "Avrupa Birliği" },
+    "gb": { "name": "Birleşik Krallık" },
+    "hk": { "name": "Hong Kong" },
+    "in": { "name": "Hindistan" },
+    "jp": { "name": "Japonya" },
+    "kr": { "name": "Güney Kore" },
+    "mx": { "name": "Meksika" },
+    "no": { "name": "Norveç" },
+    "sa": { "name": "Suudi Arabistan" },
+    "se": { "name": "İsveç" },
+    "sg": { "name": "Singapur" },
+    "us": { "name": "Amerika Birleşik Devletleri" },
+    "za": { "name": "Güney Afrika" }
   },
   "country": "Ülke",
   "currencies": {
-    "aed": {
-      "name": "BAE Dirhemi",
-      "description": "Para birimi Körfez finans merkezinin ABD dolarına sabitlendi"
-    },
-    "aud": {
-      "name": "Avustralya Doları",
-      "description": "Emtia bağlantılı para birimi, büyük Asya-Pasifik merkezi"
-    },
-    "brl": {
-      "name": "Brezilya Reali",
-      "description": "Latin Amerika'nın en büyük ekonomisinin para birimi"
-    },
-    "cad": {
-      "name": "Kanada Doları",
-      "description": "G7 ülkesinin emtia bağlantılı para birimi"
-    },
-    "chf": {
-      "name": "İsviçre Frangı",
-      "description": "İstikrar ve güçlü satın alma gücüyle bilinen güvenli liman para birimi"
-    },
-    "clp": {
-      "name": "Şili Pezosu",
-      "description": "Ekonomik açıdan istikrarlı Latin Amerika ülkesinin para birimi"
-    },
-    "cny": {
-      "name": "Çin Yuanı",
-      "description": "Dünyanın ikinci büyük ekonomisinin para birimi"
-    },
-    "eur": {
-      "name": "Euro",
-      "description": "Avro Bölgesi'nin para birimi, ikinci en büyük rezerv para birimi"
-    },
-    "gbp": {
-      "name": "İngiliz Sterlini",
-      "description": "İngiltere'nin para birimi, en eski para birimlerinden biri"
-    },
-    "hkd": {
-      "name": "Hong Kong Doları",
-      "description": "Asya'nın finans merkezinin başlıca para birimi olan ABD Dolarına sabitlendi"
-    },
-    "inr": {
-      "name": "Hindistan Rupisi",
-      "description": "Dünyanın en kalabalık ülkesinin ve en hızlı büyüyen büyük ekonomisinin para birimi"
-    },
-    "jpy": {
-      "name": "Japon Yeni",
-      "description": "Üçüncü en büyük rezerv para birimi, güvenli liman varlığı"
-    },
-    "krw": {
-      "name": "Güney Kore Wonu",
-      "description": "Büyük teknoloji ve üretim merkezinin para birimi"
-    },
-    "mxn": {
-      "name": "Meksika Pesosu",
-      "description": "Kuzey Amerika'nın önde gelen ticaret ortağının para birimi"
-    },
-    "nok": {
-      "name": "Norveç Kronu",
-      "description": "Büyük enerji ihracatçısının para birimi, güçlü emtia bağlantıları"
-    },
-    "sar": {
-      "name": "Suudi Arabistan Riyali",
-      "description": "Para birimi dünyanın en büyük petrol ihracatçısının ABD dolarına sabitlendi"
-    },
-    "sek": {
-      "name": "İsveç Kronu",
-      "description": "Endüstriyel temelli Kuzey Avrupa para birimi"
-    },
-    "sgd": {
-      "name": "Singapur Doları",
-      "description": "Güneydoğu Asya'da güçlü bölgesel para birimi"
-    },
-    "usd": {
-      "name": "Amerikan Doları",
-      "description": "Dünyanın en yaygın kullanılan rezerv para birimi ve küresel standardı."
-    },
-    "zar": {
-      "name": "Güney Afrika Randı",
-      "description": "Afrika'nın en büyük ekonomisi ve emtia üreticisinin para birimi"
-    }
+    "aed": { "name": "BAE Dirhemi", "description": "Körfez finans merkezinin ABD dolarına sabitlenmiş para birimi" },
+    "aud": { "name": "Avustralya Doları", "description": "Emtia bağlantılı para birimi, büyük Asya-Pasifik merkezi" },
+    "brl": { "name": "Brezilya Reali", "description": "Latin Amerika'nın en büyük ekonomisinin para birimi" },
+    "cad": { "name": "Kanada Doları", "description": "G7 ülkesinin emtia bağlantılı para birimi" },
+    "chf": { "name": "İsviçre Frangı", "description": "İstikrar ve güçlü satın alma gücüyle bilinen güvenli liman para birimi" },
+    "clp": { "name": "Şili Pezosu", "description": "Ekonomik açıdan istikrarlı Latin Amerika ülkesinin para birimi" },
+    "cny": { "name": "Çin Yuanı", "description": "Dünyanın ikinci büyük ekonomisinin para birimi" },
+    "eur": { "name": "Euro", "description": "Avro Bölgesi'nin para birimi, ikinci en büyük rezerv para birimi" },
+    "gbp": { "name": "İngiliz Sterlini", "description": "İngiltere'nin para birimi, en eski para birimlerinden biri" },
+    "hkd": { "name": "Hong Kong Doları", "description": "ABD Dolarına sabitlenmiş, Asya'nın finans merkezi para birimi" },
+    "inr": { "name": "Hindistan Rupisi", "description": "Dünyanın en kalabalık ülkesinin ve en hızlı büyüyen ekonomisinin para birimi" },
+    "jpy": { "name": "Japon Yeni", "description": "Üçüncü en büyük rezerv para birimi, güvenli liman varlığı" },
+    "krw": { "name": "Güney Kore Wonu", "description": "Büyük teknoloji ve üretim merkezinin para birimi" },
+    "mxn": { "name": "Meksika Pesosu", "description": "Kuzey Amerika'nın önde gelen ticaret ortağının para birimi" },
+    "nok": { "name": "Norveç Kronu", "description": "Büyük enerji ihracatçısının para birimi, güçlü emtia bağlantıları" },
+    "sar": { "name": "Suudi Arabistan Riyali", "description": "Dünyanın en büyük petrol ihracatçısının ABD dolarına sabitlenmiş para birimi" },
+    "sek": { "name": "İsveç Kronu", "description": "Endüstriyel temelli Kuzey Avrupa para birimi" },
+    "sgd": { "name": "Singapur Doları", "description": "Güneydoğu Asya'da güçlü bölgesel para birimi" },
+    "usd": { "name": "Amerikan Doları", "description": "Dünyanın en yaygın kullanılan rezerv para birimi ve küresel standardı" },
+    "zar": { "name": "Güney Afrika Randı", "description": "Afrika'nın en büyük ekonomisi ve emtia üreticisinin para birimi" }
   },
   "currencyNewsComing": "Son ekonomik haberler burada görünecek",
   "currencyNewsSubtitle": "Faiz kararları, enflasyon raporları ve daha fazlası",
-  "currencyType": "Para birimi türü",
+  "currencyType": "Para Birimi Türü",
   "dataLoading": "Veri yükleniyor...",
-  "economicData": "Ekonomik veriler",
-  "economicIndicators": "Ekonomik göstergeler",
-  "economicNews": "Ekonomik haberler & güncellemeler",
+  "economicData": "Ekonomik Veriler",
+  "economicIndicators": "Ekonomik Göstergeler",
+  "economicNews": "Ekonomik Haberler ve Güncellemeler",
   "employment": "İstihdam",
-  "exchangeRates": "Döviz kurları",
-  "gdpGrowth": "GSYİH büyümesi",
+  "exchangeRates": "Döviz Kurları",
+  "gdpGrowth": "GSYİH Büyümesi",
   "high52w": "52H Yüksek",
-  "inflationRate": "Enflasyon oranı",
-  "interestRate": "Faiz oranı",
+  "inflationRate": "Enflasyon Oranı",
+  "interestRate": "Faiz Oranı",
   "loadingRates": "Döviz kurları yükleniyor...",
   "low52w": "52H Düşük",
-  "popularPairs": "Popüler pariteler",
+  "popularPairs": "Popüler Pariteler",
   "quarterlyRate": "Çeyreklik oran",
   "rate": "Kur",
   "region": "Bölge",
-  "spread": "Yaymak",
+  "spread": "Spread",
   "symbol": "Sembol",
   "type": "Tür",
   "vsUsd": "USD karşısında",
   "currencyTypes": {
-    "fiat": "Fiat currency",
-    "commodity": "Commodity currency",
-    "crypto": "Crypto currency"
+    "fiat": "İtibari para",
+    "commodity": "Emtia para birimi",
+    "crypto": "Kripto para"
   },
   "centralBanks": {
-    "federalreserve": "Federal Reserve",
-    "europeancentralbank": "European Central Bank",
-    "bankofjapan": "Bank of Japan",
-    "bankofengland": "Bank of England",
-    "swissnationalbank": "Swiss National Bank",
-    "peoplesbankofchina": "People's Bank of China",
-    "hongkongmonetaryauthority": "Hong Kong Monetary Authority",
-    "reservebankofindia": "Reserve Bank of India",
-    "reservebankofaustralia": "Reserve Bank of Australia",
-    "monetaryauthorityofsingapore": "Monetary Authority of Singapore",
-    "bankofkorea": "Bank of Korea",
-    "bankofcanada": "Bank of Canada",
-    "centralbankofbrazil": "Central Bank of Brazil",
-    "bancodemxico": "Banco de México",
-    "centralbankofchile": "Central Bank of Chile",
-    "riksbank": "Riksbank",
-    "norgesbank": "Norges Bank",
-    "saudicentralbank": "Saudi Central Bank",
-    "centralbankoftheuae": "Central Bank of the UAE",
-    "southafricanreservebank": "South African Reserve Bank"
+    "federalreserve": "Federal Rezerv",
+    "europeancentralbank": "Avrupa Merkez Bankası",
+    "bankofjapan": "Japonya Merkez Bankası",
+    "bankofengland": "İngiltere Merkez Bankası",
+    "swissnationalbank": "İsviçre Ulusal Bankası",
+    "peoplesbankofchina": "Çin Halk Bankası",
+    "hongkongmonetaryauthority": "Hong Kong Para Otoritesi",
+    "reservebankofindia": "Hindistan Rezerv Bankası",
+    "reservebankofaustralia": "Avustralya Rezerv Bankası",
+    "monetaryauthorityofsingapore": "Singapur Para Otoritesi",
+    "bankofkorea": "Kore Bankası",
+    "bankofcanada": "Kanada Bankası",
+    "centralbankofbrazil": "Brezilya Merkez Bankası",
+    "bancodemxico": "Meksika Merkez Bankası",
+    "centralbankofchile": "Şili Merkez Bankası",
+    "riksbank": "İsveç Merkez Bankası",
+    "norgesbank": "Norveç Merkez Bankası",
+    "saudicentralbank": "Suudi Arabistan Merkez Bankası",
+    "centralbankoftheuae": "BAE Merkez Bankası",
+    "southafricanreservebank": "Güney Afrika Rezerv Bankası"
   },
   "regions": {
-    "northamerica": "North America",
-    "europe": "Europe",
-    "asia": "Asia",
-    "americas": "Americas",
-    "middleeast": "Middle East",
-    "africa": "Africa"
+    "northamerica": "Kuzey Amerika",
+    "europe": "Avrupa",
+    "asia": "Asya",
+    "americas": "Amerika",
+    "middleeast": "Orta Doğu",
+    "africa": "Afrika"
   },
-  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
-  "keyDataReleasesFor": "Key data releases for {{code}}",
-  "hoursAgo": "{{count}}h ago",
+  "ratesVsMajorSubtitle": "1 {{code}} diğer majör para birimleri cinsinden",
+  "keyDataReleasesFor": "{{code}} için önemli veri yayınları",
+  "hoursAgo": "{{count}}s önce",
   "impacts": {
-    "High": "High",
-    "Medium": "Medium",
-    "Low": "Low"
+    "High": "Yüksek",
+    "Medium": "Orta",
+    "Low": "Düşük"
   },
   "events": {
-    "nonFarmPayrolls": "Non-Farm Payrolls",
-    "ecbPressConference": "ECB Press Conference",
-    "boeGovernorSpeech": "BoE Governor Speech",
-    "fomcMinutes": "FOMC Minutes",
-    "bojSummaryOpinions": "BoJ Summary of Opinions",
-    "rbaStatement": "RBA Statement",
-    "currencyCpiRelease": "{{code}} CPI release",
-    "centralBankPolicyUpdate": "{{centralBank}} policy update",
-    "currencyRetailSales": "{{code}} retail sales",
-    "currencyTradeBalance": "{{code}} trade balance"
+    "nonFarmPayrolls": "Tarım Dışı İstihdam",
+    "ecbPressConference": "ECB Basın Toplantısı",
+    "boeGovernorSpeech": "BoE Başkanı Konuşması",
+    "fomcMinutes": "FOMC Toplantı Tutanakları",
+    "bojSummaryOpinions": "BoJ Görüş Özeti",
+    "rbaStatement": "RBA Açıklaması",
+    "currencyCpiRelease": "{{code}} TÜFE verisi",
+    "centralBankPolicyUpdate": "{{centralBank}} politika güncellemesi",
+    "currencyRetailSales": "{{code}} perakende satışlar",
+    "currencyTradeBalance": "{{code}} dış ticaret dengesi"
   },
   "newsTitles": {
-    "currencyStrengthensPolicy": "{{code}} strengthens on policy expectations",
-    "currencyWeakensPolicy": "{{code}} weakens on policy expectations",
-    "centralBankDataDependent": "{{centralBank}} signals data-dependent path",
-    "currencyLiquidityRobust": "{{code}} liquidity remains robust in cross-border flows",
-    "currencyFairValueUpdated": "Analyst note: {{code}} fair value updated",
-    "usdRallyPauses": "USD rally pauses ahead of FOMC minutes",
-    "ecbDataDependent": "ECB signals data-dependent path, EUR trades heavy",
-    "jpyInterventionWatch": "JPY intervention watch resumes as USD/JPY tests 156",
-    "gbpStickyInflation": "GBP supported by sticky services inflation",
-    "cnyWeakerMidpoint": "CNY under pressure as PBOC fixes weaker midpoint",
-    "audCommodityStrength": "AUD bid on commodity strength and risk-on tone"
+    "currencyStrengthensPolicy": "{{code}} politika beklentileriyle güçleniyor",
+    "currencyWeakensPolicy": "{{code}} politika beklentileriyle zayıflıyor",
+    "centralBankDataDependent": "{{centralBank}} veri odaklı yol sinyali veriyor",
+    "currencyLiquidityRobust": "{{code}} likiditesi sınır ötesi akışlarda güçlü seyrediyor",
+    "currencyFairValueUpdated": "Analist notu: {{code}} gerçeğe uygun değer güncellendi",
+    "usdRallyPauses": "FOMC tutanakları öncesinde USD yükselişi durakladı",
+    "ecbDataDependent": "ECB veri odaklı yol sinyali veriyor, EUR ağır seyrediyor",
+    "jpyInterventionWatch": "USD/JPY 156'yı test ederken JPY müdahale takibi yeniden başladı",
+    "gbpStickyInflation": "GBP, yapışkan hizmet enflasyonuyla destekleniyor",
+    "cnyWeakerMidpoint": "PBOC daha zayıf orta nokta belirlerken CNY baskı altında",
+    "audCommodityStrength": "AUD, emtia gücü ve risk iştahıyla talep görüyor"
   },
   "reserveStatuses": {
-    "primaryreservecurrency": "Primary reserve currency",
-    "secondreservecurrency": "Second reserve currency",
-    "thirdreservecurrency": "Third reserve currency",
-    "regionalreservecurrency": "Regional reserve currency",
-    "regional": "Regional"
+    "primaryreservecurrency": "Birincil rezerv para birimi",
+    "secondreservecurrency": "İkincil rezerv para birimi",
+    "thirdreservecurrency": "Üçüncül rezerv para birimi",
+    "regionalreservecurrency": "Bölgesel rezerv para birimi",
+    "regional": "Bölgesel"
   },
   "capitalFlowTypes": {
-    "safehaveninflows": "Safe-haven inflows",
-    "mixedinflows": "Mixed inflows",
-    "exportdrivenflows": "Export-driven flows",
-    "commoditylinkedflows": "Commodity-linked flows",
-    "open": "Open"
+    "safehaveninflows": "Güvenli liman girişleri",
+    "mixedinflows": "Karma girişler",
+    "exportdrivenflows": "İhracat odaklı akışlar",
+    "commoditylinkedflows": "Emtia bağlantılı akışlar",
+    "open": "Açık"
   }
 }

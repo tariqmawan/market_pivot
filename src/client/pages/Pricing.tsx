@@ -14,6 +14,7 @@ interface Feature {
 interface Plan {
   id: string;
   name: string;
+  nameKey: string;
   descriptionKey: string;
   monthlyPrice: number | null;
   annualPrice: number | null;
@@ -32,6 +33,7 @@ const PLANS: Plan[] = [
   {
     id: "starter",
     name: "Starter",
+    nameKey: "planStarter",
     descriptionKey: "starterPlanDescription",
     monthlyPrice: 0,
     annualPrice: 0,
@@ -48,11 +50,12 @@ const PLANS: Plan[] = [
       { textKey: "starterFeature4" },
       { textKey: "starterFeature5" },
     ],
-    featureTags: ["5 eSignsPerMonth", "Self & Multi"],
+    featureTags: ["starterTag1", "starterTag2"],
   },
   {
     id: "professional",
     name: "Professional",
+    nameKey: "planProfessional",
     descriptionKey: "professionalPlanDescription",
     monthlyPrice: 7,
     annualPrice: 7,
@@ -70,11 +73,12 @@ const PLANS: Plan[] = [
       { textKey: "professionalFeature4" },
       { textKey: "professionalFeature5" },
     ],
-    featureTags: ["25 eSignsPerMonth", "Self & Multi"],
+    featureTags: ["professionalTag1", "professionalTag2"],
   },
   {
     id: "business",
     name: "Business",
+    nameKey: "planBusiness",
     descriptionKey: "businessPlanDescription",
     monthlyPrice: 9,
     annualPrice: 9,
@@ -92,28 +96,29 @@ const PLANS: Plan[] = [
       { textKey: "businessFeature4" },
       { textKey: "businessFeature5" },
     ],
-    featureTags: ["Unlimited eSign", "Self & Multi"],
+    featureTags: ["businessTag1", "businessTag2"],
   },
   {
     id: "enterprise",
     name: "Enterprise",
-    descriptionKey: "enterprisePlanDescription",
+    nameKey: "planEnterprise",
+    descriptionKey: "pricingEnterprisePlanDescription",
     monthlyPrice: null,
     annualPrice: null,
-    ctaKey: "enterpriseCta",
+    ctaKey: "pricingEnterpriseCta",
     icon: "🏢",
     iconBg: "#A855F7",
     cardBg: "rgba(168, 85, 247, 0.05)",
     userBadge: "25+",
-    featuresLabelKey: "enterpriseFeaturesLabel",
+    featuresLabelKey: "pricingEnterpriseFeaturesLabel",
     features: [
-      { textKey: "enterpriseFeature1" },
-      { textKey: "enterpriseFeature2" },
-      { textKey: "enterpriseFeature3" },
-      { textKey: "enterpriseFeature4" },
-      { textKey: "enterpriseFeature5" },
+      { textKey: "pricingEnterpriseFeature1" },
+      { textKey: "pricingEnterpriseFeature2" },
+      { textKey: "pricingEnterpriseFeature3" },
+      { textKey: "pricingEnterpriseFeature4" },
+      { textKey: "pricingEnterpriseFeature5" },
     ],
-    featureTags: ["Unlimited eSign", "Self & Multi"],
+    featureTags: ["enterpriseTag1", "enterpriseTag2"],
   },
 ];
 
@@ -224,7 +229,7 @@ function PriceDisplay({ plan, mode }: { plan: Plan; mode: BillingMode }) {
     <>
       <div className="pricing-price-row">
         {price > 0 && <span className="pricing-price-currency">$</span>}
-        <span className="pricing-price-amount">{price === 0 ? "Free" : price}</span>
+        <span className="pricing-price-amount">{price === 0 ? t("free") : price}</span>
         {price > 0 && <span className="pricing-price-period">/mo</span>}
       </div>
       <div className="pricing-price-billed">
@@ -264,7 +269,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
           <PlanIcon planId={plan.id} />
         </div>
         <div className="pricing-header-info">
-          <div className="pricing-plan-name">{plan.name}</div>
+          <div className="pricing-plan-name">{t(plan.nameKey)}</div>
           <div className="pricing-user-badge">👥 {plan.userBadge}</div>
         </div>
       </div>
@@ -277,7 +282,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
         <div className="pricing-feature-tags">
           {plan.featureTags.map((tag, i) => (
             <span key={i} className="pricing-tag">
-              ✨ {tag}
+              ✨ {t(tag)}
             </span>
           ))}
         </div>
@@ -296,13 +301,13 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
 
       {plan.id !== "enterprise" && plan.monthlyPrice !== null && (
         <div className="pricing-quantity-section">
-          <div className="pricing-quantity-label">How many users? (Unlimited)</div>
+          <div className="pricing-quantity-label">{t("pricingQuantityLabel")}</div>
           <div className="pricing-quantity-controls">
             <button
               className="pricing-qty-btn"
               onClick={() => setQuantity(Math.max(1, quantity - 1))}
               disabled={quantity <= 1}
-              aria-label="Decrease quantity"
+              aria-label={t("decreaseQuantity")}
             >
               −
             </button>
@@ -310,13 +315,13 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
             <button
               className="pricing-qty-btn"
               onClick={() => setQuantity(quantity + 1)}
-              aria-label="Increase quantity"
+              aria-label={t("increaseQuantity")}
             >
               +
             </button>
           </div>
           {plan.monthlyPrice > 0 && (
-            <div className="pricing-seat-price">${(plan.monthlyPrice * quantity).toFixed(2)}/seat/mo</div>
+            <div className="pricing-seat-price">{t("seatPrice", { price: (plan.monthlyPrice * quantity).toFixed(2) })}</div>
           )}
         </div>
       )}
@@ -324,7 +329,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
       {plan.id === "enterprise" && (
         <div className="pricing-quantity-section">
           <button className="pricing-contact-sales" style={{ borderColor: plan.iconBg }}>
-            Contact Sales
+            {t("contactSales")}
           </button>
         </div>
       )}
@@ -387,18 +392,18 @@ export default function Pricing() {
       <div className="pricing-benefit-cards">
         <div className="benefit-card benefit-card--blue">
           <div className="benefit-icon"><HiLockClosed size={40} color="white" /></div>
-          <h3 className="benefit-title">Secure & Private</h3>
-          <p className="benefit-text">Your files are encrypted and automatically deleted after processing.</p>
+          <h3 className="benefit-title">{t("benefit1Title")}</h3>
+          <p className="benefit-text">{t("benefit1Text")}</p>
         </div>
         <div className="benefit-card benefit-card--green">
           <div className="benefit-icon"><HiBolt size={40} color="white" /></div>
-          <h3 className="benefit-title">Lightning Fast</h3>
-          <p className="benefit-text">Process files in seconds with our optimized cloud infrastructure.</p>
+          <h3 className="benefit-title">{t("benefit2Title")}</h3>
+          <p className="benefit-text">{t("benefit2Text")}</p>
         </div>
         <div className="benefit-card benefit-card--purple">
           <div className="benefit-icon"><HiClock size={40} color="white" /></div>
-          <h3 className="benefit-title">24/7 Availability</h3>
-          <p className="benefit-text">Access your tools anytime, anywhere, on any device.</p>
+          <h3 className="benefit-title">{t("benefit3Title")}</h3>
+          <p className="benefit-text">{t("benefit3Text")}</p>
         </div>
       </div>
 

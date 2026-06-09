@@ -42,7 +42,7 @@
       "description": "Ethereum Layer-2-Skalierungslösung und Governance-Token"
     },
     "avalanche2": {
-      "name": "Lawine",
+      "name": "Avalanche",
       "description": "Subnetz- und Skalierungslösungen für Blockchain-Anwendungen"
     },
     "binancecoin": {
@@ -62,19 +62,19 @@
       "description": "Von Experten geprüfte Blockchain-Plattform mit Fokus auf Nachhaltigkeit"
     },
     "chainlink": {
-      "name": "Kettenglied",
+      "name": "Chainlink",
       "description": "Dezentrales Oracle-Netzwerk, das Blockchains mit realen Daten verbindet"
     },
     "compoundGovernanceToken": {
-      "name": "Verbindung",
+      "name": "Compound",
       "description": "Algorithmisches autonomes Zinsprotokoll für DeFi-Kredite"
     },
     "cosmos": {
-      "name": "Kosmos",
+      "name": "Cosmos",
       "description": "Interoperables Blockchain-Ökosystem und Internet der Blockchains"
     },
     "curveDaoToken": {
-      "name": "Kurvenfinanzierung",
+      "name": "Curve Finance",
       "description": "Dezentrale Börse, optimiert für Stablecoin- und Pegged-Asset-Swaps"
     },
     "dai": {
@@ -98,7 +98,7 @@
       "description": "Silber zu Bitcoins Gold, schnelle Peer-to-Peer-Zahlungen"
     },
     "maker": {
-      "name": "Hersteller",
+      "name": "Maker",
       "description": "Governance-Token von MakerDAO, dem Protokoll hinter dem DAI-Stablecoin"
     },
     "maticNetwork": {
@@ -110,7 +110,7 @@
       "description": "Internetkultur trifft auf Krypto – das Frosch-Meme wurde zum milliardenschweren Token"
     },
     "polkadot": {
-      "name": "Tupfen",
+      "name": "Polkadot",
       "description": "Multi-Chain-Blockchain ermöglicht kettenübergreifende Interoperabilität"
     },
     "ripple": {
@@ -130,7 +130,7 @@
       "description": "Blockchain-Netzwerk für finanzielle Inklusion und Überweisungen"
     },
     "tether": {
-      "name": "Anbindung",
+      "name": "Tether",
       "description": "Am weitesten verbreiteter, an den US-Dollar gekoppelter Stablecoin"
     },
     "theOpenNetwork": {
@@ -143,10 +143,10 @@
     },
     "uniswap": {
       "name": "Uniswap",
-      "description": "Führender dezentraler Austausch und DeFi-Protokoll"
+      "description": "Führende dezentrale Börse und DeFi-Protokoll"
     },
     "usdCoin": {
-      "name": "USD-Münze",
+      "name": "USD Coin",
       "description": "Regulierter, USD-gestützter Stablecoin"
     }
   },
@@ -256,22 +256,22 @@
   },
   "categoryPages": {
     "common": {
-      "marketOverview": "Marktueberblick",
+      "marketOverview": "Marktübersicht",
       "combinedMarketCap": "Kombinierte Marktkapitalisierung",
       "topGainer24h": "Top-Gewinner (24h)",
       "name": "Name",
       "price": "Preis",
-      "change24h": "24h-Aenderung",
+      "change24h": "24h-Änderung",
       "marketCap": "Marktkapitalisierung",
       "volume24h": "24h-Volumen",
       "riskProfile": "Risikoprofil",
       "fullCryptoMarket": "Gesamter Kryptomarkt",
-      "exploreAllCryptocurrencies": "Alle Kryptowaehrungen erkunden"
+      "exploreAllCryptocurrencies": "Alle Kryptowährungen erkunden"
     },
     "meme": {
       "eyebrow": "Community-Token",
       "title": "Meme Coins",
-      "body": "Community-getriebene Kryptowaehrungen, befeuert durch virale Kultur, soziales Momentum und treue Fangemeinden. Hochriskante Assets mit hohem Potenzial, bei denen Stimmung den Markt bestimmt.",
+      "body": "Community-getriebene Kryptowährungen, befeuert durch virale Kultur, soziales Momentum und treue Fangemeinden. Hochriskante Assets mit hohem Potenzial, bei denen Stimmung den Markt bestimmt.",
       "metrics": {
         "coinsListed": "Gelistete Coins"
       },
@@ -327,5 +327,6 @@
         "description": "Vergleichen Sie Meme Coins mit Blue-Chip-Assets, DeFi-Protokollen und Layer-1-Blockchains."
       }
     }
-  }
+  },
+  "blockTimeSeconds": "{{time}} Sekunden"
 }
