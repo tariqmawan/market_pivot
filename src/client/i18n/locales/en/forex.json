@@ -1,183 +1,137 @@
 {
+  "action": "Action",
+  "allCurrencies": "All Currencies",
+  "amount": "Amount",
   "amountPlaceholder": "Enter amount",
   "annualRate": "Annual rate",
   "ask": "Ask",
   "bid": "Bid",
+  "calendarSubtitle": "Upcoming economic events and data releases that impact currency markets",
+  "capitalFlows": "Capital Flows",
   "centralBank": "Central Bank",
+  "centralBankLabel": "Central Banks",
+  "centralBankMacro": "Central Bank & Macro",
+  "centralBankSubtitle": "Policy rates, inflation outlook, and monetary stance of major central banks",
+  "centralBankTracker": "Central Bank Tracker",
   "change24h": "24h Change",
   "code": "Code",
-  "converter": "Converter",
-  "countries": {
-    "ae": {
-      "name": "United Arab Emirates"
-    },
-    "au": {
-      "name": "Australia"
-    },
-    "br": {
-      "name": "Brazil"
-    },
-    "ca": {
-      "name": "Canada"
-    },
-    "ch": {
-      "name": "Switzerland"
-    },
-    "cl": {
-      "name": "Chile"
-    },
-    "cn": {
-      "name": "China"
-    },
-    "eu": {
-      "name": "European Union"
-    },
-    "gb": {
-      "name": "United Kingdom"
-    },
-    "hk": {
-      "name": "Hong Kong"
-    },
-    "in": {
-      "name": "India"
-    },
-    "jp": {
-      "name": "Japan"
-    },
-    "kr": {
-      "name": "South Korea"
-    },
-    "mx": {
-      "name": "Mexico"
-    },
-    "no": {
-      "name": "Norway"
-    },
-    "sa": {
-      "name": "Saudi Arabia"
-    },
-    "se": {
-      "name": "Sweden"
-    },
-    "sg": {
-      "name": "Singapore"
-    },
-    "us": {
-      "name": "United States"
-    },
-    "za": {
-      "name": "South Africa"
-    }
-  },
+  "converter": "Currency Converter",
   "country": "Country",
-  "currencies": {
-    "aed": {
-      "name": "UAE Dirham",
-      "description": "Currency pegged to USD of Gulf financial hub"
-    },
-    "aud": {
-      "name": "Australian Dollar",
-      "description": "Commodity-linked currency, major Asia-Pacific hub"
-    },
-    "brl": {
-      "name": "Brazilian Real",
-      "description": "Currency of Latin America's largest economy"
-    },
-    "cad": {
-      "name": "Canadian Dollar",
-      "description": "Commodity-linked currency of G7 nation"
-    },
-    "chf": {
-      "name": "Swiss Franc",
-      "description": "Safe-haven currency known for stability and strong purchasing power"
-    },
-    "clp": {
-      "name": "Chilean Peso",
-      "description": "Currency of economically stable Latin American nation"
-    },
-    "cny": {
-      "name": "Chinese Yuan",
-      "description": "Currency of world's second-largest economy"
-    },
-    "eur": {
-      "name": "Euro",
-      "description": "Currency of the Eurozone, second-largest reserve currency"
-    },
-    "gbp": {
-      "name": "British Pound Sterling",
-      "description": "Currency of the UK, one of the oldest currencies"
-    },
-    "hkd": {
-      "name": "Hong Kong Dollar",
-      "description": "Pegged to the US Dollar, major Asian financial hub currency"
-    },
-    "inr": {
-      "name": "Indian Rupee",
-      "description": "Currency of world's most populous country and fastest-growing major economy"
-    },
-    "jpy": {
-      "name": "Japanese Yen",
-      "description": "Third-largest reserve currency, safe-haven asset"
-    },
-    "krw": {
-      "name": "South Korean Won",
-      "description": "Currency of major tech and manufacturing hub"
-    },
-    "mxn": {
-      "name": "Mexican Peso",
-      "description": "Currency of major North American trade partner"
-    },
-    "nok": {
-      "name": "Norwegian Krone",
-      "description": "Currency of major energy exporter, strong commodity links"
-    },
-    "sar": {
-      "name": "Saudi Arabian Riyal",
-      "description": "Currency pegged to USD of world's largest oil exporter"
-    },
-    "sek": {
-      "name": "Swedish Krona",
-      "description": "Northern European currency with industrial base"
-    },
-    "sgd": {
-      "name": "Singapore Dollar",
-      "description": "Strong regional currency in Southeast Asia"
-    },
-    "usd": {
-      "name": "United States Dollar",
-      "description": "The world's most widely used reserve currency and global standard."
-    },
-    "zar": {
-      "name": "South African Rand",
-      "description": "Currency of largest African economy and commodities producer"
-    }
-  },
+  "crossPairs": "Cross Pairs",
+  "crossPairsSubtitle": "Cross-currency pairs excluding USD — key rates for international trade",
   "currencyNewsComing": "Latest economic news will display here",
   "currencyNewsSubtitle": "Interest rate decisions, inflation reports, and more",
+  "currencyStrength": "Currency Strength",
   "currencyType": "Currency Type",
   "dataLoading": "Data loading...",
+  "economicCalendar": "Economic Calendar",
   "economicData": "Economic Data",
   "economicIndicators": "Economic Indicators",
   "economicNews": "Economic News & Updates",
   "employment": "Employment",
   "exchangeRates": "Exchange Rates",
+  "exoticPairs": "Exotic Pairs",
+  "exoticSubtitle": "Emerging market and exotic currency pairs with higher spread and volatility",
+  "forecast": "Forecast",
+  "foreignExchange": "Forex · Foreign Exchange",
+  "from": "From",
+  "fxSubtitle": "Real-time currency rates, central bank tracker, and macro intelligence across global markets",
+  "fxVolatility": "FX Volatility",
   "gdpGrowth": "GDP Growth",
+  "globalFxIntelligence": "Global FX Intelligence",
+  "globalRateComparison": "Global Rate Comparison",
+  "heatmapSubtitle": "24-hour performance heatmap across tracked currency pairs",
+  "heatmapTitle": "FX Heatmap",
   "high52w": "52W High",
+  "hoursAgo": "{{count}}h ago",
+  "inflation": "Inflation",
   "inflationRate": "Inflation Rate",
   "interestRate": "Interest Rate",
+  "keyDataReleasesFor": "Key data releases for {{code}}",
   "loadingRates": "Loading exchange rates...",
   "low52w": "52W Low",
-  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
-  "keyDataReleasesFor": "Key data releases for {{code}}",
-  "hoursAgo": "{{count}}h ago",
+  "majorPairs": "Major Pairs",
+  "majorPairsSubtitle": "Most traded currency pairs against the US Dollar",
+  "majorPairsTitle": "Major Currency Pairs",
+  "monthRollingRate": "12-month rolling rate",
+  "nextMeeting": "Next Meeting",
+  "newsDetail": "News & Analysis",
+  "newsInsights": "FX News & Insights",
+  "pair": "Pair",
+  "policyRate": "Policy Rate",
   "popularPairs": "Popular Pairs",
+  "priceChart": "Price Chart",
+  "previous": "Previous",
   "quarterlyRate": "Quarterly rate",
   "rate": "Rate",
+  "ratesVsMajor": "Rates vs Major Currencies",
+  "ratesVsMajorSubtitle": "1 {{code}} expressed in other major currencies",
+  "rateVsUsd": "Rate vs USD",
+  "realRate": "Real Rate",
   "region": "Region",
+  "regionalPerf": "Regional Performance",
+  "reserveStatus": "Reserve Status",
+  "result": "Result",
+  "source": "Source",
   "spread": "Spread",
+  "strength": "Strength",
+  "strengthSubtitle": "Relative strength index across major currencies based on 24h performance",
   "symbol": "Symbol",
+  "to": "To",
+  "trackedCurrencies": "Tracked Currencies",
+  "tradeBalance": "Trade Balance",
+  "tradeProfile": "Trade Profile",
+  "trend": "Trend",
   "type": "Type",
+  "upcomingEvents": "Upcoming Events",
+  "volatility": "Volatility",
+  "volatilitySubtitle": "Implied and realized volatility metrics across major and cross currency pairs",
   "vsUsd": "vs USD",
+  "currency": "Currency",
+  "countries": {
+    "ae": { "name": "United Arab Emirates" },
+    "au": { "name": "Australia" },
+    "br": { "name": "Brazil" },
+    "ca": { "name": "Canada" },
+    "ch": { "name": "Switzerland" },
+    "cl": { "name": "Chile" },
+    "cn": { "name": "China" },
+    "eu": { "name": "European Union" },
+    "gb": { "name": "United Kingdom" },
+    "hk": { "name": "Hong Kong" },
+    "in": { "name": "India" },
+    "jp": { "name": "Japan" },
+    "kr": { "name": "South Korea" },
+    "mx": { "name": "Mexico" },
+    "no": { "name": "Norway" },
+    "sa": { "name": "Saudi Arabia" },
+    "se": { "name": "Sweden" },
+    "sg": { "name": "Singapore" },
+    "us": { "name": "United States" },
+    "za": { "name": "South Africa" }
+  },
+  "currencies": {
+    "aed": { "name": "UAE Dirham", "description": "Currency pegged to USD of Gulf financial hub" },
+    "aud": { "name": "Australian Dollar", "description": "Commodity-linked currency, major Asia-Pacific hub" },
+    "brl": { "name": "Brazilian Real", "description": "Currency of Latin America's largest economy" },
+    "cad": { "name": "Canadian Dollar", "description": "Commodity-linked currency of G7 nation" },
+    "chf": { "name": "Swiss Franc", "description": "Safe-haven currency known for stability and strong purchasing power" },
+    "clp": { "name": "Chilean Peso", "description": "Currency of economically stable Latin American nation" },
+    "cny": { "name": "Chinese Yuan", "description": "Currency of world's second-largest economy" },
+    "eur": { "name": "Euro", "description": "Currency of the Eurozone, second-largest reserve currency" },
+    "gbp": { "name": "British Pound Sterling", "description": "Currency of the UK, one of the oldest currencies" },
+    "hkd": { "name": "Hong Kong Dollar", "description": "Pegged to the US Dollar, major Asian financial hub currency" },
+    "inr": { "name": "Indian Rupee", "description": "Currency of world's most populous country and fastest-growing major economy" },
+    "jpy": { "name": "Japanese Yen", "description": "Third-largest reserve currency, safe-haven asset" },
+    "krw": { "name": "South Korean Won", "description": "Currency of major tech and manufacturing hub" },
+    "mxn": { "name": "Mexican Peso", "description": "Currency of major North American trade partner" },
+    "nok": { "name": "Norwegian Krone", "description": "Currency of major energy exporter, strong commodity links" },
+    "sar": { "name": "Saudi Arabian Riyal", "description": "Currency pegged to USD of world's largest oil exporter" },
+    "sek": { "name": "Swedish Krona", "description": "Northern European currency with industrial base" },
+    "sgd": { "name": "Singapore Dollar", "description": "Strong regional currency in Southeast Asia" },
+    "usd": { "name": "United States Dollar", "description": "The world's most widely used reserve currency and global standard." },
+    "zar": { "name": "South African Rand", "description": "Currency of largest African economy and commodities producer" }
+  },
   "currencyTypes": {
     "fiat": "Fiat currency",
     "commodity": "Commodity currency",

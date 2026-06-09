@@ -212,21 +212,34 @@ const ForexPage: React.FC = () => {
 
     return (
       <div className="page forex-page forex-detail">
-        <section className="forex-hero">
-          <div>
-            <Link to="/forex" className="back-link">{t("forex.backToAllCurrencies")}</Link>
-            <p className="eyebrow">{detailRegion} / {detailType}</p>
-            <h1>{detailName}</h1>
-            <p>{detailDescription || t("forex.currencyIssuedBy", "", { country: detailCountry, centralBank: detailBank })}</p>
+        <section className="forex-hero-wrap">
+          <div className="forex-hero-bg">
+            <img src="/logos/stockmarket.jpg" alt="" aria-hidden="true" />
           </div>
-          <div className="metric-strip">
-            <div className="metric-tile"><span>{t("forex.code")}</span><strong>{detailCurrency.code}</strong></div>
-            <div className="metric-tile"><span>{t("forex.rateVsUsd")}</span><strong>{dcRate.toFixed(detailCurrency.code === "JPY" || detailCurrency.code === "KRW" ? 2 : 4)}</strong></div>
-            <div className="metric-tile">
+          <div className="forex-hero-overlay" />
+          <div className="forex-hero-body">
+            <Link to="/forex" className="back-link">← {t("forex.allCurrencies")}</Link>
+            <p className="eyebrow">{detailCurrency.region} • {detailCurrency.type}</p>
+            <h1>{detailCurrency.code} — {detailCurrency.name}</h1>
+            <p>{detailCurrency.description || `${detailCurrency.country} currency, issued by ${detailCurrency.centralBank}.`}</p>
+          </div>
+          <div className="forex-hero-stats">
+            <div className="forex-stat-pill">
+              <span>{t("forex.code")}</span>
+              <strong>{detailCurrency.code}</strong>
+            </div>
+            <div className="forex-stat-pill">
+              <span>{t("forex.rateVsUsd")}</span>
+              <strong>{dcRate.toFixed(detailCurrency.code === "JPY" || detailCurrency.code === "KRW" ? 2 : 4)}</strong>
+            </div>
+            <div className="forex-stat-pill">
               <span>{t("forex.change24h")}</span>
               <strong className={change >= 0 ? "positive" : "negative"}>{formatSignedPercent(change)}</strong>
             </div>
-            <div className="metric-tile"><span>{t("forex.strength")}</span><strong>{strength.toFixed(1)}</strong></div>
+            <div className="forex-stat-pill">
+              <span>{t("forex.strength")}</span>
+              <strong>{strength.toFixed(1)}</strong>
+            </div>
           </div>
         </section>
 
@@ -358,16 +371,29 @@ const ForexPage: React.FC = () => {
   return (
     <div className="page forex-page">
       {/* Hero */}
-      <section className="forex-hero">
-        <div>
+      <section className="forex-hero-wrap">
+        <div className="forex-hero-bg">
+          <img src="/logos/stockmarket.jpg" alt="" aria-hidden="true" />
+        </div>
+        <div className="forex-hero-overlay" />
+        <div className="forex-hero-body">
           <p className="eyebrow">{t("forex.foreignExchange")}</p>
           <h1>{t("forex.globalFxIntelligence")}</h1>
           <p>{t("forex.fxSubtitle")}</p>
         </div>
-        <div className="metric-strip">
-          <div className="metric-tile"><span>{t("forex.trackedCurrencies")}</span><strong>{currencies.length}</strong></div>
-          <div className="metric-tile"><span>{t("forex.majorPairs")}</span><strong>{majorPairs.length}</strong></div>
-          <div className="metric-tile"><span>{t("forex.centralBanks")}</span><strong>{centralBanks.length}</strong></div>
+        <div className="forex-hero-stats">
+          <div className="forex-stat-pill">
+            <span>{t("forex.trackedCurrencies")}</span>
+            <strong>{currencies.length}</strong>
+          </div>
+          <div className="forex-stat-pill">
+            <span>{t("forex.majorPairs")}</span>
+            <strong>{majorPairs.length}</strong>
+          </div>
+          <div className="forex-stat-pill">
+            <span>{t("forex.centralBankLabel")}</span>
+            <strong>{centralBanks.length}</strong>
+          </div>
         </div>
       </section>
 
@@ -378,7 +404,7 @@ const ForexPage: React.FC = () => {
           { id: "majors", label: t("forex.majorPairs") },
           { id: "cross", label: t("forex.crossPairs") },
           { id: "exotic", label: t("forex.exoticPairs") },
-          { id: "central", label: t("forex.centralBanks") },
+          { id: "central", label: t("forex.centralBankLabel") },
           { id: "calendar", label: t("forex.economicCalendar") },
           { id: "volatility", label: t("forex.fxVolatility") },
           { id: "heatmap", label: t("forex.heatmapTitle") },
