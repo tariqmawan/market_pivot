@@ -35,20 +35,24 @@ export default function AdminFilters({
       style={{
         display: "flex",
         flexWrap: "wrap",
-        gap: 10,
+        gap: 12,
         alignItems: "flex-end",
-        padding: "8px 0",
+        padding: "14px 16px",
+        background: "rgba(255,255,255,0.03)",
+        border: "1px solid rgba(255,255,255,0.07)",
+        borderRadius: 10,
+        marginBottom: 4,
       }}
     >
       {filters.map((f) => (
-        <label key={f.key} style={{ display: "grid", gap: 4, minWidth: 160 }}>
+        <label key={f.key} style={{ display: "grid", gap: 5, minWidth: 160 }}>
           <span
             style={{
-              fontSize: 11,
-              fontWeight: 900,
-              color: "rgba(248,250,252,0.62)",
+              fontSize: 10,
+              fontWeight: 800,
+              color: "rgba(248,250,252,0.5)",
               textTransform: "uppercase",
-              letterSpacing: "0.04em",
+              letterSpacing: "0.06em",
             }}
           >
             {f.label}
@@ -78,14 +82,16 @@ export default function AdminFilters({
         </label>
       ))}
       {onReset && (
-        <button
-          type="button"
-          className="mp-admin-link-btn"
-          onClick={onReset}
-          style={{ marginBottom: 2 }}
-        >
-          {t("adminFilters.resetFilters")}
-        </button>
+        <div style={{ display: "grid", gap: 5 }}>
+          <span style={{ fontSize: 10, fontWeight: 800, color: "transparent", letterSpacing: "0.06em" }}>‎</span>
+          <button
+            type="button"
+            className="mp-admin-link-btn"
+            onClick={onReset}
+          >
+            ↺ Reset
+          </button>
+        </div>
       )}
     </div>
   );

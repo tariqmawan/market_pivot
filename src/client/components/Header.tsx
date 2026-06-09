@@ -521,7 +521,6 @@ const { openLoginModal, openSignupModal, isAuthenticated, user } = useAuthStore(
     if (!scrollContainer) return;
 
     const handleWheel = (e: WheelEvent) => {
-      // Only handle if scrolling vertically
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
         e.preventDefault();
         scrollContainer.scrollLeft += e.deltaY;
@@ -586,7 +585,7 @@ const { openLoginModal, openSignupModal, isAuthenticated, user } = useAuthStore(
     <div className={`top-header ${isScrolled ? "scrolled" : ""}`}>
       <div className="language-strip">
         <div className="language-title">
-          <span>{t("preferredLanguage")}</span>
+          <span>Preferred Language</span>
           <span aria-hidden="true">-&gt;</span>
         </div>
 
@@ -598,8 +597,10 @@ const { openLoginModal, openSignupModal, isAuthenticated, user } = useAuthStore(
                 className={`lang ${l.code === language ? "active" : ""}`}
                 onClick={() => onSelectLanguage(l.code as LanguageCode)}
                 type="button"
+                title={`${l.nativeLabel} (${l.label})`}
               >
-                <span className="lang-name">{getLanguageDisplayName(l)}</span>
+                <span className="lang-native">{l.nativeLabel}</span>
+                {l.code !== "en" && <span className="lang-subtitle">{l.label}</span>}
               </button>
             ))}
           </div>

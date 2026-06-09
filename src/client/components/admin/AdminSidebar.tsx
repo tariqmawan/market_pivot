@@ -185,6 +185,7 @@ const groups: NavGroup[] = [
     icon: <Users size={18} />,
     items: [
       { label: "Users", href: "/admin/users", icon: <Users size={18} />, permission: PERMISSIONS.USERS_VIEW },
+      { label: "Pricing Plans", href: "/admin/pricing", icon: <DollarSign size={18} />, permission: PERMISSIONS.BILLING_EDIT },
       { label: "Subscriptions", href: "/admin/billing", icon: <CreditCard size={18} />, permission: PERMISSIONS.BILLING_VIEW },
     ],
   },

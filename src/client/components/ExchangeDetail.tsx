@@ -17,6 +17,38 @@ interface ExchangeDetailProps {
   isLoading?: boolean;
 }
 
+const TICKER_DOMAIN: Record<string, string> = {
+  AAPL: "apple.com", MSFT: "microsoft.com", GOOGL: "google.com", AMZN: "amazon.com",
+  META: "meta.com", TSLA: "tesla.com", NVDA: "nvidia.com", JPM: "jpmorganchase.com",
+  JNJ: "jnj.com", V: "visa.com", MA: "mastercard.com", WMT: "walmart.com",
+  PG: "pg.com", UNH: "uhg.com", HD: "homedepot.com", DIS: "disney.com",
+  NFLX: "netflix.com", PYPL: "paypal.com", BAC: "bankofamerica.com", XOM: "exxonmobil.com",
+  CVX: "chevron.com", KO: "coca-colacompany.com", PEP: "pepsico.com", COST: "costco.com",
+  ADBE: "adobe.com", CRM: "salesforce.com", ORCL: "oracle.com", IBM: "ibm.com",
+  INTC: "intel.com", AMD: "amd.com", QCOM: "qualcomm.com", TXN: "ti.com",
+  GS: "goldmansachs.com", MS: "morganstanley.com", C: "citigroup.com", WFC: "wellsfargo.com",
+  BABA: "alibaba.com", TSM: "tsmc.com", ASML: "asml.com", SAP: "sap.com",
+};
+
+const getCompanyLogo = (symbol: string): string => {
+  const domain = TICKER_DOMAIN[symbol.toUpperCase()];
+  if (domain) return `https://logo.clearbit.com/${domain}`;
+  return "";
+};
+
+const MoverLogo: React.FC<{ symbol: string }> = ({ symbol }) => {
+  const [failed, setFailed] = useState(false);
+  const src = getCompanyLogo(symbol);
+  if (!src || failed) {
+    return (
+      <span className="mover-avatar" style={{ background: `hsl(${(symbol.charCodeAt(0) * 37) % 360}, 55%, 40%)` }}>
+        {symbol.slice(0, 2)}
+      </span>
+    );
+  }
+  return <img src={src} alt={symbol} className="mover-logo" onError={() => setFailed(true)} />;
+};
+
 const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
   exchange,
   indexData,
@@ -80,8 +112,15 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
     <div className="exchange-detail">
       {/* Exchange Hero */}
       <section className="exchange-hero">
+        <div className="exchange-hero-banner">
+          <img src="/logos/stockmarket.jpg" alt="" className="exchange-banner-img" aria-hidden="true" />
+          <div className="exchange-banner-overlay" />
+        </div>
         <div className="exchange-identity">
-          <img src={exchange.logo} alt={exchangeName} className="exchange-logo" />
+          <div className="exchange-logo-wrap">
+            <img src={exchange.logo} alt={exchange.name} className="exchange-logo"
+              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }} />
+          </div>
           <div>
             <h1>{exchangeName}</h1>
             <p className="exchange-meta">
@@ -196,6 +235,7 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                 ) : (
                   gainers.slice(0, 5).map((mover) => (
                     <div key={mover.symbol} className="mover-row">
+                      <MoverLogo symbol={mover.symbol} />
                       <span className="mover-symbol">{mover.symbol}</span>
                       <span className="mover-company">{mover.company}</span>
                       <span className="mover-change positive">{formatSignedPercent(mover.percentChange)}</span>
@@ -213,6 +253,7 @@ const ExchangeDetail: React.FC<ExchangeDetailProps> = ({
                 ) : (
                   losers.slice(0, 5).map((mover) => (
                     <div key={mover.symbol} className="mover-row">
+                      <MoverLogo symbol={mover.symbol} />
                       <span className="mover-symbol">{mover.symbol}</span>
                       <span className="mover-company">{mover.company}</span>
                       <span className="mover-change negative">{formatSignedPercent(mover.percentChange)}</span>
